@@ -12,6 +12,7 @@ This is the source code for the [Grommet website](http://grommet.io). To run the
 
       ```
       $ gulp dev
+      ```
 
   3. Create the website distribution:
 
