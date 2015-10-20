@@ -25,3 +25,18 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+
+**bower_components**
+**/dist*/**
+.DS_Store
+.sass-cache
+*.iml
+.idea/**
+*tmp*
+**sublime-project**
+**sublime-workspace**
+**lcov.info**
+**iconsMap**
+**.publish**
+server/server-routes.js
