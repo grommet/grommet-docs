@@ -20,4 +20,11 @@ This is the source code for the [Grommet website](http://grommet.io). To run the
       $ gulp dist
       ```
 
+  4. Run the back-end server:
+
+      ```
+      $ node server/server.js
+      ```
+
+
 

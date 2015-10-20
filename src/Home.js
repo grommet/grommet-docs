@@ -153,7 +153,7 @@ var Home = React.createClass({
               </a>
             </Tile>
             <Tile>
-              <a href="https://developer.mozilla.org/en-USimg/Web/CSS/CSS3">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3">
                 <img src="img/CSS3.png" alt="CSS3" />
               </a>
             </Tile>
