@@ -40,8 +40,7 @@ var opts = {
         'grommet': path.resolve(__dirname, '../grommet/src/js')
       },
       root: [
-        path.resolve(__dirname, './node_modules'),
-        path.resolve(__dirname, './node_modules/grommet/node_modules')
+        path.resolve(__dirname, './node_modules')
       ]
     },
     module: {
