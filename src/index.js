@@ -10,7 +10,9 @@ if (! Modernizr.flexbox ||
 }
 
 var React = require('react');
-var Router = require('react-router');
+var ReactDOM = require('react-dom');
+var Router = require('react-router').Router;
+var createHistory = require('history').createHistory;
 
 var themeGroups = /docs\/([^\/]+)\/?/.exec(window.location.pathname);
 
@@ -30,17 +32,15 @@ themeLink.setAttribute('href', themeUrl);
 var rootPath = '/docs/' + (theme === '' ? '' : theme + '/');
 
 var routes = require('./routes')(rootPath);
-var router = Router.create({routes: routes, location: Router.HistoryLocation});
 
-router.run(function (Handler) {
-  var element = document.getElementById('content');
-  var locale = window.navigator.userLanguage || window.navigator.language;
-  React.render(<Handler locales={locale} />, element);
-  // scroll to top of document when navigating
-  var docElements = document.querySelectorAll('.docs__doc');
+var onRouteUpdate = function () {
+  var docElements = document.querySelectorAll('.article');
   if (docElements.length > 0) {
     docElements[0].scrollTop = 0;
   }
-});
+};
+
+var element = document.getElementById('content');
+ReactDOM.render(<Router onUpdate={onRouteUpdate} routes={routes} history={createHistory()} />, element);
 
 document.body.classList.remove('loading');

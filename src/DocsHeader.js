@@ -14,20 +14,24 @@ var DocsHeader = React.createClass({
     float: React.PropTypes.bool
   },
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   render: function() {
     return (
       <Header fixed={false} float={this.props.float} size="large"
         appCentered={true} justify="between">
         <Title responsive={false}>
-          <Link to="docs">
+          <Link to={this.context.routePrefix}>
             <Box align="center" direction="row">
               <GrommetLogo a11yTitle=""/>
             </Box>
           </Link>
         </Title>
         <Menu direction="row" responsive={false}>
-          <Link id="design-link" to="design">Design</Link>
-          <Link id="develop-link" to="develop">Develop</Link>
+          <Link id="design-link" to={this.context.routePrefix + 'design'}>Design</Link>
+          <Link id="develop-link" to={this.context.routePrefix + 'develop'}>Develop</Link>
         </Menu>
       </Header>
     );

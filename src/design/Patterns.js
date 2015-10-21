@@ -14,6 +14,11 @@ var Article = require('grommet/components/Article');
 
 
 var Patterns = React.createClass({
+
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   render: function () {
 
     var genericSeries = [
@@ -28,81 +33,81 @@ var Patterns = React.createClass({
     ];
 
     return (
-  <Article primary={true}>
-    <header>
-      <h1>Patterns</h1>
-    </header>
+      <Article>
+        <header>
+          <h1>Patterns</h1>
+        </header>
 
-    <section>
-      <p>Interaction design patterns are task driven workflows commonly
-      used throughout a user interface.  Designers and developers should
-      follow the design pattern guidance in order to create consistent user
-      experiences across the product suite. Once a user is familiar with
-      the design patterns of your application they will come to expect the
-      same experience for the same tasks in other applications.</p>
-    </section>
-    <section>
-      <h2>Login</h2>
+        <section>
+          <p>Interaction design patterns are task driven workflows commonly
+          used throughout a user interface.  Designers and developers should
+          follow the design pattern guidance in order to create consistent user
+          experiences across the product suite. Once a user is familiar with
+          the design patterns of your application they will come to expect the
+          same experience for the same tasks in other applications.</p>
+        </section>
+        <section>
+          <h2>Login</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus, fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
-        <Link to="design_login">Read more</Link>
-      </p>
-      <div className="example">
-        <LoginForm rememberMe={true} forgotPassword={<a>Forgot password?</a>} />
-      </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus, fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
+            <Link to={this.context.routePrefix + "login"}>Read more</Link>
+          </p>
+          <div className="example">
+            <LoginForm rememberMe={true} forgotPassword={<a>Forgot password?</a>} />
+          </div>
 
-    </section>
+        </section>
 
-    <section>
-      <h2>Header</h2>
+        <section>
+          <h2>Header</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus,
-      fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
-       <Link to="design_header">Read more</Link>
-      </p>
-      <div className="example">
-        <Header>
-          <span>
-            <Title><Logo /> Title</Title>
-            <Search inline={true} />
-          </span>
-          <Menu direction="left">
-            <Gravatar email={'eric.soderberg@hp.com'} size={48} />
-          </Menu>
-        </Header>
-      </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus,
+          fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
+           <Link to={this.context.routePrefix + "header"}>Read more</Link>
+          </p>
+          <div className="example">
+            <Header>
+              <span>
+                <Title><Logo /> Title</Title>
+                <Search inline={true} />
+              </span>
+              <Menu>
+                <Gravatar email={'eric.soderberg@hp.com'} size={48} />
+              </Menu>
+            </Header>
+          </div>
 
-    </section>
+        </section>
 
-    <section>
-      <h2>Dashboard</h2>
+        <section>
+          <h2>Dashboard</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus,
-      fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
-       <Link to="design_dashboard">Read more</Link>
-      </p>
-      <div className="example">
-        <Meter type="circle" series={genericSeries} />
-        <Meter type="circle" series={statusSeries} />
-      </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus,
+          fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
+           <Link to={this.context.routePrefix + "dashboard"}>Read more</Link>
+          </p>
+          <div className="example">
+            <Meter type="circle" series={genericSeries} />
+            <Meter type="circle" series={statusSeries} />
+          </div>
 
-    </section>
+        </section>
 
-    <section>
-      <h2>Search</h2>
+        <section>
+          <h2>Search</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus,
-      fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
-      <Link to="design_search">Read more</Link></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In diam risus,
+          fermentum at nisl pellentesque, iaculis mattis nisl. Duis dapibus.
+          <Link to={this.context.routePrefix + "search"}>Read more</Link></p>
 
-      <div className="example">
-        <Header>
-          <Search inline={true} />
-        </Header>
-      </div>
+          <div className="example">
+            <Header>
+              <Search inline={true} />
+            </Header>
+          </div>
 
-    </section>
-  </Article>
+        </section>
+      </Article>
     );
   }
 });

@@ -15,16 +15,16 @@ var DocsMenu = React.createClass({
   },
 
   contextTypes: {
-    router: React.PropTypes.func.isRequired
+    routePrefix: React.PropTypes.string.isRequired
   },
 
-  _renderMenuItems: function (contents, router, context) {
+  _renderMenuItems: function (contents, routePrefix, context) {
     var items = contents.map(function (content, index) {
       var item;
 
       if (content.route || context) {
-        var routeName = content.route || context.route;
-        var href = router.makeHref(routeName);
+        var routeName = content.id ? context.label : (content.label || context.label);
+        var href = routePrefix + routeName.toLowerCase().replace(/ /g, "-");
         if (content.id) {
           href += '#' + content.id;
         }
@@ -48,7 +48,7 @@ var DocsMenu = React.createClass({
 
       var subItems;
       if (content.hasOwnProperty('contents')) {
-        subItems = this._renderMenuItems(content.contents, router, content);
+        subItems = this._renderMenuItems(content.contents, routePrefix, content);
       }
 
       if (!context || subItems) {
@@ -67,7 +67,7 @@ var DocsMenu = React.createClass({
   },
 
   render: function() {
-    var menuItems = this._renderMenuItems(this.props.contents, this.context.router, null);
+    var menuItems = this._renderMenuItems(this.props.contents, this.context.routePrefix, null);
     return (
       <Menu direction={this.props.direction} align="start" justify="between" primary={true}>
         <Header tag="h2" pad={{horizontal: 'medium'}}>{this.props.title}</Header>

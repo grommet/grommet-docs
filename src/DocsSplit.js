@@ -22,6 +22,11 @@ var DocsSplit = React.createClass({
     title: React.PropTypes.node.isRequired
   },
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired,
+    rootPath: React.PropTypes.string.isRequired
+  },
+
   getInitialState: function () {
     return {showMenu: true, responsive: 'multiple'};
   },
@@ -36,7 +41,7 @@ var DocsSplit = React.createClass({
 
   _scrollToAnchor: function () {
     if (this.refs.doc) {
-      var doc = this.refs.doc.getDOMNode();
+      var doc = this.refs.doc;
       var hash = window.location.hash.slice(1);
       if (hash) {
         var anchor = document.querySelectorAll('[id=' + hash + ']')[0];
@@ -76,7 +81,7 @@ var DocsSplit = React.createClass({
   _renderTitle: function () {
     return (
       <Title responsive={false}>
-        <Link to="docs">
+        <Link to={this.context.rootPath}>
           <Box align="center" direction="row">
             <GrommetLogo />
           </Box>

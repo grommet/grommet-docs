@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var DocsHtmlArticle = {
   wrap: function(Component, colorIndex) {
@@ -9,7 +10,7 @@ var DocsHtmlArticle = {
 
       componentDidMount: function () {
         // decorate the article and header with the classes we need to align with <Article> and <Header>
-        var article = this.refs.article.getDOMNode();
+        var article = ReactDOM.findDOMNode(this.refs.article);
         article.classList.add('box', 'box--direction-column', 'box--responsive',
           'box--pad-horizontal-large', 'article');
         var header = article.querySelectorAll('header')[0];

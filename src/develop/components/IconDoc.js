@@ -49,8 +49,7 @@ var IconDoc = React.createClass({
   },
 
   _highlightCode: function () {
-    var domNode = this.getDOMNode();
-    var nodes = domNode.querySelectorAll('pre code');
+    var nodes = document.querySelectorAll('pre code');
     for (var i = 0; i < nodes.length; i++) {
       hljs.highlightBlock(nodes[i]);
     }

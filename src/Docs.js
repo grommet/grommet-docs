@@ -2,18 +2,13 @@
 
 var React = require('react');
 var App = require('grommet/components/App');
-var RouteHandler = require('react-router').RouteHandler;
 
 var Docs = React.createClass({
-
-  contextTypes: {
-    router: React.PropTypes.func.isRequired
-  },
 
   render: function() {
     return (
       <App className="docs" centered={false}>
-        <RouteHandler />
+        {this.props.children}
       </App>
     );
   }

@@ -27,6 +27,10 @@ var HomeSection = React.createClass({
 
 var Home = React.createClass({
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   _onClick: function () {
     // no-op
   },
@@ -48,10 +52,10 @@ var Home = React.createClass({
           <Headline>Create once and deliver everywhere.</Headline>
           <Headline small={true}>Application experiences that look great while solving problems.</Headline>
           <Menu direction="row" justify="center" full="horizontal">
-            <Link to="design">
+            <Link to={this.context.routePrefix + "design"}>
               <Button label="See more examples" onClick={this._onClick} large={true} primary={true} />
             </Link>
-            <Link to="develop_getstarted">
+            <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="Test our demo app" onClick={this._onClick} large={true} />
             </Link>
           </Menu>
@@ -63,10 +67,10 @@ var Home = React.createClass({
           <Headline>So little gets you sooooooo much!</Headline>
           <Headline small={true}>We’ve tried it all in enterprise and we think we’ve got a good foundation.</Headline>
           <Menu direction="row" justify="center" full="horizontal">
-            <Link to="develop_architecture">
+            <Link to={this.context.routePrefix + "develop/architecture"}>
               <Button label="Our architecture" onClick={this._onClick} large={true} primary={true} />
             </Link>
-            <Link to="develop_getstarted">
+            <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="How to use" onClick={this._onClick} large={true} />
             </Link>
           </Menu>
@@ -77,10 +81,10 @@ var Home = React.createClass({
           <Headline small={true}>All the resources you could possibly need! Sticker sheets, Stencils,
             PSDs, and more.</Headline>
           <Menu direction="row" justify="center" full="horizontal">
-            <Link to="design">
+            <Link to={this.context.routePrefix + "design"}>
               <Button label="Start designing" onClick={this._onClick} large={true} primary={true} />
             </Link>
-            <Link to="design_resources">
+            <Link to={this.context.routePrefix + "design/resources"}>
               <Button label="All resources" onClick={this._onClick} large={true} />
             </Link>
           </Menu>
@@ -113,10 +117,10 @@ var Home = React.createClass({
           <Headline>Develop your next project with Grommet.</Headline>
           <Headline small={true}>Let’s get an application on your local environment!</Headline>
           <Menu direction="row" justify="center" full="horizontal">
-            <Link to="develop_getstarted">
+            <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="Start project" onClick={this._onClick} large={true} primary={true} />
             </Link>
-            <Link to="develop_tutorial">
+            <Link to={this.context.routePrefix + "develop/tutorial"}>
               <Button label="View tutorial" onClick={this._onClick} large={true} />
             </Link>
           </Menu>
@@ -189,7 +193,7 @@ var Home = React.createClass({
           <Headline>Let’s keep in touch!</Headline>
           <Headline small={true}>Follow us on the Grommet blog to get the latest updates.</Headline>
           <Menu direction="row" justify="center" full="horizontal">
-            <Link to="develop_getstarted">
+            <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="Grommet blog" onClick={this._onClick} large={true} primary={true} />
             </Link>
           </Menu>

@@ -3,7 +3,6 @@
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
 var DocsSplit = require('../DocsSplit');
@@ -143,13 +142,22 @@ var CONTENTS = [
 ];
 
 var Develop = React.createClass({
-
   contextTypes: {
-    router: React.PropTypes.func.isRequired
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  childContextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  getChildContext: function() {
+    return {
+      routePrefix: this.context.routePrefix + 'develop/'
+    };
   },
 
   render: function () {
-    var title = <Link to="develop">Develop</Link>;
+    var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Develop" colorIndex="neutral-1">
@@ -159,16 +167,16 @@ var Develop = React.createClass({
             assist in creating experiences that work accross the many different interaction
             methods and screen sizes.</p>
             <Menu direction="column">
-              <Link to='develop_helloworld'>
+              <Link to={this.context.routePrefix + "develop/hello-world"}>
                 <Anchor tag="span" primary={true}>Hello Grommet!</Anchor>
               </Link>
-              <Link to='develop_getstarted'>
+              <Link to={this.context.routePrefix + "develop/get-started"}>
                 <Anchor tag="span" primary={true}>Get Started</Anchor>
               </Link>
-              <Link to='develop_tutorial'>
+              <Link to={this.context.routePrefix + "develop/tutorial"}>
                 <Anchor tag="span" primary={true}>Tutorial</Anchor>
               </Link>
-              <Link to='develop_modulargrommet'>
+              <Link to={this.context.routePrefix + "develop/modular-grommet"}>
                 <Anchor tag="span" primary={true}>Modular Grommet</Anchor>
               </Link>
             </Menu>
@@ -181,6 +189,20 @@ var Develop = React.createClass({
 
 var DevelopDocument = React.createClass({
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  childContextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  getChildContext: function() {
+    return {
+      routePrefix: this.context.routePrefix + 'develop/'
+    };
+  },
+
   componentDidMount: function () {
     this._highlightCode();
   },
@@ -190,18 +212,17 @@ var DevelopDocument = React.createClass({
   },
 
   _highlightCode: function () {
-    var domNode = this.getDOMNode();
-    var nodes = domNode.querySelectorAll('pre code');
+    var nodes = document.querySelectorAll('pre code');
     for (var i = 0; i < nodes.length; i++) {
       hljs.highlightBlock(nodes[i]);
     }
   },
 
   render: function () {
-    var title = <Link to="develop">Develop</Link>;
+    var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
-        <RouteHandler />
+        {this.props.children}
       </DocsSplit>
     );
   }
@@ -211,9 +232,9 @@ function createContentRoutes(contents) {
   var result = [];
   contents.forEach(function (content) {
     result.push(
-      <Route key={content.label} name={content.route}
+      <Route key={content.label}
         path={content.label.toLowerCase().replace(/ /g, "-")}
-        handler={content.component} />
+        component={content.component} />
     );
     if (content.hasOwnProperty('contents')) {
       result = result.concat(createContentRoutes(content.contents));
@@ -225,8 +246,8 @@ function createContentRoutes(contents) {
 Develop.routes = function () {
   var routes = createContentRoutes(CONTENTS);
   return [
-    <Route key="top" name="develop" handler={Develop} />,
-    <Route key="docs" path="develop" handler={DevelopDocument}>{routes}</Route>
+    <Route key="top" path="develop" component={Develop} />,
+    <Route key="docs" path="develop" component={DevelopDocument}>{routes}</Route>
   ];
 };
 

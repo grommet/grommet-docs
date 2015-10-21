@@ -3,7 +3,11 @@ var router = express.Router();
 var path = require('path');
 
 var React = require('react');
-var Router = require('react-router');
+var ReactDOMServer = require('react-dom/server');
+var Router = require('react-router').Router;
+var createHistory = require('history').createMemoryHistory;
+var createLocation = require('history').createLocation;
+
 var theme = require('./theme');
 
 var fs = require('fs');
@@ -32,25 +36,29 @@ function processPage(req, res, theme) {
 
   var path = theme !== '' ? ('/' + theme) : '';
 
-  var reactRouter = Router.create({
-    location: '/docs' + path + req.url.replace(path, ''),
-    routes: docsRoutes('/docs' + path + '/')
+  var locationUrl = '/docs' + path + req.url.replace(path, '');
+
+  var Component = React.createFactory(Router);
+
+  var location = createLocation(locationUrl);
+
+  var html = ReactDOMServer.renderToString(
+    Component({
+      routes: docsRoutes('/docs' + path + '/'),
+      history: createHistory({entries: [location]})
+    })
+  );
+
+  res.render('index.ejs', {
+    appBody: html,
+    linkTag: "<link id='theme-link' href='/docs/" +
+      (theme === '' ? 'vanilla' : theme) +
+      ".min.css' rel='stylesheet' type='text/css'>"
   });
 
-  reactRouter.run(function(Handler, state) {
-    var Component = React.createFactory(Handler);
-    var html = React.renderToString(Component({}));
-    res.render('index.ejs', {
-      appBody: html,
-      linkTag: "<link id='theme-link' href='/docs/" +
-        (theme === '' ? 'vanilla' : theme) +
-        ".min.css' rel='stylesheet' type='text/css'>"
-    });
-  });
 }
 
-router.use('/', express.static(path.join(__dirname, '/../dist')));
-router.get('/*', function (req, res, next) {
+function routerProcessor(req, res, next) {
   if (/\..*$/.test(req.url)) {
     translateStatics(req, res, next);
   } else {
@@ -66,6 +74,9 @@ router.get('/*', function (req, res, next) {
     }
     processPage(req, res, theme);
   }
-});
+}
+router.use('/', routerProcessor);
+router.use('/', express.static(path.join(__dirname, '/../dist')));
+router.get('/*', routerProcessor);
 
 module.exports = router;

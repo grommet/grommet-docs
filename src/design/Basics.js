@@ -41,7 +41,7 @@ var STATUS_ICONS = [
 var Basics = React.createClass({
 
   componentDidMount: function () {
-    var fontNameElement = this.refs.fontName.getDOMNode();
+    var fontNameElement = this.refs.fontName;
     var fontFamily = window.getComputedStyle(fontNameElement).fontFamily;
     fontNameElement.innerHTML = fontFamily.split(',')[0];
   },
@@ -78,7 +78,7 @@ var Basics = React.createClass({
     <header>
       <h1>Basics</h1>
     </header>
-    <Section appCentered={true} primary={true}>
+    <Section appCentered={true}>
       <p>Here you will find the core elements for the application style guide.
       The downloadable assets contain these core elements. Checkboxes, buttons,
       status icons and more are all described in these assets.

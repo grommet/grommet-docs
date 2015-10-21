@@ -9,6 +9,10 @@ var Section = require('grommet/components/Section');
 
 var ArticleDoc = React.createClass({
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   render: function() {
     var inline = [
       "<Article>",
@@ -34,7 +38,7 @@ var ArticleDoc = React.createClass({
             <dt><code>primary      true|false</code></dt>
             <dd>Whether it should be treated as main content or not. Used for Accessibility.</dd>
           </dl>
-          <p>Options for <Link to="develop_box">Box</Link> area also available.</p>
+          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
         </section>
 
         <section>

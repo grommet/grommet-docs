@@ -13,6 +13,11 @@ var inline =
       "</Sidebar>";
 
 var SidebarDoc = React.createClass({
+
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   render: function() {
     return (
       <DocsArticle title="Sidebar" colorIndex="neutral-3">
@@ -28,13 +33,13 @@ var SidebarDoc = React.createClass({
               the top and bottom.</dd>
             <dt><code>primary    true|false</code></dt>
             <dd>Whether this is the primary application sidebar or not.
-              Deprecated, use <Link to="develop_box">Box colorIndex</Link>.</dd>
+              Deprecated, use <Link to={this.context.routePrefix + "box"}>Box colorIndex</Link>.</dd>
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
             <dt><code>small      true|false</code></dt>
             <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
           </dl>
-          <p>Options for <Link to="develop_box">Box</Link> area also available.</p>
+          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
         </section>
 
         <section>

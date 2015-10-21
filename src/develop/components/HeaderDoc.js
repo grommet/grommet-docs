@@ -12,6 +12,10 @@ var Logo = require('../../img/Logo');
 
 var HeaderDoc = React.createClass({
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   render: function() {
     var inline =
     "<Header>\n  <Link to={route}>{label}</Link>\n  ...\n</Header>";
@@ -38,7 +42,7 @@ var HeaderDoc = React.createClass({
             <dt><code>splash      true|false</code></dt>
             <dd>Whether to render it in a style suitable for a splash screen.</dd>
           </dl>
-          <p>Options for <Link to="develop_box">Box</Link> area also available.</p>
+          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
         </section>
 
         <section>

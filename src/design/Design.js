@@ -3,7 +3,6 @@
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
-var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
 var Section = require('grommet/components/Section');
@@ -77,11 +76,21 @@ var CONTENTS = [
 var Design = React.createClass({
 
   contextTypes: {
-    router: React.PropTypes.func.isRequired
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  childContextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  getChildContext: function() {
+    return {
+      routePrefix: this.context.routePrefix + 'design/'
+    };
   },
 
   render: function () {
-    var title = <Link to="design">Design</Link>;
+    var title = <Link to={this.context.routePrefix + "design"}>Design</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Design" colorIndex="neutral-2">
@@ -95,7 +104,7 @@ var Design = React.createClass({
             Finally, we've also created a web-based development platform that enables
             developers to quickly begin implementing enterprise applications.</p>
             <Menu direction="column">
-              <Link to='design_resources'>
+              <Link to={this.context.routePrefix + "design/resources"}>
                 <Anchor id="resources-button" tag="span" primary={true}>Resources</Anchor>
               </Link>
             </Menu>
@@ -108,11 +117,25 @@ var Design = React.createClass({
 
 var DesignDocument = React.createClass({
 
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  childContextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
+  getChildContext: function() {
+    return {
+      routePrefix: this.context.routePrefix + 'design/'
+    };
+  },
+
   render: function () {
-    var title = <Link to="design">Design</Link>;
+    var title = <Link to={this.context.routePrefix + "design"}>Design</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS}>
-        <RouteHandler />
+        {this.props.children}
       </DocsSplit>
     );
   }
@@ -128,11 +151,11 @@ function createContentRoutes(contents) {
   var result = [];
   contents.forEach(function (content) {
 
-    var handler = content.component || Empty;
+    var component = content.component || Empty;
     result.push(
-      <Route key={content.label} name={content.route}
+      <Route key={content.label}
         path={content.label.toLowerCase().replace(/ /g, "-")}
-        handler={handler} />
+        component={component} />
     );
 
     if (content.hasOwnProperty('contents')) {
@@ -145,8 +168,8 @@ function createContentRoutes(contents) {
 Design.routes = function () {
   var routes = createContentRoutes(CONTENTS);
   return [
-    <Route key="top" name="design" handler={Design} />,
-    <Route key="docs" path="design" handler={DesignDocument}>{routes}</Route>
+    <Route key="top" path="design" component={Design} />,
+    <Route key="docs" path="design" component={DesignDocument}>{routes}</Route>
   ];
 };
 
