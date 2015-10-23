@@ -11,7 +11,13 @@ var SearchDoc = React.createClass({
   },
 
   _onChange: function (value) {
-    this.setState({value: value});
+    var text;
+    if (value.hasOwnProperty('label')) {
+      text = value.label;
+    } else {
+      text = value;
+    }
+    this.setState({value: text});
   },
 
   render: function() {
@@ -38,8 +44,11 @@ var SearchDoc = React.createClass({
             <dd>Function that will be called when the user types some text.</dd>
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
-            <dt><code>suggestions   [{"{string}"}, ...]</code></dt>
-            <dd>Suggestions to show, typically based on what the user has typed so far.</dd>
+            <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
+            <dd>Suggestions to show, typically based on what the user has typed so far.
+              You can pass an array of strings or objects. Objects must have a
+              label: property but can have any other properties you like. This object will
+              be given to the onChange() handler if the suggestion is selected.</dd>
             <dt><code>value         {"{string}"}</code></dt>
             <dd>What text to show in the input.</dd>
           </dl>
@@ -82,7 +91,21 @@ var SearchDoc = React.createClass({
               onChange={this._onChange} />
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
-            this.state.value + "\" suggestions={[...]}/>"}</code></pre>
+            this.state.value +
+            "\" suggestions={[\"item 1\", \"item 2\", \"item 3\"]}/>"}</code></pre>
+
+          <h3>Inline, Rich Suggestions</h3>
+          <div className="example">
+            <Search inline={true}
+              suggestions={[
+                {label: 'item 1', data: '/item-1'},
+                {label: 'item 2', data: '/item-2'},
+                {label: 'item 3', data: '/item-3'}
+              ]}
+              onChange={this._onChange} />
+          </div>
+          <pre><code className="html hljs xml">{"<Search inline={true} " +
+            "suggestions={[{label: \"item 1\", data: \"/item-1\"}, ...]}/>"}</code></pre>
 
         </section>
 
