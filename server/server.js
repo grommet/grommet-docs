@@ -19,7 +19,7 @@ var request = require('request');
 var docs = require('./docs');
 var theme = require('./theme');
 
-var PORT = 8000;
+var PORT = process.env.PORT || 1337;
 
 var app = express();
 
