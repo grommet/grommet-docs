@@ -1,13 +1,25 @@
 // (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
 
 var React = require('react');
+var stringify = require("json-stringify-pretty-compact");
 var DocsArticle = require('../../DocsArticle');
 var Search = require('grommet/components/Search');
+
+var SIMPLE_SUGGESTIONS = ['item 1', 'item 2', 'item 3'];
+var RICH_SUGGESTIONS = [
+  {label: 'item 1', data: '/item-1'},
+  {label: 'item 2', data: '/item-2'},
+  {label: 'item 3', data: '/item-3'}
+];
 
 var SearchDoc = React.createClass({
 
   getInitialState: function () {
-    return {value: "ite"};
+    return {
+      value: "",
+      simpleSuggestions: [],
+      richSuggestions: []
+    };
   },
 
   _onChange: function (value) {
@@ -17,7 +29,25 @@ var SearchDoc = React.createClass({
     } else {
       text = value;
     }
-    this.setState({value: text});
+    var simpleSuggestions;
+    var richSuggestions;
+    if (text) {
+      var regexp = new RegExp(text, 'i');
+      var simpleSuggestions = SIMPLE_SUGGESTIONS.filter(function (suggestion) {
+        return regexp.test(suggestion);
+      });
+      var richSuggestions = RICH_SUGGESTIONS.filter(function (suggestion) {
+        return regexp.test(suggestion.label);
+      });
+    } else {
+      simpleSuggestions = [];
+      richSuggestions = [];
+    }
+    this.setState({
+      value: text,
+      simpleSuggestions: simpleSuggestions,
+      richSuggestions: richSuggestions
+    });
   },
 
   render: function() {
@@ -69,14 +99,15 @@ var SearchDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Search dropAlign={{right: \"right\"}} />"}</code></pre>
 
-          <h3>Suggestions and Default Value</h3>
+          <h3>Suggestions and Value</h3>
           <div className="example">
-            <Search defaultValue={this.state.value}
-              suggestions={['item 1', 'item 2', 'item 3']}
+            <Search value={this.state.value}
+              suggestions={this.state.simpleSuggestions}
               onChange={this._onChange} />
           </div>
           <pre><code className="html hljs xml">{"<Search defaultValue=\"" +
-            this.state.value + "\" suggestions={...} />"}</code></pre>
+            this.state.value + "\" suggestions={" +
+            stringify(this.state.simpleSuggestions) + "} />"}</code></pre>
 
           <h3>Inline</h3>
           <div className="example">
@@ -84,28 +115,25 @@ var SearchDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true}/>"}</code></pre>
 
-          <h3>Inline, Default Value, and Suggestions</h3>
+          <h3>Inline, Value, and Suggestions</h3>
           <div className="example">
             <Search inline={true} value={this.state.value}
-              suggestions={['item 1', 'item 2', 'item 3']}
+              suggestions={this.state.simpleSuggestions}
               onChange={this._onChange} />
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
-            this.state.value +
-            "\" suggestions={[\"item 1\", \"item 2\", \"item 3\"]}/>"}</code></pre>
+            this.state.value + "\" suggestions={" +
+            stringify(this.state.simpleSuggestions) + "}/>"}</code></pre>
 
-          <h3>Inline, Rich Suggestions</h3>
+          <h3>Inline, Value, Rich Suggestions</h3>
           <div className="example">
-            <Search inline={true}
-              suggestions={[
-                {label: 'item 1', data: '/item-1'},
-                {label: 'item 2', data: '/item-2'},
-                {label: 'item 3', data: '/item-3'}
-              ]}
+            <Search inline={true} value={this.state.value}
+              suggestions={this.state.richSuggestions}
               onChange={this._onChange} />
           </div>
-          <pre><code className="html hljs xml">{"<Search inline={true} " +
-            "suggestions={[{label: \"item 1\", data: \"/item-1\"}, ...]}/>"}</code></pre>
+          <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
+            this.state.value + "\" suggestions={" +
+            stringify(this.state.simpleSuggestions) + "}/>"}</code></pre>
 
         </section>
 
