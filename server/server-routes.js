@@ -5860,9 +5860,6 @@ module.exports =
 
 	module.exports = {
 	  getCurrentLocale: function getCurrentLocale() {
-	    if (typeof module !== 'undefined' && module.exports) {
-	      return fallbackLocale;
-	    }
 	    var cookieLanguages = Cookies.get('languages');
 	    var locale = cookieLanguages ? JSON.parse(cookieLanguages)[0] : undefined;
 	    if (!locale) {
@@ -5891,7 +5888,6 @@ module.exports =
 	    };
 	  }
 	};
-
 
 /***/ },
 /* 44 */
