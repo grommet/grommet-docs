@@ -48,6 +48,6 @@
     "webpack-stream": "^2.0.0"
   },
   "scripts": {
-    "start": "gulp dist && node server/server.js"
+    "start": "node server/server.js"
   }
 }
