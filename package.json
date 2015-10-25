@@ -51,7 +51,7 @@
     "mkdirp": "^0.5.1"
   },
   "scripts": {
-    "dist": "gulp dist",
+    "build": "gulp dist",
     "start": "node server/server.js"
   }
 }

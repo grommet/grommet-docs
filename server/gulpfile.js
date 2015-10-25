@@ -1,6 +1,26 @@
 var gulp = require('gulp');
+var rsync = require('gulp-rsync');
 var nodemon = require('gulp-nodemon');
 var open = require('gulp-open');
+var chug = require('gulp-chug');
+
+gulp.task('sync', ['sync-docs'], function() {
+  gulp.src('.')
+    .pipe(rsync({
+      root: '.',
+      hostname: 'grommet.io',
+      username: 'grommet',
+      destination: '/var/www/html/server',
+      recursive: true,
+      relative: true,
+      progress: true,
+      incremental: true,
+      clean: true,
+      silent: false,
+      emptyDirectories: true,
+      exclude: ['.DS_Store', 'node_modules']
+    }));
+});
 
 gulp.task('dev', function() {
   nodemon({
@@ -15,4 +35,14 @@ gulp.task('dev', function() {
       }));
     }, 500);
   });
+});
+
+gulp.task('sync-docs', function() {
+  var argv = require('yargs').argv;
+  if (argv.skipDocs) {
+    return;
+  }
+  return gulp.src('../gulpfile.js', { read: false }).pipe(chug({
+     tasks: ['sync']
+  }));
 });
