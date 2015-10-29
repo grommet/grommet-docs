@@ -102,7 +102,7 @@ module.exports =
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -13344,7 +13344,7 @@ module.exports =
 /* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -14119,7 +14119,7 @@ module.exports =
 /* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -15043,7 +15043,7 @@ module.exports =
 /* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -15209,7 +15209,7 @@ module.exports =
 /* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -15604,7 +15604,7 @@ module.exports =
 /* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -15700,7 +15700,7 @@ module.exports =
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -15746,7 +15746,7 @@ module.exports =
 /* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -15792,7 +15792,7 @@ module.exports =
 /* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -16281,7 +16281,7 @@ module.exports =
 /* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -18723,7 +18723,7 @@ module.exports =
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -20674,7 +20674,7 @@ module.exports =
 /* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -21882,7 +21882,7 @@ module.exports =
 /* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -23827,7 +23827,7 @@ module.exports =
 /* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -24707,7 +24707,7 @@ module.exports =
 /* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -24760,7 +24760,7 @@ module.exports =
 /* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -25149,7 +25149,7 @@ module.exports =
 /* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -25275,7 +25275,7 @@ module.exports =
 /* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -25638,7 +25638,7 @@ module.exports =
 /* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -25942,7 +25942,7 @@ module.exports =
 /* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -37896,7 +37896,7 @@ module.exports =
 /* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -38047,7 +38047,7 @@ module.exports =
 /* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -39529,7 +39529,7 @@ module.exports =
 /* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -39820,7 +39820,7 @@ module.exports =
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -39950,7 +39950,7 @@ module.exports =
 /* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -40604,7 +40604,7 @@ module.exports =
 /* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -40772,7 +40772,7 @@ module.exports =
 /* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -40949,7 +40949,7 @@ module.exports =
 /* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -41518,7 +41518,7 @@ module.exports =
 /* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -41790,7 +41790,7 @@ module.exports =
 /* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -41894,7 +41894,7 @@ module.exports =
 /* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -42111,7 +42111,7 @@ module.exports =
 /* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -42623,7 +42623,7 @@ module.exports =
 /* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -63531,7 +63531,7 @@ module.exports =
 /* 613 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -63858,7 +63858,7 @@ module.exports =
 /* 614 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -64391,7 +64391,7 @@ module.exports =
 /* 617 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -64616,7 +64616,7 @@ module.exports =
 /* 618 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -64906,7 +64906,7 @@ module.exports =
 /* 620 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -65516,7 +65516,7 @@ module.exports =
 /* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -66418,7 +66418,7 @@ module.exports =
 /* 623 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -66837,7 +66837,7 @@ module.exports =
 /* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -67069,7 +67069,7 @@ module.exports =
 /* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -67285,7 +67285,7 @@ module.exports =
 /* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -67438,7 +67438,7 @@ module.exports =
 /* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -67765,7 +67765,7 @@ module.exports =
 /* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -68727,7 +68727,7 @@ module.exports =
 /* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -69129,7 +69129,7 @@ module.exports =
 /* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -69391,7 +69391,7 @@ module.exports =
 /* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
@@ -69840,7 +69840,7 @@ module.exports =
 /* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
