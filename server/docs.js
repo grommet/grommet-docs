@@ -1,3 +1,5 @@
+// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
 var express = require('express');
 var router = express.Router();
 var path = require('path');
