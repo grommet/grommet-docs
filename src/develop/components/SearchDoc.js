@@ -115,6 +115,12 @@ var SearchDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true}/>"}</code></pre>
 
+          <h3>Inline, Placeholder</h3>
+          <div className="example">
+            <Search inline={true} placeHolder="Search" />
+          </div>
+          <pre><code className="html hljs xml">{"<Search inline={true} placeHolder=\"Search\" />"}</code></pre>
+
           <h3>Inline, Value, and Suggestions</h3>
           <div className="example">
             <Search inline={true} value={this.state.value}

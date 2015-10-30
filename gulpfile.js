@@ -40,6 +40,10 @@ var opts = {
   mainScss: 'src/scss/index.scss',
   webpack: {
     resolve: {
+      //alias: { // TODO: remove, just for local dev
+      //  'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
+      //  'grommet': path.resolve(__dirname, '../grommet/src/js')
+      //},
       root: [
         path.resolve(__dirname, './node_modules')
       ]

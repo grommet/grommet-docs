@@ -27,7 +27,7 @@ var ButtonDoc = React.createClass({
           <dl>
           <dt><code>accent         true|false</code></dt>
           <dd>Whether this is an accent button.</dd>
-          <dt><code>label          {"{text}"}</code></dt>
+          <dt><code>label          {"{text|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
           <dt><code>onClick        {"{func}"}</code></dt>
           <dd>Click handler. Not providing an onClick function causes the

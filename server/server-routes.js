@@ -25705,7 +25705,7 @@ module.exports =
 	              'code',
 	              null,
 	              'label          ',
-	              "{text}"
+	              "{text|node}"
 	            )
 	          ),
 	          React.createElement(
@@ -39650,7 +39650,7 @@ module.exports =
 	              'code',
 	              null,
 	              'label           ',
-	              "{text}"
+	              "{text|node}"
 	            )
 	          ),
 	          React.createElement(
@@ -41943,8 +41943,8 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'error  ',
-	              "{text}"
+	              'error     ',
+	              "{text|node}"
 	            )
 	          ),
 	          React.createElement(
@@ -41958,8 +41958,8 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'help   ',
-	              "{text}"
+	              'help      ',
+	              "{text|node}"
 	            )
 	          ),
 	          React.createElement(
@@ -41988,8 +41988,8 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'label  ',
-	              "{text}"
+	              'label     ',
+	              "{text|node}"
 	            )
 	          ),
 	          React.createElement(
@@ -66958,7 +66958,7 @@ module.exports =
 	              'code',
 	              null,
 	              'label           ',
-	              "{text}"
+	              "{text|node}"
 	            )
 	          ),
 	          React.createElement(
@@ -67710,6 +67710,25 @@ module.exports =
 	            'code',
 	            { className: 'html hljs xml' },
 	            "<Search inline={true}/>"
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Inline, Placeholder'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(Search, { inline: true, placeHolder: 'Search' })
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Search inline={true} placeHolder=\"Search\" />"
 	          )
 	        ),
 	        React.createElement(
