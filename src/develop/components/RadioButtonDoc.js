@@ -37,7 +37,7 @@ var RadioButtonDoc = React.createClass({
           <dt><code>id              {"{text}"}</code></dt>
           <dd>The DOM id attribute value to use for the underlying
             {"<input>"} element.</dd>
-          <dt><code>label           {"{text}"}</code></dt>
+          <dt><code>label           {"{text|node}"}</code></dt>
           <dd>Label text to place next to the control.</dd>
           <dt><code>name            {"{text}"}</code></dt>
           <dd>The DOM name attribute value to use for the underlying
