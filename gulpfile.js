@@ -6,7 +6,6 @@ var fs = require('fs');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var minifyCss = require('gulp-minify-css');
-var nodemon = require('gulp-nodemon');
 var devGulpTasks = require('grommet/utils/gulp/gulp-tasks');
 var webpack = require('webpack');
 var gulpWebpack = require('webpack-stream');
@@ -32,6 +31,18 @@ var opts = {
     {
       asset: 'src/img/**',
       dist: 'dist/img/'
+    },
+    {
+      asset: 'design/**',
+      dist: 'dist/assets/design/'
+    },
+    {
+      asset: 'node_modules/grommet/*.min.js',
+      dist: 'dist/assets/latest/'
+    },
+    {
+      asset: 'node_modules/grommet/*.min.css',
+      dist: 'dist/assets/latest/css/'
     }
   ],
   scssAssets: ['src/scss/**/*.scss'],
@@ -40,10 +51,10 @@ var opts = {
   mainScss: 'src/scss/index.scss',
   webpack: {
     resolve: {
-      //alias: { // TODO: remove, just for local dev
-      //  'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
-      //  'grommet': path.resolve(__dirname, '../grommet/src/js')
-      //},
+      // alias: { // TODO: remove, just for local dev
+      //   'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
+      //   'grommet': path.resolve(__dirname, '../grommet/src/js')
+      // },
       root: [
         path.resolve(__dirname, './node_modules')
       ]
@@ -70,7 +81,7 @@ function distSass() {
       path.resolve(__dirname, './node_modules'),
       path.resolve(__dirname, './node_modules/grommet/node_modules')
     ]
-  })
+  });
 }
 
 gulp.task('dist-css', function() {
@@ -236,15 +247,15 @@ gulp.task('release:heroku', ['dist', 'release:createTmp'], function(done) {
                     args: '--all'
                   }))
                   .pipe(git.commit('Heroku dev version update.')).on('end', function() {
-                  git.push('origin', 'heroku', { quiet: true }, function(err) {
-                    if (err) {
-                      throw err;
-                    }
+                    git.push('origin', 'heroku', { quiet: true }, function(err) {
+                      if (err) {
+                        throw err;
+                      }
 
-                    process.chdir(__dirname);
-                    done();
+                      process.chdir(__dirname);
+                      done();
+                    });
                   });
-                });
               } else {
                 console.log('No difference since last commit, skipping heroku release.');
 

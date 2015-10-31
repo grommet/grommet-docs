@@ -5,21 +5,13 @@ var express = require('express');
 var http = require("http");
 var router = express.Router({strict: true});
 var morgan = require('morgan');
-var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var path = require('path');
-var httpProxy = require('http-proxy');
 
-var proxy = httpProxy.createProxyServer({
-  target: 'ws://localhost:8010',
-  ws: true
-});
-
-var request = require('request');
 var docs = require('./docs');
 var theme = require('./theme');
 
-var PORT = process.env.PORT || 1337;
+var PORT = process.env.PORT || 8000;
 
 var app = express();
 
@@ -60,41 +52,13 @@ app.get('/assets/design/grommet_sticker_sheet.ai', function (req, res) {
   res.redirect(301, '/assets/design/hpe/grommet-hpe-master.ai');
 });
 
-app.use('/people-finder', function(req, res) {
-  proxy.web(req, res, { target: 'http://localhost:8020/' });
-});
-
-app.use('/ldap', function(req, res) {
-  proxy.web(req, res, { target: 'http://localhost:8020/ldap' });
-});
-
-app.use('/rest', function(req, res) {
-  proxy.web(req, res, { target: 'http://localhost:8010/rest' });
-});
-
-app.use('/slackin', function(req, res) {
-  proxy.web(req, res, { target: 'http://localhost:3000/' });
-});
-
-app.use('/socket.io', function(req, res) {
-  proxy.web(req, res, { target: 'http://localhost:3000/socket.io' });
-});
-
-app.use('/invite', bodyParser.json(), function(req, res) {
-  var data = req.body;
-  if (!data.channels) {
-    data.channels = ['general'];
-  }
-  request.post({uri: 'http://localhost:3000/invite', json: data}).pipe(res);
-});
-
 app.get('/assets/design/:name', function(req, res) {
   var options = {
-    root: path.join(__dirname, '/../../assets/design'),
+    root: path.join(__dirname, '/../dist/assets/design'),
     dotfiles: 'deny',
     headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
+      'x-timestamp': Date.now(),
+      'x-sent': true
     }
   };
 
@@ -131,14 +95,9 @@ app.get('/robots.txt', function(req, res) {
 
 app.
   use('', router).
-  use('/assets', express.static(path.join(__dirname, '/../assets'))).
-  use('/assets', express.static('/usr/local/lib/node_modules/slackin/lib/assets'));
+  use('/assets', express.static(path.join(__dirname, '/../dist/assets')));
 
 var server = http.createServer(app);
-
-server.on('upgrade', function (req, socket, head) {
-  proxy.ws(req, socket, head);
-});
 
 server.listen(PORT);
 

@@ -21631,25 +21631,25 @@ module.exports =
 	        React.createElement(
 	          "p",
 	          null,
-	          "The following sections are divided by theme (Grommet, Hewlett-Packard Enterprise, and HP Inc). Each theme has all the resources for each design tool: ",
+	          "The following sections are divided by theme (Grommet, Hewlett-Packard Enterprise, and HP Inc). Each theme has all the resources for each design tool:",
 	          React.createElement(
 	            "a",
 	            { href: "http://www.adobe.com/products/illustrator.html" },
 	            "Adobe Illustrator"
 	          ),
-	          ", ",
+	          ",",
 	          React.createElement(
 	            "a",
 	            { href: "http://bohemiancoding.com/sketch/" },
 	            "Sketch"
 	          ),
-	          ", ",
+	          ",",
 	          React.createElement(
 	            "a",
 	            { href: "http://www.axure.com" },
 	            "Axure"
 	          ),
-	          ", and ",
+	          ", and",
 	          React.createElement(
 	            "a",
 	            { href: "http://www.balsamiq.com" },
@@ -21682,7 +21682,7 @@ module.exports =
 	              { id: "hpe-ai-general", href: "/assets/design/hpe/grommet-hpe-general.ai", target: "_blank" },
 	              "General Sticker Sheet"
 	            ),
-	            " (",
+	            "(",
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-general-pdf", href: "/assets/design/hpe/grommet-hpe-general.pdf", target: "_blank" },
@@ -21698,7 +21698,7 @@ module.exports =
 	              { id: "hpe-ai-app-templates", href: "/assets/design/hpe/grommet-hpe-app-templates.ai", target: "_blank" },
 	              "App Templates Sticker Sheet"
 	            ),
-	            " (",
+	            "(",
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-app-templates-pdf", href: "/assets/design/hpe/grommet-hpe-app-templates.pdf", target: "_blank" },
@@ -21714,7 +21714,7 @@ module.exports =
 	              { id: "hpe-ai-data", href: "/assets/design/hpe/grommet-hpe-data.ai", target: "_blank" },
 	              "Data Sticker Sheet"
 	            ),
-	            " (",
+	            "(",
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-data-pdf", href: "/assets/design/hpe/grommet-hpe-data.pdf", target: "_blank" },
@@ -21730,7 +21730,7 @@ module.exports =
 	              { id: "hpe-ai-icons", href: "/assets/design/hpe/grommet-hpe-icons.ai", target: "_blank" },
 	              "Icon Sticker Sheet"
 	            ),
-	            " (",
+	            "(",
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-icons-pdf", href: "/assets/design/hpe/grommet-hpe-icons.pdf", target: "_blank" },
@@ -21746,7 +21746,7 @@ module.exports =
 	              { id: "hpe-ai-classic", href: "/assets/design/hpe/grommet-hpe-classic.ai", target: "_blank" },
 	              "Classic Sticker Sheet"
 	            ),
-	            " (",
+	            "(",
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-classic-pdf", href: "/assets/design/hpe/grommet-hpe-classic.pdf", target: "_blank" },
@@ -21762,7 +21762,7 @@ module.exports =
 	              { id: "hpe-ai-master", href: "/assets/design/hpe/grommet-hpe-master.ai", target: "_blank" },
 	              "Master Sticker Sheet"
 	            ),
-	            " - all of the above (",
+	            "- all of the above (",
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-master-pdf", href: "/assets/design/hpe/grommet-hpe-master.pdf", target: "_blank" },
@@ -21850,7 +21850,7 @@ module.exports =
 	              { id: "hpi-ai-general", href: "/assets/design/hpi/grommet-hpi-general.ai", target: "_blank" },
 	              "General Sticker Sheet"
 	            ),
-	            " (",
+	            "(",
 	            React.createElement(
 	              "a",
 	              { id: "hpi-ai-general-pdf", href: "/assets/design/hpi/grommet-hpi-general.pdf", target: "_blank" },
