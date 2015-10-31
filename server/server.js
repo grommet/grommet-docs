@@ -90,11 +90,11 @@ app.use('/invite', bodyParser.json(), function(req, res) {
 
 app.get('/assets/design/:name', function(req, res) {
   var options = {
-    root: path.join(__dirname, '/../../assets/design'),
+    root: path.join(__dirname, '/../dist/assets/design'),
     dotfiles: 'deny',
     headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
+      'x-timestamp': Date.now(),
+      'x-sent': true
     }
   };
 
@@ -131,7 +131,7 @@ app.get('/robots.txt', function(req, res) {
 
 app.
   use('', router).
-  use('/assets', express.static(path.join(__dirname, '/../assets'))).
+  use('/assets', express.static(path.join(__dirname, '/../dist/assets'))).
   use('/assets', express.static('/usr/local/lib/node_modules/slackin/lib/assets'));
 
 var server = http.createServer(app);
