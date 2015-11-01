@@ -43,6 +43,10 @@ var opts = {
     {
       asset: 'node_modules/grommet/*.min.css',
       dist: 'dist/assets/latest/css/'
+    },
+    {
+      asset: 'node_modules/grommet/img/**',
+      dist: 'dist/img/'
     }
   ],
   scssAssets: ['src/scss/**/*.scss'],
