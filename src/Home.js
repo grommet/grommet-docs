@@ -200,7 +200,7 @@ var Home = React.createClass({
           <p>We also pop our heads out at these place as well...</p>
           <Tiles fill={true}>
             <Tile>
-              <a href="http://grommet.io/slackin">
+              <a href="http://slackin.grommet.io">
                 <img src="img/slack.png" alt="Slack" />
                 <div>grommet</div>
               </a>
