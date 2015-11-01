@@ -1,6 +1,6 @@
 {
   "name": "grommet-docs",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "main": "src/index.js",
   "description": "Website for Grommet framework.",
   "authors": [
@@ -22,7 +22,7 @@
     "ejs": "^0.8.5",
     "enhanced-require": "^0.4.2",
     "express": "^4.10.6",
-    "grommet": "https://github.com/grommet/grommet/tarball/next",
+    "grommet": "^0.4.0",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.3",
     "highlight.js": "^8.8.0",
