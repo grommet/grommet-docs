@@ -21922,7 +21922,7 @@ module.exports =
 	            React.createElement(
 	              "a",
 	              { id: "hpe-ai-app-templates", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-app-templates.ai", target: "_blank" },
-	              "Application Templates Sticker Sheet"
+	              "Application Templates Sticker Sheet "
 	            ),
 	            "(",
 	            React.createElement(
