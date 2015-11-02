@@ -21905,13 +21905,13 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-general", href: "/assets/design/hpe/grommet-hpe-general.ai", target: "_blank" },
-	              "General Sticker Sheet"
+	              { id: "hpe-ai-general", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general.ai", target: "_blank" },
+	              "General Sticker Sheet for Applications"
 	            ),
 	            "(",
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-general-pdf", href: "/assets/design/hpe/grommet-hpe-general.pdf", target: "_blank" },
+	              { id: "hpe-ai-general-pdf", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general.pdf", target: "_blank" },
 	              "pdf"
 	            ),
 	            ")"
@@ -21921,13 +21921,13 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-app-templates", href: "/assets/design/hpe/grommet-hpe-app-templates.ai", target: "_blank" },
-	              "App Templates Sticker Sheet"
+	              { id: "hpe-ai-app-templates", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-app-templates.ai", target: "_blank" },
+	              "Application Templates Sticker Sheet"
 	            ),
 	            "(",
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-app-templates-pdf", href: "/assets/design/hpe/grommet-hpe-app-templates.pdf", target: "_blank" },
+	              { id: "hpe-ai-app-templates-pdf", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-app-templates.pdf", target: "_blank" },
 	              "pdf"
 	            ),
 	            ")"
@@ -21937,13 +21937,13 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-data", href: "/assets/design/hpe/grommet-hpe-data.ai", target: "_blank" },
-	              "Data Sticker Sheet"
+	              { id: "hpe-ai-data", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-data.ai", target: "_blank" },
+	              "Data Sticker Sheet for Applications"
 	            ),
 	            "(",
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-data-pdf", href: "/assets/design/hpe/grommet-hpe-data.pdf", target: "_blank" },
+	              { id: "hpe-ai-data-pdf", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-data.pdf", target: "_blank" },
 	              "pdf"
 	            ),
 	            ")"
@@ -21953,13 +21953,13 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-icons", href: "/assets/design/hpe/grommet-hpe-icons.ai", target: "_blank" },
-	              "Icon Sticker Sheet"
+	              { id: "hpe-ai-icons", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-functional-icons.ai", target: "_blank" },
+	              "Functional Icons Sticker Sheet"
 	            ),
 	            "(",
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-icons-pdf", href: "/assets/design/hpe/grommet-hpe-icons.pdf", target: "_blank" },
+	              { id: "hpe-ai-icons-pdf", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-functional-icons.pdf", target: "_blank" },
 	              "pdf"
 	            ),
 	            ")"
@@ -21969,29 +21969,13 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-classic", href: "/assets/design/hpe/grommet-hpe-classic.ai", target: "_blank" },
-	              "Classic Sticker Sheet"
+	              { id: "hpe-ai-classic", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-classic.ai", target: "_blank" },
+	              "Classic Sticker Sheet for Applications"
 	            ),
 	            "(",
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ai-classic-pdf", href: "/assets/design/hpe/grommet-hpe-classic.pdf", target: "_blank" },
-	              "pdf"
-	            ),
-	            ")"
-	          ),
-	          React.createElement(
-	            "li",
-	            null,
-	            React.createElement(
-	              "a",
-	              { id: "hpe-ai-master", href: "/assets/design/hpe/grommet-hpe-master.ai", target: "_blank" },
-	              "Master Sticker Sheet"
-	            ),
-	            "- all of the above (",
-	            React.createElement(
-	              "a",
-	              { id: "hpe-ai-master-pdf", href: "/assets/design/hpe/grommet-hpe-master.pdf", target: "_blank" },
+	              { id: "hpe-ai-classic-pdf", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-classic.pdf", target: "_blank" },
 	              "pdf"
 	            ),
 	            ")"
@@ -22010,8 +21994,8 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-sk-general", href: "/assets/design/hpe/grommet-hpe-general.sketch", target: "_blank" },
-	              "Sketch Sticker Sheet"
+	              { id: "hpe-sk-general", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general.sketch", target: "_blank" },
+	              "General Sticker Sheet for Applications"
 	            )
 	          )
 	        ),
@@ -22028,8 +22012,8 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-ax-general", href: "/assets/design/hpe/grommet-hpe-axure.rplib", target: "_blank" },
-	              "Axure Stencils"
+	              { id: "hpe-ax-general", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general.rplib", target: "_blank" },
+	              "Axure Stencils for Applications"
 	            )
 	          )
 	        ),
@@ -22046,8 +22030,8 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpe-bq-general", href: "/assets/design/hpe/grommet-hpe-balsamiq.bmpr", target: "_blank" },
-	              "Balsamiq Assets"
+	              { id: "hpe-bq-general", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general.bmpr", target: "_blank" },
+	              "Balsamiq Assets for Applications"
 	            )
 	          )
 	        )
@@ -22073,13 +22057,13 @@ module.exports =
 	            null,
 	            React.createElement(
 	              "a",
-	              { id: "hpi-ai-general", href: "/assets/design/hpi/grommet-hpi-general.ai", target: "_blank" },
+	              { id: "hpi-ai-general", href: "https://github.com/grommet/grommet-design/raw/master/hpi/hpi-sticker-sheet-apps-general.ai", target: "_blank" },
 	              "General Sticker Sheet"
 	            ),
 	            "(",
 	            React.createElement(
 	              "a",
-	              { id: "hpi-ai-general-pdf", href: "/assets/design/hpi/grommet-hpi-general.pdf", target: "_blank" },
+	              { id: "hpi-ai-general-pdf", href: "https://github.com/grommet/grommet-design/raw/master/hpi/hpi-sticker-sheet-apps-general.pdf", target: "_blank" },
 	              "pdf"
 	            ),
 	            ")"
