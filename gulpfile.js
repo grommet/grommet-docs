@@ -233,10 +233,9 @@ gulp.task('release:heroku', ['dist', 'release:createTmp'], function(done) {
             throw err;
           }
 
-          gulp.src([
-            '../../**',
-            '!../../.gitignore',
-            '!../../.travis.yml'])
+          del.sync(['./**/*']);
+
+          gulp.src(['../../**'])
           .pipe(gulp.dest('./')).on('end', function() {
             git.status({
               args: '--porcelain'

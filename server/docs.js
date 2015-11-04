@@ -10,9 +10,8 @@ var Router = require('react-router').Router;
 var createHistory = require('history').createMemoryHistory;
 var createLocation = require('history').createLocation;
 
-var theme = require('./theme');
-
-var fs = require('fs');
+var docsRoutes = require('./server-routes.js');
+var themePicker = require('./theme-picker');
 
 // Convert static resources defined by relative URLs when using HTML5 pushState
 function translateStatics(req, res, next) {
@@ -32,9 +31,6 @@ function translateStatics(req, res, next) {
 }
 
 function processPage(req, res, theme) {
-
-  delete require.cache[require.resolve('./server-routes.js')];
-  var docsRoutes = require('./server-routes.js');
 
   var path = theme !== '' ? ('/' + theme) : '';
 
@@ -63,6 +59,9 @@ function processPage(req, res, theme) {
 function routerProcessor(req, res, next) {
   if (/\..*$/.test(req.url)) {
     translateStatics(req, res, next);
+  } else if (req.url === '/') {
+    var docpath = path.join('/docs/', themePicker(req.ip));
+    res.redirect(301, docpath);
   } else {
     var themeGroups = /docs\/([^\/]+)\/?/.exec(req.originalUrl);
 
