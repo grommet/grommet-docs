@@ -8,6 +8,7 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var path = require('path');
 var throng = require('throng');
+var themePicker = require('./theme-picker');
 
 var docs = require('./docs');
 
@@ -32,6 +33,11 @@ function start() {
   if (!process.env.SILENT_MODE) {
     app.use(morgan('tiny'));
   }
+
+  app.get('/', function (req, res) {
+    var docpath = path.join('/docs/', themePicker(req.ip));
+    res.redirect(301, docpath);
+  });
 
   router.use('/docs/', docs);
 
