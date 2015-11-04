@@ -59,10 +59,14 @@ function processPage(req, res, theme) {
 function routerProcessor(req, res, next) {
   if (/\..*$/.test(req.url)) {
     translateStatics(req, res, next);
-  } else if (req.url === '/') {
-    var docpath = path.join('/docs/', themePicker(req.ip));
-    res.redirect(301, docpath);
   } else {
+    if (req.url === '/') {
+      var currentTheme = themePicker(req.ip);
+      if (currentTheme) {
+        res.redirect(301, path.join('/docs/', currentTheme));
+      }
+    }
+
     var themeGroups = /docs\/([^\/]+)\/?/.exec(req.originalUrl);
 
     var theme = '';
