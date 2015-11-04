@@ -35,7 +35,8 @@ function start() {
   }
 
   app.get('/', function (req, res) {
-    var docpath = path.join('/docs/', themePicker(req.ip));
+    var docpath = path.join('/docs/',
+      themePicker(req.headers["x-forwarded-for"] || req.ip));
     res.redirect(301, docpath);
   });
 

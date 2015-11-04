@@ -61,7 +61,7 @@ function routerProcessor(req, res, next) {
     translateStatics(req, res, next);
   } else {
     if (req.url === '/') {
-      var currentTheme = themePicker(req.ip);
+      var currentTheme = themePicker(req.headers["x-forwarded-for"] || req.ip);
       if (currentTheme) {
         res.redirect(301, path.join('/docs/', currentTheme));
       }
