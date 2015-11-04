@@ -1,8 +1,6 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-var theme = module.exports = {};
-
-theme.picker = function(ip) {
+module.exports = function(ip) {
   var theme;
 
   //
@@ -14,14 +12,14 @@ theme.picker = function(ip) {
   //
   // Generated these regex using http://www.analyticsmarket.com/freetools/ipregex
   //
-  if( ip.match(/^15\.([0-9]|[1-9][0-9]|1(0[0-3]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$/) ) {
-  	theme = "hpinc/";
+  if (ip.match(/^15\.([0-9]|[1-9][0-9]|1(0[0-3]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$/) ) {
+    theme = "hpinc/";
   } else if ( ip.match(/^16\./) ||
   	ip.match(/^15\.(1(0[4-9]|[1-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$/) ) {
     theme = "hpe/";
   } else {
-  	theme = "";
+    theme = "";
   }
 
   return theme;
-}
+};

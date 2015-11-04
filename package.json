@@ -31,7 +31,8 @@
     "morgan": "^1.5.0",
     "react": "^0.14.1",
     "react-dom": "^0.14.0",
-    "react-router": "^1.0.0-rc3"
+    "react-router": "^1.0.0-rc3",
+    "throng": "^1.0.1"
   },
   "devDependencies": {
     "babel-loader": "^5.2.2",
