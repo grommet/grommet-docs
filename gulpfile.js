@@ -74,6 +74,7 @@ var opts = {
     }
   },
   devServerPort: 8002,
+  // devServerHost: "0.0.0.0",
   scsslint: true,
   devPreprocess: ['dist-css', 'generate-icons-map'],
   distPreprocess: ['dist-css', 'generate-icons-map', 'generate-server-routes']
