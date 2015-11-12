@@ -43520,6 +43520,53 @@ module.exports =
 	        React.createElement(
 	          'h3',
 	          null,
+	          'Logo, title and labelled Menu'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Header,
+	            { justify: 'between' },
+	            React.createElement(
+	              Title,
+	              null,
+	              React.createElement(Logo, null),
+	              ' Title'
+	            ),
+	            React.createElement(
+	              Menu,
+	              { label: 'Label', dropAlign: { right: "right" } },
+	              React.createElement(
+	                'a',
+	                { href: '#', className: 'active' },
+	                'First'
+	              ),
+	              React.createElement(
+	                'a',
+	                { href: '#' },
+	                'Second'
+	              ),
+	              React.createElement(
+	                'a',
+	                { href: '#' },
+	                'Third'
+	              )
+	            )
+	          )
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Header> ..."
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
 	          'Large'
 	        ),
 	        React.createElement(

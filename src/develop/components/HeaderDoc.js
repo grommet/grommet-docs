@@ -84,6 +84,19 @@ var HeaderDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
 
+          <h3>Logo, title and labelled Menu</h3>
+          <div className="example">
+            <Header justify="between">
+              <Title><Logo /> Title</Title>
+              <Menu label="Label" dropAlign={{right: "right"}}>
+                <a href="#" className="active">First</a>
+                <a href="#">Second</a>
+                <a href="#">Third</a>
+              </Menu>
+            </Header>
+          </div>
+          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+
           <h3>Large</h3>
           <div className="example">
             <Header size="large" justify="between">
