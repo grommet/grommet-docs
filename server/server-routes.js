@@ -42317,8 +42317,7 @@ module.exports =
 	        React.createElement(
 	          Menu,
 	          { direction: 'right' },
-	          React.createElement(Button, { label: 'OK', primary: true, strong: true, onClick: this.props.onSubmit }),
-	          React.createElement(Button, { label: 'Cancel', onClick: this.props.onCancel })
+	          React.createElement(Button, { label: 'OK', primary: true, strong: true, onClick: this.props.onSubmit })
 	        )
 	      )
 	    );

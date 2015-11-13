@@ -154,7 +154,6 @@ var FullForm = React.createClass({
         <Footer pad={{vertical: 'medium'}}>
           <Menu direction="right">
             <Button label="OK" primary={true} strong={true} onClick={this.props.onSubmit} />
-            <Button label="Cancel" onClick={this.props.onCancel} />
           </Menu>
         </Footer>
       </Form>
