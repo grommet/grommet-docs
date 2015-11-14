@@ -42186,22 +42186,28 @@ module.exports =
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 3' },
-	            React.createElement(RadioButton, { id: p + "item3-1", name: 'item-3', label: 'first',
-	              onChange: this._onChange }),
-	            React.createElement(RadioButton, { id: p + "item3-2", name: 'item-3', label: 'second',
+	            null,
+	            React.createElement(CheckBox, { id: p + "item3", name: 'item-3', label: 'Item 3', toggle: true,
 	              onChange: this._onChange })
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 4', htmlFor: p + "item4",
-	              error: 'something\'s wrong' },
-	            React.createElement('textarea', { id: p + "item4", name: 'item-4' })
+	            { label: 'Item 4' },
+	            React.createElement(RadioButton, { id: p + "item4-1", name: 'item-4', label: 'first',
+	              onChange: this._onChange }),
+	            React.createElement(RadioButton, { id: p + "item4-2", name: 'item-4', label: 'second',
+	              onChange: this._onChange })
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 5', htmlFor: p + "item5" },
-	            React.createElement(SearchInput, { id: p + "item5", name: 'item-5',
+	            { label: 'Item 5', htmlFor: p + "item5",
+	              error: 'something\'s wrong' },
+	            React.createElement('textarea', { id: p + "item5", name: 'item-5' })
+	          ),
+	          React.createElement(
+	            FormField,
+	            { label: 'Item 6', htmlFor: p + "item6" },
+	            React.createElement(SearchInput, { id: p + "item6", name: 'item-6',
 	              value: this.state.searchInput.value,
 	              suggestions: this.state.searchInput.suggestions,
 	              onChange: this._onSearchInputChange,
@@ -42209,7 +42215,7 @@ module.exports =
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 6', htmlFor: p + "item6",
+	            { label: 'Item 7', htmlFor: p + "item7",
 	              help: React.createElement(
 	                'a',
 	                null,
@@ -42217,7 +42223,7 @@ module.exports =
 	              ) },
 	            React.createElement(
 	              'select',
-	              { id: p + "item6", name: 'item-6' },
+	              { id: p + "item7", name: 'item-7' },
 	              React.createElement(
 	                'option',
 	                null,
@@ -42237,8 +42243,8 @@ module.exports =
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 10', htmlFor: p + "item10" },
-	            React.createElement(Calendar, { id: p + "item10", name: 'item-10',
+	            { label: 'Item 8', htmlFor: p + "item8" },
+	            React.createElement(Calendar, { id: p + "item8", name: 'item-8',
 	              value: this.state.calendarDate,
 	              onChange: this._onCalendarChange })
 	          )
@@ -42258,7 +42264,7 @@ module.exports =
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 7' },
+	            { label: 'Item 9' },
 	            React.createElement(
 	              Table,
 	              { selectable: true, defaultSelection: 0 },
@@ -42312,14 +42318,14 @@ module.exports =
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 8', htmlFor: p + "item8" },
-	            React.createElement('input', { id: p + "item8", name: 'item-8', type: 'number',
+	            { label: 'Item 10', htmlFor: p + "item10" },
+	            React.createElement('input', { id: p + "item10", name: 'item-10', type: 'number',
 	              min: '1', max: '20', step: '1', defaultValue: '10' })
 	          ),
 	          React.createElement(
 	            FormField,
-	            { label: 'Item 9', htmlFor: p + "item9", help: this.state.rangeValue },
-	            React.createElement('input', { id: p + "item9", name: 'item-9', type: 'range',
+	            { label: 'Item 11', htmlFor: p + "item11", help: this.state.rangeValue },
+	            React.createElement('input', { id: p + "item11", name: 'item-11', type: 'range',
 	              min: '1', max: '20', defaultValue: '10',
 	              onChange: this._onChangeRange })
 	          )

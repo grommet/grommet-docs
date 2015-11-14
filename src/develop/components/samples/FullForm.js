@@ -88,33 +88,37 @@ var FullForm = React.createClass({
               <CheckBox id={p + "item2"} name="item-2" label="Item 2"
                 onChange={this._onChange} />
             </FormField>
-            <FormField label="Item 3">
-              <RadioButton id={p + "item3-1"} name="item-3" label="first"
-                onChange={this._onChange} />
-              <RadioButton id={p + "item3-2"} name="item-3" label="second"
+            <FormField>
+              <CheckBox id={p + "item3"} name="item-3" label="Item 3" toggle={true}
                 onChange={this._onChange} />
             </FormField>
-            <FormField label="Item 4" htmlFor={p + "item4"}
+            <FormField label="Item 4">
+              <RadioButton id={p + "item4-1"} name="item-4" label="first"
+                onChange={this._onChange} />
+              <RadioButton id={p + "item4-2"} name="item-4" label="second"
+                onChange={this._onChange} />
+            </FormField>
+            <FormField label="Item 5" htmlFor={p + "item5"}
               error="something's wrong">
-              <textarea id={p + "item4"} name="item-4"></textarea>
+              <textarea id={p + "item5"} name="item-5"></textarea>
             </FormField>
-            <FormField label="Item 5" htmlFor={p + "item5"}>
-              <SearchInput id={p + "item5"} name="item-5"
+            <FormField label="Item 6" htmlFor={p + "item6"}>
+              <SearchInput id={p + "item6"} name="item-6"
                 value={this.state.searchInput.value}
                 suggestions={this.state.searchInput.suggestions}
                 onChange={this._onSearchInputChange}
                 onSearch={this._onSearchInputSearch} />
             </FormField>
-            <FormField label="Item 6" htmlFor={p + "item6"}
+            <FormField label="Item 7" htmlFor={p + "item7"}
               help={<a>learn more ...</a>}>
-              <select id={p + "item6"} name="item-6">
+              <select id={p + "item7"} name="item-7">
                 <option>first</option>
                 <option>second</option>
                 <option>third</option>
               </select>
             </FormField>
-            <FormField label="Item 10" htmlFor={p + "item10"}>
-              <Calendar id={p + "item10"} name="item-10"
+            <FormField label="Item 8" htmlFor={p + "item8"}>
+              <Calendar id={p + "item8"} name="item-8"
                 value={this.state.calendarDate}
                 onChange={this._onCalendarChange} />
             </FormField>
@@ -122,7 +126,7 @@ var FullForm = React.createClass({
           <fieldset>
             <legend>Another section</legend>
             <p>Some informational text.</p>
-            <FormField label="Item 7">
+            <FormField label="Item 9">
               <Table selectable={true} defaultSelection={0}>
                 <tbody>
                   <tr>
@@ -140,12 +144,12 @@ var FullForm = React.createClass({
                 </tbody>
               </Table>
             </FormField>
-            <FormField label="Item 8" htmlFor={p + "item8"}>
-              <input id={p + "item8"} name="item-8" type="number"
+            <FormField label="Item 10" htmlFor={p + "item10"}>
+              <input id={p + "item10"} name="item-10" type="number"
                 min="1" max="20" step="1" defaultValue="10" />
             </FormField>
-            <FormField label="Item 9" htmlFor={p + "item9"} help={this.state.rangeValue}>
-              <input id={p + "item9"} name="item-9" type="range"
+            <FormField label="Item 11" htmlFor={p + "item11"} help={this.state.rangeValue}>
+              <input id={p + "item11"} name="item-11" type="range"
                 min="1" max="20" defaultValue="10"
                 onChange={this._onChangeRange}/>
             </FormField>
