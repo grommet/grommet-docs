@@ -26332,7 +26332,7 @@ module.exports =
 	            { to: this.context.routePrefix + "box" },
 	            'Box'
 	          ),
-	          ' area also available.'
+	          ' are also available.'
 	        )
 	      ),
 	      React.createElement(
@@ -26807,6 +26807,20 @@ module.exports =
 	            'dd',
 	            null,
 	            'Whether this is an accent button.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'fill        true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the button expands to fill all of the available width.'
 	          ),
 	          React.createElement(
 	            'dt',
@@ -41804,7 +41818,7 @@ module.exports =
 	            { to: this.context.routePrefix + "box" },
 	            'Box'
 	          ),
-	          ' area also available.'
+	          ' are also available.'
 	        )
 	      ),
 	      React.createElement(
@@ -43383,7 +43397,7 @@ module.exports =
 	            { to: this.context.routePrefix + "box" },
 	            'Box'
 	          ),
-	          ' area also available.'
+	          ' are also available.'
 	        )
 	      ),
 	      React.createElement(
@@ -65942,7 +65956,7 @@ module.exports =
 	            { to: this.context.routePrefix + "box" },
 	            'Box'
 	          ),
-	          ' area also available.'
+	          ' are also available.'
 	        )
 	      ),
 	      React.createElement(
@@ -70275,16 +70289,21 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(131);
 	var Tiles = __webpack_require__(119);
 	var Tile = __webpack_require__(124);
 	var Header = __webpack_require__(113);
 	var Footer = __webpack_require__(116);
 	var Menu = __webpack_require__(90);
-	var Edit = __webpack_require__(316);
+	var Button = __webpack_require__(89);
 
 	var TileDoc = React.createClass({
 	  displayName: 'TileDoc',
+
+	  _onClick: function _onClick() {
+	    // No-op
+	  },
 
 	  render: function render() {
 	    var inline = "<Tiles>\n" + "  <Tile>\n" + "    <Header>\n" + "      ...\n" + "    </Header>\n" + "    ...\n" + "    <Footer>\n" + "      ...\n" + "    </Footer>\n" + "  </Tile>\n" + "  ...\n" + "</Tiles>";
@@ -70292,22 +70311,17 @@ module.exports =
 	    var richTiles = [];
 	    var index = 1;
 	    while (index <= 8) {
-	      richTiles.push(React.createElement(
-	        Tile,
-	        { key: index },
-	        React.createElement(
-	          Header,
-	          { tag: 'h4', textAlign: 'center' },
-	          "Tile " + index
-	        ),
-	        'hello',
-	        React.createElement(
+	      var bottom;
+	      if (index % 3 === 0) {
+	        bottom = React.createElement(Button, { fill: true, label: 'Action', onClick: this._onClick });
+	      } else {
+	        bottom = React.createElement(
 	          Footer,
-	          null,
+	          { justify: 'between' },
 	          React.createElement('span', null),
 	          React.createElement(
 	            Menu,
-	            { icon: React.createElement(Edit, null), dropAlign: { bottom: 'bottom', right: 'right' } },
+	            { inline: false, dropAlign: { bottom: 'bottom', right: 'right' } },
 	            React.createElement(
 	              'a',
 	              null,
@@ -70324,7 +70338,23 @@ module.exports =
 	              'action 3'
 	            )
 	          )
-	        )
+	        );
+	      }
+
+	      richTiles.push(React.createElement(
+	        Tile,
+	        { key: index, align: 'start', separator: index % 2 ? 'top' : null },
+	        React.createElement(
+	          Header,
+	          { tag: 'h4', textAlign: 'center' },
+	          "Tile " + index
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'Top level summary content.'
+	        ),
+	        bottom
 	      ));
 	      index += 1;
 	    }
@@ -70352,7 +70382,7 @@ module.exports =
 	        React.createElement(
 	          'h2',
 	          null,
-	          'Options'
+	          'Tiles Options'
 	        ),
 	        React.createElement(
 	          'dl',
@@ -70462,7 +70492,50 @@ module.exports =
 	        React.createElement(
 	          'h2',
 	          null,
+	          'Tile Options'
+	        ),
+	        React.createElement(
+	          'dl',
+	          null,
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'wide        true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the tile should fill the full width of the Tiles component that contains it.'
+	          )
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'Options for ',
+	          React.createElement(
+	            Link,
+	            { to: this.context.routePrefix + "box" },
+	            'Box'
+	          ),
+	          ' are also available for Tile.'
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
 	          'Examples'
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'These examples show a wide variety of Tile types within the same Tiles. In practice, each Tile should have similar styling within the Tiles. Included here are Headers, Footer, Buttons, and Menus.'
 	        ),
 	        React.createElement(
 	          'h3',
@@ -70504,7 +70577,7 @@ module.exports =
 	        React.createElement(
 	          'h3',
 	          null,
-	          'Headers and Footers'
+	          'Containing other components'
 	        ),
 	        React.createElement(
 	          'div',

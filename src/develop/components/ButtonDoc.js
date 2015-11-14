@@ -27,6 +27,8 @@ var ButtonDoc = React.createClass({
           <dl>
           <dt><code>accent         true|false</code></dt>
           <dd>Whether this is an accent button.</dd>
+          <dt><code>fill        true|false</code></dt>
+          <dd>Whether the button expands to fill all of the available width.</dd>
           <dt><code>label          {"{text|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
           <dt><code>onClick        {"{func}"}</code></dt>
