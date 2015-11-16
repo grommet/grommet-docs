@@ -11,7 +11,6 @@ var createHistory = require('history').createMemoryHistory;
 var createLocation = require('history').createLocation;
 
 var docsRoutes = require('./server-routes.js');
-var themePicker = require('./theme-picker');
 
 // Convert static resources defined by relative URLs when using HTML5 pushState
 function translateStatics(req, res, next) {
@@ -60,13 +59,6 @@ function routerProcessor(req, res, next) {
   if (/\..*$/.test(req.url)) {
     translateStatics(req, res, next);
   } else {
-    if (req.url === '/') {
-      var currentTheme = themePicker(req.headers["x-forwarded-for"] || req.ip);
-      if (currentTheme) {
-        res.redirect(301, path.join('/docs/', currentTheme));
-      }
-    }
-
     var themeGroups = /docs\/([^\/]+)\/?/.exec(req.originalUrl);
 
     var theme = '';
