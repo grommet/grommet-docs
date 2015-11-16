@@ -21990,6 +21990,33 @@ module.exports =
 	      ),
 	      React.createElement(
 	        "section",
+	        { id: "grommet" },
+	        React.createElement(
+	          "h2",
+	          null,
+	          "Grommet"
+	        ),
+	        React.createElement(
+	          "h4",
+	          null,
+	          "Sketch"
+	        ),
+	        React.createElement(
+	          "ul",
+	          null,
+	          React.createElement(
+	            "li",
+	            null,
+	            React.createElement(
+	              "a",
+	              { id: "grommet-sk-general", href: "https://github.com/grommet/grommet-design/raw/master/grommet/grommet-sticker-sheet-apps-general.sketch", target: "_blank" },
+	              "General Sticker Sheet for Applications"
+	            )
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        "section",
 	        { id: "hpe" },
 	        React.createElement(
 	          "h2",
@@ -22172,20 +22199,6 @@ module.exports =
 	            ),
 	            ")"
 	          )
-	        )
-	      ),
-	      React.createElement(
-	        "section",
-	        { id: "grommet" },
-	        React.createElement(
-	          "h2",
-	          null,
-	          "Grommet"
-	        ),
-	        React.createElement(
-	          "p",
-	          null,
-	          "Coming soon..."
 	        )
 	      )
 	    );
