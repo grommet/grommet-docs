@@ -1725,6 +1725,7 @@ module.exports =
 	  created: 'Created',
 	  Critical: 'Critical',
 	  Disabled: 'Disabled',
+	  Email: 'Email',
 	  Error: 'Error',
 	  Filter: 'Filter',
 	  Footer: 'Footer',
@@ -1777,6 +1778,7 @@ module.exports =
 	  created: 'Criado',
 	  Critical: 'Crítico',
 	  Disabled: 'Desabilitado',
+	  Email: 'Email',
 	  Error: 'Erro',
 	  Filter: 'Filtro',
 	  Footer: 'Rodapé',
@@ -7872,13 +7874,23 @@ module.exports =
 	    a11yCloserTitle: React.PropTypes.string
 	  },
 
+	  // Because Layer creates a new DOM render context, the context
+	  // is not transfered. For now, we hard code these specific ones.
+	  // TODO: Either figure out how to introspect the context and transfer
+	  // whatever we find or have callers explicitly indicate which parts
+	  // of the context to transfer somehow.
 	  childContextTypes: {
 	    router: React.PropTypes.func,
-	    intl: React.PropTypes.object
+	    intl: React.PropTypes.object,
+	    store: React.PropTypes.object
 	  },
 
 	  getChildContext: function getChildContext() {
-	    return { router: this.props.router, intl: this.props.intl };
+	    return {
+	      router: this.props.router,
+	      intl: this.props.intl,
+	      store: this.props.store
+	    };
 	  },
 
 	  componentDidMount: function componentDidMount() {
@@ -7961,7 +7973,8 @@ module.exports =
 
 	  contextTypes: {
 	    router: React.PropTypes.func,
-	    intl: React.PropTypes.object
+	    intl: React.PropTypes.object,
+	    store: React.PropTypes.object
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
@@ -8034,7 +8047,10 @@ module.exports =
 
 	  _renderLayer: function _renderLayer() {
 	    this._element.className = this._classesFromProps().join(' ');
-	    var contents = React.createElement(LayerContents, _extends({}, this.props, { router: this.context.router, intl: this.context.intl }));
+	    var contents = React.createElement(LayerContents, _extends({}, this.props, {
+	      router: this.context.router,
+	      intl: this.context.intl,
+	      store: this.context.store }));
 	    ReactDOM.render(contents, this._element);
 	    this._handleAriaHidden(this.props.hidden);
 	  },
@@ -8373,12 +8389,13 @@ module.exports =
 
 	  propTypes: {
 	    accent: React.PropTypes.bool,
-	    label: React.PropTypes.node,
+	    fill: React.PropTypes.bool,
+	    icon: React.PropTypes.bool,
 	    id: React.PropTypes.string,
+	    label: React.PropTypes.node,
 	    onClick: React.PropTypes.func,
 	    primary: React.PropTypes.bool,
 	    secondary: React.PropTypes.bool,
-	    icon: React.PropTypes.bool,
 	    type: React.PropTypes.oneOf(['button', 'reset', 'submit', 'icon'])
 	  },
 
@@ -8401,6 +8418,9 @@ module.exports =
 	    }
 	    if (!this.props.onClick) {
 	      classes.push(CLASS_ROOT + "--disabled");
+	    }
+	    if (this.props.fill) {
+	      classes.push(CLASS_ROOT + "--fill");
 	    }
 	    if (this.props.className) {
 	      classes.push(this.props.className);
@@ -8606,6 +8626,7 @@ module.exports =
 	    dropAlign: Drop.alignPropType,
 	    dropColorIndex: React.PropTypes.string,
 	    icon: React.PropTypes.node,
+	    id: React.PropTypes.string,
 	    inline: React.PropTypes.bool,
 	    label: React.PropTypes.string,
 	    large: React.PropTypes.bool,
@@ -8651,7 +8672,8 @@ module.exports =
 	    if (this.refs.control) {
 	      var controlElement = this.refs.control;
 	      this.setState({
-	        dropId: 'menu-drop-' + controlElement.getAttribute('data-reactid')
+	        dropId: 'menu-drop-' + controlElement.getAttribute('data-reactid'),
+	        controlHeight: this.refs.control.clientHeight + 'px'
 	      });
 
 	      controlElement.setAttribute('role', 'menu');
@@ -8784,6 +8806,7 @@ module.exports =
 	  _renderControl: function _renderControl() {
 	    var result = null;
 	    var icon = null;
+
 	    var controlClassName = CLASS_ROOT + "__control";
 
 	    var classes = [controlClassName];
@@ -8807,7 +8830,7 @@ module.exports =
 	        ),
 	        React.createElement(
 	          'span',
-	          { tabIndex: '-1', className: controlClassName + "-label" },
+	          { tabIndex: '-1', style: { lineHeight: this.state.controlHeight }, className: controlClassName + "-label" },
 	          this.props.label
 	        ),
 	        React.createElement(DropCaretIcon, { className: controlClassName + "-drop-icon" })
@@ -8888,7 +8911,8 @@ module.exports =
 
 	      return React.createElement(
 	        Box,
-	        _extends({ tag: 'nav' }, other, { className: classes.join(' '), onClick: this._onClose }),
+	        _extends({ tag: 'nav', id: this.props.id }, other, { className: classes.join(' '),
+	          onClick: this._onClose }),
 	        this.props.children
 	      );
 	    } else {
@@ -8897,7 +8921,8 @@ module.exports =
 
 	      return React.createElement(
 	        'div',
-	        { ref: 'control', className: classes.join(' '),
+	        { ref: 'control', id: this.props.id,
+	          className: classes.join(' '),
 	          tabIndex: '0',
 	          onClick: this._onOpen,
 	          onFocus: this._onFocusControl,
@@ -14661,7 +14686,7 @@ module.exports =
 	    }
 	    return React.createElement(
 	      'svg',
-	      { className: classes.join(' '), viewBox: '0 0 140 140',
+	      { className: classes.join(' '), viewBox: '0 0 140 140', width: '140', height: '140',
 	        version: '1.1', role: 'img', 'aria-labelledby': logoTitleId },
 	      title,
 	      React.createElement('path', { role: 'presentation', d: 'M119.49603,20.5014878 L100.989057,39.0094878 C105.89805,43.9184878 109.859044,49.7734878 111.669042,55.3734878 C122.692025,89.4684878 93.3250687,120.604488 59.5321185,112.820488 C44.9911399,109.470488 30.5211612,94.9984878 27.1751661,80.4564878 C20.432176,51.1514878 42.9571429,25.1854878 71.2931012,25.9974878 L93.3090687,3.98048778 C86.0960794,1.43348778 78.3420908,0.0304877767 70.2641027,0.000487776719 C32.014159,-0.141512223 0.549205302,30.7384878 0.00720609982,68.9844878 C-0.547793083,108.124488 31.0271604,140.024488 70.045103,139.999488 C108.802046,139.975488 140,108.756488 140,70.0004878 C140,50.6694878 132.164012,33.1694878 119.49603,20.5014878 L119.49603,20.5014878 Z', fill: '#8C50FF' }),
@@ -15173,18 +15198,35 @@ module.exports =
 	var SCROLL_MORE_DELAY = 500; // when the user scrolls
 	var SCROLL_MORE_INITIAL_DELAY = 50; // when we start out at the bottom already
 
+	function _evaluate(scrollState) {
+	  if (scrollState.scrollParent) {
+	    // are we at the bottom?
+	    var bottom;
+	    if (scrollState.scrollParent === document) {
+	      bottom = window.innerHeight;
+	    } else {
+	      bottom = scrollState.scrollParent.getBoundingClientRect().bottom;
+	    }
+	    var indicatorRect = scrollState.indicatorElement.getBoundingClientRect();
+	    // Only if bottom isn't zero. This can happen when content hasn't arrived yet.
+	    if (bottom && indicatorRect.bottom <= bottom) {
+	      scrollState.onEnd();
+	    }
+	  }
+	}
+
 	function _onScroll(scrollState) {
 	  // delay a bit to ride out quick users
 	  clearTimeout(scrollState.scrollTimer);
 	  scrollState.scrollTimer = setTimeout(function () {
-	    if (scrollState.scrollParent) {
-	      // are we at the bottom?
-	      var parentRect = scrollState.scrollParent.getBoundingClientRect();
-	      var indicatorRect = scrollState.indicatorElement.getBoundingClientRect();
-	      if (indicatorRect.bottom <= parentRect.bottom) {
-	        scrollState.onEnd();
-	      }
-	    }
+	    _evaluate(scrollState);
+	  }, SCROLL_MORE_DELAY);
+	}
+
+	function _onResize(scrollState) {
+	  clearTimeout(scrollState.scrollTimer);
+	  scrollState.scrollTimer = setTimeout(function () {
+	    _evaluate(scrollState);
 	  }, SCROLL_MORE_DELAY);
 	}
 
@@ -15197,9 +15239,13 @@ module.exports =
 	      scrollParent: DOM.findScrollParents(indicatorElement)[0]
 	    };
 	    scrollState.scrollParent.addEventListener("scroll", _onScroll.bind(null, scrollState));
-	    // check in case we're already at the bottom
+	    window.addEventListener("resize", _onResize.bind(null, scrollState));
+	    // check in case we're already at the bottom and the indicator is visible
 	    if (scrollState.scrollParent === document) {
-	      scrollState.scrollTimer = setTimeout(onEnd, SCROLL_MORE_INITIAL_DELAY);
+	      var rect = indicatorElement.getBoundingClientRect();
+	      if (rect.top < window.innerHeight) {
+	        scrollState.scrollTimer = setTimeout(onEnd, SCROLL_MORE_INITIAL_DELAY);
+	      }
 	    }
 	    return scrollState;
 	  },
@@ -15208,6 +15254,7 @@ module.exports =
 	    if (scrollState.scrollParent) {
 	      clearTimeout(scrollState.scrollTimer);
 	      scrollState.scrollParent.removeEventListener("scroll", _onScroll);
+	      window.removeEventListener("resize", _onResize);
 	      scrollState.scrollParent = null;
 	    }
 	  }
@@ -15652,13 +15699,15 @@ module.exports =
 	  propTypes: {
 	    fixed: React.PropTypes.bool,
 	    flex: React.PropTypes.oneOf(['left', 'right', 'both']),
+	    priority: React.PropTypes.oneOf(['left', 'right']),
 	    separator: React.PropTypes.bool
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
 	      fixed: true,
-	      flex: 'both'
+	      flex: 'both',
+	      priority: 'right'
 	    };
 	  },
 
@@ -15680,8 +15729,34 @@ module.exports =
 	    this._layout();
 	  },
 
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    // If we change the number of visible children, trigger a resize event
+	    // so things like Table header can adjust. This will go away once
+	    // CSS supports per element media queries.
+	    // The 500ms delay is loosely tied to the CSS animation duration.
+	    // We want any animations to finish before triggering the resize.
+	    // TODO: consider using an animation end event instead of a timer.
+	    if (this._nonNullChildCount(nextProps) !== this._nonNullChildCount(this.props)) {
+	      clearTimeout(this._resizeTimer);
+	      this._resizeTimer = setTimeout(function () {
+	        var event = document.createEvent('HTMLEvents');
+	        event.initEvent('resize', true, false);
+	        window.dispatchEvent(event);
+	      }, 500);
+	    }
+	  },
+
 	  componentWillUnmount: function componentWillUnmount() {
 	    window.removeEventListener('resize', this._onResize);
+	  },
+
+	  // Support function for componentWillReceiveProps()
+	  _nonNullChildCount: function _nonNullChildCount(props) {
+	    var result = 0;
+	    React.Children.forEach(props.children, function (child) {
+	      if (child !== null) result += 1;
+	    });
+	    return result;
 	  },
 
 	  _onResize: function _onResize() {
@@ -15701,10 +15776,12 @@ module.exports =
 
 	  _layout: function _layout() {
 	    var splitElement = this.refs.split;
-	    if (splitElement.offsetWidth < this._breakWidth) {
-	      this._setResponsive('single');
-	    } else {
-	      this._setResponsive('multiple');
+	    if (splitElement) {
+	      if (splitElement.offsetWidth < this._breakWidth) {
+	        this._setResponsive('single');
+	      } else {
+	        this._setResponsive('multiple');
+	      }
 	    }
 	  },
 
@@ -15723,10 +15800,21 @@ module.exports =
 	      classes.push(this.props.className);
 	    }
 
+	    var children;
+	    if ('single' === this.state.responsive) {
+	      if ('left' === this.props.priority) {
+	        children = React.Children.toArray(this.props.children)[0];
+	      } else {
+	        children = React.Children.toArray(this.props.children).pop();
+	      }
+	    } else {
+	      children = this.props.children;
+	    }
+
 	    return React.createElement(
 	      'div',
 	      { ref: 'split', className: classes.join(' ') },
-	      this.props.children
+	      children
 	    );
 	  }
 	});
@@ -16082,10 +16170,11 @@ module.exports =
 
 	  propTypes: {
 	    href: React.PropTypes.string,
-	    tag: React.PropTypes.string,
-	    target: React.PropTypes.string,
+	    id: React.PropTypes.string,
 	    onClick: React.PropTypes.func,
-	    primary: React.PropTypes.bool
+	    primary: React.PropTypes.bool,
+	    tag: React.PropTypes.string,
+	    target: React.PropTypes.string
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
@@ -18772,7 +18861,7 @@ module.exports =
 	    var warningTitleId = 'warning-title';
 	    return React.createElement(
 	      'svg',
-	      { className: className, viewBox: '0 0 27 24', role: 'img', 'aria-labelledby': warningTitleId, version: '1.1' },
+	      { className: className, viewBox: '0 0 24 24', role: 'img', 'aria-labelledby': warningTitleId, version: '1.1' },
 	      React.createElement(
 	        'title',
 	        { id: warningTitleId },
@@ -19230,7 +19319,12 @@ module.exports =
 	      );
 	    }
 
-	    var username = React.createElement(FormattedMessage, { id: 'Username', defaultMessage: 'Username' });
+	    var username;
+	    if (this.props.usernameType === 'email') {
+	      username = React.createElement(FormattedMessage, { id: 'Email', defaultMessage: 'Email' });
+	    } else {
+	      username = React.createElement(FormattedMessage, { id: 'Username', defaultMessage: 'Username' });
+	    }
 	    var password = React.createElement(FormattedMessage, { id: 'Password', defaultMessage: 'Password' });
 	    var login = React.createElement(FormattedMessage, { id: 'Log In', defaultMessage: 'Log In' });
 
@@ -19315,9 +19409,9 @@ module.exports =
 	      if (typeof this.props.pad === 'string') {
 	        classes.push(CLASS_ROOT + "--pad-" + this.props.pad);
 	      } else if (typeof this.props.pad === 'object') {
-	        keys(this.props.pad).forEach(function (key) {
+	        keys(this.props.pad).forEach((function (key) {
 	          classes.push(CLASS_ROOT + '--pad-' + key + '-' + this.props.pad[key]);
-	        });
+	        }).bind(this));
 	      }
 	    }
 	    if (this.props.className) {
@@ -19678,6 +19772,9 @@ module.exports =
 	  },
 
 	  _onActivate: function _onActivate(index) {
+	    if (index === null) {
+	      index = this.state.importantIndex;
+	    }
 	    this.setState({ initial: false, activeIndex: index });
 	  },
 
@@ -20099,15 +20196,17 @@ module.exports =
 	      fields = { value: this.state.total, label: 'Total' };
 	    } else {
 	      var active = this.state.series[this.state.activeIndex];
-	      fields = { value: active.value, label: active.label };
+	      fields = { value: active.value, label: active.label, onClick: active.onClick };
 	    }
-
 	    return fields;
 	  },
 
 	  _renderActive: function _renderActive() {
-
 	    var fields = this._getActiveFields();
+	    var classes = [CLASS_ROOT + "__active"];
+	    if (fields.onClick) {
+	      classes.push(CLASS_ROOT + "__active--active");
+	    }
 	    var units;
 	    if (this.props.units) {
 	      units = React.createElement(
@@ -20116,9 +20215,11 @@ module.exports =
 	        this.props.units
 	      );
 	    }
+
 	    return React.createElement(
 	      'div',
-	      { 'aria-hidden': 'true', role: 'presentation', className: CLASS_ROOT + "__active" },
+	      { 'aria-hidden': 'true', role: 'presentation',
+	        className: classes.join(' '), onClick: fields.onClick },
 	      React.createElement(
 	        'span',
 	        {
@@ -20172,7 +20273,7 @@ module.exports =
 	      series: this.state.series,
 	      units: this.props.units,
 	      activeIndex: this.state.activeIndex,
-	      onActive: this._onActive });
+	      onActive: this._onActivate });
 	  },
 
 	  render: function render() {
@@ -20454,7 +20555,7 @@ module.exports =
 	        { key: item.label || index, className: legendClasses.join(' '),
 	          onClick: item.onClick,
 	          onMouseOver: this._onActive.bind(this, index),
-	          onMouseOut: this._onActive.bind(this, this.props.activeIndex) },
+	          onMouseOut: this._onActive.bind(this, null) },
 	        swatch,
 	        label,
 	        value
@@ -20520,6 +20621,7 @@ module.exports =
 	    defaultValue: PropTypes.string,
 	    dropAlign: Drop.alignPropType,
 	    dropColorIndex: PropTypes.string,
+	    id: React.PropTypes.string,
 	    inline: PropTypes.bool,
 	    large: PropTypes.bool,
 	    onChange: PropTypes.func,
@@ -20685,20 +20787,20 @@ module.exports =
 	  },
 
 	  _onEnter: function _onEnter() {
+	    this._onRemoveDrop();
 	    if (this.state.activeSuggestionIndex >= 0) {
 	      var suggestion = this.props.suggestions[this.state.activeSuggestionIndex];
 	      if (this.props.onChange) {
 	        this.props.onChange(suggestion);
 	      }
 	    }
-	    this._onRemoveDrop();
 	  },
 
 	  _onClickSuggestion: function _onClickSuggestion(item) {
+	    this._onRemoveDrop();
 	    if (this.props.onChange) {
 	      this.props.onChange(item);
 	    }
-	    this._onRemoveDrop();
 	  },
 
 	  _onSink: function _onSink(event) {
@@ -20835,6 +20937,7 @@ module.exports =
 	        'div',
 	        { className: classes.join(' ') },
 	        React.createElement('input', { ref: 'input', type: 'search',
+	          id: this.props.id,
 	          placeholder: this.props.placeHolder,
 	          defaultValue: this.props.defaultValue,
 	          value: this.props.value,
@@ -20849,7 +20952,8 @@ module.exports =
 
 	      return React.createElement(
 	        'div',
-	        { ref: 'control', className: classes.join(' '),
+	        { ref: 'control', id: this.props.id,
+	          className: classes.join(' '),
 	          tabIndex: '0',
 	          onClick: this._onAddDrop,
 	          onFocus: this._onFocusControl,
@@ -22123,15 +22227,15 @@ module.exports =
 	var ButtonDoc = __webpack_require__(205);
 	var CalendarDoc = __webpack_require__(206);
 	var CarouselDoc = __webpack_require__(296);
-	var ChartDoc = __webpack_require__(298);
-	var CheckBoxDoc = __webpack_require__(301);
-	var DashboardDoc = __webpack_require__(302);
-	var DistributionDoc = __webpack_require__(303);
-	var FooterDoc = __webpack_require__(305);
-	var FormDoc = __webpack_require__(306);
-	var FormFieldDoc = __webpack_require__(314);
-	var HeaderDoc = __webpack_require__(315);
-	var IconDoc = __webpack_require__(317);
+	var ChartDoc = __webpack_require__(300);
+	var CheckBoxDoc = __webpack_require__(303);
+	var DashboardDoc = __webpack_require__(304);
+	var DistributionDoc = __webpack_require__(305);
+	var FooterDoc = __webpack_require__(307);
+	var FormDoc = __webpack_require__(308);
+	var FormFieldDoc = __webpack_require__(316);
+	var HeaderDoc = __webpack_require__(317);
+	var IconDoc = __webpack_require__(319);
 	var LayerDoc = __webpack_require__(615);
 	var ListDoc = __webpack_require__(616);
 	var LoginFormDoc = __webpack_require__(619);
@@ -25166,7 +25270,10 @@ module.exports =
 	  },
 
 	  getInitialState: function getInitialState() {
-	    return { selection: this._normalizeSelection(this.props.selection) };
+	    return {
+	      selection: this._normalizeSelection(this.props.selection),
+	      rebuildMirror: true
+	    };
 	  },
 
 	  componentDidMount: function componentDidMount() {
@@ -25189,11 +25296,16 @@ module.exports =
 	    if (newProps.hasOwnProperty('selection')) {
 	      this.setState({ selection: this._normalizeSelection(newProps.selection) });
 	    }
+	    this.setState({ rebuildMirror: true });
 	  },
 
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
 	    if (!isEqual(this.state.selection, prevState.selection)) {
 	      this._alignSelection();
+	    }
+	    if (this.state.rebuildMirror) {
+	      this._buildMirror();
+	      this.setState({ rebuildMirror: false });
 	    }
 	    if (this.props.scrollable) {
 	      this._alignMirror();
@@ -25321,6 +25433,9 @@ module.exports =
 	    var cells = tableElement.querySelectorAll('thead tr th');
 	    var mirrorElement = this.refs.mirror;
 	    var mirrorRow = mirrorElement.querySelectorAll('thead tr')[0];
+	    while (mirrorRow.hasChildNodes()) {
+	      mirrorRow.removeChild(mirrorRow.lastChild);
+	    }
 	    for (var i = 0; i < cells.length; i++) {
 	      mirrorRow.appendChild(cells[i].cloneNode(true));
 	    }
@@ -27262,12 +27377,10 @@ module.exports =
 
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
 	    // Set up keyboard listeners appropriate to the current state.
-	    if (!this.state.dropActive && prevState.dropActive) {
+	    if (prevState.dropActive !== this.state.dropActive) {
 	      this._activation(this.state.dropActive);
 	    }
-	    if (this.state.dropActive && !prevState.dropActive) {
-	      this._activation(this.state.dropActive);
-	    }
+
 	    if (this.state.dropActive) {
 	      this._drop.render(this._renderDrop());
 	    }
@@ -39091,73 +39204,197 @@ module.exports =
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var Box = __webpack_require__(98);
+	var Previous = __webpack_require__(298);
+	var Next = __webpack_require__(299);
 
 	var CLASS_ROOT = "carousel";
 
 	var Carousel = React.createClass({
-	  displayName: "Carousel",
+	  displayName: 'Carousel',
+
+	  propTypes: {
+	    autoplay: React.PropTypes.bool,
+	    autoplaySpeed: React.PropTypes.number,
+	    infinite: React.PropTypes.bool,
+	    persistentNav: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      autoplay: true,
+	      autoplaySpeed: 5000,
+	      infinite: true,
+	      persistentNav: true
+	    };
+	  },
 
 	  getInitialState: function getInitialState() {
-	    return { activeIndex: 0, priorIndex: 0, sequence: 1 };
+	    return {
+	      activeIndex: 0,
+	      hideControls: !this.props.persistentNav,
+	      priorIndex: 0,
+	      sequence: 1,
+	      width: 0
+	    };
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    this.setState({
+	      width: this.refs.carousel.offsetWidth
+	    });
+
+	    if (this.props.autoplay) {
+	      this._setSlideInterval();
+	    }
+
+	    window.addEventListener('resize', this._onWindowResize);
+	  },
+
+	  componentWillUnmount: function componentWillUnmount() {
+	    clearInterval(this._slideAnimation);
+
+	    window.removeEventListener('resize', this._onWindowResize);
+	  },
+
+	  _slideAnimation: null,
+
+	  _setSlideInterval: function _setSlideInterval() {
+	    this._slideAnimation = setInterval((function () {
+	      var activeIndex = this.state.activeIndex;
+	      var numSlides = this.props.children.length;
+
+	      this.setState({
+	        activeIndex: (activeIndex + 1) % numSlides
+	      });
+
+	      if (!this.props.infinite && activeIndex === numSlides - 1) {
+	        clearInterval(this._slideAnimation);
+	      }
+	    }).bind(this), this.props.autoplaySpeed);
 	  },
 
 	  _onSelect: function _onSelect(index) {
 	    if (index !== this.state.activeIndex) {
 	      this.setState({
-	        activeIndex: index,
-	        priorIndex: this.state.activeIndex,
-	        sequence: this.state.sequence += 1
+	        activeIndex: index
 	      });
 	    }
 	  },
 
-	  // children should be an array of Tile
+	  _onMouseOver: function _onMouseOver() {
+	    if (this.props.autoplay) {
+	      clearInterval(this._slideAnimation);
+	    }
+
+	    if (!this.props.persistentNav) {
+	      this.setState({
+	        hideControls: false
+	      });
+	    }
+	  },
+
+	  _onMouseOut: function _onMouseOut() {
+	    if (this.props.autoplay && (this.props.infinite || this.state.activeIndex !== this.props.children.length - 1)) {
+	      this._setSlideInterval();
+	    }
+
+	    if (!this.props.persistentNav) {
+	      this.setState({
+	        hideControls: true
+	      });
+	    }
+	  },
+
+	  _onWindowResize: function _onWindowResize() {
+	    this.setState({
+	      width: this.refs.carousel.offsetWidth
+	    });
+	  },
+
+	  _slidePrev: function _slidePrev() {
+	    var numSlides = this.props.children.length;
+	    this.setState({
+	      activeIndex: (this.state.activeIndex + numSlides - 1) % numSlides
+	    });
+	  },
+
+	  _slideNext: function _slideNext() {
+	    var numSlides = this.props.children.length;
+	    this.setState({
+	      activeIndex: (this.state.activeIndex + 1) % numSlides
+	    });
+	  },
+
+	  _renderPrevButton: function _renderPrevButton() {
+	    if (this.props.infinite || this.state.activeIndex !== 0) {
+	      return React.createElement(
+	        'div',
+	        { className: CLASS_ROOT + '__arrow ' + CLASS_ROOT + '__arrow--prev', onClick: this._slidePrev },
+	        React.createElement(Previous, null)
+	      );
+	    }
+	  },
+
+	  _renderNextButton: function _renderNextButton() {
+	    if (this.props.infinite || this.state.activeIndex !== this.props.children.length - 1) {
+	      return React.createElement(
+	        'div',
+	        { className: CLASS_ROOT + '__arrow ' + CLASS_ROOT + '__arrow--next', onClick: this._slideNext },
+	        React.createElement(Next, null)
+	      );
+	    }
+	  },
+
 	  render: function render() {
 	    var classes = [CLASS_ROOT];
-	    classes.push(CLASS_ROOT + "--toggle-" + this.state.sequence % 2);
+	    if (this.state.hideControls) {
+	      classes.push(CLASS_ROOT + '--hide-controls');
+	    }
+
 	    if (this.props.className) {
 	      classes.push(this.props.className);
 	    }
 
 	    var index = -1;
-	    var activeChild;
-	    var priorChild;
-	    var controls = React.Children.map(this.props.children, function (child) {
+	    var children = this.props.children;
+
+	    var width = this.state.width;
+	    var trackWidth = width * children.length;
+
+	    var trackPosition = -(width * this.state.activeIndex);
+
+	    var controls = React.Children.map(children, function (child) {
 	      index += 1;
 	      var controlClasses = [CLASS_ROOT + "__control"];
 	      if (index === this.state.activeIndex) {
 	        controlClasses.push(CLASS_ROOT + "__control--active");
-	        activeChild = child;
-	      } else if (index === this.state.priorIndex) {
-	        priorChild = child;
 	      }
+
 	      return React.createElement(
-	        "svg",
-	        { className: controlClasses.join(' '), viewBox: "0 0 24 24", version: "1.1",
+	        'svg',
+	        { className: controlClasses.join(' '), viewBox: '0 0 24 24', version: '1.1',
 	          onClick: this._onSelect.bind(this, index) },
-	        React.createElement("circle", { cx: 12, cy: 12, r: 6 })
+	        React.createElement('circle', { cx: 12, cy: 12, r: 6 })
 	      );
 	    }, this);
 
 	    return React.createElement(
-	      "div",
-	      { className: classes.join(' ') },
+	      'div',
+	      { ref: 'carousel', className: classes.join(' '), onMouseEnter: this._onMouseOver, onMouseLeave: this._onMouseOut },
 	      React.createElement(
-	        "div",
-	        { className: CLASS_ROOT + "__prior" },
-	        priorChild
+	        'div',
+	        { className: CLASS_ROOT + "__track", style: { width: trackWidth, marginLeft: trackPosition } },
+	        children
 	      ),
+	      this._renderPrevButton(),
+	      this._renderNextButton(),
 	      React.createElement(
-	        "div",
-	        { className: CLASS_ROOT + "__active" },
-	        activeChild
-	      ),
-	      React.createElement(
-	        "div",
-	        { className: CLASS_ROOT + "__controls" },
+	        Box,
+	        { className: CLASS_ROOT + "__controls", direction: 'row', justify: 'center', responsive: false },
 	        controls
 	      )
 	    );
@@ -39176,10 +39413,140 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(299);
+	var FormattedMessage = __webpack_require__(45);
+
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'previous-title'
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-previous'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "previous";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
+	    return React.createElement(
+	      'svg',
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
+	      React.createElement(
+	        'g',
+	        { id: 'previous' },
+	        React.createElement('rect', { id: '_x2E_svg_262_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '28.1397,11.5 17.1397,22.5 28.1397,33.5 \t ' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Icon;
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FormattedMessage = __webpack_require__(45);
+
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'next-title'
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-next'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "next";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
+	    return React.createElement(
+	      'svg',
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
+	      React.createElement(
+	        'g',
+	        { id: 'next' },
+	        React.createElement('rect', { id: '_x2E_svg_27_', x: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '20,13.2101 31,24.2101 20,35.2101 \t' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Icon;
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var stringify = __webpack_require__(301);
 	var moment = __webpack_require__(208);
 	var DocsArticle = __webpack_require__(131);
-	var Chart = __webpack_require__(300);
+	var Chart = __webpack_require__(302);
 	var Tiles = __webpack_require__(119);
 	var Tile = __webpack_require__(124);
 
@@ -39826,13 +40193,13 @@ module.exports =
 	module.exports = ChartDoc;
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports) {
 
 	module.exports = require("json-stringify-pretty-compact");
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -40650,7 +41017,7 @@ module.exports =
 	module.exports = Chart;
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -40941,7 +41308,7 @@ module.exports =
 	module.exports = CheckBoxDoc;
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -40956,7 +41323,7 @@ module.exports =
 	var Gravatar = __webpack_require__(173);
 	var Tiles = __webpack_require__(119);
 	var Tile = __webpack_require__(124);
-	var Chart = __webpack_require__(300);
+	var Chart = __webpack_require__(302);
 	var Meter = __webpack_require__(168);
 
 	var dateSeries = [{ label: 'first', values: [[new Date(Date.parse("2015-05-22")), 4], [new Date(Date.parse("2015-05-21")), 2], [new Date(Date.parse("2015-05-20")), 3], [new Date(Date.parse("2015-05-19")), 3], [new Date(Date.parse("2015-05-18")), 2]], colorIndex: "graph-4" }];
@@ -41071,7 +41438,7 @@ module.exports =
 	module.exports = DashboardDoc;
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41079,9 +41446,9 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(299);
+	var stringify = __webpack_require__(301);
 	var DocsArticle = __webpack_require__(131);
-	var Distribution = __webpack_require__(304);
+	var Distribution = __webpack_require__(306);
 
 	var inline = "<Distribution series={[...]} />";
 
@@ -41423,7 +41790,7 @@ module.exports =
 	module.exports = DistributionDoc;
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -41521,12 +41888,20 @@ module.exports =
 	      var label = labels[i];
 	      label.style.top = null;
 	      label.style.left = null;
+	      label.style.maxWidth = null;
 	      var boxIndex = label.getAttribute('data-box-index');
 	      var box = container.querySelectorAll('[data-index="' + boxIndex + '"]')[0];
 	      var boxRect = box.getBoundingClientRect();
 	      var labelRect = label.getBoundingClientRect();
+	      if (labelRect.width > boxRect.width) {
+	        label.style.left = boxRect.left - rect.left + 'px';
+	      } else {
+	        label.style.left = boxRect.left - rect.left + boxRect.width / 2 - labelRect.width / 2 + 'px';
+	      }
+	      label.style.maxWidth = boxRect.width + 'px';
+	      // have to set again after setting maxWidth in case text wraps and increases height
+	      labelRect = label.getBoundingClientRect();
 	      label.style.top = boxRect.top - rect.top + boxRect.height / 2 - labelRect.height / 2 + 'px';
-	      label.style.left = boxRect.left - rect.left + boxRect.width / 2 - labelRect.width / 2 + 'px';
 	    }
 	  },
 
@@ -41725,7 +42100,7 @@ module.exports =
 	module.exports = Distribution;
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41893,7 +42268,7 @@ module.exports =
 	module.exports = FooterDoc;
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41902,9 +42277,9 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(131);
-	var FullForm = __webpack_require__(307);
-	var AddUserForm = __webpack_require__(311);
-	var ConfirmationForm = __webpack_require__(313);
+	var FullForm = __webpack_require__(309);
+	var AddUserForm = __webpack_require__(313);
+	var ConfirmationForm = __webpack_require__(315);
 
 	var FormDoc = React.createClass({
 	  displayName: 'FormDoc',
@@ -42070,7 +42445,7 @@ module.exports =
 	module.exports = FormDoc;
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42079,13 +42454,13 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Form = __webpack_require__(165);
-	var FormFields = __webpack_require__(308);
+	var FormFields = __webpack_require__(310);
 	var FormField = __webpack_require__(166);
 	var Header = __webpack_require__(113);
 	var Menu = __webpack_require__(90);
 	var CheckBox = __webpack_require__(167);
-	var RadioButton = __webpack_require__(309);
-	var SearchInput = __webpack_require__(310);
+	var RadioButton = __webpack_require__(311);
+	var SearchInput = __webpack_require__(312);
 	var Table = __webpack_require__(192);
 	var Footer = __webpack_require__(116);
 	var Button = __webpack_require__(89);
@@ -42347,7 +42722,7 @@ module.exports =
 	module.exports = FullForm;
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42376,7 +42751,7 @@ module.exports =
 	module.exports = FormFields;
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42433,7 +42808,7 @@ module.exports =
 	module.exports = RadioButton;
 
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -42644,7 +43019,7 @@ module.exports =
 	module.exports = SearchInput;
 
 /***/ },
-/* 311 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42653,15 +43028,15 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Form = __webpack_require__(165);
-	var FormFields = __webpack_require__(308);
+	var FormFields = __webpack_require__(310);
 	var FormField = __webpack_require__(166);
 	var Header = __webpack_require__(113);
 	var Menu = __webpack_require__(90);
 	var CheckBox = __webpack_require__(167);
-	var RadioButton = __webpack_require__(309);
+	var RadioButton = __webpack_require__(311);
 	var Footer = __webpack_require__(116);
 	var Button = __webpack_require__(89);
-	var Validator = __webpack_require__(312);
+	var Validator = __webpack_require__(314);
 
 	var AddUserForm = React.createClass({
 	  displayName: 'AddUserForm',
@@ -42877,7 +43252,7 @@ module.exports =
 	module.exports = AddUserForm;
 
 /***/ },
-/* 312 */
+/* 314 */
 /***/ function(module, exports) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42916,7 +43291,7 @@ module.exports =
 	};
 
 /***/ },
-/* 313 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42925,7 +43300,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Form = __webpack_require__(165);
-	var FormFields = __webpack_require__(308);
+	var FormFields = __webpack_require__(310);
 	var FormField = __webpack_require__(166);
 	var Header = __webpack_require__(113);
 	var Menu = __webpack_require__(90);
@@ -43020,7 +43395,7 @@ module.exports =
 	module.exports = ConfirmationForm;
 
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43031,7 +43406,7 @@ module.exports =
 	var DocsArticle = __webpack_require__(131);
 	var FormField = __webpack_require__(166);
 	var CheckBox = __webpack_require__(167);
-	var RadioButton = __webpack_require__(309);
+	var RadioButton = __webpack_require__(311);
 
 	var FormFieldDoc = React.createClass({
 	  displayName: 'FormFieldDoc',
@@ -43237,7 +43612,7 @@ module.exports =
 	module.exports = FormFieldDoc;
 
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43251,7 +43626,7 @@ module.exports =
 	var Menu = __webpack_require__(90);
 	var Search = __webpack_require__(170);
 	var Title = __webpack_require__(114);
-	var Edit = __webpack_require__(316);
+	var Edit = __webpack_require__(318);
 	var Logo = __webpack_require__(172);
 
 	var HeaderDoc = React.createClass({
@@ -43755,7 +44130,7 @@ module.exports =
 	module.exports = HeaderDoc;
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43796,7 +44171,7 @@ module.exports =
 	module.exports = Edit;
 
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43806,10 +44181,10 @@ module.exports =
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(131);
 	var Header = __webpack_require__(113);
-	var SearchInput = __webpack_require__(310);
+	var SearchInput = __webpack_require__(312);
 	var Tiles = __webpack_require__(119);
 	var Tile = __webpack_require__(124);
-	var iconsMap = __webpack_require__(318);
+	var iconsMap = __webpack_require__(320);
 	var iconNames = Object.keys(iconsMap);
 
 	//hjjs configuration
@@ -44046,15 +44421,15 @@ module.exports =
 	module.exports = IconDoc;
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = { "achievement": __webpack_require__(319), "action": __webpack_require__(320), "actions": __webpack_require__(321), "add": __webpack_require__(137), "advanced-search": __webpack_require__(322), "aggregate": __webpack_require__(323), "alarm": __webpack_require__(324), "alert": __webpack_require__(325), "analytics": __webpack_require__(326), "announcement": __webpack_require__(327), "app": __webpack_require__(328), "archive": __webpack_require__(329), "article": __webpack_require__(330), "ascend": __webpack_require__(331), "assistant": __webpack_require__(332), "attachment": __webpack_require__(333), "bar-chart": __webpack_require__(334), "blog": __webpack_require__(335), "book": __webpack_require__(336), "bookmark": __webpack_require__(337), "bundle": __webpack_require__(338), "calculator": __webpack_require__(339), "calendar": __webpack_require__(144), "camera": __webpack_require__(340), "capacity": __webpack_require__(341), "carrot-down": __webpack_require__(342), "carrot-next": __webpack_require__(343), "carrot-previous": __webpack_require__(344), "carrot-up": __webpack_require__(345), "catalog": __webpack_require__(346), "chapter-add": __webpack_require__(347), "chapter-next": __webpack_require__(348), "chapter-previous": __webpack_require__(349), "chat": __webpack_require__(350), "checkbox-selected": __webpack_require__(351), "checkbox": __webpack_require__(352), "checkmark": __webpack_require__(353), "circular-view": __webpack_require__(354), "clipboard": __webpack_require__(355), "clone": __webpack_require__(356), "close": __webpack_require__(86), "cloud-computer": __webpack_require__(357), "cloud-download": __webpack_require__(358), "cloud-software": __webpack_require__(359), "cloud-upload": __webpack_require__(360), "cloud": __webpack_require__(361), "cluster": __webpack_require__(362), "code": __webpack_require__(363), "command-line": __webpack_require__(364), "compare": __webpack_require__(365), "compasss": __webpack_require__(366), "compliance": __webpack_require__(367), "computer-personal": __webpack_require__(368), "configuration": __webpack_require__(369), "connect": __webpack_require__(370), "contact-card": __webpack_require__(371), "contact-us": __webpack_require__(372), "contract": __webpack_require__(373), "copy": __webpack_require__(374), "cube": __webpack_require__(375), "cubes": __webpack_require__(376), "cusror": __webpack_require__(377), "cut": __webpack_require__(378), "cycle": __webpack_require__(379), "dashboard": __webpack_require__(380), "database": __webpack_require__(381), "defect": __webpack_require__(382), "deliver": __webpack_require__(383), "deployment": __webpack_require__(384), "descend": __webpack_require__(385), "desktop": __webpack_require__(386), "detach": __webpack_require__(387), "directions": __webpack_require__(388), "dislike": __webpack_require__(389), "divide-four": __webpack_require__(390), "divide-right": __webpack_require__(391), "divide-three": __webpack_require__(392), "divide": __webpack_require__(393), "document-cloud": __webpack_require__(394), "document-compress": __webpack_require__(395), "document-conig": __webpack_require__(396), "document-csv": __webpack_require__(397), "document-data": __webpack_require__(398), "document-download": __webpack_require__(399), "document-excel": __webpack_require__(400), "document-executable": __webpack_require__(401), "document-image": __webpack_require__(402), "document-locked": __webpack_require__(403), "document-missing": __webpack_require__(404), "document-notes": __webpack_require__(405), "document-outlook": __webpack_require__(406), "document-pdf": __webpack_require__(407), "document-performance": __webpack_require__(408), "document-powerpoint": __webpack_require__(409), "document-rtf": __webpack_require__(410), "document-sound": __webpack_require__(411), "document-test": __webpack_require__(412), "document-text": __webpack_require__(413), "document-threat": __webpack_require__(414), "document-time": __webpack_require__(415), "document-transfer": __webpack_require__(416), "document-txt": __webpack_require__(417), "document-update": __webpack_require__(418), "document-upload": __webpack_require__(419), "document-user": __webpack_require__(420), "document-verified": __webpack_require__(421), "document-video": __webpack_require__(422), "document-word": __webpack_require__(423), "document": __webpack_require__(424), "domain": __webpack_require__(425), "down": __webpack_require__(141), "download": __webpack_require__(426), "drag": __webpack_require__(140), "drive-cage": __webpack_require__(427), "duplicate": __webpack_require__(428), "edit": __webpack_require__(138), "eject": __webpack_require__(429), "expand": __webpack_require__(430), "fan": __webpack_require__(431), "fast-forward": __webpack_require__(432), "favorite": __webpack_require__(433), "filter": __webpack_require__(142), "first-aid": __webpack_require__(434), "flag": __webpack_require__(435), "folder-cycle": __webpack_require__(436), "folder-open": __webpack_require__(437), "folder": __webpack_require__(438), "gallery": __webpack_require__(439), "globe": __webpack_require__(440), "grid": __webpack_require__(441), "group": __webpack_require__(442), "grow": __webpack_require__(443), "halt": __webpack_require__(444), "help": __webpack_require__(145), "history": __webpack_require__(445), "home": __webpack_require__(446), "host-maintenance": __webpack_require__(447), "host": __webpack_require__(448), "image": __webpack_require__(449), "impact": __webpack_require__(450), "in-progress": __webpack_require__(451), "inbox": __webpack_require__(452), "indicator": __webpack_require__(453), "information": __webpack_require__(454), "inherit": __webpack_require__(455), "install": __webpack_require__(456), "integration": __webpack_require__(457), "iteration": __webpack_require__(458), "java": __webpack_require__(459), "language": __webpack_require__(151), "launch": __webpack_require__(460), "license": __webpack_require__(461), "like": __webpack_require__(462), "line-chart": __webpack_require__(463), "link-bottom": __webpack_require__(464), "link-down": __webpack_require__(465), "link-next": __webpack_require__(147), "link-previous": __webpack_require__(146), "link-top": __webpack_require__(149), "link-up": __webpack_require__(148), "link": __webpack_require__(466), "location-pin": __webpack_require__(467), "location": __webpack_require__(468), "lock": __webpack_require__(469), "login": __webpack_require__(470), "logout": __webpack_require__(471), "mail": __webpack_require__(152), "manual": __webpack_require__(472), "map-location": __webpack_require__(473), "map": __webpack_require__(474), "menu": __webpack_require__(475), "microphone": __webpack_require__(476), "monitor": __webpack_require__(477), "more": __webpack_require__(139), "multiple": __webpack_require__(478), "navigate": __webpack_require__(479), "new-window": __webpack_require__(480), "new": __webpack_require__(481), "next": __webpack_require__(482), "notes": __webpack_require__(483), "notification": __webpack_require__(484), "optimization": __webpack_require__(485), "organization": __webpack_require__(486), "overview": __webpack_require__(487), "pan": __webpack_require__(488), "pause": __webpack_require__(489), "payment-google-wallet": __webpack_require__(490), "payment-mastercard": __webpack_require__(491), "payment-paypal": __webpack_require__(492), "payment-square": __webpack_require__(493), "payment-visa": __webpack_require__(494), "pin": __webpack_require__(495), "plan": __webpack_require__(496), "platform-apple": __webpack_require__(497), "platform-chrome": __webpack_require__(498), "platform-dropbox": __webpack_require__(499), "platform-edge": __webpack_require__(500), "platform-firefox": __webpack_require__(501), "platform-internet-explorer": __webpack_require__(502), "platform-skype": __webpack_require__(503), "platform-windows": __webpack_require__(504), "play": __webpack_require__(505), "power": __webpack_require__(506), "previous": __webpack_require__(507), "print": __webpack_require__(508), "quick-view": __webpack_require__(509), "radial-selected": __webpack_require__(510), "radial": __webpack_require__(511), "refresh": __webpack_require__(512), "resources": __webpack_require__(513), "rewind": __webpack_require__(514), "risk": __webpack_require__(515), "rss": __webpack_require__(516), "satellite": __webpack_require__(517), "schedule-clone": __webpack_require__(518), "schedule-new": __webpack_require__(519), "schedule-play": __webpack_require__(520), "schedule": __webpack_require__(521), "scorecard": __webpack_require__(522), "search": __webpack_require__(143), "secure": __webpack_require__(523), "select-left": __webpack_require__(524), "select": __webpack_require__(525), "server-cluster": __webpack_require__(526), "server": __webpack_require__(527), "servers": __webpack_require__(528), "service-business": __webpack_require__(529), "service-start": __webpack_require__(530), "share": __webpack_require__(531), "sheild-configure": __webpack_require__(532), "shield": __webpack_require__(533), "shift": __webpack_require__(534), "shop-basket": __webpack_require__(535), "shop-cart": __webpack_require__(536), "soa": __webpack_require__(537), "social-email": __webpack_require__(538), "social-facebook": __webpack_require__(155), "social-github": __webpack_require__(539), "social-google": __webpack_require__(540), "social-instagram": __webpack_require__(541), "social-linkedin": __webpack_require__(154), "social-medium": __webpack_require__(542), "social-pinterest": __webpack_require__(543), "social-reddit": __webpack_require__(544), "social-slack": __webpack_require__(545), "social-tumblr": __webpack_require__(546), "social-twitter": __webpack_require__(153), "social-vimeo": __webpack_require__(547), "social-youtube": __webpack_require__(548), "sort": __webpack_require__(549), "stakeholder": __webpack_require__(550), "star-half": __webpack_require__(551), "star": __webpack_require__(552), "steps": __webpack_require__(553), "storage": __webpack_require__(554), "street-view": __webpack_require__(555), "subtract": __webpack_require__(556), "support": __webpack_require__(557), "svg": __webpack_require__(558), "sync": __webpack_require__(559), "system": __webpack_require__(560), "tab-next": __webpack_require__(561), "tab-previous": __webpack_require__(562), "tab-up": __webpack_require__(563), "table-add": __webpack_require__(564), "table": __webpack_require__(565), "tag": __webpack_require__(566), "target": __webpack_require__(567), "task": __webpack_require__(568), "template": __webpack_require__(569), "test-desktop": __webpack_require__(570), "test": __webpack_require__(571), "tesxt-wrap": __webpack_require__(572), "threats": __webpack_require__(573), "three-d": __webpack_require__(574), "ticket": __webpack_require__(575), "tools": __webpack_require__(576), "tooltip": __webpack_require__(577), "transaction": __webpack_require__(578), "trash": __webpack_require__(579), "tree": __webpack_require__(580), "trigger": __webpack_require__(581), "trophy": __webpack_require__(582), "troubleshooting": __webpack_require__(583), "unlock": __webpack_require__(584), "up": __webpack_require__(585), "update": __webpack_require__(586), "upgrade": __webpack_require__(587), "upload": __webpack_require__(588), "user-add": __webpack_require__(589), "user-admin": __webpack_require__(590), "user-expert": __webpack_require__(591), "user-female": __webpack_require__(592), "user-manager": __webpack_require__(593), "user-new": __webpack_require__(594), "user-police": __webpack_require__(595), "user-settings": __webpack_require__(596), "user-worker": __webpack_require__(597), "user": __webpack_require__(150), "validation": __webpack_require__(598), "video": __webpack_require__(599), "view": __webpack_require__(600), "virtual-machine": __webpack_require__(601), "vm-maintenance": __webpack_require__(602), "volume-low": __webpack_require__(603), "volume-mute": __webpack_require__(604), "volume": __webpack_require__(605), "vulnerability": __webpack_require__(606), "waypoint": __webpack_require__(607), "workshop": __webpack_require__(608), "zoom-in": __webpack_require__(609) };
+	module.exports = { "achievement": __webpack_require__(321), "action": __webpack_require__(322), "actions": __webpack_require__(323), "add": __webpack_require__(137), "advanced-search": __webpack_require__(324), "aggregate": __webpack_require__(325), "alarm": __webpack_require__(326), "alert": __webpack_require__(327), "analytics": __webpack_require__(328), "announcement": __webpack_require__(329), "app": __webpack_require__(330), "archive": __webpack_require__(331), "article": __webpack_require__(332), "ascend": __webpack_require__(333), "assistant": __webpack_require__(334), "attachment": __webpack_require__(335), "bar-chart": __webpack_require__(336), "blog": __webpack_require__(337), "book": __webpack_require__(338), "bookmark": __webpack_require__(339), "bundle": __webpack_require__(340), "calculator": __webpack_require__(341), "calendar": __webpack_require__(144), "camera": __webpack_require__(342), "capacity": __webpack_require__(343), "caret-down": __webpack_require__(344), "caret-next": __webpack_require__(345), "caret-previous": __webpack_require__(346), "caret-up": __webpack_require__(347), "catalog": __webpack_require__(348), "chapter-add": __webpack_require__(349), "chapter-next": __webpack_require__(350), "chapter-previous": __webpack_require__(351), "chat": __webpack_require__(352), "checkbox-selected": __webpack_require__(353), "checkbox": __webpack_require__(354), "checkmark": __webpack_require__(355), "circular-view": __webpack_require__(356), "clipboard": __webpack_require__(357), "clone": __webpack_require__(358), "close": __webpack_require__(86), "cloud-computer": __webpack_require__(359), "cloud-download": __webpack_require__(360), "cloud-software": __webpack_require__(361), "cloud-upload": __webpack_require__(362), "cloud": __webpack_require__(363), "cluster": __webpack_require__(364), "code": __webpack_require__(365), "command-line": __webpack_require__(366), "compare": __webpack_require__(367), "compasss": __webpack_require__(368), "compliance": __webpack_require__(369), "computer-personal": __webpack_require__(370), "configuration": __webpack_require__(371), "connect": __webpack_require__(372), "contact-card": __webpack_require__(373), "contact-us": __webpack_require__(374), "contract": __webpack_require__(375), "copy": __webpack_require__(376), "cube": __webpack_require__(377), "cubes": __webpack_require__(378), "cursor": __webpack_require__(379), "cut": __webpack_require__(380), "cycle": __webpack_require__(381), "dashboard": __webpack_require__(382), "database": __webpack_require__(383), "defect": __webpack_require__(384), "deliver": __webpack_require__(385), "deployment": __webpack_require__(386), "descend": __webpack_require__(387), "desktop": __webpack_require__(388), "detach": __webpack_require__(389), "directions": __webpack_require__(390), "dislike": __webpack_require__(391), "divide-four": __webpack_require__(392), "divide-right": __webpack_require__(393), "divide-three": __webpack_require__(394), "divide": __webpack_require__(395), "document-cloud": __webpack_require__(396), "document-compress": __webpack_require__(397), "document-conig": __webpack_require__(398), "document-csv": __webpack_require__(399), "document-data": __webpack_require__(400), "document-download": __webpack_require__(401), "document-excel": __webpack_require__(402), "document-executable": __webpack_require__(403), "document-image": __webpack_require__(404), "document-locked": __webpack_require__(405), "document-missing": __webpack_require__(406), "document-notes": __webpack_require__(407), "document-outlook": __webpack_require__(408), "document-pdf": __webpack_require__(409), "document-performance": __webpack_require__(410), "document-powerpoint": __webpack_require__(411), "document-rtf": __webpack_require__(412), "document-sound": __webpack_require__(413), "document-test": __webpack_require__(414), "document-text": __webpack_require__(415), "document-threat": __webpack_require__(416), "document-time": __webpack_require__(417), "document-transfer": __webpack_require__(418), "document-txt": __webpack_require__(419), "document-update": __webpack_require__(420), "document-upload": __webpack_require__(421), "document-user": __webpack_require__(422), "document-verified": __webpack_require__(423), "document-video": __webpack_require__(424), "document-word": __webpack_require__(425), "document": __webpack_require__(426), "domain": __webpack_require__(427), "down": __webpack_require__(141), "download": __webpack_require__(428), "drag": __webpack_require__(140), "drive-cage": __webpack_require__(429), "duplicate": __webpack_require__(430), "edit": __webpack_require__(138), "eject": __webpack_require__(431), "expand": __webpack_require__(432), "fan": __webpack_require__(433), "fast-forward": __webpack_require__(434), "favorite": __webpack_require__(435), "filter": __webpack_require__(142), "first-aid": __webpack_require__(436), "flag": __webpack_require__(437), "folder-cycle": __webpack_require__(438), "folder-open": __webpack_require__(439), "folder": __webpack_require__(440), "gallery": __webpack_require__(441), "globe": __webpack_require__(442), "grid": __webpack_require__(443), "group": __webpack_require__(444), "grow": __webpack_require__(445), "halt": __webpack_require__(446), "help": __webpack_require__(145), "history": __webpack_require__(447), "home": __webpack_require__(448), "host-maintenance": __webpack_require__(449), "host": __webpack_require__(450), "image": __webpack_require__(451), "impact": __webpack_require__(452), "in-progress": __webpack_require__(453), "inbox": __webpack_require__(454), "indicator": __webpack_require__(455), "information": __webpack_require__(456), "inherit": __webpack_require__(457), "install": __webpack_require__(458), "integration": __webpack_require__(459), "iteration": __webpack_require__(460), "java": __webpack_require__(461), "language": __webpack_require__(151), "launch": __webpack_require__(462), "license": __webpack_require__(463), "like": __webpack_require__(464), "line-chart": __webpack_require__(465), "link-bottom": __webpack_require__(466), "link-down": __webpack_require__(467), "link-next": __webpack_require__(147), "link-previous": __webpack_require__(146), "link-top": __webpack_require__(149), "link-up": __webpack_require__(148), "link": __webpack_require__(468), "location-pin": __webpack_require__(469), "location": __webpack_require__(470), "lock": __webpack_require__(471), "login": __webpack_require__(472), "logout": __webpack_require__(473), "mail": __webpack_require__(152), "manual": __webpack_require__(474), "map-location": __webpack_require__(475), "map": __webpack_require__(476), "menu": __webpack_require__(477), "microphone": __webpack_require__(478), "monitor": __webpack_require__(479), "more": __webpack_require__(139), "multiple": __webpack_require__(480), "navigate": __webpack_require__(481), "new-window": __webpack_require__(482), "new": __webpack_require__(483), "next": __webpack_require__(299), "notes": __webpack_require__(484), "notification": __webpack_require__(485), "optimization": __webpack_require__(486), "organization": __webpack_require__(487), "overview": __webpack_require__(488), "pan": __webpack_require__(489), "pause": __webpack_require__(490), "payment-google-wallet": __webpack_require__(491), "payment-mastercard": __webpack_require__(492), "payment-paypal": __webpack_require__(493), "payment-square": __webpack_require__(494), "payment-visa": __webpack_require__(495), "pin": __webpack_require__(496), "plan": __webpack_require__(497), "platform-apple": __webpack_require__(498), "platform-chrome": __webpack_require__(499), "platform-dropbox": __webpack_require__(500), "platform-edge": __webpack_require__(501), "platform-firefox": __webpack_require__(502), "platform-internet-explorer": __webpack_require__(503), "platform-skype": __webpack_require__(504), "platform-windows": __webpack_require__(505), "play": __webpack_require__(506), "power": __webpack_require__(507), "previous": __webpack_require__(298), "print": __webpack_require__(508), "quick-view": __webpack_require__(509), "radial-selected": __webpack_require__(510), "radial": __webpack_require__(511), "refresh": __webpack_require__(512), "resources": __webpack_require__(513), "rewind": __webpack_require__(514), "risk": __webpack_require__(515), "rss": __webpack_require__(516), "satellite": __webpack_require__(517), "schedule-clone": __webpack_require__(518), "schedule-new": __webpack_require__(519), "schedule-play": __webpack_require__(520), "schedule": __webpack_require__(521), "scorecard": __webpack_require__(522), "search": __webpack_require__(143), "secure": __webpack_require__(523), "select-left": __webpack_require__(524), "select": __webpack_require__(525), "server-cluster": __webpack_require__(526), "server": __webpack_require__(527), "servers": __webpack_require__(528), "service-business": __webpack_require__(529), "service-start": __webpack_require__(530), "share": __webpack_require__(531), "sheild-configure": __webpack_require__(532), "shield": __webpack_require__(533), "shift": __webpack_require__(534), "shop-basket": __webpack_require__(535), "shop-cart": __webpack_require__(536), "soa": __webpack_require__(537), "social-email": __webpack_require__(538), "social-facebook": __webpack_require__(155), "social-github": __webpack_require__(539), "social-google": __webpack_require__(540), "social-instagram": __webpack_require__(541), "social-linkedin": __webpack_require__(154), "social-medium": __webpack_require__(542), "social-pinterest": __webpack_require__(543), "social-reddit": __webpack_require__(544), "social-slack": __webpack_require__(545), "social-tumblr": __webpack_require__(546), "social-twitter": __webpack_require__(153), "social-vimeo": __webpack_require__(547), "social-youtube": __webpack_require__(548), "sort": __webpack_require__(549), "stakeholder": __webpack_require__(550), "star-half": __webpack_require__(551), "star": __webpack_require__(552), "steps": __webpack_require__(553), "storage": __webpack_require__(554), "street-view": __webpack_require__(555), "subtract": __webpack_require__(556), "support": __webpack_require__(557), "svg": __webpack_require__(558), "sync": __webpack_require__(559), "system": __webpack_require__(560), "tab-next": __webpack_require__(561), "tab-previous": __webpack_require__(562), "tab-up": __webpack_require__(563), "table-add": __webpack_require__(564), "table": __webpack_require__(565), "tag": __webpack_require__(566), "target": __webpack_require__(567), "task": __webpack_require__(568), "template": __webpack_require__(569), "test-desktop": __webpack_require__(570), "test": __webpack_require__(571), "tesxt-wrap": __webpack_require__(572), "threats": __webpack_require__(573), "three-d": __webpack_require__(574), "ticket": __webpack_require__(575), "tools": __webpack_require__(576), "tooltip": __webpack_require__(577), "transaction": __webpack_require__(578), "trash": __webpack_require__(579), "tree": __webpack_require__(580), "trigger": __webpack_require__(581), "trophy": __webpack_require__(582), "troubleshooting": __webpack_require__(583), "unlock": __webpack_require__(584), "up": __webpack_require__(585), "update": __webpack_require__(586), "upgrade": __webpack_require__(587), "upload": __webpack_require__(588), "user-add": __webpack_require__(589), "user-admin": __webpack_require__(590), "user-expert": __webpack_require__(591), "user-female": __webpack_require__(592), "user-manager": __webpack_require__(593), "user-new": __webpack_require__(594), "user-police": __webpack_require__(595), "user-settings": __webpack_require__(596), "user-worker": __webpack_require__(597), "user": __webpack_require__(150), "validation": __webpack_require__(598), "video": __webpack_require__(599), "view": __webpack_require__(600), "virtual-machine": __webpack_require__(601), "vm-maintenance": __webpack_require__(602), "volume-low": __webpack_require__(603), "volume-mute": __webpack_require__(604), "volume": __webpack_require__(605), "vulnerability": __webpack_require__(606), "waypoint": __webpack_require__(607), "workshop": __webpack_require__(608), "zoom-in": __webpack_require__(609) };
 
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44119,7 +44494,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44184,7 +44559,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44249,7 +44624,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 322 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44314,7 +44689,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 323 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44379,7 +44754,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 324 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44444,7 +44819,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 325 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44515,7 +44890,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 326 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44580,7 +44955,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 327 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44645,7 +45020,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 328 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44710,7 +45085,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 329 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44775,7 +45150,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 330 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44844,7 +45219,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 331 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44909,7 +45284,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 332 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44977,7 +45352,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 333 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45042,7 +45417,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 334 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45107,7 +45482,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 335 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45172,7 +45547,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 336 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45237,7 +45612,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 337 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45302,7 +45677,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 338 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45367,7 +45742,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 339 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45439,7 +45814,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 340 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45504,7 +45879,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 341 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45569,136 +45944,6 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yTitleId: 'carrot-down-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-carrot-down'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "carrot-down";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'carrot-down' },
-	        React.createElement('rect', { id: '_x2E_svg_7_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polygon', { id: 'drop-carrot', fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.8571,19  31.1428,19 24,29 \t' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yTitleId: 'carrot-next-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-carrot-next'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "carrot-next";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'carrot-next' },
-	        React.createElement('rect', { id: '_x2E_svg_254_', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polygon', { fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '19,16.8571 19,31.1429 29,24 \t' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45723,12 +45968,12 @@ module.exports =
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      a11yTitleId: 'carrot-previous-title'
+	      a11yTitleId: 'caret-down-title'
 	    };
 	  },
 
 	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-carrot-previous'];
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-caret-down'];
 	    if (this.props.large) {
 	      classes.push(CLASS_ROOT + "--large");
 	    }
@@ -45739,7 +45984,7 @@ module.exports =
 	      classes.push(this.props.className);
 	    }
 
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "carrot-previous";
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "caret-down";
 	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
 
 	    return React.createElement(
@@ -45752,9 +45997,9 @@ module.exports =
 	      ),
 	      React.createElement(
 	        'g',
-	        { id: 'carrot-previous' },
-	        React.createElement('rect', { id: '_x2E_svg_255_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polygon', { fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '27,16.8571 27,31.1429 17,24 \t' })
+	        { id: 'caret-down' },
+	        React.createElement('rect', { id: '_x2E_svg_7_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('polygon', { id: 'drop-carrot', fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.8571,19 31.1428,19 24,29 \t' })
 	      )
 	    );
 	  }
@@ -45788,12 +46033,12 @@ module.exports =
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      a11yTitleId: 'carrot-up-title'
+	      a11yTitleId: 'caret-next-title'
 	    };
 	  },
 
 	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-carrot-up'];
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-caret-next'];
 	    if (this.props.large) {
 	      classes.push(CLASS_ROOT + "--large");
 	    }
@@ -45804,7 +46049,7 @@ module.exports =
 	      classes.push(this.props.className);
 	    }
 
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "carrot-up";
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "caret-next";
 	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
 
 	    return React.createElement(
@@ -45817,7 +46062,137 @@ module.exports =
 	      ),
 	      React.createElement(
 	        'g',
-	        { id: 'carrot-up' },
+	        { id: 'caret-next' },
+	        React.createElement('rect', { id: '_x2E_svg_254_', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('polygon', { fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '19,16.8571 19,31.1429 29,24 \t' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Icon;
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FormattedMessage = __webpack_require__(45);
+
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'caret-previous-title'
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-caret-previous'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "caret-previous";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
+	    return React.createElement(
+	      'svg',
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
+	      React.createElement(
+	        'g',
+	        { id: 'caret-previous' },
+	        React.createElement('rect', { id: '_x2E_svg_255_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('polygon', { fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '27,16.8571 27,31.1429 17,24 \t' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Icon;
+
+/***/ },
+/* 347 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FormattedMessage = __webpack_require__(45);
+
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'caret-up-title'
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-caret-up'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "caret-up";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
+	    return React.createElement(
+	      'svg',
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
+	      React.createElement(
+	        'g',
+	        { id: 'caret-up' },
 	        React.createElement('rect', { id: '_x2E_svg_253_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
 	        React.createElement('polygon', { fill: '#231F20', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.8571,29 31.1429,29 24,19 \t' })
 	      )
@@ -45829,7 +46204,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 346 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45894,7 +46269,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 347 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45959,7 +46334,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 348 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46025,7 +46400,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 349 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46091,7 +46466,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 350 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46156,7 +46531,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 351 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46222,7 +46597,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 352 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46287,7 +46662,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 353 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46352,7 +46727,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 354 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46417,7 +46792,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46482,7 +46857,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 356 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46547,7 +46922,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 357 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46612,7 +46987,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 358 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46677,7 +47052,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 359 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46742,7 +47117,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 360 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46807,7 +47182,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46872,7 +47247,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46937,7 +47312,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 363 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47002,7 +47377,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 364 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47067,7 +47442,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 365 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47144,7 +47519,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 366 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47210,7 +47585,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 367 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47275,7 +47650,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 368 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47340,7 +47715,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 369 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47405,7 +47780,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 370 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47470,7 +47845,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 371 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47535,7 +47910,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 372 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47603,7 +47978,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 373 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47668,7 +48043,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 374 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47733,7 +48108,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 375 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47798,7 +48173,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47863,7 +48238,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47887,12 +48262,12 @@ module.exports =
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      a11yTitleId: 'cusror-title'
+	      a11yTitleId: 'cursor-title'
 	    };
 	  },
 
 	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-cusror'];
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-cursor'];
 	    if (this.props.large) {
 	      classes.push(CLASS_ROOT + "--large");
 	    }
@@ -47903,7 +48278,7 @@ module.exports =
 	      classes.push(this.props.className);
 	    }
 
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "cusror";
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "cursor";
 	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
 
 	    return React.createElement(
@@ -47916,9 +48291,9 @@ module.exports =
 	      ),
 	      React.createElement(
 	        'g',
-	        { id: 'cusror' },
+	        { id: 'cursor' },
 	        React.createElement('rect', { id: '_x2E_svg_193_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polygon', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '32,26 18,13 18,32 22.3967,28.3361  25.1616,34.7876 28.8384,33.2124 26.0653,26.7418 \t' })
+	        React.createElement('polygon', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '32,26 18,13 18,32 22.3967,28.3361 25.1616,34.7876 28.8384,33.2124 26.0653,26.7418 \t' })
 	      )
 	    );
 	  }
@@ -47928,7 +48303,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47993,7 +48368,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48062,7 +48437,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48127,7 +48502,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48197,7 +48572,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 382 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48262,7 +48637,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 383 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48327,7 +48702,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 384 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48393,7 +48768,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 385 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48458,7 +48833,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 386 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48523,7 +48898,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 387 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48588,7 +48963,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 388 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48653,7 +49028,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 389 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48718,7 +49093,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 390 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48783,7 +49158,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 391 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48848,7 +49223,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 392 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48913,7 +49288,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 393 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48978,7 +49353,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 394 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49046,7 +49421,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 395 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49111,7 +49486,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 396 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49176,7 +49551,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 397 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49245,7 +49620,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 398 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49310,7 +49685,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 399 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49375,7 +49750,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 400 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49443,7 +49818,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 401 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49519,7 +49894,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 402 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49587,7 +49962,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 403 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49655,7 +50030,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 404 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49720,7 +50095,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 405 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49788,7 +50163,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 406 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49856,7 +50231,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 407 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49927,7 +50302,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 408 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49994,7 +50369,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50066,7 +50441,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50141,7 +50516,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50210,7 +50585,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50280,7 +50655,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50345,7 +50720,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50410,7 +50785,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 415 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50475,7 +50850,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 416 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50540,7 +50915,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 417 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50613,7 +50988,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 418 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50680,7 +51055,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 419 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50745,7 +51120,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 420 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50810,7 +51185,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 421 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50875,7 +51250,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 422 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50942,7 +51317,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 423 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51010,7 +51385,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 424 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51075,7 +51450,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 425 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51140,7 +51515,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 426 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51205,7 +51580,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 427 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51273,7 +51648,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 428 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51338,7 +51713,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 429 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51403,7 +51778,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 430 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51468,7 +51843,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 431 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51533,7 +51908,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 432 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51598,7 +51973,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 433 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51663,7 +52038,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 434 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51728,7 +52103,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 435 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51793,7 +52168,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 436 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51862,7 +52237,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 437 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51927,7 +52302,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 438 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51992,7 +52367,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 439 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52058,7 +52433,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 440 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52123,7 +52498,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 441 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52188,7 +52563,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 442 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52253,7 +52628,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 443 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52318,7 +52693,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 444 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52383,7 +52758,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 445 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52448,7 +52823,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 446 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52513,7 +52888,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 447 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52580,7 +52955,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 448 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52646,7 +53021,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 449 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52712,7 +53087,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 450 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52777,7 +53152,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 451 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52844,7 +53219,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 452 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52909,7 +53284,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 453 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52974,7 +53349,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 454 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53039,7 +53414,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 455 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53104,7 +53479,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 456 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53169,7 +53544,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 457 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53234,7 +53609,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 458 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53299,7 +53674,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 459 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53364,7 +53739,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 460 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53430,7 +53805,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 461 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53496,7 +53871,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 462 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53561,7 +53936,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 463 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53626,7 +54001,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 464 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53691,7 +54066,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 465 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53756,7 +54131,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 466 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53821,7 +54196,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 467 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53886,7 +54261,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 468 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53951,7 +54326,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 469 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54016,7 +54391,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 470 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54081,7 +54456,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 471 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54146,7 +54521,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 472 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54211,7 +54586,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 473 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54278,7 +54653,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 474 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54343,7 +54718,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 475 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54408,7 +54783,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 476 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54473,7 +54848,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 477 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54538,7 +54913,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 478 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54603,7 +54978,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 479 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54668,7 +55043,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 480 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54733,7 +55108,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 481 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54798,72 +55173,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 482 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yTitleId: 'next-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-next'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "next";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'next' },
-	        React.createElement('rect', { id: '_x2E_svg_27_', x: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '20,13.2101 31,24.2101 20,35.2101 \t' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54928,7 +55238,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54993,7 +55303,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55058,7 +55368,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55128,7 +55438,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55193,7 +55503,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55258,7 +55568,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55323,7 +55633,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55391,7 +55701,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55461,7 +55771,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55526,7 +55836,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55592,7 +55902,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55657,7 +55967,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55724,7 +56034,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55789,7 +56099,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55854,7 +56164,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55919,7 +56229,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55987,7 +56297,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56052,7 +56362,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56117,7 +56427,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56182,7 +56492,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56247,7 +56557,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56312,7 +56622,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56377,7 +56687,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56433,71 +56743,6 @@ module.exports =
 	        { id: 'power' },
 	        React.createElement('rect', { id: '_x2E_svg_104_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
 	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M27.6235,15.75 c3.7141,1.4494,6.3412,5.0548,6.3412,9.2853C33.9647,30.5431,29.5078,35,24,35s-9.9647-4.4569-9.9647-9.9647 c0-4.2305,2.6271-7.8359,6.3412-9.2853 M24,12v10' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
-/* 507 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yTitleId: 'previous-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-previous'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "previous";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'previous' },
-	        React.createElement('rect', { id: '_x2E_svg_262_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '28.1397,11.5 17.1397,22.5 28.1397,33.5 \t ' })
 	      )
 	    );
 	  }
@@ -64425,10 +64670,10 @@ module.exports =
 	var Layer = __webpack_require__(85);
 	var Header = __webpack_require__(113);
 	var Form = __webpack_require__(165);
-	var FormFields = __webpack_require__(308);
-	var FullForm = __webpack_require__(307);
-	var AddUserForm = __webpack_require__(311);
-	var ConfirmationForm = __webpack_require__(313);
+	var FormFields = __webpack_require__(310);
+	var FullForm = __webpack_require__(309);
+	var AddUserForm = __webpack_require__(313);
+	var ConfirmationForm = __webpack_require__(315);
 
 	var LayerDoc = React.createClass({
 	  displayName: 'LayerDoc',
@@ -65018,7 +65263,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var ReactIntl = __webpack_require__(46);
-	var FormattedDate = ReactIntl.FormattedDate;
+	var FormattedTime = ReactIntl.FormattedTime;
 	var ListItem = __webpack_require__(618);
 	var SpinningIcon = __webpack_require__(120);
 	var InfiniteScroll = __webpack_require__(123);
@@ -65105,14 +65350,12 @@ module.exports =
 	        result = value;
 	      }
 	    } else if (scheme.timestamp) {
-	      result = React.createElement(FormattedDate, { value: new Date(date),
-	        weekday: 'long',
+	      result = React.createElement(FormattedTime, { value: value,
 	        day: 'numeric',
-	        month: 'long',
-	        year: 'numeric',
-	        hour: 'numeric',
-	        minute: 'numeric',
-	        second: 'numeric' });
+	        month: 'narrow',
+	        hour: '2-digit',
+	        minute: '2-digit',
+	        second: '2-digit' });
 	    } else {
 	      result = value;
 	    }
@@ -65799,7 +66042,7 @@ module.exports =
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(131);
 	var Menu = __webpack_require__(90);
-	var EditIcon = __webpack_require__(316);
+	var EditIcon = __webpack_require__(318);
 	var FilterIcon = __webpack_require__(623);
 	var CheckBox = __webpack_require__(167);
 	var Button = __webpack_require__(89);
@@ -66405,11 +66648,11 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(299);
+	var stringify = __webpack_require__(301);
 	var DocsArticle = __webpack_require__(131);
 	var Meter = __webpack_require__(168);
 	var FormField = __webpack_require__(166);
-	var RadioButton = __webpack_require__(309);
+	var RadioButton = __webpack_require__(311);
 
 	var inline = "<Meter value={70} total={100} units=\"GB\" />";
 
@@ -67727,7 +67970,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(131);
-	var RadioButton = __webpack_require__(309);
+	var RadioButton = __webpack_require__(311);
 
 	var RadioButtonDoc = React.createClass({
 	  displayName: 'RadioButtonDoc',
@@ -68327,7 +68570,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(299);
+	var stringify = __webpack_require__(301);
 	var DocsArticle = __webpack_require__(131);
 	var Search = __webpack_require__(170);
 
@@ -68674,7 +68917,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(131);
-	var SearchInput = __webpack_require__(310);
+	var SearchInput = __webpack_require__(312);
 
 	var SearchInputDoc = React.createClass({
 	  displayName: 'SearchInputDoc',
@@ -69638,7 +69881,7 @@ module.exports =
 	var DocsArticle = __webpack_require__(131);
 	var Tabs = __webpack_require__(638);
 	var Tab = __webpack_require__(639);
-	var FormFields = __webpack_require__(308);
+	var FormFields = __webpack_require__(310);
 	var FormField = __webpack_require__(166);
 	var Form = __webpack_require__(165);
 
@@ -69918,7 +70161,6 @@ module.exports =
 
 	    // TODO: Since there could be multiple Tabs on the page, we need a more
 	    // robust means of identifying the association between title and aria label.
-
 	    return React.createElement(
 	      'div',
 	      { role: 'tablist' },
@@ -69935,7 +70177,7 @@ module.exports =
 	          'title',
 	          { id: 'content_description' },
 	          React.createElement(FormattedMessage, { id: 'Tab Contents', activeTitle: activeTitle,
-	            defaultMessage: activeTitle + ' Tab Contents' })
+	            defaultMessage: "Tab Contents" })
 	        ),
 	        React.createElement(
 	          Box,
@@ -71473,7 +71715,7 @@ module.exports =
 	  },
 
 	  componentDidMount: function componentDidMount() {
-	    var topology = React.findDOMNode(this.refs.topology);
+	    var topology = ReactDOM.findDOMNode(this.refs.topology);
 	    topology.addEventListener('mousemove', this._onMouseMove);
 	    topology.addEventListener('mouseleave', this._onMouseLeave);
 	    window.addEventListener('resize', this._onResize);
@@ -71491,7 +71733,7 @@ module.exports =
 	  },
 
 	  componentWillUnmount: function componentWillUnmount() {
-	    var topology = React.findDOMNode(this.refs.topology);
+	    var topology = ReactDOM.findDOMNode(this.refs.topology);
 	    topology.removeEventListener('mousemove', this._onMouseMove);
 	    topology.removeEventListener('mouseleave', this._onMouseLeave);
 	    clearTimeout(this._resizeTimer);
@@ -71528,7 +71770,7 @@ module.exports =
 	      this.props.links.forEach(function (link, linkIndex) {
 
 	        var key = this.refs[link.colorIndex];
-	        var style = window.getComputedStyle(React.findDOMNode(key));
+	        var style = window.getComputedStyle(ReactDOM.findDOMNode(key));
 	        var color = style.getPropertyValue('background-color');
 	        context.strokeStyle = color;
 	        context.lineWidth = 2;
@@ -71594,7 +71836,7 @@ module.exports =
 	  },
 
 	  _highlight: function _highlight(element) {
-	    var topology = React.findDOMNode(this.refs.topology);
+	    var topology = ReactDOM.findDOMNode(this.refs.topology);
 	    var highlighting = false;
 	    var highlights = {};
 	    while (element && element !== topology) {
