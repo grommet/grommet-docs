@@ -30,10 +30,6 @@ var themeUrl = '/docs/' + (theme === '' ? 'vanilla' : theme) + '.min.css';
 themeLink.setAttribute('href', themeUrl);
 
 var rootPath = '/docs/' + (theme === '' ? '' : theme + '/');
-// The following are left commented out as they are helpful during development
-// to allow live reloading of grommet styles.
-// require('./scss/index-hpe');
-// var rootPath = '/docs/';
 
 var routes = require('./routes')(rootPath);
 
