@@ -39,7 +39,7 @@ var TileDoc = React.createClass({
           <h2>Example</h2>
 
           <div className="example">
-            <Carousel autoplaySpeed={2000}>
+            <Carousel>
               <img src="img/carousel-1.png" />
               <img src="img/carousel-2.png" />
               <Box pad="large" colorIndex="neutral-3">
