@@ -74,6 +74,7 @@ var opts = {
     }
   },
   devServerPort: 8002,
+  // devServerHost: "0.0.0.0",
   scsslint: true,
   devPreprocess: ['dist-css', 'generate-icons-map'],
   distPreprocess: ['dist-css', 'generate-icons-map', 'generate-server-routes']
@@ -233,10 +234,9 @@ gulp.task('release:heroku', ['dist', 'release:createTmp'], function(done) {
             throw err;
           }
 
-          gulp.src([
-            '../../**',
-            '!../../.gitignore',
-            '!../../.travis.yml'])
+          del.sync(['./**/*']);
+
+          gulp.src(['../../**'])
           .pipe(gulp.dest('./')).on('end', function() {
             git.status({
               args: '--porcelain'

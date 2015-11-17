@@ -58,7 +58,8 @@ var MenuDoc = React.createClass({
             <dt><code>small         true|false</code></dt>
             <dd>Indicates that the menu should be rendered in a small size.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
+          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          also available.</p>
         </section>
 
         <section>

@@ -42,7 +42,8 @@ var HeaderDoc = React.createClass({
             <dt><code>splash      true|false</code></dt>
             <dd>Whether to render it in a style suitable for a splash screen.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
+          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          also available.</p>
         </section>
 
         <section>
@@ -76,6 +77,19 @@ var HeaderDoc = React.createClass({
             <Header justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<Edit />} dropAlign={{right: "right"}}>
+                <a href="#" className="active">First</a>
+                <a href="#">Second</a>
+                <a href="#">Third</a>
+              </Menu>
+            </Header>
+          </div>
+          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+
+          <h3>Logo, title and labelled Menu</h3>
+          <div className="example">
+            <Header justify="between">
+              <Title><Logo /> Title</Title>
+              <Menu label="Label" dropAlign={{right: "right"}}>
                 <a href="#" className="active">First</a>
                 <a href="#">Second</a>
                 <a href="#">Third</a>

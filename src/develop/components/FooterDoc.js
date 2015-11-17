@@ -34,7 +34,8 @@ var FooterDoc = React.createClass({
             <dt><code>small       true|false</code></dt>
             <dd>Smaller sized version.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
+          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          also available.</p>
         </section>
 
         <section>
