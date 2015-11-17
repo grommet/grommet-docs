@@ -6334,8 +6334,6 @@ module.exports =
 	 * This source code is licensed under the BSD-style license found in the
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule invariant
 	 */
 
 	'use strict';
@@ -6371,9 +6369,9 @@ module.exports =
 	      var args = [a, b, c, d, e, f];
 	      var argIndex = 0;
 	      error = new Error(
-	        'Invariant Violation: ' +
 	        format.replace(/%s/g, function() { return args[argIndex++]; })
 	      );
+	      error.name = 'Invariant Violation';
 	    }
 
 	    error.framesToPop = 1; // we don't care about invariant's own frame
@@ -7881,6 +7879,7 @@ module.exports =
 	  // of the context to transfer somehow.
 	  childContextTypes: {
 	    router: React.PropTypes.func,
+	    history: React.PropTypes.object,
 	    intl: React.PropTypes.object,
 	    store: React.PropTypes.object
 	  },
@@ -7888,6 +7887,7 @@ module.exports =
 	  getChildContext: function getChildContext() {
 	    return {
 	      router: this.props.router,
+	      history: this.props.history,
 	      intl: this.props.intl,
 	      store: this.props.store
 	    };
@@ -7973,6 +7973,7 @@ module.exports =
 
 	  contextTypes: {
 	    router: React.PropTypes.func,
+	    history: React.PropTypes.object,
 	    intl: React.PropTypes.object,
 	    store: React.PropTypes.object
 	  },
@@ -8049,6 +8050,7 @@ module.exports =
 	    this._element.className = this._classesFromProps().join(' ');
 	    var contents = React.createElement(LayerContents, _extends({}, this.props, {
 	      router: this.context.router,
+	      history: this.context.history,
 	      intl: this.context.intl,
 	      store: this.context.store }));
 	    ReactDOM.render(contents, this._element);
@@ -20269,9 +20271,11 @@ module.exports =
 	  },
 
 	  _renderLegend: function _renderLegend() {
+	    var total = typeof this.props.legend === 'object' && this.props.legend.total;
 	    return React.createElement(Legend, { ref: 'legend', className: CLASS_ROOT + "__legend",
 	      series: this.state.series,
 	      units: this.props.units,
+	      total: total,
 	      activeIndex: this.state.activeIndex,
 	      onActive: this._onActivate });
 	  },
@@ -25285,7 +25289,7 @@ module.exports =
 	  getInitialState: function getInitialState() {
 	    return {
 	      selection: this._normalizeSelection(this.props.selection),
-	      rebuildMirror: true
+	      rebuildMirror: this.props.scrollable
 	    };
 	  },
 
@@ -25309,7 +25313,7 @@ module.exports =
 	    if (newProps.hasOwnProperty('selection')) {
 	      this.setState({ selection: this._normalizeSelection(newProps.selection) });
 	    }
-	    this.setState({ rebuildMirror: true });
+	    this.setState({ rebuildMirror: newProps.scrollable });
 	  },
 
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
@@ -39245,6 +39249,8 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Box = __webpack_require__(98);
+	var Tiles = __webpack_require__(119);
+	var Tile = __webpack_require__(124);
 	var Previous = __webpack_require__(298);
 	var Next = __webpack_require__(299);
 
@@ -39404,6 +39410,14 @@ module.exports =
 
 	    var trackPosition = -(width * this.state.activeIndex);
 
+	    var tiles = React.Children.map(children, function (child) {
+	      return React.createElement(
+	        Tile,
+	        { className: CLASS_ROOT + "__item" },
+	        child
+	      );
+	    }, this);
+
 	    var controls = React.Children.map(children, function (child) {
 	      index += 1;
 	      var controlClasses = [CLASS_ROOT + "__control"];
@@ -39425,7 +39439,11 @@ module.exports =
 	      React.createElement(
 	        'div',
 	        { className: CLASS_ROOT + "__track", style: { width: trackWidth, marginLeft: trackPosition } },
-	        children
+	        React.createElement(
+	          Tiles,
+	          { fill: true },
+	          tiles
+	        )
 	      ),
 	      this._renderPrevButton(),
 	      this._renderNextButton(),
@@ -50327,9 +50345,8 @@ module.exports =
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '32.5', y1: '25', x2: '26.5', y2: '25' }),
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '27.5', y1: '24', x2: '27.5', y2: '32' }),
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '31.5', y1: '29', x2: '26.5', y2: '29' }),
-	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,21 16.5,13 29.5002,13 34.5,17.9999  34.5,35 15.5,35 \t' }),
-	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '28.5,14 28.5,19 34.5,19 \t' }),
-	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M27.5,19' })
+	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,21 16.5,13 29.5002,13 34.5,17.9999 34.5,35 15.5,35 \t' }),
+	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '28.5,14 28.5,19 34.5,19 \t' })
 	      )
 	    );
 	  }
@@ -50533,9 +50550,8 @@ module.exports =
 	        'g',
 	        { id: 'document-rtf' },
 	        React.createElement('rect', { id: '_x2E_svg_280_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,21 16.5,13 29.5002,13 34.5,17.9999  34.5,35 15.5,35 \t' }),
+	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,21 16.5,13 29.5002,13 34.5,17.9999 34.5,35 15.5,35 \t' }),
 	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '28.5,14 28.5,19 34.5,19 \t' }),
-	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M27.5,19' }),
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '12.5001', y1: '25.0004', x2: '12.5001', y2: '32.0004' }),
 	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14.5001,29.0004c1.1046,0,2-0.8954,2-2 s-0.8954-2-2-2h-2v4H14.5001z' }),
 	        React.createElement('polygon', { fill: '#231F20', points: '15.7461,32.0004 13.0438,28.2977 15.2342,28.2977 17.9562,32.0201 \t' }),
@@ -51007,9 +51023,8 @@ module.exports =
 	        'g',
 	        { id: 'document-txt' },
 	        React.createElement('rect', { id: '_x2E_svg_274_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.4186,21 16.4186,13 29.4188,13  34.4186,17.9999 34.4186,35 15.4186,35 \t' }),
+	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '16.4186,21 16.4186,13 29.4188,13 34.4186,17.9999 34.4186,35 15.4186,35 \t' }),
 	        React.createElement('polyline', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', points: '28.4186,14 28.4186,19 34.4186,19 \t' }),
-	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M27.4186,19' }),
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '17.4186', y1: '25', x2: '11.4186', y2: '25' }),
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '14.4186', y1: '24', x2: '14.4186', y2: '32' }),
 	        React.createElement('line', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', x1: '31.4186', y1: '25', x2: '25.4186', y2: '25' }),
