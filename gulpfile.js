@@ -11,7 +11,9 @@ var webpack = require('webpack');
 var gulpWebpack = require('webpack-stream');
 var git = require('gulp-git');
 var del = require('del');
+var http = require('http');
 var mkdirp = require('mkdirp');
+var replace = require('gulp-replace');
 
 var opts = {
   base: '.',
@@ -74,51 +76,83 @@ var opts = {
     }
   },
   devServerPort: 8002,
+  devServerDisableHot: true,
   // devServerHost: "0.0.0.0",
   scsslint: true,
-  devPreprocess: ['dist-css', 'generate-icons-map'],
+  devPreprocess: ['dist-css', 'generate-icons-map', 'watch-css'],
   distPreprocess: ['dist-css', 'generate-icons-map', 'generate-server-routes']
 };
 
 function distSass() {
   return sass({
     includePaths: [
+      path.resolve(__dirname, '../grommet/src/'),
       path.resolve(__dirname, './node_modules'),
       path.resolve(__dirname, './node_modules/grommet/node_modules')
     ]
   });
 }
 
+var host = opts.devServerHost ? opts.devServerHost : 'localhost';
+
+gulp.task('watch-css', function() {
+  if (opts.webpack.resolve.alias) {
+    var watcher = gulp.watch(
+      path.resolve(__dirname, '../grommet/src/scss/**/*.scss'),
+      ['dist-css']
+    );
+
+    watcher.on('change', function() {
+      http.get(
+        'http://' + host + ':' + opts.devServerPort + '/invalid'
+      );
+    });
+  }
+});
+
 gulp.task('dist-css', function() {
+  var prefix = opts.webpack.resolve.alias ? 'grommet/' : '';
+
   gulp.src('src/scss/index-aruba.scss')
+    .pipe(replace(prefix, ''))
     .pipe(distSass())
     .pipe(rename('aruba.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('dist/'));
 
   gulp.src('src/scss/index-grommet.scss')
+    .pipe(replace(prefix, ''))
     .pipe(distSass())
     .pipe(rename('grommet.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('dist/'));
 
   gulp.src('src/scss/index-hpe.scss')
+    .pipe(replace(prefix, ''))
     .pipe(distSass())
     .pipe(rename('hpe.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('dist/'));
 
   gulp.src('src/scss/index-hpinc.scss')
+    .pipe(replace(prefix, ''))
     .pipe(distSass())
     .pipe(rename('hpinc.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('dist/'));
 
   return gulp.src('src/scss/index-vanilla.scss')
+    .pipe(replace(prefix, ''))
     .pipe(distSass())
     .pipe(rename('vanilla.min.css'))
     .pipe(minifyCss())
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('dist/')).on('end', function () {
+      if (opts.webpack.resolve.alias) {
+        http.get(
+          'http://' + host + ':' + opts.devServerPort + '/reload'
+        );
+      }
+    });
 });
 
 var nodeModules = {};

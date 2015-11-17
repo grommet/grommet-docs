@@ -40,6 +40,7 @@
     "gulp-git": "^1.2.3",
     "gulp-minify-css": "^1.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
     "highlight-loader": "^0.4.5",
     "html-jsx-loader": "^0.1.12",
