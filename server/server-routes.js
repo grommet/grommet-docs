@@ -26620,7 +26620,13 @@ module.exports =
 	          React.createElement(
 	            'dd',
 	            null,
-	            'The orientation to layout the child components in.'
+	            'The orientation to layout the child components in. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'column'
+	            ),
+	            '.'
 	          ),
 	          React.createElement(
 	            'dt',
@@ -26684,6 +26690,12 @@ module.exports =
 	              null,
 	              "{horizontal: none|small|medium|large, vertical: none|small|medium|large}"
 	            ),
+	            '. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'none'
+	            ),
 	            '.'
 	          ),
 	          React.createElement(
@@ -26712,7 +26724,13 @@ module.exports =
 	          React.createElement(
 	            'dd',
 	            null,
-	            'Whether children laid out in a row direction should be switched to a column layout when the display area narrows.'
+	            'Whether children laid out in a row direction should be switched to a column layout when the display area narrows. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'true'
+	            ),
+	            '.'
 	          ),
 	          React.createElement(
 	            'dt',
@@ -26741,7 +26759,13 @@ module.exports =
 	          React.createElement(
 	            'dd',
 	            null,
-	            'The DOM tag to use for the element.'
+	            'The DOM tag to use for the element. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'div'
+	            ),
+	            '.'
 	          ),
 	          React.createElement(
 	            'dt',

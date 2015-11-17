@@ -26,7 +26,8 @@ var BoxDoc = React.createClass({
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code></dd>
             <dt><code>direction    row|column</code></dt>
-            <dd>The orientation to layout the child components in.</dd>
+            <dd>The orientation to layout the child components in.
+              Defaults to <code>column</code>.</dd>
             <dt><code>full         true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport size.</dd>
             <dt><code>onClick      {"{func}"}</code></dt>
@@ -37,16 +38,18 @@ var BoxDoc = React.createClass({
             <dd>The amount of padding to put around the contents. An object
               can be specified to distinguish horizontal and vertical padding: <code>
               {"{horizontal: none|small|medium|large, vertical: none|small|medium|large}"}
-              </code>.</dd>
+            </code>. Defaults to <code>none</code>.</dd>
             <dt><code>reverse      true|false</code></dt>
             <dd>Whether to reverse the order of the child components.</dd>
             <dt><code>responsive   true|false</code></dt>
             <dd>Whether children laid out in a row direction should be
-              switched to a column layout when the display area narrows.</dd>
+              switched to a column layout when the display area narrows.
+              Defaults to <code>true</code>.</dd>
             <dt><code>separator   top|bottom|left|right</code></dt>
             <dd>Add a separator.</dd>
             <dt><code>tag          {"{text}"}</code></dt>
-            <dd>The DOM tag to use for the element.</dd>
+            <dd>The DOM tag to use for the element.
+              Defaults to <code>div</code>.</dd>
             <dt><code>texture      {"{url}"}</code></dt>
             <dd>A texture image to apply to the background.</dd>
           </dl>
