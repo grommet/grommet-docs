@@ -247,10 +247,10 @@ var MeterDoc = React.createClass({
           <h3>Bar, Series, Legend, Vertical</h3>
           <div className="example">
             <Meter a11yTitleId='meter-title-13' a11yDescId='meter-desc-13'
-              legend={true} series={series} size={this.state.size} vertical={true} />
+              legend={{total: true}} series={series} size={this.state.size} vertical={true} />
           </div>
           <pre><code className="html hljs xml">
-            {"<Meter legend={true}\n" +
+            {"<Meter legend={{total: true}}\n" +
               " series={" + stringify(series) + "}\n" +
               " vertical={true} />"}
           </code></pre>
