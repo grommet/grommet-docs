@@ -67256,7 +67256,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-13', a11yDescId: 'meter-desc-13',
-	            legend: true, series: series, size: this.state.size, vertical: true })
+	            legend: { total: true }, series: series, size: this.state.size, vertical: true })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -67264,7 +67264,7 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<Meter legend={true}\n" + " series={" + stringify(series) + "}\n" + " vertical={true} />"
+	            "<Meter legend={{total: true}}\n" + " series={" + stringify(series) + "}\n" + " vertical={true} />"
 	          )
 	        ),
 	        React.createElement(
