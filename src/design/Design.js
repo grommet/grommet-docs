@@ -70,7 +70,7 @@ var CONTENTS = [
     ]
   },
   {route: "design_resources", label: 'Resources',
-    component: DocsHtmlArticle.wrap(Resources, 'neutral-5')}
+    component: DocsHtmlArticle.wrap(Resources, 'neutral-4')}
 ];
 
 var Design = React.createClass({

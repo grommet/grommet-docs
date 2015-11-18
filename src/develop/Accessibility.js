@@ -15,11 +15,7 @@ var Accessibility = React.createClass({
   render: function() {
     return (
       <DocsArticle title="Accessibility" colorIndex="neutral-5">
-
-        <p>Accessibility guidelines.</p>
-
         <Section>
-          <h2>Accessibility features in Grommet</h2>
           <p>This section describes the Grommet guidelines for developing accessible applications.</p>
 
           <h3>Icons</h3>
