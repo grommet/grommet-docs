@@ -67803,6 +67803,8 @@ module.exports =
 	var Title = __webpack_require__(114);
 	var Menu = __webpack_require__(90);
 	var Anchor = __webpack_require__(134);
+	var Button = __webpack_require__(89);
+	var CloseIcon = __webpack_require__(86);
 
 	var inline = "<Sidebar>\n" + "  ...\n" + "</Sidebar>";
 
@@ -67813,6 +67815,10 @@ module.exports =
 	    routePrefix: React.PropTypes.string.isRequired
 	  },
 
+	  _onClose: function _onClose() {
+	    // no-op
+	  },
+
 	  render: function render() {
 	    return React.createElement(
 	      DocsArticle,
@@ -67820,7 +67826,37 @@ module.exports =
 	      React.createElement(
 	        'p',
 	        null,
-	        'A full height, fixed width container.'
+	        'A full height, fixed width container. Usually a Sidebar is placed inside a ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "split" },
+	          'Split'
+	        ),
+	        ' component. A typical usage is for primary navigation, in which case it typically contains a ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "header" },
+	          'Header'
+	        ),
+	        ' and a ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "menu" },
+	          'Menu'
+	        ),
+	        '. The Sidebar may or may not be always visible. If it comes and goes, it is typically controlled via a ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "title" },
+	          'Title'
+	        ),
+	        ' component inside a ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "header" },
+	          'Header'
+	        ),
+	        ' component residing in the other side of the Split.'
 	      ),
 	      React.createElement(
 	        'pre',
@@ -67945,20 +67981,35 @@ module.exports =
 	            { colorIndex: 'light-2' },
 	            React.createElement(
 	              Header,
-	              { pad: 'medium' },
+	              { pad: 'medium', justify: 'between' },
 	              React.createElement(
 	                Title,
 	                null,
 	                'Title'
+	              ),
+	              React.createElement(
+	                Button,
+	                { type: 'icon', onClose: this._onClose },
+	                React.createElement(CloseIcon, null)
 	              )
 	            ),
 	            React.createElement(
 	              Menu,
-	              { pad: 'medium' },
+	              { primary: true },
 	              React.createElement(
 	                Anchor,
 	                null,
-	                'Sample Content One'
+	                'Navigation 1'
+	              ),
+	              React.createElement(
+	                Anchor,
+	                null,
+	                'Navigation 2'
+	              ),
+	              React.createElement(
+	                Anchor,
+	                null,
+	                'Navigation 3'
 	              )
 	            )
 	          )
@@ -67969,7 +68020,7 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<Sidebar colorIndex=\"light-2\">\n  <p>\n    Sample Content One\n  </p>\n</Sidebar>"
+	            "<Sidebar colorIndex=\"light-2\">\n" + "  <Header pad=\"medium\">\n" + "    <Title>Title</Title>\n" + "  </Header>\n" + "  <Menu primary={true}>\n" + "    <Anchor>Navigation 1</Anchor>\n" + "    ...\n" + "  </Menu>\n" + "</Sidebar>"
 	          )
 	        )
 	      )
@@ -67986,9 +68037,14 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(131);
 	var Split = __webpack_require__(127);
+	var Sidebar = __webpack_require__(128);
+	var Article = __webpack_require__(109);
 	var Header = __webpack_require__(113);
+	var Menu = __webpack_require__(90);
+	var Anchor = __webpack_require__(134);
 	var Section = __webpack_require__(117);
 
 	var inline = "<Split>\n" + "  ...\n" + "</Split>";
@@ -68003,7 +68059,19 @@ module.exports =
 	      React.createElement(
 	        'p',
 	        null,
-	        'A full height container with two children laid out horizontally.'
+	        'A full height container with two children laid out horizontally. Typical uses involve placing a ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "sidebar" },
+	          'Sidebar'
+	        ),
+	        ' on the left for primary navigation and then main content on the right. The right side might contain a separate Split component to provide further content depth. Typically, you will want the top Split to be a direct child of the ',
+	        React.createElement(
+	          Link,
+	          { to: this.context.routePrefix + "app" },
+	          'App'
+	        ),
+	        ' component as this will provide the best responsive behavior across devices.'
 	      ),
 	      React.createElement(
 	        'pre',
@@ -68084,30 +68152,44 @@ module.exports =
 	            Split,
 	            null,
 	            React.createElement(
-	              'div',
-	              null,
+	              Sidebar,
+	              { colorIndex: 'neutral-1' },
 	              React.createElement(
 	                Header,
-	                { colorIndex: 'neutral-1', pad: { horizontal: 'medium' } },
+	                { pad: { horizontal: 'medium' } },
 	                'Header One'
 	              ),
 	              React.createElement(
-	                Section,
-	                null,
-	                'Content'
+	                Menu,
+	                { primary: true },
+	                React.createElement(
+	                  Anchor,
+	                  null,
+	                  'Navigation 1'
+	                ),
+	                React.createElement(
+	                  Anchor,
+	                  null,
+	                  'Navigation 2'
+	                ),
+	                React.createElement(
+	                  Anchor,
+	                  null,
+	                  'Navigation 3'
+	                )
 	              )
 	            ),
 	            React.createElement(
-	              'div',
+	              Article,
 	              null,
 	              React.createElement(
 	                Header,
-	                { colorIndex: 'neutral-2', pad: { horizontal: 'medium' } },
+	                { pad: { horizontal: 'medium' } },
 	                'Header Two'
 	              ),
 	              React.createElement(
 	                Section,
-	                null,
+	                { pad: 'medium' },
 	                'Content'
 	              )
 	            )
@@ -68119,7 +68201,7 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<Split>\n  <p>\n    Sample Content One\n  </p>\n</Split>"
+	            "<Split>\n" + "  <Sidebar colorIndex=\"neutral-1\">\n" + "    <Header pad={{horizontal: 'medium'}}>Header One</Header>\n" + "    <Menu primary={true}>\n" + "      <Anchor>Navigation 1</Anchor>\n" + "      ...\n" + "    </Menu>\n" + "  </Sidebar>\n" + "  <Article>\n" + "    <Header pad={{horizontal: 'medium'}}>Header Two</Header>\n" + "    <Section pad=\"medium\">Content</Section>\n" + "  </Article>\n" + "</Split>"
 	          )
 	        )
 	      )
