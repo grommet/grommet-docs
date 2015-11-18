@@ -12,8 +12,6 @@ var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
 var HelloWorld = require('./HelloWorld');
-var Tutorial = require('./Tutorial');
-var ModularGrommet = require('./ModularGrommet');
 var GetStarted = require('./GetStarted');
 var Architecture = require('./Architecture');
 var Integration = require('./Integration');
@@ -72,11 +70,7 @@ var CONTENTS = [
       {route: 'develop_helloworld', label: 'Hello World',
         component: DocsHtmlArticle.wrap(HelloWorld, 'neutral-1')},
       {route: 'develop_getstarted', label: 'Get Started',
-        component: DocsHtmlArticle.wrap(GetStarted, 'neutral-1')},
-      {route: 'develop_tutorial', label: 'Tutorial',
-        component: DocsHtmlArticle.wrap(Tutorial, 'neutral-1')},
-      {route: 'develop_modulargrommet', label: 'Modular Grommet',
-        component: DocsHtmlArticle.wrap(ModularGrommet, 'neutral-1')}
+        component: DocsHtmlArticle.wrap(GetStarted, 'neutral-1')}
     ]
   },
   {label: 'Patterns',
@@ -133,10 +127,11 @@ var CONTENTS = [
   {label: 'Reference',
     contents: [
       {route: 'develop_architecture', label: 'Architecture',
-        component: DocsHtmlArticle.wrap(Architecture, 'neutral-5')},
+        component: DocsHtmlArticle.wrap(Architecture, 'neutral-4')},
       {route: 'develop_integration', label: 'Integration',
-        component: DocsHtmlArticle.wrap(Integration, 'neutral-5')},
-      {route: 'develop_accessibility', label: 'Accessibility', component: Accessibility}
+        component: DocsHtmlArticle.wrap(Integration, 'neutral-4')},
+      {route: 'develop_accessibility', label: 'Accessibility',
+        component: DocsHtmlArticle.wrap(Accessibility, 'neutral-4')}
     ]
   }
 ];
@@ -172,12 +167,6 @@ var Develop = React.createClass({
               </Link>
               <Link to={this.context.routePrefix + "develop/get-started"}>
                 <Anchor tag="span" primary={true}>Get Started</Anchor>
-              </Link>
-              <Link to={this.context.routePrefix + "develop/tutorial"}>
-                <Anchor tag="span" primary={true}>Tutorial</Anchor>
-              </Link>
-              <Link to={this.context.routePrefix + "develop/modular-grommet"}>
-                <Anchor tag="span" primary={true}>Modular Grommet</Anchor>
               </Link>
             </Menu>
           </section>
