@@ -7,7 +7,9 @@ var Header = require('grommet/components/Header');
 var Menu = require('grommet/components/Menu');
 var Search = require('grommet/components/Search');
 var Title = require('grommet/components/Title');
-var Edit = require('grommet/components/icons/Edit');
+var ActionsLogo = require('grommet/components/icons/base/Actions');
+var NotificationIcon = require('grommet/components/icons/base/Notification');
+var UserSettingsIcon = require('grommet/components/icons/base/UserSettings');
 var Logo = require('../../img/Logo');
 
 var HeaderDoc = React.createClass({
@@ -76,7 +78,7 @@ var HeaderDoc = React.createClass({
           <div className="example">
             <Header justify="between">
               <Title><Logo /> Title</Title>
-              <Menu icon={<Edit />} dropAlign={{right: "right"}}>
+              <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
                 <a href="#" className="active">First</a>
                 <a href="#">Second</a>
                 <a href="#">Third</a>
@@ -102,7 +104,7 @@ var HeaderDoc = React.createClass({
           <div className="example">
             <Header size="large" justify="between">
               <Title><Logo /> Title</Title>
-              <Menu icon={<Edit />} dropAlign={{right: "right"}}>
+              <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
                 <a href="#" className="active">First</a>
                 <a href="#">Second</a>
                 <a href="#">Third</a>
@@ -115,7 +117,7 @@ var HeaderDoc = React.createClass({
           <div className="example">
             <Header size="small" justify="between">
               <Title><Logo /> Title</Title>
-              <Menu icon={<Edit />} dropAlign={{right: "right"}}>
+              <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
                 <a href="#" className="active">First</a>
                 <a href="#">Second</a>
                 <a href="#">Third</a>
@@ -128,7 +130,7 @@ var HeaderDoc = React.createClass({
           <div className="example">
             <Header size="large" justify="between">
               <Title onClick={function () {}}><Logo /> Title</Title>
-              <Menu icon={<Edit />} dropAlign={{right: "right"}}>
+              <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
                 <a href="#" className="active">First</a>
                 <a href="#">Second</a>
                 <a href="#">Third</a>
@@ -141,7 +143,46 @@ var HeaderDoc = React.createClass({
           <div className="example">
             <Header tag="h4" separator="top">Heading Text</Header>
           </div>
-          <pre><code className="html hljs xml">{"<Header tag=\"h4\" separator=\"top\" pad={{vertical: 'small'}}> ..."}</code></pre>
+          <pre><code className="html hljs xml">{"<Header tag=\"h4\" separator=\"top\"> ..."}</code></pre>
+
+          <h3>Large, Title Menu and icon Menu, colored</h3>
+          <div className="example">
+            <Header size="large" justify="between" colorIndex="neutral-1" pad={{horizontal: 'medium'}}>
+              <Title onClick={function () {}}><Logo inverse={true} /> Title</Title>
+              <Menu icon={<ActionsLogo />}
+                dropAlign={{right: "right"}}
+                dropColorIndex="neutral-1">
+                <a href="#" className="active">First</a>
+                <a href="#">Second</a>
+                <a href="#">Third</a>
+              </Menu>
+            </Header>
+          </div>
+          <pre><code className="html hljs xml">{"<Header size=\"large\" justify=\"between\" colorIndex=\"neutral-1\" pad={{vertical: 'small'}}> ..."}</code></pre>
+
+          <h3>Logo, Title and nested Menus, colored</h3>
+          <div className="example">
+            <Header justify="between" colorIndex="neutral-1" pad={{horizontal: 'medium'}}>
+              <Title><Logo inverse={true} /> Title</Title>
+              <Menu inline={true} responsive={false} direction="row">
+                <Menu icon={<NotificationIcon />}
+                  dropAlign={{right: "right"}}
+                  dropColorIndex="neutral-1">
+                  <a href="#" className="active">First</a>
+                  <a href="#">Second</a>
+                  <a href="#">Third</a>
+                </Menu>
+                <Menu icon={<UserSettingsIcon />}
+                  dropAlign={{right: "right"}}
+                  dropColorIndex="neutral-1">
+                  <a href="#" className="active">First</a>
+                  <a href="#">Second</a>
+                  <a href="#">Third</a>
+                </Menu>
+              </Menu>
+            </Header>
+          </div>
+          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
 
         </section>
 

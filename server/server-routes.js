@@ -21014,13 +21014,16 @@ module.exports =
 	  displayName: 'Logo',
 
 	  render: function render() {
-	    var className = [];
+	    var classes = [];
+	    if (this.props.inverse) {
+	      classes.push('logo--inverse');
+	    }
 	    if (this.props.className) {
-	      className += ' ' + this.props.className;
+	      classes.push(this.props.className);
 	    }
 	    return React.createElement(
 	      'svg',
-	      { className: className, height: '27', viewBox: '0 0 30 27', version: '1.1' },
+	      { className: classes.join(' '), height: '27', viewBox: '0 0 30 27', version: '1.1' },
 	      React.createElement(
 	        'g',
 	        { strokeWidth: '4', fill: 'none', fillRule: 'evenodd' },
@@ -22245,12 +22248,12 @@ module.exports =
 	var FormDoc = __webpack_require__(306);
 	var FormFieldDoc = __webpack_require__(314);
 	var HeaderDoc = __webpack_require__(315);
-	var IconDoc = __webpack_require__(317);
-	var LayerDoc = __webpack_require__(613);
-	var ListDoc = __webpack_require__(614);
-	var LoginFormDoc = __webpack_require__(617);
-	var MapDoc = __webpack_require__(618);
-	var MenuDoc = __webpack_require__(620);
+	var IconDoc = __webpack_require__(319);
+	var LayerDoc = __webpack_require__(612);
+	var ListDoc = __webpack_require__(613);
+	var LoginFormDoc = __webpack_require__(616);
+	var MapDoc = __webpack_require__(617);
+	var MenuDoc = __webpack_require__(619);
 	var MeterDoc = __webpack_require__(622);
 	var NavigationDoc = __webpack_require__(623);
 	var ParagraphDoc = __webpack_require__(624);
@@ -22270,11 +22273,11 @@ module.exports =
 	var TopologyDoc = __webpack_require__(641);
 
 	//hjjs configuration
-	var hljs = __webpack_require__(608);
-	hljs.registerLanguage('bash', __webpack_require__(609));
-	hljs.registerLanguage('xml', __webpack_require__(610));
-	hljs.registerLanguage('javascript', __webpack_require__(611));
-	hljs.registerLanguage('scss', __webpack_require__(612));
+	var hljs = __webpack_require__(607);
+	hljs.registerLanguage('bash', __webpack_require__(608));
+	hljs.registerLanguage('xml', __webpack_require__(609));
+	hljs.registerLanguage('javascript', __webpack_require__(610));
+	hljs.registerLanguage('scss', __webpack_require__(611));
 
 	var CONTENTS = [{ label: 'Guides',
 	  contents: [{ route: 'develop_helloworld', label: 'Hello World',
@@ -42044,7 +42047,9 @@ module.exports =
 	var Menu = __webpack_require__(90);
 	var Search = __webpack_require__(170);
 	var Title = __webpack_require__(114);
-	var Edit = __webpack_require__(316);
+	var ActionsLogo = __webpack_require__(316);
+	var NotificationIcon = __webpack_require__(317);
+	var UserSettingsIcon = __webpack_require__(318);
 	var Logo = __webpack_require__(172);
 
 	var HeaderDoc = React.createClass({
@@ -42301,7 +42306,7 @@ module.exports =
 	            ),
 	            React.createElement(
 	              Menu,
-	              { icon: React.createElement(Edit, null), dropAlign: { right: "right" } },
+	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
 	              React.createElement(
 	                'a',
 	                { href: '#', className: 'active' },
@@ -42395,7 +42400,7 @@ module.exports =
 	            ),
 	            React.createElement(
 	              Menu,
-	              { icon: React.createElement(Edit, null), dropAlign: { right: "right" } },
+	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
 	              React.createElement(
 	                'a',
 	                { href: '#', className: 'active' },
@@ -42442,7 +42447,7 @@ module.exports =
 	            ),
 	            React.createElement(
 	              Menu,
-	              { icon: React.createElement(Edit, null), dropAlign: { right: "right" } },
+	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
 	              React.createElement(
 	                'a',
 	                { href: '#', className: 'active' },
@@ -42489,7 +42494,7 @@ module.exports =
 	            ),
 	            React.createElement(
 	              Menu,
-	              { icon: React.createElement(Edit, null), dropAlign: { right: "right" } },
+	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
 	              React.createElement(
 	                'a',
 	                { href: '#', className: 'active' },
@@ -42537,7 +42542,130 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<Header tag=\"h4\" separator=\"top\" pad={{vertical: 'small'}}> ..."
+	            "<Header tag=\"h4\" separator=\"top\"> ..."
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Large, Title Menu and icon Menu, colored'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Header,
+	            { size: 'large', justify: 'between', colorIndex: 'neutral-1', pad: { horizontal: 'medium' } },
+	            React.createElement(
+	              Title,
+	              { onClick: function () {} },
+	              React.createElement(Logo, { inverse: true }),
+	              ' Title'
+	            ),
+	            React.createElement(
+	              Menu,
+	              { icon: React.createElement(ActionsLogo, null),
+	                dropAlign: { right: "right" },
+	                dropColorIndex: 'neutral-1' },
+	              React.createElement(
+	                'a',
+	                { href: '#', className: 'active' },
+	                'First'
+	              ),
+	              React.createElement(
+	                'a',
+	                { href: '#' },
+	                'Second'
+	              ),
+	              React.createElement(
+	                'a',
+	                { href: '#' },
+	                'Third'
+	              )
+	            )
+	          )
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Header size=\"large\" justify=\"between\" colorIndex=\"neutral-1\" pad={{vertical: 'small'}}> ..."
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Logo, Title and nested Menus, colored'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Header,
+	            { justify: 'between', colorIndex: 'neutral-1', pad: { horizontal: 'medium' } },
+	            React.createElement(
+	              Title,
+	              null,
+	              React.createElement(Logo, { inverse: true }),
+	              ' Title'
+	            ),
+	            React.createElement(
+	              Menu,
+	              { inline: true, responsive: false, direction: 'row' },
+	              React.createElement(
+	                Menu,
+	                { icon: React.createElement(NotificationIcon, null),
+	                  dropAlign: { right: "right" },
+	                  dropColorIndex: 'neutral-1' },
+	                React.createElement(
+	                  'a',
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                React.createElement(
+	                  'a',
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                React.createElement(
+	                  'a',
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              ),
+	              React.createElement(
+	                Menu,
+	                { icon: React.createElement(UserSettingsIcon, null),
+	                  dropAlign: { right: "right" },
+	                  dropColorIndex: 'neutral-1' },
+	                React.createElement(
+	                  'a',
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                React.createElement(
+	                  'a',
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                React.createElement(
+	                  'a',
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Header> ..."
 	          )
 	        )
 	      )
@@ -42556,40 +42684,194 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var FormattedMessage = __webpack_require__(45);
 
-	var Edit = React.createClass({
-	  displayName: 'Edit',
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'actions-title'
+	    };
+	  },
 
 	  render: function render() {
-	    var className = 'control-icon control-icon-edit';
-	    if (this.props.className) {
-	      className += ' ' + this.props.className;
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-actions'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
 	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "actions";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
 	    return React.createElement(
 	      'svg',
-	      { className: className, viewBox: '0 0 48 48', version: '1.1' },
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
 	      React.createElement(
 	        'g',
-	        { fill: 'none' },
-	        React.createElement('circle', { strokeWidth: '2', cx: '24', cy: '24', r: '9' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '11', x2: '24', y2: '15' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '33.2', y1: '14.8', x2: '30.3', y2: '17.6' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '37', y1: '24', x2: '33', y2: '24' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '33.2', y1: '33.2', x2: '30.3', y2: '30.4' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '37', x2: '24', y2: '33' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '14.8', y1: '33.2', x2: '17.7', y2: '30.4' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '11', y1: '24', x2: '15.2', y2: '24' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '14.8', y1: '14.8', x2: '17.7', y2: '17.6' })
+	        { id: 'actions' },
+	        React.createElement('rect', { id: '_x2E_svg_2_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M32,24c0,4.4183-3.5817,8-8,8s-8-3.5817-8-8 s3.5817-8,8-8S32,19.5817,32,24z M27,24c0-1.6542-1.3455-3-3-3s-3,1.3458-3,3s1.3455,3,3,3S27,25.6542,27,24z M24,12v4 M32,24h4 M24,36v-4 M12,24h4 M32.4853,15.5147l-2.8284,2.8284 M29.6569,29.6569l2.8284,2.8284 M18.3431,29.6569l-2.8284,2.8284 M15.5147,15.5147l2.8284,2.8284' })
 	      )
 	    );
 	  }
 
 	});
 
-	module.exports = Edit;
+	module.exports = Icon;
 
 /***/ },
 /* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FormattedMessage = __webpack_require__(45);
+
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'notification-title'
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-notification'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "notification";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
+	    return React.createElement(
+	      'svg',
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
+	      React.createElement(
+	        'g',
+	        { id: 'notification' },
+	        React.createElement('rect', { id: '_x2E_svg_48_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M24,31h-8V21c0-4.4183,3.5817-8,8-8s8,3.5817,8,8 v10H24z M12,31h24 M21,32c0,1.6569,1.3431,3,3,3s3-1.3431,3-3' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Icon;
+
+/***/ },
+/* 318 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FormattedMessage = __webpack_require__(45);
+
+	var CLASS_ROOT = "control-icon";
+
+	var Icon = React.createClass({
+	  displayName: 'Icon',
+
+	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    colorIndex: React.PropTypes.string,
+	    large: React.PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      a11yTitleId: 'user-settings-title'
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT, CLASS_ROOT + '-user-settings'];
+	    if (this.props.large) {
+	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "user-settings";
+	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
+
+	    return React.createElement(
+	      'svg',
+	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
+	      React.createElement(
+	        'title',
+	        { id: this.props.a11yTitleId },
+	        a11yTitle
+	      ),
+	      React.createElement(
+	        'g',
+	        { id: 'user-settings' },
+	        React.createElement('rect', { id: '_x2E_svg_129_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
+	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M32,33c-1.6545,0-3-1.3458-3-3s1.3455-3,3-3 s3,1.3458,3,3S33.6545,33,32,33z M38,30l-3,0.0001 M34.1212,32.1214l2.1214,2.1212 M32,36l-0.0001-3 M27.7573,34.2426 l2.1212-2.1214 M26,30h3 M29.8787,27.8787l-2.1213-2.1213 M32,27v-3 M34.1213,27.8787l2.1213-2.1213 M21,13c-2.7614,0-5,2.2386-5,5 s2.2386,5,5,5s5-2.2386,5-5S23.7614,13,21,13z M26.0002,24.7548C24.6306,23.6568,22.892,23,21,23h0c-4.4183,0-8,3.5817-8,8v4h12.4' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Icon;
+
+/***/ },
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42602,15 +42884,15 @@ module.exports =
 	var SearchInput = __webpack_require__(310);
 	var Tiles = __webpack_require__(119);
 	var Tile = __webpack_require__(124);
-	var iconsMap = __webpack_require__(318);
+	var iconsMap = __webpack_require__(320);
 	var iconNames = Object.keys(iconsMap);
 
 	//hjjs configuration
-	var hljs = __webpack_require__(608);
-	hljs.registerLanguage('bash', __webpack_require__(609));
-	hljs.registerLanguage('xml', __webpack_require__(610));
-	hljs.registerLanguage('javascript', __webpack_require__(611));
-	hljs.registerLanguage('scss', __webpack_require__(612));
+	var hljs = __webpack_require__(607);
+	hljs.registerLanguage('bash', __webpack_require__(608));
+	hljs.registerLanguage('xml', __webpack_require__(609));
+	hljs.registerLanguage('javascript', __webpack_require__(610));
+	hljs.registerLanguage('scss', __webpack_require__(611));
 
 	var IconDoc = React.createClass({
 	  displayName: 'IconDoc',
@@ -42839,15 +43121,15 @@ module.exports =
 	module.exports = IconDoc;
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = { "achievement": __webpack_require__(319), "action": __webpack_require__(320), "actions": __webpack_require__(321), "add": __webpack_require__(137), "advanced-search": __webpack_require__(322), "aggregate": __webpack_require__(323), "alarm": __webpack_require__(324), "alert": __webpack_require__(325), "analytics": __webpack_require__(326), "announcement": __webpack_require__(327), "app": __webpack_require__(328), "archive": __webpack_require__(329), "article": __webpack_require__(330), "ascend": __webpack_require__(331), "assistant": __webpack_require__(332), "attachment": __webpack_require__(333), "bar-chart": __webpack_require__(334), "blog": __webpack_require__(335), "book": __webpack_require__(336), "bookmark": __webpack_require__(337), "bundle": __webpack_require__(338), "calculator": __webpack_require__(339), "calendar": __webpack_require__(144), "camera": __webpack_require__(340), "capacity": __webpack_require__(341), "caret-down": __webpack_require__(342), "caret-next": __webpack_require__(343), "caret-previous": __webpack_require__(344), "caret-up": __webpack_require__(345), "catalog": __webpack_require__(346), "chapter-add": __webpack_require__(347), "chapter-next": __webpack_require__(348), "chapter-previous": __webpack_require__(349), "chat": __webpack_require__(350), "checkbox-selected": __webpack_require__(351), "checkbox": __webpack_require__(352), "checkmark": __webpack_require__(353), "circular-view": __webpack_require__(354), "clipboard": __webpack_require__(355), "clone": __webpack_require__(356), "close": __webpack_require__(86), "cloud-computer": __webpack_require__(357), "cloud-download": __webpack_require__(358), "cloud-software": __webpack_require__(359), "cloud-upload": __webpack_require__(360), "cloud": __webpack_require__(361), "cluster": __webpack_require__(362), "code": __webpack_require__(363), "command-line": __webpack_require__(364), "compare": __webpack_require__(365), "compasss": __webpack_require__(366), "compliance": __webpack_require__(367), "computer-personal": __webpack_require__(368), "configuration": __webpack_require__(369), "connect": __webpack_require__(370), "contact-card": __webpack_require__(371), "contact-us": __webpack_require__(372), "contract": __webpack_require__(373), "copy": __webpack_require__(374), "cube": __webpack_require__(375), "cubes": __webpack_require__(376), "cursor": __webpack_require__(377), "cut": __webpack_require__(378), "cycle": __webpack_require__(379), "dashboard": __webpack_require__(380), "database": __webpack_require__(381), "defect": __webpack_require__(382), "deliver": __webpack_require__(383), "deployment": __webpack_require__(384), "descend": __webpack_require__(385), "desktop": __webpack_require__(386), "detach": __webpack_require__(387), "directions": __webpack_require__(388), "dislike": __webpack_require__(389), "divide-four": __webpack_require__(390), "divide-right": __webpack_require__(391), "divide-three": __webpack_require__(392), "divide": __webpack_require__(393), "document-cloud": __webpack_require__(394), "document-compress": __webpack_require__(395), "document-conig": __webpack_require__(396), "document-csv": __webpack_require__(397), "document-data": __webpack_require__(398), "document-download": __webpack_require__(399), "document-excel": __webpack_require__(400), "document-executable": __webpack_require__(401), "document-image": __webpack_require__(402), "document-locked": __webpack_require__(403), "document-missing": __webpack_require__(404), "document-notes": __webpack_require__(405), "document-outlook": __webpack_require__(406), "document-pdf": __webpack_require__(407), "document-performance": __webpack_require__(408), "document-powerpoint": __webpack_require__(409), "document-rtf": __webpack_require__(410), "document-sound": __webpack_require__(411), "document-test": __webpack_require__(412), "document-text": __webpack_require__(413), "document-threat": __webpack_require__(414), "document-time": __webpack_require__(415), "document-transfer": __webpack_require__(416), "document-txt": __webpack_require__(417), "document-update": __webpack_require__(418), "document-upload": __webpack_require__(419), "document-user": __webpack_require__(420), "document-verified": __webpack_require__(421), "document-video": __webpack_require__(422), "document-word": __webpack_require__(423), "document": __webpack_require__(424), "domain": __webpack_require__(425), "down": __webpack_require__(141), "download": __webpack_require__(426), "drag": __webpack_require__(140), "drive-cage": __webpack_require__(427), "duplicate": __webpack_require__(428), "edit": __webpack_require__(138), "eject": __webpack_require__(429), "expand": __webpack_require__(430), "fan": __webpack_require__(431), "fast-forward": __webpack_require__(432), "favorite": __webpack_require__(433), "filter": __webpack_require__(142), "first-aid": __webpack_require__(434), "flag": __webpack_require__(435), "folder-cycle": __webpack_require__(436), "folder-open": __webpack_require__(437), "folder": __webpack_require__(438), "gallery": __webpack_require__(439), "globe": __webpack_require__(440), "grid": __webpack_require__(441), "group": __webpack_require__(442), "grow": __webpack_require__(443), "halt": __webpack_require__(444), "help": __webpack_require__(145), "history": __webpack_require__(445), "home": __webpack_require__(446), "host-maintenance": __webpack_require__(447), "host": __webpack_require__(448), "image": __webpack_require__(449), "impact": __webpack_require__(450), "in-progress": __webpack_require__(451), "inbox": __webpack_require__(452), "indicator": __webpack_require__(453), "information": __webpack_require__(454), "inherit": __webpack_require__(455), "install": __webpack_require__(456), "integration": __webpack_require__(457), "iteration": __webpack_require__(458), "java": __webpack_require__(459), "language": __webpack_require__(151), "launch": __webpack_require__(460), "license": __webpack_require__(461), "like": __webpack_require__(462), "line-chart": __webpack_require__(463), "link-bottom": __webpack_require__(464), "link-down": __webpack_require__(465), "link-next": __webpack_require__(147), "link-previous": __webpack_require__(146), "link-top": __webpack_require__(149), "link-up": __webpack_require__(148), "link": __webpack_require__(466), "location-pin": __webpack_require__(467), "location": __webpack_require__(468), "lock": __webpack_require__(469), "login": __webpack_require__(470), "logout": __webpack_require__(471), "mail": __webpack_require__(152), "manual": __webpack_require__(472), "map-location": __webpack_require__(473), "map": __webpack_require__(474), "menu": __webpack_require__(475), "microphone": __webpack_require__(476), "monitor": __webpack_require__(477), "more": __webpack_require__(139), "multiple": __webpack_require__(478), "navigate": __webpack_require__(479), "new-window": __webpack_require__(480), "new": __webpack_require__(481), "next": __webpack_require__(297), "notes": __webpack_require__(482), "notification": __webpack_require__(483), "optimization": __webpack_require__(484), "organization": __webpack_require__(485), "overview": __webpack_require__(486), "pan": __webpack_require__(487), "pause": __webpack_require__(488), "payment-google-wallet": __webpack_require__(489), "payment-mastercard": __webpack_require__(490), "payment-paypal": __webpack_require__(491), "payment-square": __webpack_require__(492), "payment-visa": __webpack_require__(493), "pin": __webpack_require__(494), "plan": __webpack_require__(495), "platform-apple": __webpack_require__(496), "platform-chrome": __webpack_require__(497), "platform-dropbox": __webpack_require__(498), "platform-edge": __webpack_require__(499), "platform-firefox": __webpack_require__(500), "platform-internet-explorer": __webpack_require__(501), "platform-skype": __webpack_require__(502), "platform-windows": __webpack_require__(503), "play": __webpack_require__(504), "power": __webpack_require__(505), "previous": __webpack_require__(296), "print": __webpack_require__(506), "quick-view": __webpack_require__(507), "radial-selected": __webpack_require__(508), "radial": __webpack_require__(509), "refresh": __webpack_require__(510), "resources": __webpack_require__(511), "rewind": __webpack_require__(512), "risk": __webpack_require__(513), "rss": __webpack_require__(514), "satellite": __webpack_require__(515), "schedule-clone": __webpack_require__(516), "schedule-new": __webpack_require__(517), "schedule-play": __webpack_require__(518), "schedule": __webpack_require__(519), "scorecard": __webpack_require__(520), "search": __webpack_require__(143), "secure": __webpack_require__(521), "select-left": __webpack_require__(522), "select": __webpack_require__(523), "server-cluster": __webpack_require__(524), "server": __webpack_require__(525), "servers": __webpack_require__(526), "service-business": __webpack_require__(527), "service-start": __webpack_require__(528), "share": __webpack_require__(529), "sheild-configure": __webpack_require__(530), "shield": __webpack_require__(531), "shift": __webpack_require__(532), "shop-basket": __webpack_require__(533), "shop-cart": __webpack_require__(534), "soa": __webpack_require__(535), "social-email": __webpack_require__(536), "social-facebook": __webpack_require__(155), "social-github": __webpack_require__(537), "social-google": __webpack_require__(538), "social-instagram": __webpack_require__(539), "social-linkedin": __webpack_require__(154), "social-medium": __webpack_require__(540), "social-pinterest": __webpack_require__(541), "social-reddit": __webpack_require__(542), "social-slack": __webpack_require__(543), "social-tumblr": __webpack_require__(544), "social-twitter": __webpack_require__(153), "social-vimeo": __webpack_require__(545), "social-youtube": __webpack_require__(546), "sort": __webpack_require__(547), "stakeholder": __webpack_require__(548), "star-half": __webpack_require__(549), "star": __webpack_require__(550), "steps": __webpack_require__(551), "storage": __webpack_require__(552), "street-view": __webpack_require__(553), "subtract": __webpack_require__(554), "support": __webpack_require__(555), "svg": __webpack_require__(556), "sync": __webpack_require__(557), "system": __webpack_require__(558), "tab-next": __webpack_require__(559), "tab-previous": __webpack_require__(560), "tab-up": __webpack_require__(561), "table-add": __webpack_require__(562), "table": __webpack_require__(563), "tag": __webpack_require__(564), "target": __webpack_require__(565), "task": __webpack_require__(566), "template": __webpack_require__(567), "test-desktop": __webpack_require__(568), "test": __webpack_require__(569), "tesxt-wrap": __webpack_require__(570), "threats": __webpack_require__(571), "three-d": __webpack_require__(572), "ticket": __webpack_require__(573), "tools": __webpack_require__(574), "tooltip": __webpack_require__(575), "transaction": __webpack_require__(576), "trash": __webpack_require__(577), "tree": __webpack_require__(578), "trigger": __webpack_require__(579), "trophy": __webpack_require__(580), "troubleshooting": __webpack_require__(581), "unlock": __webpack_require__(582), "up": __webpack_require__(583), "update": __webpack_require__(584), "upgrade": __webpack_require__(585), "upload": __webpack_require__(586), "user-add": __webpack_require__(587), "user-admin": __webpack_require__(588), "user-expert": __webpack_require__(589), "user-female": __webpack_require__(590), "user-manager": __webpack_require__(591), "user-new": __webpack_require__(592), "user-police": __webpack_require__(593), "user-settings": __webpack_require__(594), "user-worker": __webpack_require__(595), "user": __webpack_require__(150), "validation": __webpack_require__(596), "video": __webpack_require__(597), "view": __webpack_require__(598), "virtual-machine": __webpack_require__(599), "vm-maintenance": __webpack_require__(600), "volume-low": __webpack_require__(601), "volume-mute": __webpack_require__(602), "volume": __webpack_require__(603), "vulnerability": __webpack_require__(604), "waypoint": __webpack_require__(605), "workshop": __webpack_require__(606), "zoom-in": __webpack_require__(607) };
+	module.exports = { "achievement": __webpack_require__(321), "action": __webpack_require__(322), "actions": __webpack_require__(316), "add": __webpack_require__(137), "advanced-search": __webpack_require__(323), "aggregate": __webpack_require__(324), "alarm": __webpack_require__(325), "alert": __webpack_require__(326), "analytics": __webpack_require__(327), "announcement": __webpack_require__(328), "app": __webpack_require__(329), "archive": __webpack_require__(330), "article": __webpack_require__(331), "ascend": __webpack_require__(332), "assistant": __webpack_require__(333), "attachment": __webpack_require__(334), "bar-chart": __webpack_require__(335), "blog": __webpack_require__(336), "book": __webpack_require__(337), "bookmark": __webpack_require__(338), "bundle": __webpack_require__(339), "calculator": __webpack_require__(340), "calendar": __webpack_require__(144), "camera": __webpack_require__(341), "capacity": __webpack_require__(342), "caret-down": __webpack_require__(343), "caret-next": __webpack_require__(344), "caret-previous": __webpack_require__(345), "caret-up": __webpack_require__(346), "catalog": __webpack_require__(347), "chapter-add": __webpack_require__(348), "chapter-next": __webpack_require__(349), "chapter-previous": __webpack_require__(350), "chat": __webpack_require__(351), "checkbox-selected": __webpack_require__(352), "checkbox": __webpack_require__(353), "checkmark": __webpack_require__(354), "circular-view": __webpack_require__(355), "clipboard": __webpack_require__(356), "clone": __webpack_require__(357), "close": __webpack_require__(86), "cloud-computer": __webpack_require__(358), "cloud-download": __webpack_require__(359), "cloud-software": __webpack_require__(360), "cloud-upload": __webpack_require__(361), "cloud": __webpack_require__(362), "cluster": __webpack_require__(363), "code": __webpack_require__(364), "command-line": __webpack_require__(365), "compare": __webpack_require__(366), "compasss": __webpack_require__(367), "compliance": __webpack_require__(368), "computer-personal": __webpack_require__(369), "configuration": __webpack_require__(370), "connect": __webpack_require__(371), "contact-card": __webpack_require__(372), "contact-us": __webpack_require__(373), "contract": __webpack_require__(374), "copy": __webpack_require__(375), "cube": __webpack_require__(376), "cubes": __webpack_require__(377), "cursor": __webpack_require__(378), "cut": __webpack_require__(379), "cycle": __webpack_require__(380), "dashboard": __webpack_require__(381), "database": __webpack_require__(382), "defect": __webpack_require__(383), "deliver": __webpack_require__(384), "deployment": __webpack_require__(385), "descend": __webpack_require__(386), "desktop": __webpack_require__(387), "detach": __webpack_require__(388), "directions": __webpack_require__(389), "dislike": __webpack_require__(390), "divide-four": __webpack_require__(391), "divide-right": __webpack_require__(392), "divide-three": __webpack_require__(393), "divide": __webpack_require__(394), "document-cloud": __webpack_require__(395), "document-compress": __webpack_require__(396), "document-conig": __webpack_require__(397), "document-csv": __webpack_require__(398), "document-data": __webpack_require__(399), "document-download": __webpack_require__(400), "document-excel": __webpack_require__(401), "document-executable": __webpack_require__(402), "document-image": __webpack_require__(403), "document-locked": __webpack_require__(404), "document-missing": __webpack_require__(405), "document-notes": __webpack_require__(406), "document-outlook": __webpack_require__(407), "document-pdf": __webpack_require__(408), "document-performance": __webpack_require__(409), "document-powerpoint": __webpack_require__(410), "document-rtf": __webpack_require__(411), "document-sound": __webpack_require__(412), "document-test": __webpack_require__(413), "document-text": __webpack_require__(414), "document-threat": __webpack_require__(415), "document-time": __webpack_require__(416), "document-transfer": __webpack_require__(417), "document-txt": __webpack_require__(418), "document-update": __webpack_require__(419), "document-upload": __webpack_require__(420), "document-user": __webpack_require__(421), "document-verified": __webpack_require__(422), "document-video": __webpack_require__(423), "document-word": __webpack_require__(424), "document": __webpack_require__(425), "domain": __webpack_require__(426), "down": __webpack_require__(141), "download": __webpack_require__(427), "drag": __webpack_require__(140), "drive-cage": __webpack_require__(428), "duplicate": __webpack_require__(429), "edit": __webpack_require__(138), "eject": __webpack_require__(430), "expand": __webpack_require__(431), "fan": __webpack_require__(432), "fast-forward": __webpack_require__(433), "favorite": __webpack_require__(434), "filter": __webpack_require__(142), "first-aid": __webpack_require__(435), "flag": __webpack_require__(436), "folder-cycle": __webpack_require__(437), "folder-open": __webpack_require__(438), "folder": __webpack_require__(439), "gallery": __webpack_require__(440), "globe": __webpack_require__(441), "grid": __webpack_require__(442), "group": __webpack_require__(443), "grow": __webpack_require__(444), "halt": __webpack_require__(445), "help": __webpack_require__(145), "history": __webpack_require__(446), "home": __webpack_require__(447), "host-maintenance": __webpack_require__(448), "host": __webpack_require__(449), "image": __webpack_require__(450), "impact": __webpack_require__(451), "in-progress": __webpack_require__(452), "inbox": __webpack_require__(453), "indicator": __webpack_require__(454), "information": __webpack_require__(455), "inherit": __webpack_require__(456), "install": __webpack_require__(457), "integration": __webpack_require__(458), "iteration": __webpack_require__(459), "java": __webpack_require__(460), "language": __webpack_require__(151), "launch": __webpack_require__(461), "license": __webpack_require__(462), "like": __webpack_require__(463), "line-chart": __webpack_require__(464), "link-bottom": __webpack_require__(465), "link-down": __webpack_require__(466), "link-next": __webpack_require__(147), "link-previous": __webpack_require__(146), "link-top": __webpack_require__(149), "link-up": __webpack_require__(148), "link": __webpack_require__(467), "location-pin": __webpack_require__(468), "location": __webpack_require__(469), "lock": __webpack_require__(470), "login": __webpack_require__(471), "logout": __webpack_require__(472), "mail": __webpack_require__(152), "manual": __webpack_require__(473), "map-location": __webpack_require__(474), "map": __webpack_require__(475), "menu": __webpack_require__(476), "microphone": __webpack_require__(477), "monitor": __webpack_require__(478), "more": __webpack_require__(139), "multiple": __webpack_require__(479), "navigate": __webpack_require__(480), "new-window": __webpack_require__(481), "new": __webpack_require__(482), "next": __webpack_require__(297), "notes": __webpack_require__(483), "notification": __webpack_require__(317), "optimization": __webpack_require__(484), "organization": __webpack_require__(485), "overview": __webpack_require__(486), "pan": __webpack_require__(487), "pause": __webpack_require__(488), "payment-google-wallet": __webpack_require__(489), "payment-mastercard": __webpack_require__(490), "payment-paypal": __webpack_require__(491), "payment-square": __webpack_require__(492), "payment-visa": __webpack_require__(493), "pin": __webpack_require__(494), "plan": __webpack_require__(495), "platform-apple": __webpack_require__(496), "platform-chrome": __webpack_require__(497), "platform-dropbox": __webpack_require__(498), "platform-edge": __webpack_require__(499), "platform-firefox": __webpack_require__(500), "platform-internet-explorer": __webpack_require__(501), "platform-skype": __webpack_require__(502), "platform-windows": __webpack_require__(503), "play": __webpack_require__(504), "power": __webpack_require__(505), "previous": __webpack_require__(296), "print": __webpack_require__(506), "quick-view": __webpack_require__(507), "radial-selected": __webpack_require__(508), "radial": __webpack_require__(509), "refresh": __webpack_require__(510), "resources": __webpack_require__(511), "rewind": __webpack_require__(512), "risk": __webpack_require__(513), "rss": __webpack_require__(514), "satellite": __webpack_require__(515), "schedule-clone": __webpack_require__(516), "schedule-new": __webpack_require__(517), "schedule-play": __webpack_require__(518), "schedule": __webpack_require__(519), "scorecard": __webpack_require__(520), "search": __webpack_require__(143), "secure": __webpack_require__(521), "select-left": __webpack_require__(522), "select": __webpack_require__(523), "server-cluster": __webpack_require__(524), "server": __webpack_require__(525), "servers": __webpack_require__(526), "service-business": __webpack_require__(527), "service-start": __webpack_require__(528), "share": __webpack_require__(529), "sheild-configure": __webpack_require__(530), "shield": __webpack_require__(531), "shift": __webpack_require__(532), "shop-basket": __webpack_require__(533), "shop-cart": __webpack_require__(534), "soa": __webpack_require__(535), "social-email": __webpack_require__(536), "social-facebook": __webpack_require__(155), "social-github": __webpack_require__(537), "social-google": __webpack_require__(538), "social-instagram": __webpack_require__(539), "social-linkedin": __webpack_require__(154), "social-medium": __webpack_require__(540), "social-pinterest": __webpack_require__(541), "social-reddit": __webpack_require__(542), "social-slack": __webpack_require__(543), "social-tumblr": __webpack_require__(544), "social-twitter": __webpack_require__(153), "social-vimeo": __webpack_require__(545), "social-youtube": __webpack_require__(546), "sort": __webpack_require__(547), "stakeholder": __webpack_require__(548), "star-half": __webpack_require__(549), "star": __webpack_require__(550), "steps": __webpack_require__(551), "storage": __webpack_require__(552), "street-view": __webpack_require__(553), "subtract": __webpack_require__(554), "support": __webpack_require__(555), "svg": __webpack_require__(556), "sync": __webpack_require__(557), "system": __webpack_require__(558), "tab-next": __webpack_require__(559), "tab-previous": __webpack_require__(560), "tab-up": __webpack_require__(561), "table-add": __webpack_require__(562), "table": __webpack_require__(563), "tag": __webpack_require__(564), "target": __webpack_require__(565), "task": __webpack_require__(566), "template": __webpack_require__(567), "test-desktop": __webpack_require__(568), "test": __webpack_require__(569), "tesxt-wrap": __webpack_require__(570), "threats": __webpack_require__(571), "three-d": __webpack_require__(572), "ticket": __webpack_require__(573), "tools": __webpack_require__(574), "tooltip": __webpack_require__(575), "transaction": __webpack_require__(576), "trash": __webpack_require__(577), "tree": __webpack_require__(578), "trigger": __webpack_require__(579), "trophy": __webpack_require__(580), "troubleshooting": __webpack_require__(581), "unlock": __webpack_require__(582), "up": __webpack_require__(583), "update": __webpack_require__(584), "upgrade": __webpack_require__(585), "upload": __webpack_require__(586), "user-add": __webpack_require__(587), "user-admin": __webpack_require__(588), "user-expert": __webpack_require__(589), "user-female": __webpack_require__(590), "user-manager": __webpack_require__(591), "user-new": __webpack_require__(592), "user-police": __webpack_require__(593), "user-settings": __webpack_require__(318), "user-worker": __webpack_require__(594), "user": __webpack_require__(150), "validation": __webpack_require__(595), "video": __webpack_require__(596), "view": __webpack_require__(597), "virtual-machine": __webpack_require__(598), "vm-maintenance": __webpack_require__(599), "volume-low": __webpack_require__(600), "volume-mute": __webpack_require__(601), "volume": __webpack_require__(602), "vulnerability": __webpack_require__(603), "waypoint": __webpack_require__(604), "workshop": __webpack_require__(605), "zoom-in": __webpack_require__(606) };
 
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42912,7 +43194,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42977,72 +43259,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 321 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yTitleId: 'actions-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-actions'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "actions";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'actions' },
-	        React.createElement('rect', { id: '_x2E_svg_2_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M32,24c0,4.4183-3.5817,8-8,8s-8-3.5817-8-8 s3.5817-8,8-8S32,19.5817,32,24z M27,24c0-1.6542-1.3455-3-3-3s-3,1.3458-3,3s1.3455,3,3,3S27,25.6542,27,24z M24,12v4 M32,24h4 M24,36v-4 M12,24h4 M32.4853,15.5147l-2.8284,2.8284 M29.6569,29.6569l2.8284,2.8284 M18.3431,29.6569l-2.8284,2.8284 M15.5147,15.5147l2.8284,2.8284' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43107,7 +43324,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43172,7 +43389,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43237,7 +43454,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43308,7 +43525,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43373,7 +43590,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43438,7 +43655,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43503,7 +43720,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43568,7 +43785,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43637,7 +43854,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43702,7 +43919,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43770,7 +43987,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43835,7 +44052,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43900,7 +44117,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43965,7 +44182,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44030,7 +44247,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44095,7 +44312,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44160,7 +44377,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44232,7 +44449,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44297,7 +44514,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44362,7 +44579,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44427,7 +44644,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44492,7 +44709,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44557,7 +44774,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44622,7 +44839,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44687,7 +44904,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44752,7 +44969,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44818,7 +45035,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44884,7 +45101,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44949,7 +45166,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45015,7 +45232,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45080,7 +45297,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45145,7 +45362,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45210,7 +45427,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45275,7 +45492,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45340,7 +45557,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45405,7 +45622,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45470,7 +45687,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45535,7 +45752,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45600,7 +45817,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 361 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45665,7 +45882,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 362 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45730,7 +45947,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 363 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45795,7 +46012,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 364 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45860,7 +46077,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 365 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45937,7 +46154,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 366 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46003,7 +46220,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 367 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46068,7 +46285,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 368 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46133,7 +46350,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 369 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46198,7 +46415,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 370 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46263,7 +46480,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 371 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46328,7 +46545,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 372 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46396,7 +46613,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 373 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46461,7 +46678,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 374 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46526,7 +46743,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 375 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46591,7 +46808,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 376 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46656,7 +46873,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 377 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46721,7 +46938,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 378 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46786,7 +47003,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 379 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46855,7 +47072,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 380 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46920,7 +47137,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 381 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46990,7 +47207,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 382 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47055,7 +47272,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 383 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47120,7 +47337,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 384 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47186,7 +47403,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 385 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47251,7 +47468,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 386 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47316,7 +47533,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 387 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47381,7 +47598,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 388 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47446,7 +47663,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 389 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47511,7 +47728,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 390 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47576,7 +47793,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 391 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47641,7 +47858,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 392 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47706,7 +47923,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 393 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47771,7 +47988,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 394 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47839,7 +48056,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 395 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47904,7 +48121,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 396 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47969,7 +48186,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 397 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48038,7 +48255,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 398 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48103,7 +48320,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 399 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48168,7 +48385,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 400 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48236,7 +48453,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 401 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48312,7 +48529,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48380,7 +48597,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48448,7 +48665,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48513,7 +48730,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48581,7 +48798,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48649,7 +48866,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48719,7 +48936,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48786,7 +49003,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48858,7 +49075,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 410 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48932,7 +49149,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49001,7 +49218,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 412 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49071,7 +49288,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 413 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49136,7 +49353,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 414 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49201,7 +49418,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 415 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49266,7 +49483,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 416 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49331,7 +49548,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 417 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49403,7 +49620,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 418 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49470,7 +49687,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 419 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49535,7 +49752,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 420 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49600,7 +49817,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 421 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49665,7 +49882,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 422 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49732,7 +49949,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 423 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49800,7 +50017,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 424 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49865,7 +50082,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 425 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49930,7 +50147,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 426 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49995,7 +50212,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 427 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50063,7 +50280,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 428 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50128,7 +50345,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 429 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50193,7 +50410,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 430 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50258,7 +50475,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 431 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50323,7 +50540,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50388,7 +50605,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 433 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50453,7 +50670,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 434 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50518,7 +50735,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 435 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50583,7 +50800,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 436 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50652,7 +50869,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 437 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50717,7 +50934,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 438 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50782,7 +50999,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 439 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50848,7 +51065,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 440 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50913,7 +51130,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 441 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50978,7 +51195,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 442 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51043,7 +51260,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 443 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51108,7 +51325,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 444 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51173,7 +51390,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 445 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51238,7 +51455,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 446 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51303,7 +51520,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 447 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51370,7 +51587,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 448 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51436,7 +51653,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 449 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51502,7 +51719,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 450 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51567,7 +51784,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 451 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51634,7 +51851,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 452 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51699,7 +51916,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 453 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51764,7 +51981,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 454 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51829,7 +52046,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 455 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51894,7 +52111,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 456 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51959,7 +52176,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 457 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52024,7 +52241,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 458 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52089,7 +52306,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 459 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52154,7 +52371,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 460 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52220,7 +52437,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52286,7 +52503,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52351,7 +52568,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52416,7 +52633,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52481,7 +52698,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52546,7 +52763,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52611,7 +52828,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 467 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52676,7 +52893,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 468 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52741,7 +52958,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 469 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52806,7 +53023,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 470 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52871,7 +53088,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 471 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52936,7 +53153,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 472 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53001,7 +53218,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 473 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53068,7 +53285,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 474 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53133,7 +53350,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 475 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53198,7 +53415,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 476 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53263,7 +53480,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 477 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53328,7 +53545,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53393,7 +53610,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53458,7 +53675,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53523,7 +53740,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53588,7 +53805,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53644,71 +53861,6 @@ module.exports =
 	        { id: 'notes' },
 	        React.createElement('rect', { id: '_x2E_svg_110_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
 	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M33,30.0001L30,33l-1.9998,2H15V13h18V30.0001z M33,29h-6v6 M18,29h5 M18,25h12 M18,21h10 M16,17h16' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
-/* 483 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yTitleId: 'notification-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-notification'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "notification";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'notification' },
-	        React.createElement('rect', { id: '_x2E_svg_48_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M24,31h-8V21c0-4.4183,3.5817-8,8-8s8,3.5817,8,8 v10H24z M12,31h24 M21,32c0,1.6569,1.3431,3,3,3s3-1.3431,3-3' })
 	      )
 	    );
 	  }
@@ -60978,71 +61130,6 @@ module.exports =
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      a11yTitleId: 'user-settings-title'
-	    };
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT, CLASS_ROOT + '-user-settings'];
-	    if (this.props.large) {
-	      classes.push(CLASS_ROOT + "--large");
-	    }
-	    if (this.props.colorIndex) {
-	      classes.push("color-index-" + this.props.colorIndex);
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var titleLabel = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : "user-settings";
-	    var a11yTitle = React.createElement(FormattedMessage, { id: titleLabel, defaultMessage: titleLabel });
-
-	    return React.createElement(
-	      'svg',
-	      { version: '1.1', viewBox: '0 0 48 48', width: '48px', height: '48px', className: classes.join(' '), 'aria-labelledby': this.props.a11yTitleId },
-	      React.createElement(
-	        'title',
-	        { id: this.props.a11yTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { id: 'user-settings' },
-	        React.createElement('rect', { id: '_x2E_svg_129_', x: '0', y: '0', fill: 'none', width: '48', height: '48' }),
-	        React.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M32,33c-1.6545,0-3-1.3458-3-3s1.3455-3,3-3 s3,1.3458,3,3S33.6545,33,32,33z M38,30l-3,0.0001 M34.1212,32.1214l2.1214,2.1212 M32,36l-0.0001-3 M27.7573,34.2426 l2.1212-2.1214 M26,30h3 M29.8787,27.8787l-2.1213-2.1213 M32,27v-3 M34.1213,27.8787l2.1213-2.1213 M21,13c-2.7614,0-5,2.2386-5,5 s2.2386,5,5,5s5-2.2386,5-5S23.7614,13,21,13z M26.0002,24.7548C24.6306,23.6568,22.892,23,21,23h0c-4.4183,0-8,3.5817-8,8v4h12.4' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Icon;
-
-/***/ },
-/* 595 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var CLASS_ROOT = "control-icon";
-
-	var Icon = React.createClass({
-	  displayName: 'Icon',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    colorIndex: React.PropTypes.string,
-	    large: React.PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
 	      a11yTitleId: 'user-worker-title'
 	    };
 	  },
@@ -61084,7 +61171,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 596 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61149,7 +61236,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 597 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61214,7 +61301,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 598 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61279,7 +61366,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 599 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61344,7 +61431,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 600 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61410,7 +61497,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 601 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61475,7 +61562,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 602 */
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61542,7 +61629,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 603 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61607,7 +61694,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 604 */
+/* 603 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61672,7 +61759,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 605 */
+/* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61737,7 +61824,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 606 */
+/* 605 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61804,7 +61891,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 607 */
+/* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61872,7 +61959,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 608 */
+/* 607 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -62649,7 +62736,7 @@ module.exports =
 
 
 /***/ },
-/* 609 */
+/* 608 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62729,7 +62816,7 @@ module.exports =
 	};
 
 /***/ },
-/* 610 */
+/* 609 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62836,7 +62923,7 @@ module.exports =
 	};
 
 /***/ },
-/* 611 */
+/* 610 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62952,7 +63039,7 @@ module.exports =
 	};
 
 /***/ },
-/* 612 */
+/* 611 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63073,7 +63160,7 @@ module.exports =
 	};
 
 /***/ },
-/* 613 */
+/* 612 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63400,7 +63487,7 @@ module.exports =
 	module.exports = LayerDoc;
 
 /***/ },
-/* 614 */
+/* 613 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63409,7 +63496,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(131);
-	var List = __webpack_require__(615);
+	var List = __webpack_require__(614);
 
 	var SCHEMA = [{ attribute: 'uid', uid: true }, { attribute: 'face', image: true }, { attribute: 'name', primary: true }, { attribute: 'mood', secondary: true }];
 
@@ -63669,7 +63756,7 @@ module.exports =
 	module.exports = ListDoc;
 
 /***/ },
-/* 615 */
+/* 614 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63679,7 +63766,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var ReactIntl = __webpack_require__(46);
 	var FormattedTime = ReactIntl.FormattedTime;
-	var ListItem = __webpack_require__(616);
+	var ListItem = __webpack_require__(615);
 	var SpinningIcon = __webpack_require__(120);
 	var InfiniteScroll = __webpack_require__(123);
 
@@ -63858,7 +63945,7 @@ module.exports =
 	module.exports = List;
 
 /***/ },
-/* 616 */
+/* 615 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63931,7 +64018,7 @@ module.exports =
 	    {*/
 
 /***/ },
-/* 617 */
+/* 616 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64156,7 +64243,7 @@ module.exports =
 	module.exports = LoginFormDoc;
 
 /***/ },
-/* 618 */
+/* 617 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64165,7 +64252,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(131);
-	var GrommetMap = __webpack_require__(619);
+	var GrommetMap = __webpack_require__(618);
 
 	var MapDoc = React.createClass({
 	  displayName: 'MapDoc',
@@ -64258,7 +64345,7 @@ module.exports =
 	module.exports = MapDoc;
 
 /***/ },
-/* 619 */
+/* 618 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64446,7 +64533,7 @@ module.exports =
 	module.exports = ResourceMap;
 
 /***/ },
-/* 620 */
+/* 619 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64457,7 +64544,7 @@ module.exports =
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(131);
 	var Menu = __webpack_require__(90);
-	var EditIcon = __webpack_require__(316);
+	var EditIcon = __webpack_require__(620);
 	var FilterIcon = __webpack_require__(621);
 	var CheckBox = __webpack_require__(167);
 	var Button = __webpack_require__(89);
@@ -64983,6 +65070,47 @@ module.exports =
 	});
 
 	module.exports = MenuDoc;
+
+/***/ },
+/* 620 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Edit = React.createClass({
+	  displayName: 'Edit',
+
+	  render: function render() {
+	    var className = 'control-icon control-icon-edit';
+	    if (this.props.className) {
+	      className += ' ' + this.props.className;
+	    }
+	    return React.createElement(
+	      'svg',
+	      { className: className, viewBox: '0 0 48 48', version: '1.1' },
+	      React.createElement(
+	        'g',
+	        { fill: 'none' },
+	        React.createElement('circle', { strokeWidth: '2', cx: '24', cy: '24', r: '9' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '11', x2: '24', y2: '15' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '33.2', y1: '14.8', x2: '30.3', y2: '17.6' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '37', y1: '24', x2: '33', y2: '24' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '33.2', y1: '33.2', x2: '30.3', y2: '30.4' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '37', x2: '24', y2: '33' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '14.8', y1: '33.2', x2: '17.7', y2: '30.4' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '11', y1: '24', x2: '15.2', y2: '24' }),
+	        React.createElement('line', { strokeWidth: '2', x1: '14.8', y1: '14.8', x2: '17.7', y2: '17.6' })
+	      )
+	    );
+	  }
+
+	});
+
+	module.exports = Edit;
 
 /***/ },
 /* 621 */
