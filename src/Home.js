@@ -120,9 +120,6 @@ var Home = React.createClass({
             <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="Start project" onClick={this._onClick} large={true} primary={true} />
             </Link>
-            <Link to={this.context.routePrefix + "develop/tutorial"}>
-              <Button label="View tutorial" onClick={this._onClick} large={true} />
-            </Link>
           </Menu>
           <p>or, just copy and paste into terminal:</p>
           <div className="console">
