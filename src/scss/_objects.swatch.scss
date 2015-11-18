@@ -85,3 +85,11 @@
     }
   }
 }
+
+.logo {
+  &--inverse {
+    rect {
+      stroke: $colored-icon-color;
+    }
+  }
+}
