@@ -14175,11 +14175,9 @@ module.exports =
 
 	  componentDidMount: function componentDidMount() {
 	    if (this.props.scrollStep) {
-	      this._markInactive();
 	      var articleElement = ReactDOM.findDOMNode(this.refs.component);
 	      this._scrollParent = DOM.findScrollParents(articleElement)[0];
 	      document.addEventListener('wheel', this._onWheel);
-	      this._scrollParent.addEventListener('scroll', this._onScroll);
 	      KeyboardAccelerators.startListeningToKeyboard(this, {
 	        up: this._onUp,
 	        down: this._onDown
@@ -14190,9 +14188,6 @@ module.exports =
 	  componentWillUnmount: function componentWillUnmount() {
 	    if (this.props.scrollStep) {
 	      document.removeEventListener('wheel', this._onWheel);
-	      clearInterval(this._scrollToTimer);
-	      this._scrollParent.removeEventListener('scroll', this._onScroll);
-	      clearTimeout(this._scrollTimer);
 	      KeyboardAccelerators.stopListeningToKeyboard(this, {
 	        up: this._onUp,
 	        down: this._onDown
@@ -14200,32 +14195,24 @@ module.exports =
 	    }
 	  },
 
-	  _markInactive: function _markInactive() {
-	    var articleElement = ReactDOM.findDOMNode(this.refs.component);
-	    var sections = articleElement.querySelectorAll('.section.box--full');
-	    for (var i = 0; i < sections.length; i += 1) {
-	      var section = sections[i];
-	      var rect = section.getBoundingClientRect();
-	      if (rect.top > window.innerHeight - 10) {
-	        section.classList.add('section--inactive');
-	      } else {
-	        section.classList.remove('section--inactive');
-	      }
-	    }
-	  },
-
-	  _onScroll: function _onScroll(event) {
-	    clearTimeout(this._scrollTimer);
-	    this._scrollTimer = setTimeout(this._markInactive, 50);
-	  },
-
 	  _onWheel: function _onWheel(event) {
 	    if (Math.abs(event.deltaY) > 100) {
-	      clearInterval(this._scrollTimer);
-	    } else if (event.deltaY > 5) {
-	      this._onDown();
-	    } else if (event.deltaY < -5) {
-	      this._onUp();
+	      // The user is expressing a resolute interest in controlling the
+	      // scrolling behavior. Stop doing any of our scroll step aligning
+	      // until he stops expressing such interest.
+	      clearInterval(this._wheelTimer);
+	      clearInterval(this._wheelLongTimer);
+	      this._wheelLongTimer = setTimeout((function () {
+	        this._wheelLongTimer = null;
+	      }).bind(this), 2000);
+	    } else if (!this._wheelLongTimer) {
+	      if (event.deltaY > 5) {
+	        clearInterval(this._wheelTimer);
+	        this._wheelTimer = setTimeout(this._onDown, 50);
+	      } else if (event.deltaY < -5) {
+	        clearInterval(this._wheelTimer);
+	        this._wheelTimer = setTimeout(this._onUp, 50);
+	      }
 	    }
 	  },
 
@@ -14912,14 +14899,14 @@ module.exports =
 	  },
 
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-	    if (this.props.onMore) {
+	    if (this._scroll) {
 	      InfiniteScroll.stopListeningForScroll(this._scroll);
 	      this._scroll = null;
 	    }
 	  },
 
 	  componentDidUpdate: function componentDidUpdate() {
-	    if (this.props.onMore) {
+	    if (this.props.onMore && !this._scroll) {
 	      this._scroll = InfiniteScroll.startListeningForScroll(this.refs.more, this.props.onMore);
 	    }
 	    if ('row' === this.props.direction) {
@@ -15235,8 +15222,12 @@ module.exports =
 	      indicatorElement: indicatorElement,
 	      scrollParent: DOM.findScrollParents(indicatorElement)[0]
 	    };
-	    scrollState.scrollParent.addEventListener("scroll", _onScroll.bind(null, scrollState));
-	    window.addEventListener("resize", _onResize.bind(null, scrollState));
+
+	    scrollState._onResize = _onResize.bind(null, scrollState);
+	    scrollState._onScroll = _onScroll.bind(null, scrollState);
+
+	    scrollState.scrollParent.addEventListener("scroll", scrollState._onScroll);
+	    window.addEventListener("resize", scrollState._onResize);
 	    // check in case we're already at the bottom and the indicator is visible
 	    if (scrollState.scrollParent === document) {
 	      var rect = indicatorElement.getBoundingClientRect();
@@ -15250,8 +15241,8 @@ module.exports =
 	  stopListeningForScroll: function stopListeningForScroll(scrollState) {
 	    if (scrollState.scrollParent) {
 	      clearTimeout(scrollState.scrollTimer);
-	      scrollState.scrollParent.removeEventListener("scroll", _onScroll);
-	      window.removeEventListener("resize", _onResize);
+	      scrollState.scrollParent.removeEventListener("scroll", scrollState._onScroll);
+	      window.removeEventListener("resize", scrollState._onResize);
 	      scrollState.scrollParent = null;
 	    }
 	  }
@@ -20659,7 +20650,7 @@ module.exports =
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    if (nextProps.suggestions && nextProps.suggestions.length > 0 && !this.state.dropActive && this.refs.input === document.activeElement) {
 	      this.setState({ dropActive: true });
-	    } else if (!nextProps.suggestions || nextProps.suggestions.length === 0) {
+	    } else if ((!nextProps.suggestions || nextProps.suggestions.length === 0) && this.state.inline) {
 	      this.setState({ dropActive: false });
 	    }
 	  },
@@ -23409,7 +23400,7 @@ module.exports =
 	    if (this.props.scrollable) {
 	      this._alignMirror();
 	    }
-	    if (this.props.onMore) {
+	    if (this.props.onMore && !this._scroll) {
 	      this._scroll = InfiniteScroll.startListeningForScroll(this.refs.more, this.props.onMore);
 	    }
 	  },
@@ -63529,7 +63520,7 @@ module.exports =
 	  },
 
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-	    if (this.props.onMore) {
+	    if (this._scroll) {
 	      InfiniteScroll.stopListeningForScroll(this._scroll);
 	      this._scroll = null;
 	    }
@@ -63537,7 +63528,7 @@ module.exports =
 	  },
 
 	  componentDidUpdate: function componentDidUpdate() {
-	    if (this.props.onMore) {
+	    if (this.props.onMore && !this._scroll) {
 	      this._scroll = InfiniteScroll.startListeningForScroll(this.refs.more, this.props.onMore);
 	    }
 	  },
