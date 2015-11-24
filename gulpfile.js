@@ -103,6 +103,7 @@ gulp.task('watch-css', function() {
     );
 
     watcher.on('change', function() {
+      //notify the webpack dev server that a change happened
       http.get(
         'http://' + host + ':' + opts.devServerPort + '/invalid'
       );
@@ -148,6 +149,7 @@ gulp.task('dist-css', function() {
     .pipe(minifyCss())
     .pipe(gulp.dest('dist/')).on('end', function () {
       if (opts.webpack.resolve.alias) {
+        //notify the webpack dev server to reload when compilation is finished
         http.get(
           'http://' + host + ':' + opts.devServerPort + '/reload'
         );
