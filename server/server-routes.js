@@ -70331,7 +70331,7 @@ module.exports =
 	  },
 
 	  render: function render() {
-	    var inline = ["<Video>", "  <source src=\"/video/file.mp4\" type='video/mp4'/>", "</Video>"].join('\n');
+	    var inline = ["<Video>", "  <source src=\"video/file.mp4\" type='video/mp4'/>", "</Video>"].join('\n');
 
 	    return React.createElement(
 	      DocsArticle,
@@ -70520,7 +70520,7 @@ module.exports =
 	          React.createElement(
 	            Video,
 	            null,
-	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	            React.createElement('source', { src: 'video/test.mp4', type: 'video/mp4' })
 	          )
 	        ),
 	        React.createElement(
@@ -70529,7 +70529,7 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<Video>\n" + "  <source src=\"/video/test.mp4\" type=\"video/mp4\"/>\n" + "</Video>"
+	            "<Video>\n" + "  <source src=\"video/test.mp4\" type=\"video/mp4\"/>\n" + "</Video>"
 	          )
 	        ),
 	        React.createElement(
@@ -70542,9 +70542,9 @@ module.exports =
 	          { className: 'example' },
 	          React.createElement(
 	            Video,
-	            { title: 'Title', poster: '/img/HTML5.png', full: true,
+	            { title: 'Title', poster: 'img/HTML5.png', full: true,
 	              duration: 35, timeline: [{ label: 'Chapter 1', time: 0 }, { label: 'Chapter 2', time: 10 }, { label: 'Chapter 3', time: 20 }] },
-	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	            React.createElement('source', { src: 'video/test.mp4', type: 'video/mp4' })
 	          )
 	        ),
 	        React.createElement(
@@ -70553,7 +70553,7 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<Video\n" + "  title=\"Title\" poster=\"/img/HTML5.png\" full={true}" + "  duration={35} timeline={[\n" + "    {label: \"Chapter 1\", time: 0},\n" + "    {label: \"Chapter 2\", time: 10},\n" + "    {label: \"Chapter 3\", time: 20}\n" + "  ]}>\n" + "  <source src=\"/video/test.mp4\" type=\"video/mp4\"/>\n" + "</Video>"
+	            "<Video\n" + "  title=\"Title\" poster=\"img/HTML5.png\" full={true}" + "  duration={35} timeline={[\n" + "    {label: \"Chapter 1\", time: 0},\n" + "    {label: \"Chapter 2\", time: 10},\n" + "    {label: \"Chapter 3\", time: 20}\n" + "  ]}>\n" + "  <source src=\"video/test.mp4\" type=\"video/mp4\"/>\n" + "</Video>"
 	          )
 	        ),
 	        React.createElement(
@@ -70567,7 +70567,7 @@ module.exports =
 	          React.createElement(
 	            Video,
 	            { size: 'small' },
-	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	            React.createElement('source', { src: 'video/test.mp4', type: 'video/mp4' })
 	          )
 	        ),
 	        React.createElement(
@@ -70581,7 +70581,7 @@ module.exports =
 	          React.createElement(
 	            Video,
 	            { size: 'large' },
-	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	            React.createElement('source', { src: 'video/test.mp4', type: 'video/mp4' })
 	          )
 	        )
 	      )

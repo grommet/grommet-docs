@@ -25,7 +25,7 @@ var VideoDoc = React.createClass({
   render: function() {
     var inline = [
       "<Video>",
-      "  <source src=\"/video/file.mp4\" type='video/mp4'/>",
+      "  <source src=\"video/file.mp4\" type='video/mp4'/>",
       "</Video>"
     ].join('\n');
 
@@ -68,45 +68,45 @@ var VideoDoc = React.createClass({
           <h3>Simple</h3>
           <div className="example">
             <Video>
-              <source src="/video/test.mp4" type='video/mp4'/>
+              <source src="video/test.mp4" type='video/mp4'/>
             </Video>
           </div>
           <pre><code className="html hljs xml">{"<Video>\n" +
-            "  <source src=\"/video/test.mp4\" type=\"video/mp4\"/>\n" +
+            "  <source src=\"video/test.mp4\" type=\"video/mp4\"/>\n" +
             "</Video>"}</code></pre>
 
           <h3>Title, Duration, Timeline, Poster, Full</h3>
           <div className="example">
-            <Video title="Title" poster="/img/HTML5.png" full={true}
+            <Video title="Title" poster="img/HTML5.png" full={true}
               duration={35} timeline={[
                 {label: 'Chapter 1', time: 0},
                 {label: 'Chapter 2', time: 10},
                 {label: 'Chapter 3', time: 20}
               ]}>
-              <source src="/video/test.mp4" type="video/mp4"/>
+              <source src="video/test.mp4" type="video/mp4"/>
             </Video>
           </div>
           <pre><code className="html hljs xml">{"<Video\n" +
-            "  title=\"Title\" poster=\"/img/HTML5.png\" full={true}" +
+            "  title=\"Title\" poster=\"img/HTML5.png\" full={true}" +
             "  duration={35} timeline={[\n" +
             "    {label: \"Chapter 1\", time: 0},\n" +
             "    {label: \"Chapter 2\", time: 10},\n" +
             "    {label: \"Chapter 3\", time: 20}\n" +
             "  ]}>\n" +
-            "  <source src=\"/video/test.mp4\" type=\"video/mp4\"/>\n" +
+            "  <source src=\"video/test.mp4\" type=\"video/mp4\"/>\n" +
             "</Video>"}</code></pre>
 
           <h3>Small</h3>
           <div className="example">
             <Video size="small">
-              <source src="/video/test.mp4" type="video/mp4"/>
+              <source src="video/test.mp4" type="video/mp4"/>
             </Video>
           </div>
 
           <h3>Large</h3>
           <div className="example">
             <Video size="large">
-              <source src="/video/test.mp4" type="video/mp4"/>
+              <source src="video/test.mp4" type="video/mp4"/>
             </Video>
           </div>
 
