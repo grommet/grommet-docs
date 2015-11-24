@@ -16,7 +16,9 @@ var docsRoutes = require('./server-routes.js');
 function translateStatics(req, res, next) {
   if (req.url.match(/.+\/img\//)) { // img
     res.redirect(301, req.url.replace(/.*\/(img\/.*)$/, "/docs/$1"));
-  } else if (req.url.match(/\/img\//)) { // img
+  } else if (req.url.match(/.+\/video\//)) { // video
+    res.redirect(301, req.url.replace(/.*\/(video\/.*)$/, "/docs/$1"));
+  } else if (req.url.match(/\/img\//) || req.url.match(/\/video\//)) { // img
     next();
   } else if (req.url.match(/.+\/font\//)) { // font
     res.redirect(301, req.url.replace(/.*\/(font\/.*)$/, "/docs/$1"));
