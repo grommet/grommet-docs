@@ -1,5 +1,6 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
+var argv = require('yargs').argv;
 var gulp = require('gulp');
 var path = require('path');
 var fs = require('fs');
@@ -57,10 +58,6 @@ var opts = {
   mainScss: 'src/scss/index.scss',
   webpack: {
     resolve: {
-      // alias: { // TODO: remove, just for local dev
-      //   'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
-      //   'grommet': path.resolve(__dirname, '../grommet/src/js')
-      // },
       root: [
         path.resolve(__dirname, './node_modules')
       ]
@@ -79,7 +76,13 @@ var opts = {
   devServerDisableHot: true,
   // devServerHost: "0.0.0.0",
   scsslint: true,
-  devPreprocess: ['dist-css', 'generate-icons-map', 'watch-css'],
+  alias: {
+    'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
+    'grommet': path.resolve(__dirname, '../grommet/src/js')
+  },
+  devPreprocess: [
+    'set-webpack-alias', 'dist-css', 'generate-icons-map', 'watch-css'
+  ],
   distPreprocess: ['dist-css', 'generate-icons-map', 'generate-server-routes']
 };
 
@@ -94,6 +97,13 @@ function distSass() {
 }
 
 var host = opts.devServerHost ? opts.devServerHost : 'localhost';
+
+gulp.task('set-webpack-alias', function () {
+  if (opts.alias && argv.useAlias) {
+    console.log('Using local alias for development.');
+    opts.webpack.resolve.alias = opts.alias;
+  }
+});
 
 gulp.task('watch-css', function() {
   if (opts.webpack.resolve.alias) {
