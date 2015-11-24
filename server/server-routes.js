@@ -15562,6 +15562,9 @@ module.exports =
 	    if ('single' === responsive) {
 	      this.setState({ showMenu: false });
 	    }
+	    if (this.props.onChange) {
+	      this.props.onChange();
+	    }
 	  },
 
 	  _onMenuOpen: function _onMenuOpen() {
@@ -25066,7 +25069,7 @@ module.exports =
 
 	function convertButtonToString(buttonJSX) {
 	  return jsxToString(buttonJSX, {
-	    functionValue: {
+	    keyValueOverride: {
 	      onClick: 'this._onClick'
 	    }
 	  });
@@ -62932,27 +62935,37 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var jsxToString = __webpack_require__(205)['default'];
 	var DocsArticle = __webpack_require__(131);
+	var Box = __webpack_require__(98);
 	var Layer = __webpack_require__(85);
 	var Header = __webpack_require__(113);
 	var Form = __webpack_require__(166);
 	var FormFields = __webpack_require__(310);
 	var FullForm = __webpack_require__(309);
-	var AddUserForm = __webpack_require__(313);
 	var ConfirmationForm = __webpack_require__(315);
+
+	function convertLayerToString(layerJSX) {
+	  return jsxToString(layerJSX, {
+	    keyValueOverride: {
+	      onClose: 'this._onClose',
+	      onCancel: 'this._onClose',
+	      onSubmit: 'this._onClose'
+	    }
+	  });
+	}
 
 	var LayerDoc = React.createClass({
 	  displayName: 'LayerDoc',
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      active: null,
-	      align: 'center'
+	      active: undefined
 	    };
 	  },
 
-	  _onOpen: function _onOpen(which, align) {
-	    this.setState({ active: which, align: align });
+	  _onOpen: function _onOpen(which) {
+	    this.setState({ active: which });
 	  },
 
 	  _onClose: function _onClose(event) {
@@ -62962,58 +62975,92 @@ module.exports =
 	    this.setState({ active: null });
 	  },
 
+	  _renderLayerCode: function _renderLayerCode(heading, id, layerJSX) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        heading
+	      ),
+	      React.createElement(
+	        'button',
+	        { onClick: this._onOpen.bind(this, id) },
+	        id
+	      ),
+	      React.createElement(
+	        Box,
+	        { pad: { vertical: "small" } },
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            convertLayerToString(layerJSX)
+	          )
+	        )
+	      )
+	    );
+	  },
+
 	  render: function render() {
-	    var inline = "<Layer>\n  ...\n</Layer>";
+
+	    var simpleLayer = React.createElement(
+	      Layer,
+	      { onClose: this._onClose, closer: true, flush: true,
+	        align: 'top' },
+	      React.createElement(
+	        Form,
+	        null,
+	        React.createElement(
+	          Header,
+	          null,
+	          React.createElement(
+	            'h2',
+	            null,
+	            'Title'
+	          )
+	        ),
+	        React.createElement(
+	          FormFields,
+	          null,
+	          React.createElement(
+	            'p',
+	            null,
+	            'This is a simple dialog.'
+	          )
+	        )
+	      )
+	    );
+
+	    var editLayer = React.createElement(
+	      Layer,
+	      { onClose: this._onClose, closer: true, flush: true,
+	        align: 'left' },
+	      React.createElement(FullForm, { onCancel: this._onClose, onSubmit: this._onClose })
+	    );
+
+	    var confirmationLayer = React.createElement(
+	      Layer,
+	      { onClose: this._onClose, closer: true, flush: true,
+	        align: 'right' },
+	      React.createElement(ConfirmationForm, { onCancel: this._onClose, onSubmit: this._onClose })
+	    );
 
 	    var activeLayer = null;
 	    if (this.state.active) {
-	      var form;
 	      switch (this.state.active) {
 	        case 'simple':
-	          activeLayer = React.createElement(
-	            Layer,
-	            { onClose: this._onClose, closer: true, flush: true,
-	              align: this.state.align },
-	            React.createElement(
-	              Form,
-	              null,
-	              React.createElement(
-	                Header,
-	                null,
-	                React.createElement(
-	                  'h2',
-	                  null,
-	                  'Title'
-	                )
-	              ),
-	              React.createElement(
-	                FormFields,
-	                null,
-	                React.createElement(
-	                  'p',
-	                  null,
-	                  'This is a simple dialog.'
-	                )
-	              )
-	            )
-	          );
+	          activeLayer = simpleLayer;
 	          break;
-	        case 'mixed':
-	          form = React.createElement(FullForm, { onCancel: this._onClose, onSubmit: this._onClose });
-	          break;
-	        case 'add user':
-	          form = React.createElement(AddUserForm, { onCancel: this._onClose, onSubmit: this._onClose });
+	        case 'edit':
+	          activeLayer = editLayer;
 	          break;
 	        case 'confirmation':
-	          form = React.createElement(ConfirmationForm, { onCancel: this._onClose, onSubmit: this._onClose });
+	          activeLayer = confirmationLayer;
 	          break;
-	      }
-	      if (!activeLayer) {
-	        activeLayer = React.createElement(
-	          Layer,
-	          { onClose: this._onClose, closer: true, flush: true, align: this.state.align },
-	          form
-	        );
 	      }
 	    }
 
@@ -63037,7 +63084,7 @@ module.exports =
 	        React.createElement(
 	          'code',
 	          { className: 'html hljs xml' },
-	          inline
+	          "<Layer>\n  ...\n</Layer>"
 	        )
 	      ),
 	      React.createElement(
@@ -63147,101 +63194,9 @@ module.exports =
 	          null,
 	          'Examples'
 	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Simple'
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this._onOpen.bind(this, 'simple', 'top') },
-	          'Simple'
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Layer> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Edit'
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this._onOpen.bind(this, 'mixed', 'right') },
-	          'Edit'
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Layer> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Add User'
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this._onOpen.bind(this, 'add user', 'right') },
-	          'Add User'
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Layer> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Confirmation'
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this._onOpen.bind(this, 'confirmation', 'right') },
-	          'Confirmation'
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Layer> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Edit, left'
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this._onOpen.bind(this, 'mixed', 'left') },
-	          'Edit'
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Layer align=\"left\"> ..."
-	          )
-	        )
+	        this._renderLayerCode('Simple, top', 'simple', simpleLayer),
+	        this._renderLayerCode('Edit, left', 'edit', editLayer),
+	        this._renderLayerCode('Confirmation, right', 'confirmation', confirmationLayer)
 	      ),
 	      activeLayer
 	    );
