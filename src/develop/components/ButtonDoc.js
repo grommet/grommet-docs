@@ -12,7 +12,7 @@ var Tile = require('grommet/components/Tile');
 
 function convertButtonToString(buttonJSX) {
   return jsxToString(buttonJSX, {
-    functionValue: {
+    keyValueOverride: {
       onClick: 'this._onClick'
     }
   });

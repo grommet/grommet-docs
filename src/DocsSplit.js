@@ -61,6 +61,9 @@ var DocsSplit = React.createClass({
     if ('single' === responsive) {
       this.setState({showMenu: false});
     }
+    if (this.props.onChange) {
+      this.props.onChange();
+    }
   },
 
   _onMenuOpen: function () {
