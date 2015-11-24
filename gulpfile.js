@@ -50,6 +50,10 @@ var opts = {
     {
       asset: 'node_modules/grommet/img/**',
       dist: 'dist/img/'
+    },
+    {
+      asset: 'src/video/**',
+      dist: 'dist/video/'
     }
   ],
   scssAssets: ['src/scss/**/*.scss'],
