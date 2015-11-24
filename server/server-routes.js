@@ -22334,6 +22334,7 @@ module.exports =
 	var TilesDoc = __webpack_require__(641);
 	var TitleDoc = __webpack_require__(642);
 	var TopologyDoc = __webpack_require__(643);
+	var VideoDoc = __webpack_require__(645);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(609);
@@ -22349,7 +22350,7 @@ module.exports =
 	}, { label: 'Patterns',
 	  contents: [{ route: 'develop_dashboard', label: 'Dashboard', component: DashboardDoc }, { route: 'develop_navigation', label: 'Navigation', component: NavigationDoc }, { route: 'develop_actions', label: 'Actions', component: ActionsDoc }]
 	}, { label: 'Components',
-	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }]
+	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }]
 	}, { label: 'Utils',
 	  contents: [{ route: 'develop_rest', label: 'Rest', component: RestDoc }, { route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc }]
 	}, { label: 'Reference',
@@ -70297,6 +70298,491 @@ module.exports =
 	});
 
 	module.exports = Topology;
+
+/***/ },
+/* 645 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var DocsArticle = __webpack_require__(131);
+	var Video = __webpack_require__(646);
+
+	var VideoDoc = React.createClass({
+	  displayName: 'VideoDoc',
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      singleSelection: [0]
+	    };
+	  },
+
+	  // single selection is managed by the caller via state.singleSelection
+	  _onSingleSelect: function _onSingleSelect(selection) {
+	    this.setState({ singleSelection: selection });
+	  },
+
+	  // multiple selection is managed by the Table
+	  _onMultipleSelect: function _onMultipleSelect(selection) {
+	    // no-op
+	  },
+
+	  render: function render() {
+	    var inline = ["<Video>", "  <source src=\"/video/file.mp4\" type='video/mp4'/>", "</Video>"].join('\n');
+
+	    return React.createElement(
+	      DocsArticle,
+	      { title: 'Video', colorIndex: 'neutral-3' },
+	      React.createElement(
+	        'p',
+	        null,
+	        'Video built on HTML5 video element. Callers must include child ',
+	        React.createElement(
+	          'code',
+	          null,
+	          '<source>'
+	        ),
+	        'elements according to the HTML5 ',
+	        React.createElement(
+	          'code',
+	          null,
+	          '<video>'
+	        ),
+	        ' specification.'
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          inline
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Options'
+	        ),
+	        React.createElement(
+	          'dl',
+	          null,
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'colorIndex   ',
+	              "{category}-{index}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'The color identifier to use for the background color. For example: ',
+	            React.createElement(
+	              'code',
+	              null,
+	              '"neutral-1"'
+	            ),
+	            '. This is visible when a poster image is not the same aspect ratio as the video.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'duration     number'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'The length of the video in seconds.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'full         true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the width should take the full container width.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'poster       ',
+	              "{url}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Poster image to show before the video first plays.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'size         small|medium|large'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'The width of the Video. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'medium'
+	            ),
+	            ' unless the ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'full'
+	            ),
+	            ' option is specified. The height will adapt to the aspect ratio of the video.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'timeline     ',
+	              "[{...}]"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'An array of: ',
+	            React.createElement(
+	              'code',
+	              null,
+	              "{label: <string>, seconds: <number>}"
+	            ),
+	            ' used to indicate chapter markers.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'title        ',
+	              "{string}|{node}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Descriptive title.'
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Examples'
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Simple'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Video,
+	            null,
+	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	          )
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Video>\n" + "  <source src=\"/video/test.mp4\" type=\"video/mp4\"/>\n" + "</Video>"
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Title, Duration, Timeline, Poster, Full'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Video,
+	            { title: 'Title', poster: '/img/HTML5.png', full: true,
+	              duration: 35, timeline: [{ label: 'Chapter 1', time: 0 }, { label: 'Chapter 2', time: 10 }, { label: 'Chapter 3', time: 20 }] },
+	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	          )
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Video\n" + "  title=\"Title\" poster=\"/img/HTML5.png\" full={true}" + "  duration={35} timeline={[\n" + "    {label: \"Chapter 1\", time: 0},\n" + "    {label: \"Chapter 2\", time: 10},\n" + "    {label: \"Chapter 3\", time: 20}\n" + "  ]}>\n" + "  <source src=\"/video/test.mp4\" type=\"video/mp4\"/>\n" + "</Video>"
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Small'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Video,
+	            { size: 'small' },
+	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Large'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(
+	            Video,
+	            { size: 'large' },
+	            React.createElement('source', { src: '/video/test.mp4', type: 'video/mp4' })
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = VideoDoc;
+
+/***/ },
+/* 646 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var PropTypes = React.PropTypes;
+	var PlayIcon = __webpack_require__(506);
+	var PauseIcon = __webpack_require__(490);
+	var RefreshIcon = __webpack_require__(512);
+
+	var CLASS_ROOT = "video";
+
+	var Video = React.createClass({
+	  displayName: 'Video',
+
+	  propTypes: {
+	    colorIndex: PropTypes.string,
+	    duration: PropTypes.number,
+	    full: PropTypes.oneOf([true, 'horizontal', 'vertical', false]),
+	    poster: PropTypes.string,
+	    size: React.PropTypes.oneOf(['small', 'medium', 'large']),
+	    timeline: PropTypes.arrayOf(PropTypes.shape({
+	      label: PropTypes.string,
+	      time: PropTypes.number
+	    })),
+	    title: PropTypes.node
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return { playing: false, progress: 0 };
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    var video = this.refs.video;
+	    video.addEventListener('playing', this._onPlaying);
+	    video.addEventListener('pause', this._onPause);
+	    video.addEventListener('ended', this._onEnded);
+	  },
+
+	  componentWillUnmount: function componentWillUnmount() {
+	    video.removeEventListener('playing', this._onPlaying);
+	    video.removeEventListener('pause', this._onPause);
+	    video.removeEventListener('ended', this._onEnded);
+	  },
+
+	  _onPlaying: function _onPlaying() {
+	    var video = this.refs.video;
+	    this._progressTimer = setInterval((function () {
+	      this.setState({ progress: this.state.progress + 0.5 });
+	    }).bind(this), 500);
+	    this.setState({ playing: true, progress: video.currentTime, ended: null });
+	  },
+
+	  _onPause: function _onPause() {
+	    clearInterval(this._progressTimer);
+	    this._progressTimer = null;
+	    this.setState({ playing: false });
+	  },
+
+	  _onEnded: function _onEnded() {
+	    clearInterval(this._progressTimer);
+	    this._progressTimer = null;
+	    this.setState({ playing: false, ended: true });
+	  },
+
+	  _onClickControl: function _onClickControl() {
+	    var video = this.refs.video;
+	    if (this.state.playing) {
+	      video.pause();
+	    } else {
+	      video.play();
+	    }
+	  },
+
+	  _onMouseMove: function _onMouseMove() {
+	    this.setState({ interacting: true });
+	    clearTimeout(this._moveTimer);
+	    this._moveTimer = setTimeout((function () {
+	      this.setState({ interacting: false });
+	    }).bind(this), 1000);
+	  },
+
+	  _onClickChapter: function _onClickChapter(time) {
+	    this.refs.video.currentTime = time;
+	    this.setState({ progress: time });
+	  },
+
+	  render: function render() {
+	    var classes = [CLASS_ROOT];
+	    if (this.props.size) {
+	      classes.push(CLASS_ROOT + "--" + this.props.size);
+	    }
+	    if (this.props.full) {
+	      classes.push(CLASS_ROOT + '--full');
+	    }
+	    if (this.state.playing) {
+	      classes.push(CLASS_ROOT + '--playing');
+	    }
+	    if (this.state.interacting) {
+	      classes.push(CLASS_ROOT + '--interacting');
+	    }
+	    if (this.props.colorIndex) {
+	      classes.push("background-color-index-" + this.props.colorIndex);
+	    }
+	    if (this.props.className) {
+	      classes.push(this.props.className);
+	    }
+
+	    var controlIcon = this.state.playing ? React.createElement(PauseIcon, { size: 'large' }) : this.state.ended ? React.createElement(RefreshIcon, { size: 'large' }) : React.createElement(PlayIcon, { size: 'large' });
+
+	    var title;
+	    if (this.props.title) {
+	      title = React.createElement(
+	        'div',
+	        { className: CLASS_ROOT + '__title' },
+	        this.props.title
+	      );
+	    }
+
+	    var timeline;
+	    if (this.props.timeline && this.props.duration) {
+
+	      var chapters = this.props.timeline.map(function (chapter) {
+	        var percent = Math.round(chapter.time / this.props.duration * 100);
+	        var seconds = chapter.time % 60;
+	        var time = Math.floor(chapter.time / 60) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+	        return React.createElement(
+	          'div',
+	          { key: chapter.time, className: CLASS_ROOT + '__timeline-chapter',
+	            style: { left: percent.toString() + '%' },
+	            onClick: this._onClickChapter.bind(this, chapter.time) },
+	          React.createElement(
+	            'label',
+	            null,
+	            chapter.label
+	          ),
+	          React.createElement(
+	            'time',
+	            null,
+	            time
+	          )
+	        );
+	      }, this);
+
+	      timeline = React.createElement(
+	        'div',
+	        { className: CLASS_ROOT + '__timeline' },
+	        chapters
+	      );
+	    }
+
+	    var progress;
+	    if (this.props.duration) {
+	      var percent = Math.round(this.state.progress / this.props.duration * 100);
+	      progress = React.createElement(
+	        'div',
+	        { className: CLASS_ROOT + '__progress' },
+	        React.createElement('div', { className: CLASS_ROOT + '__progress-meter',
+	          style: { width: percent.toString() + '%' } })
+	      );
+	    }
+
+	    return React.createElement(
+	      'div',
+	      { className: classes.join(' '), onMouseMove: this._onMouseMove },
+	      React.createElement(
+	        'video',
+	        { ref: 'video', poster: this.props.poster },
+	        this.props.children
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: CLASS_ROOT + '__summary' },
+	        React.createElement(
+	          'div',
+	          { className: CLASS_ROOT + '__control', onClick: this._onClickControl },
+	          controlIcon
+	        ),
+	        title
+	      ),
+	      timeline,
+	      progress
+	    );
+	  }
+
+	});
+
+	module.exports = Video;
 
 /***/ }
 /******/ ]);

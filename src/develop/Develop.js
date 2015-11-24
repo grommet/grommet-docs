@@ -56,6 +56,7 @@ var TableDoc = require('./components/TableDoc');
 var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
+var VideoDoc = require('./components/VideoDoc');
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -115,7 +116,8 @@ var CONTENTS = [
       {route: 'develop_table', label: 'Table', component: TableDoc},
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
-      {route: 'develop_topology', label: 'Topology', component: TopologyDoc}
+      {route: 'develop_topology', label: 'Topology', component: TopologyDoc},
+      {route: 'develop_video', label: 'Video', component: VideoDoc}
     ]
   },
   {label: 'Utils',
