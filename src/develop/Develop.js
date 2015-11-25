@@ -133,7 +133,7 @@ var CONTENTS = [
       {route: 'develop_integration', label: 'Integration',
         component: DocsHtmlArticle.wrap(Integration, 'neutral-4')},
       {route: 'develop_accessibility', label: 'Accessibility',
-        component: DocsHtmlArticle.wrap(Accessibility, 'neutral-4')}
+        component: Accessibility}
     ]
   }
 ];

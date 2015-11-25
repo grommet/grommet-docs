@@ -128,16 +128,12 @@ var DocsSplit = React.createClass({
           </Menu>
         </Header>
       );
-    } else {
-      //header = <Header large={true} />;
     }
     return (
-      <Article primary={true}>
-        <div ref="doc" className="docs-split__doc">
-          {header}
-          {this.props.children}
-        </div>
-      </Article>
+      <div ref="doc" className="docs-split__doc">
+        {header}
+        {this.props.children}
+      </div>
     );
   },
 
