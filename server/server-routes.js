@@ -14101,7 +14101,7 @@ module.exports =
 	      ),
 	      React.createElement(
 	        Footer,
-	        { className: 'docs__footer',
+	        { className: 'docs__footer', primary: true,
 	          appCentered: true, direction: 'column', align: 'center', pad: 'large',
 	          colorIndex: 'grey-1' },
 	        React.createElement(
@@ -14852,6 +14852,7 @@ module.exports =
 	  displayName: 'Footer',
 
 	  propTypes: merge({
+	    primary: React.PropTypes.bool,
 	    large: React.PropTypes.bool,
 	    small: React.PropTypes.bool,
 	    float: React.PropTypes.bool
@@ -14880,11 +14881,16 @@ module.exports =
 	      containerClasses.push(CLASS_ROOT + "__container--float");
 	    }
 
+	    var footerSkipLink;
+	    if (this.props.primary) {
+	      footerSkipLink = React.createElement(SkipLinkAnchor, { label: 'Footer' });
+	    }
+
 	    return React.createElement(
 	      Box,
 	      _extends({ tag: 'footer' }, other, { className: classes.join(' '),
 	        containerClassName: containerClasses.join(' ') }),
-	      React.createElement(SkipLinkAnchor, { label: 'Footer' }),
+	      footerSkipLink,
 	      this.props.children
 	    );
 	  }
@@ -40476,9 +40482,33 @@ module.exports =
 	    // no-op
 	  },
 
-	  render: function render() {
-	    var inline = "<Footer>\n  ...\n</Footer>";
+	  _renderFooterCode: function _renderFooterCode(heading, footerJSX) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        heading
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'example' },
+	        footerJSX
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          jsxToString(footerJSX)
+	        )
+	      )
+	    );
+	  },
 
+	  render: function render() {
 	    var basicFooter = React.createElement(
 	      Footer,
 	      null,
@@ -40489,6 +40519,18 @@ module.exports =
 	        React.createElement(Button, { label: 'Cancel', onClick: this._onClick })
 	      )
 	    );
+
+	    var rightFooter = React.createElement(
+	      Footer,
+	      { justify: 'end' },
+	      React.createElement(
+	        Menu,
+	        { direction: 'row', justify: 'end' },
+	        React.createElement(Button, { label: 'Cancel', onClick: this._onClick }),
+	        React.createElement(Button, { label: 'OK', primary: true, onClick: this._onClick })
+	      )
+	    );
+
 	    return React.createElement(
 	      DocsArticle,
 	      { title: 'Footer', colorIndex: 'neutral-3' },
@@ -40503,7 +40545,7 @@ module.exports =
 	        React.createElement(
 	          'code',
 	          { className: 'html hljs xml' },
-	          inline
+	          "<Footer>\n  ...\n</Footer>"
 	        )
 	      ),
 	      React.createElement(
@@ -40544,6 +40586,20 @@ module.exports =
 	            'dd',
 	            null,
 	            'Smaller sized version.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'primary     true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether it should be treated as main footer or not. Used for Accessibility.'
 	          )
 	        ),
 	        React.createElement(
@@ -40566,53 +40622,8 @@ module.exports =
 	          null,
 	          'Examples'
 	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Form footer'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          basicFooter
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            jsxToString(basicFooter)
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Form footer right'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Footer,
-	            { justify: 'end' },
-	            React.createElement(
-	              Menu,
-	              { direction: 'row', justify: 'end' },
-	              React.createElement(Button, { label: 'Cancel', onClick: this._onClick }),
-	              React.createElement(Button, { label: 'OK', primary: true, onClick: this._onClick })
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Footer justify=\"end\"> ..."
-	          )
-	        )
+	        this._renderFooterCode("Form Footer", basicFooter),
+	        this._renderFooterCode("Form Footer, right", rightFooter)
 	      )
 	    );
 	  }
