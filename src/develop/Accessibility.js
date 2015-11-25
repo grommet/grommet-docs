@@ -2,7 +2,6 @@
 
 var React = require('react');
 var DocsArticle = require('../DocsArticle');
-var Section = require('grommet/components/Section');
 var Table = require('grommet/components/Table');
 var Status = require('grommet/components/icons/Status');
 
@@ -15,7 +14,7 @@ var Accessibility = React.createClass({
   render: function() {
     return (
       <DocsArticle title="Accessibility" colorIndex="neutral-5">
-        <Section>
+        <section>
           <p>This section describes the Grommet guidelines for developing accessible applications.</p>
 
           <h3>Icons</h3>
@@ -73,7 +72,7 @@ var Accessibility = React.createClass({
             "  </Article>\n" +
             "</App>"}
           </code></pre>
-        </Section>
+        </section>
       </DocsArticle>
     );
   }

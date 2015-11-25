@@ -3,6 +3,7 @@
 var React = require('react');
 var Article = require('grommet/components/Article');
 var Header = require('grommet/components/Header');
+var Box = require('grommet/components/Box');
 var DocsFooter = require('./DocsFooter');
 
 var DocsArticle = React.createClass({
@@ -18,11 +19,14 @@ var DocsArticle = React.createClass({
 
   render: function() {
     return (
-      <Article pad={{horizontal: 'large'}}>
-        <Header size="large" colorIndex={this.props.colorIndex}>
+      <Article primary={true}>
+        <Header size="large" pad={{horizontal: 'large'}}
+          colorIndex={this.props.colorIndex}>
           <h1>{this.props.title}</h1>
         </Header>
-        {this.props.children}
+        <Box pad={{horizontal: 'large'}}>
+          {this.props.children}
+        </Box>
         <DocsFooter />
       </Article>
     );

@@ -3,7 +3,6 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var Split = require('grommet/components/Split');
-var Article = require('grommet/components/Article');
 var Sidebar = require('grommet/components/Sidebar');
 var Header = require('grommet/components/Header');
 var Title = require('grommet/components/Title');
@@ -128,16 +127,12 @@ var DocsSplit = React.createClass({
           </Menu>
         </Header>
       );
-    } else {
-      //header = <Header large={true} />;
     }
     return (
-      <Article primary={true}>
-        <div ref="doc" className="docs-split__doc">
-          {header}
-          {this.props.children}
-        </div>
-      </Article>
+      <div ref="doc" className="docs-split__doc">
+        {header}
+        {this.props.children}
+      </div>
     );
   },
 
