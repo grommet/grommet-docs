@@ -18,10 +18,21 @@ var FooterDoc = React.createClass({
     // no-op
   },
 
-  render: function() {
-    var inline =
-    "<Footer>\n  ...\n</Footer>";
+  _renderFooterCode(heading, footerJSX) {
+    return (
+      <div>
+        <h3>{heading}</h3>
+        <div className="example">
+          {footerJSX}
+        </div>
+        <pre><code className="html hljs xml">
+          {jsxToString(footerJSX)}
+        </code></pre>
+      </div>
+    );
+  },
 
+  render: function() {
     var basicFooter = (
       <Footer>
         <Menu direction="row">
@@ -30,11 +41,23 @@ var FooterDoc = React.createClass({
         </Menu>
       </Footer>
     );
+
+    var rightFooter = (
+      <Footer justify="end">
+        <Menu direction="row" justify="end">
+          <Button label="Cancel" onClick={this._onClick} />
+          <Button label="OK" primary={true} onClick={this._onClick} />
+        </Menu>
+      </Footer>
+    );
+
     return (
       <DocsArticle title="Footer" colorIndex="neutral-3">
 
         <p>Put things at the bottom.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <pre><code className="html hljs xml">
+          {"<Footer>\n  ...\n</Footer>"}
+        </code></pre>
 
         <section>
           <h2>Options</h2>
@@ -43,6 +66,11 @@ var FooterDoc = React.createClass({
             <dd>Larger sized version.</dd>
             <dt><code>small       true|false</code></dt>
             <dd>Smaller sized version.</dd>
+            <dt><code>primary     true|false</code></dt>
+            <dd>
+              Whether it should be treated as main footer or not.
+              Used for Accessibility.
+            </dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
           also available.</p>
@@ -51,23 +79,8 @@ var FooterDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          <h3>Form footer</h3>
-          <div className="example">
-            {basicFooter}
-          </div>
-          <pre><code className="html hljs xml">{jsxToString(basicFooter)}</code></pre>
-
-          <h3>Form footer right</h3>
-          <div className="example">
-            <Footer justify="end">
-              <Menu direction="row" justify="end">
-                <Button label="Cancel" onClick={this._onClick} />
-                <Button label="OK" primary={true} onClick={this._onClick} />
-              </Menu>
-            </Footer>
-          </div>
-          <pre><code className="html hljs xml">{"<Footer justify=\"end\"> ..."}</code></pre>
-
+          {this._renderFooterCode("Form Footer", basicFooter)}
+          {this._renderFooterCode("Form Footer, right", rightFooter)}
         </section>
 
       </DocsArticle>

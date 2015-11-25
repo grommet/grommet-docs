@@ -228,7 +228,7 @@ var Home = React.createClass({
           </Tiles>
         </HomeSection>
 
-        <Footer className="docs__footer"
+        <Footer className="docs__footer" primary={true}
           appCentered={true} direction="column" align="center" pad="large"
           colorIndex="grey-1">
           <h3>Build your ideas with Grommet!</h3>
