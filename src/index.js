@@ -35,7 +35,7 @@ var routes = require('./routes')(rootPath);
 
 var onRouteUpdate = function () {
   var docElements = document.querySelectorAll('.article');
-  if (docElements.length > 0) {
+  if (docElements.length > 0 && window.location.hash === '') {
     docElements[0].scrollTop = 0;
   }
 };
