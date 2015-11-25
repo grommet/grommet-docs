@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var jsxToString = require('jsx-to-string').default;
 var Link = require('react-router').Link;
 var DocsArticle = require('../../DocsArticle');
 var Footer = require('grommet/components/Footer');
@@ -20,6 +21,15 @@ var FooterDoc = React.createClass({
   render: function() {
     var inline =
     "<Footer>\n  ...\n</Footer>";
+
+    var basicFooter = (
+      <Footer>
+        <Menu direction="row">
+          <Button label="OK" primary={true} onClick={this._onClick} />
+          <Button label="Cancel" onClick={this._onClick} />
+        </Menu>
+      </Footer>
+    );
     return (
       <DocsArticle title="Footer" colorIndex="neutral-3">
 
@@ -43,14 +53,9 @@ var FooterDoc = React.createClass({
 
           <h3>Form footer</h3>
           <div className="example">
-            <Footer>
-              <Menu direction="row">
-                <Button label="OK" primary={true} onClick={this._onClick} />
-                <Button label="Cancel" onClick={this._onClick} />
-              </Menu>
-            </Footer>
+            {basicFooter}
           </div>
-          <pre><code className="html hljs xml">{"<Footer> ..."}</code></pre>
+          <pre><code className="html hljs xml">{jsxToString(basicFooter)}</code></pre>
 
           <h3>Form footer right</h3>
           <div className="example">
