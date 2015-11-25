@@ -3,7 +3,6 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var Split = require('grommet/components/Split');
-var Article = require('grommet/components/Article');
 var Sidebar = require('grommet/components/Sidebar');
 var Header = require('grommet/components/Header');
 var Title = require('grommet/components/Title');
