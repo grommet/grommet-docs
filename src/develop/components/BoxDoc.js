@@ -12,12 +12,17 @@ var BoxDoc = React.createClass({
       <DocsArticle title="Box" colorIndex="neutral-3">
 
         <p>General purpose flexible box layout. This does not support all of the
-          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">flexbox capabilities</a>.</p>
+          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"> flexbox capabilities</a>.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>
           <dl>
+            <dt><code>a11yTitle    {"{string}"}</code></dt>
+            <dd>
+              Custom title used by screen readers. Default is "Box".
+              Only used if onClick handler is specified.
+            </dd>
             <dt><code>align        start|center|end</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
             <dt><code>appCentered  true|false</code></dt>

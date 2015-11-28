@@ -19,6 +19,11 @@ var TitleDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
+            <dt><code>a11yTitle      {"{string}"}</code></dt>
+            <dd>
+              Custom title used by screen readers. Default is "Title".
+              Only used if onClick handler is specified.
+            </dd>
             <dt><code>onClick        {"{func}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>responsive     true|false</code></dt>
