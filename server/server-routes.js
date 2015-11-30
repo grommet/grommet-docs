@@ -1894,6 +1894,15 @@ module.exports =
 	      );
 	    }).bind(this));
 
+	    var menuComponent;
+	    if (anchorElements.length > 0) {
+	      menuComponent = React.createElement(
+	        Menu,
+	        { direction: 'row' },
+	        anchorElements
+	      );
+	    }
+
 	    return React.createElement(
 	      'div',
 	      { className: 'skip-links' },
@@ -1908,11 +1917,7 @@ module.exports =
 	            null,
 	            React.createElement(FormattedMessage, { id: 'Skip to', defaultMessage: 'Skip to' })
 	          ),
-	          React.createElement(
-	            Menu,
-	            { direction: 'row' },
-	            anchorElements
-	          )
+	          menuComponent
 	        )
 	      )
 	    );
@@ -9542,10 +9547,9 @@ module.exports =
 	      style.backgroundSize = "cover";
 	    }
 
-	    var boxLabel = Intl.getMessage(this.context.intl, this.props.a11yTitle);
-
 	    var a11yProps = {};
 	    if (this.props.onClick) {
+	      var boxLabel = Intl.getMessage(this.context.intl, this.props.a11yTitle);
 	      a11yProps.tabIndex = 0;
 	      a11yProps["aria-label"] = boxLabel;
 	      a11yProps.role = 'link';
@@ -13743,6 +13747,10 @@ module.exports =
 	    // no-op
 	  },
 
+	  _onRequestForBlog: function _onRequestForBlog() {
+	    window.location = 'http://blog.grommet.io';
+	  },
+
 	  render: function render() {
 	    return React.createElement(
 	      Article,
@@ -14180,6 +14188,7 @@ module.exports =
 	          null,
 	          'Build your ideas with Grommet!'
 	        ),
+	        React.createElement(Button, { label: 'Grommet Blog', onClick: this._onRequestForBlog }),
 	        React.createElement(
 	          'p',
 	          null,
@@ -14634,6 +14643,11 @@ module.exports =
 	          Link,
 	          { id: 'develop-link', to: this.context.routePrefix + 'develop' },
 	          'Develop'
+	        ),
+	        React.createElement(
+	          'a',
+	          { href: 'http://blog.grommet.io', target: '_blank' },
+	          'Blog'
 	        )
 	      )
 	    );

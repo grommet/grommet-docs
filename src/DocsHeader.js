@@ -32,6 +32,7 @@ var DocsHeader = React.createClass({
         <Menu direction="row" responsive={false}>
           <Link id="design-link" to={this.context.routePrefix + 'design'}>Design</Link>
           <Link id="develop-link" to={this.context.routePrefix + 'develop'}>Develop</Link>
+          <a href="http://blog.grommet.io" target="_blank">Blog</a>
         </Menu>
       </Header>
     );
