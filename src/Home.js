@@ -35,6 +35,10 @@ var Home = React.createClass({
     // no-op
   },
 
+  _onRequestForBlog: function () {
+    window.location = 'http://blog.grommet.io';
+  },
+
   render: function() {
     return (
       <Article className="home" scrollStep={true}>
@@ -232,6 +236,7 @@ var Home = React.createClass({
           appCentered={true} direction="column" align="center" pad="large"
           colorIndex="grey-1">
           <h3>Build your ideas with Grommet!</h3>
+          <Button label="Grommet Blog" onClick={this._onRequestForBlog} />
           <p>
             This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International License</a>.
           </p>
