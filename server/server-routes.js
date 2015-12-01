@@ -22525,9 +22525,9 @@ module.exports =
 	var ActionsDoc = __webpack_require__(201);
 	var AnchorDoc = __webpack_require__(202);
 	var AppDoc = __webpack_require__(203);
-	var ArticleDoc = __webpack_require__(204);
-	var BoxDoc = __webpack_require__(205);
-	var ButtonDoc = __webpack_require__(206);
+	var ArticleDoc = __webpack_require__(205);
+	var BoxDoc = __webpack_require__(206);
+	var ButtonDoc = __webpack_require__(207);
 	var CalendarDoc = __webpack_require__(208);
 	var CarouselDoc = __webpack_require__(298);
 	var ChartDoc = __webpack_require__(302);
@@ -24644,6 +24644,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var jsxToString = __webpack_require__(204)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var App = __webpack_require__(4);
 	var Header = __webpack_require__(115);
@@ -24655,6 +24656,21 @@ module.exports =
 	  displayName: 'AppDoc',
 
 	  render: function render() {
+
+	    var appCode = React.createElement(
+	      App,
+	      { inline: true },
+	      React.createElement(
+	        Header,
+	        null,
+	        React.createElement(
+	          Title,
+	          null,
+	          'My App'
+	        )
+	      )
+	    );
+
 	    return React.createElement(
 	      DocsArticle,
 	      { title: 'App', colorIndex: 'neutral-3' },
@@ -24729,19 +24745,7 @@ module.exports =
 	        React.createElement(
 	          'div',
 	          { className: 'example' },
-	          React.createElement(
-	            App,
-	            { inline: true },
-	            React.createElement(
-	              Header,
-	              null,
-	              React.createElement(
-	                Title,
-	                null,
-	                'My App'
-	              )
-	            )
-	          )
+	          appCode
 	        ),
 	        React.createElement(
 	          'pre',
@@ -24749,7 +24753,7 @@ module.exports =
 	          React.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            "<App>\n  <Header>\n    <Title>\n      My App\n    </Title>\n  </Header>\n  ...\n</App>"
+	            jsxToString(appCode)
 	          )
 	        )
 	      )
@@ -24761,6 +24765,12 @@ module.exports =
 
 /***/ },
 /* 204 */
+/***/ function(module, exports) {
+
+	module.exports = require("jsx-to-string");
+
+/***/ },
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -24886,7 +24896,7 @@ module.exports =
 	module.exports = ArticleDoc;
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -25288,7 +25298,7 @@ module.exports =
 	module.exports = BoxDoc;
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -25296,7 +25306,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(207)['default'];
+	var jsxToString = __webpack_require__(204)['default'];
 	var DocsArticle = __webpack_require__(133);
 
 	var Box = __webpack_require__(99);
@@ -25582,12 +25592,6 @@ module.exports =
 	});
 
 	module.exports = ButtonDoc;
-
-/***/ },
-/* 207 */
-/***/ function(module, exports) {
-
-	module.exports = require("jsx-to-string");
 
 /***/ },
 /* 208 */
@@ -40534,7 +40538,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(207)['default'];
+	var jsxToString = __webpack_require__(204)['default'];
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(133);
 	var Footer = __webpack_require__(118);
@@ -63181,7 +63185,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(207)['default'];
+	var jsxToString = __webpack_require__(204)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var Box = __webpack_require__(99);
 	var Layer = __webpack_require__(85);
@@ -64507,7 +64511,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var jsxToString = __webpack_require__(207)['default'];
+	var jsxToString = __webpack_require__(204)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var Menu = __webpack_require__(90);
 	var ConfigIcon = __webpack_require__(374);
