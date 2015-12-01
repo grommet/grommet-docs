@@ -8475,16 +8475,19 @@ module.exports =
 	var merge = __webpack_require__(6);
 	var pick = __webpack_require__(91);
 	var keys = __webpack_require__(32);
+	var Intl = __webpack_require__(96);
 	var KeyboardAccelerators = __webpack_require__(87);
-	var Drop = __webpack_require__(96);
-	var Responsive = __webpack_require__(97);
-	var Box = __webpack_require__(98);
+	var Drop = __webpack_require__(97);
+	var Responsive = __webpack_require__(98);
+	var Box = __webpack_require__(99);
+	var Button = __webpack_require__(89);
 	var MoreIcon = __webpack_require__(100);
 	var DropCaretIcon = __webpack_require__(101);
 
 	var CLASS_ROOT = "menu";
 
-	// We have a separate module for the drop component so we can transfer the router context.
+	// We have a separate module for the drop component
+	// so we can transfer the router context.
 	var MenuDrop = React.createClass({
 	  displayName: 'MenuDrop',
 
@@ -8532,8 +8535,6 @@ module.exports =
 	      if (!menuItems[i].getAttribute('id')) {
 	        menuItems[i].setAttribute('id', menuItems[i].getAttribute('data-reactid'));
 	      }
-	      // aria-selected informs AT which menu item is selected for that menu container.
-	      menuItems[i].setAttribute('aria-selected', classes.indexOf('active'));
 	    }
 	  },
 
@@ -8565,7 +8566,8 @@ module.exports =
 
 	    this.activeMenuItem.focus();
 	    this.refs.menuDrop.setAttribute('aria-activedescendant', this.activeMenuItem.getAttribute('id'));
-	    // Stops KeyboardAccelerators from calling the other listeners. Works limilar to event.stopPropagation().
+	    // Stops KeyboardAccelerators from calling the other listeners.
+	    // Works limilar to event.stopPropagation().
 	    return true;
 	  },
 
@@ -8592,7 +8594,8 @@ module.exports =
 
 	    this.activeMenuItem.focus();
 	    this.refs.menuDrop.setAttribute('aria-activedescendant', this.activeMenuItem.getAttribute('id'));
-	    // Stops KeyboardAccelerators from calling the other listeners. Works limilar to event.stopPropagation().
+	    // Stops KeyboardAccelerators from calling the other listeners.
+	    // Works limilar to event.stopPropagation().
 	    return true;
 	  },
 
@@ -8603,7 +8606,8 @@ module.exports =
 	    var first = this.props.control;
 	    var second = React.createElement(
 	      Box,
-	      _extends({ ref: 'navContainer', tag: 'nav', className: CLASS_ROOT + '__contents' }, other),
+	      _extends({ ref: 'navContainer', tag: 'nav' }, other, {
+	        className: CLASS_ROOT + '__contents' }),
 	      this.props.children
 	    );
 	    if (this.props.dropAlign.bottom) {
@@ -8637,6 +8641,7 @@ module.exports =
 	  displayName: 'Menu',
 
 	  propTypes: merge({
+	    a11yTitle: React.PropTypes.string,
 	    closeOnClick: React.PropTypes.bool,
 	    collapse: React.PropTypes.bool, // deprecated, remove in 0.5
 	    dropAlign: Drop.alignPropType,
@@ -8658,6 +8663,7 @@ module.exports =
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
+	      a11yTitle: 'Menu',
 	      closeOnClick: true,
 	      direction: 'column',
 	      dropAlign: { top: 'top', left: 'left' },
@@ -8668,9 +8674,6 @@ module.exports =
 	  },
 
 	  getInitialState: function getInitialState() {
-	    if (this.props.hasOwnProperty('collapse')) {
-	      console.log('The Grommet Menu "collapse" property is deprecated. Please use "inline" instead.'); // TODO: remove this message in version 0.4.0
-	    }
 	    var inline;
 	    if (this.props.hasOwnProperty('inline')) {
 	      inline = this.props.inline;
@@ -8692,23 +8695,6 @@ module.exports =
 	        dropId: 'menu-drop-' + controlElement.getAttribute('data-reactid'),
 	        controlHeight: this.refs.control.clientHeight + 'px'
 	      });
-
-	      controlElement.setAttribute('role', 'menu');
-	      var expanded = this.state.state === 'expanded';
-	      controlElement.setAttribute('aria-expanded', expanded);
-	      if (this.props.label) {
-	        controlElement.setAttribute('aria-label', this.props.label);
-	      } else if (this.props.icon) {
-	        try {
-	          var icon = controlElement.getElementsByClassName('control-icon')[0];
-	          if (!icon.getAttribute('id')) {
-	            icon.setAttribute('id', icon.getAttribute('data-reactid'));
-	          }
-	          controlElement.setAttribute('aria-labelledby', icon.getAttribute('id'));
-	        } catch (exception) {
-	          console.log('Unable to add aria-label to Menu component.');
-	        }
-	      }
 	    }
 
 	    if (this.props.inline && this.props.responsive) {
@@ -8717,15 +8703,15 @@ module.exports =
 	  },
 
 	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
-	    // Set up keyboard listeners appropriate to the current state.
-
 	    if (this.state.state !== prevState.state) {
 	      var activeKeyboardHandlers = {
-	        esc: this._onClose
+	        esc: this._onClose,
+	        tab: this._onClose
 	      };
 	      var focusedKeyboardHandlers = {
 	        space: this._onOpen,
-	        down: this._onOpen
+	        down: this._onOpen,
+	        enter: this._onOpen
 	      };
 
 	      switch (this.state.state) {
@@ -8751,13 +8737,6 @@ module.exports =
 	          this._drop.render(this._renderDrop());
 	          break;
 	      }
-	      if (this.refs.control) {
-	        var controlElement = this.refs.control;
-	        var expanded = this.state.state === 'expanded';
-	        controlElement.setAttribute('aria-expanded', expanded);
-	      }
-	    } else if ('expanded' === this.state.state) {
-	      this._drop.render(this._renderDrop());
 	    }
 	  },
 
@@ -8772,8 +8751,7 @@ module.exports =
 	    }
 	  },
 
-	  _onOpen: function _onOpen(event) {
-	    event.preventDefault();
+	  _onOpen: function _onOpen() {
 	    this.setState({ state: 'expanded' });
 	  },
 
@@ -8784,16 +8762,6 @@ module.exports =
 	      this.setState({ state: 'focused' });
 	    } else {
 	      element.focus();
-	    }
-	  },
-
-	  _onFocusControl: function _onFocusControl() {
-	    this.setState({ state: 'focused' });
-	  },
-
-	  _onBlurControl: function _onBlurControl() {
-	    if (this.state.state === 'focused') {
-	      this.setState({ state: 'collapsed' });
 	    }
 	  },
 
@@ -8820,7 +8788,17 @@ module.exports =
 	    }
 	  },
 
-	  _renderControl: function _renderControl() {
+	  _onFocusControl: function _onFocusControl() {
+	    this.setState({ state: 'focused' });
+	  },
+
+	  _onBlurControl: function _onBlurControl() {
+	    if (this.state.state === 'focused') {
+	      this.setState({ state: 'collapsed' });
+	    }
+	  },
+
+	  _renderControl: function _renderControl(clickable) {
 	    var result = null;
 	    var icon = null;
 
@@ -8836,6 +8814,13 @@ module.exports =
 	      icon = React.createElement(MoreIcon, null);
 	    }
 
+	    if (clickable) {
+	      icon = React.createElement(
+	        Button,
+	        { type: 'icon', onClick: this._onClose },
+	        icon
+	      );
+	    }
 	    var onClick;
 	    if (this.props.closeOnClick) {
 	      onClick = this._onClose;
@@ -8852,7 +8837,8 @@ module.exports =
 	        ),
 	        React.createElement(
 	          'span',
-	          { tabIndex: '-1', style: { lineHeight: this.state.controlHeight }, className: controlClassName + "-label" },
+	          { tabIndex: '-1', style: { lineHeight: this.state.controlHeight },
+	            className: controlClassName + "-label" },
 	          this.props.label
 	        ),
 	        React.createElement(DropCaretIcon, { className: controlClassName + "-drop-icon" })
@@ -8870,7 +8856,7 @@ module.exports =
 	  _renderDrop: function _renderDrop() {
 	    var other = pick(this.props, keys(Box.propTypes));
 
-	    var controlContents = this._renderControl();
+	    var controlContents = this._renderControl(true);
 
 	    var onClick;
 	    if (this.props.closeOnClick) {
@@ -8924,7 +8910,6 @@ module.exports =
 	      if (this.props.label) {
 	        classes.push(CLASS_ROOT + "--labelled");
 	      }
-	      classes.push(CLASS_ROOT + "--" + this.state.state);
 	    }
 	    if (this.props.className) {
 	      classes.push(this.props.className);
@@ -8935,13 +8920,15 @@ module.exports =
 
 	      return React.createElement(
 	        Box,
-	        _extends({ tag: 'nav', id: this.props.id }, other, { className: classes.join(' '),
-	          onClick: this._onClose }),
+	        _extends({ tag: 'nav', id: this.props.id }, other, {
+	          className: classes.join(' ') }),
 	        this.props.children
 	      );
 	    } else {
 
 	      var controlContents = this._renderControl();
+
+	      var menuTitle = Intl.getMessage(this.context.intl, this.props.label || this.props.a11yTitle);
 
 	      return React.createElement(
 	        'div',
@@ -8949,6 +8936,7 @@ module.exports =
 	          className: classes.join(' '),
 	          tabIndex: '0',
 	          onClick: this._onOpen,
+	          role: 'link', 'aria-label': menuTitle,
 	          onFocus: this._onFocusControl,
 	          onBlur: this._onBlurControl },
 	        controlContents
@@ -9144,6 +9132,26 @@ module.exports =
 
 /***/ },
 /* 96 */
+/***/ function(module, exports) {
+
+	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
+	"use strict";
+
+	module.exports = {
+	  getMessage: function getMessage(intl, key, values) {
+	    if (intl) {
+	      return intl.formatMessage({
+	        id: key,
+	        defaultMessage: key
+	      }, values);
+	    } else {
+	      return key;
+	    }
+	  }
+	};
+
+/***/ },
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -9327,7 +9335,7 @@ module.exports =
 	module.exports = Drop;
 
 /***/ },
-/* 97 */
+/* 98 */
 /***/ function(module, exports) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -9404,7 +9412,7 @@ module.exports =
 	module.exports = Responsive;
 
 /***/ },
-/* 98 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -9417,7 +9425,7 @@ module.exports =
 	var keys = __webpack_require__(32);
 
 	var KeyboardAccelerators = __webpack_require__(87);
-	var Intl = __webpack_require__(99);
+	var Intl = __webpack_require__(96);
 
 	var CLASS_ROOT = "box";
 
@@ -9478,16 +9486,7 @@ module.exports =
 
 	  componentWillUnmount: function componentWillUnmount() {
 	    if (this.props.onClick) {
-	      var clickCallback = function clickCallback() {
-	        if (this.refs.boxContainer === document.activeElement) {
-	          this.props.onClick();
-	        }
-	      };
-
-	      KeyboardAccelerators.stopListeningToKeyboard(this, {
-	        enter: clickCallback,
-	        space: clickCallback
-	      });
+	      KeyboardAccelerators.stopListeningToKeyboard(this);
 	    }
 	  },
 
@@ -9580,26 +9579,6 @@ module.exports =
 	});
 
 	module.exports = Box;
-
-/***/ },
-/* 99 */
-/***/ function(module, exports) {
-
-	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
-	"use strict";
-
-	module.exports = {
-	  getMessage: function getMessage(intl, key, values) {
-	    if (intl) {
-	      return intl.formatMessage({
-	        id: key,
-	        defaultMessage: key
-	      }, values);
-	    } else {
-	      return key;
-	    }
-	  }
-	};
 
 /***/ },
 /* 100 */
@@ -14247,7 +14226,7 @@ module.exports =
 	var merge = __webpack_require__(6);
 	var pick = __webpack_require__(91);
 	var keys = __webpack_require__(32);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var KeyboardAccelerators = __webpack_require__(87);
 	var Scroll = __webpack_require__(111);
 	var SkipLinkAnchor = __webpack_require__(112);
@@ -14535,7 +14514,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 
 	var CLASS_ROOT = "carousel-controls";
 
@@ -14597,7 +14576,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(115);
 	var Title = __webpack_require__(116);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var GrommetLogo = __webpack_require__(117);
 	var Menu = __webpack_require__(90);
 	var Link = __webpack_require__(2).Link;
@@ -14671,7 +14650,7 @@ module.exports =
 	var merge = __webpack_require__(6);
 	var pick = __webpack_require__(91);
 	var keys = __webpack_require__(32);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 
 	var CLASS_ROOT = "header";
 
@@ -14809,9 +14788,9 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 
-	var Intl = __webpack_require__(99);
+	var Intl = __webpack_require__(96);
 
 	var CLASS_ROOT = "title";
 
@@ -14939,7 +14918,7 @@ module.exports =
 	var merge = __webpack_require__(6);
 	var pick = __webpack_require__(91);
 	var keys = __webpack_require__(32);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var SkipLinkAnchor = __webpack_require__(112);
 
 	var CLASS_ROOT = "footer";
@@ -15006,7 +14985,7 @@ module.exports =
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var SkipLinkAnchor = __webpack_require__(112);
 	var merge = __webpack_require__(6);
 
@@ -15513,7 +15492,7 @@ module.exports =
 	var merge = __webpack_require__(6);
 	var pick = __webpack_require__(91);
 	var keys = __webpack_require__(32);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 
 	var CLASS_ROOT = "tile";
 
@@ -15744,7 +15723,7 @@ module.exports =
 	var Sidebar = __webpack_require__(130);
 	var Header = __webpack_require__(115);
 	var Title = __webpack_require__(116);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var Menu = __webpack_require__(90);
 	var GrommetLogo = __webpack_require__(117);
 	var CloseIcon = __webpack_require__(131);
@@ -16068,7 +16047,7 @@ module.exports =
 	var merge = __webpack_require__(6);
 	var pick = __webpack_require__(91);
 	var keys = __webpack_require__(32);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 
 	var CLASS_ROOT = "sidebar";
 
@@ -16269,7 +16248,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var Article = __webpack_require__(110);
 	var Header = __webpack_require__(115);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var DocsFooter = __webpack_require__(134);
 
 	var DocsArticle = React.createClass({
@@ -19936,7 +19915,7 @@ module.exports =
 	var ReactDOM = __webpack_require__(44);
 
 	var Legend = __webpack_require__(172);
-	var Intl = __webpack_require__(99);
+	var Intl = __webpack_require__(96);
 
 	var CLASS_ROOT = "meter";
 
@@ -20917,8 +20896,8 @@ module.exports =
 	var React = __webpack_require__(1);
 	var PropTypes = React.PropTypes;
 	var KeyboardAccelerators = __webpack_require__(87);
-	var Drop = __webpack_require__(96);
-	var Responsive = __webpack_require__(97);
+	var Drop = __webpack_require__(97);
+	var Responsive = __webpack_require__(98);
 	var SearchIcon = __webpack_require__(174);
 
 	var CLASS_ROOT = "search";
@@ -22565,24 +22544,24 @@ module.exports =
 	var LoginFormDoc = __webpack_require__(620);
 	var MapDoc = __webpack_require__(621);
 	var MenuDoc = __webpack_require__(623);
-	var MeterDoc = __webpack_require__(626);
-	var NavigationDoc = __webpack_require__(627);
-	var ParagraphDoc = __webpack_require__(628);
-	var RadioButtonDoc = __webpack_require__(630);
-	var RestDoc = __webpack_require__(631);
-	var RestWatchDoc = __webpack_require__(632);
-	var SearchDoc = __webpack_require__(633);
-	var SearchInputDoc = __webpack_require__(634);
-	var SectionDoc = __webpack_require__(635);
-	var SidebarDoc = __webpack_require__(636);
-	var SplitDoc = __webpack_require__(637);
-	var StatusDoc = __webpack_require__(638);
-	var TabsDoc = __webpack_require__(639);
-	var TableDoc = __webpack_require__(642);
-	var TilesDoc = __webpack_require__(643);
-	var TitleDoc = __webpack_require__(644);
-	var TopologyDoc = __webpack_require__(645);
-	var VideoDoc = __webpack_require__(647);
+	var MeterDoc = __webpack_require__(624);
+	var NavigationDoc = __webpack_require__(625);
+	var ParagraphDoc = __webpack_require__(626);
+	var RadioButtonDoc = __webpack_require__(628);
+	var RestDoc = __webpack_require__(629);
+	var RestWatchDoc = __webpack_require__(630);
+	var SearchDoc = __webpack_require__(631);
+	var SearchInputDoc = __webpack_require__(632);
+	var SectionDoc = __webpack_require__(633);
+	var SidebarDoc = __webpack_require__(634);
+	var SplitDoc = __webpack_require__(635);
+	var StatusDoc = __webpack_require__(636);
+	var TabsDoc = __webpack_require__(637);
+	var TableDoc = __webpack_require__(640);
+	var TilesDoc = __webpack_require__(641);
+	var TitleDoc = __webpack_require__(642);
+	var TopologyDoc = __webpack_require__(643);
+	var VideoDoc = __webpack_require__(645);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(611);
@@ -24916,7 +24895,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 
 	var BoxDoc = React.createClass({
 	  displayName: 'BoxDoc',
@@ -25320,7 +25299,7 @@ module.exports =
 	var jsxToString = __webpack_require__(207)['default'];
 	var DocsArticle = __webpack_require__(133);
 
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var Button = __webpack_require__(89);
 	var Section = __webpack_require__(119);
 	var Tiles = __webpack_require__(121);
@@ -25767,7 +25746,7 @@ module.exports =
 	var ReactDOM = __webpack_require__(44);
 	var moment = __webpack_require__(210);
 	var KeyboardAccelerators = __webpack_require__(87);
-	var Drop = __webpack_require__(96);
+	var Drop = __webpack_require__(97);
 	var CalendarIcon = __webpack_require__(146);
 	var PreviousIcon = __webpack_require__(123);
 	var NextIcon = __webpack_require__(124);
@@ -37640,7 +37619,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
 	var Previous = __webpack_require__(300);
@@ -41273,7 +41252,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(44);
 	var KeyboardAccelerators = __webpack_require__(87);
-	var Drop = __webpack_require__(96);
+	var Drop = __webpack_require__(97);
 	var SearchIcon = __webpack_require__(174);
 
 	var CLASS_ROOT = "search-input";
@@ -63204,7 +63183,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var jsxToString = __webpack_require__(207)['default'];
 	var DocsArticle = __webpack_require__(133);
-	var Box = __webpack_require__(98);
+	var Box = __webpack_require__(99);
 	var Layer = __webpack_require__(85);
 	var Header = __webpack_require__(115);
 	var Form = __webpack_require__(168);
@@ -64528,12 +64507,17 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
+	var jsxToString = __webpack_require__(207)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var Menu = __webpack_require__(90);
-	var EditIcon = __webpack_require__(624);
-	var FilterIcon = __webpack_require__(625);
+	var ConfigIcon = __webpack_require__(374);
+	var FilterIcon = __webpack_require__(144);
 	var CheckBox = __webpack_require__(170);
 	var Button = __webpack_require__(89);
+
+	function convertMenuToString(menuJSX) {
+	  return jsxToString(menuJSX);
+	}
 
 	var MenuDoc = React.createClass({
 	  displayName: 'MenuDoc',
@@ -64546,8 +64530,190 @@ module.exports =
 	    // no-op
 	  },
 
+	  _renderMenuCode: function _renderMenuCode(heading, menuJSX) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        heading
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'example' },
+	        menuJSX
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          convertMenuToString(menuJSX)
+	        )
+	      )
+	    );
+	  },
+
 	  render: function render() {
-	    var inline = "<Menu>\n  <Link to={route}>{label}</Link>\n  ...\n</Menu>";
+
+	    var columnInlineMenu = React.createElement(
+	      Menu,
+	      null,
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var rowInlineMenu = React.createElement(
+	      Menu,
+	      { direction: 'row' },
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var rowEndMenu = React.createElement(
+	      Menu,
+	      { direction: 'row', justify: 'end' },
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var labelDownMenu = React.createElement(
+	      Menu,
+	      { label: 'Label' },
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var iconDownMenu = React.createElement(
+	      Menu,
+	      { inline: false },
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var customIconMenu = React.createElement(
+	      Menu,
+	      { icon: React.createElement(ConfigIcon, null) },
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var doNotCloseMenu = React.createElement(
+	      Menu,
+	      { icon: React.createElement(FilterIcon, null), closeOnClick: false, pad: 'medium' },
+	      React.createElement(CheckBox, { id: 'check-1', label: 'first' }),
+	      React.createElement(CheckBox, { id: 'check-2', label: 'second' }),
+	      React.createElement(CheckBox, { id: 'check-3', label: 'third' })
+	    );
+
+	    var notInlineUpMenu = React.createElement(
+	      Menu,
+	      { inline: false, dropAlign: { bottom: "bottom" } },
+	      React.createElement(
+	        'a',
+	        { href: '#', className: 'active' },
+	        'First'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Second'
+	      ),
+	      React.createElement(
+	        'a',
+	        { href: '#' },
+	        'Third'
+	      )
+	    );
+
+	    var buttonBarMenu = React.createElement(
+	      Menu,
+	      { direction: 'row' },
+	      React.createElement(Button, { label: 'Button 1', onClick: this._onClick }),
+	      React.createElement(Button, { label: 'Button 2', onClick: this._onClick }),
+	      React.createElement(Button, { label: 'Button 3', onClick: this._onClick })
+	    );
+
 	    return React.createElement(
 	      DocsArticle,
 	      { title: 'Menu', colorIndex: 'neutral-3' },
@@ -64562,7 +64728,7 @@ module.exports =
 	        React.createElement(
 	          'code',
 	          { className: 'html hljs xml' },
-	          inline
+	          "<Menu>\n  <a href=\"#\">Link 1</a>\n  ...\n</Menu>"
 	        )
 	      ),
 	      React.createElement(
@@ -64704,352 +64870,15 @@ module.exports =
 	          null,
 	          'Examples'
 	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          '(column, inline)'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            null,
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'row, (inline)'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { direction: 'row' },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu direction=\"row\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'row, end, (inline)'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { direction: 'row', justify: 'end' },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu direction=\"row\" justify=\"end\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'label, (not inline, down)'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { label: 'Label' },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu label=\"Label\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'not inline, (icon, down)'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { inline: false },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu inline={false}> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'icon, (not inline, down)'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { icon: React.createElement(EditIcon, null) },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu icon={<EditIcon />}> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'icon, (not inline, down), do not close on click, pad'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { icon: React.createElement(FilterIcon, null), closeOnClick: false, pad: 'medium' },
-	            React.createElement(CheckBox, { id: 'check-1', label: 'first' }),
-	            React.createElement(CheckBox, { id: 'check-2', label: 'second' }),
-	            React.createElement(CheckBox, { id: 'check-3', label: 'third' })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu icon={<FilterIcon />} closeOnClick={false} pad=\"medium\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'not inline, up'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { inline: false, dropAlign: { bottom: "bottom" } },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu inline={false} dropAlign={{bottom: \"bottom\"}}> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'not inline, small'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { inline: false, small: true },
-	            React.createElement(
-	              'a',
-	              { href: '#', className: 'active' },
-	              'First'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Second'
-	            ),
-	            React.createElement(
-	              'a',
-	              { href: '#' },
-	              'Third'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu inline={false} small={true}> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'button bar'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Menu,
-	            { direction: 'row' },
-	            React.createElement(Button, { label: 'Button 1', onClick: this._onClick }),
-	            React.createElement(Button, { label: 'Button 2', onClick: this._onClick }),
-	            React.createElement(Button, { label: 'Button 3', onClick: this._onClick })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Menu direction=\"row\"> ..."
-	          )
-	        )
+	        this._renderMenuCode('column, inline', columnInlineMenu),
+	        this._renderMenuCode('row, inline', rowInlineMenu),
+	        this._renderMenuCode('row, end, inline', rowEndMenu),
+	        this._renderMenuCode('label, down, not inline', labelDownMenu),
+	        this._renderMenuCode('icon, down, not inline', iconDownMenu),
+	        this._renderMenuCode('custom icon, down, not inline', customIconMenu),
+	        this._renderMenuCode('custom icon, down, not inline, do not close on click', doNotCloseMenu),
+	        this._renderMenuCode('not inline, up', notInlineUpMenu),
+	        this._renderMenuCode('button bar', buttonBarMenu)
 	      )
 	    );
 	  }
@@ -65059,117 +64888,6 @@ module.exports =
 
 /***/ },
 /* 624 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var Edit = React.createClass({
-	  displayName: 'Edit',
-
-	  render: function render() {
-	    var className = 'control-icon control-icon-edit';
-	    if (this.props.className) {
-	      className += ' ' + this.props.className;
-	    }
-	    return React.createElement(
-	      'svg',
-	      { className: className, viewBox: '0 0 48 48', version: '1.1' },
-	      React.createElement(
-	        'g',
-	        { fill: 'none' },
-	        React.createElement('circle', { strokeWidth: '2', cx: '24', cy: '24', r: '9' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '11', x2: '24', y2: '15' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '33.2', y1: '14.8', x2: '30.3', y2: '17.6' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '37', y1: '24', x2: '33', y2: '24' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '33.2', y1: '33.2', x2: '30.3', y2: '30.4' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '37', x2: '24', y2: '33' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '14.8', y1: '33.2', x2: '17.7', y2: '30.4' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '11', y1: '24', x2: '15.2', y2: '24' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '14.8', y1: '14.8', x2: '17.7', y2: '17.6' })
-	      )
-	    );
-	  }
-
-	});
-
-	module.exports = Edit;
-
-/***/ },
-/* 625 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var FormattedMessage = __webpack_require__(45);
-
-	var Filter = React.createClass({
-	  displayName: 'Filter',
-
-	  propTypes: {
-	    a11yTitle: React.PropTypes.string,
-	    notifications: React.PropTypes.number
-	  },
-
-	  render: function render() {
-	    var className = 'control-icon control-icon-filter';
-	    var a11yTitle = React.createElement(FormattedMessage, { id: this.props.a11yTitle, defaultMessage: this.props.a11yTitle });
-
-	    if (this.props.className) {
-	      className += ' ' + this.props.className;
-	    }
-
-	    if (typeof this.props.a11yTitle === "undefined") {
-	      // this.props.a11yTitle emplty string is an acceptable value only if undefined
-	      // should it use the default title value
-	      a11yTitle = React.createElement(FormattedMessage, { id: 'Filter', defaultMessage: 'Filter' });
-	    }
-	    var filterTitleId = 'ok-title';
-
-	    var badge = null;
-	    if (this.props.notifications) {
-	      badge = React.createElement(
-	        'g',
-	        { className: 'control-icon__badge' },
-	        React.createElement('circle', { stroke: 'none', cx: '37', cy: '11', r: '10' }),
-	        React.createElement(
-	          'text',
-	          { x: '33.5', y: '16', fontSize: 16 },
-	          this.props.notifications
-	        )
-	      );
-	    }
-
-	    return React.createElement(
-	      'svg',
-	      { role: 'image', className: className, 'aria-labelledby': filterTitleId, viewBox: '0 0 48 48', version: '1.1' },
-	      React.createElement(
-	        'title',
-	        { id: filterTitleId },
-	        a11yTitle
-	      ),
-	      React.createElement(
-	        'g',
-	        { fill: 'none' },
-	        React.createElement('polygon', { role: 'presentation', strokeWidth: '2', points: '14,15 24,27 34,15 \t' }),
-	        React.createElement('line', { strokeWidth: '2', x1: '24', y1: '27', x2: '24', y2: '34' })
-	      ),
-	      badge
-	    );
-	  }
-
-	});
-
-	module.exports = Filter;
-
-/***/ },
-/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66071,7 +65789,7 @@ module.exports =
 	module.exports = MeterDoc;
 
 /***/ },
-/* 627 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66216,14 +65934,14 @@ module.exports =
 	module.exports = NavigationDoc;
 
 /***/ },
-/* 628 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Paragraph = __webpack_require__(629);
+	var Paragraph = __webpack_require__(627);
 
 	var inline = "<Paragraph>\n" + "  ...\n" + "</Paragraph>";
 
@@ -66454,7 +66172,7 @@ module.exports =
 	module.exports = ParagraphDoc;
 
 /***/ },
-/* 629 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66490,7 +66208,7 @@ module.exports =
 	module.exports = Paragraph;
 
 /***/ },
-/* 630 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66722,7 +66440,7 @@ module.exports =
 	module.exports = RadioButtonDoc;
 
 /***/ },
-/* 631 */
+/* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66938,7 +66656,7 @@ module.exports =
 	module.exports = RestDoc;
 
 /***/ },
-/* 632 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -67091,7 +66809,7 @@ module.exports =
 	module.exports = RestWatchDoc;
 
 /***/ },
-/* 633 */
+/* 631 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -67437,7 +67155,7 @@ module.exports =
 	module.exports = SearchDoc;
 
 /***/ },
-/* 634 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -67638,7 +67356,7 @@ module.exports =
 	module.exports = SearchInputDoc;
 
 /***/ },
-/* 635 */
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67776,7 +67494,7 @@ module.exports =
 	module.exports = SectionDoc;
 
 /***/ },
-/* 636 */
+/* 634 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68017,7 +67735,7 @@ module.exports =
 	module.exports = SidebarDoc;
 
 /***/ },
-/* 637 */
+/* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68198,7 +67916,7 @@ module.exports =
 	module.exports = SplitDoc;
 
 /***/ },
-/* 638 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68481,7 +68199,7 @@ module.exports =
 	module.exports = StatusDoc;
 
 /***/ },
-/* 639 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68490,8 +68208,8 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Tabs = __webpack_require__(640);
-	var Tab = __webpack_require__(641);
+	var Tabs = __webpack_require__(638);
+	var Tab = __webpack_require__(639);
 	var FormFields = __webpack_require__(312);
 	var FormField = __webpack_require__(169);
 	var Form = __webpack_require__(168);
@@ -68708,7 +68426,7 @@ module.exports =
 	module.exports = TabsDoc;
 
 /***/ },
-/* 640 */
+/* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68716,8 +68434,8 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Intl = __webpack_require__(99);
-	var Box = __webpack_require__(98);
+	var Intl = __webpack_require__(96);
+	var Box = __webpack_require__(99);
 
 	var CLASS_ROOT = "tabs";
 
@@ -68807,7 +68525,7 @@ module.exports =
 	module.exports = Tabs;
 
 /***/ },
-/* 641 */
+/* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68881,7 +68599,7 @@ module.exports =
 	module.exports = Tab;
 
 /***/ },
-/* 642 */
+/* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -69143,7 +68861,7 @@ module.exports =
 	module.exports = TableDoc;
 
 /***/ },
-/* 643 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -69513,7 +69231,7 @@ module.exports =
 	module.exports = TileDoc;
 
 /***/ },
-/* 644 */
+/* 642 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69666,7 +69384,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 645 */
+/* 643 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -69675,7 +69393,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Topology = __webpack_require__(646);
+	var Topology = __webpack_require__(644);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -70147,7 +69865,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 646 */
+/* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -70540,7 +70258,7 @@ module.exports =
 	module.exports = Topology;
 
 /***/ },
-/* 647 */
+/* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -70549,7 +70267,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Video = __webpack_require__(648);
+	var Video = __webpack_require__(646);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -70832,7 +70550,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 648 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
