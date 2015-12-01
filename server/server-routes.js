@@ -22420,6 +22420,15 @@ module.exports =
 	              { id: "hpe-sk-general", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general.sketch", target: "_blank" },
 	              "General Sticker Sheet for Applications"
 	            )
+	          ),
+	          React.createElement(
+	            "li",
+	            null,
+	            React.createElement(
+	              "a",
+	              { id: "hpe-sk-data", href: "https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-data.sketch", target: "_blank" },
+	              "Data Sticker Sheet for Applications"
+	            )
 	          )
 	        ),
 	        React.createElement(
