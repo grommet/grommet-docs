@@ -7,7 +7,6 @@ var Link = Router.Link;
 
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
-var DocsHtmlArticle = require('../DocsHtmlArticle');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
@@ -69,9 +68,9 @@ var CONTENTS = [
   {label: 'Guides',
     contents: [
       {route: 'develop_helloworld', label: 'Hello World',
-        component: DocsHtmlArticle.wrap(HelloWorld, 'neutral-1')},
+        component: HelloWorld},
       {route: 'develop_getstarted', label: 'Get Started',
-        component: DocsHtmlArticle.wrap(GetStarted, 'neutral-1')}
+        component: GetStarted}
     ]
   },
   {label: 'Patterns',
@@ -129,9 +128,9 @@ var CONTENTS = [
   {label: 'Reference',
     contents: [
       {route: 'develop_architecture', label: 'Architecture',
-        component: DocsHtmlArticle.wrap(Architecture, 'neutral-4')},
+        component: Architecture},
       {route: 'develop_integration', label: 'Integration',
-        component: DocsHtmlArticle.wrap(Integration, 'neutral-4')},
+        component: Integration},
       {route: 'develop_accessibility', label: 'Accessibility',
         component: Accessibility}
     ]
