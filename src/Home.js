@@ -193,9 +193,7 @@ var Home = React.createClass({
           <Headline>Let’s keep in touch!</Headline>
           <Headline small={true}>Follow us on the Grommet blog to get the latest updates.</Headline>
           <Menu direction="row" justify="center" full="horizontal">
-            <Link to={this.context.routePrefix + "develop/get-started"}>
-              <Button label="Grommet blog" onClick={this._onClick} large={true} primary={true} />
-            </Link>
+            <Button label="Grommet blog" onClick={this._onRequestForBlog} large={true} primary={true} />
           </Menu>
           <p>We also pop our heads out at these place as well...</p>
           <Tiles fill={true}>
@@ -236,7 +234,6 @@ var Home = React.createClass({
           appCentered={true} direction="column" align="center" pad="large"
           colorIndex="grey-1">
           <h3>Build your ideas with Grommet!</h3>
-          <Button label="Grommet Blog" onClick={this._onRequestForBlog} />
           <p>
             This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International License</a>.
           </p>
