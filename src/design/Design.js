@@ -21,9 +21,8 @@ var TBD = require('grommet/components/TBD');
 var Resources = require('./Resources');
 
 var CONTENTS = [
-  //{route: "design_introduction", label: 'Introduction', component: Introduction},
   {route: "design_philosophy", label: 'Philosophy',
-    component: DocsHtmlArticle.wrap(Philosophy, 'neutral-1'),
+    component: Philosophy,
     contents: [
       {label: 'Best Practices', id: 'best-practices'},
       {label: 'Usability', id: 'usability'},

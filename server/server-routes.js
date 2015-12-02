@@ -14071,11 +14071,7 @@ module.exports =
 	        React.createElement(
 	          Menu,
 	          { direction: 'row', justify: 'center', full: 'horizontal' },
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "develop/get-started" },
-	            React.createElement(Button, { label: 'Grommet blog', onClick: this._onClick, large: true, primary: true })
-	          )
+	          React.createElement(Button, { label: 'Grommet blog', onClick: this._onRequestForBlog, large: true, primary: true })
 	        ),
 	        React.createElement(
 	          'p',
@@ -14167,7 +14163,6 @@ module.exports =
 	          null,
 	          'Build your ideas with Grommet!'
 	        ),
-	        React.createElement(Button, { label: 'Grommet Blog', onClick: this._onRequestForBlog }),
 	        React.createElement(
 	          'p',
 	          null,
@@ -15598,10 +15593,8 @@ module.exports =
 	var TBD = __webpack_require__(185);
 	var Resources = __webpack_require__(186);
 
-	var CONTENTS = [
-	//{route: "design_introduction", label: 'Introduction', component: Introduction},
-	{ route: "design_philosophy", label: 'Philosophy',
-	  component: DocsHtmlArticle.wrap(Philosophy, 'neutral-1'),
+	var CONTENTS = [{ route: "design_philosophy", label: 'Philosophy',
+	  component: Philosophy,
 	  contents: [{ label: 'Best Practices', id: 'best-practices' }, { label: 'Usability', id: 'usability' }, { label: 'Interactions', id: 'interactions' }, { label: 'Mobile', id: 'mobile' }, { label: 'Accessibility', id: 'accessibility' }] }, { route: "design_basics", label: 'Basics',
 	  component: DocsHtmlArticle.wrap(Basics, 'neutral-2'),
 	  contents: [{ label: 'Color', id: 'color' }, { label: 'Text', id: 'text' }, { label: 'Typography', id: 'typography' }, { label: 'Writing Style', id: 'writing-style' }, { label: 'Date and Time', id: 'date-time' }, { label: 'Capitalization', id: 'capitalization' }, { label: 'Icons', id: 'icons' }] }, { route: "design_patterns", label: 'Patterns',
@@ -16463,398 +16456,387 @@ module.exports =
 /* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*** IMPORTS FROM imports-loader ***/
-	"use strict";
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
 
 	var React = __webpack_require__(1);
-	var Router = __webpack_require__(2);
-	var Link = Router.Link;
+	var DocsArticle = __webpack_require__(133);
 
-	module.exports = React.createClass({
-	  displayName: "exports",
+	var Philosophy = React.createClass({
+	  displayName: 'Philosophy',
 
 	  render: function render() {
 	    return React.createElement(
-	      "div",
-	      null,
+	      DocsArticle,
+	      { title: 'Philosophy', colorIndex: 'neutral-1' },
 	      React.createElement(
-	        "header",
+	        'p',
 	        null,
-	        React.createElement(
-	          "h1",
-	          null,
-	          "Philosophy"
-	        )
+	        'Our philosophy of user experience design is based on understanding our users, and understanding their needs.  These principles serve as the design rationale for the style guide and the accompanying implementation. With any list of this nature, there is always more that could be added. Indeed a small library of books has been written on this topic. We hope these serve as the footing of your next project.'
 	      ),
 	      React.createElement(
-	        "section",
+	        'section',
 	        null,
 	        React.createElement(
-	          "p",
-	          null,
-	          "Our philosophy of user experience design is based on understanding our users, and understanding their needs.  These principles serve as the design rationale for the style guide and the accompanying implementation. With any list of this nature, there is always more that could be added. Indeed a small library of books has been written on this topic. We hope these serve as the footing of your next project."
-	        )
-	      ),
-	      React.createElement(
-	        "section",
-	        null,
-	        React.createElement(
-	          "a",
-	          { className: "reference", id: "best-practices" },
-	          " "
+	          'a',
+	          { className: 'reference', id: 'best-practices' },
+	          ' '
 	        ),
 	        React.createElement(
-	          "h2",
+	          'h2',
 	          null,
-	          "Best Practices"
+	          'Best Practices'
 	        ),
 	        React.createElement(
-	          "dl",
+	          'dl',
 	          null,
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Know your users"
+	            'Know your users'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "It's critically important that you know your users.  Get to know some of them on a personal level such that you are able to generalize their behavior and the rational for their work practices and decisions."
+	            'It\'s critically important that you know your users.  Get to know some of them on a personal level such that you are able to generalize their behavior and the rational for their work practices and decisions.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Your users are not like you"
+	            'Your users are not like you'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "You are likely an advanced user of your application and are aware of every detail of an application.  That can lead to elevated expectations of your users."
+	            'You are likely an advanced user of your application and are aware of every detail of an application.  That can lead to elevated expectations of your users.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "All users are not the same"
+	            'All users are not the same'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Different users have different background and goals.  Each user has a set of previous experiences that influence their expectations of your application."
+	            'Different users have different background and goals.  Each user has a set of previous experiences that influence their expectations of your application.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Let the user take control"
+	            'Let the user take control'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Provide ways for users to experience work with purpose and efficiency by eliminating their pain points and allow them to craft their experience."
+	            'Provide ways for users to experience work with purpose and efficiency by eliminating their pain points and allow them to craft their experience.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Content over chrome"
+	            'Content over chrome'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "You can have a gorgeous interface but if your content is hidden or the interactions are clumsy you are missing the point. Focus on the things that will deliver the greatest value to your user."
+	            'You can have a gorgeous interface but if your content is hidden or the interactions are clumsy you are missing the point. Focus on the things that will deliver the greatest value to your user.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Don’t drown the user in data"
+	            'Don’t drown the user in data'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Carefully choose what you present to your users. If there is too much information available they may miss the relevant details."
+	            'Carefully choose what you present to your users. If there is too much information available they may miss the relevant details.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Innovate with intention"
+	            'Innovate with intention'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Let your innovation shine through but remember that your product will be used by users who are using other products in a portfolio of applications.  You do not want your application to feel or behave differently in the core areas of navigation and interaction."
+	            'Let your innovation shine through but remember that your product will be used by users who are using other products in a portfolio of applications.  You do not want your application to feel or behave differently in the core areas of navigation and interaction.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Consistency across the application"
+	            'Consistency across the application'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Use common elements described in this style guide throughout your application. Users prefer repetition and are comfortable with familiar patterns."
+	            'Use common elements described in this style guide throughout your application. Users prefer repetition and are comfortable with familiar patterns.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Tell a story and use metaphors"
+	            'Tell a story and use metaphors'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Stories are irresistible to humans. Telling a story will help users connect with your product.  Metaphors help users quickly establish a mental model of your product."
+	            'Stories are irresistible to humans. Telling a story will help users connect with your product.  Metaphors help users quickly establish a mental model of your product.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "There are no user errors"
+	            'There are no user errors'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Humans are error prone.  It is our job to design interfaces that expect human error and handle it robustly.  You should prevent errors wherever possible and clearly inform users of the consequences of a pending operation.  Use a friendly voice for system errors and take accountability for the interruption."
+	            'Humans are error prone.  It is our job to design interfaces that expect human error and handle it robustly.  You should prevent errors wherever possible and clearly inform users of the consequences of a pending operation.  Use a friendly voice for system errors and take accountability for the interruption.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Think about the entire user experience"
+	            'Think about the entire user experience'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Understand how your customers will interact with your product. Talk with different users to understand all the touch points. Consider creating a user journey for each persona. Share this deliverable with your team to leverage the impact of each person’s role in the project, increasing individual ownership and commitment."
+	            'Understand how your customers will interact with your product. Talk with different users to understand all the touch points. Consider creating a user journey for each persona. Share this deliverable with your team to leverage the impact of each person’s role in the project, increasing individual ownership and commitment.'
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "section",
-	        { id: true },
+	        'section',
+	        null,
 	        React.createElement(
-	          "a",
-	          { className: "reference", id: "usability" },
-	          " "
+	          'a',
+	          { className: 'reference', id: 'usability' },
+	          ' '
 	        ),
 	        React.createElement(
-	          "h2",
+	          'h2',
 	          null,
-	          "Usability"
+	          'Usability'
 	        ),
 	        React.createElement(
-	          "dl",
+	          'dl',
 	          null,
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Use progressive disclosure to create depth of content"
+	            'Use progressive disclosure to create depth of content'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Minimize content and avoid clutter in the interface by presenting the user with only the elements that make sense at a given point in the experience. Then progressively grow the experience as necessary."
+	            'Minimize content and avoid clutter in the interface by presenting the user with only the elements that make sense at a given point in the experience. Then progressively grow the experience as necessary.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Use simple messages"
+	            'Use simple messages'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "In user interfaces, massive amounts of text are usually treated as blocks of irrelevant information. If you want people to be aware of your content use short phrases or bullet points instead, or highlight important data and messages with proper styling."
+	            'In user interfaces, massive amounts of text are usually treated as blocks of irrelevant information. If you want people to be aware of your content use short phrases or bullet points instead, or highlight important data and messages with proper styling.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Provided tutorials vs. contextual help"
+	            'Provided tutorials vs. contextual help'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Well designed tutorials enable your user to remember how the product works and they will need less hand holding while navigating through your interface."
+	            'Well designed tutorials enable your user to remember how the product works and they will need less hand holding while navigating through your interface.'
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "section",
+	        'section',
 	        null,
 	        React.createElement(
-	          "a",
-	          { className: "reference", id: "interactions" },
-	          " "
+	          'a',
+	          { className: 'reference', id: 'interactions' },
+	          ' '
 	        ),
 	        React.createElement(
-	          "h2",
+	          'h2',
 	          null,
-	          "Interactions"
+	          'Interactions'
 	        ),
 	        React.createElement(
-	          "dl",
+	          'dl',
 	          null,
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Use device appropriate gestures and interactions"
+	            'Use device appropriate gestures and interactions'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Users expect interfaces to work naturally on their device. Delight your users by providing the expected interactions for the device they are using."
+	            'Users expect interfaces to work naturally on their device. Delight your users by providing the expected interactions for the device they are using.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Use animation to explain transitions and aid discovery"
+	            'Use animation to explain transitions and aid discovery'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Animations should be natural and reinforce the user’s interaction with  your application.  They should not be distracting or disruptive."
+	            'Animations should be natural and reinforce the user’s interaction with  your application.  They should not be distracting or disruptive.'
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "section",
+	        'section',
 	        null,
 	        React.createElement(
-	          "a",
-	          { className: "reference", id: "mobile" },
-	          " "
+	          'a',
+	          { className: 'reference', id: 'mobile' },
+	          ' '
 	        ),
 	        React.createElement(
-	          "h2",
+	          'h2',
 	          null,
-	          "Mobile"
+	          'Mobile'
 	        ),
 	        React.createElement(
-	          "p",
+	          'p',
 	          null,
-	          "Mobile is not just different screen sizes. Mobile devices actually change the fundamental user user experience of common tasks. Embrace the devices and their native capabilities."
+	          'Mobile is not just different screen sizes. Mobile devices actually change the fundamental user user experience of common tasks. Embrace the devices and their native capabilities.'
 	        ),
 	        React.createElement(
-	          "dl",
+	          'dl',
 	          null,
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Think mobile first"
+	            'Think mobile first'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Designing for mobile first is very beneficial even if your main focus is not on mobile. Doing so can help eliminate non-essential information while reinforcing the most important information."
+	            'Designing for mobile first is very beneficial even if your main focus is not on mobile. Doing so can help eliminate non-essential information while reinforcing the most important information.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Consider new use cases"
+	            'Consider new use cases'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "What are the scenarios where people will be using your application outside of the traditional desktop environment? Reevaluate the need to have some features and capabilities designed for smaller screens. Take advantage of the capabilities that mobile devices have to offer such as a camera and notifications when designing your application."
+	            'What are the scenarios where people will be using your application outside of the traditional desktop environment? Reevaluate the need to have some features and capabilities designed for smaller screens. Take advantage of the capabilities that mobile devices have to offer such as a camera and notifications when designing your application.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "New devices sizes"
+	            'New devices sizes'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Do not plan your designs with a specific and unique resolution in mind. Consider that new devices are launched through the year. The more fluid your design is the better your application will behave, regardless of the resolution and density of the screen."
+	            'Do not plan your designs with a specific and unique resolution in mind. Consider that new devices are launched through the year. The more fluid your design is the better your application will behave, regardless of the resolution and density of the screen.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "New device capabilities: GPS, camera, accelerometer, etc."
+	            'New device capabilities: GPS, camera, accelerometer, etc.'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "You can use these new capabilities to implement features that require geopositioning and location. Use the device orientation to provide a different view of the same screen or some related data."
+	            'You can use these new capabilities to implement features that require geopositioning and location. Use the device orientation to provide a different view of the same screen or some related data.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Gestures"
+	            'Gestures'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Users become accustomed to gesture support on their platform. Swiping, pinching, zooming, and even multi-finger gestures are becoming commonplace in mobile applications."
+	            'Users become accustomed to gesture support on their platform. Swiping, pinching, zooming, and even multi-finger gestures are becoming commonplace in mobile applications.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Appropriately sized tap targets"
+	            'Appropriately sized tap targets'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "A fingertip is less precise than a mouse pointer therefore needs a larger target. When designing for mobile remember to increase the size of buttons, form elements and controls."
+	            'A fingertip is less precise than a mouse pointer therefore needs a larger target. When designing for mobile remember to increase the size of buttons, form elements and controls.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "No hover"
+	            'No hover'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Without the capacity to hover elements on a touch screen, be careful with the type of information or interaction that you associate with this action on the desktop version."
+	            'Without the capacity to hover elements on a touch screen, be careful with the type of information or interaction that you associate with this action on the desktop version.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "A desktop experience is not a mobile experience"
+	            'A desktop experience is not a mobile experience'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "Consider the context in which people will be using your application. Desktop and mobile experiences are far from seamless. For example, if you have a secondary feature that is composed of several steps and interactions, you may leave this experience for the desktop version only."
+	            'Consider the context in which people will be using your application. Desktop and mobile experiences are far from seamless. For example, if you have a secondary feature that is composed of several steps and interactions, you may leave this experience for the desktop version only.'
 	          ),
 	          React.createElement(
-	            "dt",
+	            'dt',
 	            null,
-	            "Selection is preferred over input controls"
+	            'Selection is preferred over input controls'
 	          ),
 	          React.createElement(
-	            "dd",
+	            'dd',
 	            null,
-	            "It is much easier to select a value from a pre-populated list than it is to input a value into a field using a (virtual) keyboard."
+	            'It is much easier to select a value from a pre-populated list than it is to input a value into a field using a (virtual) keyboard.'
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "section",
+	        'section',
 	        null,
 	        React.createElement(
-	          "a",
-	          { className: "reference", id: "accessibility" },
-	          " "
+	          'a',
+	          { className: 'reference', id: 'accessibility' },
+	          ' '
 	        ),
 	        React.createElement(
-	          "h2",
+	          'h2',
 	          null,
-	          "Accessibility"
+	          'Accessibility'
 	        ),
 	        React.createElement(
-	          "p",
+	          'p',
 	          null,
-	          "Products that are accessible to all users are good for people, products, and business.  All users should be empowered with access and the ability to have a pleasant experience with your application."
+	          'Products that are accessible to all users are good for people, products, and business.  All users should be empowered with access and the ability to have a pleasant experience with your application.'
 	        ),
 	        React.createElement(
-	          "p",
+	          'p',
 	          null,
-	          "We follow the ",
+	          'We follow the ',
 	          React.createElement(
-	            "a",
-	            { href: "http://www.w3.org/TR/WCAG20/" },
-	            "Web Content Accessibility Guidelines (WCAG)"
+	            'a',
+	            { href: 'http://www.w3.org/TR/WCAG20/' },
+	            'Web Content Accessibility Guidelines (WCAG)'
 	          ),
-	          ".  By following this style guide and utilizing the accompanying implementation platform, you will be well on your way to satisfying the WCAG recommendations."
+	          '.  By following this style guide and utilizing the accompanying implementation platform, you will be well on your way to satisfying the WCAG recommendations.'
 	        )
 	      )
 	    );
 	  }
 	});
+
+	module.exports = Philosophy;
 
 /***/ },
 /* 138 */
@@ -19996,6 +19978,11 @@ module.exports =
 	  displayName: 'Meter',
 
 	  propTypes: {
+	    a11yRole: React.PropTypes.string,
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    a11yDescId: React.PropTypes.string,
+	    a11yDesc: React.PropTypes.string,
 	    important: React.PropTypes.number,
 	    large: React.PropTypes.bool, // DEPRECATED: remove in 0.5, use size
 	    legend: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.shape({
@@ -20028,12 +20015,7 @@ module.exports =
 	    type: React.PropTypes.oneOf(['bar', 'arc', 'circle', 'spiral']),
 	    units: React.PropTypes.string,
 	    value: React.PropTypes.number,
-	    vertical: React.PropTypes.bool,
-	    a11yRole: React.PropTypes.string,
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    a11yDescId: React.PropTypes.string,
-	    a11yDesc: React.PropTypes.string
+	    vertical: React.PropTypes.bool
 	  },
 
 	  contextTypes: {
@@ -20042,10 +20024,10 @@ module.exports =
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      type: 'bar',
 	      a11yRole: 'img',
 	      a11yTitleId: 'meter-title',
-	      a11yDescId: 'meter-desc'
+	      a11yDescId: 'meter-desc',
+	      type: 'bar'
 	    };
 	  },
 
@@ -20699,12 +20681,12 @@ module.exports =
 	    var a11yTitle = Intl.getMessage(this.context.intl, titleKey);
 
 	    var defaultA11YDesc;
-	    if (this.props.a11yTitle !== "undefined") {
+	    if (this.props.a11yDesc !== "undefined") {
 	      var fields = this._getActiveFields();
 	      defaultA11YDesc = [', Value: ', fields.value, this.props.units || '', fields.label, this.state.min.label ? ', Minimum: ' + this.state.min.label : '', this.state.max.label ? ', Maximum: ' + this.state.max.label : '', this.props.threshold ? ', Threshold: ' + this.props.threshold : '', this.props.thresholds ? getThresholdsString(this.props.thresholds) : ''].join(' ').trim();
 	    }
 
-	    var descKey = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : defaultA11YDesc;
+	    var descKey = typeof this.props.a11yDesc !== "undefined" ? this.props.a11yDesc : defaultA11YDesc;
 	    var a11yDesc = Intl.getMessage(this.context.intl, descKey);
 
 	    return React.createElement(
@@ -24676,6 +24658,8 @@ module.exports =
 /***/ },
 /* 203 */
 /***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
