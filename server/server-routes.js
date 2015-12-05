@@ -22480,9 +22480,9 @@ module.exports =
 	var CalendarDoc = __webpack_require__(207);
 	var CarouselDoc = __webpack_require__(297);
 	var ChartDoc = __webpack_require__(301);
-	var CheckBoxDoc = __webpack_require__(304);
-	var DashboardDoc = __webpack_require__(305);
-	var DistributionDoc = __webpack_require__(306);
+	var CheckBoxDoc = __webpack_require__(303);
+	var DashboardDoc = __webpack_require__(304);
+	var DistributionDoc = __webpack_require__(305);
 	var FooterDoc = __webpack_require__(308);
 	var FormDoc = __webpack_require__(309);
 	var FormFieldDoc = __webpack_require__(317);
@@ -37896,18 +37896,20 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(302);
-	var moment = __webpack_require__(209);
+	var jsxToString = __webpack_require__(203)['default'];
 	var DocsArticle = __webpack_require__(133);
-	var Chart = __webpack_require__(303);
+	var Chart = __webpack_require__(302);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
 
-	var inline = "<Chart ... />";
-
-	var series = [{ label: 'first', values: [[8, 1], [7, 2], [6, 3], [5, 2], [4, 3], [3, 3], [2, 2], [1, 4]],
-	  colorIndex: "graph-1" }, { label: 'second', values: [[8, 4], [7, 2], [6, 3], [5, 4], [4, 3], [3, 0], [2, 1], [1, 0]],
-	  colorIndex: "graph-2" }];
+	var series = [{
+	  label: 'first',
+	  values: [[8, 1], [7, 2], [6, 3], [5, 2], [4, 3], [3, 3], [2, 2], [1, 4]],
+	  colorIndex: "graph-1" }, {
+	  label: 'second',
+	  values: [[8, 4], [7, 2], [6, 3], [5, 4], [4, 3], [3, 0], [2, 1], [1, 0]],
+	  colorIndex: "graph-2"
+	}];
 
 	var singleSeries = [{ values: [[8, 1], [7, 2], [6, 3], [5, 2], [4, 3], [3, 3], [2, 2], [1, 4]],
 	  colorIndex: "graph-1" }];
@@ -37920,33 +37922,126 @@ module.exports =
 
 	var thresholds = [{ label: 'OK', value: 0, colorIndex: 'ok' }, { label: 'Warning', value: 3, colorIndex: 'warning' }, { label: 'Error', value: 4, colorIndex: 'error' }];
 
-	var secondsSeries = [{ label: 'first', values: [], colorIndex: "graph-1" }];
-
-	function buildSecondsSeries() {
-	  var now = moment();
-	  for (var i = 0; i < 90; i += 5) {
-	    secondsSeries[0].values.push([moment(now).subtract(i, 'seconds').unix(), Math.ceil(Math.random() * 5)]);
-	  }
+	function convertChartToString(chartJSX) {
+	  return jsxToString(chartJSX, {
+	    ignoreProps: ['a11yTitleId', 'a11yDescId']
+	  });
 	}
 
 	var ChartDoc = React.createClass({
 	  displayName: 'ChartDoc',
 
-	  componentDidMount: function componentDidMount() {
-	    buildSecondsSeries();
-	    this._timer = setInterval((function () {
-	      secondsSeries[0].values.unshift([moment().unix(), Math.ceil(Math.random() * 5)]);
-	      secondsSeries[0].values.pop();
-	      this.forceUpdate();
-	    }).bind(this), 5000);
-	  },
-
-	  componentWillUnmount: function componentWillUnmount() {
-	    clearInterval(this._timer);
-	    secondsSeries[0].values = [];
+	  _renderChartCode: function _renderChartCode(heading, chartJSX) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        heading
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'example' },
+	        chartJSX
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          convertChartToString(chartJSX)
+	        )
+	      )
+	    );
 	  },
 
 	  render: function render() {
+
+	    var lineChart = React.createElement(Chart, { series: singleSeries, min: 0, max: 5, threshold: 3,
+	      a11yTitleId: 'lineChartTitle', a11yDescId: 'lineChartDesc' });
+
+	    var barChart = React.createElement(Chart, { series: singleSeries, min: 0, threshold: 3, type: 'bar',
+	      a11yTitleId: 'barChartTitle', a11yDescId: 'barChartDesc' });
+
+	    var areaChart = React.createElement(Chart, { series: singleSeries, min: 0, max: 5, threshold: 3, type: 'area',
+	      a11yTitleId: 'areaChartTitle', a11yDescId: 'areaChartDesc' });
+
+	    var complexBarChart = React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
+	      xAxis: seriesXAxis, units: 'TB', legend: {},
+	      a11yTitleId: 'complexBarChartTitle',
+	      a11yDescId: 'complexBarChartDesc' });
+
+	    var complexAreaChart = React.createElement(Chart, { series: series, min: 0, max: 5, threshold: 3,
+	      type: 'area', legend: {}, points: true,
+	      xAxis: { placement: 'bottom', data: seriesXAxis },
+	      units: 'TB', thresholds: thresholds,
+	      a11yTitleId: 'complexAreaChartTitle',
+	      a11yDescId: 'complexAreaChartDesc' });
+
+	    var smallChart = React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar', legend: {},
+	      xAxis: seriesXAxis, units: 'TB', small: true,
+	      a11yTitleId: 'smallChartTitle', a11yDescId: 'smallChartDesc' });
+
+	    var largeChart = React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
+	      legend: { total: true }, xAxis: seriesXAxis, units: 'TB', large: true,
+	      a11yTitleId: 'largeChartTitle', a11yDescId: 'largeChartDesc' });
+
+	    var sparklineBarChart = React.createElement(Chart, { series: singleSeries, min: 0, type: 'bar', sparkline: true,
+	      a11yTitleId: 'sparklineBarChartTitle',
+	      a11yDescId: 'sparklineBarChartDesc' });
+
+	    var sparklineAreaChart = React.createElement(Chart, { series: singleSeries, min: 0, type: 'area', sparkline: true,
+	      a11yTitleId: 'sparklineAreaChartTitle',
+	      a11yDescId: 'sparklineAreaChartDesc' });
+
+	    var dateSmoothChart = React.createElement(Chart, { series: dateSeries, min: 0, max: 5, threshold: 3,
+	      type: 'area', smooth: true, legend: {},
+	      xAxis: dateSeriesXAxis, a11yTitleId: 'dateSmoothChartTitle',
+	      a11yDescId: 'dateSmoothChartDesc' });
+
+	    var tilesChart = React.createElement(
+	      Tiles,
+	      null,
+	      React.createElement(
+	        Tile,
+	        null,
+	        React.createElement(Chart, { series: singleSeries, min: 0, threshold: 3, type: 'bar',
+	          xAxis: seriesXAxis, units: 'TB', max: 6,
+	          legend: { position: 'after' }, a11yTitleId: 'tileChart1Title',
+	          a11yDescId: 'tileChart1Desc' })
+	      ),
+	      React.createElement(
+	        Tile,
+	        null,
+	        React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
+	          xAxis: seriesXAxis, units: 'TB',
+	          legend: { position: 'after' }, a11yTitleId: 'tileChart2Title',
+	          a11yDescId: 'tileChart2Desc' })
+	      ),
+	      React.createElement(
+	        Tile,
+	        null,
+	        React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'area',
+	          xAxis: seriesXAxis, units: 'TB',
+	          legend: { position: 'after' }, a11yTitleId: 'tileChart3Title',
+	          a11yDescId: 'tileChart3Desc' })
+	      ),
+	      React.createElement(
+	        Tile,
+	        null,
+	        React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'line',
+	          xAxis: seriesXAxis, units: 'TB',
+	          legend: { position: 'after' }, a11yTitleId: 'tileChart4Title',
+	          a11yDescId: 'tileChart4Desc' })
+	      )
+	    );
+
+	    var loadingChart = React.createElement(Chart, { series: [], min: 0, threshold: 3, type: 'bar', legend: {},
+	      xAxis: [], units: 'TB', small: true, a11yTitleId: 'loadingChartTitle',
+	      a11yDescId: 'loadingChartDesc' });
+
 	    return React.createElement(
 	      DocsArticle,
 	      { title: 'Chart', colorIndex: 'neutral-3' },
@@ -37961,7 +38056,7 @@ module.exports =
 	        React.createElement(
 	          'code',
 	          { className: 'html hljs xml' },
-	          inline
+	          "<Chart ... />"
 	        )
 	      ),
 	      React.createElement(
@@ -38242,302 +38337,18 @@ module.exports =
 	          null,
 	          'Examples'
 	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Line'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: singleSeries, min: 0, max: 5, threshold: 3 })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart threshold={2} series={" + stringify(singleSeries) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Bar'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: singleSeries, min: 0, threshold: 3, type: 'bar' })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" threshold={2}\n" + " series={" + stringify(singleSeries) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Area'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: singleSeries, min: 0, max: 5, threshold: 3, type: 'area' })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"area\" threshold={3}\n" + " series={" + stringify(singleSeries) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Bar, Legend, xAxis, and Units'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar', legend: {},
-	            xAxis: seriesXAxis,
-	            units: 'TB' })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" threshold={3} legend={{}} units=\"TB\"\n" + " xAxis={" + stringify(seriesXAxis) + "}\n" + " series={" + stringify(series) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Area, Legend, xAxis, Units, Points, and Thresholds'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: series, min: 0, max: 5, threshold: 3,
-	            type: 'area', legend: {}, points: true,
-	            xAxis: { placement: 'bottom', data: seriesXAxis },
-	            units: 'TB',
-	            thresholds: thresholds })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" threshold={3}\n" + " legend={{}} points={true} units=\"TB\"\n" + " xAxis={{placement: \"bottom\",\n" + "   data:" + stringify(seriesXAxis) + "}}\n" + " series={" + stringify(series) + "}\n" + " thresholds={" + stringify(thresholds) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Small'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar', legend: {},
-	            xAxis: seriesXAxis,
-	            units: 'TB', small: true })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" small={true} threshold={3}\n" + " legend={{}} units=\"TB\"\n xAxis={" + stringify(seriesXAxis) + "}\n" + " series={" + stringify(series) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Large, Legend total'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
-	            legend: { total: true },
-	            xAxis: seriesXAxis,
-	            units: 'TB', large: true })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" small={true} threshold={3}\n" + " legend={{total: true}} units=\"TB\"\n" + " xAxis={" + stringify(seriesXAxis) + "}\n" + " series={" + stringify(series) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Sparkline, Bar'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: singleSeries, min: 0, type: 'bar', sparkline: true }),
-	          singleSeries[0].values[0][0]
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" sparkline={true}\n" + " series={" + stringify(singleSeries) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Sparkline, Area'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: singleSeries, min: 0, type: 'area', sparkline: true }),
-	          singleSeries[0].values[0][0]
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"area\" sparkline={true}\n" + " series={" + stringify(singleSeries) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Dates, Smooth'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: dateSeries, min: 0, max: 5, threshold: 3,
-	            type: 'area', smooth: true, legend: {},
-	            xAxis: dateSeriesXAxis })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"area\" smooth={true} threshold={3}\n" + " legend={{}}\n" + " xAxis={" + stringify(dateSeriesXAxis) + "}\n" + " series={" + stringify(dateSeries) + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Ticker'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: secondsSeries, min: 0, max: 5, threshold: 3,
-	            type: 'bar', legend: {} })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" threshold={3}\n" + " legend={{}} series={...} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Tiles'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Tiles,
-	            null,
-	            React.createElement(
-	              Tile,
-	              null,
-	              React.createElement(Chart, { series: singleSeries, min: 0, threshold: 3, type: 'bar',
-	                xAxis: seriesXAxis, units: 'TB', max: 6,
-	                legend: { position: 'after' } })
-	            ),
-	            React.createElement(
-	              Tile,
-	              null,
-	              React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
-	                xAxis: seriesXAxis, units: 'TB',
-	                legend: { position: 'after' } })
-	            ),
-	            React.createElement(
-	              Tile,
-	              null,
-	              React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'area',
-	                xAxis: seriesXAxis, units: 'TB',
-	                legend: { position: 'after' } })
-	            ),
-	            React.createElement(
-	              Tile,
-	              null,
-	              React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'line',
-	                xAxis: seriesXAxis, units: 'TB',
-	                legend: { position: 'after' } })
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Tile>\n<Chart type=\"...\" threshold={3} legend={{position: after}} units=\"TB\"\n" + " xAxis={" + stringify(seriesXAxis) + "}\n" + " series={" + stringify(series) + "} />\n</Tile>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Small, Loading'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Chart, { series: [], min: 0, threshold: 3, type: 'bar', legend: {},
-	            xAxis: [],
-	            units: 'TB', small: true })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Chart type=\"bar\" small={true} threshold={3}\n" + " legend={{}} units=\"TB\"\n xAxis={[]}\n" + " series={[]} />"
-	          )
-	        )
+	        this._renderChartCode('Line', lineChart),
+	        this._renderChartCode('Bar', barChart),
+	        this._renderChartCode('Area', areaChart),
+	        this._renderChartCode('Bar, Legend, xAxis, and Units', complexBarChart),
+	        this._renderChartCode('Area, Legend, xAxis, Units, Points, and Thresholds', complexAreaChart),
+	        this._renderChartCode('Small', smallChart),
+	        this._renderChartCode('Large, Legend total', largeChart),
+	        this._renderChartCode('Sparkline, Bar', sparklineBarChart),
+	        this._renderChartCode('Sparkline, Area', sparklineAreaChart),
+	        this._renderChartCode('Dates, Smooth', dateSmoothChart),
+	        this._renderChartCode('Tiles', tilesChart),
+	        this._renderChartCode('Small, loading', loadingChart)
 	      )
 	    );
 	  }
@@ -38547,12 +38358,6 @@ module.exports =
 
 /***/ },
 /* 302 */
-/***/ function(module, exports) {
-
-	module.exports = require("json-stringify-pretty-compact");
-
-/***/ },
-/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -38562,6 +38367,9 @@ module.exports =
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(44);
 	var Legend = __webpack_require__(171);
+
+	var Intl = __webpack_require__(96);
+	var KeyboardAccelerators = __webpack_require__(87);
 
 	var CLASS_ROOT = "chart";
 
@@ -38579,6 +38387,10 @@ module.exports =
 	  displayName: 'Chart',
 
 	  propTypes: {
+	    a11yTitle: React.PropTypes.string,
+	    a11yTitleId: React.PropTypes.string,
+	    a11yDescId: React.PropTypes.string,
+	    a11yDesc: React.PropTypes.string,
 	    important: React.PropTypes.number,
 	    large: React.PropTypes.bool,
 	    legend: React.PropTypes.shape({
@@ -38620,8 +38432,14 @@ module.exports =
 	    })])
 	  },
 
+	  contextTypes: {
+	    intl: React.PropTypes.object
+	  },
+
 	  getDefaultProps: function getDefaultProps() {
 	    return {
+	      a11yTitleId: 'chart-title',
+	      a11yDescId: 'chart-desc',
 	      min: 0,
 	      type: 'line'
 	    };
@@ -38634,6 +38452,15 @@ module.exports =
 	  componentDidMount: function componentDidMount() {
 	    window.addEventListener('resize', this._onResize);
 	    this._onResize();
+
+	    //only add listerners if graph is interactive
+	    if (this.props.legend) {
+	      this._keyboardHandlers = {
+	        left: this._onRequestForPreviousLegend,
+	        right: this._onRequestForNextLegend
+	      };
+	      KeyboardAccelerators.startListeningToKeyboard(this, this._keyboardHandlers);
+	    }
 	  },
 
 	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
@@ -38648,6 +38475,36 @@ module.exports =
 	  componentWillUnmount: function componentWillUnmount() {
 	    clearTimeout(this._resizeTimer);
 	    window.removeEventListener('resize', this._onResize);
+
+	    if (this.props.legend) {
+	      KeyboardAccelerators.stopListeningToKeyboard(this, this._keyboardHandlers);
+	    }
+	  },
+
+	  _onRequestForNextLegend: function _onRequestForNextLegend() {
+	    if (document.activeElement === this.refs.chart) {
+
+	      var totalBandCount = ReactDOM.findDOMNode(this.refs.front).childNodes.length;
+
+	      if (this.state.activeXIndex - 1 < 0) {
+	        this._onMouseOver(totalBandCount - 1);
+	      } else {
+	        this._onMouseOver(--this.state.activeXIndex);
+	      }
+	    }
+	  },
+
+	  _onRequestForPreviousLegend: function _onRequestForPreviousLegend() {
+	    if (document.activeElement === this.refs.chart) {
+
+	      var totalBandCount = ReactDOM.findDOMNode(this.refs.front).childNodes.length;
+
+	      if (this.state.activeXIndex + 1 >= totalBandCount) {
+	        this._onMouseOver(0);
+	      } else {
+	        this._onMouseOver(++this.state.activeXIndex);
+	      }
+	    }
 	  },
 
 	  _onMouseOver: function _onMouseOver(xIndex) {
@@ -39011,7 +38868,7 @@ module.exports =
 
 	      return React.createElement(
 	        'g',
-	        { key: seriesIndex },
+	        { key: 'line_group_' + seriesIndex },
 	        areaPath,
 	        linePath,
 	        points
@@ -39040,7 +38897,7 @@ module.exports =
 	          classes.push(CLASS_ROOT + "__values-bar--active");
 	        }
 
-	        return React.createElement('rect', { key: item.label || seriesIndex,
+	        return React.createElement('rect', { key: 'bar_rect_' + item.label || seriesIndex,
 	          className: classes.join(' '),
 	          x: this._translateX(value[0]) + bounds.barPadding,
 	          y: this.state.height - (stepBarHeight + stepBarBase),
@@ -39050,7 +38907,7 @@ module.exports =
 
 	      return React.createElement(
 	        'g',
-	        { key: xIndex },
+	        { key: 'bar_' + xIndex },
 	        stepBars
 	      );
 	    }, this);
@@ -39136,7 +38993,7 @@ module.exports =
 
 	      return React.createElement(
 	        'g',
-	        { key: xIndex, className: classes.join(' ') },
+	        { key: 'x_axis_' + xIndex, className: classes.join(' ') },
 	        React.createElement(
 	          'text',
 	          { x: position.x, y: labelY,
@@ -39172,7 +39029,7 @@ module.exports =
 	      var y = this._translateY(end);
 	      start = end;
 
-	      return React.createElement('rect', { key: index,
+	      return React.createElement('rect', { key: 'y_rect_' + index,
 	        className: classes.join(' '),
 	        x: this.state.width - width,
 	        y: y,
@@ -39185,6 +39042,34 @@ module.exports =
 	      { ref: 'yAxis', className: CLASS_ROOT + "__yaxis" },
 	      bars
 	    );
+	  },
+
+	  _activeSeriesAsString: function _activeSeriesAsString() {
+	    var total = 0;
+	    var seriesText = this._getActiveSeries().map(function (currentSeries) {
+	      total += currentSeries.value;
+
+	      var stringify = [currentSeries.label];
+
+	      if (currentSeries.value !== undefined) {
+	        stringify.push(': ' + currentSeries.value);
+
+	        if (currentSeries.units) {
+	          stringify.push(' ' + currentSeries.units);
+	        }
+	      }
+
+	      return stringify.join('');
+	    }).join('; ');
+
+	    var totalText = '';
+	    if (this.props.legend.total) {
+	      var totalMessage = Intl.getMessage(this.context.intl, 'Total');
+	      totalText = totalMessage + ': ' + total + this.props.units || '';
+	      seriesText += ', ' + totalText;
+	    }
+
+	    return seriesText;
 	  },
 
 	  // Create vertical rects for each X data point.
@@ -39213,18 +39098,29 @@ module.exports =
 	        onMouseOut = this._onMouseOut.bind(this, xIndex);
 	      }
 
+	      var xBandId = this.props.a11yTitleId + '_x_band_' + xIndex;
+	      var xBandTitleId = this.props.a11yTitleId + '_x_band_title_' + xIndex;
+
+	      var seriesText = this._activeSeriesAsString();
+
 	      return React.createElement(
 	        'g',
-	        { key: xIndex, className: classes.join(' '),
-	          onMouseOver: onMouseOver, onMouseOut: onMouseOut },
-	        React.createElement('rect', { className: className + "-xband-background",
+	        { id: xBandId, key: xBandId, className: classes.join(' '),
+	          onMouseOver: onMouseOver, onMouseOut: onMouseOut, role: 'gridcell',
+	          'aria-labelledby': xBandTitleId },
+	        React.createElement(
+	          'title',
+	          { id: xBandTitleId },
+	          obj.label + ' ' + seriesText
+	        ),
+	        React.createElement('rect', { role: 'presentation', className: className + "-xband-background",
 	          x: x, y: 0, width: bounds.xStepWidth, height: this.state.height })
 	      );
 	    }, this);
 
 	    return React.createElement(
 	      'g',
-	      { ref: layer, className: className },
+	      { ref: layer, role: 'row', className: className },
 	      bands
 	    );
 	  },
@@ -39263,20 +39159,26 @@ module.exports =
 	    );
 	  },
 
-	  // Builds a Legend appropriate for the currently active X index.
-	  _renderLegend: function _renderLegend() {
-	    var activeSeries = this.props.series.map(function (item) {
+	  _getActiveSeries: function _getActiveSeries(addColorIndex) {
+	    return this.props.series.map(function (item) {
 	      var datum = {
 	        value: item.values[this.state.activeXIndex][1],
-	        units: item.units
+	        units: item.units || this.props.units
 	      };
 	      // only show label and swatch if we have more than one series
 	      if (this.props.series.length > 1) {
 	        datum.label = item.label;
-	        datum.colorIndex = item.colorIndex;
+	        if (addColorIndex) {
+	          datum.colorIndex = item.colorIndex;
+	        }
 	      }
 	      return datum;
 	    }, this);
+	  },
+
+	  // Builds a Legend appropriate for the currently active X index.
+	  _renderLegend: function _renderLegend() {
+	    var activeSeries = this._getActiveSeries(true);
 	    var classes = [CLASS_ROOT + "__legend", CLASS_ROOT + "__legend--" + (this.props.legend.position || 'overlay')];
 
 	    return React.createElement(Legend, { ref: 'legend', className: classes.join(' '),
@@ -39337,10 +39239,28 @@ module.exports =
 	      yAxis = this._renderYAxis();
 	    }
 
-	    var frontBands = null;
+	    var frontBands;
+	    var activeDescendant;
 	    if (this.props.legend) {
 	      frontBands = this._renderXBands('front');
+	      activeDescendant = this.props.a11yTitleId + '_x_band_' + this.state.activeXIndex;
 	    }
+
+	    var role = 'img';
+	    if (activeDescendant) {
+	      role = 'tablist';
+	    }
+	    var defaultTitle;
+	    if (!this.props.a11yTitle) {
+	      defaultTitle = ['Chart, ', 'Type: ', this.props.type].join(' ').trim();
+	    }
+
+	    var titleKey = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : defaultTitle;
+	    var a11yTitle = Intl.getMessage(this.context.intl, titleKey);
+
+	    var defaultA11YDesc = '';
+	    var descKey = typeof this.props.a11yDesc !== "undefined" ? this.props.a11yDesc : defaultA11YDesc;
+	    var a11yDesc = Intl.getMessage(this.context.intl, descKey);
 
 	    return React.createElement(
 	      'div',
@@ -39349,7 +39269,19 @@ module.exports =
 	        'svg',
 	        { ref: 'chart', className: CLASS_ROOT + "__graphic",
 	          viewBox: "0 0 " + this.state.width + " " + this.state.height,
-	          preserveAspectRatio: 'none' },
+	          preserveAspectRatio: 'none', role: role, tabIndex: '0',
+	          'aria-activedescendant': activeDescendant,
+	          'aria-labelledby': this.props.a11yTitleId + ' ' + this.props.a11yDescId },
+	        React.createElement(
+	          'title',
+	          { id: this.props.a11yTitleId },
+	          a11yTitle
+	        ),
+	        React.createElement(
+	          'desc',
+	          { id: this.props.a11yDescId },
+	          a11yDesc
+	        ),
 	        xAxis,
 	        yAxis,
 	        React.createElement(
@@ -39370,7 +39302,7 @@ module.exports =
 	module.exports = Chart;
 
 /***/ },
-/* 304 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -39661,7 +39593,7 @@ module.exports =
 	module.exports = CheckBoxDoc;
 
 /***/ },
-/* 305 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -39676,7 +39608,7 @@ module.exports =
 	var Gravatar = __webpack_require__(175);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
-	var Chart = __webpack_require__(303);
+	var Chart = __webpack_require__(302);
 	var Meter = __webpack_require__(170);
 
 	var dateSeries = [{ label: 'first', values: [[new Date(Date.parse("2015-05-22")), 4], [new Date(Date.parse("2015-05-21")), 2], [new Date(Date.parse("2015-05-20")), 3], [new Date(Date.parse("2015-05-19")), 3], [new Date(Date.parse("2015-05-18")), 2]], colorIndex: "graph-4" }];
@@ -39791,7 +39723,7 @@ module.exports =
 	module.exports = DashboardDoc;
 
 /***/ },
-/* 306 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -39799,7 +39731,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(302);
+	var stringify = __webpack_require__(306);
 	var DocsArticle = __webpack_require__(133);
 	var Distribution = __webpack_require__(307);
 
@@ -40141,6 +40073,12 @@ module.exports =
 	});
 
 	module.exports = DistributionDoc;
+
+/***/ },
+/* 306 */
+/***/ function(module, exports) {
+
+	module.exports = require("json-stringify-pretty-compact");
 
 /***/ },
 /* 307 */
@@ -64822,7 +64760,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(302);
+	var stringify = __webpack_require__(306);
 	var DocsArticle = __webpack_require__(133);
 	var Meter = __webpack_require__(170);
 	var FormField = __webpack_require__(168);
@@ -66744,7 +66682,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(302);
+	var stringify = __webpack_require__(306);
 	var DocsArticle = __webpack_require__(133);
 	var Search = __webpack_require__(172);
 
