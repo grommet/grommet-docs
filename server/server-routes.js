@@ -37479,6 +37479,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
 	var Carousel = __webpack_require__(298);
+	var Box = __webpack_require__(99);
 
 	var TileDoc = React.createClass({
 	  displayName: 'TileDoc',
@@ -37509,6 +37510,100 @@ module.exports =
 	        React.createElement(
 	          'h2',
 	          null,
+	          'Options'
+	        ),
+	        React.createElement(
+	          'dl',
+	          null,
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'autoplay            true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the carousel should play automatically or not.  Default is ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'true'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'autoplaySpeed       ',
+	              "{number}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'How long the carousel should stay on each slide, in milliseconds.  Default is ',
+	            React.createElement(
+	              'code',
+	              null,
+	              '5000'
+	            ),
+	            ' (5 seconds).'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'infinite            true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the carousel should scroll back to the first slide when you get to the end, or stop at the last slide.  Default is ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'true'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'persistentNav       true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the navigational elements should always be shown, or only show when the user mouses over the carousel.  Default is ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'true'
+	            ),
+	            '.'
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
 	          'Example'
 	        ),
 	        React.createElement(
@@ -37518,7 +37613,16 @@ module.exports =
 	            Carousel,
 	            null,
 	            React.createElement('img', { src: 'img/carousel-1.png' }),
-	            React.createElement('img', { src: 'img/carousel-2.png' })
+	            React.createElement('img', { src: 'img/carousel-2.png' }),
+	            React.createElement(
+	              Box,
+	              { pad: 'large', colorIndex: 'neutral-3' },
+	              React.createElement(
+	                Box,
+	                { pad: 'medium', colorIndex: 'neutral-2' },
+	                'Content inside of a Box element.'
+	              )
+	            )
 	          )
 	        ),
 	        React.createElement(
@@ -39260,7 +39364,15 @@ module.exports =
 
 	    var defaultA11YDesc = '';
 	    var descKey = typeof this.props.a11yDesc !== "undefined" ? this.props.a11yDesc : defaultA11YDesc;
-	    var a11yDesc = Intl.getMessage(this.context.intl, descKey);
+
+	    var a11yDescNode;
+	    if (descKey) {
+	      a11yDescNode = React.createElement(
+	        'desc',
+	        { id: this.props.a11yDescId },
+	        Intl.getMessage(this.context.intl, descKey)
+	      );
+	    }
 
 	    return React.createElement(
 	      'div',
@@ -39277,11 +39389,7 @@ module.exports =
 	          { id: this.props.a11yTitleId },
 	          a11yTitle
 	        ),
-	        React.createElement(
-	          'desc',
-	          { id: this.props.a11yDescId },
-	          a11yDesc
-	        ),
+	        a11yDescNode,
 	        xAxis,
 	        yAxis,
 	        React.createElement(
