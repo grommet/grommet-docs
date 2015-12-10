@@ -65358,6 +65358,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var jsxToString = __webpack_require__(209)['default'];
 	var stringify = __webpack_require__(312);
 	var DocsArticle = __webpack_require__(133);
 	var Meter = __webpack_require__(170);
@@ -65383,6 +65384,12 @@ module.exports =
 	var statusSeriesMax = 90;
 
 	var storageSeries = [{ label: 'Physical', value: 700 }, { label: 'Subscribed', value: 1200 }, { label: 'Allocated', value: 500 }];
+
+	function convertMeterToString(meterJSX) {
+	  return jsxToString(meterJSX, {
+	    ignoreProps: ['a11yTitleId', 'a11yDescId']
+	  });
+	}
 
 	var MeterDoc = React.createClass({
 	  displayName: 'MeterDoc',
@@ -65425,6 +65432,32 @@ module.exports =
 	    this.setState({ threshold: !this.state.threshold });
 	  },
 
+	  _renderMeterCode: function _renderMeterCode(heading, meterJSX) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        heading
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'example' },
+	        meterJSX
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          convertMeterToString(meterJSX)
+	        )
+	      )
+	    );
+	  },
+
 	  render: function render() {
 	    var simpleValueInput;
 	    if ('single' === this.state.valueType) {
@@ -65432,6 +65465,33 @@ module.exports =
 	        min: '0', max: '80', value: this.state.simpleValue,
 	        onChange: this._onChangeSimpleValue });
 	    }
+
+	    var barMeter = React.createElement(Meter, { value: this.state.simpleValue, a11yTitleId: 'meter-title-1',
+	      a11yDescId: 'meter-desc-1' });
+
+	    var barVerticalMeter = React.createElement(Meter, { value: this.state.simpleValue, vertical: true,
+	      a11yTitleId: 'meter-title-2', a11yDescId: 'meter-desc-2' });
+
+	    var arcMeter = React.createElement(Meter, { value: this.state.simpleValue, type: 'arc',
+	      a11yTitleId: 'meter-title-3', a11yDescId: 'meter-desc-3' });
+
+	    var arcVerticalMeter = React.createElement(Meter, { value: this.state.simpleValue, type: 'arc', vertical: true,
+	      a11yTitleId: 'meter-title-4', a11yDescId: 'meter-desc-4' });
+
+	    var circleMeter = React.createElement(Meter, { value: this.state.simpleValue, type: 'circle',
+	      a11yTitleId: 'meter-title-5', a11yDescId: 'meter-desc-5' });
+
+	    var spiralMeter = React.createElement(Meter, { value: this.state.simpleValue, type: 'spiral',
+	      a11yTitleId: 'meter-title-6', a11yDescId: 'meter-desc-6' });
+
+	    var complexBarMeter = React.createElement(Meter, { value: this.state.simpleValue, units: simpleUnits,
+	      min: simpleMin, max: simpleMax, threshold: simpleThreshold,
+	      a11yTitleId: 'meter-title-7', a11yDescId: 'meter-desc-7' });
+
+	    var complexVerticalBarMeter = React.createElement(Meter, { value: this.state.simpleValue, min: simpleMin, max: simpleMax,
+	      threshold: simpleThreshold, units: simpleUnits, vertical: true,
+	      a11yTitleId: 'meter-title-8', a11yDescId: 'meter-desc-8' });
+
 	    return React.createElement(
 	      DocsArticle,
 	      { title: 'Meter', colorIndex: 'neutral-3' },
@@ -65725,170 +65785,14 @@ module.exports =
 	          null,
 	          'Examples'
 	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Bar'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-1', a11yDescId: 'meter-desc-1',
-	            value: this.state.simpleValue, size: this.state.size })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Bar, Vertical'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-2', a11yDescId: 'meter-desc-2',
-	            value: this.state.simpleValue, size: this.state.size, vertical: true })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "} vertical={true} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Arc'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-3', a11yDescId: 'meter-desc-3',
-	            value: this.state.simpleValue, size: this.state.size, type: 'arc' })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "} type=\"arc\" />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Arc, Vertical'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-4', a11yDescId: 'meter-desc-4',
-	            value: this.state.simpleValue, size: this.state.size, type: 'arc', vertical: true })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "} type=\"arc\" vertical={true} />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Circle'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-5', a11yDescId: 'meter-desc-5',
-	            value: this.state.simpleValue, size: this.state.size, type: 'circle' })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "} type=\"circle\" />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Spiral'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-6', a11yDescId: 'meter-desc-6',
-	            value: this.state.simpleValue, size: this.state.size, type: 'spiral' })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "} type=\"spiral\" />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Bar, Min, Max, Units, Threshold'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-7', a11yDescId: 'meter-desc-7',
-	            value: this.state.simpleValue, size: this.state.size,
-	            min: simpleMin, max: simpleMax, threshold: simpleThreshold,
-	            units: simpleUnits })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "}\n" + " min={" + stringify(simpleMin) + "}\n" + " max={" + stringify(simpleMax) + "}\n" + " threshold={" + simpleThreshold + "}\n" + " units=\"" + simpleUnits + "\" />"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Bar, Min, Max, Units, Thresholds, Vertical'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(Meter, { a11yTitleId: 'meter-title-8', a11yDescId: 'meter-desc-8',
-	            value: this.state.simpleValue, size: this.state.size,
-	            min: simpleMin, max: simpleMax, threshold: simpleThreshold,
-	            units: simpleUnits, vertical: true })
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Meter value={" + this.state.simpleValue + "}\n" + " min={" + stringify(simpleMin) + "}\n" + " max={" + stringify(simpleMax) + "}\n" + " threshold={" + simpleThreshold + "}\n" + " units=\"" + simpleUnits + "\" vertical={true} />"
-	          )
-	        ),
+	        this._renderMeterCode('Bar', barMeter),
+	        this._renderMeterCode('Bar, Vertical', barVerticalMeter),
+	        this._renderMeterCode('Arc', arcMeter),
+	        this._renderMeterCode('Arc, Vertical', arcVerticalMeter),
+	        this._renderMeterCode('Circle', circleMeter),
+	        this._renderMeterCode('Spiral', spiralMeter),
+	        this._renderMeterCode('Bar, Min, Max, Units, Threshold', complexBarMeter),
+	        this._renderMeterCode('Bar, Min, Max, Units, Thresholds, Vertical', complexVerticalBarMeter),
 	        React.createElement(
 	          'h3',
 	          null,
@@ -65898,7 +65802,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-9', a11yDescId: 'meter-desc-9',
-	            type: 'arc', value: this.state.simpleValue, size: this.state.size,
+	            type: 'arc', value: this.state.simpleValue,
 	            min: simpleMin, max: simpleMax, thresholds: thresholds,
 	            units: simpleUnits })
 	        ),
@@ -65920,7 +65824,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-10', a11yDescId: 'meter-desc-10',
-	            type: 'arc', value: this.state.simpleValue, size: this.state.size,
+	            type: 'arc', value: this.state.simpleValue,
 	            min: simpleMin, max: simpleMax, threshold: simpleThreshold,
 	            units: simpleUnits, vertical: true })
 	        ),
@@ -65942,7 +65846,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-11', a11yDescId: 'meter-desc-11',
-	            type: 'circle', value: this.state.simpleValue, size: this.state.size,
+	            type: 'circle', value: this.state.simpleValue,
 	            min: simpleMin, max: simpleMax, threshold: simpleThreshold,
 	            units: simpleUnits })
 	        ),
@@ -65964,7 +65868,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-12', a11yDescId: 'meter-desc-12',
-	            legend: true, series: series, size: this.state.size })
+	            legend: true, series: series })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -65984,7 +65888,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-13', a11yDescId: 'meter-desc-13',
-	            legend: { total: true }, series: series, size: this.state.size, vertical: true })
+	            legend: { total: true }, series: series, vertical: true })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66004,7 +65908,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-14', a11yDescId: 'meter-desc-14',
-	            type: 'arc', legend: true, series: series, size: this.state.size })
+	            type: 'arc', legend: true, series: series })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66024,7 +65928,8 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-15', a11yDescId: 'meter-desc-15',
-	            type: 'arc', legend: true, series: storageSeries, size: this.state.size, vertical: true, units: 'TB' })
+	            type: 'arc', legend: true, series: storageSeries,
+	            vertical: true, units: 'TB' })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66044,7 +65949,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-16', a11yDescId: 'meter-desc-16',
-	            type: 'circle', legend: true, series: series, size: this.state.size })
+	            type: 'circle', legend: true, series: series })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66064,7 +65969,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-17', a11yDescId: 'meter-desc-17',
-	            type: 'spiral', series: statusSeries, size: this.state.size, max: statusSeriesMax })
+	            type: 'spiral', series: statusSeries, max: statusSeriesMax })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66084,7 +65989,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-18', a11yDescId: 'meter-desc-18',
-	            type: 'spiral', series: storageSeries, size: this.state.size, units: 'TB' })
+	            type: 'spiral', series: storageSeries, units: 'TB' })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66104,7 +66009,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-12', a11yDescId: 'meter-desc-12',
-	            legend: true, series: series, size: this.state.size, stacked: true })
+	            legend: true, series: series, stacked: true })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66244,7 +66149,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-25', a11yDescId: 'meter-desc-25',
-	            value: undefined, size: this.state.size })
+	            value: undefined })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66264,7 +66169,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-26', a11yDescId: 'meter-desc-26',
-	            value: undefined, size: this.state.size, type: 'arc' })
+	            value: undefined, type: 'arc' })
 	        ),
 	        React.createElement(
 	          'pre',
@@ -66284,7 +66189,7 @@ module.exports =
 	          'div',
 	          { className: 'example' },
 	          React.createElement(Meter, { a11yTitleId: 'meter-title-27', a11yDescId: 'meter-desc-27',
-	            value: undefined, size: this.state.size, type: 'spiral' })
+	            value: undefined, type: 'spiral' })
 	        ),
 	        React.createElement(
 	          'pre',
