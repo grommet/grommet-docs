@@ -151,7 +151,6 @@ var DistributionDoc = React.createClass({
           <pre><code className="html hljs xml">
             {"<Distribution />"}
           </code></pre>
-
         </section>
 
       </DocsArticle>
