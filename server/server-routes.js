@@ -55,7 +55,7 @@ module.exports =
 	var Docs = __webpack_require__(3);
 	var Home = __webpack_require__(109);
 	var Design = __webpack_require__(127);
-	var Develop = __webpack_require__(186);
+	var Develop = __webpack_require__(192);
 
 	module.exports = function (rootPath) {
 	  var DocsRouter = React.createClass({
@@ -8737,6 +8737,8 @@ module.exports =
 	          this._drop.render(this._renderDrop());
 	          break;
 	      }
+	    } else if (this.state.state === 'expanded') {
+	      this._drop.render(this._renderDrop());
 	    }
 	  },
 
@@ -8760,8 +8762,6 @@ module.exports =
 	    var element = ReactDOM.findDOMNode(this);
 	    if (document.activeElement === element) {
 	      this.setState({ state: 'focused' });
-	    } else {
-	      element.focus();
 	    }
 	  },
 
@@ -15587,10 +15587,10 @@ module.exports =
 	var Philosophy = __webpack_require__(136);
 	var Basics = __webpack_require__(137);
 	var Patterns = __webpack_require__(165);
-	var Showcase = __webpack_require__(182);
-	var Login = __webpack_require__(183);
-	var TBD = __webpack_require__(184);
-	var Resources = __webpack_require__(185);
+	var Showcase = __webpack_require__(188);
+	var Login = __webpack_require__(189);
+	var TBD = __webpack_require__(190);
+	var Resources = __webpack_require__(191);
 
 	var CONTENTS = [{ route: "design_philosophy", label: 'Philosophy', component: Philosophy,
 	  contents: [{ label: 'Best Practices', id: 'best-practices' }, { label: 'Usability', id: 'usability' }, { label: 'Interactions', id: 'interactions' }, { label: 'Mobile', id: 'mobile' }, { label: 'Accessibility', id: 'accessibility' }] }, { route: "design_basics", label: 'Basics', component: Basics,
@@ -19271,9 +19271,9 @@ module.exports =
 	var Title = __webpack_require__(116);
 	var Menu = __webpack_require__(90);
 	var Meter = __webpack_require__(170);
-	var Search = __webpack_require__(172);
-	var Logo = __webpack_require__(174);
-	var Gravatar = __webpack_require__(175);
+	var Search = __webpack_require__(178);
+	var Logo = __webpack_require__(180);
+	var Gravatar = __webpack_require__(181);
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(133);
 
@@ -19844,53 +19844,60 @@ module.exports =
 /* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(44);
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var Legend = __webpack_require__(171);
-	var Intl = __webpack_require__(96);
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(44);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Legend = __webpack_require__(171);
+
+	var _Legend2 = _interopRequireDefault(_Legend);
+
+	var _utilsIntl = __webpack_require__(96);
+
+	var _utilsIntl2 = _interopRequireDefault(_utilsIntl);
+
+	var _meterBar = __webpack_require__(172);
+
+	var _meterBar2 = _interopRequireDefault(_meterBar);
+
+	var _meterSpiral = __webpack_require__(175);
+
+	var _meterSpiral2 = _interopRequireDefault(_meterSpiral);
+
+	var _meterCircle = __webpack_require__(176);
+
+	var _meterCircle2 = _interopRequireDefault(_meterCircle);
+
+	var _meterArc = __webpack_require__(177);
+
+	var _meterArc2 = _interopRequireDefault(_meterArc);
 
 	var CLASS_ROOT = "meter";
 
-	var BAR_LENGTH = 192;
-	var BAR_THICKNESS = 24;
-	var MID_BAR_THICKNESS = BAR_THICKNESS / 2;
-
-	var CIRCLE_WIDTH = 192;
-	var CIRCLE_RADIUS = 84;
-
-	var ARC_HEIGHT = 144;
-
-	var SPIRAL_THICKNESS = 24;
-	// Allow for active value content next to a spiral meter
-	var SPIRAL_TEXT_PADDING = 48;
-
-	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-	  var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
-	  return {
-	    x: centerX + radius * Math.cos(angleInRadians),
-	    y: centerY + radius * Math.sin(angleInRadians)
-	  };
-	}
-
-	function arcCommands(centerX, centerY, radius, startAngle, endAngle) {
-	  var start = polarToCartesian(centerX, centerY, radius, endAngle);
-	  var end = polarToCartesian(centerX, centerY, radius, startAngle);
-	  var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
-	  var d = ["M", start.x, start.y, "A", radius, radius, 0, arcSweep, 0, end.x, end.y].join(" ");
-	  return d;
-	}
-
-	function singleIndicatorCommands(centerX, centerY, radius, startAngle, endAngle, length) {
-	  var point = polarToCartesian(centerX, centerY, radius - length, endAngle - 1);
-	  var start = polarToCartesian(centerX, centerY, radius, endAngle - 1);
-	  var d = ["M", start.x, start.y, "L", point.x, point.y].join(" ");
-	  return d;
-	}
+	var TYPE_COMPONENT = {
+	  'bar': _meterBar2['default'],
+	  'circle': _meterCircle2['default'],
+	  'arc': _meterArc2['default'],
+	  'spiral': _meterSpiral2['default']
+	};
 
 	function getThresholdsString(thresholds) {
 	  var thresholdsArray = [', Thresholds: '];
@@ -19902,768 +19909,495 @@ module.exports =
 	  return thresholdsArray.join(' ');
 	}
 
-	var Meter = React.createClass({
-	  displayName: 'Meter',
+	var Meter = (function (_Component) {
+	  _inherits(Meter, _Component);
 
-	  propTypes: {
-	    a11yRole: React.PropTypes.string,
-	    a11yTitle: React.PropTypes.string,
-	    a11yTitleId: React.PropTypes.string,
-	    a11yDescId: React.PropTypes.string,
-	    a11yDesc: React.PropTypes.string,
-	    important: React.PropTypes.number,
-	    large: React.PropTypes.bool, // DEPRECATED: remove in 0.5, use size
-	    legend: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.shape({
-	      total: React.PropTypes.bool,
-	      placement: React.PropTypes.oneOf(['right', 'bottom'])
-	    })]),
-	    max: React.PropTypes.oneOfType([React.PropTypes.shape({
-	      value: React.PropTypes.number.isRequired,
-	      label: React.PropTypes.string
-	    }), React.PropTypes.number]),
-	    min: React.PropTypes.oneOfType([React.PropTypes.shape({
-	      value: React.PropTypes.number.isRequired,
-	      label: React.PropTypes.string
-	    }), React.PropTypes.number]),
-	    size: React.PropTypes.oneOf(['small', 'medium', 'large']),
-	    series: React.PropTypes.arrayOf(React.PropTypes.shape({
-	      label: React.PropTypes.string,
-	      value: React.PropTypes.number.isRequired,
-	      colorIndex: React.PropTypes.string,
-	      important: React.PropTypes.bool,
-	      onClick: React.PropTypes.func
-	    })),
-	    small: React.PropTypes.bool, // DEPRECATED: remove in 0.5, use size
-	    threshold: React.PropTypes.number,
-	    thresholds: React.PropTypes.arrayOf(React.PropTypes.shape({
-	      label: React.PropTypes.string,
-	      value: React.PropTypes.number.isRequired,
-	      colorIndex: React.PropTypes.string
-	    })),
-	    type: React.PropTypes.oneOf(['bar', 'arc', 'circle', 'spiral']),
-	    units: React.PropTypes.string,
-	    value: React.PropTypes.number,
-	    vertical: React.PropTypes.bool
-	  },
+	  function Meter(props) {
+	    _classCallCheck(this, Meter);
 
-	  contextTypes: {
-	    intl: React.PropTypes.object
-	  },
+	    _get(Object.getPrototypeOf(Meter.prototype), 'constructor', this).call(this);
 
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      a11yRole: 'img',
-	      a11yTitleId: 'meter-title',
-	      a11yDescId: 'meter-desc',
-	      type: 'bar'
-	    };
-	  },
+	    this._initialTimeout = this._initialTimeout.bind(this);
+	    this._layout = this._layout.bind(this);
+	    this._onResize = this._onResize.bind(this);
+	    this._onActivate = this._onActivate.bind(this);
 
-	  getInitialState: function getInitialState() {
-	    var state = this._stateFromProps(this.props);
-	    if (state.placeLegend) {
-	      state.legendPlacement = 'bottom';
-	    }
-	    state.initial = true;
-	    return state;
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    this._initialTimer = setTimeout(this._initialTimeout, 10);
-	    window.addEventListener('resize', this._onResize);
-	    this._onResize();
-	  },
-
-	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
-	    var state = this._stateFromProps(newProps);
-	    this.setState(state);
-	    this._onResize();
-	  },
-
-	  componentWillUnmount: function componentWillUnmount() {
-	    clearTimeout(this._initialTimer);
-	    clearTimeout(this._resizeTimer);
-	    window.removeEventListener('resize', this._onResize);
-	  },
-
-	  _initialTimeout: function _initialTimeout() {
-	    this.setState({
-	      initial: false,
-	      activeIndex: this.state.importantIndex
-	    });
-	    clearTimeout(this._timeout);
-	  },
-
-	  _onActivate: function _onActivate(index) {
-	    if (index === null) {
-	      index = this.state.importantIndex;
-	    }
-	    this.setState({ initial: false, activeIndex: index });
-	  },
-
-	  _onResize: function _onResize() {
-	    // debounce
-	    clearTimeout(this._resizeTimer);
-	    this._resizeTimer = setTimeout(this._layout, 50);
-	  },
-
-	  _layout: function _layout() {
+	    this.state = this._stateFromProps(props);
 	    if (this.state.placeLegend) {
-	      // legendPlacement based on available window orientation
-	      var ratio = window.innerWidth / window.innerHeight;
-	      if (ratio < 0.8) {
-	        this.setState({ legendPlacement: 'bottom' });
-	      } else if (ratio > 1.2) {
-	        this.setState({ legendPlacement: 'right' });
+	      this.state.legendPlacement = 'bottom';
+	    }
+	    this.state.initial = true;
+	  }
+
+	  _createClass(Meter, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this._initialTimer = setTimeout(this._initialTimeout, 10);
+	      window.addEventListener('resize', this._onResize);
+	      this._onResize();
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      var state = this._stateFromProps(nextProps);
+	      this.setState(state);
+	      this._onResize();
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      clearTimeout(this._initialTimer);
+	      clearTimeout(this._resizeTimer);
+	      window.removeEventListener('resize', this._onResize);
+	    }
+	  }, {
+	    key: '_initialTimeout',
+	    value: function _initialTimeout() {
+	      this.setState({
+	        initial: false,
+	        activeIndex: this.state.importantIndex
+	      });
+	      clearTimeout(this._initialTimer);
+	    }
+	  }, {
+	    key: '_onActivate',
+	    value: function _onActivate(index) {
+	      if (index === null) {
+	        index = this.state.importantIndex;
+	      }
+	      this.setState({ initial: false, activeIndex: index });
+	    }
+	  }, {
+	    key: '_onResize',
+	    value: function _onResize() {
+	      // debounce
+	      clearTimeout(this._resizeTimer);
+	      this._resizeTimer = setTimeout(this._layout, 50);
+	    }
+	  }, {
+	    key: '_layout',
+	    value: function _layout() {
+	      if (this.state.placeLegend) {
+	        // legendPlacement based on available window orientation
+	        var ratio = window.innerWidth / window.innerHeight;
+	        if (ratio < 0.8) {
+	          this.setState({ legendPlacement: 'bottom' });
+	        } else if (ratio > 1.2) {
+	          this.setState({ legendPlacement: 'right' });
+	        }
+	      }
+
+	      if ('right' === this.state.legendPlacement) {
+	        if (this.refs.legend) {
+	          var graphicHeight = this.refs.activeGraphic.offsetHeight;
+	          var legendHeight = _reactDom2['default'].findDOMNode(this.refs.legend).offsetHeight;
+	          this.setState({ tallLegend: legendHeight > graphicHeight });
+	        }
 	      }
 	    }
-
-	    if ('right' === this.state.legendPlacement) {
-	      if (this.refs.legend) {
-	        var graphicHeight = this.refs.activeGraphic.offsetHeight;
-	        var legendHeight = ReactDOM.findDOMNode(this.refs.legend).offsetHeight;
-	        this.setState({ tallLegend: legendHeight > graphicHeight });
+	  }, {
+	    key: '_normalizeSeries',
+	    value: function _normalizeSeries(props, min, max, thresholds) {
+	      var series = [];
+	      if (props.series) {
+	        series = props.series;
+	      } else if (props.value || props.value === 0) {
+	        series = [{ value: props.value, important: true }];
 	      }
-	    }
-	  },
 
-	  _normalizeSeries: function _normalizeSeries(props, min, max, thresholds) {
-	    var series = [];
-	    if (props.series) {
-	      series = props.series;
-	    } else if (props.value || props.value === 0) {
-	      series = [{ value: props.value, important: true }];
-	    }
-
-	    // set color index
-	    if (series.length === 1 && props.thresholds) {
-	      var item = series[0];
-	      if (!item.colorIndex) {
-	        // see which threshold color index to use
-	        var cumulative = 0;
-	        thresholds.some(function (threshold) {
-	          cumulative += threshold.value;
-	          if (item.value < cumulative) {
-	            item.colorIndex = threshold.colorIndex || 'graph-1';
-	            return true;
+	      // set color index
+	      if (series.length === 1 && props.thresholds) {
+	        var item = series[0];
+	        if (!item.colorIndex) {
+	          // see which threshold color index to use
+	          var cumulative = 0;
+	          thresholds.some(function (threshold) {
+	            cumulative += threshold.value;
+	            if (item.value < cumulative) {
+	              item.colorIndex = threshold.colorIndex || 'graph-1';
+	              return true;
+	            }
+	          });
+	        }
+	      } else {
+	        series.forEach(function (item, index) {
+	          if (!item.colorIndex) {
+	            item.colorIndex = 'graph-' + (index + 1);
 	          }
 	        });
 	      }
-	    } else {
-	      series.forEach(function (item, index) {
-	        if (!item.colorIndex) {
-	          item.colorIndex = 'graph-' + (index + 1);
+
+	      return series;
+	    }
+	  }, {
+	    key: '_normalizeThresholds',
+	    value: function _normalizeThresholds(props, min, max) {
+	      var thresholds = [];
+	      if (props.thresholds) {
+	        // Convert thresholds from absolute values to cummulative,
+	        // so we can re-use the series drawing code.
+	        var total = 0;
+	        for (var i = 0; i < props.thresholds.length; i += 1) {
+	          var threshold = props.thresholds[i];
+	          thresholds.push({
+	            label: threshold.label,
+	            colorIndex: threshold.colorIndex
+	          });
+	          if (i > 0) {
+	            thresholds[i - 1].value = threshold.value - total;
+	            total += thresholds[i - 1].value;
+	          }
+	          if (i === props.thresholds.length - 1) {
+	            thresholds[i].value = max.value - total;
+	          }
+	        }
+	      } else if (props.threshold) {
+	        var remaining = max.value - props.threshold;
+	        thresholds = [{ value: props.threshold, colorIndex: 'unset' }, { value: remaining, colorIndex: 'critical' }];
+	      } else {
+	        thresholds = [{ value: max.value, colorIndex: 'unset' }];
+	      }
+	      return thresholds;
+	    }
+	  }, {
+	    key: '_importantIndex',
+	    value: function _importantIndex(props, series) {
+	      var result = null;
+	      if (series.length === 1) {
+	        result = 0;
+	      }
+	      if (props.hasOwnProperty('important')) {
+	        result = props.important;
+	      }
+	      series.some(function (data, index) {
+	        if (data.important) {
+	          result = index;
+	          return true;
 	        }
 	      });
+	      return result;
 	    }
 
-	    return series;
-	  },
-
-	  _normalizeThresholds: function _normalizeThresholds(props, min, max) {
-	    var thresholds = [];
-	    if (props.thresholds) {
-	      // Convert thresholds from absolute values to cummulative,
-	      // so we can re-use the series drawing code.
+	    // Normalize min or max to an object.
+	  }, {
+	    key: '_terminal',
+	    value: function _terminal(terminal) {
+	      if (typeof terminal === 'number') {
+	        terminal = { value: terminal };
+	      }
+	      return terminal;
+	    }
+	  }, {
+	    key: '_seriesTotal',
+	    value: function _seriesTotal(series) {
 	      var total = 0;
-	      for (var i = 0; i < props.thresholds.length; i += 1) {
-	        var threshold = props.thresholds[i];
-	        thresholds.push({
-	          label: threshold.label,
-	          colorIndex: threshold.colorIndex
-	        });
-	        if (i > 0) {
-	          thresholds[i - 1].value = threshold.value - total;
-	          total += thresholds[i - 1].value;
-	        }
-	        if (i === props.thresholds.length - 1) {
-	          thresholds[i].value = max.value - total;
-	        }
-	      }
-	    } else if (props.threshold) {
-	      var remaining = max.value - props.threshold;
-	      thresholds = [{ value: props.threshold, colorIndex: 'unset' }, { value: remaining, colorIndex: 'critical' }];
-	    } else {
-	      thresholds = [{ value: max.value, colorIndex: 'unset' }];
+	      series.some(function (item) {
+	        total += item.value;
+	      });
+	      return total;
 	    }
-	    return thresholds;
-	  },
-
-	  _importantIndex: function _importantIndex(series) {
-	    var result = null;
-	    if (series.length === 1) {
-	      result = 0;
+	  }, {
+	    key: '_seriesMax',
+	    value: function _seriesMax(series) {
+	      var max = 0;
+	      series.some(function (item) {
+	        max = Math.max(max, item.value);
+	      });
+	      return max;
 	    }
-	    if (this.props.hasOwnProperty('important')) {
-	      result = this.props.important;
-	    }
-	    series.some(function (data, index) {
-	      if (data.important) {
-	        result = index;
-	        return true;
-	      }
-	    });
-	    return result;
-	  },
 
-	  // Normalize min or max to an object.
-	  _terminal: function _terminal(terminal) {
-	    if (typeof terminal === 'number') {
-	      terminal = { value: terminal };
-	    }
-	    return terminal;
-	  },
-
-	  _seriesTotal: function _seriesTotal(series) {
-	    var total = 0;
-	    series.some(function (item) {
-	      total += item.value;
-	    });
-	    return total;
-	  },
-
-	  _seriesMax: function _seriesMax(series) {
-	    var max = 0;
-	    series.some(function (item) {
-	      max = Math.max(max, item.value);
-	    });
-	    return max;
-	  },
-
-	  _viewBoxDimensions: function _viewBoxDimensions(series) {
-	    var viewBoxHeight;
-	    var viewBoxWidth;
-	    if ('arc' === this.props.type) {
-	      if (this.props.vertical) {
-	        viewBoxWidth = ARC_HEIGHT;
-	        viewBoxHeight = CIRCLE_WIDTH;
+	    // Generates state based on the provided props.
+	  }, {
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      var total;
+	      if (props.series && props.series.length > 1) {
+	        total = this._seriesTotal(props.series);
+	      } else if (props.max && props.max.value) {
+	        total = props.max.value;
 	      } else {
-	        viewBoxWidth = CIRCLE_WIDTH;
-	        viewBoxHeight = ARC_HEIGHT;
+	        total = 100;
 	      }
-	    } else if ('circle' === this.props.type) {
-	      viewBoxWidth = CIRCLE_WIDTH;
-	      viewBoxHeight = CIRCLE_WIDTH;
-	    } else if ('bar' === this.props.type) {
-	      if (this.props.vertical) {
-	        viewBoxWidth = BAR_THICKNESS;
-	        viewBoxHeight = BAR_LENGTH;
+	      var seriesMax;
+	      if (props.series && 'spiral' === props.type) {
+	        seriesMax = this._seriesMax(props.series);
+	      }
+	      // Normalize min and max
+	      var min = this._terminal(props.min || 0);
+	      // Max could be provided in props or come from the total of
+	      // a multi-value series.
+	      var max = this._terminal(props.max || seriesMax || total);
+	      // Normalize simple threshold prop to an array, if needed.
+	      var thresholds = this._normalizeThresholds(props, min, max);
+	      // Normalize simple value prop to a series, if needed.
+	      var series = this._normalizeSeries(props, min, max, thresholds);
+	      // Determine important index.
+	      var importantIndex = this._importantIndex(props, series);
+
+	      var state = {
+	        importantIndex: importantIndex,
+	        activeIndex: importantIndex,
+	        series: series,
+	        thresholds: thresholds,
+	        min: min,
+	        max: max,
+	        total: total
+	      };
+
+	      // legend
+	      state.placeLegend = !(props.legend && props.legend.placement);
+	      if (!state.placeLegend) {
+	        state.legendPlacement = props.legend.placement;
+	      }
+
+	      return state;
+	    }
+	  }, {
+	    key: '_getActiveFields',
+	    value: function _getActiveFields() {
+	      var fields;
+	      if (null === this.state.activeIndex) {
+	        fields = { value: this.state.total, label: 'Total' };
 	      } else {
-	        viewBoxWidth = BAR_LENGTH;
-	        viewBoxHeight = BAR_THICKNESS;
+	        var active = this.state.series[this.state.activeIndex];
+	        fields = { value: active.value, label: active.label, onClick: active.onClick };
 	      }
-	    } else if ('spiral' === this.props.type) {
-	      // Give the graphic just a bit of breathing room
-	      // by not ending the spirals right at the center. (+1)
-	      viewBoxHeight = Math.max(CIRCLE_WIDTH, SPIRAL_THICKNESS * (series.length + 1) * 2);
-	      viewBoxWidth = viewBoxHeight + 2 * SPIRAL_TEXT_PADDING;
+	      return fields;
 	    }
-	    return [viewBoxWidth, viewBoxHeight];
-	  },
-
-	  // Generates state based on the provided props.
-	  _stateFromProps: function _stateFromProps(props) {
-	    var total;
-	    if (props.series && props.series.length > 1) {
-	      total = this._seriesTotal(props.series);
-	    } else if (props.max && props.max.value) {
-	      total = props.max.value;
-	    } else {
-	      total = 100;
-	    }
-	    var seriesMax;
-	    if (props.series && 'spiral' === props.type) {
-	      seriesMax = this._seriesMax(props.series);
-	    }
-	    // Normalize min and max
-	    var min = this._terminal(props.min || 0);
-	    // Max could be provided in props or come from the total of
-	    // a multi-value series.
-	    var max = this._terminal(props.max || seriesMax || total);
-	    // Normalize simple threshold prop to an array, if needed.
-	    var thresholds = this._normalizeThresholds(props, min, max);
-	    // Normalize simple value prop to a series, if needed.
-	    var series = this._normalizeSeries(props, min, max, thresholds);
-	    // Determine important index.
-	    var importantIndex = this._importantIndex(series);
-	    // Determine the viewBox dimensions
-	    var viewBoxDimensions = this._viewBoxDimensions(series);
-
-	    var state = {
-	      importantIndex: importantIndex,
-	      activeIndex: importantIndex,
-	      series: series,
-	      thresholds: thresholds,
-	      min: min,
-	      max: max,
-	      total: total,
-	      viewBoxWidth: viewBoxDimensions[0],
-	      viewBoxHeight: viewBoxDimensions[1]
-	    };
-
-	    if ('arc' === this.props.type) {
-	      state.startAngle = 60;
-	      state.anglePer = total === 0 ? 0 : 240.0 / total;
-	      if (this.props.vertical) {
-	        state.angleOffset = 90;
-	      } else {
-	        state.angleOffset = 180;
+	  }, {
+	    key: '_renderActiveValue',
+	    value: function _renderActiveValue() {
+	      var fields = this._getActiveFields();
+	      var classes = [CLASS_ROOT + "__value"];
+	      if (fields.onClick) {
+	        classes.push(CLASS_ROOT + "__value--active");
 	      }
-	    } else if ('circle' === this.props.type) {
-	      state.startAngle = 1;
-	      state.anglePer = total === 0 ? 0 : 358.0 / total;
-	      state.angleOffset = 180;
-	    } else if ('bar' === this.props.type) {
-	      state.scale = BAR_LENGTH / (max.value - min.value);
-	    } else if ('spiral' === this.props.type) {
-	      state.startAngle = 0;
-	      state.anglePer = 270.0 / max.value;
-	      state.angleOffset = 0;
-	      // The last spiral ends out near but not quite at the edge of the view box.
-	      state.startRadius = Math.max(CIRCLE_RADIUS, SPIRAL_THICKNESS * (series.length + 0.5)) - Math.max(0, series.length - 1) * SPIRAL_THICKNESS;
-	    }
-
-	    // normalize size
-	    state.size = props.size || (props.small ? 'small' : props.large ? 'large' : null);
-
-	    // legend
-	    state.placeLegend = !(props.legend && props.legend.placement);
-	    if (!state.placeLegend) {
-	      state.legendPlacement = props.legend.placement;
-	    }
-
-	    return state;
-	  },
-
-	  _interactionListeners: function _interactionListeners(interactive, item, index) {
-	    var result = {};
-	    if (interactive) {
-	      result.onOver = this._onActivate.bind(this, index);
-	      result.onOut = this._onActivate.bind(this, this.state.importantIndex);
-	      result.onClick = item.onClick;
-	    }
-	    return result;
-	  },
-
-	  _translateBarWidth: function _translateBarWidth(value) {
-	    return Math.round(this.state.scale * value);
-	  },
-
-	  _barCommands: function _barCommands(start, distance) {
-	    var commands;
-	    if (this.props.vertical) {
-	      commands = "M" + MID_BAR_THICKNESS + "," + (BAR_LENGTH - start) + " L" + MID_BAR_THICKNESS + "," + (BAR_LENGTH - (start + distance));
-	    } else {
-	      commands = "M" + start + "," + MID_BAR_THICKNESS + " L" + (start + distance) + "," + MID_BAR_THICKNESS;
-	    }
-	    return commands;
-	  },
-
-	  _buildPath: function _buildPath(commands, interactive, item, index, classes) {
-	    if (interactive) {
-	      var listeners = this._interactionListeners(interactive, item, index);
-
-	      return React.createElement('path', { key: index, className: classes.join(' '), d: commands, tabIndex: '0',
-	        onFocus: listeners.onOver, onBlur: listeners.onOut,
-	        onMouseOver: listeners.onOver, onMouseOut: listeners.onOut,
-	        onClick: listeners.onClick, role: 'img', 'aria-labelledby': this.props.a11yDescId });
-	    } else {
-	      return React.createElement('path', { key: index, className: classes.join(' '), d: commands });
-	    }
-	  },
-
-	  _renderBar: function _renderBar(series, interactive) {
-	    var start = 0;
-	    var minRemaining = this.state.min.value;
-	    var classes;
-	    var commands;
-
-	    var paths = series.map(function (item, index) {
-	      classes = [CLASS_ROOT + "__bar"];
-	      if (index === this.state.activeIndex) {
-	        classes.push(CLASS_ROOT + "__bar--active");
-	      }
-	      classes.push("color-index-" + item.colorIndex);
-
-	      var value = item.value - minRemaining;
-	      minRemaining = Math.max(0, minRemaining - item.value);
-	      var distance = this._translateBarWidth(value);
-	      commands = this._barCommands(start, distance);
-	      start += distance;
-
-	      return this._buildPath(commands, interactive, item, index, classes);
-	    }, this);
-
-	    if (paths.length === 0) {
-	      classes = [CLASS_ROOT + "__bar"];
-	      classes.push(CLASS_ROOT + "__bar--loading");
-	      classes.push("color-index-loading");
-	      commands = this._barCommands(0, BAR_LENGTH);
-	      paths.push(React.createElement('path', { key: 'loading', className: classes.join(' '), d: commands }));
-	    }
-
-	    return paths;
-	  },
-
-	  _translateEndAngle: function _translateEndAngle(startAngle, value) {
-	    return Math.min(360, Math.max(0, startAngle + this.state.anglePer * value));
-	  },
-
-	  _arcCommands: function _arcCommands(startAngle, endAngle) {
-	    return arcCommands(CIRCLE_WIDTH / 2, CIRCLE_WIDTH / 2, CIRCLE_RADIUS, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset);
-	  },
-
-	  _renderArcOrCircle: function _renderArcOrCircle(series, interactive) {
-	    var startAngle = this.state.startAngle;
-	    var classes;
-	    var endAngle;
-	    var commands;
-
-	    var paths = series.map(function (item, index) {
-	      var classes = [CLASS_ROOT + "__slice"];
-	      if (index === this.state.activeIndex) {
-	        classes.push(CLASS_ROOT + "__slice--active");
-	      }
-	      classes.push("color-index-" + item.colorIndex);
-	      endAngle = this._translateEndAngle(startAngle, item.value);
-	      commands = this._arcCommands(startAngle, endAngle);
-
-	      startAngle = endAngle;
-
-	      return this._buildPath(commands, interactive, item, index, classes);
-	    }, this);
-
-	    if (paths.length === 0) {
-	      classes = [CLASS_ROOT + "__slice"];
-	      classes.push(CLASS_ROOT + "__slice--loading");
-	      classes.push("color-index-loading");
-	      endAngle = this._translateEndAngle(this.state.startAngle, this.state.max.value);
-	      commands = this._arcCommands(this.state.startAngle, endAngle);
-	      paths.push(React.createElement('path', { key: 'loading', className: classes.join(' '), d: commands }));
-	    }
-
-	    return paths;
-	  },
-
-	  _spiralCommands: function _spiralCommands(startAngle, endAngle, radius) {
-	    return arcCommands(this.state.viewBoxWidth / 2, this.state.viewBoxHeight / 2, radius, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset);
-	  },
-
-	  _renderSpiral: function _renderSpiral(series, interactive) {
-	    var startAngle = this.state.startAngle;
-	    var radius = this.state.startRadius;
-	    var classes;
-	    var endAngle;
-	    var commands;
-
-	    var paths = series.map(function (item, index) {
-	      var classes = [CLASS_ROOT + "__slice"];
-	      if (index === this.state.activeIndex) {
-	        classes.push(CLASS_ROOT + "__slice--active");
-	      }
-	      classes.push("color-index-" + item.colorIndex);
-	      endAngle = this._translateEndAngle(startAngle, item.value);
-	      commands = this._spiralCommands(startAngle, endAngle, radius);
-
-	      radius += SPIRAL_THICKNESS;
-
-	      return this._buildPath(commands, interactive, item, index, classes);
-	    }, this);
-
-	    if (paths.length === 0) {
-	      classes = [CLASS_ROOT + "__slice"];
-	      classes.push(CLASS_ROOT + "__slice--loading");
-	      classes.push("color-index-loading");
-	      endAngle = this._translateEndAngle(this.state.startAngle, this.state.max.value);
-	      commands = this._spiralCommands(this.state.startAngle, endAngle, radius);
-	      paths.push(React.createElement('path', { key: 'loading', className: classes.join(' '), d: commands }));
-	    }
-
-	    return paths;
-	  },
-
-	  _renderSingleIndicator: function _renderSingleIndicator(series) {
-	    var seriesIndicator = null;
-	    var startAngle = this.state.startAngle;
-	    series.forEach(function (item, index) {
-	      var endAngle = this._translateEndAngle(startAngle, item.value);
-
-	      if (index === this.state.activeIndex) {
-	        var length;
-	        var x;
-	        var y;
-	        if ('arc' === this.props.type) {
-	          length = CIRCLE_RADIUS;
-	          x = CIRCLE_WIDTH / 2;
-	          y = CIRCLE_WIDTH / 2;
-	        } else {
-	          length = CIRCLE_RADIUS * 0.60;
-	          x = this.state.viewBoxWidth / 2;
-	          y = this.state.viewBoxHeight / 2;
-	        }
-	        var indicatorCommands = singleIndicatorCommands(x, y, CIRCLE_RADIUS * 1.1, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset, length);
-	        seriesIndicator = React.createElement('path', { fill: 'none',
-	          className: CLASS_ROOT + "__slice-indicator color-index-" + item.colorIndex,
-	          d: indicatorCommands });
+	      var units;
+	      if (this.props.units) {
+	        units = _react2['default'].createElement(
+	          'span',
+	          { className: CLASS_ROOT + "__value-units large-number-font" },
+	          this.props.units
+	        );
 	      }
 
-	      startAngle = endAngle;
-	    }, this);
-
-	    return seriesIndicator;
-	  },
-
-	  _getActiveFields: function _getActiveFields() {
-	    var fields;
-	    if (null === this.state.activeIndex) {
-	      fields = { value: this.state.total, label: 'Total' };
-	    } else {
-	      var active = this.state.series[this.state.activeIndex];
-	      fields = { value: active.value, label: active.label, onClick: active.onClick };
-	    }
-	    return fields;
-	  },
-
-	  _renderActive: function _renderActive() {
-	    var fields = this._getActiveFields();
-	    var classes = [CLASS_ROOT + "__active"];
-	    if (fields.onClick) {
-	      classes.push(CLASS_ROOT + "__active--active");
-	    }
-	    var units;
-	    if (this.props.units) {
-	      units = React.createElement(
-	        'span',
-	        { className: CLASS_ROOT + "__active-units large-number-font" },
-	        this.props.units
-	      );
-	    }
-
-	    return React.createElement(
-	      'div',
-	      { 'aria-hidden': 'true', role: 'presentation',
-	        className: classes.join(' '), onClick: fields.onClick },
-	      React.createElement(
-	        'span',
-	        {
-	          className: CLASS_ROOT + "__active-value large-number-font" },
-	        fields.value,
-	        units
-	      ),
-	      React.createElement(
-	        'span',
-	        { className: CLASS_ROOT + "__active-label" },
-	        fields.label
-	      )
-	    );
-	  },
-
-	  _renderLabels: function _renderLabels(series) {
-	    var x = this.state.viewBoxWidth / 2 - SPIRAL_THICKNESS / 2;
-	    var y = SPIRAL_THICKNESS * 0.75 + SPIRAL_THICKNESS * (series.length - 1);
-	    var labels = series.map(function (item, index) {
-	      var classes = [CLASS_ROOT + "__label"];
-	      if (index === this.state.activeIndex) {
-	        classes.push(CLASS_ROOT + "__label--active");
-	      }
-
-	      var textX = x;
-	      var textY = y;
-
-	      y -= SPIRAL_THICKNESS;
-
-	      return React.createElement(
-	        'text',
-	        { key: item.label || index, x: textX, y: textY,
-	          textAnchor: 'end', fontSize: 16,
-	          className: classes.join(' '),
-	          onMouseOver: this._onActivate.bind(this, index),
-	          onMouseOut: this._onActivate.bind(this, this.state.importantIndex),
-	          onClick: item.onClick },
-	        item.label
-	      );
-	    }, this);
-
-	    return React.createElement(
-	      'g',
-	      { className: CLASS_ROOT + "__labels" },
-	      labels
-	    );
-	  },
-
-	  _renderLegend: function _renderLegend() {
-	    var total = typeof this.props.legend === 'object' && this.props.legend.total;
-	    return React.createElement(Legend, { ref: 'legend', className: CLASS_ROOT + "__legend",
-	      series: this.state.series,
-	      units: this.props.units,
-	      total: total,
-	      activeIndex: this.state.activeIndex,
-	      onActive: this._onActivate });
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT];
-	    classes.push(CLASS_ROOT + "--" + this.props.type);
-	    if (this.props.vertical) {
-	      classes.push(CLASS_ROOT + "--vertical");
-	    }
-	    if (this.state.size) {
-	      classes.push(CLASS_ROOT + "--" + this.state.size);
-	    }
-	    if (this.state.series.length === 0) {
-	      classes.push(CLASS_ROOT + "--loading");
-	    } else if (this.state.series.length === 1) {
-	      classes.push(CLASS_ROOT + "--single");
-	    }
-	    if (this.state.activeIndex !== null) {
-	      classes.push(CLASS_ROOT + "--active");
-	    }
-	    if (this.state.tallLegend) {
-	      classes.push(CLASS_ROOT + "--tall-legend");
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var values;
-	    var thresholds;
-	    var singleIndicator;
-	    var labels;
-	    var width;
-	    var height;
-
-	    if ('arc' === this.props.type || 'circle' === this.props.type) {
-	      values = this._renderArcOrCircle(this.state.series, this.props.series);
-	      thresholds = this._renderArcOrCircle(this.state.thresholds);
-	      if (this.state.series.length === 1) {
-	        singleIndicator = this._renderSingleIndicator(this.state.series);
-	      }
-	    } else if ('bar' === this.props.type) {
-	      values = this._renderBar(this.state.series, this.props.series);
-	      thresholds = this._renderBar(this.state.thresholds);
-	    } else if ('spiral' === this.props.type) {
-	      values = this._renderSpiral(this.state.series, this.props.series);
-	      if (this.state.series.length === 1) {
-	        singleIndicator = this._renderSingleIndicator(this.state.series);
-	      }
-	      labels = this._renderLabels(this.state.series);
-	      width = this.state.viewBoxWidth;
-	      height = this.state.viewBoxHeight;
-	    }
-
-	    if (thresholds) {
-	      thresholds = React.createElement(
-	        'g',
-	        { className: CLASS_ROOT + "__thresholds" },
-	        thresholds
-	      );
-	    }
-
-	    var minLabel;
-	    if (this.state.min.label) {
-	      minLabel = React.createElement(
+	      return _react2['default'].createElement(
 	        'div',
-	        { className: CLASS_ROOT + "__minmax-min" },
-	        this.state.min.label
-	      );
-	    }
-	    var maxLabel;
-	    if (this.state.max.label) {
-	      maxLabel = React.createElement(
-	        'div',
-	        { className: CLASS_ROOT + "__minmax-max" },
-	        this.state.max.label
-	      );
-	    }
-	    var minMax;
-	    if (minLabel || maxLabel) {
-	      minMax = React.createElement(
-	        'div',
-	        { className: CLASS_ROOT + "__minmax-container" },
-	        React.createElement(
-	          'div',
-	          { className: CLASS_ROOT + "__minmax" },
-	          minLabel,
-	          maxLabel
+	        { 'aria-hidden': 'true', role: 'presentation',
+	          className: classes.join(' '), onClick: fields.onClick },
+	        _react2['default'].createElement(
+	          'span',
+	          {
+	            className: CLASS_ROOT + "__value-value large-number-font" },
+	          fields.value,
+	          units
+	        ),
+	        _react2['default'].createElement(
+	          'span',
+	          { className: CLASS_ROOT + "__value-label" },
+	          fields.label
 	        )
 	      );
-	      classes.push(CLASS_ROOT + "--minmax");
 	    }
-
-	    var active = this._renderActive();
-
-	    var legend;
-	    if (this.props.legend) {
-	      legend = this._renderLegend();
-	      classes.push(CLASS_ROOT + "--legend-" + this.state.legendPlacement);
-	    }
-
-	    var a11yRole = this.props.series ? 'chart' : this.props.a11yRole;
-
-	    var defaultTitle;
-	    if (!this.props.a11yTitle) {
-	      defaultTitle = ['Meter, ', 'Type: ', (this.props.vertical ? 'vertical ' : '') + this.props.type].join(' ').trim();
-	    }
-
-	    var titleKey = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : defaultTitle;
-	    var a11yTitle = Intl.getMessage(this.context.intl, titleKey);
-
-	    var defaultA11YDesc;
-	    if (this.props.a11yDesc !== "undefined") {
-	      var fields = this._getActiveFields();
-	      defaultA11YDesc = [', Value: ', fields.value, this.props.units || '', fields.label, this.state.min.label ? ', Minimum: ' + this.state.min.label : '', this.state.max.label ? ', Maximum: ' + this.state.max.label : '', this.props.threshold ? ', Threshold: ' + this.props.threshold : '', this.props.thresholds ? getThresholdsString(this.props.thresholds) : ''].join(' ').trim();
-	    }
-
-	    var descKey = typeof this.props.a11yDesc !== "undefined" ? this.props.a11yDesc : defaultA11YDesc;
-	    var a11yDesc = Intl.getMessage(this.context.intl, descKey);
-
-	    return React.createElement(
-	      'div',
-	      { className: classes.join(' ') },
-	      React.createElement(
-	        'div',
-	        { ref: 'activeGraphic', className: CLASS_ROOT + "__active-graphic" },
-	        React.createElement(
+	  }, {
+	    key: '_renderMinMax',
+	    value: function _renderMinMax(classes) {
+	      var minLabel;
+	      if (this.state.min.label) {
+	        minLabel = _react2['default'].createElement(
 	          'div',
-	          { className: CLASS_ROOT + "__labeled-graphic" },
-	          React.createElement(
-	            'a',
-	            { href: '#', role: a11yRole, tabIndex: '0',
-	              'aria-labelledby': this.props.a11yTitleId + ' ' + this.props.a11yDescId },
-	            React.createElement(
-	              'title',
-	              { id: this.props.a11yTitleId },
-	              a11yTitle
-	            ),
-	            React.createElement(
-	              'svg',
-	              { className: CLASS_ROOT + "__graphic",
-	                viewBox: "0 0 " + this.state.viewBoxWidth + " " + this.state.viewBoxHeight,
-	                preserveAspectRatio: 'xMidYMid meet', width: width, height: height },
-	              React.createElement(
-	                'desc',
-	                { id: this.props.a11yDescId },
-	                a11yDesc
-	              ),
-	              thresholds,
-	              React.createElement(
-	                'g',
-	                { className: CLASS_ROOT + "__values" },
-	                values
-	              ),
-	              labels,
-	              singleIndicator
-	            )
-	          ),
-	          minMax
-	        ),
-	        active
-	      ),
-	      legend
-	    );
-	  }
+	          { className: CLASS_ROOT + "__minmax-min" },
+	          this.state.min.label
+	        );
+	      }
+	      var maxLabel;
+	      if (this.state.max.label) {
+	        maxLabel = _react2['default'].createElement(
+	          'div',
+	          { className: CLASS_ROOT + "__minmax-max" },
+	          this.state.max.label
+	        );
+	      }
+	      var minMax;
+	      if (minLabel || maxLabel) {
+	        minMax = _react2['default'].createElement(
+	          'div',
+	          { className: CLASS_ROOT + "__minmax-container" },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: CLASS_ROOT + "__minmax" },
+	            minLabel,
+	            maxLabel
+	          )
+	        );
+	        classes.push(CLASS_ROOT + "--minmax");
+	      }
+	      return minMax;
+	    }
+	  }, {
+	    key: '_renderLegend',
+	    value: function _renderLegend() {
+	      var total = typeof this.props.legend === 'object' && this.props.legend.total;
+	      return _react2['default'].createElement(_Legend2['default'], { ref: 'legend', className: CLASS_ROOT + "__legend",
+	        series: this.state.series,
+	        units: this.props.units,
+	        total: total,
+	        activeIndex: this.state.activeIndex,
+	        onActive: this._onActivate });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var classes = [CLASS_ROOT];
+	      classes.push(CLASS_ROOT + "--" + this.props.type);
+	      if (this.props.vertical) {
+	        classes.push(CLASS_ROOT + "--vertical");
+	      }
+	      if (this.props.stacked) {
+	        classes.push(CLASS_ROOT + "--stacked");
+	      }
+	      if (this.props.size) {
+	        classes.push(CLASS_ROOT + "--" + this.props.size);
+	      }
+	      if (this.state.series.length === 0) {
+	        classes.push(CLASS_ROOT + "--loading");
+	      } else if (this.state.series.length === 1) {
+	        classes.push(CLASS_ROOT + "--single");
+	      }
+	      if (this.state.activeIndex !== null) {
+	        classes.push(CLASS_ROOT + "--active");
+	      }
+	      if (this.state.tallLegend) {
+	        classes.push(CLASS_ROOT + "--tall-legend");
+	      }
+	      if (this.props.className) {
+	        classes.push(this.props.className);
+	      }
 
-	});
+	      var minMax = this._renderMinMax(classes);
+
+	      var activeValue = this._renderActiveValue();
+
+	      var legend;
+	      if (this.props.legend) {
+	        legend = this._renderLegend();
+	        classes.push(CLASS_ROOT + "--legend-" + this.state.legendPlacement);
+	      }
+
+	      var a11yRole = this.props.series ? 'chart' : this.props.a11yRole;
+
+	      var defaultTitle;
+	      if (!this.props.a11yTitle) {
+	        defaultTitle = ['Meter, ', 'Type: ', (this.props.vertical ? 'vertical ' : '') + this.props.type].join(' ').trim();
+	      }
+
+	      var titleKey = typeof this.props.a11yTitle !== "undefined" ? this.props.a11yTitle : defaultTitle;
+	      var a11yTitle = _utilsIntl2['default'].getMessage(this.context.intl, titleKey);
+
+	      var defaultA11YDesc;
+	      if (this.props.a11yDesc !== "undefined") {
+	        var fields = this._getActiveFields();
+	        defaultA11YDesc = [', Value: ', fields.value, this.props.units || '', fields.label, this.state.min.label ? ', Minimum: ' + this.state.min.label : '', this.state.max.label ? ', Maximum: ' + this.state.max.label : '', this.props.threshold ? ', Threshold: ' + this.props.threshold : '', this.props.thresholds ? getThresholdsString(this.props.thresholds) : ''].join(' ').trim();
+	      }
+
+	      var descKey = typeof this.props.a11yDesc !== "undefined" ? this.props.a11yDesc : defaultA11YDesc;
+	      var a11yDesc = _utilsIntl2['default'].getMessage(this.context.intl, descKey);
+
+	      var GraphicComponent = TYPE_COMPONENT[this.props.type];
+	      var graphic = _react2['default'].createElement(GraphicComponent, {
+	        a11yDesc: a11yDesc,
+	        a11yDescId: this.props.a11yDescId,
+	        activeIndex: this.state.activeIndex,
+	        min: this.state.min, max: this.state.max,
+	        onActivate: this._onActivate,
+	        series: this.state.series,
+	        stacked: this.props.stacked,
+	        thresholds: this.state.thresholds,
+	        total: this.state.total,
+	        vertical: this.props.vertical });
+
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: classes.join(' ') },
+	        _react2['default'].createElement(
+	          'div',
+	          { ref: 'activeGraphic', className: CLASS_ROOT + "__value-container" },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: CLASS_ROOT + "__graphic-container" },
+	            _react2['default'].createElement(
+	              'a',
+	              { href: '#', role: a11yRole, tabIndex: '0', className: CLASS_ROOT + "__aria",
+	                'aria-labelledby': this.props.a11yTitleId + ' ' + this.props.a11yDescId },
+	              _react2['default'].createElement(
+	                'title',
+	                { id: this.props.a11yTitleId },
+	                a11yTitle
+	              ),
+	              graphic
+	            ),
+	            minMax
+	          ),
+	          activeValue
+	        ),
+	        legend
+	      );
+	    }
+	  }]);
+
+	  return Meter;
+	})(_react.Component);
+
+	Meter.propTypes = {
+	  a11yRole: _react.PropTypes.string,
+	  a11yTitle: _react.PropTypes.string,
+	  a11yTitleId: _react.PropTypes.string,
+	  a11yDescId: _react.PropTypes.string,
+	  a11yDesc: _react.PropTypes.string,
+	  important: _react.PropTypes.number,
+	  legend: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.shape({
+	    total: _react.PropTypes.bool,
+	    placement: _react.PropTypes.oneOf(['right', 'bottom'])
+	  })]),
+	  max: _react.PropTypes.oneOfType([_react.PropTypes.shape({
+	    value: _react.PropTypes.number.isRequired,
+	    label: _react.PropTypes.string
+	  }), _react.PropTypes.number]),
+	  min: _react.PropTypes.oneOfType([_react.PropTypes.shape({
+	    value: _react.PropTypes.number.isRequired,
+	    label: _react.PropTypes.string
+	  }), _react.PropTypes.number]),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	    label: _react.PropTypes.string,
+	    value: _react.PropTypes.number.isRequired,
+	    colorIndex: _react.PropTypes.string,
+	    important: _react.PropTypes.bool,
+	    onClick: _react.PropTypes.func
+	  })),
+	  stacked: _react.PropTypes.bool,
+	  threshold: _react.PropTypes.number,
+	  thresholds: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	    label: _react.PropTypes.string,
+	    value: _react.PropTypes.number.isRequired,
+	    colorIndex: _react.PropTypes.string
+	  })),
+	  type: _react.PropTypes.oneOf(['bar', 'arc', 'circle', 'spiral']),
+	  units: _react.PropTypes.string,
+	  value: _react.PropTypes.number,
+	  vertical: _react.PropTypes.bool
+	};
+
+	Meter.defaultProps = {
+	  a11yRole: 'img',
+	  a11yTitleId: 'meter-title',
+	  a11yDescId: 'meter-desc',
+	  type: 'bar'
+	};
+
+	Meter.contextTypes = {
+	  intl: _react.PropTypes.object
+	};
 
 	module.exports = Meter;
 
@@ -20830,12 +20564,705 @@ module.exports =
 
 	'use strict';
 
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _utils = __webpack_require__(173);
+
+	var _Graphic2 = __webpack_require__(174);
+
+	var _Graphic3 = _interopRequireDefault(_Graphic2);
+
+	var BAR_LENGTH = _utils.baseDimension;
+	var BAR_THICKNESS = _utils.baseUnit;
+	var MID_BAR_THICKNESS = BAR_THICKNESS / 2;
+
+	var Bar = (function (_Graphic) {
+	  _inherits(Bar, _Graphic);
+
+	  function Bar() {
+	    _classCallCheck(this, Bar);
+
+	    _get(Object.getPrototypeOf(Bar.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Bar, [{
+	    key: '_viewBoxDimensions',
+	    value: function _viewBoxDimensions(props) {
+	      var viewBoxHeight;
+	      var viewBoxWidth;
+	      if (props.vertical) {
+	        if (props.stacked) {
+	          viewBoxWidth = BAR_THICKNESS;
+	        } else {
+	          viewBoxWidth = BAR_THICKNESS * Math.max(1, props.series.length);
+	        }
+	        viewBoxHeight = BAR_LENGTH;
+	      } else {
+	        viewBoxWidth = BAR_LENGTH;
+	        if (props.stacked) {
+	          viewBoxHeight = BAR_THICKNESS;
+	        } else {
+	          viewBoxHeight = BAR_THICKNESS * Math.max(1, props.series.length);
+	        }
+	      }
+	      return [viewBoxWidth, viewBoxHeight];
+	    }
+	  }, {
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      var viewBoxDimensions = this._viewBoxDimensions(props);
+
+	      var state = {
+	        scale: BAR_LENGTH / (props.max.value - props.min.value),
+	        viewBoxWidth: viewBoxDimensions[0],
+	        viewBoxHeight: viewBoxDimensions[1]
+	      };
+
+	      return state;
+	    }
+	  }, {
+	    key: '_translateBarWidth',
+	    value: function _translateBarWidth(value) {
+	      return Math.ceil(this.state.scale * value);
+	    }
+	  }, {
+	    key: '_sliceCommands',
+	    value: function _sliceCommands(trackIndex, item, startValue) {
+	      var value = item.value - this.props.min.value;
+	      var start = this._translateBarWidth(startValue);
+	      var distance = Math.max(MID_BAR_THICKNESS, this._translateBarWidth(value));
+	      var commands;
+	      var spot = trackIndex * BAR_THICKNESS + MID_BAR_THICKNESS;
+	      if (this.props.vertical) {
+	        commands = "M" + spot + "," + (BAR_LENGTH - start) + " L" + spot + "," + (BAR_LENGTH - (start + distance));
+	      } else {
+	        commands = "M" + start + "," + spot + " L" + (start + distance) + "," + spot;
+	      }
+	      return commands;
+	    }
+	  }]);
+
+	  return Bar;
+	})(_Graphic3['default']);
+
+	module.exports = Bar;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+	  var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+	  return {
+	    x: centerX + radius * Math.cos(angleInRadians),
+	    y: centerY + radius * Math.sin(angleInRadians)
+	  };
+	}
+
+	module.exports = {
+
+	  baseUnit: 24,
+	  baseDimension: 192, // 24 * 8
+
+	  classRoot: 'meter',
+
+	  propTypes: {
+	    activeIndex: _react.PropTypes.number,
+	    a11yDesc: _react.PropTypes.string,
+	    a11yDescId: _react.PropTypes.string,
+	    max: _react.PropTypes.shape({
+	      value: _react.PropTypes.number,
+	      label: _react.PropTypes.string
+	    }).isRequired,
+	    min: _react.PropTypes.shape({
+	      value: _react.PropTypes.number,
+	      label: _react.PropTypes.string
+	    }).isRequired,
+	    onActivate: _react.PropTypes.func.isRequired,
+	    // size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
+	    series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	      label: _react.PropTypes.string,
+	      value: _react.PropTypes.number.isRequired,
+	      colorIndex: _react.PropTypes.string,
+	      important: _react.PropTypes.bool,
+	      onClick: _react.PropTypes.func
+	    })).isRequired,
+	    total: _react.PropTypes.number.isRequired,
+	    units: _react.PropTypes.string
+	  },
+
+	  polarToCartesian: polarToCartesian,
+
+	  arcCommands: function arcCommands(centerX, centerY, radius, startAngle, endAngle) {
+	    var start = polarToCartesian(centerX, centerY, radius, endAngle);
+	    var end = polarToCartesian(centerX, centerY, radius, startAngle);
+	    var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
+	    var d = ["M", start.x, start.y, "A", radius, radius, 0, arcSweep, 0, end.x, end.y].join(" ");
+	    return d;
+	  },
+
+	  translateEndAngle: function translateEndAngle(startAngle, anglePer, value) {
+	    return Math.min(360, Math.max(0, startAngle + anglePer * value));
+	  },
+
+	  buildPath: function buildPath(itemIndex, commands, classes, onActivate, onClick, a11yDescId) {
+	    if (onActivate) {
+	      var onOver = onActivate.bind(null, itemIndex);
+	      var onOut = onActivate.bind(null, null);
+	      return _react2['default'].createElement('path', { key: itemIndex, className: classes.join(' '), d: commands,
+	        tabIndex: '0',
+	        onFocus: onOver, onBlur: onOut,
+	        onMouseOver: onOver, onMouseOut: onOut,
+	        onClick: onClick, role: 'img', 'aria-labelledby': a11yDescId });
+	    } else {
+	      return _react2['default'].createElement('path', { key: itemIndex, className: classes.join(' '), d: commands });
+	    }
+	  }
+
+	};
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(173);
+
+	var CLASS_ROOT = _utils.classRoot;
+
+	var Graphic = (function (_Component) {
+	  _inherits(Graphic, _Component);
+
+	  function Graphic(props) {
+	    _classCallCheck(this, Graphic);
+
+	    _get(Object.getPrototypeOf(Graphic.prototype), 'constructor', this).call(this);
+	    this.state = this._stateFromProps(props);
+	  }
+
+	  _createClass(Graphic, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(newProps) {
+	      var state = this._stateFromProps(newProps);
+	      this.setState(state);
+	    }
+
+	    // override
+	  }, {
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      return {};
+	    }
+
+	    // override
+	  }, {
+	    key: '_sliceCommands',
+	    value: function _sliceCommands(trackIndex, item, startValue) {
+	      return "";
+	    }
+	  }, {
+	    key: '_renderSlice',
+	    value: function _renderSlice(trackIndex, item, itemIndex, startValue) {
+	      var classes = [CLASS_ROOT + "__slice"];
+	      if (itemIndex === this.props.activeIndex) {
+	        classes.push(CLASS_ROOT + "__slice--active");
+	      }
+	      classes.push("color-index-" + item.colorIndex);
+
+	      var commands = this._sliceCommands(trackIndex, item, startValue);
+
+	      var path = (0, _utils.buildPath)(itemIndex, commands, classes, this.props.onActivate, item.onClick, this.props.a11yDescId);
+
+	      return path;
+	    }
+	  }, {
+	    key: '_renderTrack',
+	    value: function _renderTrack(series, trackIndex) {
+	      var startValue = this.props.min.value;
+
+	      var paths = series.map(function (item, itemIndex) {
+	        var path = this._renderSlice(trackIndex, item, itemIndex, startValue);
+	        startValue += item.value;
+	        return path;
+	      }, this);
+
+	      return paths;
+	    }
+	  }, {
+	    key: '_loadingCommands',
+	    value: function _loadingCommands() {
+	      return this._sliceCommands(0, this.props.max, this.props.min.value);
+	    }
+	  }, {
+	    key: '_renderLoading',
+	    value: function _renderLoading() {
+	      var classes = [CLASS_ROOT + "__slice"];
+	      classes.push(CLASS_ROOT + "__slice--loading");
+	      classes.push("color-index-loading");
+	      var commands = this._loadingCommands();
+	      return [_react2['default'].createElement('path', { key: 'loading', className: classes.join(' '), d: commands })];
+	    }
+	  }, {
+	    key: '_renderValues',
+	    value: function _renderValues() {
+	      var _this = this;
+
+	      var values;
+	      if (this.props.stacked) {
+	        values = this._renderTrack(this.props.series, 0);
+	      } else {
+	        values = this.props.series.map(function (item, index) {
+	          return _this._renderSlice(index, item, index, _this.props.min.value);
+	        });
+	      }
+	      if (values.length === 0) {
+	        values = this._renderLoading();
+	      }
+	      return _react2['default'].createElement(
+	        'g',
+	        { className: CLASS_ROOT + "__values" },
+	        values
+	      );
+	    }
+	  }, {
+	    key: '_renderThresholds',
+	    value: function _renderThresholds() {
+	      var _this2 = this;
+
+	      var result;
+	      var thresholds;
+	      if (this.props.stacked) {
+	        thresholds = this._renderTrack(this.props.thresholds, 0);
+	      } else {
+	        thresholds = this.props.series.map(function (item, index) {
+	          return _this2._renderTrack(_this2.props.thresholds, index);
+	        });
+	      }
+	      if (thresholds.length > 0) {
+	        result = _react2['default'].createElement(
+	          'g',
+	          { className: CLASS_ROOT + "__thresholds" },
+	          thresholds
+	        );
+	      }
+	      return result;
+	    }
+	  }, {
+	    key: '_renderTopLayer',
+	    value: function _renderTopLayer() {
+	      return null;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var classes = [CLASS_ROOT];
+	      if (this.props.className) {
+	        classes.push(this.props.className);
+	      }
+
+	      var values = this._renderValues();
+	      var thresholds = this._renderThresholds();
+	      var topLayer = this._renderTopLayer();
+
+	      return _react2['default'].createElement(
+	        'svg',
+	        { className: CLASS_ROOT + "__graphic",
+	          width: this.props.vertical ? null : this.state.viewBoxWidth,
+	          height: this.props.vertical ? this.state.viewBoxHeight : null,
+	          viewBox: "0 0 " + this.state.viewBoxWidth + " " + this.state.viewBoxHeight,
+	          preserveAspectRatio: 'xMidYMid meet' },
+	        _react2['default'].createElement(
+	          'desc',
+	          { id: this.props.a11yDescId },
+	          this.props.a11yDesc
+	        ),
+	        thresholds,
+	        values,
+	        topLayer
+	      );
+	    }
+	  }]);
+
+	  return Graphic;
+	})(_react.Component);
+
+	Graphic.propTypes = _extends({
+	  stacked: _react.PropTypes.bool,
+	  thresholds: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	    label: _react.PropTypes.string,
+	    value: _react.PropTypes.number.isRequired,
+	    colorIndex: _react.PropTypes.string
+	  })).isRequired,
+	  vertical: _react.PropTypes.bool
+	}, _utils.propTypes);
+
+	Graphic.contextTypes = {
+	  intl: _react.PropTypes.object
+	};
+
+	module.exports = Graphic;
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(173);
+
+	var _Graphic2 = __webpack_require__(174);
+
+	var _Graphic3 = _interopRequireDefault(_Graphic2);
+
+	var CLASS_ROOT = _utils.classRoot;
+
+	var SPIRAL_WIDTH = _utils.baseDimension;
+	var SPIRAL_RADIUS = _utils.baseDimension / 2 - _utils.baseUnit / 2;
+	var RING_THICKNESS = _utils.baseUnit;
+	// Allow for active value content next to a spiral meter
+	var SPIRAL_TEXT_PADDING = _utils.baseUnit * 2;
+
+	var Spiral = (function (_Graphic) {
+	  _inherits(Spiral, _Graphic);
+
+	  function Spiral() {
+	    _classCallCheck(this, Spiral);
+
+	    _get(Object.getPrototypeOf(Spiral.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Spiral, [{
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      var viewBoxHeight = Math.max(SPIRAL_WIDTH, RING_THICKNESS * (props.series.length + 1) * 2);
+	      var viewBoxWidth = viewBoxHeight + 2 * SPIRAL_TEXT_PADDING;
+
+	      var state = {
+	        startAngle: 0,
+	        anglePer: 270.0 / props.max.value,
+	        angleOffset: 180,
+	        // The last spiral ends out near but not quite at the edge of the view box.
+	        startRadius: Math.max(SPIRAL_RADIUS, RING_THICKNESS * (props.series.length + 0.5)) - Math.max(0, props.series.length - 1) * RING_THICKNESS,
+	        viewBoxWidth: viewBoxWidth,
+	        viewBoxHeight: viewBoxHeight
+	      };
+
+	      return state;
+	    }
+	  }, {
+	    key: '_sliceCommands',
+	    value: function _sliceCommands(trackIndex, item, startValue) {
+	      var startAngle = (0, _utils.translateEndAngle)(this.state.startAngle, this.state.anglePer, startValue);
+	      var endAngle = (0, _utils.translateEndAngle)(startAngle, this.state.anglePer, item.value);
+	      var radius = Math.min(SPIRAL_RADIUS, this.state.startRadius + trackIndex * RING_THICKNESS);
+	      return (0, _utils.arcCommands)(SPIRAL_WIDTH / 2, SPIRAL_WIDTH / 2, radius, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset);
+	    }
+	  }, {
+	    key: '_renderThresholds',
+	    value: function _renderThresholds() {
+	      return null;
+	    }
+	  }, {
+	    key: '_renderTopLayer',
+	    value: function _renderTopLayer() {
+	      var x = SPIRAL_RADIUS + RING_THICKNESS;
+	      var y = SPIRAL_RADIUS + RING_THICKNESS * 2.2;
+	      var labels = this.props.series.map(function (item, index) {
+	        var classes = [CLASS_ROOT + "__label"];
+	        if (index === this.props.activeIndex) {
+	          classes.push(CLASS_ROOT + "__label--active");
+	        }
+
+	        var textX = x;
+	        var textY = y;
+
+	        y += RING_THICKNESS;
+
+	        return _react2['default'].createElement(
+	          'text',
+	          { key: item.label || index, x: textX, y: textY,
+	            textAnchor: 'start', fontSize: 16,
+	            className: classes.join(' '),
+	            onMouseOver: this.props.onActivate.bind(null, index),
+	            onMouseOut: this.props.onActivate.bind(null, null),
+	            onClick: item.onClick },
+	          item.label
+	        );
+	      }, this);
+
+	      return _react2['default'].createElement(
+	        'g',
+	        { className: CLASS_ROOT + "__labels" },
+	        labels
+	      );
+	    }
+	  }]);
+
+	  return Spiral;
+	})(_Graphic3['default']);
+
+	Spiral.defaultProps = {
+	  thresholds: []
+	};
+
+	module.exports = Spiral;
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _utils = __webpack_require__(173);
+
+	var _Graphic2 = __webpack_require__(174);
+
+	var _Graphic3 = _interopRequireDefault(_Graphic2);
+
+	var CIRCLE_WIDTH = _utils.baseDimension;
+	var CIRCLE_RADIUS = _utils.baseDimension / 2 - _utils.baseUnit / 2;
+	var RING_THICKNESS = _utils.baseUnit;
+
+	var Circle = (function (_Graphic) {
+	  _inherits(Circle, _Graphic);
+
+	  function Circle() {
+	    _classCallCheck(this, Circle);
+
+	    _get(Object.getPrototypeOf(Circle.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Circle, [{
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      if (!props.stacked && props.series.length * RING_THICKNESS > CIRCLE_RADIUS) {
+	        console.warn("You cannot have more than " + Math.round(CIRCLE_RADIUS / RING_THICKNESS) + " data values in a circle Meter");
+	      }
+
+	      var state = {
+	        startAngle: 1,
+	        anglePer: !props.max ? 0 : 358.0 / (props.max.value - props.min.value),
+	        angleOffset: 180,
+	        viewBoxWidth: CIRCLE_WIDTH,
+	        viewBoxHeight: CIRCLE_WIDTH
+	      };
+
+	      return state;
+	    }
+	  }, {
+	    key: '_sliceCommands',
+	    value: function _sliceCommands(trackIndex, item, startValue) {
+	      var startAngle = (0, _utils.translateEndAngle)(this.state.startAngle, this.state.anglePer, startValue);
+	      var endAngle = Math.max(startAngle + RING_THICKNESS / 2, (0, _utils.translateEndAngle)(startAngle, this.state.anglePer, item.value));
+	      var radius = Math.max(1, CIRCLE_RADIUS - trackIndex * RING_THICKNESS);
+	      return (0, _utils.arcCommands)(CIRCLE_WIDTH / 2, CIRCLE_WIDTH / 2, radius, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset);
+	    }
+	  }]);
+
+	  return Circle;
+	})(_Graphic3['default']);
+
+	module.exports = Circle;
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(173);
+
+	var _Graphic2 = __webpack_require__(174);
+
+	var _Graphic3 = _interopRequireDefault(_Graphic2);
+
+	var CLASS_ROOT = _utils.classRoot;
+
+	var ARC_WIDTH = _utils.baseDimension;
+	var ARC_HEIGHT = Math.round(_utils.baseDimension * 0.75);
+	var ARC_RADIUS = _utils.baseDimension / 2 - _utils.baseUnit / 2;
+	var INDICATOR_HUB_RADIUS = _utils.baseUnit / 4;
+	var RING_THICKNESS = _utils.baseUnit;
+
+	function singleIndicatorCommands(centerX, centerY, radius, startAngle, endAngle, length) {
+	  var point = (0, _utils.polarToCartesian)(centerX, centerY, radius - (length - INDICATOR_HUB_RADIUS), endAngle - 1);
+	  var start = (0, _utils.polarToCartesian)(centerX, centerY, radius, endAngle - 1);
+	  var d = ["M", centerX, centerY - INDICATOR_HUB_RADIUS, "A", INDICATOR_HUB_RADIUS, INDICATOR_HUB_RADIUS, 0, 1, 1, centerX, centerY + INDICATOR_HUB_RADIUS, "A", INDICATOR_HUB_RADIUS, INDICATOR_HUB_RADIUS, 0, 1, 1, centerX, centerY - INDICATOR_HUB_RADIUS, "M", point.x, point.y, "L", start.x, start.y].join(" ");
+	  return d;
+	}
+
+	var Arc = (function (_Graphic) {
+	  _inherits(Arc, _Graphic);
+
+	  function Arc() {
+	    _classCallCheck(this, Arc);
+
+	    _get(Object.getPrototypeOf(Arc.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Arc, [{
+	    key: '_viewBoxDimensions',
+	    value: function _viewBoxDimensions(props) {
+	      var viewBoxWidth;
+	      var viewBoxHeight;
+	      if (props.vertical) {
+	        viewBoxWidth = ARC_HEIGHT;
+	        viewBoxHeight = ARC_WIDTH;
+	      } else {
+	        viewBoxWidth = ARC_WIDTH;
+	        viewBoxHeight = ARC_HEIGHT;
+	      }
+	      return [viewBoxWidth, viewBoxHeight];
+	    }
+	  }, {
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      var viewBoxDimensions = this._viewBoxDimensions(props);
+
+	      var state = {
+	        startAngle: 60,
+	        anglePer: !props.max ? 0 : 240.0 / (props.max.value - props.min.value),
+	        angleOffset: 180,
+	        viewBoxWidth: viewBoxDimensions[0],
+	        viewBoxHeight: viewBoxDimensions[1]
+	      };
+	      if (props.vertical) {
+	        state.angleOffset = 90;
+	      } else {
+	        state.angleOffset = 180;
+	      }
+
+	      return state;
+	    }
+	  }, {
+	    key: '_sliceCommands',
+	    value: function _sliceCommands(trackIndex, item, startValue) {
+	      var startAngle = (0, _utils.translateEndAngle)(this.state.startAngle, this.state.anglePer, startValue);
+	      var endAngle = Math.max(startAngle + RING_THICKNESS / 2, (0, _utils.translateEndAngle)(startAngle, this.state.anglePer, item.value));
+	      var radius = Math.max(1, ARC_RADIUS - trackIndex * RING_THICKNESS);
+	      return (0, _utils.arcCommands)(ARC_WIDTH / 2, ARC_WIDTH / 2, radius, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset);
+	    }
+	  }, {
+	    key: '_renderTopLayer',
+	    value: function _renderTopLayer() {
+	      var indicator;
+	      if (this.props.series.length === 1) {
+	        var item = this.props.series[0];
+	        var startAngle = this.state.startAngle;
+	        var endAngle = (0, _utils.translateEndAngle)(startAngle, this.state.anglePer, item.value);
+	        var length = ARC_RADIUS;
+	        var x = ARC_WIDTH / 2;
+	        var y = ARC_WIDTH / 2;
+	        var indicatorCommands = singleIndicatorCommands(x, y, ARC_RADIUS, startAngle + this.state.angleOffset, endAngle + this.state.angleOffset, length);
+	        indicator = _react2['default'].createElement('path', { fill: 'none',
+	          className: CLASS_ROOT + "__slice-indicator color-index-" + item.colorIndex,
+	          d: indicatorCommands });
+	      }
+
+	      return indicator;
+	    }
+	  }]);
+
+	  return Arc;
+	})(_Graphic3['default']);
+
+	module.exports = Arc;
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	'use strict';
+
 	var React = __webpack_require__(1);
 	var PropTypes = React.PropTypes;
 	var KeyboardAccelerators = __webpack_require__(87);
 	var Drop = __webpack_require__(97);
 	var Responsive = __webpack_require__(98);
-	var SearchIcon = __webpack_require__(173);
+	var SearchIcon = __webpack_require__(179);
 
 	var CLASS_ROOT = "search";
 
@@ -21194,7 +21621,7 @@ module.exports =
 	module.exports = Search;
 
 /***/ },
-/* 173 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -21228,7 +21655,7 @@ module.exports =
 	module.exports = Search;
 
 /***/ },
-/* 174 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -21269,7 +21696,7 @@ module.exports =
 	module.exports = Logo;
 
 /***/ },
-/* 175 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Generated by CoffeeScript 1.10.0
@@ -21277,11 +21704,11 @@ module.exports =
 
 	React = __webpack_require__(1);
 
-	md5 = __webpack_require__(176);
+	md5 = __webpack_require__(182);
 
-	querystring = __webpack_require__(180);
+	querystring = __webpack_require__(186);
 
-	isRetina = __webpack_require__(181);
+	isRetina = __webpack_require__(187);
 
 	module.exports = React.createClass({
 	  displayName: 'Gravatar',
@@ -21353,14 +21780,14 @@ module.exports =
 
 
 /***/ },
-/* 176 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(){
-	  var crypt = __webpack_require__(177),
-	      utf8 = __webpack_require__(178).utf8,
-	      isBuffer = __webpack_require__(179),
-	      bin = __webpack_require__(178).bin,
+	  var crypt = __webpack_require__(183),
+	      utf8 = __webpack_require__(184).utf8,
+	      isBuffer = __webpack_require__(185),
+	      bin = __webpack_require__(184).bin,
 
 	  // The core
 	  md5 = function (message, options) {
@@ -21519,7 +21946,7 @@ module.exports =
 
 
 /***/ },
-/* 177 */
+/* 183 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -21621,7 +22048,7 @@ module.exports =
 
 
 /***/ },
-/* 178 */
+/* 184 */
 /***/ function(module, exports) {
 
 	var charenc = {
@@ -21660,7 +22087,7 @@ module.exports =
 
 
 /***/ },
-/* 179 */
+/* 185 */
 /***/ function(module, exports) {
 
 	/**
@@ -21683,13 +22110,13 @@ module.exports =
 
 
 /***/ },
-/* 180 */
+/* 186 */
 /***/ function(module, exports) {
 
 	module.exports = require("querystring");
 
 /***/ },
-/* 181 */
+/* 187 */
 /***/ function(module, exports) {
 
 	module.exports = function() {
@@ -21708,7 +22135,7 @@ module.exports =
 
 
 /***/ },
-/* 182 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -21917,7 +22344,7 @@ module.exports =
 	module.exports = Showcase;
 
 /***/ },
-/* 183 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -22110,7 +22537,7 @@ module.exports =
 	module.exports = Login;
 
 /***/ },
-/* 184 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -22135,7 +22562,7 @@ module.exports =
 	module.exports = TBD;
 
 /***/ },
-/* 185 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -22448,7 +22875,7 @@ module.exports =
 	module.exports = Resources;
 
 /***/ },
-/* 186 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -22465,59 +22892,59 @@ module.exports =
 	var Menu = __webpack_require__(90);
 	var Anchor = __webpack_require__(135);
 
-	var HelloWorld = __webpack_require__(187);
-	var GetStarted = __webpack_require__(188);
-	var Architecture = __webpack_require__(189);
-	var Integration = __webpack_require__(190);
-	var Accessibility = __webpack_require__(191);
+	var HelloWorld = __webpack_require__(193);
+	var GetStarted = __webpack_require__(194);
+	var Architecture = __webpack_require__(195);
+	var Integration = __webpack_require__(196);
+	var Accessibility = __webpack_require__(197);
 
-	var ActionsDoc = __webpack_require__(200);
-	var AnchorDoc = __webpack_require__(201);
-	var AppDoc = __webpack_require__(202);
-	var ArticleDoc = __webpack_require__(204);
-	var BoxDoc = __webpack_require__(205);
-	var ButtonDoc = __webpack_require__(206);
-	var CalendarDoc = __webpack_require__(207);
-	var CarouselDoc = __webpack_require__(297);
-	var ChartDoc = __webpack_require__(301);
-	var CheckBoxDoc = __webpack_require__(303);
-	var DashboardDoc = __webpack_require__(304);
-	var DistributionDoc = __webpack_require__(305);
-	var FooterDoc = __webpack_require__(308);
-	var FormDoc = __webpack_require__(309);
-	var FormFieldDoc = __webpack_require__(317);
-	var HeaderDoc = __webpack_require__(318);
-	var IconDoc = __webpack_require__(322);
-	var LayerDoc = __webpack_require__(615);
-	var ListDoc = __webpack_require__(616);
-	var LoginFormDoc = __webpack_require__(619);
-	var MapDoc = __webpack_require__(620);
-	var MenuDoc = __webpack_require__(622);
-	var MeterDoc = __webpack_require__(623);
-	var NavigationDoc = __webpack_require__(624);
-	var ParagraphDoc = __webpack_require__(625);
-	var RadioButtonDoc = __webpack_require__(627);
-	var RestDoc = __webpack_require__(628);
-	var RestWatchDoc = __webpack_require__(629);
-	var SearchDoc = __webpack_require__(630);
-	var SearchInputDoc = __webpack_require__(631);
-	var SectionDoc = __webpack_require__(632);
-	var SidebarDoc = __webpack_require__(633);
-	var SplitDoc = __webpack_require__(634);
-	var StatusDoc = __webpack_require__(635);
-	var TabsDoc = __webpack_require__(636);
-	var TableDoc = __webpack_require__(639);
-	var TilesDoc = __webpack_require__(640);
-	var TitleDoc = __webpack_require__(641);
-	var TopologyDoc = __webpack_require__(642);
-	var VideoDoc = __webpack_require__(644);
+	var ActionsDoc = __webpack_require__(206);
+	var AnchorDoc = __webpack_require__(207);
+	var AppDoc = __webpack_require__(208);
+	var ArticleDoc = __webpack_require__(210);
+	var BoxDoc = __webpack_require__(211);
+	var ButtonDoc = __webpack_require__(212);
+	var CalendarDoc = __webpack_require__(213);
+	var CarouselDoc = __webpack_require__(303);
+	var ChartDoc = __webpack_require__(307);
+	var CheckBoxDoc = __webpack_require__(309);
+	var DashboardDoc = __webpack_require__(310);
+	var DistributionDoc = __webpack_require__(311);
+	var FooterDoc = __webpack_require__(314);
+	var FormDoc = __webpack_require__(315);
+	var FormFieldDoc = __webpack_require__(323);
+	var HeaderDoc = __webpack_require__(324);
+	var IconDoc = __webpack_require__(328);
+	var LayerDoc = __webpack_require__(621);
+	var ListDoc = __webpack_require__(622);
+	var LoginFormDoc = __webpack_require__(625);
+	var MapDoc = __webpack_require__(626);
+	var MenuDoc = __webpack_require__(628);
+	var MeterDoc = __webpack_require__(629);
+	var NavigationDoc = __webpack_require__(630);
+	var ParagraphDoc = __webpack_require__(631);
+	var RadioButtonDoc = __webpack_require__(633);
+	var RestDoc = __webpack_require__(634);
+	var RestWatchDoc = __webpack_require__(635);
+	var SearchDoc = __webpack_require__(636);
+	var SearchInputDoc = __webpack_require__(637);
+	var SectionDoc = __webpack_require__(638);
+	var SidebarDoc = __webpack_require__(639);
+	var SplitDoc = __webpack_require__(640);
+	var StatusDoc = __webpack_require__(641);
+	var TabsDoc = __webpack_require__(642);
+	var TableDoc = __webpack_require__(645);
+	var TilesDoc = __webpack_require__(646);
+	var TitleDoc = __webpack_require__(647);
+	var TopologyDoc = __webpack_require__(648);
+	var VideoDoc = __webpack_require__(650);
 
 	//hjjs configuration
-	var hljs = __webpack_require__(610);
-	hljs.registerLanguage('bash', __webpack_require__(611));
-	hljs.registerLanguage('xml', __webpack_require__(612));
-	hljs.registerLanguage('javascript', __webpack_require__(613));
-	hljs.registerLanguage('scss', __webpack_require__(614));
+	var hljs = __webpack_require__(616);
+	hljs.registerLanguage('bash', __webpack_require__(617));
+	hljs.registerLanguage('xml', __webpack_require__(618));
+	hljs.registerLanguage('javascript', __webpack_require__(619));
+	hljs.registerLanguage('scss', __webpack_require__(620));
 
 	var CONTENTS = [{ label: 'Guides',
 	  contents: [{ route: 'develop_helloworld', label: 'Hello World',
@@ -22672,7 +23099,7 @@ module.exports =
 	module.exports = Develop;
 
 /***/ },
-/* 187 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -22774,7 +23201,7 @@ module.exports =
 	module.exports = HelloWorld;
 
 /***/ },
-/* 188 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -23165,7 +23592,7 @@ module.exports =
 	module.exports = GetStarted;
 
 /***/ },
-/* 189 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -23243,7 +23670,7 @@ module.exports =
 	module.exports = Architecture;
 
 /***/ },
-/* 190 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -23359,7 +23786,7 @@ module.exports =
 	module.exports = Integration;
 
 /***/ },
-/* 191 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -23368,7 +23795,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Table = __webpack_require__(192);
+	var Table = __webpack_require__(198);
 	var Status = __webpack_require__(157);
 
 	var Accessibility = React.createClass({
@@ -23546,7 +23973,7 @@ module.exports =
 	module.exports = Accessibility;
 
 /***/ },
-/* 192 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -23554,7 +23981,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var isEqual = __webpack_require__(193);
+	var isEqual = __webpack_require__(199);
 	var SpinningIcon = __webpack_require__(122);
 	var InfiniteScroll = __webpack_require__(125);
 
@@ -23824,10 +24251,10 @@ module.exports =
 	module.exports = Table;
 
 /***/ },
-/* 193 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsEqual = __webpack_require__(194),
+	var baseIsEqual = __webpack_require__(200),
 	    bindCallback = __webpack_require__(35);
 
 	/**
@@ -23884,10 +24311,10 @@ module.exports =
 
 
 /***/ },
-/* 194 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsEqualDeep = __webpack_require__(195),
+	var baseIsEqualDeep = __webpack_require__(201),
 	    isObject = __webpack_require__(21),
 	    isObjectLike = __webpack_require__(16);
 
@@ -23918,12 +24345,12 @@ module.exports =
 
 
 /***/ },
-/* 195 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var equalArrays = __webpack_require__(196),
-	    equalByTag = __webpack_require__(198),
-	    equalObjects = __webpack_require__(199),
+	var equalArrays = __webpack_require__(202),
+	    equalByTag = __webpack_require__(204),
+	    equalObjects = __webpack_require__(205),
 	    isArray = __webpack_require__(17),
 	    isTypedArray = __webpack_require__(29);
 
@@ -24026,10 +24453,10 @@ module.exports =
 
 
 /***/ },
-/* 196 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arraySome = __webpack_require__(197);
+	var arraySome = __webpack_require__(203);
 
 	/**
 	 * A specialized version of `baseIsEqualDeep` for arrays with support for
@@ -24083,7 +24510,7 @@ module.exports =
 
 
 /***/ },
-/* 197 */
+/* 203 */
 /***/ function(module, exports) {
 
 	/**
@@ -24112,7 +24539,7 @@ module.exports =
 
 
 /***/ },
-/* 198 */
+/* 204 */
 /***/ function(module, exports) {
 
 	/** `Object#toString` result references. */
@@ -24166,7 +24593,7 @@ module.exports =
 
 
 /***/ },
-/* 199 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var keys = __webpack_require__(32);
@@ -24239,7 +24666,7 @@ module.exports =
 
 
 /***/ },
-/* 200 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -24292,7 +24719,7 @@ module.exports =
 	module.exports = ActionsDoc;
 
 /***/ },
-/* 201 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -24559,7 +24986,7 @@ module.exports =
 	module.exports = AnchorDoc;
 
 /***/ },
-/* 202 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -24567,7 +24994,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(203)['default'];
+	var jsxToString = __webpack_require__(209)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var App = __webpack_require__(4);
 	var Header = __webpack_require__(115);
@@ -24687,13 +25114,13 @@ module.exports =
 	module.exports = AppDoc;
 
 /***/ },
-/* 203 */
+/* 209 */
 /***/ function(module, exports) {
 
 	module.exports = require("jsx-to-string");
 
 /***/ },
-/* 204 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -24819,7 +25246,7 @@ module.exports =
 	module.exports = ArticleDoc;
 
 /***/ },
-/* 205 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -25221,7 +25648,7 @@ module.exports =
 	module.exports = BoxDoc;
 
 /***/ },
-/* 206 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -25229,7 +25656,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(203)['default'];
+	var jsxToString = __webpack_require__(209)['default'];
 	var DocsArticle = __webpack_require__(133);
 
 	var Box = __webpack_require__(99);
@@ -25517,7 +25944,7 @@ module.exports =
 	module.exports = ButtonDoc;
 
 /***/ },
-/* 207 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -25526,7 +25953,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Calendar = __webpack_require__(208);
+	var Calendar = __webpack_require__(214);
 
 	var CalendarDoc = React.createClass({
 	  displayName: 'CalendarDoc',
@@ -25662,7 +26089,7 @@ module.exports =
 	module.exports = CalendarDoc;
 
 /***/ },
-/* 208 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -25671,7 +26098,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(44);
-	var moment = __webpack_require__(209);
+	var moment = __webpack_require__(215);
 	var KeyboardAccelerators = __webpack_require__(87);
 	var Drop = __webpack_require__(97);
 	var CalendarIcon = __webpack_require__(145);
@@ -26009,7 +26436,7 @@ module.exports =
 	module.exports = Calendar;
 
 /***/ },
-/* 209 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -26280,7 +26707,7 @@ module.exports =
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(211)("./" + name);
+	                __webpack_require__(217)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -29207,10 +29634,10 @@ module.exports =
 	    return _moment;
 
 	}));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(210)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(216)(module)))
 
 /***/ },
-/* 210 */
+/* 216 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -29226,180 +29653,180 @@ module.exports =
 
 
 /***/ },
-/* 211 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 212,
-		"./af.js": 212,
-		"./ar": 213,
-		"./ar-ma": 214,
-		"./ar-ma.js": 214,
-		"./ar-sa": 215,
-		"./ar-sa.js": 215,
-		"./ar-tn": 216,
-		"./ar-tn.js": 216,
-		"./ar.js": 213,
-		"./az": 217,
-		"./az.js": 217,
-		"./be": 218,
-		"./be.js": 218,
-		"./bg": 219,
-		"./bg.js": 219,
-		"./bn": 220,
-		"./bn.js": 220,
-		"./bo": 221,
-		"./bo.js": 221,
-		"./br": 222,
-		"./br.js": 222,
-		"./bs": 223,
-		"./bs.js": 223,
-		"./ca": 224,
-		"./ca.js": 224,
-		"./cs": 225,
-		"./cs.js": 225,
-		"./cv": 226,
-		"./cv.js": 226,
-		"./cy": 227,
-		"./cy.js": 227,
-		"./da": 228,
-		"./da.js": 228,
-		"./de": 229,
-		"./de-at": 230,
-		"./de-at.js": 230,
-		"./de.js": 229,
-		"./el": 231,
-		"./el.js": 231,
-		"./en-au": 232,
-		"./en-au.js": 232,
-		"./en-ca": 233,
-		"./en-ca.js": 233,
-		"./en-gb": 234,
-		"./en-gb.js": 234,
-		"./eo": 235,
-		"./eo.js": 235,
-		"./es": 236,
-		"./es.js": 236,
-		"./et": 237,
-		"./et.js": 237,
-		"./eu": 238,
-		"./eu.js": 238,
-		"./fa": 239,
-		"./fa.js": 239,
-		"./fi": 240,
-		"./fi.js": 240,
-		"./fo": 241,
-		"./fo.js": 241,
-		"./fr": 242,
-		"./fr-ca": 243,
-		"./fr-ca.js": 243,
-		"./fr.js": 242,
-		"./fy": 244,
-		"./fy.js": 244,
-		"./gl": 245,
-		"./gl.js": 245,
-		"./he": 246,
-		"./he.js": 246,
-		"./hi": 247,
-		"./hi.js": 247,
-		"./hr": 248,
-		"./hr.js": 248,
-		"./hu": 249,
-		"./hu.js": 249,
-		"./hy-am": 250,
-		"./hy-am.js": 250,
-		"./id": 251,
-		"./id.js": 251,
-		"./is": 252,
-		"./is.js": 252,
-		"./it": 253,
-		"./it.js": 253,
-		"./ja": 254,
-		"./ja.js": 254,
-		"./jv": 255,
-		"./jv.js": 255,
-		"./ka": 256,
-		"./ka.js": 256,
-		"./km": 257,
-		"./km.js": 257,
-		"./ko": 258,
-		"./ko.js": 258,
-		"./lb": 259,
-		"./lb.js": 259,
-		"./lt": 260,
-		"./lt.js": 260,
-		"./lv": 261,
-		"./lv.js": 261,
-		"./me": 262,
-		"./me.js": 262,
-		"./mk": 263,
-		"./mk.js": 263,
-		"./ml": 264,
-		"./ml.js": 264,
-		"./mr": 265,
-		"./mr.js": 265,
-		"./ms": 266,
-		"./ms-my": 267,
-		"./ms-my.js": 267,
-		"./ms.js": 266,
-		"./my": 268,
-		"./my.js": 268,
-		"./nb": 269,
-		"./nb.js": 269,
-		"./ne": 270,
-		"./ne.js": 270,
-		"./nl": 271,
-		"./nl.js": 271,
-		"./nn": 272,
-		"./nn.js": 272,
-		"./pl": 273,
-		"./pl.js": 273,
-		"./pt": 274,
-		"./pt-br": 275,
-		"./pt-br.js": 275,
-		"./pt.js": 274,
-		"./ro": 276,
-		"./ro.js": 276,
-		"./ru": 277,
-		"./ru.js": 277,
-		"./si": 278,
-		"./si.js": 278,
-		"./sk": 279,
-		"./sk.js": 279,
-		"./sl": 280,
-		"./sl.js": 280,
-		"./sq": 281,
-		"./sq.js": 281,
-		"./sr": 282,
-		"./sr-cyrl": 283,
-		"./sr-cyrl.js": 283,
-		"./sr.js": 282,
-		"./sv": 284,
-		"./sv.js": 284,
-		"./ta": 285,
-		"./ta.js": 285,
-		"./th": 286,
-		"./th.js": 286,
-		"./tl-ph": 287,
-		"./tl-ph.js": 287,
-		"./tr": 288,
-		"./tr.js": 288,
-		"./tzl": 289,
-		"./tzl.js": 289,
-		"./tzm": 290,
-		"./tzm-latn": 291,
-		"./tzm-latn.js": 291,
-		"./tzm.js": 290,
-		"./uk": 292,
-		"./uk.js": 292,
-		"./uz": 293,
-		"./uz.js": 293,
-		"./vi": 294,
-		"./vi.js": 294,
-		"./zh-cn": 295,
-		"./zh-cn.js": 295,
-		"./zh-tw": 296,
-		"./zh-tw.js": 296
+		"./af": 218,
+		"./af.js": 218,
+		"./ar": 219,
+		"./ar-ma": 220,
+		"./ar-ma.js": 220,
+		"./ar-sa": 221,
+		"./ar-sa.js": 221,
+		"./ar-tn": 222,
+		"./ar-tn.js": 222,
+		"./ar.js": 219,
+		"./az": 223,
+		"./az.js": 223,
+		"./be": 224,
+		"./be.js": 224,
+		"./bg": 225,
+		"./bg.js": 225,
+		"./bn": 226,
+		"./bn.js": 226,
+		"./bo": 227,
+		"./bo.js": 227,
+		"./br": 228,
+		"./br.js": 228,
+		"./bs": 229,
+		"./bs.js": 229,
+		"./ca": 230,
+		"./ca.js": 230,
+		"./cs": 231,
+		"./cs.js": 231,
+		"./cv": 232,
+		"./cv.js": 232,
+		"./cy": 233,
+		"./cy.js": 233,
+		"./da": 234,
+		"./da.js": 234,
+		"./de": 235,
+		"./de-at": 236,
+		"./de-at.js": 236,
+		"./de.js": 235,
+		"./el": 237,
+		"./el.js": 237,
+		"./en-au": 238,
+		"./en-au.js": 238,
+		"./en-ca": 239,
+		"./en-ca.js": 239,
+		"./en-gb": 240,
+		"./en-gb.js": 240,
+		"./eo": 241,
+		"./eo.js": 241,
+		"./es": 242,
+		"./es.js": 242,
+		"./et": 243,
+		"./et.js": 243,
+		"./eu": 244,
+		"./eu.js": 244,
+		"./fa": 245,
+		"./fa.js": 245,
+		"./fi": 246,
+		"./fi.js": 246,
+		"./fo": 247,
+		"./fo.js": 247,
+		"./fr": 248,
+		"./fr-ca": 249,
+		"./fr-ca.js": 249,
+		"./fr.js": 248,
+		"./fy": 250,
+		"./fy.js": 250,
+		"./gl": 251,
+		"./gl.js": 251,
+		"./he": 252,
+		"./he.js": 252,
+		"./hi": 253,
+		"./hi.js": 253,
+		"./hr": 254,
+		"./hr.js": 254,
+		"./hu": 255,
+		"./hu.js": 255,
+		"./hy-am": 256,
+		"./hy-am.js": 256,
+		"./id": 257,
+		"./id.js": 257,
+		"./is": 258,
+		"./is.js": 258,
+		"./it": 259,
+		"./it.js": 259,
+		"./ja": 260,
+		"./ja.js": 260,
+		"./jv": 261,
+		"./jv.js": 261,
+		"./ka": 262,
+		"./ka.js": 262,
+		"./km": 263,
+		"./km.js": 263,
+		"./ko": 264,
+		"./ko.js": 264,
+		"./lb": 265,
+		"./lb.js": 265,
+		"./lt": 266,
+		"./lt.js": 266,
+		"./lv": 267,
+		"./lv.js": 267,
+		"./me": 268,
+		"./me.js": 268,
+		"./mk": 269,
+		"./mk.js": 269,
+		"./ml": 270,
+		"./ml.js": 270,
+		"./mr": 271,
+		"./mr.js": 271,
+		"./ms": 272,
+		"./ms-my": 273,
+		"./ms-my.js": 273,
+		"./ms.js": 272,
+		"./my": 274,
+		"./my.js": 274,
+		"./nb": 275,
+		"./nb.js": 275,
+		"./ne": 276,
+		"./ne.js": 276,
+		"./nl": 277,
+		"./nl.js": 277,
+		"./nn": 278,
+		"./nn.js": 278,
+		"./pl": 279,
+		"./pl.js": 279,
+		"./pt": 280,
+		"./pt-br": 281,
+		"./pt-br.js": 281,
+		"./pt.js": 280,
+		"./ro": 282,
+		"./ro.js": 282,
+		"./ru": 283,
+		"./ru.js": 283,
+		"./si": 284,
+		"./si.js": 284,
+		"./sk": 285,
+		"./sk.js": 285,
+		"./sl": 286,
+		"./sl.js": 286,
+		"./sq": 287,
+		"./sq.js": 287,
+		"./sr": 288,
+		"./sr-cyrl": 289,
+		"./sr-cyrl.js": 289,
+		"./sr.js": 288,
+		"./sv": 290,
+		"./sv.js": 290,
+		"./ta": 291,
+		"./ta.js": 291,
+		"./th": 292,
+		"./th.js": 292,
+		"./tl-ph": 293,
+		"./tl-ph.js": 293,
+		"./tr": 294,
+		"./tr.js": 294,
+		"./tzl": 295,
+		"./tzl.js": 295,
+		"./tzm": 296,
+		"./tzm-latn": 297,
+		"./tzm-latn.js": 297,
+		"./tzm.js": 296,
+		"./uk": 298,
+		"./uk.js": 298,
+		"./uz": 299,
+		"./uz.js": 299,
+		"./vi": 300,
+		"./vi.js": 300,
+		"./zh-cn": 301,
+		"./zh-cn.js": 301,
+		"./zh-tw": 302,
+		"./zh-tw.js": 302
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -29412,11 +29839,11 @@ module.exports =
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 211;
+	webpackContext.id = 217;
 
 
 /***/ },
-/* 212 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -29424,7 +29851,7 @@ module.exports =
 	//! author : Werner Mollentze : https://github.com/wernerm
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -29493,7 +29920,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 213 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -29503,7 +29930,7 @@ module.exports =
 	//! Native plural forms: forabi https://github.com/forabi
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -29633,7 +30060,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 214 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -29642,7 +30069,7 @@ module.exports =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -29696,7 +30123,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 215 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -29704,7 +30131,7 @@ module.exports =
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -29803,14 +30230,14 @@ module.exports =
 	}));
 
 /***/ },
-/* 216 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale  : Tunisian Arabic (ar-tn)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -29864,7 +30291,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 217 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -29872,7 +30299,7 @@ module.exports =
 	//! author : topchiyev : https://github.com/topchiyev
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -29972,7 +30399,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 218 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -29982,7 +30409,7 @@ module.exports =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30123,7 +30550,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 219 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30131,7 +30558,7 @@ module.exports =
 	//! author : Krasen Borisov : https://github.com/kraz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30217,7 +30644,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 220 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30225,7 +30652,7 @@ module.exports =
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30334,7 +30761,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 221 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30342,7 +30769,7 @@ module.exports =
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30448,7 +30875,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 222 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30456,7 +30883,7 @@ module.exports =
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30559,7 +30986,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 223 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30568,7 +30995,7 @@ module.exports =
 	//! based on (hr) translation by Bojan Marković
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30704,7 +31131,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 224 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30712,7 +31139,7 @@ module.exports =
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30787,7 +31214,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 225 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30795,7 +31222,7 @@ module.exports =
 	//! author : petrbela : https://github.com/petrbela
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -30948,7 +31375,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 226 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -30956,7 +31383,7 @@ module.exports =
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31015,7 +31442,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 227 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31023,7 +31450,7 @@ module.exports =
 	//! author : Robert Allen
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31098,7 +31525,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 228 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31106,7 +31533,7 @@ module.exports =
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31162,7 +31589,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 229 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31171,7 +31598,7 @@ module.exports =
 	//! author: Menelion Elensúle: https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31241,7 +31668,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 230 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31251,7 +31678,7 @@ module.exports =
 	//! author : Martin Groller : https://github.com/MadMG
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31321,7 +31748,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 231 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31329,7 +31756,7 @@ module.exports =
 	//! author : Aggelos Karalias : https://github.com/mehiel
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31419,14 +31846,14 @@ module.exports =
 	}));
 
 /***/ },
-/* 232 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : australian english (en-au)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31489,7 +31916,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 233 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31497,7 +31924,7 @@ module.exports =
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31556,7 +31983,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 234 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31564,7 +31991,7 @@ module.exports =
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31627,7 +32054,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 235 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31637,7 +32064,7 @@ module.exports =
 	//!          Se ne, bonvolu korekti kaj avizi min por ke mi povas lerni!
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31704,7 +32131,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 236 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31712,7 +32139,7 @@ module.exports =
 	//! author : Julio Napurí : https://github.com/julionc
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31787,7 +32214,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 237 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31796,7 +32223,7 @@ module.exports =
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31871,7 +32298,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 238 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31879,7 +32306,7 @@ module.exports =
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -31939,7 +32366,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 239 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -31947,7 +32374,7 @@ module.exports =
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32048,7 +32475,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 240 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32056,7 +32483,7 @@ module.exports =
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32159,7 +32586,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 241 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32167,7 +32594,7 @@ module.exports =
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32223,7 +32650,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 242 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32231,7 +32658,7 @@ module.exports =
 	//! author : John Fischer : https://github.com/jfroffice
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32289,7 +32716,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 243 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32297,7 +32724,7 @@ module.exports =
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32351,7 +32778,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 244 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32359,7 +32786,7 @@ module.exports =
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32426,7 +32853,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 245 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32434,7 +32861,7 @@ module.exports =
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32505,7 +32932,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 246 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32515,7 +32942,7 @@ module.exports =
 	//! author : Tal Ater : https://github.com/TalAter
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32591,7 +33018,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 247 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32599,7 +33026,7 @@ module.exports =
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32718,7 +33145,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 248 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32726,7 +33153,7 @@ module.exports =
 	//! author : Bojan Marković : https://github.com/bmarkovic
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32862,7 +33289,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 249 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32870,7 +33297,7 @@ module.exports =
 	//! author : Adam Brunner : https://github.com/adambrunner
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -32975,7 +33402,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 250 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -32983,7 +33410,7 @@ module.exports =
 	//! author : Armendarabyan : https://github.com/armendarabyan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33090,7 +33517,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 251 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33099,7 +33526,7 @@ module.exports =
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33177,7 +33604,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 252 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33185,7 +33612,7 @@ module.exports =
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33308,7 +33735,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 253 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33317,7 +33744,7 @@ module.exports =
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33382,7 +33809,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 254 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33390,7 +33817,7 @@ module.exports =
 	//! author : LI Long : https://github.com/baryon
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33451,7 +33878,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 255 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33460,7 +33887,7 @@ module.exports =
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33538,7 +33965,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 256 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33546,7 +33973,7 @@ module.exports =
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33645,7 +34072,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 257 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33653,7 +34080,7 @@ module.exports =
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33707,7 +34134,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 258 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33719,7 +34146,7 @@ module.exports =
 	//! - Jeeeyul Lee <jeeeyul@gmail.com>
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33779,7 +34206,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 259 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33787,7 +34214,7 @@ module.exports =
 	//! author : mweimerskirch : https://github.com/mweimerskirch, David Raison : https://github.com/kwisatz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -33917,7 +34344,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 260 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -33925,7 +34352,7 @@ module.exports =
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34046,7 +34473,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 261 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34055,7 +34482,7 @@ module.exports =
 	//! author : Jānis Elmeris : https://github.com/JanisE
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34146,7 +34573,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 262 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34154,7 +34581,7 @@ module.exports =
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34259,7 +34686,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 263 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34267,7 +34694,7 @@ module.exports =
 	//! author : Borislav Mickov : https://github.com/B0k0
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34353,7 +34780,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 264 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34361,7 +34788,7 @@ module.exports =
 	//! author : Floyd Pink : https://github.com/floydpink
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34428,7 +34855,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 265 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34436,7 +34863,7 @@ module.exports =
 	//! author : Harshad Kale : https://github.com/kalehv
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34553,7 +34980,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 266 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34561,7 +34988,7 @@ module.exports =
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34639,7 +35066,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 267 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34647,7 +35074,7 @@ module.exports =
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34725,7 +35152,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 268 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34733,7 +35160,7 @@ module.exports =
 	//! author : Squar team, mysquar.com
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34822,7 +35249,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 269 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34831,7 +35258,7 @@ module.exports =
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -34887,7 +35314,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 270 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -34895,7 +35322,7 @@ module.exports =
 	//! author : suvash : https://github.com/suvash
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35014,7 +35441,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 271 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35022,7 +35449,7 @@ module.exports =
 	//! author : Joris Röling : https://github.com/jjupiter
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35089,7 +35516,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 272 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35097,7 +35524,7 @@ module.exports =
 	//! author : https://github.com/mechuwind
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35153,7 +35580,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 273 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35161,7 +35588,7 @@ module.exports =
 	//! author : Rafal Hirsz : https://github.com/evoL
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35262,7 +35689,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 274 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35270,7 +35697,7 @@ module.exports =
 	//! author : Jefferson : https://github.com/jalex79
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35330,7 +35757,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 275 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35338,7 +35765,7 @@ module.exports =
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35394,7 +35821,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 276 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35403,7 +35830,7 @@ module.exports =
 	//! author : Valentin Agachi : https://github.com/avaly
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35472,7 +35899,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 277 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35481,7 +35908,7 @@ module.exports =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35640,7 +36067,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 278 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35648,7 +36075,7 @@ module.exports =
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35709,7 +36136,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 279 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35718,7 +36145,7 @@ module.exports =
 	//! based on work of petrbela : https://github.com/petrbela
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -35871,7 +36298,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 280 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -35879,7 +36306,7 @@ module.exports =
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36035,7 +36462,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 281 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36045,7 +36472,7 @@ module.exports =
 	//! author : Oerd Cukalla : https://github.com/oerd (fixes)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36108,7 +36535,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 282 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36116,7 +36543,7 @@ module.exports =
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36220,7 +36647,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 283 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36228,7 +36655,7 @@ module.exports =
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36332,7 +36759,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 284 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36340,7 +36767,7 @@ module.exports =
 	//! author : Jens Alm : https://github.com/ulmus
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36403,7 +36830,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 285 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36411,7 +36838,7 @@ module.exports =
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36502,7 +36929,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 286 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36510,7 +36937,7 @@ module.exports =
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36571,7 +36998,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 287 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36579,7 +37006,7 @@ module.exports =
 	//! author : Dan Hagman
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36637,7 +37064,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 288 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36646,7 +37073,7 @@ module.exports =
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36731,7 +37158,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 289 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36739,7 +37166,7 @@ module.exports =
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v with the help of Iustì Canun
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36820,7 +37247,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 290 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36828,7 +37255,7 @@ module.exports =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36882,7 +37309,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 291 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36890,7 +37317,7 @@ module.exports =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -36944,7 +37371,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 292 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -36953,7 +37380,7 @@ module.exports =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -37101,7 +37528,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 293 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -37109,7 +37536,7 @@ module.exports =
 	//! author : Sardor Muminov : https://github.com/muminoff
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -37163,7 +37590,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 294 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -37171,7 +37598,7 @@ module.exports =
 	//! author : Bang Nguyen : https://github.com/bangnk
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -37233,7 +37660,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 295 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -37242,7 +37669,7 @@ module.exports =
 	//! author : Zeno Zeng : https://github.com/zenozeng
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -37364,7 +37791,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 296 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -37372,7 +37799,7 @@ module.exports =
 	//! author : Ben : https://github.com/ben-lin
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(209)) :
+	    true ? factory(__webpack_require__(215)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -37469,7 +37896,7 @@ module.exports =
 	}));
 
 /***/ },
-/* 297 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -37478,7 +37905,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Carousel = __webpack_require__(298);
+	var Carousel = __webpack_require__(304);
 	var Box = __webpack_require__(99);
 
 	var TileDoc = React.createClass({
@@ -37642,7 +38069,7 @@ module.exports =
 	module.exports = TileDoc;
 
 /***/ },
-/* 298 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -37653,8 +38080,8 @@ module.exports =
 	var Box = __webpack_require__(99);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
-	var Previous = __webpack_require__(299);
-	var Next = __webpack_require__(300);
+	var Previous = __webpack_require__(305);
+	var Next = __webpack_require__(306);
 
 	var CLASS_ROOT = "carousel";
 
@@ -37862,7 +38289,7 @@ module.exports =
 	module.exports = Carousel;
 
 /***/ },
-/* 299 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -37927,7 +38354,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 300 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -37992,7 +38419,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 301 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -38000,9 +38427,9 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(203)['default'];
+	var jsxToString = __webpack_require__(209)['default'];
 	var DocsArticle = __webpack_require__(133);
-	var Chart = __webpack_require__(302);
+	var Chart = __webpack_require__(308);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
 
@@ -38461,7 +38888,7 @@ module.exports =
 	module.exports = ChartDoc;
 
 /***/ },
-/* 302 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -39001,6 +39428,10 @@ module.exports =
 	          classes.push(CLASS_ROOT + "__values-bar--active");
 	        }
 
+	        if ('bottom' === bounds.xAxis.placement) {
+	          stepBarBase += XAXIS_HEIGHT;
+	        }
+
 	        return React.createElement('rect', { key: 'bar_rect_' + item.label || seriesIndex,
 	          className: classes.join(' '),
 	          x: this._translateX(value[0]) + bounds.barPadding,
@@ -39410,7 +39841,7 @@ module.exports =
 	module.exports = Chart;
 
 /***/ },
-/* 303 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -39701,7 +40132,7 @@ module.exports =
 	module.exports = CheckBoxDoc;
 
 /***/ },
-/* 304 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -39712,11 +40143,11 @@ module.exports =
 	var DocsArticle = __webpack_require__(133);
 	var Title = __webpack_require__(116);
 	var Header = __webpack_require__(115);
-	var Search = __webpack_require__(172);
-	var Gravatar = __webpack_require__(175);
+	var Search = __webpack_require__(178);
+	var Gravatar = __webpack_require__(181);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
-	var Chart = __webpack_require__(302);
+	var Chart = __webpack_require__(308);
 	var Meter = __webpack_require__(170);
 
 	var dateSeries = [{ label: 'first', values: [[new Date(Date.parse("2015-05-22")), 4], [new Date(Date.parse("2015-05-21")), 2], [new Date(Date.parse("2015-05-20")), 3], [new Date(Date.parse("2015-05-19")), 3], [new Date(Date.parse("2015-05-18")), 2]], colorIndex: "graph-4" }];
@@ -39831,7 +40262,7 @@ module.exports =
 	module.exports = DashboardDoc;
 
 /***/ },
-/* 305 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -39839,9 +40270,9 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(306);
+	var stringify = __webpack_require__(312);
 	var DocsArticle = __webpack_require__(133);
-	var Distribution = __webpack_require__(307);
+	var Distribution = __webpack_require__(313);
 
 	var inline = "<Distribution series={[...]} />";
 
@@ -40183,323 +40614,382 @@ module.exports =
 	module.exports = DistributionDoc;
 
 /***/ },
-/* 306 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = require("json-stringify-pretty-compact");
 
 /***/ },
-/* 307 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var Legend = __webpack_require__(171);
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Legend = __webpack_require__(171);
+
+	var _Legend2 = _interopRequireDefault(_Legend);
 
 	var CLASS_ROOT = "distribution";
 
 	var DEFAULT_WIDTH = 400;
 	var DEFAULT_HEIGHT = 200;
 
-	var Distribution = React.createClass({
-	  displayName: 'Distribution',
+	var SMALL_HEIGHT = 120;
+	var THIN_HEIGHT = 72;
 
-	  propTypes: {
-	    large: React.PropTypes.bool,
-	    legend: React.PropTypes.bool,
-	    legendTotal: React.PropTypes.bool,
-	    series: React.PropTypes.arrayOf(React.PropTypes.shape({
-	      label: React.PropTypes.string,
-	      value: React.PropTypes.number.isRequired,
-	      colorIndex: React.PropTypes.string,
-	      important: React.PropTypes.bool,
-	      onClick: React.PropTypes.func,
-	      icon: React.PropTypes.shape({
-	        width: React.PropTypes.number,
-	        height: React.PropTypes.number,
-	        svgElement: React.PropTypes.node
-	      })
-	    })),
-	    size: React.PropTypes.oneOf(['small', 'medium', 'large']),
-	    small: React.PropTypes.bool,
-	    units: React.PropTypes.string,
-	    vertical: React.PropTypes.bool
-	  },
+	var Distribution = (function (_Component) {
+	  _inherits(Distribution, _Component);
 
-	  getInitialState: function getInitialState() {
-	    var state = this._stateFromProps(this.props);
-	    state.legendPosition = 'bottom';
-	    state.width = DEFAULT_WIDTH;
-	    state.height = DEFAULT_HEIGHT;
-	    return state;
-	  },
+	  function Distribution(props) {
+	    _classCallCheck(this, Distribution);
 
-	  componentDidMount: function componentDidMount() {
-	    this._initialTimer = setTimeout(this._initialTimeout, 10);
-	    window.addEventListener('resize', this._onResize);
-	    this._onResize();
-	  },
+	    _get(Object.getPrototypeOf(Distribution.prototype), 'constructor', this).call(this);
 
-	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
-	    var state = this._stateFromProps(newProps);
-	    state.width = this.state.width;
-	    state.height = this.state.height;
-	    this.setState(state);
-	    this._onResize();
-	  },
+	    this._onResize = this._onResize.bind(this);
+	    this._layout = this._layout.bind(this);
+	    // this._onActive = this._onActive.bind(this);
 
-	  componentWillUnmount: function componentWillUnmount() {
-	    clearTimeout(this._resizeTimer);
-	    window.removeEventListener('resize', this._onResize);
-	  },
-
-	  _onResize: function _onResize() {
-	    // debounce
-	    clearTimeout(this._resizeTimer);
-	    this._resizeTimer = setTimeout(this._layout, 50);
-	  },
-
-	  _layout: function _layout() {
-	    // legendPosition based on available window orientation
-	    var ratio = window.innerWidth / window.innerHeight;
-	    if (ratio < 0.8) {
-	      this.setState({ legendPosition: 'bottom' });
-	    } else if (ratio > 1.2) {
-	      this.setState({ legendPosition: 'right' });
-	    }
-
-	    var graphic = this.refs.graphic;
-	    var rect = graphic.getBoundingClientRect();
-	    if (rect.width !== this.state.width || rect.height !== this.state.height) {
-	      this.setState({
-	        width: rect.width,
-	        height: rect.height
-	      });
-	    }
-
-	    // adjust box label positions
-	    var container = this.refs.container;
-	    var labels = container.querySelectorAll('.distribution__label');
-	    for (var i = 0; i < labels.length; i += 1) {
-	      var label = labels[i];
-	      label.style.top = null;
-	      label.style.left = null;
-	      label.style.maxWidth = null;
-	      var boxIndex = label.getAttribute('data-box-index');
-	      var box = container.querySelectorAll('[data-index="' + boxIndex + '"]')[0];
-	      var boxRect = box.getBoundingClientRect();
-	      var labelRect = label.getBoundingClientRect();
-	      if (labelRect.width > boxRect.width) {
-	        label.style.left = boxRect.left - rect.left + 'px';
-	      } else {
-	        label.style.left = boxRect.left - rect.left + boxRect.width / 2 - labelRect.width / 2 + 'px';
-	      }
-	      label.style.maxWidth = boxRect.width + 'px';
-	      // have to set again after setting maxWidth in case text wraps and increases height
-	      labelRect = label.getBoundingClientRect();
-	      label.style.top = boxRect.top - rect.top + boxRect.height / 2 - labelRect.height / 2 + 'px';
-	    }
-	  },
-
-	  _seriesTotal: function _seriesTotal(series) {
-	    var total = 0;
-	    series.some(function (item) {
-	      total += item.value;
-	    });
-	    return total;
-	  },
-
-	  // Generates state based on the provided props.
-	  _stateFromProps: function _stateFromProps(props) {
-	    var total;
-	    if (props.series) {
-	      total = this._seriesTotal(props.series);
-	    } else {
-	      total = 100;
-	    }
-
-	    // normalize size
-	    var size = props.size || (props.small ? 'small' : props.large ? 'large' : null);
-
-	    var state = {
-	      total: total,
-	      size: size
-	    };
-
-	    return state;
-	  },
-
-	  _itemColorIndex: function _itemColorIndex(item, index) {
-	    return item.colorIndex || 'graph-' + (index + 1);
-	  },
-
-	  _renderLegend: function _renderLegend() {
-	    return React.createElement(Legend, { className: CLASS_ROOT + "__legend",
-	      series: this.props.series,
-	      units: this.props.units,
-	      activeIndex: this.state.activeIndex,
-	      onActive: this._onActive });
-	  },
-
-	  render: function render() {
-	    var classes = [CLASS_ROOT];
-	    classes.push(CLASS_ROOT + "--legend-" + this.state.legendPosition);
-	    if (this.state.size) {
-	      classes.push(CLASS_ROOT + "--" + this.state.size);
-	    }
-	    if (this.props.vertical) {
-	      classes.push(CLASS_ROOT + "--vertical");
-	    }
-	    if (!this.props.series || this.props.series.length === 0) {
-	      classes.push(CLASS_ROOT + "--loading");
-	    }
-	    if (this.props.className) {
-	      classes.push(this.props.className);
-	    }
-
-	    var legend = null;
-	    if (this.props.legend) {
-	      legend = this._renderLegend();
-	    }
-
-	    var boxes = [];
-	    var labels = [];
-	    if (this.props.series) {
-	      var areaPer = this.state.width * this.state.height / this.state.total;
-	      var origin = [0, 0];
-	      var across = false;
-	      boxes = this.props.series.filter(function (item) {
-	        return item.value > 0;
-	      }).map(function (item, index) {
-	        var boxClasses = [CLASS_ROOT + "__box"];
-	        var iconClasses = [CLASS_ROOT + "__icons"];
-	        var labelClasses = [CLASS_ROOT + "__label"];
-	        var colorIndex = this._itemColorIndex(item, index);
-	        boxClasses.push("color-index-" + colorIndex);
-	        iconClasses.push("color-index-" + colorIndex);
-	        var x = origin[0];
-	        var y = origin[1];
-	        var width, height;
-	        if (across) {
-	          width = this.state.width - x;
-	          height = areaPer * item.value / width;
-	          across = false;
-	          origin[1] += height;
-	        } else {
-	          height = this.state.height - y;
-	          width = areaPer * item.value / height;
-	          across = true;
-	          origin[0] += width;
-	        }
-
-	        var text = '' + item.value;
-	        if (this.props.units) {
-	          text += ' ' + this.props.units;
-	        }
-	        if (item.label) {
-	          text += ' ' + item.label;
-	        }
-
-	        var contents;
-	        if (item.icon) {
-	          labelClasses.push(CLASS_ROOT + "__label--icons");
-	          var icons = [];
-	          // fill box with icons
-	          var iconX = 0;
-	          var iconY = 0;
-	          var iconIndex = 1;
-	          while (iconY < height - item.icon.height) {
-	            while (iconX < width - item.icon.width) {
-	              icons.push(React.createElement(
-	                'g',
-	                { key: iconIndex,
-	                  transform: "translate(" + (x + iconX) + "," + (y + iconY) + ")" },
-	                item.icon.svgElement
-	              ));
-	              iconX += item.icon.width;
-	              iconIndex += 1;
-	            }
-	            iconY += item.icon.height;
-	            iconX = 0;
-	          }
-	          contents = React.createElement(
-	            'g',
-	            { className: iconClasses.join(' ') },
-	            icons
-	          );
-	        } else {
-	          contents = React.createElement('rect', { className: boxClasses.join(' '),
-	            x: x, y: y, width: width, height: height });
-	        }
-
-	        if (width < 144 || height < 144) {
-	          labelClasses.push(CLASS_ROOT + "__label--small");
-	        }
-
-	        labels.push(React.createElement(
-	          'div',
-	          { key: index, className: labelClasses.join(' '), 'data-box-index': index },
-	          React.createElement(
-	            'span',
-	            { className: CLASS_ROOT + "__label-value" },
-	            item.value,
-	            React.createElement(
-	              'span',
-	              { className: CLASS_ROOT + "__label-units" },
-	              this.props.units
-	            )
-	          ),
-	          React.createElement(
-	            'span',
-	            { className: CLASS_ROOT + "__label-label", y: 24 },
-	            item.label
-	          )
-	        ));
-
-	        return React.createElement(
-	          'g',
-	          { key: index, 'data-index': index, onClick: item.onClick },
-	          contents
-	        );
-	      }, this);
-	    }
-
-	    if (boxes.length === 0) {
-	      classes.push(CLASS_ROOT + "--loading");
-	      var loadingClasses = [CLASS_ROOT + "__loading-indicator"];
-	      loadingClasses.push("color-index-loading");
-	      var commands = "M0," + this.state.height / 2 + " L" + this.state.width + "," + this.state.height / 2;
-	      boxes.push(React.createElement(
-	        'g',
-	        { key: 'loading' },
-	        React.createElement('path', { stroke: 'none', className: loadingClasses.join(' '), d: commands })
-	      ));
-	    }
-
-	    return React.createElement(
-	      'div',
-	      { ref: 'container', className: classes.join(' ') },
-	      React.createElement(
-	        'svg',
-	        { ref: 'graphic', className: CLASS_ROOT + "__graphic",
-	          viewBox: "0 0 " + this.state.width + " " + this.state.height,
-	          preserveAspectRatio: 'none' },
-	        boxes
-	      ),
-	      labels,
-	      legend
-	    );
+	    this.state = this._stateFromProps(props);
+	    this.state.legendPosition = 'bottom';
+	    this.state.width = DEFAULT_WIDTH;
+	    this.state.height = DEFAULT_HEIGHT;
 	  }
 
-	});
+	  _createClass(Distribution, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this._initialTimer = setTimeout(this._initialTimeout, 10);
+	      window.addEventListener('resize', this._onResize);
+	      this._onResize();
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(newProps) {
+	      var state = this._stateFromProps(newProps);
+	      state.width = this.state.width;
+	      state.height = this.state.height;
+	      this.setState(state);
+	      this._onResize();
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      clearTimeout(this._resizeTimer);
+	      window.removeEventListener('resize', this._onResize);
+	    }
+	  }, {
+	    key: '_onResize',
+	    value: function _onResize() {
+	      // debounce
+	      clearTimeout(this._resizeTimer);
+	      this._resizeTimer = setTimeout(this._layout, 50);
+	    }
+	  }, {
+	    key: '_layout',
+	    value: function _layout() {
+	      // legendPosition based on available window orientation
+	      var ratio = window.innerWidth / window.innerHeight;
+	      if (ratio < 0.8) {
+	        this.setState({ legendPosition: 'bottom' });
+	      } else if (ratio > 1.2) {
+	        this.setState({ legendPosition: 'right' });
+	      }
+
+	      var graphic = this.refs.graphic;
+	      var rect = graphic.getBoundingClientRect();
+	      if (rect.width !== this.state.width || rect.height !== this.state.height) {
+	        this.setState({
+	          width: rect.width,
+	          height: rect.height
+	        });
+	      }
+
+	      // adjust box label positions
+	      var container = this.refs.container;
+	      var labels = container.querySelectorAll('.distribution__label');
+	      for (var i = 0; i < labels.length; i += 1) {
+	        var label = labels[i];
+	        label.style.top = null;
+	        label.style.left = null;
+	        label.style.maxWidth = null;
+	        var boxIndex = label.getAttribute('data-box-index');
+	        var box = container.querySelectorAll('[data-index="' + boxIndex + '"]')[0];
+	        var boxRect = box.getBoundingClientRect();
+	        // var labelRect = label.getBoundingClientRect();
+	        label.style.left = boxRect.left - rect.left + 'px';
+	        label.style.top = boxRect.top - rect.top + 'px';
+	        // if (labelRect.width > boxRect.width) {
+	        //   label.style.left = (boxRect.left  - rect.left) + 'px';
+	        // } else {
+	        //   label.style.left = ((boxRect.left - rect.left) + (boxRect.width / 2) - (labelRect.width / 2)) + 'px';
+	        // }
+	        label.style.maxWidth = boxRect.width + 'px';
+	        label.style.maxHeight = boxRect.height + 'px';
+	        // have to set again after setting maxWidth in case text wraps and increases height
+	        // labelRect = label.getBoundingClientRect();
+	        // label.style.top = ((boxRect.top - rect.top) + (boxRect.height / 2) - (labelRect.height / 2)) + 'px';
+	      }
+	    }
+	  }, {
+	    key: '_seriesTotal',
+	    value: function _seriesTotal(series) {
+	      var total = 0;
+	      series.some(function (item) {
+	        total += item.value;
+	      });
+	      return total;
+	    }
+
+	    // Generates state based on the provided props.
+	  }, {
+	    key: '_stateFromProps',
+	    value: function _stateFromProps(props) {
+	      var total;
+	      if (props.series) {
+	        total = this._seriesTotal(props.series);
+	      } else {
+	        total = 100;
+	      }
+
+	      // normalize size
+	      var size = props.size || (props.small ? 'small' : props.large ? 'large' : null);
+
+	      var state = {
+	        total: total,
+	        size: size
+	      };
+
+	      return state;
+	    }
+	  }, {
+	    key: '_itemColorIndex',
+	    value: function _itemColorIndex(item, index) {
+	      return item.colorIndex || 'graph-' + (index + 1);
+	    }
+	  }, {
+	    key: '_renderLegend',
+	    value: function _renderLegend() {
+	      return _react2['default'].createElement(_Legend2['default'], { className: CLASS_ROOT + "__legend",
+	        series: this.props.series,
+	        units: this.props.units,
+	        activeIndex: this.state.activeIndex,
+	        onActive: this._onActive });
+	    }
+	  }, {
+	    key: '_renderItem',
+	    value: function _renderItem(item, index, placement, labels) {
+	      var boxClasses = [CLASS_ROOT + "__box"];
+	      var iconClasses = [CLASS_ROOT + "__icons"];
+	      var labelClasses = [CLASS_ROOT + "__label"];
+	      var colorIndex = this._itemColorIndex(item, index);
+	      boxClasses.push("color-index-" + colorIndex);
+	      iconClasses.push("color-index-" + colorIndex);
+	      var x = placement.origin[0];
+	      var y = placement.origin[1];
+	      var width, height;
+	      if (placement.across) {
+	        width = this.state.width - x;
+	        height = placement.areaPer * item.value / width;
+	        placement.across = false;
+	        placement.origin[1] += height;
+	      } else {
+	        height = this.state.height - y;
+	        width = placement.areaPer * item.value / height;
+	        placement.across = true;
+	        placement.origin[0] += width;
+	      }
+
+	      var text = '' + item.value;
+	      if (this.props.units) {
+	        text += ' ' + this.props.units;
+	      }
+	      if (item.label) {
+	        text += ' ' + item.label;
+	      }
+
+	      var contents;
+	      if (item.icon) {
+	        placement.icons = true;
+	        labelClasses.push(CLASS_ROOT + "__label--icons");
+	        var icons = [];
+	        // fill box with icons
+	        var iconX = 0;
+	        var iconY = 0;
+	        var iconIndex = 1;
+	        while (iconY < height - item.icon.height) {
+	          while (iconX < width - item.icon.width) {
+	            icons.push(_react2['default'].createElement(
+	              'g',
+	              { key: iconIndex,
+	                transform: "translate(" + (x + iconX) + "," + (y + iconY) + ")" },
+	              item.icon.svgElement
+	            ));
+	            iconX += item.icon.width;
+	            iconIndex += 1;
+	          }
+	          iconY += item.icon.height;
+	          iconX = 0;
+	        }
+	        contents = _react2['default'].createElement(
+	          'g',
+	          { className: iconClasses.join(' ') },
+	          icons
+	        );
+	      } else {
+	        contents = _react2['default'].createElement('rect', { className: boxClasses.join(' '),
+	          x: x, y: y, width: width, height: height });
+	      }
+
+	      if (width < SMALL_HEIGHT || height < SMALL_HEIGHT) {
+	        labelClasses.push(CLASS_ROOT + "__label--small");
+	      }
+
+	      if (height < THIN_HEIGHT) {
+	        labelClasses.push(CLASS_ROOT + "__label--thin");
+	      }
+
+	      labels.push(_react2['default'].createElement(
+	        'div',
+	        { key: index, className: labelClasses.join(' '), 'data-box-index': index },
+	        _react2['default'].createElement(
+	          'span',
+	          { className: CLASS_ROOT + "__label-value" },
+	          item.value,
+	          _react2['default'].createElement(
+	            'span',
+	            { className: CLASS_ROOT + "__label-units" },
+	            this.props.units
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'span',
+	          { className: CLASS_ROOT + "__label-label" },
+	          item.label
+	        )
+	      ));
+
+	      return _react2['default'].createElement(
+	        'g',
+	        { key: index, 'data-index': index, onClick: item.onClick },
+	        contents
+	      );
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var classes = [CLASS_ROOT];
+	      classes.push(CLASS_ROOT + "--legend-" + this.state.legendPosition);
+	      if (this.state.size) {
+	        classes.push(CLASS_ROOT + "--" + this.state.size);
+	      }
+	      if (this.props.vertical) {
+	        classes.push(CLASS_ROOT + "--vertical");
+	      }
+	      if (!this.props.series || this.props.series.length === 0) {
+	        classes.push(CLASS_ROOT + "--loading");
+	      }
+	      if (this.props.className) {
+	        classes.push(this.props.className);
+	      }
+
+	      var legend = null;
+	      if (this.props.legend) {
+	        legend = this._renderLegend();
+	      }
+
+	      var boxes = [];
+	      var labels = [];
+	      if (this.props.series) {
+	        var placement = {
+	          areaPer: this.state.width * this.state.height / this.state.total,
+	          origin: [0, 0],
+	          across: false,
+	          icons: false
+	        };
+	        boxes = this.props.series.filter(function (item) {
+	          return item.value > 0;
+	        }).map(function (item, index) {
+	          return this._renderItem(item, index, placement, labels);
+	        }, this);
+
+	        if (placement.icons) {
+	          classes.push(CLASS_ROOT + "--icons");
+	        }
+	      }
+
+	      if (boxes.length === 0) {
+	        classes.push(CLASS_ROOT + "--loading");
+	        var loadingClasses = [CLASS_ROOT + "__loading-indicator"];
+	        loadingClasses.push("color-index-loading");
+	        var commands = "M0," + this.state.height / 2 + " L" + this.state.width + "," + this.state.height / 2;
+	        boxes.push(_react2['default'].createElement(
+	          'g',
+	          { key: 'loading' },
+	          _react2['default'].createElement('path', { stroke: 'none', className: loadingClasses.join(' '), d: commands })
+	        ));
+	      }
+
+	      return _react2['default'].createElement(
+	        'div',
+	        { ref: 'container', className: classes.join(' ') },
+	        _react2['default'].createElement(
+	          'svg',
+	          { ref: 'graphic', className: CLASS_ROOT + "__graphic",
+	            viewBox: "0 0 " + this.state.width + " " + this.state.height,
+	            preserveAspectRatio: 'none' },
+	          boxes
+	        ),
+	        labels,
+	        legend
+	      );
+	    }
+	  }]);
+
+	  return Distribution;
+	})(_react.Component);
+
+	Distribution.propTypes = {
+	  large: _react.PropTypes.bool,
+	  legend: _react.PropTypes.bool,
+	  legendTotal: _react.PropTypes.bool,
+	  series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	    label: _react.PropTypes.string,
+	    value: _react.PropTypes.number.isRequired,
+	    colorIndex: _react.PropTypes.string,
+	    important: _react.PropTypes.bool,
+	    onClick: _react.PropTypes.func,
+	    icon: _react.PropTypes.shape({
+	      width: _react.PropTypes.number,
+	      height: _react.PropTypes.number,
+	      svgElement: _react.PropTypes.node
+	    })
+	  })),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  small: _react.PropTypes.bool,
+	  units: _react.PropTypes.string,
+	  vertical: _react.PropTypes.bool
+	};
 
 	module.exports = Distribution;
 
 /***/ },
-/* 308 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -40507,7 +40997,7 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(203)['default'];
+	var jsxToString = __webpack_require__(209)['default'];
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(133);
 	var Footer = __webpack_require__(118);
@@ -40675,7 +41165,7 @@ module.exports =
 	module.exports = FooterDoc;
 
 /***/ },
-/* 309 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -40684,9 +41174,9 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var FullForm = __webpack_require__(310);
-	var AddUserForm = __webpack_require__(314);
-	var ConfirmationForm = __webpack_require__(316);
+	var FullForm = __webpack_require__(316);
+	var AddUserForm = __webpack_require__(320);
+	var ConfirmationForm = __webpack_require__(322);
 
 	var FormDoc = React.createClass({
 	  displayName: 'FormDoc',
@@ -40852,7 +41342,7 @@ module.exports =
 	module.exports = FormDoc;
 
 /***/ },
-/* 310 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -40861,17 +41351,17 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Form = __webpack_require__(167);
-	var FormFields = __webpack_require__(311);
+	var FormFields = __webpack_require__(317);
 	var FormField = __webpack_require__(168);
 	var Header = __webpack_require__(115);
 	var Menu = __webpack_require__(90);
 	var CheckBox = __webpack_require__(169);
-	var RadioButton = __webpack_require__(312);
-	var SearchInput = __webpack_require__(313);
-	var Table = __webpack_require__(192);
+	var RadioButton = __webpack_require__(318);
+	var SearchInput = __webpack_require__(319);
+	var Table = __webpack_require__(198);
 	var Footer = __webpack_require__(118);
 	var Button = __webpack_require__(89);
-	var Calendar = __webpack_require__(208);
+	var Calendar = __webpack_require__(214);
 
 	var FullForm = React.createClass({
 	  displayName: 'FullForm',
@@ -41129,7 +41619,7 @@ module.exports =
 	module.exports = FullForm;
 
 /***/ },
-/* 311 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41158,7 +41648,7 @@ module.exports =
 	module.exports = FormFields;
 
 /***/ },
-/* 312 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41215,7 +41705,7 @@ module.exports =
 	module.exports = RadioButton;
 
 /***/ },
-/* 313 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
@@ -41226,7 +41716,7 @@ module.exports =
 	var ReactDOM = __webpack_require__(44);
 	var KeyboardAccelerators = __webpack_require__(87);
 	var Drop = __webpack_require__(97);
-	var SearchIcon = __webpack_require__(173);
+	var SearchIcon = __webpack_require__(179);
 
 	var CLASS_ROOT = "search-input";
 
@@ -41426,7 +41916,7 @@ module.exports =
 	module.exports = SearchInput;
 
 /***/ },
-/* 314 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41435,15 +41925,15 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Form = __webpack_require__(167);
-	var FormFields = __webpack_require__(311);
+	var FormFields = __webpack_require__(317);
 	var FormField = __webpack_require__(168);
 	var Header = __webpack_require__(115);
 	var Menu = __webpack_require__(90);
 	var CheckBox = __webpack_require__(169);
-	var RadioButton = __webpack_require__(312);
+	var RadioButton = __webpack_require__(318);
 	var Footer = __webpack_require__(118);
 	var Button = __webpack_require__(89);
-	var Validator = __webpack_require__(315);
+	var Validator = __webpack_require__(321);
 
 	var AddUserForm = React.createClass({
 	  displayName: 'AddUserForm',
@@ -41659,7 +42149,7 @@ module.exports =
 	module.exports = AddUserForm;
 
 /***/ },
-/* 315 */
+/* 321 */
 /***/ function(module, exports) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41698,7 +42188,7 @@ module.exports =
 	};
 
 /***/ },
-/* 316 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41707,7 +42197,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Form = __webpack_require__(167);
-	var FormFields = __webpack_require__(311);
+	var FormFields = __webpack_require__(317);
 	var FormField = __webpack_require__(168);
 	var Header = __webpack_require__(115);
 	var Menu = __webpack_require__(90);
@@ -41802,7 +42292,7 @@ module.exports =
 	module.exports = ConfirmationForm;
 
 /***/ },
-/* 317 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -41813,7 +42303,7 @@ module.exports =
 	var DocsArticle = __webpack_require__(133);
 	var FormField = __webpack_require__(168);
 	var CheckBox = __webpack_require__(169);
-	var RadioButton = __webpack_require__(312);
+	var RadioButton = __webpack_require__(318);
 
 	var FormFieldDoc = React.createClass({
 	  displayName: 'FormFieldDoc',
@@ -42019,7 +42509,7 @@ module.exports =
 	module.exports = FormFieldDoc;
 
 /***/ },
-/* 318 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42031,12 +42521,12 @@ module.exports =
 	var DocsArticle = __webpack_require__(133);
 	var Header = __webpack_require__(115);
 	var Menu = __webpack_require__(90);
-	var Search = __webpack_require__(172);
+	var Search = __webpack_require__(178);
 	var Title = __webpack_require__(116);
-	var ActionsLogo = __webpack_require__(319);
-	var NotificationIcon = __webpack_require__(320);
-	var UserSettingsIcon = __webpack_require__(321);
-	var Logo = __webpack_require__(174);
+	var ActionsLogo = __webpack_require__(325);
+	var NotificationIcon = __webpack_require__(326);
+	var UserSettingsIcon = __webpack_require__(327);
+	var Logo = __webpack_require__(180);
 
 	var HeaderDoc = React.createClass({
 	  displayName: 'HeaderDoc',
@@ -42662,7 +43152,7 @@ module.exports =
 	module.exports = HeaderDoc;
 
 /***/ },
-/* 319 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42727,7 +43217,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 320 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42792,7 +43282,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 321 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42857,7 +43347,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 322 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -42867,18 +43357,18 @@ module.exports =
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
 	var Header = __webpack_require__(115);
-	var SearchInput = __webpack_require__(313);
+	var SearchInput = __webpack_require__(319);
 	var Tiles = __webpack_require__(121);
 	var Tile = __webpack_require__(126);
-	var iconsMap = __webpack_require__(323);
+	var iconsMap = __webpack_require__(329);
 	var iconNames = Object.keys(iconsMap);
 
 	//hjjs configuration
-	var hljs = __webpack_require__(610);
-	hljs.registerLanguage('bash', __webpack_require__(611));
-	hljs.registerLanguage('xml', __webpack_require__(612));
-	hljs.registerLanguage('javascript', __webpack_require__(613));
-	hljs.registerLanguage('scss', __webpack_require__(614));
+	var hljs = __webpack_require__(616);
+	hljs.registerLanguage('bash', __webpack_require__(617));
+	hljs.registerLanguage('xml', __webpack_require__(618));
+	hljs.registerLanguage('javascript', __webpack_require__(619));
+	hljs.registerLanguage('scss', __webpack_require__(620));
 
 	var IconDoc = React.createClass({
 	  displayName: 'IconDoc',
@@ -43107,15 +43597,15 @@ module.exports =
 	module.exports = IconDoc;
 
 /***/ },
-/* 323 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = { "achievement": __webpack_require__(324), "action": __webpack_require__(325), "actions": __webpack_require__(319), "add": __webpack_require__(138), "advanced-search": __webpack_require__(326), "aggregate": __webpack_require__(327), "alarm": __webpack_require__(328), "alert": __webpack_require__(329), "analytics": __webpack_require__(330), "announcement": __webpack_require__(331), "app": __webpack_require__(332), "archive": __webpack_require__(333), "article": __webpack_require__(334), "ascend": __webpack_require__(335), "assistant": __webpack_require__(336), "attachment": __webpack_require__(337), "bar-chart": __webpack_require__(338), "blog": __webpack_require__(339), "book": __webpack_require__(340), "bookmark": __webpack_require__(341), "bundle": __webpack_require__(342), "calculator": __webpack_require__(343), "calendar": __webpack_require__(145), "camera": __webpack_require__(344), "capacity": __webpack_require__(345), "caret-down": __webpack_require__(346), "caret-next": __webpack_require__(347), "caret-previous": __webpack_require__(348), "caret-up": __webpack_require__(349), "catalog": __webpack_require__(350), "chapter-add": __webpack_require__(351), "chapter-next": __webpack_require__(352), "chapter-previous": __webpack_require__(353), "chat": __webpack_require__(354), "checkbox-selected": __webpack_require__(355), "checkbox": __webpack_require__(356), "checkmark": __webpack_require__(357), "circular-view": __webpack_require__(358), "clipboard": __webpack_require__(359), "clone": __webpack_require__(360), "close": __webpack_require__(86), "cloud-computer": __webpack_require__(361), "cloud-download": __webpack_require__(362), "cloud-software": __webpack_require__(363), "cloud-upload": __webpack_require__(364), "cloud": __webpack_require__(365), "cluster": __webpack_require__(366), "code": __webpack_require__(367), "command-line": __webpack_require__(368), "compare": __webpack_require__(369), "compasss": __webpack_require__(370), "compliance": __webpack_require__(371), "computer-personal": __webpack_require__(372), "configuration": __webpack_require__(373), "connect": __webpack_require__(374), "contact-card": __webpack_require__(375), "contact-us": __webpack_require__(376), "contract": __webpack_require__(377), "copy": __webpack_require__(378), "cube": __webpack_require__(379), "cubes": __webpack_require__(380), "cursor": __webpack_require__(381), "cut": __webpack_require__(382), "cycle": __webpack_require__(383), "dashboard": __webpack_require__(384), "database": __webpack_require__(385), "defect": __webpack_require__(386), "deliver": __webpack_require__(387), "deployment": __webpack_require__(388), "descend": __webpack_require__(389), "desktop": __webpack_require__(390), "detach": __webpack_require__(391), "directions": __webpack_require__(392), "dislike": __webpack_require__(393), "divide-four": __webpack_require__(394), "divide-right": __webpack_require__(395), "divide-three": __webpack_require__(396), "divide": __webpack_require__(397), "document-cloud": __webpack_require__(398), "document-compress": __webpack_require__(399), "document-conig": __webpack_require__(400), "document-csv": __webpack_require__(401), "document-data": __webpack_require__(402), "document-download": __webpack_require__(403), "document-excel": __webpack_require__(404), "document-executable": __webpack_require__(405), "document-image": __webpack_require__(406), "document-locked": __webpack_require__(407), "document-missing": __webpack_require__(408), "document-notes": __webpack_require__(409), "document-outlook": __webpack_require__(410), "document-pdf": __webpack_require__(411), "document-performance": __webpack_require__(412), "document-powerpoint": __webpack_require__(413), "document-rtf": __webpack_require__(414), "document-sound": __webpack_require__(415), "document-test": __webpack_require__(416), "document-text": __webpack_require__(417), "document-threat": __webpack_require__(418), "document-time": __webpack_require__(419), "document-transfer": __webpack_require__(420), "document-txt": __webpack_require__(421), "document-update": __webpack_require__(422), "document-upload": __webpack_require__(423), "document-user": __webpack_require__(424), "document-verified": __webpack_require__(425), "document-video": __webpack_require__(426), "document-word": __webpack_require__(427), "document": __webpack_require__(428), "domain": __webpack_require__(429), "down": __webpack_require__(142), "download": __webpack_require__(430), "drag": __webpack_require__(141), "drive-cage": __webpack_require__(431), "duplicate": __webpack_require__(432), "edit": __webpack_require__(139), "eject": __webpack_require__(433), "expand": __webpack_require__(434), "fan": __webpack_require__(435), "fast-forward": __webpack_require__(436), "favorite": __webpack_require__(437), "filter": __webpack_require__(143), "first-aid": __webpack_require__(438), "flag": __webpack_require__(439), "folder-cycle": __webpack_require__(440), "folder-open": __webpack_require__(441), "folder": __webpack_require__(442), "gallery": __webpack_require__(443), "globe": __webpack_require__(444), "grid": __webpack_require__(445), "group": __webpack_require__(446), "grow": __webpack_require__(447), "halt": __webpack_require__(448), "help": __webpack_require__(146), "history": __webpack_require__(449), "home": __webpack_require__(450), "host-maintenance": __webpack_require__(451), "host": __webpack_require__(452), "image": __webpack_require__(453), "impact": __webpack_require__(454), "in-progress": __webpack_require__(455), "inbox": __webpack_require__(456), "indicator": __webpack_require__(457), "information": __webpack_require__(458), "inherit": __webpack_require__(459), "install": __webpack_require__(460), "integration": __webpack_require__(461), "iteration": __webpack_require__(462), "java": __webpack_require__(463), "language": __webpack_require__(152), "launch": __webpack_require__(464), "license": __webpack_require__(465), "like": __webpack_require__(466), "line-chart": __webpack_require__(467), "link-bottom": __webpack_require__(468), "link-down": __webpack_require__(469), "link-next": __webpack_require__(148), "link-previous": __webpack_require__(147), "link-top": __webpack_require__(150), "link-up": __webpack_require__(149), "link": __webpack_require__(470), "location-pin": __webpack_require__(471), "location": __webpack_require__(472), "lock": __webpack_require__(473), "login": __webpack_require__(474), "logout": __webpack_require__(475), "mail": __webpack_require__(153), "manual": __webpack_require__(476), "map-location": __webpack_require__(477), "map": __webpack_require__(478), "menu": __webpack_require__(479), "microphone": __webpack_require__(480), "monitor": __webpack_require__(481), "more": __webpack_require__(140), "multiple": __webpack_require__(482), "navigate": __webpack_require__(483), "new-window": __webpack_require__(484), "new": __webpack_require__(485), "next": __webpack_require__(300), "notes": __webpack_require__(486), "notification": __webpack_require__(320), "optimization": __webpack_require__(487), "organization": __webpack_require__(488), "overview": __webpack_require__(489), "pan": __webpack_require__(490), "pause": __webpack_require__(491), "payment-google-wallet": __webpack_require__(492), "payment-mastercard": __webpack_require__(493), "payment-paypal": __webpack_require__(494), "payment-square": __webpack_require__(495), "payment-visa": __webpack_require__(496), "pin": __webpack_require__(497), "plan": __webpack_require__(498), "platform-apple": __webpack_require__(499), "platform-chrome": __webpack_require__(500), "platform-dropbox": __webpack_require__(501), "platform-edge": __webpack_require__(502), "platform-firefox": __webpack_require__(503), "platform-internet-explorer": __webpack_require__(504), "platform-skype": __webpack_require__(505), "platform-windows": __webpack_require__(506), "play": __webpack_require__(507), "power": __webpack_require__(508), "previous": __webpack_require__(299), "print": __webpack_require__(509), "quick-view": __webpack_require__(510), "radial-selected": __webpack_require__(511), "radial": __webpack_require__(512), "refresh": __webpack_require__(513), "resources": __webpack_require__(514), "rewind": __webpack_require__(515), "risk": __webpack_require__(516), "rss": __webpack_require__(517), "satellite": __webpack_require__(518), "schedule-clone": __webpack_require__(519), "schedule-new": __webpack_require__(520), "schedule-play": __webpack_require__(521), "schedule": __webpack_require__(522), "scorecard": __webpack_require__(523), "search": __webpack_require__(144), "secure": __webpack_require__(524), "select-left": __webpack_require__(525), "select": __webpack_require__(526), "server-cluster": __webpack_require__(527), "server": __webpack_require__(528), "servers": __webpack_require__(529), "service-business": __webpack_require__(530), "service-start": __webpack_require__(531), "share": __webpack_require__(532), "sheild-configure": __webpack_require__(533), "shield": __webpack_require__(534), "shift": __webpack_require__(535), "shop-basket": __webpack_require__(536), "shop-cart": __webpack_require__(537), "soa": __webpack_require__(538), "social-email": __webpack_require__(539), "social-facebook": __webpack_require__(156), "social-github": __webpack_require__(540), "social-google": __webpack_require__(541), "social-instagram": __webpack_require__(542), "social-linkedin": __webpack_require__(155), "social-medium": __webpack_require__(543), "social-pinterest": __webpack_require__(544), "social-reddit": __webpack_require__(545), "social-slack": __webpack_require__(546), "social-tumblr": __webpack_require__(547), "social-twitter": __webpack_require__(154), "social-vimeo": __webpack_require__(548), "social-youtube": __webpack_require__(549), "sort": __webpack_require__(550), "stakeholder": __webpack_require__(551), "star-half": __webpack_require__(552), "star": __webpack_require__(553), "steps": __webpack_require__(554), "storage": __webpack_require__(555), "street-view": __webpack_require__(556), "subtract": __webpack_require__(557), "support": __webpack_require__(558), "svg": __webpack_require__(559), "sync": __webpack_require__(560), "system": __webpack_require__(561), "tab-next": __webpack_require__(562), "tab-previous": __webpack_require__(563), "tab-up": __webpack_require__(564), "table-add": __webpack_require__(565), "table": __webpack_require__(566), "tag": __webpack_require__(567), "target": __webpack_require__(568), "task": __webpack_require__(569), "template": __webpack_require__(570), "test-desktop": __webpack_require__(571), "test": __webpack_require__(572), "tesxt-wrap": __webpack_require__(573), "threats": __webpack_require__(574), "three-d": __webpack_require__(575), "ticket": __webpack_require__(576), "tools": __webpack_require__(577), "tooltip": __webpack_require__(578), "transaction": __webpack_require__(579), "trash": __webpack_require__(580), "tree": __webpack_require__(581), "trigger": __webpack_require__(582), "trophy": __webpack_require__(583), "troubleshooting": __webpack_require__(584), "unlock": __webpack_require__(585), "up": __webpack_require__(586), "update": __webpack_require__(587), "upgrade": __webpack_require__(588), "upload": __webpack_require__(589), "user-add": __webpack_require__(590), "user-admin": __webpack_require__(591), "user-expert": __webpack_require__(592), "user-female": __webpack_require__(593), "user-manager": __webpack_require__(594), "user-new": __webpack_require__(595), "user-police": __webpack_require__(596), "user-settings": __webpack_require__(321), "user-worker": __webpack_require__(597), "user": __webpack_require__(151), "validation": __webpack_require__(598), "video": __webpack_require__(599), "view": __webpack_require__(600), "virtual-machine": __webpack_require__(601), "vm-maintenance": __webpack_require__(602), "volume-low": __webpack_require__(603), "volume-mute": __webpack_require__(604), "volume": __webpack_require__(605), "vulnerability": __webpack_require__(606), "waypoint": __webpack_require__(607), "workshop": __webpack_require__(608), "zoom-in": __webpack_require__(609) };
+	module.exports = { "achievement": __webpack_require__(330), "action": __webpack_require__(331), "actions": __webpack_require__(325), "add": __webpack_require__(138), "advanced-search": __webpack_require__(332), "aggregate": __webpack_require__(333), "alarm": __webpack_require__(334), "alert": __webpack_require__(335), "analytics": __webpack_require__(336), "announcement": __webpack_require__(337), "app": __webpack_require__(338), "archive": __webpack_require__(339), "article": __webpack_require__(340), "ascend": __webpack_require__(341), "assistant": __webpack_require__(342), "attachment": __webpack_require__(343), "bar-chart": __webpack_require__(344), "blog": __webpack_require__(345), "book": __webpack_require__(346), "bookmark": __webpack_require__(347), "bundle": __webpack_require__(348), "calculator": __webpack_require__(349), "calendar": __webpack_require__(145), "camera": __webpack_require__(350), "capacity": __webpack_require__(351), "caret-down": __webpack_require__(352), "caret-next": __webpack_require__(353), "caret-previous": __webpack_require__(354), "caret-up": __webpack_require__(355), "catalog": __webpack_require__(356), "chapter-add": __webpack_require__(357), "chapter-next": __webpack_require__(358), "chapter-previous": __webpack_require__(359), "chat": __webpack_require__(360), "checkbox-selected": __webpack_require__(361), "checkbox": __webpack_require__(362), "checkmark": __webpack_require__(363), "circular-view": __webpack_require__(364), "clipboard": __webpack_require__(365), "clone": __webpack_require__(366), "close": __webpack_require__(86), "cloud-computer": __webpack_require__(367), "cloud-download": __webpack_require__(368), "cloud-software": __webpack_require__(369), "cloud-upload": __webpack_require__(370), "cloud": __webpack_require__(371), "cluster": __webpack_require__(372), "code": __webpack_require__(373), "command-line": __webpack_require__(374), "compare": __webpack_require__(375), "compasss": __webpack_require__(376), "compliance": __webpack_require__(377), "computer-personal": __webpack_require__(378), "configuration": __webpack_require__(379), "connect": __webpack_require__(380), "contact-card": __webpack_require__(381), "contact-us": __webpack_require__(382), "contract": __webpack_require__(383), "copy": __webpack_require__(384), "cube": __webpack_require__(385), "cubes": __webpack_require__(386), "cursor": __webpack_require__(387), "cut": __webpack_require__(388), "cycle": __webpack_require__(389), "dashboard": __webpack_require__(390), "database": __webpack_require__(391), "defect": __webpack_require__(392), "deliver": __webpack_require__(393), "deployment": __webpack_require__(394), "descend": __webpack_require__(395), "desktop": __webpack_require__(396), "detach": __webpack_require__(397), "directions": __webpack_require__(398), "dislike": __webpack_require__(399), "divide-four": __webpack_require__(400), "divide-right": __webpack_require__(401), "divide-three": __webpack_require__(402), "divide": __webpack_require__(403), "document-cloud": __webpack_require__(404), "document-compress": __webpack_require__(405), "document-conig": __webpack_require__(406), "document-csv": __webpack_require__(407), "document-data": __webpack_require__(408), "document-download": __webpack_require__(409), "document-excel": __webpack_require__(410), "document-executable": __webpack_require__(411), "document-image": __webpack_require__(412), "document-locked": __webpack_require__(413), "document-missing": __webpack_require__(414), "document-notes": __webpack_require__(415), "document-outlook": __webpack_require__(416), "document-pdf": __webpack_require__(417), "document-performance": __webpack_require__(418), "document-powerpoint": __webpack_require__(419), "document-rtf": __webpack_require__(420), "document-sound": __webpack_require__(421), "document-test": __webpack_require__(422), "document-text": __webpack_require__(423), "document-threat": __webpack_require__(424), "document-time": __webpack_require__(425), "document-transfer": __webpack_require__(426), "document-txt": __webpack_require__(427), "document-update": __webpack_require__(428), "document-upload": __webpack_require__(429), "document-user": __webpack_require__(430), "document-verified": __webpack_require__(431), "document-video": __webpack_require__(432), "document-word": __webpack_require__(433), "document": __webpack_require__(434), "domain": __webpack_require__(435), "down": __webpack_require__(142), "download": __webpack_require__(436), "drag": __webpack_require__(141), "drive-cage": __webpack_require__(437), "duplicate": __webpack_require__(438), "edit": __webpack_require__(139), "eject": __webpack_require__(439), "expand": __webpack_require__(440), "fan": __webpack_require__(441), "fast-forward": __webpack_require__(442), "favorite": __webpack_require__(443), "filter": __webpack_require__(143), "first-aid": __webpack_require__(444), "flag": __webpack_require__(445), "folder-cycle": __webpack_require__(446), "folder-open": __webpack_require__(447), "folder": __webpack_require__(448), "gallery": __webpack_require__(449), "globe": __webpack_require__(450), "grid": __webpack_require__(451), "group": __webpack_require__(452), "grow": __webpack_require__(453), "halt": __webpack_require__(454), "help": __webpack_require__(146), "history": __webpack_require__(455), "home": __webpack_require__(456), "host-maintenance": __webpack_require__(457), "host": __webpack_require__(458), "image": __webpack_require__(459), "impact": __webpack_require__(460), "in-progress": __webpack_require__(461), "inbox": __webpack_require__(462), "indicator": __webpack_require__(463), "information": __webpack_require__(464), "inherit": __webpack_require__(465), "install": __webpack_require__(466), "integration": __webpack_require__(467), "iteration": __webpack_require__(468), "java": __webpack_require__(469), "language": __webpack_require__(152), "launch": __webpack_require__(470), "license": __webpack_require__(471), "like": __webpack_require__(472), "line-chart": __webpack_require__(473), "link-bottom": __webpack_require__(474), "link-down": __webpack_require__(475), "link-next": __webpack_require__(148), "link-previous": __webpack_require__(147), "link-top": __webpack_require__(150), "link-up": __webpack_require__(149), "link": __webpack_require__(476), "location-pin": __webpack_require__(477), "location": __webpack_require__(478), "lock": __webpack_require__(479), "login": __webpack_require__(480), "logout": __webpack_require__(481), "mail": __webpack_require__(153), "manual": __webpack_require__(482), "map-location": __webpack_require__(483), "map": __webpack_require__(484), "menu": __webpack_require__(485), "microphone": __webpack_require__(486), "monitor": __webpack_require__(487), "more": __webpack_require__(140), "multiple": __webpack_require__(488), "navigate": __webpack_require__(489), "new-window": __webpack_require__(490), "new": __webpack_require__(491), "next": __webpack_require__(306), "notes": __webpack_require__(492), "notification": __webpack_require__(326), "optimization": __webpack_require__(493), "organization": __webpack_require__(494), "overview": __webpack_require__(495), "pan": __webpack_require__(496), "pause": __webpack_require__(497), "payment-google-wallet": __webpack_require__(498), "payment-mastercard": __webpack_require__(499), "payment-paypal": __webpack_require__(500), "payment-square": __webpack_require__(501), "payment-visa": __webpack_require__(502), "pin": __webpack_require__(503), "plan": __webpack_require__(504), "platform-apple": __webpack_require__(505), "platform-chrome": __webpack_require__(506), "platform-dropbox": __webpack_require__(507), "platform-edge": __webpack_require__(508), "platform-firefox": __webpack_require__(509), "platform-internet-explorer": __webpack_require__(510), "platform-skype": __webpack_require__(511), "platform-windows": __webpack_require__(512), "play": __webpack_require__(513), "power": __webpack_require__(514), "previous": __webpack_require__(305), "print": __webpack_require__(515), "quick-view": __webpack_require__(516), "radial-selected": __webpack_require__(517), "radial": __webpack_require__(518), "refresh": __webpack_require__(519), "resources": __webpack_require__(520), "rewind": __webpack_require__(521), "risk": __webpack_require__(522), "rss": __webpack_require__(523), "satellite": __webpack_require__(524), "schedule-clone": __webpack_require__(525), "schedule-new": __webpack_require__(526), "schedule-play": __webpack_require__(527), "schedule": __webpack_require__(528), "scorecard": __webpack_require__(529), "search": __webpack_require__(144), "secure": __webpack_require__(530), "select-left": __webpack_require__(531), "select": __webpack_require__(532), "server-cluster": __webpack_require__(533), "server": __webpack_require__(534), "servers": __webpack_require__(535), "service-business": __webpack_require__(536), "service-start": __webpack_require__(537), "share": __webpack_require__(538), "sheild-configure": __webpack_require__(539), "shield": __webpack_require__(540), "shift": __webpack_require__(541), "shop-basket": __webpack_require__(542), "shop-cart": __webpack_require__(543), "soa": __webpack_require__(544), "social-email": __webpack_require__(545), "social-facebook": __webpack_require__(156), "social-github": __webpack_require__(546), "social-google": __webpack_require__(547), "social-instagram": __webpack_require__(548), "social-linkedin": __webpack_require__(155), "social-medium": __webpack_require__(549), "social-pinterest": __webpack_require__(550), "social-reddit": __webpack_require__(551), "social-slack": __webpack_require__(552), "social-tumblr": __webpack_require__(553), "social-twitter": __webpack_require__(154), "social-vimeo": __webpack_require__(554), "social-youtube": __webpack_require__(555), "sort": __webpack_require__(556), "stakeholder": __webpack_require__(557), "star-half": __webpack_require__(558), "star": __webpack_require__(559), "steps": __webpack_require__(560), "storage": __webpack_require__(561), "street-view": __webpack_require__(562), "subtract": __webpack_require__(563), "support": __webpack_require__(564), "svg": __webpack_require__(565), "sync": __webpack_require__(566), "system": __webpack_require__(567), "tab-next": __webpack_require__(568), "tab-previous": __webpack_require__(569), "tab-up": __webpack_require__(570), "table-add": __webpack_require__(571), "table": __webpack_require__(572), "tag": __webpack_require__(573), "target": __webpack_require__(574), "task": __webpack_require__(575), "template": __webpack_require__(576), "test-desktop": __webpack_require__(577), "test": __webpack_require__(578), "tesxt-wrap": __webpack_require__(579), "threats": __webpack_require__(580), "three-d": __webpack_require__(581), "ticket": __webpack_require__(582), "tools": __webpack_require__(583), "tooltip": __webpack_require__(584), "transaction": __webpack_require__(585), "trash": __webpack_require__(586), "tree": __webpack_require__(587), "trigger": __webpack_require__(588), "trophy": __webpack_require__(589), "troubleshooting": __webpack_require__(590), "unlock": __webpack_require__(591), "up": __webpack_require__(592), "update": __webpack_require__(593), "upgrade": __webpack_require__(594), "upload": __webpack_require__(595), "user-add": __webpack_require__(596), "user-admin": __webpack_require__(597), "user-expert": __webpack_require__(598), "user-female": __webpack_require__(599), "user-manager": __webpack_require__(600), "user-new": __webpack_require__(601), "user-police": __webpack_require__(602), "user-settings": __webpack_require__(327), "user-worker": __webpack_require__(603), "user": __webpack_require__(151), "validation": __webpack_require__(604), "video": __webpack_require__(605), "view": __webpack_require__(606), "virtual-machine": __webpack_require__(607), "vm-maintenance": __webpack_require__(608), "volume-low": __webpack_require__(609), "volume-mute": __webpack_require__(610), "volume": __webpack_require__(611), "vulnerability": __webpack_require__(612), "waypoint": __webpack_require__(613), "workshop": __webpack_require__(614), "zoom-in": __webpack_require__(615) };
 
 /***/ },
-/* 324 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43180,7 +43670,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 325 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43245,7 +43735,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 326 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43310,7 +43800,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 327 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43375,7 +43865,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 328 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43440,7 +43930,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 329 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43511,7 +44001,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 330 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43576,7 +44066,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 331 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43641,7 +44131,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 332 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43706,7 +44196,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 333 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43771,7 +44261,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 334 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43840,7 +44330,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 335 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43905,7 +44395,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 336 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -43973,7 +44463,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 337 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44038,7 +44528,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 338 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44103,7 +44593,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 339 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44168,7 +44658,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 340 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44233,7 +44723,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 341 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44298,7 +44788,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 342 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44363,7 +44853,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 343 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44435,7 +44925,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 344 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44500,7 +44990,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 345 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44565,7 +45055,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 346 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44630,7 +45120,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 347 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44695,7 +45185,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 348 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44760,7 +45250,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 349 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44825,7 +45315,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 350 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44890,7 +45380,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 351 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -44955,7 +45445,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 352 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45021,7 +45511,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 353 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45087,7 +45577,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 354 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45152,7 +45642,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 355 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45218,7 +45708,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 356 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45283,7 +45773,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 357 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45348,7 +45838,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 358 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45413,7 +45903,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 359 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45478,7 +45968,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 360 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45543,7 +46033,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 361 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45608,7 +46098,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 362 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45673,7 +46163,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 363 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45738,7 +46228,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 364 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45803,7 +46293,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 365 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45868,7 +46358,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 366 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45933,7 +46423,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 367 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -45998,7 +46488,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 368 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46063,7 +46553,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 369 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46140,7 +46630,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 370 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46206,7 +46696,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 371 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46271,7 +46761,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 372 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46336,7 +46826,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 373 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46401,7 +46891,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 374 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46466,7 +46956,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 375 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46531,7 +47021,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 376 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46599,7 +47089,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 377 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46664,7 +47154,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 378 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46729,7 +47219,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 379 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46794,7 +47284,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 380 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46859,7 +47349,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 381 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46924,7 +47414,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 382 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -46989,7 +47479,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 383 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47058,7 +47548,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 384 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47123,7 +47613,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 385 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47193,7 +47683,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 386 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47258,7 +47748,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 387 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47323,7 +47813,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 388 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47389,7 +47879,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 389 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47454,7 +47944,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 390 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47519,7 +48009,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 391 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47584,7 +48074,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 392 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47649,7 +48139,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 393 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47714,7 +48204,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 394 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47779,7 +48269,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 395 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47844,7 +48334,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 396 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47909,7 +48399,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 397 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -47974,7 +48464,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 398 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48042,7 +48532,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 399 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48107,7 +48597,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 400 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48172,7 +48662,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 401 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48241,7 +48731,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 402 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48306,7 +48796,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 403 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48371,7 +48861,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 404 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48439,7 +48929,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 405 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48515,7 +49005,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 406 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48583,7 +49073,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 407 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48651,7 +49141,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 408 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48716,7 +49206,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 409 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48784,7 +49274,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 410 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48852,7 +49342,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 411 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48922,7 +49412,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 412 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -48989,7 +49479,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 413 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49061,7 +49551,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 414 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49135,7 +49625,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 415 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49204,7 +49694,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 416 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49274,7 +49764,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 417 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49339,7 +49829,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 418 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49404,7 +49894,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 419 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49469,7 +49959,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 420 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49534,7 +50024,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 421 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49606,7 +50096,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 422 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49673,7 +50163,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 423 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49738,7 +50228,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 424 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49803,7 +50293,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 425 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49868,7 +50358,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 426 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -49935,7 +50425,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 427 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50003,7 +50493,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 428 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50068,7 +50558,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 429 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50133,7 +50623,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 430 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50198,7 +50688,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 431 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50266,7 +50756,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 432 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50331,7 +50821,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 433 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50396,7 +50886,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 434 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50461,7 +50951,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 435 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50526,7 +51016,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 436 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50591,7 +51081,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 437 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50656,7 +51146,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 438 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50721,7 +51211,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 439 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50786,7 +51276,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 440 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50855,7 +51345,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 441 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50920,7 +51410,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 442 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -50985,7 +51475,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 443 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51051,7 +51541,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 444 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51116,7 +51606,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 445 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51181,7 +51671,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 446 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51246,7 +51736,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 447 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51311,7 +51801,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 448 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51376,7 +51866,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 449 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51441,7 +51931,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 450 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51506,7 +51996,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 451 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51573,7 +52063,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 452 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51639,7 +52129,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 453 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51705,7 +52195,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 454 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51770,7 +52260,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 455 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51837,7 +52327,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 456 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51902,7 +52392,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 457 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -51967,7 +52457,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 458 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52032,7 +52522,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 459 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52097,7 +52587,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 460 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52162,7 +52652,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 461 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52227,7 +52717,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 462 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52292,7 +52782,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 463 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52357,7 +52847,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 464 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52423,7 +52913,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 465 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52489,7 +52979,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 466 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52554,7 +53044,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 467 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52619,7 +53109,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 468 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52684,7 +53174,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 469 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52749,7 +53239,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 470 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52814,7 +53304,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 471 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52879,7 +53369,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 472 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -52944,7 +53434,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 473 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53009,7 +53499,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 474 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53074,7 +53564,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 475 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53139,7 +53629,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 476 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53204,7 +53694,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 477 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53271,7 +53761,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 478 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53336,7 +53826,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 479 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53401,7 +53891,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 480 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53466,7 +53956,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 481 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53531,7 +54021,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 482 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53596,7 +54086,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 483 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53661,7 +54151,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 484 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53726,7 +54216,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 485 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53791,7 +54281,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 486 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53856,7 +54346,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 487 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53921,7 +54411,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 488 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -53991,7 +54481,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 489 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54056,7 +54546,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 490 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54121,7 +54611,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 491 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54186,7 +54676,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 492 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54254,7 +54744,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 493 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54324,7 +54814,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 494 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54389,7 +54879,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 495 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54455,7 +54945,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 496 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54520,7 +55010,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 497 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54587,7 +55077,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 498 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54652,7 +55142,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 499 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54717,7 +55207,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 500 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54782,7 +55272,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 501 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54850,7 +55340,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 502 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54915,7 +55405,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 503 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -54980,7 +55470,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 504 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55045,7 +55535,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 505 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55110,7 +55600,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 506 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55175,7 +55665,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 507 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55240,7 +55730,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 508 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55305,7 +55795,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 509 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55371,7 +55861,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 510 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55436,7 +55926,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 511 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55502,7 +55992,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 512 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55567,7 +56057,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 513 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55632,7 +56122,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 514 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55697,7 +56187,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 515 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55762,7 +56252,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 516 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55833,7 +56323,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 517 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55898,7 +56388,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 518 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -55963,7 +56453,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 519 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56028,7 +56518,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 520 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56093,7 +56583,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 521 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56159,7 +56649,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 522 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56224,7 +56714,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 523 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56289,7 +56779,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 524 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56356,7 +56846,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 525 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56422,7 +56912,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 526 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56488,7 +56978,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 527 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56562,7 +57052,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 528 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56628,7 +57118,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 529 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56695,7 +57185,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 530 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56760,7 +57250,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 531 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56826,7 +57316,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 532 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56891,7 +57381,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 533 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -56956,7 +57446,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 534 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57021,7 +57511,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 535 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57086,7 +57576,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 536 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57151,7 +57641,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 537 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57218,7 +57708,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 538 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57283,7 +57773,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 539 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57349,7 +57839,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 540 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57414,7 +57904,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 541 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57480,7 +57970,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 542 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57548,7 +58038,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 543 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57617,7 +58107,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 544 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57682,7 +58172,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 545 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57747,7 +58237,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 546 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57812,7 +58302,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 547 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57877,7 +58367,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 548 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -57942,7 +58432,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 549 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58015,7 +58505,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 550 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58087,7 +58577,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 551 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58152,7 +58642,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 552 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58222,7 +58712,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 553 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58291,7 +58781,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 554 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58356,7 +58846,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 555 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58421,7 +58911,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 556 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58486,7 +58976,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 557 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58551,7 +59041,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 558 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58616,7 +59106,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 559 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58676,7 +59166,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 560 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58741,7 +59231,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 561 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58806,7 +59296,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 562 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58871,7 +59361,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 563 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -58936,7 +59426,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 564 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59001,7 +59491,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 565 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59066,7 +59556,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 566 */
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59131,7 +59621,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 567 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59197,7 +59687,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 568 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59262,7 +59752,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 569 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59327,7 +59817,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 570 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59392,7 +59882,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 571 */
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59457,7 +59947,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 572 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59524,7 +60014,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 573 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59593,7 +60083,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 574 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59658,7 +60148,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 575 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59723,7 +60213,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 576 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59788,7 +60278,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 577 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59853,7 +60343,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 578 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59921,7 +60411,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 579 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -59986,7 +60476,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 580 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60051,7 +60541,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 581 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60116,7 +60606,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 582 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60181,7 +60671,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 583 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60246,7 +60736,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 584 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60311,7 +60801,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 585 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60376,7 +60866,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 586 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60441,7 +60931,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 587 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60506,7 +60996,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 588 */
+/* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60571,7 +61061,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 589 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60636,7 +61126,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 590 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60701,7 +61191,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 591 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60766,7 +61256,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 592 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60831,7 +61321,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 593 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60896,7 +61386,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 594 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -60961,7 +61451,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 595 */
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61026,7 +61516,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 596 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61092,7 +61582,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 597 */
+/* 603 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61157,7 +61647,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 598 */
+/* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61222,7 +61712,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 599 */
+/* 605 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61287,7 +61777,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 600 */
+/* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61352,7 +61842,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 601 */
+/* 607 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61417,7 +61907,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 602 */
+/* 608 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61483,7 +61973,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 603 */
+/* 609 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61548,7 +62038,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 604 */
+/* 610 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61615,7 +62105,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 605 */
+/* 611 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61680,7 +62170,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 606 */
+/* 612 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61745,7 +62235,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 607 */
+/* 613 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61810,7 +62300,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 608 */
+/* 614 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61877,7 +62367,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 609 */
+/* 615 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -61945,7 +62435,7 @@ module.exports =
 	module.exports = Icon;
 
 /***/ },
-/* 610 */
+/* 616 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -62722,7 +63212,7 @@ module.exports =
 
 
 /***/ },
-/* 611 */
+/* 617 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62802,7 +63292,7 @@ module.exports =
 	};
 
 /***/ },
-/* 612 */
+/* 618 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62909,7 +63399,7 @@ module.exports =
 	};
 
 /***/ },
-/* 613 */
+/* 619 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63025,7 +63515,7 @@ module.exports =
 	};
 
 /***/ },
-/* 614 */
+/* 620 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63146,7 +63636,7 @@ module.exports =
 	};
 
 /***/ },
-/* 615 */
+/* 621 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63154,15 +63644,15 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(203)['default'];
+	var jsxToString = __webpack_require__(209)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var Box = __webpack_require__(99);
 	var Layer = __webpack_require__(85);
 	var Header = __webpack_require__(115);
 	var Form = __webpack_require__(167);
-	var FormFields = __webpack_require__(311);
-	var FullForm = __webpack_require__(310);
-	var ConfirmationForm = __webpack_require__(316);
+	var FormFields = __webpack_require__(317);
+	var FullForm = __webpack_require__(316);
+	var ConfirmationForm = __webpack_require__(322);
 
 	function convertLayerToString(layerJSX) {
 	  return jsxToString(layerJSX, {
@@ -63425,7 +63915,7 @@ module.exports =
 	module.exports = LayerDoc;
 
 /***/ },
-/* 616 */
+/* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63434,7 +63924,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var List = __webpack_require__(617);
+	var List = __webpack_require__(623);
 
 	var SCHEMA = [{ attribute: 'uid', uid: true }, { attribute: 'face', image: true }, { attribute: 'name', primary: true }, { attribute: 'mood', secondary: true }];
 
@@ -63694,7 +64184,7 @@ module.exports =
 	module.exports = ListDoc;
 
 /***/ },
-/* 617 */
+/* 623 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63704,7 +64194,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var ReactIntl = __webpack_require__(46);
 	var FormattedTime = ReactIntl.FormattedTime;
-	var ListItem = __webpack_require__(618);
+	var ListItem = __webpack_require__(624);
 	var SpinningIcon = __webpack_require__(122);
 	var InfiniteScroll = __webpack_require__(125);
 
@@ -63883,7 +64373,7 @@ module.exports =
 	module.exports = List;
 
 /***/ },
-/* 618 */
+/* 624 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63956,7 +64446,7 @@ module.exports =
 	    {*/
 
 /***/ },
-/* 619 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -63966,7 +64456,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
 	var LoginForm = __webpack_require__(166);
-	var Logo = __webpack_require__(174);
+	var Logo = __webpack_require__(180);
 
 	var LoginFormDoc = React.createClass({
 	  displayName: 'LoginFormDoc',
@@ -64181,7 +64671,7 @@ module.exports =
 	module.exports = LoginFormDoc;
 
 /***/ },
-/* 620 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64190,7 +64680,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var GrommetMap = __webpack_require__(621);
+	var GrommetMap = __webpack_require__(627);
 
 	var MapDoc = React.createClass({
 	  displayName: 'MapDoc',
@@ -64283,7 +64773,7 @@ module.exports =
 	module.exports = MapDoc;
 
 /***/ },
-/* 621 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64471,7 +64961,7 @@ module.exports =
 	module.exports = ResourceMap;
 
 /***/ },
-/* 622 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64480,10 +64970,10 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var jsxToString = __webpack_require__(203)['default'];
+	var jsxToString = __webpack_require__(209)['default'];
 	var DocsArticle = __webpack_require__(133);
 	var Menu = __webpack_require__(90);
-	var ConfigIcon = __webpack_require__(373);
+	var ConfigIcon = __webpack_require__(379);
 	var FilterIcon = __webpack_require__(143);
 	var CheckBox = __webpack_require__(169);
 	var Button = __webpack_require__(89);
@@ -64860,7 +65350,7 @@ module.exports =
 	module.exports = MenuDoc;
 
 /***/ },
-/* 623 */
+/* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -64868,11 +65358,12 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(306);
+	var stringify = __webpack_require__(312);
 	var DocsArticle = __webpack_require__(133);
 	var Meter = __webpack_require__(170);
 	var FormField = __webpack_require__(168);
-	var RadioButton = __webpack_require__(312);
+	var RadioButton = __webpack_require__(318);
+	var CheckBox = __webpack_require__(169);
 
 	var inline = "<Meter value={70} total={100} units=\"GB\" />";
 
@@ -64884,7 +65375,9 @@ module.exports =
 
 	var thresholds = [{ label: 'OK', value: 0, colorIndex: 'ok' }, { label: 'Warning', value: 60, colorIndex: 'warning' }, { label: 'Error', value: 70, colorIndex: 'error' }];
 
-	var series = [{ label: 'Gen 7', value: 50 }, { label: 'Gen 8', value: 200 }, { label: 'Gen 9', value: 100 }, { label: 'Gen 10', value: 300 }, { label: 'Gen 11', value: 100 }];
+	var series = [{ label: 'Gen 7', value: 50 }, { label: 'Gen 8', value: 200 }, { label: 'Gen 9', value: 100 }, { label: 'Gen 10', value: 300 } //,
+	// {label: 'Gen 11', value: 100}
+	];
 
 	var statusSeries = [{ label: 'OK', value: 70, colorIndex: 'ok' }, { label: 'Warning', value: 15, colorIndex: 'warning' }, { label: 'Error', value: 5, colorIndex: 'error' }];
 	var statusSeriesMax = 90;
@@ -64895,7 +65388,13 @@ module.exports =
 	  displayName: 'MeterDoc',
 
 	  getInitialState: function getInitialState() {
-	    return { simpleValue: simpleValue };
+	    return { simpleValue: simpleValue,
+	      type: 'bar', valueType: 'single'
+	    };
+	  },
+
+	  _onChangeValueType: function _onChangeValueType(valueType) {
+	    this.setState({ valueType: valueType });
 	  },
 
 	  _onChangeSimpleValue: function _onChangeSimpleValue(event) {
@@ -64906,7 +65405,33 @@ module.exports =
 	    this.setState({ size: size });
 	  },
 
+	  _onChangeType: function _onChangeType(type) {
+	    this.setState({ type: type });
+	  },
+
+	  _onChangeVertical: function _onChangeVertical() {
+	    this.setState({ vertical: !this.state.vertical });
+	  },
+
+	  _onChangeStacked: function _onChangeStacked() {
+	    this.setState({ stacked: !this.state.stacked });
+	  },
+
+	  _onChangeLegend: function _onChangeLegend() {
+	    this.setState({ legend: !this.state.legend });
+	  },
+
+	  _onChangeThreshold: function _onChangeThreshold() {
+	    this.setState({ threshold: !this.state.threshold });
+	  },
+
 	  render: function render() {
+	    var simpleValueInput;
+	    if ('single' === this.state.valueType) {
+	      simpleValueInput = React.createElement('input', { id: 'value', name: 'value', type: 'range',
+	        min: '0', max: '80', value: this.state.simpleValue,
+	        onChange: this._onChangeSimpleValue });
+	    }
 	    return React.createElement(
 	      DocsArticle,
 	      { title: 'Meter', colorIndex: 'neutral-3' },
@@ -65021,7 +65546,7 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'series     ',
+	              'series      ',
 	              "[{value: , label: , colorIndex: , important: , onClick: }, ...]"
 	            )
 	          ),
@@ -65042,7 +65567,7 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'size         small|medium|large'
+	              'size        small|medium|large'
 	            )
 	          ),
 	          React.createElement(
@@ -65068,7 +65593,7 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'small        true|false'
+	              'small       true|false'
 	            )
 	          ),
 	          React.createElement(
@@ -65079,6 +65604,26 @@ module.exports =
 	              'code',
 	              null,
 	              'size'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'stacked     true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether slices for multiple series values should be stacked together in the same slot or shown in separate slots. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'false'
 	            ),
 	            '.'
 	          ),
@@ -65103,7 +65648,7 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'thresholds     ',
+	              'thresholds  ',
 	              "[{value: , label: , colorIndex: }, ...]"
 	            )
 	          ),
@@ -65118,7 +65663,7 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'type         bar|arc|circle|spiral'
+	              'type        bar|arc|circle|spiral'
 	            )
 	          ),
 	          React.createElement(
@@ -65162,7 +65707,7 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'vertical       true|false'
+	              'vertical    true|false'
 	            )
 	          ),
 	          React.createElement(
@@ -65553,6 +66098,26 @@ module.exports =
 	        React.createElement(
 	          'h3',
 	          null,
+	          'Bar, Series, Stacked, Legend'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(Meter, { a11yTitleId: 'meter-title-12', a11yDescId: 'meter-desc-12',
+	            legend: true, series: series, size: this.state.size, stacked: true })
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Meter legend={true} stacked={true}\n " + "series={" + stringify(series) + "}  />"
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
 	          'Bar, Small'
 	        ),
 	        React.createElement(
@@ -65735,11 +66300,82 @@ module.exports =
 	        'section',
 	        null,
 	        React.createElement(
+	          'h2',
+	          null,
+	          'Custom Example'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(Meter, {
+	            value: 'single' === this.state.valueType ? this.state.simpleValue : null,
+	            legend: this.state.legend,
+	            max: this.state.stacked || 'multiple' !== this.state.valueType ? null : 400,
+	            series: 'multiple' === this.state.valueType ? series : null,
+	            size: this.state.size,
+	            stacked: this.state.stacked,
+	            threshold: this.state.threshold ? 'single' === this.state.valueType ? 90 : 360 : null,
+	            type: this.state.type,
+	            vertical: this.state.vertical })
+	        ),
+	        React.createElement(
 	          FormField,
-	          { label: 'Value', htmlFor: 'value', help: this.state.simpleValue },
-	          React.createElement('input', { id: 'value', name: 'value', type: 'range',
-	            min: '0', max: '80', value: this.state.simpleValue,
-	            onChange: this._onChangeSimpleValue })
+	          { label: 'Value',
+	            help: 'single' === this.state.valueType ? this.state.simpleValue : null },
+	          React.createElement(RadioButton, { id: 'value-type-single', name: 'valueType', label: 'Single',
+	            checked: 'single' === this.state.valueType,
+	            onChange: this._onChangeValueType.bind(this, 'single') }),
+	          simpleValueInput,
+	          React.createElement(RadioButton, { id: 'value-type-multiple', name: 'valueType', label: 'Multiple',
+	            checked: 'multiple' === this.state.valueType,
+	            onChange: this._onChangeValueType.bind(this, 'multiple') }),
+	          React.createElement(RadioButton, { id: 'value-type-none', name: 'valueType', label: 'None',
+	            checked: 'none' === this.state.valueType,
+	            onChange: this._onChangeValueType.bind(this, 'none') })
+	        ),
+	        React.createElement(
+	          FormField,
+	          null,
+	          React.createElement(CheckBox, { id: 'threshold', name: 'threshold', label: 'Threshold?',
+	            checked: this.state.threshold,
+	            onChange: this._onChangeThreshold })
+	        ),
+	        React.createElement(
+	          FormField,
+	          { label: 'Type' },
+	          React.createElement(RadioButton, { id: 'type-bar', name: 'type', label: 'Bar',
+	            checked: 'bar' === this.state.type,
+	            onChange: this._onChangeType.bind(this, 'bar') }),
+	          React.createElement(RadioButton, { id: 'type-circle', name: 'type', label: 'Circle',
+	            checked: 'circle' === this.state.type,
+	            onChange: this._onChangeType.bind(this, 'circle') }),
+	          React.createElement(RadioButton, { id: 'type-arc', name: 'type', label: 'Arc',
+	            checked: 'arc' === this.state.type,
+	            onChange: this._onChangeType.bind(this, 'arc') }),
+	          React.createElement(RadioButton, { id: 'type-spiral', name: 'type', label: 'Spiral',
+	            checked: 'spiral' === this.state.type,
+	            onChange: this._onChangeType.bind(this, 'spiral') })
+	        ),
+	        React.createElement(
+	          FormField,
+	          null,
+	          React.createElement(CheckBox, { id: 'vertical', name: 'vertical', label: 'Vertical?',
+	            checked: this.state.vertical,
+	            onChange: this._onChangeVertical })
+	        ),
+	        React.createElement(
+	          FormField,
+	          null,
+	          React.createElement(CheckBox, { id: 'stacked', name: 'stacked', label: 'Stacked?',
+	            checked: this.state.stacked,
+	            onChange: this._onChangeStacked })
+	        ),
+	        React.createElement(
+	          FormField,
+	          null,
+	          React.createElement(CheckBox, { id: 'legend', name: 'legend', label: 'Legend?',
+	            checked: this.state.legend,
+	            onChange: this._onChangeLegend })
 	        ),
 	        React.createElement(
 	          FormField,
@@ -65762,7 +66398,7 @@ module.exports =
 	module.exports = MeterDoc;
 
 /***/ },
-/* 624 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -65777,8 +66413,8 @@ module.exports =
 	var Title = __webpack_require__(116);
 	var Menu = __webpack_require__(90);
 	var CloseIcon = __webpack_require__(131);
-	var Gravatar = __webpack_require__(175);
-	var Search = __webpack_require__(172);
+	var Gravatar = __webpack_require__(181);
+	var Search = __webpack_require__(178);
 
 	var NavigationDoc = React.createClass({
 	  displayName: 'NavigationDoc',
@@ -65907,14 +66543,14 @@ module.exports =
 	module.exports = NavigationDoc;
 
 /***/ },
-/* 625 */
+/* 631 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Paragraph = __webpack_require__(626);
+	var Paragraph = __webpack_require__(632);
 
 	var inline = "<Paragraph>\n" + "  ...\n" + "</Paragraph>";
 
@@ -66145,7 +66781,7 @@ module.exports =
 	module.exports = ParagraphDoc;
 
 /***/ },
-/* 626 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66181,7 +66817,7 @@ module.exports =
 	module.exports = Paragraph;
 
 /***/ },
-/* 627 */
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66190,7 +66826,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var RadioButton = __webpack_require__(312);
+	var RadioButton = __webpack_require__(318);
 
 	var RadioButtonDoc = React.createClass({
 	  displayName: 'RadioButtonDoc',
@@ -66413,7 +67049,7 @@ module.exports =
 	module.exports = RadioButtonDoc;
 
 /***/ },
-/* 628 */
+/* 634 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66629,7 +67265,7 @@ module.exports =
 	module.exports = RestDoc;
 
 /***/ },
-/* 629 */
+/* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66782,7 +67418,7 @@ module.exports =
 	module.exports = RestWatchDoc;
 
 /***/ },
-/* 630 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -66790,9 +67426,9 @@ module.exports =
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var stringify = __webpack_require__(306);
+	var stringify = __webpack_require__(312);
 	var DocsArticle = __webpack_require__(133);
-	var Search = __webpack_require__(172);
+	var Search = __webpack_require__(178);
 
 	var SIMPLE_SUGGESTIONS = ['item 1', 'item 2', 'item 3'];
 	var RICH_SUGGESTIONS = [{ label: 'item 1', data: '/item-1' }, { label: 'item 2', data: '/item-2' }, { label: 'item 3', data: '/item-3' }];
@@ -67128,7 +67764,7 @@ module.exports =
 	module.exports = SearchDoc;
 
 /***/ },
-/* 631 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -67137,7 +67773,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var SearchInput = __webpack_require__(313);
+	var SearchInput = __webpack_require__(319);
 
 	var SearchInputDoc = React.createClass({
 	  displayName: 'SearchInputDoc',
@@ -67329,7 +67965,7 @@ module.exports =
 	module.exports = SearchInputDoc;
 
 /***/ },
-/* 632 */
+/* 638 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67467,7 +68103,7 @@ module.exports =
 	module.exports = SectionDoc;
 
 /***/ },
-/* 633 */
+/* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67708,7 +68344,7 @@ module.exports =
 	module.exports = SidebarDoc;
 
 /***/ },
-/* 634 */
+/* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67889,7 +68525,7 @@ module.exports =
 	module.exports = SplitDoc;
 
 /***/ },
-/* 635 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68172,7 +68808,7 @@ module.exports =
 	module.exports = StatusDoc;
 
 /***/ },
-/* 636 */
+/* 642 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68181,9 +68817,9 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Tabs = __webpack_require__(637);
-	var Tab = __webpack_require__(638);
-	var FormFields = __webpack_require__(311);
+	var Tabs = __webpack_require__(643);
+	var Tab = __webpack_require__(644);
+	var FormFields = __webpack_require__(317);
 	var FormField = __webpack_require__(168);
 	var Form = __webpack_require__(167);
 
@@ -68399,7 +69035,7 @@ module.exports =
 	module.exports = TabsDoc;
 
 /***/ },
-/* 637 */
+/* 643 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68498,7 +69134,7 @@ module.exports =
 	module.exports = Tabs;
 
 /***/ },
-/* 638 */
+/* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68572,7 +69208,7 @@ module.exports =
 	module.exports = Tab;
 
 /***/ },
-/* 639 */
+/* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -68581,7 +69217,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Table = __webpack_require__(192);
+	var Table = __webpack_require__(198);
 
 	var TableDoc = React.createClass({
 	  displayName: 'TableDoc',
@@ -68834,7 +69470,7 @@ module.exports =
 	module.exports = TableDoc;
 
 /***/ },
-/* 640 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -69204,7 +69840,7 @@ module.exports =
 	module.exports = TileDoc;
 
 /***/ },
-/* 641 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69212,7 +69848,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
 	var Title = __webpack_require__(116);
-	var Logo = __webpack_require__(174);
+	var Logo = __webpack_require__(180);
 
 	var inline = "<Title>\n" + "  ...\n" + "</Title>";
 
@@ -69357,7 +69993,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 642 */
+/* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -69366,7 +70002,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Topology = __webpack_require__(643);
+	var Topology = __webpack_require__(649);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -69838,7 +70474,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 643 */
+/* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -70231,7 +70867,7 @@ module.exports =
 	module.exports = Topology;
 
 /***/ },
-/* 644 */
+/* 650 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -70240,7 +70876,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(133);
-	var Video = __webpack_require__(645);
+	var Video = __webpack_require__(651);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -70523,7 +71159,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 645 */
+/* 651 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
@@ -70532,9 +71168,9 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var PropTypes = React.PropTypes;
-	var PlayIcon = __webpack_require__(507);
-	var PauseIcon = __webpack_require__(491);
-	var RefreshIcon = __webpack_require__(513);
+	var PlayIcon = __webpack_require__(513);
+	var PauseIcon = __webpack_require__(497);
+	var RefreshIcon = __webpack_require__(519);
 
 	var CLASS_ROOT = "video";
 

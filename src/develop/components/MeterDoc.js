@@ -6,6 +6,7 @@ var DocsArticle = require('../../DocsArticle');
 var Meter = require('grommet/components/Meter');
 var FormField = require('grommet/components/FormField');
 var RadioButton = require('grommet/components/RadioButton');
+var CheckBox = require('grommet/components/CheckBox');
 
 var inline =
   "<Meter value={70} total={100} units=\"GB\" />";
@@ -26,8 +27,8 @@ var series = [
   {label: 'Gen 7', value: 50},
   {label: 'Gen 8', value: 200},
   {label: 'Gen 9', value: 100},
-  {label: 'Gen 10', value: 300},
-  {label: 'Gen 11', value: 100}
+  {label: 'Gen 10', value: 300} //,
+  // {label: 'Gen 11', value: 100}
 ];
 
 var statusSeries = [
@@ -46,7 +47,13 @@ var storageSeries = [
 var MeterDoc = React.createClass({
 
   getInitialState: function () {
-    return {simpleValue: simpleValue};
+    return {simpleValue: simpleValue,
+      type: 'bar', valueType: 'single'
+    };
+  },
+
+  _onChangeValueType: function (valueType) {
+    this.setState({valueType: valueType});
   },
 
   _onChangeSimpleValue: function (event) {
@@ -57,7 +64,35 @@ var MeterDoc = React.createClass({
     this.setState({size: size});
   },
 
+  _onChangeType: function (type) {
+    this.setState({type: type});
+  },
+
+  _onChangeVertical: function () {
+    this.setState({vertical: ! this.state.vertical});
+  },
+
+  _onChangeStacked: function () {
+    this.setState({stacked: ! this.state.stacked});
+  },
+
+  _onChangeLegend: function () {
+    this.setState({legend: ! this.state.legend});
+  },
+
+  _onChangeThreshold: function () {
+    this.setState({threshold: ! this.state.threshold});
+  },
+
   render: function() {
+    var simpleValueInput;
+    if ('single' === this.state.valueType) {
+      simpleValueInput = (
+        <input id="value" name="value" type="range"
+          min="0" max="80" value={this.state.simpleValue}
+          onChange={this._onChangeSimpleValue}/>
+      );
+    }
     return (
       <DocsArticle title="Meter" colorIndex="neutral-3">
 
@@ -80,24 +115,29 @@ var MeterDoc = React.createClass({
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
-            <dt><code>series     {"[{value: , label: , colorIndex: , important: , onClick: }, ...]"}</code></dt>
+            <dt><code>series      {"[{value: , label: , colorIndex: , important: , onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.
               Either this or the <code>value</code> property must be provided.</dd>
-            <dt><code>size         small|medium|large</code></dt>
-            <dd>The size of the Meter. Defaults to <code>medium</code>. Currently, the <code>spiral</code> type Meter does not respond to this property.</dd>
-            <dt><code>small        true|false</code></dt>
+            <dt><code>size        small|medium|large</code></dt>
+            <dd>The size of the Meter. Defaults to <code>medium</code>.
+              Currently, the <code>spiral</code> type Meter does not respond to this property.</dd>
+            <dt><code>small       true|false</code></dt>
             <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
+            <dt><code>stacked     true|false</code></dt>
+            <dd>Whether slices for multiple series values should be stacked
+              together in the same slot or shown in separate slots.
+              Defaults to <code>false</code>.</dd>
             <dt><code>threshold   {"{number}"}</code></dt>
             <dd>Optional threshold value.</dd>
-            <dt><code>thresholds     {"[{value: , label: , colorIndex: }, ...]"}</code></dt>
+            <dt><code>thresholds  {"[{value: , label: , colorIndex: }, ...]"}</code></dt>
             <dd>An array of objects describing thresholds.</dd>
-            <dt><code>type         bar|arc|circle|spiral</code></dt>
+            <dt><code>type        bar|arc|circle|spiral</code></dt>
             <dd>Whether to draw a bar, an arc, a circle, or a spiral.</dd>
             <dt><code>units       {"{string}"}</code></dt>
             <dd>Optional units to display next to the value label.</dd>
             <dt><code>value       {"{number}"}</code></dt>
             <dd>The current value.</dd>
-            <dt><code>vertical       true|false</code></dt>
+            <dt><code>vertical    true|false</code></dt>
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
           </dl>
         </section>
@@ -306,6 +346,16 @@ var MeterDoc = React.createClass({
               "series={" + stringify(storageSeries) + "} />"}
           </code></pre>
 
+          <h3>Bar, Series, Stacked, Legend</h3>
+          <div className="example">
+            <Meter a11yTitleId='meter-title-12' a11yDescId='meter-desc-12'
+              legend={true} series={series} size={this.state.size} stacked={true} />
+          </div>
+          <pre><code className="html hljs xml">
+            {"<Meter legend={true} stacked={true}\n " +
+              "series={" + stringify(series) + "}  />"}
+          </code></pre>
+
           <h3>Bar, Small</h3>
           <div className="example">
             <Meter a11yTitleId='meter-title-19' a11yDescId='meter-desc-19'
@@ -390,10 +440,70 @@ var MeterDoc = React.createClass({
         </section>
 
         <section>
-          <FormField label="Value" htmlFor="value" help={this.state.simpleValue}>
-            <input id="value" name="value" type="range"
-              min="0" max="80" value={this.state.simpleValue}
-              onChange={this._onChangeSimpleValue}/>
+          <h2>Custom Example</h2>
+
+          <div className="example">
+            <Meter
+              value={'single' === this.state.valueType ?
+                this.state.simpleValue : null}
+              legend={this.state.legend}
+              max={(this.state.stacked || 'multiple' !== this.state.valueType) ?
+                null : 400}
+              series={'multiple' === this.state.valueType ? series : null}
+              size={this.state.size}
+              stacked={this.state.stacked}
+              threshold={this.state.threshold ?
+                ('single' === this.state.valueType ? 90 : 360) : null}
+              type={this.state.type}
+              vertical={this.state.vertical} />
+          </div>
+
+          <FormField label="Value"
+            help={'single' === this.state.valueType ? this.state.simpleValue : null}>
+            <RadioButton id="value-type-single" name="valueType" label="Single"
+              checked={'single' === this.state.valueType}
+              onChange={this._onChangeValueType.bind(this, 'single')} />
+            {simpleValueInput}
+            <RadioButton id="value-type-multiple" name="valueType" label="Multiple"
+              checked={'multiple' === this.state.valueType}
+              onChange={this._onChangeValueType.bind(this, 'multiple')} />
+            <RadioButton id="value-type-none" name="valueType" label="None"
+              checked={'none' === this.state.valueType}
+              onChange={this._onChangeValueType.bind(this, 'none')} />
+          </FormField>
+          <FormField>
+            <CheckBox id="threshold" name="threshold" label="Threshold?"
+              checked={this.state.threshold}
+              onChange={this._onChangeThreshold} />
+          </FormField>
+          <FormField label="Type">
+            <RadioButton id="type-bar" name="type" label="Bar"
+              checked={'bar' === this.state.type}
+              onChange={this._onChangeType.bind(this, 'bar')} />
+            <RadioButton id="type-circle" name="type" label="Circle"
+              checked={'circle' === this.state.type}
+              onChange={this._onChangeType.bind(this, 'circle')} />
+            <RadioButton id="type-arc" name="type" label="Arc"
+              checked={'arc' === this.state.type}
+              onChange={this._onChangeType.bind(this, 'arc')} />
+            <RadioButton id="type-spiral" name="type" label="Spiral"
+              checked={'spiral' === this.state.type}
+              onChange={this._onChangeType.bind(this, 'spiral')} />
+          </FormField>
+          <FormField>
+            <CheckBox id="vertical" name="vertical" label="Vertical?"
+              checked={this.state.vertical}
+              onChange={this._onChangeVertical} />
+          </FormField>
+          <FormField>
+            <CheckBox id="stacked" name="stacked" label="Stacked?"
+              checked={this.state.stacked}
+              onChange={this._onChangeStacked} />
+          </FormField>
+          <FormField>
+            <CheckBox id="legend" name="legend" label="Legend?"
+              checked={this.state.legend}
+              onChange={this._onChangeLegend} />
           </FormField>
           <FormField label="Size">
             <RadioButton id="size-small" name="size" label="Small"
