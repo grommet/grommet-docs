@@ -28,7 +28,7 @@
     "highlight.js": "^8.8.0",
     "history": "~1.13.0",
     "json-stringify-pretty-compact": "^1.0.1",
-    "jsx-to-string": "^0.2.0",
+    "jsx-to-string": "^0.2.6",
     "morgan": "^1.5.0",
     "react": "^0.14.1",
     "react-dom": "^0.14.0",
