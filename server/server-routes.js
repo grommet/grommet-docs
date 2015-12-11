@@ -21279,6 +21279,7 @@ module.exports =
 	    onChange: PropTypes.func,
 	    placeHolder: PropTypes.string,
 	    responsive: PropTypes.bool,
+	    size: React.PropTypes.oneOf(['small', 'medium', 'large']),
 	    suggestions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
 	      label: PropTypes.string.isRequired
 	    })])),
@@ -21576,8 +21577,11 @@ module.exports =
 	  render: function render() {
 
 	    var classes = this._classes(CLASS_ROOT);
-	    if (this.props.large) {
+	    if (this.props.large && !this.props.size) {
 	      classes.push(CLASS_ROOT + "--large");
+	    }
+	    if (this.props.size) {
+	      classes.push(CLASS_ROOT + "--" + this.props.size);
 	    }
 	    if (this.props.className) {
 	      classes.push(this.props.className);
@@ -67487,6 +67491,26 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
+	              'size        small|medium|large'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'The size of the Header. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'medium'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
 	              'suggestions   [',
 	              "{string}|{label: {string}, ...}",
 	              ', ...]'
@@ -67659,6 +67683,48 @@ module.exports =
 	            'code',
 	            { className: 'html hljs xml' },
 	            "<Search inline={true} value=\"" + this.state.value + "\" suggestions={" + stringify(this.state.simpleSuggestions) + "}/>"
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Large'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(Search, { inline: true, value: this.state.value, size: 'large',
+	            suggestions: this.state.simpleSuggestions,
+	            onChange: this._onChange })
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Search size=\"large\"> ..."
+	          )
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Small'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'example' },
+	          React.createElement(Search, { inline: true, value: this.state.value, size: 'small',
+	            suggestions: this.state.simpleSuggestions,
+	            onChange: this._onChange })
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Search size=\"small\"> ..."
 	          )
 	        )
 	      )
