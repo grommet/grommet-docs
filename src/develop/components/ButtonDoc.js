@@ -9,6 +9,7 @@ var Button = require('grommet/components/Button');
 var Section = require('grommet/components/Section');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
+var CloseIcon = require('grommet/components/icons/base/Close');
 
 function convertButtonToString(buttonJSX) {
   return jsxToString(buttonJSX, {
@@ -55,6 +56,10 @@ var ButtonDoc = React.createClass({
       <Button label="Action" accent={true} onClick={this._onClick} />
     );
 
+    var iconButton = (
+      <Button type="icon" onClick={this._onClick}><CloseIcon /></Button>
+    );
+
     var disabledButton = (
       <Button label="Action" />
     );
@@ -87,23 +92,27 @@ var ButtonDoc = React.createClass({
 
     var coloredButtons = (
       <Section colorIndex="neutral-1" pad="medium">
-        <Box pad="small">
+        <Box pad="small" direction="row">
           <Button label="Default" onClick={this._onClick} />
         </Box>
-        <Box pad="small">
+        <Box pad="small" direction="row">
           <Button label="Primary" primary={true} onClick={this._onClick} />
         </Box>
-        <Box pad="small">
+        <Box pad="small" direction="row">
           <Button label="Secondary" secondary={true} onClick={this._onClick} />
         </Box>
-        <Box pad="small">
+        <Box pad="small" direction="row">
           <Button label="Accent" accent={true} onClick={this._onClick} />
         </Box>
-        <Box pad="small">
+        <Box pad="small" direction="row">
           <Button label="Disabled" />
+        </Box>
+        <Box pad="small" direction="row">
+          <Button type="icon" onClick={this._onClick}><CloseIcon /></Button>
         </Box>
       </Section>
     );
+
     return (
       <DocsArticle title="Button" colorIndex="neutral-3">
 
@@ -118,7 +127,7 @@ var ButtonDoc = React.createClass({
           <dl>
           <dt><code>accent         true|false</code></dt>
           <dd>Whether this is an accent button.</dd>
-          <dt><code>fill        true|false</code></dt>
+          <dt><code>fill           true|false</code></dt>
           <dd>
             Whether the button expands to fill all of the available
             width and height.
@@ -146,6 +155,7 @@ var ButtonDoc = React.createClass({
           {this._renderButtonCode('Primary', primaryButton)}
           {this._renderButtonCode('Secondary', secondaryButton)}
           {this._renderButtonCode('Accent', accentButton)}
+          {this._renderButtonCode('Icon', iconButton)}
           {this._renderButtonCode('Disabled', disabledButton)}
           {this._renderButtonCode('Long', longButton)}
           {this._renderButtonCode('Fill', fillButtons)}

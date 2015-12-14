@@ -88,6 +88,14 @@ var MenuDoc = React.createClass({
       </Menu>
     );
 
+    var iconLabelMenu = (
+      <Menu icon={<ConfigIcon />} label="Label">
+        <a href="#" className="active">First</a>
+        <a href="#">Second</a>
+        <a href="#">Third</a>
+      </Menu>
+    );
+
     var doNotCloseMenu = (
       <Menu icon={<FilterIcon />} closeOnClick={false} pad="medium">
         <CheckBox id="check-1" label="first" />
@@ -149,8 +157,10 @@ var MenuDoc = React.createClass({
             <dt><code>responsive    true|false</code></dt>
             <dd>Whether an inline menu should be automatically switched
               to a control + drop down when the window size is reduced.</dd>
+            <dt><code>size          small|medium|large</code></dt>
+            <dd>The size of the Menu. Defaults to <code>medium</code>.</dd>
             <dt><code>small         true|false</code></dt>
-            <dd>Indicates that the menu should be rendered in a small size.</dd>
+            <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
           also available.</p>
@@ -167,6 +177,7 @@ var MenuDoc = React.createClass({
           {this._renderMenuCode(
             'custom icon, down, not inline', customIconMenu
           )}
+          {this._renderMenuCode('custon icon, label, down, not inline', iconLabelMenu)}
           {this._renderMenuCode(
             'custom icon, down, not inline, do not close on click',
             doNotCloseMenu

@@ -38,6 +38,9 @@ var SplitDoc = React.createClass({
             <dt><code>flex       both|left|right</code></dt>
             <dd>Which side to give flexible space to.
               The default value is 'both'.</dd>
+            <dt><code>priority   left|right</code></dt>
+            <dd>Which side to prioritize when space is limited.
+              The default value is 'right'.</dd>
             <dt><code>separator  true|false</code></dt>
             <dd>Whether to include a separator between the children.</dd>
           </dl>
