@@ -4,6 +4,7 @@ var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Section = require('grommet/components/Section');
 var Anchor = require('grommet/components/Anchor');
+var AddIcon = require('grommet/components/icons/base/Add');
 
 var AnchorDoc = React.createClass({
 
@@ -57,6 +58,12 @@ var AnchorDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Anchor href=\"\" primary={true} onClick={this._onClick}>Text</Anchor>"}</code></pre>
 
+          <h3>Icon</h3>
+          <div className="example">
+            <Anchor href="" onClick={this._onClick}><AddIcon /></Anchor>
+          </div>
+          <pre><code className="html hljs xml">{"<Anchor href=\"\" onClick={this._onClick}><AddIcon /></Anchor>"}</code></pre>
+
           <h3>Target</h3>
           <div className="example">
             <Anchor href="" target="_blank" onClick={this._onClick}>Text</Anchor>
@@ -80,6 +87,9 @@ var AnchorDoc = React.createClass({
           </div>
           <div className="example">
             <Anchor href="" primary={true} onClick={this._onClick}>Text</Anchor>
+          </div>
+          <div className="example">
+            <Anchor href="" onClick={this._onClick}><AddIcon /></Anchor>
           </div>
         </Section>
 
