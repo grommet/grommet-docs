@@ -7,6 +7,10 @@ var Logo = require('../../img/Logo');
 
 var LoginFormDoc = React.createClass({
 
+  _onSubmit: function (fields) {
+    // no-op
+  },
+
   render: function() {
     var inline = "<LoginForm onSubmit={...} />";
     return (
@@ -42,13 +46,15 @@ var LoginFormDoc = React.createClass({
 
           <h3>Simple</h3>
           <div className="example">
-            <LoginForm />
+            <LoginForm onSubmit={this._onSubmit} />
           </div>
           <pre><code className="html hljs xml">{"<LoginForm onSubmit={...}/>"}</code></pre>
 
           <h3>Full</h3>
           <div className="example">
-            <LoginForm logo={<Logo />} title="Product Name" secondaryText="Product Secondary Text"
+            <LoginForm logo={<Logo />} title="Product Name"
+              secondaryText="Product Secondary Text"
+              onSubmit={this._onSubmit}
               rememberMe={true} forgotPassword={<a>Forgot password?</a>}
               errors={["Invalid username or password."]}/>
           </div>
