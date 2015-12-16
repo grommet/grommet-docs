@@ -19,15 +19,18 @@ var GetStarted = React.createClass({
               For Windows, you may like <a href="http://msysgit.github.io/" target="_blank">Git for Windows</a>.
             </li>
             <li>
-              Install <a href="https://nodejs.org/" target="_blank">Node.js</a>
-              <i>(at least Node 0.10+ and NPM 1.4.x+ required)</i>
+              Install <a href="https://nodejs.org/" target="_blank">Node.js
+              </a> <i>(at least Node 0.10+ and NPM 1.4.x+ required)</i>
             </li>
             <li>
               Install <a href="https://www.python.org/downloads/" target="_blank">Python 2.7</a> and
               add the installation directory to your system Path variable.
             </li>
             <li>
-              For Windows, install <a href="http://www.microsoft.com/en-us/download/details.aspx?id=11310" target="_blank">Windows SDK for Windows Server 2008 and .NET Framework 3.5</a>.
+              For Windows, install <a
+              href="http://www.microsoft.com/en-us/download/details.aspx?id=11310"
+              target="_blank">Windows SDK for Windows Server 2008 and .NET
+              Framework 3.5</a> <i>(Ensure that a C compiler is installed.)</i>.
             </li>
             <li>
               <p>Setup your NPM proxy (only required if you&#39;re behind a proxy server).</p>
