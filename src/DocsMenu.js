@@ -29,7 +29,8 @@ var DocsMenu = React.createClass({
           href += '#' + content.id;
         }
         item = (
-          <Link key={content.label} to={href} onClick={this.props.onClick}>
+          <Link key={content.label} to={href} onClick={this.props.onClick}
+            activeClassName="active">
             {content.label}
           </Link>
         );
