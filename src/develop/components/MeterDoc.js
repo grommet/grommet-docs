@@ -47,7 +47,8 @@ var storageSeries = [
 
 function convertMeterToString (meterJSX) {
   return jsxToString(meterJSX, {
-    ignoreProps: ['a11yTitleId', 'a11yDescId']
+    ignoreProps: ['a11yTitleId', 'a11yDescId'],
+    displayName: 'Meter'
   });
 }
 
