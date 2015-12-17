@@ -57,6 +57,9 @@ var BoxDoc = React.createClass({
               Defaults to <code>div</code>.</dd>
             <dt><code>texture      {"{url}"}</code></dt>
             <dd>A texture image to apply to the background.</dd>
+            <dt><code>wrap         true|false</code></dt>
+            <dd>Whether children can wrap if they can't all fit.
+              Defaults to <code>true</code>.</dd>
           </dl>
         </section>
 
