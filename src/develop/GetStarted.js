@@ -1,10 +1,19 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var DocsArticle = require('../DocsArticle');
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
-var GetStarted = React.createClass({
-  render: function () {
+import DocsArticle from '../DocsArticle';
+
+class GetStarted extends Component {
+
+  render () {
+    var architectureLink = (
+      <Link to={this.context.routePrefix + "architecture"}>
+        Architecture
+      </Link>
+    );
+
     return (
       <DocsArticle title="Get Started" colorIndex="neutral-1">
         <p>
@@ -16,14 +25,16 @@ var GetStarted = React.createClass({
           <ol>
             <li>
               Install <a href="http://git-scm.com/" target="_blank">Git</a>.
-              For Windows, you may like <a href="http://msysgit.github.io/" target="_blank">Git for Windows</a>.
+              For Windows, you may like <a href="http://msysgit.github.io/"
+              target="_blank">Git for Windows</a>.
             </li>
             <li>
               Install <a href="https://nodejs.org/" target="_blank">Node.js
               </a> <i>(at least Node 0.10+ and NPM 1.4.x+ required)</i>
             </li>
             <li>
-              Install <a href="https://www.python.org/downloads/" target="_blank">Python 2.7</a> and
+              Install <a href="https://www.python.org/downloads/"
+              target="_blank">Python 2.7</a> and
               add the installation directory to your system Path variable.
             </li>
             <li>
@@ -33,7 +44,10 @@ var GetStarted = React.createClass({
               Framework 3.5</a> <i>(Ensure that a C compiler is installed.)</i>.
             </li>
             <li>
-              <p>Setup your NPM proxy (only required if you&#39;re behind a proxy server).</p>
+              <p>
+                Setup your NPM proxy (only required if you&#39;re behind a
+                proxy server).
+              </p>
               <pre><code className="hljs bash">
                 {"npm config set proxy http://{host}:{port}"}<br/>
                 {"npm config set https-proxy https://{host}:{port}"}
@@ -51,11 +65,15 @@ var GetStarted = React.createClass({
               <ol>
                 <li>
                   <p>Install Gulp globally (make sure to run as an admin).</p>
-                  <pre><code className="hljs bash">npm install -g gulp</code></pre>
+                  <pre><code className="hljs bash">
+                    npm install -g gulp
+                  </code></pre>
                 </li>
               	<li>
                   <p>Install Grommet globally (make sure to run as an admin).</p>
-                  <pre><code className="hljs bash">npm install -g grommet</code></pre>
+                  <pre><code className="hljs bash">
+                    npm install -g grommet
+                  </code></pre>
                 </li>
                 <li>
                 	<p>Use the Grommet generator to bootstrap your new app</p>
@@ -112,13 +130,17 @@ var GetStarted = React.createClass({
         <section>
           <h2>Next Steps</h2>
           <p>
-            We recommend that you check out the <a data-to="develop_architecture">Architecture</a> page
-            and learn how Grommet works internally.
+            We recommend that you check out the {architectureLink} page and
+            learn how Grommet works internally.
           </p>
         </section>
       </DocsArticle>
     );
   }
-});
+}
+
+GetStarted.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
 
 module.exports = GetStarted;
