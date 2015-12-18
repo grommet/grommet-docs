@@ -344,7 +344,7 @@ var MeterDoc = React.createClass({
 
           <h3>Bar, Series, Stacked, Legend</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-12' a11yDescId='meter-desc-12'
+            <Meter a11yTitleId='meter-title-19' a11yDescId='meter-desc-19'
               legend={true} series={series} stacked={true} />
           </div>
           <pre><code className="html hljs xml">
@@ -354,7 +354,7 @@ var MeterDoc = React.createClass({
 
           <h3>Bar, Small</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-19' a11yDescId='meter-desc-19'
+            <Meter a11yTitleId='meter-title-20' a11yDescId='meter-desc-20'
               value={this.state.simpleValue} size="small" />
           </div>
           <pre><code className="html hljs xml">
@@ -363,7 +363,7 @@ var MeterDoc = React.createClass({
 
           <h3>Arc, Small</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-20' a11yDescId='meter-desc-20'
+            <Meter a11yTitleId='meter-title-21' a11yDescId='meter-desc-21'
               value={this.state.simpleValue} type="arc" size="small" />
           </div>
           <pre><code className="html hljs xml">
@@ -372,7 +372,7 @@ var MeterDoc = React.createClass({
 
           <h3>Circle, Small</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-21' a11yDescId='meter-desc-21'
+            <Meter a11yTitleId='meter-title-22' a11yDescId='meter-desc-22'
               value={this.state.simpleValue} type="circle" size="small" />
           </div>
           <pre><code className="html hljs xml">
@@ -381,7 +381,7 @@ var MeterDoc = React.createClass({
 
           <h3>Bar, Large</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-22' a11yDescId='meter-desc-22'
+            <Meter a11yTitleId='meter-title-23' a11yDescId='meter-desc-23'
               value={this.state.simpleValue} size="large" />
           </div>
           <pre><code className="html hljs xml">
@@ -390,7 +390,7 @@ var MeterDoc = React.createClass({
 
           <h3>Arc, Large</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-23' a11yDescId='meter-desc-23'
+            <Meter a11yTitleId='meter-title-24' a11yDescId='meter-desc-24'
               value={this.state.simpleValue} type="arc" size="large" />
           </div>
           <pre><code className="html hljs xml">
@@ -399,7 +399,7 @@ var MeterDoc = React.createClass({
 
           <h3>Circle, Large</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-24' a11yDescId='meter-desc-24'
+            <Meter a11yTitleId='meter-title-25' a11yDescId='meter-desc-25'
               value={this.state.simpleValue} type="circle" size="large" />
           </div>
           <pre><code className="html hljs xml">
@@ -408,7 +408,7 @@ var MeterDoc = React.createClass({
 
           <h3>Bar, Loading</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-25' a11yDescId='meter-desc-25'
+            <Meter a11yTitleId='meter-title-26' a11yDescId='meter-desc-26'
               value={undefined} />
           </div>
           <pre><code className="html hljs xml">
@@ -417,7 +417,7 @@ var MeterDoc = React.createClass({
 
           <h3>Arc, Loading</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-26' a11yDescId='meter-desc-26'
+            <Meter a11yTitleId='meter-title-27' a11yDescId='meter-desc-27'
               value={undefined} type="arc" />
           </div>
           <pre><code className="html hljs xml">
@@ -426,7 +426,7 @@ var MeterDoc = React.createClass({
 
           <h3>Spiral, Loading</h3>
           <div className="example">
-            <Meter a11yTitleId='meter-title-27' a11yDescId='meter-desc-27'
+            <Meter a11yTitleId='meter-title-28' a11yDescId='meter-desc-28'
               value={undefined} type="spiral" />
           </div>
           <pre><code className="html hljs xml">
