@@ -9,6 +9,7 @@ var Menu = require('grommet/components/Menu');
 var CheckBox = require('grommet/components/CheckBox');
 var RadioButton = require('grommet/components/RadioButton');
 var SearchInput = require('grommet/components/SearchInput');
+var NumberInput = require('grommet/components/NumberInput');
 var Table = require('grommet/components/Table');
 var Footer = require('grommet/components/Footer');
 var Button = require('grommet/components/Button');
@@ -122,11 +123,22 @@ var FullForm = React.createClass({
                 value={this.state.calendarDate}
                 onChange={this._onCalendarChange} />
             </FormField>
+            <FormField label="Item 9" htmlFor={p + "item9"}>
+              <NumberInput id={p + "item9"} name="item-9"
+                value={this.state.rangeValue}
+                onChange={this._onChangeRange} />
+            </FormField>
+            <FormField label="Item 10" htmlFor={p + "item10"}
+              help={this.state.rangeValue}>
+              <input id={p + "item10"} name="item-10" type="range"
+                min="1" max="20" value={this.state.rangeValue}
+                onChange={this._onChangeRange}/>
+            </FormField>
           </fieldset>
           <fieldset>
             <legend>Another section</legend>
             <p>Some informational text.</p>
-            <FormField label="Item 9">
+            <FormField label="Item 11">
               <Table selectable={true} defaultSelection={0}>
                 <tbody>
                   <tr>
@@ -144,14 +156,8 @@ var FullForm = React.createClass({
                 </tbody>
               </Table>
             </FormField>
-            <FormField label="Item 10" htmlFor={p + "item10"}>
-              <input id={p + "item10"} name="item-10" type="number"
-                min="1" max="20" step="1" defaultValue="10" />
-            </FormField>
-            <FormField label="Item 11" htmlFor={p + "item11"} help={this.state.rangeValue}>
-              <input id={p + "item11"} name="item-11" type="range"
-                min="1" max="20" defaultValue="10"
-                onChange={this._onChangeRange}/>
+            <FormField label="Item 12" htmlFor={p + "item12"}>
+              <input id={p + "item12"} name="item-12" type="file" />
             </FormField>
           </fieldset>
         </FormFields>
