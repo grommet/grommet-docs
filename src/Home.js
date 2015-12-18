@@ -41,7 +41,7 @@ var Home = React.createClass({
 
   render: function() {
     return (
-      <Article className="home" scrollStep={true}>
+      <Article className="home" scrollStep={true} controls={true}>
 
         <HomeSection texture={'url(img/home_intro.png)'} primary={true}>
           <DocsHeader float={true} />

@@ -159,8 +159,6 @@ var MenuDoc = React.createClass({
               to a control + drop down when the window size is reduced.</dd>
             <dt><code>size          small|medium|large</code></dt>
             <dd>The size of the Menu. Defaults to <code>medium</code>.</dd>
-            <dt><code>small         true|false</code></dt>
-            <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
           also available.</p>

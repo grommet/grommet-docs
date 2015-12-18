@@ -35,12 +35,8 @@ var HeaderDoc = React.createClass({
               below it will scroll under it.</dd>
             <dt><code>float       true|false</code></dt>
             <dd>Whether the header floats above content underneath it.</dd>
-            <dt><code>large       true|false</code></dt>
-            <dd>Larger sized version. Deprecated, use <code>size</code>.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
-            <dt><code>small       true|false</code></dt>
-            <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
             <dt><code>splash      true|false</code></dt>
             <dd>Whether to render it in a style suitable for a splash screen.</dd>
           </dl>
