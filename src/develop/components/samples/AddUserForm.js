@@ -5,7 +5,6 @@ var Form = require('grommet/components/Form');
 var FormFields = require('grommet/components/FormFields');
 var FormField = require('grommet/components/FormField');
 var Header = require('grommet/components/Header');
-var Menu = require('grommet/components/Menu');
 var CheckBox = require('grommet/components/CheckBox');
 var RadioButton = require('grommet/components/RadioButton');
 var Footer = require('grommet/components/Footer');
@@ -175,9 +174,7 @@ var AddUserForm = React.createClass({
           </fieldset>
         </FormFields>
         <Footer pad={{vertical: 'medium'}}>
-          <Menu>
-            <Button label="Add" primary={true} strong={true} onClick={this._onSubmit} />
-          </Menu>
+          <Button label="Add" primary={true} strong={true} onClick={this._onSubmit} />
         </Footer>
       </Form>
     );

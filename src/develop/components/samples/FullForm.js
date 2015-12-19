@@ -5,7 +5,6 @@ var Form = require('grommet/components/Form');
 var FormFields = require('grommet/components/FormFields');
 var FormField = require('grommet/components/FormField');
 var Header = require('grommet/components/Header');
-var Menu = require('grommet/components/Menu');
 var CheckBox = require('grommet/components/CheckBox');
 var RadioButton = require('grommet/components/RadioButton');
 var SearchInput = require('grommet/components/SearchInput');
@@ -162,9 +161,7 @@ var FullForm = React.createClass({
           </fieldset>
         </FormFields>
         <Footer pad={{vertical: 'medium'}}>
-          <Menu direction="row">
-            <Button label="OK" primary={true} strong={true} onClick={this.props.onSubmit} />
-          </Menu>
+          <Button label="OK" primary={true} strong={true} onClick={this.props.onSubmit} />
         </Footer>
       </Form>
     );
