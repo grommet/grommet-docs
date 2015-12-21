@@ -11,7 +11,9 @@ var CheckBox = require('grommet/components/CheckBox');
 var Button = require('grommet/components/Button');
 
 function convertMenuToString(menuJSX) {
-  return jsxToString(menuJSX);
+  return jsxToString(menuJSX, {
+    displayName: 'Menu'
+  });
 }
 
 var MenuDoc = React.createClass({
