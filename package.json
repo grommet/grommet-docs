@@ -26,7 +26,7 @@
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.3",
     "highlight.js": "^8.8.0",
-    "history": "~1.13.0",
+    "history": "^1.17.0",
     "json-stringify-pretty-compact": "^1.0.1",
     "jsx-to-string": "^0.2.6",
     "morgan": "^1.5.0",
