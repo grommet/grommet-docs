@@ -56,7 +56,7 @@ var DashboardDoc = React.createClass({
             <Tiles fill={true} flush={false}>
               <Tile wide={true}>
                 <Chart series={dateSeries} min={0} max={5} threshold={2}
-                type="area" smooth={true} legend={true} small={true}
+                type="area" smooth={true} legend={{}} small={true}
                   xAxis={dateSeriesXAxis} />
               </Tile>
               <Tile>
