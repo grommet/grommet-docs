@@ -59,7 +59,7 @@ var LayerDoc = React.createClass({
   render: function() {
 
     var simpleLayer = (
-      <Layer onClose={this._onClose} closer={true} flush={true}
+      <Layer onClose={this._onClose} closer={true}
         align="top">
         <Form>
           <Header>
@@ -73,14 +73,14 @@ var LayerDoc = React.createClass({
     );
 
     var editLayer = (
-      <Layer onClose={this._onClose} closer={true} flush={true}
+      <Layer onClose={this._onClose} closer={true}
         align="left">
         <FullForm onCancel={this._onClose} onSubmit={this._onClose} />
       </Layer>
     );
 
     var confirmationLayer = (
-      <Layer onClose={this._onClose} closer={true} flush={true}
+      <Layer onClose={this._onClose} closer={true}
         align="right">
         <ConfirmationForm onCancel={this._onClose} onSubmit={this._onClose} />
       </Layer>
