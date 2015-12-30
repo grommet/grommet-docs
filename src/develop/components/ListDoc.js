@@ -86,8 +86,11 @@ export default class ListDoc extends Component {
               ListItem children.</dd>
             <dt><code>onMore         {"function () {...}"}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
-            <dt><code>onSelect       {"function (datum) {...}"}</code></dt>
-            <dd>Function that will be called when the user selects an item.</dd>
+            <dt><code>onSelect       {"function (selected) {...}"}</code></dt>
+            <dd>Function that will be called when the user selects something.
+              When only one item is selected, it returns the zero based index
+              for that item. When multiple items are selected, it returns an
+              array of those item's zero based indexes.</dd>
             <dt><code>schema         {"[{...}, ...]"}</code></dt>
             <dd>An array of objects describing the data.
               <code>{schema}</code> This property, along with <code>data</code> is
