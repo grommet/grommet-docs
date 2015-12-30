@@ -88,8 +88,11 @@ export default class TableDoc extends Component {
               the user scrolling down such that it becomes visible. When the user
               scrolls to the bottom, this callback will be called. The expectation
               is that the the caller will add the next chunk of data into the table.</dd>
-            <dt><code>onSelect      {"function (selection) {...}"}</code></dt>
-            <dd>Function that will be called when the user selects a row.</dd>
+            <dt><code>onSelect      {"function (selected) {...}"}</code></dt>
+            <dd>Function that will be called when the user selects something.
+              When only one item is selected, it returns the zero based index
+              for that item. When multiple items are selected, it returns an
+              array of those item's zero based indexes.</dd>
             <dt><code>scrollable    true|false</code></dt>
             <dt><code>selectable    true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
