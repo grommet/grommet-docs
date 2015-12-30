@@ -1,28 +1,30 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var DocsArticle = require('../../DocsArticle');
-var Table = require('grommet/components/Table');
+import React, { Component } from 'react';
+import DocsArticle from '../../DocsArticle';
+import Table from 'grommet/components/Table';
 
-var TableDoc = React.createClass({
+export default class TableDoc extends Component {
 
-  getInitialState: function () {
-    return {
-      singleSelection: [0]
-    };
-  },
+  constructor () {
+    super();
+    this._onSingleSelect = this._onSingleSelect.bind(this);
+    this._onMultipleSelect = this._onMultipleSelect.bind(this);
+
+    this.state = { singleSelected: [0] };
+  }
 
   // single selection is managed by the caller via state.singleSelection
-  _onSingleSelect: function (selection) {
-    this.setState({singleSelection: selection});
-  },
+  _onSingleSelect (selection) {
+    this.setState({singleSelected: selection});
+  }
 
   // multiple selection is managed by the Table
-  _onMultipleSelect: function (selection) {
+  _onMultipleSelect (selection) {
     // no-op
-  },
+  }
 
-  render: function() {
+  render () {
     var inline = [
       "<Table>",
       "  <thead>",
@@ -32,10 +34,10 @@ var TableDoc = React.createClass({
       "    </tr>",
       "  </thead>",
       "  <tbody>",
-      "    <tr>",
+      "    <TableRow>",
       "      <td>...</td>",
       "      <td>...</td>",
-      "    </tr>",
+      "    </TableRow>",
       "  </tbody>",
       "</Table>"
     ].join('\n');
@@ -69,11 +71,14 @@ var TableDoc = React.createClass({
     return (
       <DocsArticle title="Table" colorIndex="neutral-3">
 
-        <p>Table using standard HTML5 markup.</p>
+        <p>Table of items. The preferred method of
+          populating rows in the Table is to use TableRows inside
+          a child <code>&lt;tbody&gt;</code> element. Callers should also specify
+          a child <code>&lt;thead%gt;</code> element if a header is needed.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
-          <h2>Options</h2>
+          <h2>Table Options</h2>
           <dl>
             <dt><code>onMore        {"function () {...}"}</code></dt>
             <dd>Function that will be called when more data is needed. When this
@@ -89,8 +94,20 @@ var TableDoc = React.createClass({
             <dt><code>selectable    true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
               that multiple rows may be selected</dd>
-            <dt><code>selection     number|[number, ...]</code></dt>
-            <dd>The currently selected item(s).</dd>
+            <dt><code>selected      number|[number, ...]</code></dt>
+            <dd>The currently selected item(s) using a zero based index.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>TableRow Options</h2>
+          <dl>
+            <dt><code>onClick     {"function () {...}"}</code></dt>
+            <dd>Called when the user clicks on the row. Callers should bind
+              an identifier to the function to distinguish between multiple
+              rows. For example <code>{"onClick={this._onClick.bind(this, id)}"}</code></dd>
+            <dt><code>selected    true|false</code></dt>
+            <dd>Whether this row is currently selected.</dd>
           </dl>
         </section>
 
@@ -104,7 +121,8 @@ var TableDoc = React.createClass({
 
           <h3>Selectable</h3>
           <div className="example">
-            <Table selectable={true} selection={this.state.singleSelection} onSelect={this._onSingleSelect}>
+            <Table selectable={true} selected={this.state.singleSelected}
+              onSelect={this._onSingleSelect}>
               {tableHeader}
               {tableBody}
             </Table>
@@ -123,6 +141,4 @@ var TableDoc = React.createClass({
       </DocsArticle>
     );
   }
-});
-
-module.exports = TableDoc;
+}

@@ -11,15 +11,29 @@ import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 
-class TileDoc extends Component {
+export default class TileDoc extends Component {
 
   constructor () {
     super();
     this._onClick = this._onClick.bind(this);
+    this._onSingleSelect = this._onSingleSelect.bind(this);
+    this._onMultipleSelect = this._onMultipleSelect.bind(this);
+
+    this.state = { singleSelected: [0] };
   }
 
   _onClick () {
     // No-op
+  }
+
+  // single selection is managed by the caller via state.singleSelection
+  _onSingleSelect (selection) {
+    this.setState({singleSelected: selection});
+  }
+
+  // multiple selection is managed by the List
+  _onMultipleSelect (selection) {
+    // no-op
   }
 
   // options supports:
@@ -92,7 +106,8 @@ class TileDoc extends Component {
     return (
       <DocsArticle title="Tile(s)" colorIndex="neutral-3">
 
-        <p>Lay out equivalently sized tiles of content.</p>
+        <p>A grid of items. The preferred method of populating
+          Tiles is to use Tile children.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
@@ -106,6 +121,11 @@ class TileDoc extends Component {
               or between the contained tiles.</dd>
             <dt><code>onMore      {"function () {...}"}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
+            <dt><code>selectable  true|false|multiple</code></dt>
+            <dd>Whether rows are selectable. <code>multiple</code> indicates
+              that multiple rows may be selected</dd>
+            <dt><code>selected    number|[number, ...]</code></dt>
+            <dd>The currently selected item(s) using a zero based index.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of the contained tiles. Defaults to <code>medium</code>.</dd>
           </dl>
@@ -116,12 +136,18 @@ class TileDoc extends Component {
         <section>
           <h2>Tile Options</h2>
           <dl>
+            <dt><code>onClick     {"function () {...}"}</code></dt>
+            <dd>Called when the user clicks on the item. Callers should bind
+              an identifier to the function to distinguish between multiple
+              items. For example <code>{"onClick={this._onClick.bind(this, id)}"}</code></dd>
+            <dt><code>selected    true|false</code></dt>
+            <dd>Whether this item is currently selected.</dd>
             <dt><code>wide        true|false</code></dt>
             <dd>Whether the tile should fill the full width of the Tiles
             component that contains it.</dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
-          also available for Tile.</p>
+            also available for Tile.</p>
         </section>
 
         <section>
@@ -184,11 +210,28 @@ class TileDoc extends Component {
             {"<Tiles fill={true} direction=\"row\">\n  ...\n</Tiles>"}
           </code></pre>
 
+          <h3>Selectable</h3>
+          <div className="example">
+            <Tiles fill={true}
+              selectable={true}
+              selected={this.state.singleSelected}
+              onSelect={this._onSingleSelect}>
+              {this._renderRichTiles()}
+            </Tiles>
+          </div>
+
+          <h3>Multi-select</h3>
+          <div className="example">
+            <Tiles fill={true}
+              selectable="multiple"
+              onSelect={this._onMultipleSelect}>
+              {this._renderRichTiles()}
+            </Tiles>
+          </div>
+
         </section>
 
       </DocsArticle>
     );
   }
 }
-
-module.exports = TileDoc;
