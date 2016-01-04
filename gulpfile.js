@@ -181,7 +181,7 @@ fs.readdirSync('node_modules')
   });
 
 gulp.task('generate-icons-map', function (done) {
-  var iconsFolder = path.join(__dirname, './node_modules/grommet/img/icons');
+  var iconsFolder = path.join(__dirname, '../grommet/src/img/icons');
   var iconsMap = ['module.exports = {'];
   fs.readdir(iconsFolder, function(err, icons) {
     icons.forEach(function (icon, index) {
