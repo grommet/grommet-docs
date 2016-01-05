@@ -76,7 +76,7 @@ var AnchorDoc = React.createClass({
     );
 
     var disabledAnchor = (
-      <Anchor primary={true}>Text</Anchor>
+      <Anchor primary={true} disabled={true}>Text</Anchor>
     );
 
     return (
