@@ -12,8 +12,7 @@ function convertAnchorToString(anchorJSX) {
   return jsxToString(anchorJSX, {
     keyValueOverride: {
       onClick: 'this._onClick'
-    },
-    displayName: 'Anchor'
+    }
   });
 }
 
