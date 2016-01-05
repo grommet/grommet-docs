@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Meter = require('grommet/components/Meter');
 var FormField = require('grommet/components/FormField');

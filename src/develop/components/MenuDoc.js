@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Link = require('react-router').Link;
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Menu = require('grommet/components/Menu');
 var ConfigIcon = require('grommet/components/icons/base/Configuration');

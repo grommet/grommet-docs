@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
 var Section = require('grommet/components/Section');
@@ -12,7 +12,8 @@ function convertAnchorToString(anchorJSX) {
   return jsxToString(anchorJSX, {
     keyValueOverride: {
       onClick: 'this._onClick'
-    }
+    },
+    displayName: 'Anchor'
   });
 }
 
