@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Chart = require('grommet/components/Chart');
 var Tiles = require('grommet/components/Tiles');

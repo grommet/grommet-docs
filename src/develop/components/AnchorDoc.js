@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
 var Section = require('grommet/components/Section');
@@ -12,7 +12,8 @@ function convertAnchorToString(anchorJSX) {
   return jsxToString(anchorJSX, {
     keyValueOverride: {
       onClick: 'this._onClick'
-    }
+    },
+    displayName: 'Anchor'
   });
 }
 
@@ -75,7 +76,7 @@ var AnchorDoc = React.createClass({
     );
 
     var disabledAnchor = (
-      <Anchor primary={true}>Text</Anchor>
+      <Anchor primary={true} disabled={true}>Text</Anchor>
     );
 
     return (
@@ -90,22 +91,26 @@ var AnchorDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-          <dt><code>href           {"{location}"}</code></dt>
-          <dd>Hyperlink reference to place in the anchor.</dd>
-          <dt><code>target         {"{location}"}</code></dt>
-          <dd>
-            Target of the link,
-            examples targets=_blank|_self|_parent|_top|framename.
-          </dd>
-          <dt><code>onClick        {"{func}"}</code></dt>
-          <dd>Click handler.</dd>
-          <dt><code>primary        true|false</code></dt>
-          <dd>Whether this is a primary anchor.</dd>
-          <dt><code>tag            {"{text}"}</code></dt>
-          <dd>The DOM tag to use for the element. The default is {'<a>'}.
-            This should be used in conjunction with components like
-            Link from React Router. In this case, Link controls the
-            navigation while Anchor controls the styling.</dd>
+            <dt><code>disabled  true|false</code></dt>
+            <dd>
+              Whether to disable the anchor. Default is false.
+            </dd>
+            <dt><code>href           {"{location}"}</code></dt>
+            <dd>Hyperlink reference to place in the anchor.</dd>
+            <dt><code>target         {"{location}"}</code></dt>
+            <dd>
+              Target of the link,
+              examples targets=_blank|_self|_parent|_top|framename.
+            </dd>
+            <dt><code>onClick        {"{func}"}</code></dt>
+            <dd>Click handler.</dd>
+            <dt><code>primary        true|false</code></dt>
+            <dd>Whether this is a primary anchor.</dd>
+            <dt><code>tag            {"{text}"}</code></dt>
+            <dd>The DOM tag to use for the element. The default is {'<a>'}.
+              This should be used in conjunction with components like
+              Link from React Router. In this case, Link controls the
+              navigation while Anchor controls the styling.</dd>
           </dl>
         </section>
 

@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var Link = require('react-router').Link;
 var DocsArticle = require('../../DocsArticle');
 var Footer = require('grommet/components/Footer');
