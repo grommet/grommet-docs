@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Box = require('grommet/components/Box');
 var DocsArticle = require('../../DocsArticle');
 var FullForm = require('./samples/FullForm');
 var AddUserForm = require('./samples/AddUserForm');
@@ -70,6 +71,12 @@ var FormDoc = React.createClass({
           <div className="example">
             <ConfirmationForm prefix="a-" onSubmit={this._onSubmit} onCancel={this._onCancel} />
           </div>
+          <pre><code className="html hljs xml">{"<Form onSubmit={...}> ..."}</code></pre>
+
+          <h3>Inverse</h3>
+          <Box className="example" colorIndex="neutral-1" pad="large">
+            <FullForm prefix="a-" onSubmit={this._onSubmit} onCancel={this._onCancel} />
+          </Box>
           <pre><code className="html hljs xml">{"<Form onSubmit={...}> ..."}</code></pre>
 
         </section>
