@@ -10,6 +10,7 @@ var Form = require('grommet/components/Form');
 var FormFields = require('grommet/components/FormFields');
 var FullForm = require('./samples/FullForm');
 var ConfirmationForm = require('./samples/ConfirmationForm');
+var SampleArticle = require('./samples/SampleArticle');
 
 function convertLayerToString(layerJSX) {
   return jsxToString(layerJSX, {
@@ -86,6 +87,13 @@ var LayerDoc = React.createClass({
       </Layer>
     );
 
+    var articleLayer = (
+      <Layer onClose={this._onClose} closer={true} flush={true}
+        align="center">
+        <SampleArticle />
+      </Layer>
+    );
+
     var activeLayer = null;
     if (this.state.active) {
       switch (this.state.active) {
@@ -97,6 +105,9 @@ var LayerDoc = React.createClass({
           break;
         case 'confirmation':
           activeLayer = confirmationLayer;
+          break;
+        case 'article':
+          activeLayer = articleLayer;
           break;
       }
     }
@@ -143,6 +154,7 @@ var LayerDoc = React.createClass({
           {this._renderLayerCode(
             'Confirmation, right', 'confirmation', confirmationLayer
           )}
+          {this._renderLayerCode('Article, center', 'article', articleLayer)}
         </section>
 
         {activeLayer}
