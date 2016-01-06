@@ -192,7 +192,7 @@ gulp.task('generate-icons-map', function (done) {
           return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
         });
 
-        var grommetIconPath = "grommet/components/icons/base/";
+        var grommetIconPath = "../grommet/src/js/components/icons/base/";
         iconsMap.push(
           "\"" + icon.replace('.svg', '') + "\":" +
           " require('" + grommetIconPath + componentName + "')"

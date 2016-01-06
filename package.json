@@ -22,7 +22,7 @@
     "ejs": "^0.8.5",
     "enhanced-require": "^0.4.2",
     "express": "^4.10.6",
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
+    "grommet": "0.4.1",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.3",
     "highlight.js": "^8.8.0",
