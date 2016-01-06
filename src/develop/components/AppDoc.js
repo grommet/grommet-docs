@@ -1,4 +1,7 @@
+// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
 var React = require('react');
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var App = require('grommet/components/App');
 var Header = require('grommet/components/Header');
@@ -11,6 +14,15 @@ var inline =
 
 var AppDoc = React.createClass({
   render: function() {
+
+    var appCode = (
+      <App inline={true}>
+        <Header>
+          <Title>My App</Title>
+        </Header>
+      </App>
+    );
+
     return (
       <DocsArticle title="App" colorIndex="neutral-3">
 
@@ -21,9 +33,15 @@ var AppDoc = React.createClass({
           <h2>Options</h2>
           <dl>
             <dt><code>centered  true|false</code></dt>
-            <dd>Whether to centralize or not the content inside the container. Default is true.</dd>
+            <dd>
+              Whether to centralize or not the content inside the container.
+              Default is true.
+            </dd>
             <dt><code>inline  true|false</code></dt>
-            <dd>Whether to render the app relative to the container (inline) or to the browser window. Default is false.</dd>
+            <dd>
+              Whether to render the app relative to the container (inline) or
+              to the browser window. Default is false.
+            </dd>
           </dl>
         </section>
 
@@ -32,14 +50,10 @@ var AppDoc = React.createClass({
 
           <h3>App, header with title</h3>
           <div className="example">
-            <App inline={true}>
-              <Header>
-                <Title>My App</Title>
-              </Header>
-            </App>
+            {appCode}
           </div>
           <pre><code className="html hljs xml">
-            {"<App>\n  <Header>\n    <Title>\n      My App\n    </Title>\n  </Header>\n  ...\n</App>"}
+            {jsxToString(appCode)}
           </code></pre>
         </section>
 

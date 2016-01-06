@@ -6,6 +6,7 @@ var Header = require('grommet/components/Header');
 var SearchInput = require('grommet/components/SearchInput');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
+var Button = require('grommet/components/Button');
 var iconsMap = require('./iconsMap');
 var iconNames = Object.keys(iconsMap);
 
@@ -90,11 +91,11 @@ var IconDoc = React.createClass({
       var IconInstance = iconsMap[iconName];
       return (
         <Tile key={'tile_' + index} direction="row"
-          align="start" justify="start">
-          <div onClick={this._onIconSelect}>
+          align="center" justify="start">
+          <Button type="icon" onClick={this._onIconSelect}>
             <IconInstance />
-            <span dangerouslySetInnerHTML={{__html: iconText}} />
-          </div>
+          </Button>
+          <span dangerouslySetInnerHTML={{__html: iconText}} />
         </Tile>
       );
     }.bind(this));

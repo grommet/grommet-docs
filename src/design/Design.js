@@ -8,7 +8,6 @@ var Link = Router.Link;
 var Section = require('grommet/components/Section');
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
-var DocsHtmlArticle = require('../DocsHtmlArticle');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
@@ -21,9 +20,7 @@ var TBD = require('grommet/components/TBD');
 var Resources = require('./Resources');
 
 var CONTENTS = [
-  //{route: "design_introduction", label: 'Introduction', component: Introduction},
-  {route: "design_philosophy", label: 'Philosophy',
-    component: DocsHtmlArticle.wrap(Philosophy, 'neutral-1'),
+  {route: "design_philosophy", label: 'Philosophy', component: Philosophy,
     contents: [
       {label: 'Best Practices', id: 'best-practices'},
       {label: 'Usability', id: 'usability'},
@@ -31,8 +28,7 @@ var CONTENTS = [
       {label: 'Mobile', id: 'mobile'},
       {label: 'Accessibility', id: 'accessibility'}
     ]},
-  {route: "design_basics", label: 'Basics',
-    component: DocsHtmlArticle.wrap(Basics, 'neutral-2'),
+  {route: "design_basics", label: 'Basics', component: Basics,
     contents: [
       {label: 'Color', id: 'color'},
       {label: 'Text', id: 'text'},
@@ -42,18 +38,15 @@ var CONTENTS = [
       {label: 'Capitalization', id: 'capitalization'},
       {label: 'Icons', id: 'icons'}
     ]},
-  {route: "design_patterns", label: 'Patterns',
-    component: DocsHtmlArticle.wrap(Patterns, 'neutral-3'),
+  {route: "design_patterns", label: 'Patterns', component: Patterns,
     contents: [
-      {route: "design_login", label: 'Login',
-        component: DocsHtmlArticle.wrap(Login, 'neutral-3')},
+      {route: "design_login", label: 'Login', component: Login},
       {route: "design_header", label: 'Header', component: TBD},
       {route: "design_dashboard", label: 'Dashboard', component: TBD},
       {route: "design_search", label: 'Search', component: TBD}
     ]
   },
-  {route: "design_showcase", label: 'Showcase',
-    component: DocsHtmlArticle.wrap(Showcase, 'neutral-4'),
+  {route: "design_showcase", label: 'Showcase', component: Showcase,
     contents: [
       {id: "hpsw-analytics", label: 'Analytics'},
       {id: "hpsw-big-data", label: 'Big Data'},
@@ -69,8 +62,7 @@ var CONTENTS = [
       {id: "hpsw-web-inspect", label: 'Web Inspect'}
     ]
   },
-  {route: "design_resources", label: 'Resources',
-    component: DocsHtmlArticle.wrap(Resources, 'neutral-4')}
+  {route: "design_resources", label: 'Resources', component: Resources}
 ];
 
 var Design = React.createClass({

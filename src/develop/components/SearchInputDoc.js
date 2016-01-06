@@ -44,7 +44,15 @@ var SearchInputDoc = React.createClass({
             <dd>The name attribute of the input.</dd>
             <dt><code>onChange      {"function ({value: , label: }|{string}, selected) {...}"}</code></dt>
             <dd>Function that will be called when the user types some text into the input.
-              selected will be true when the user has chosen one of the suggestions.</dd>
+              selected will be true when the user has chosen one of the suggestions.
+              This property is deprecated in favor of onDOMChange and onSelect.</dd>
+            <dt><code>onDOMChange      {"function (event) {...}"}</code></dt>
+            <dd>Function that will be called when the user types in the input.</dd>
+            <dt><code>onSelect      {"function ({target: , suggestion: }) {...}"}</code></dt>
+            <dd>Function that will be called when the user selects a suggestion.
+              The target corresponds to the embedded input element, allowing you
+              to distinguish which component triggered the event. The suggestion
+              contains the object chosen from the supplied suggestions.</dd>
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
             <dt><code>suggestions   {"[{value: , label: }|{string}, ...]"}</code></dt>

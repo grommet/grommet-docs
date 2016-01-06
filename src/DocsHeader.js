@@ -20,7 +20,7 @@ var DocsHeader = React.createClass({
 
   render: function() {
     return (
-      <Header fixed={false} float={this.props.float} size="large"
+      <Header fixed={false} float={this.props.float}
         appCentered={true} justify="between">
         <Title responsive={false}>
           <Link to={this.context.routePrefix}>
@@ -29,7 +29,7 @@ var DocsHeader = React.createClass({
             </Box>
           </Link>
         </Title>
-        <Menu direction="row" responsive={false}>
+        <Menu direction="row" responsive={true}>
           <Link id="design-link" to={this.context.routePrefix + 'design'}>Design</Link>
           <Link id="develop-link" to={this.context.routePrefix + 'develop'}>Develop</Link>
           <a href="http://blog.grommet.io" target="_blank">Blog</a>

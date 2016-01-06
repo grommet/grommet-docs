@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var jsxToString = require('jsx-to-string').default;
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
 var Layer = require('grommet/components/Layer');
@@ -59,7 +59,7 @@ var LayerDoc = React.createClass({
   render: function() {
 
     var simpleLayer = (
-      <Layer onClose={this._onClose} closer={true} flush={true}
+      <Layer onClose={this._onClose} closer={true}
         align="top">
         <Form>
           <Header>
@@ -73,14 +73,14 @@ var LayerDoc = React.createClass({
     );
 
     var editLayer = (
-      <Layer onClose={this._onClose} closer={true} flush={true}
+      <Layer onClose={this._onClose} closer={true}
         align="left">
         <FullForm onCancel={this._onClose} onSubmit={this._onClose} />
       </Layer>
     );
 
     var confirmationLayer = (
-      <Layer onClose={this._onClose} closer={true} flush={true}
+      <Layer onClose={this._onClose} closer={true}
         align="right">
         <ConfirmationForm onCancel={this._onClose} onSubmit={this._onClose} />
       </Layer>

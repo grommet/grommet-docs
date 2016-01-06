@@ -74,6 +74,8 @@ var SearchDoc = React.createClass({
             <dd>Function that will be called when the user types some text.</dd>
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
+            <dt><code>size          medium|large</code></dt>
+            <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
             <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
             <dd>Suggestions to show, typically based on what the user has typed so far.
               You can pass an array of strings or objects. Objects must have a
@@ -140,6 +142,25 @@ var SearchDoc = React.createClass({
           <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
             this.state.value + "\" suggestions={" +
             stringify(this.state.simpleSuggestions) + "}/>"}</code></pre>
+
+          <h3>Large</h3>
+          <div className="example">
+            <Search inline={true} value={this.state.value} size="large"
+              suggestions={this.state.simpleSuggestions}
+              onChange={this._onChange} />
+          </div>
+          <pre><code className="html hljs xml">{"<Search size=\"large\"> ..."}</code></pre>
+
+          {/*}
+          <h3>Small</h3>
+          <p>Avoid using this size as it is too small for touch devices.</p>
+          <div className="example">
+            <Search inline={true} value={this.state.value} size="small"
+              suggestions={this.state.simpleSuggestions}
+              onChange={this._onChange} />
+          </div>
+          <pre><code className="html hljs xml">{"<Search size=\"small\"> ..."}</code></pre>
+          {*/}
 
         </section>
 

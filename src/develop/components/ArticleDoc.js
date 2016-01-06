@@ -36,7 +36,14 @@ var ArticleDoc = React.createClass({
           <h2>Options</h2>
           <dl>
             <dt><code>primary      true|false</code></dt>
-            <dd>Whether it should be treated as main content or not. Used for Accessibility.</dd>
+            <dd>Whether it should be treated as main content or not. Used
+            for Accessibility.</dd>
+            <dt><code>scrollStep   true|false</code></dt>
+            <dd>Whether to allow keyboard control of stepped scrolling through
+            children. When true, directional keys will step through the
+            children, depending on the direction they are laid out.
+            If the spacebar is pressed, the children will automatically
+            be stepped through at an interval of ten seconds per child.</dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
           also available.</p>
