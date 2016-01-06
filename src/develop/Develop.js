@@ -7,7 +7,6 @@ var Link = Router.Link;
 
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
-var DocsHtmlArticle = require('../DocsHtmlArticle');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
@@ -34,6 +33,7 @@ var FormDoc = require('./components/FormDoc');
 var FormFieldDoc = require('./components/FormFieldDoc');
 var HeaderDoc = require('./components/HeaderDoc');
 var IconDoc = require('./components/IconDoc');
+var ImageDoc = require('./components/ImageDoc');
 var LayerDoc = require('./components/LayerDoc');
 var ListDoc = require('./components/ListDoc');
 var LoginFormDoc = require('./components/LoginFormDoc');
@@ -41,6 +41,7 @@ var MapDoc = require('./components/MapDoc');
 var MenuDoc = require('./components/MenuDoc');
 var MeterDoc = require('./components/MeterDoc');
 var NavigationDoc = require('./patterns/NavigationDoc');
+var NumberInputDoc = require('./components/NumberInputDoc');
 var ParagraphDoc = require('./components/ParagraphDoc');
 var RadioButtonDoc = require('./components/RadioButtonDoc');
 var RestDoc = require('./utils/RestDoc');
@@ -69,9 +70,9 @@ var CONTENTS = [
   {label: 'Guides',
     contents: [
       {route: 'develop_helloworld', label: 'Hello World',
-        component: DocsHtmlArticle.wrap(HelloWorld, 'neutral-1')},
+        component: HelloWorld},
       {route: 'develop_getstarted', label: 'Get Started',
-        component: DocsHtmlArticle.wrap(GetStarted, 'neutral-1')}
+        component: GetStarted}
     ]
   },
   {label: 'Patterns',
@@ -98,12 +99,14 @@ var CONTENTS = [
       {route: 'develop_form-field', label: 'FormField', component: FormFieldDoc},
       {route: 'develop_header', label: 'Header', component: HeaderDoc},
       {route: 'develop_icon', label: 'Icon', component: IconDoc},
+      {route: 'develop_image', label: 'Image', component: ImageDoc},
       {route: 'develop_layer', label: 'Layer', component: LayerDoc},
       {route: 'develop_list', label: 'List', component: ListDoc},
       {route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc},
       {route: 'develop_map', label: 'Map', component: MapDoc},
       {route: 'develop_menu', label: 'Menu', component: MenuDoc},
       {route: 'develop_meter', label: 'Meter', component: MeterDoc},
+      {route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc},
       {route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc},
       {route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc},
       {route: 'develop_search', label: 'Search', component: SearchDoc},
@@ -129,9 +132,9 @@ var CONTENTS = [
   {label: 'Reference',
     contents: [
       {route: 'develop_architecture', label: 'Architecture',
-        component: DocsHtmlArticle.wrap(Architecture, 'neutral-4')},
+        component: Architecture},
       {route: 'develop_integration', label: 'Integration',
-        component: DocsHtmlArticle.wrap(Integration, 'neutral-4')},
+        component: Integration},
       {route: 'develop_accessibility', label: 'Accessibility',
         component: Accessibility}
     ]

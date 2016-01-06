@@ -50,8 +50,6 @@ var SidebarDoc = React.createClass({
               Deprecated, use <Link to={this.context.routePrefix + "box"}>Box colorIndex</Link>.</dd>
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
-            <dt><code>small      true|false</code></dt>
-            <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
         </section>

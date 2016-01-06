@@ -8,8 +8,9 @@ var Header = require('grommet/components/Header');
 var Title = require('grommet/components/Title');
 var Box = require('grommet/components/Box');
 var Menu = require('grommet/components/Menu');
+var Button = require('grommet/components/Button');
 var GrommetLogo = require('grommet/components/icons/Grommet');
-var CloseIcon = require('grommet/components/icons/Clear');
+var CloseIcon = require('grommet/components/icons/base/Close');
 var DocsMenu = require('./DocsMenu');
 var DOM = require('grommet/utils/DOM');
 
@@ -97,9 +98,7 @@ var DocsSplit = React.createClass({
     var closer;
     if ('single' === this.state.responsive) {
       closer = (
-        <Menu direction="row">
-          <span onClick={this._onMenuClick}><CloseIcon /></span>
-        </Menu>
+        <Button type="icon" onClick={this._onMenuClick}><CloseIcon /></Button>
       );
     }
     return (

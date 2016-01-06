@@ -5,6 +5,7 @@ var DocsArticle = require('../../DocsArticle');
 var FormField = require('grommet/components/FormField');
 var CheckBox = require('grommet/components/CheckBox');
 var RadioButton = require('grommet/components/RadioButton');
+var NumberInput = require('grommet/components/NumberInput');
 
 var FormFieldDoc = React.createClass({
 
@@ -63,9 +64,17 @@ var FormFieldDoc = React.createClass({
 
           <h3>RadioButton with help</h3>
           <div className="example">
-            <FormField label="item 1" help="help text">
+            <FormField label="item 3" help="help text">
               <RadioButton id="item3-1" label="choice 1" name="choice"/>
               <RadioButton id="item3-2" label="choice 2" name="choice"/>
+            </FormField>
+          </div>
+          <pre><code className="html hljs xml">{"<FormField help=\"help text\">\n  <RadioButton id=\"\{item3-1\}\" label=\"choice 1\" name=\"choice\"/>\n  <RadioButton id=\"\{item3-2\}\" label=\"choice 2\" name=\"choice\"/>\n</FormField>"}</code></pre>
+
+          <h3>NumberInput</h3>
+          <div className="example">
+            <FormField label="item 4" htmlFor="item4">
+              <NumberInput id="item4" name="number" />
             </FormField>
           </div>
           <pre><code className="html hljs xml">{"<FormField help=\"help text\">\n  <RadioButton id=\"\{item3-1\}\" label=\"choice 1\" name=\"choice\"/>\n  <RadioButton id=\"\{item3-2\}\" label=\"choice 2\" name=\"choice\"/>\n</FormField>"}</code></pre>

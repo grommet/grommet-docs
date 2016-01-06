@@ -41,7 +41,7 @@ var Home = React.createClass({
 
   render: function() {
     return (
-      <Article className="home" scrollStep={true}>
+      <Article className="home" scrollStep={true} controls={true}>
 
         <HomeSection texture={'url(img/home_intro.png)'} primary={true}>
           <DocsHeader float={true} />
@@ -54,7 +54,7 @@ var Home = React.createClass({
         <HomeSection colorIndex="neutral-1">
           <Headline>Create once and deliver everywhere.</Headline>
           <Headline small={true}>Application experiences that look great while solving problems.</Headline>
-          <Menu direction="row" justify="center" full="horizontal">
+          <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "design"}>
               <Button label="See more examples" onClick={this._onClick} large={true} primary={true} />
             </Link>
@@ -69,7 +69,7 @@ var Home = React.createClass({
         <HomeSection colorIndex="neutral-2" texture={'url(img/home_features.png)'}>
           <Headline>So little gets you sooooooo much!</Headline>
           <Headline small={true}>We’ve tried it all in enterprise and we think we’ve got a good foundation.</Headline>
-          <Menu direction="row" justify="center" full="horizontal">
+          <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "develop/architecture"}>
               <Button label="Our architecture" onClick={this._onClick} large={true} primary={true} />
             </Link>
@@ -83,7 +83,7 @@ var Home = React.createClass({
           <Headline>Ready for your Design Workflow.</Headline>
           <Headline small={true}>All the resources you could possibly need! Sticker sheets, Stencils,
             PSDs, and more.</Headline>
-          <Menu direction="row" justify="center" full="horizontal">
+          <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "design"}>
               <Button label="Start designing" onClick={this._onClick} large={true} primary={true} />
             </Link>
@@ -119,7 +119,7 @@ var Home = React.createClass({
         <HomeSection colorIndex="neutral-3">
           <Headline>Develop your next project with Grommet.</Headline>
           <Headline small={true}>Let’s get an application on your local environment!</Headline>
-          <Menu direction="row" justify="center" full="horizontal">
+          <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="Start project" onClick={this._onClick} large={true} primary={true} />
             </Link>
@@ -144,7 +144,7 @@ var Home = React.createClass({
           <Headline>Built with the best stuff.</Headline>
           <Headline small={true}>The tools you know and love, all packaged together in one
             easy-to-use solution.</Headline>
-          <Menu direction="row" justify="center" full="horizontal">
+          <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <a href="https://github.com/grommet/grommet">
               <Button label="View project on Github" onClick={this._onClick} large={true} primary={true} />
             </a>
@@ -192,10 +192,8 @@ var Home = React.createClass({
         <HomeSection colorIndex="neutral-2">
           <Headline>Let’s keep in touch!</Headline>
           <Headline small={true}>Follow us on the Grommet blog to get the latest updates.</Headline>
-          <Menu direction="row" justify="center" full="horizontal">
-            <Link to={this.context.routePrefix + "develop/get-started"}>
-              <Button label="Grommet blog" onClick={this._onClick} large={true} primary={true} />
-            </Link>
+          <Menu direction="row" justify="center" full="horizontal" responsive={false}>
+            <Button label="Grommet blog" onClick={this._onRequestForBlog} large={true} primary={true} />
           </Menu>
           <p>We also pop our heads out at these place as well...</p>
           <Tiles fill={true}>
@@ -236,7 +234,6 @@ var Home = React.createClass({
           appCentered={true} direction="column" align="center" pad="large"
           colorIndex="grey-1">
           <h3>Build your ideas with Grommet!</h3>
-          <Button label="Grommet Blog" onClick={this._onRequestForBlog} />
           <p>
             This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International License</a>.
           </p>

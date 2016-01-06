@@ -10,7 +10,7 @@ var Search = require('grommet/components/Search');
 var Logo = require('../img/Logo');
 var Gravatar = require('react-gravatar');
 var Link = require('react-router').Link;
-var Article = require('grommet/components/Article');
+var DocsArticle = require('../DocsArticle');
 
 
 var Patterns = React.createClass({
@@ -33,19 +33,16 @@ var Patterns = React.createClass({
     ];
 
     return (
-      <Article>
-        <header>
-          <h1>Patterns</h1>
-        </header>
-
-        <section>
-          <p>Interaction design patterns are task driven workflows commonly
+      <DocsArticle title="Patterns" colorIndex="neutral-3">
+        <p>
+          Interaction design patterns are task driven workflows commonly
           used throughout a user interface.  Designers and developers should
           follow the design pattern guidance in order to create consistent user
           experiences across the product suite. Once a user is familiar with
           the design patterns of your application they will come to expect the
-          same experience for the same tasks in other applications.</p>
-        </section>
+          same experience for the same tasks in other applications.
+        </p>
+
         <section>
           <h2>Login</h2>
 
@@ -107,7 +104,7 @@ var Patterns = React.createClass({
           </div>
 
         </section>
-      </Article>
+      </DocsArticle>
     );
   }
 });
