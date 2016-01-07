@@ -42,7 +42,7 @@
     "babel-preset-react": "^6.3.13",
     "del": "^2.0.2",
     "gulp-git": "^1.2.3",
-    "gulp-minify-css": "^1.1.0",
+    "gulp-cssnano": "^2.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
