@@ -11,7 +11,7 @@ import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 
-export default class TileDoc extends Component {
+class TileDoc extends Component {
 
   constructor () {
     super();
@@ -239,4 +239,10 @@ export default class TileDoc extends Component {
       </DocsArticle>
     );
   }
-}
+};
+
+TileDoc.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
+
+export default TileDoc;
