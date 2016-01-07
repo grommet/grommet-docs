@@ -37,8 +37,9 @@ var IconDoc = React.createClass({
   },
 
   _onChange: function (value) {
+    var caseInsensitiveValue = new RegExp(value, 'i');
     var icons = iconNames.filter(function (icon) {
-      return icon.match(value);
+      return icon.match(caseInsensitiveValue);
     });
 
     this.setState({

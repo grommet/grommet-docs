@@ -20,7 +20,7 @@ const DATA = [
   {uid: 4, face: '', name: 'Eric', mood: 'odd'}
 ];
 
-export default class ListDoc extends Component {
+class ListDoc extends Component {
 
   constructor () {
     super();
@@ -168,3 +168,9 @@ export default class ListDoc extends Component {
     );
   }
 }
+
+ListDoc.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
+
+export default ListDoc;
