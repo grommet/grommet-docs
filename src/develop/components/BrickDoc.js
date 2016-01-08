@@ -4,6 +4,9 @@ var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Bricks = require('grommet/components/Bricks');
 var Brick = require('grommet/components/Brick');
+var Box = require('grommet/components/Box');
+var Image = require('grommet/components/Image');
+var GrommetLogo = require('grommet/components/icons/Grommet');
 
 var BrickDoc = React.createClass({
 
@@ -47,11 +50,11 @@ var BrickDoc = React.createClass({
             <dd>The width of the Brick.  Defaults to <code>1</code>.</dd>
           </dl>
           <dl>
-            <dt><code>height        1|2</code></dt>
+            <dt><code>height       1|2</code></dt>
             <dd>The height of the Brick.  Defaults to <code>1</code>.</dd>
           </dl>
           <dl>
-            <dt><code>colorIndex        {"{category}-{index}"}</code></dt>
+            <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color of the Brick.  For example: <code>"neutral-1"</code></dd>
           </dl>
         </section>
@@ -62,15 +65,32 @@ var BrickDoc = React.createClass({
           <p>These examples show a variety of different options for the Bricks.</p>
 
           <h3>Simple</h3>
-          <div className="example">
+          <Box className="example">
             <Bricks>
               <Brick label="First"/>
               <Brick label="Second" />
               <Brick label="Third" />
             </Bricks>
-          </div>
+          </Box>
           <pre><code className="html hljs xml">
             {"<Bricks>\n  <Brick label='First' />\n  ...\n</Bricks>"}
+          </code></pre>
+
+          <h3>Varying Colors, Sizes, and Content</h3>
+          <Box className="example">
+            <Bricks>
+              <Brick label="First" colorIndex="neutral-1" width={2} height={2} route="http://www.grommet.io/docs/">
+                <Image src="img/carousel-1.png" size="medium" />
+              </Brick>
+              <Brick label="Second" colorIndex="neutral-2" width={1} height={2} />
+              <Brick label="Third" colorIndex="neutral-3">
+                <GrommetLogo size="large" />
+              </Brick>
+              <Brick label="Fourth" colorIndex="neutral-4" />
+            </Bricks>
+          </Box>
+          <pre><code className="html hljs xml">
+            {"<Bricks>\n  <Brick label=\"First\" colorIndex=\"neutral-1\" width={2} height={2} route=\"...\">\n    <Image ... />\n  </Brick>\n  <Brick label=\"Second\" colorIndex=\"neutral-2\" width={1} height={2} />\n  <Brick label=\"Third\" colorIndex=\"neutral-3\">\n    ...\n  </Brick>\n  <Brick label=\"Fourth\" colorIndex=\"neutral-4\" />\n  ...\n</Bricks>"}
           </code></pre>
 
         </section>
