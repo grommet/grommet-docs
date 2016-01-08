@@ -18,13 +18,7 @@ var BrickDoc = React.createClass({
     var inline =
       "<Bricks>\n" +
       "  <Brick>\n" +
-      "    <Header>\n" +
-      "      ...\n" +
-      "    </Header>\n" +
       "    ...\n" +
-      "    <Footer>\n" +
-      "      ...\n" +
-      "    </Footer>\n" +
       "  </Brick>\n" +
       "  ...\n" +
       "</Bricks>";
