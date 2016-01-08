@@ -181,7 +181,7 @@ fs.readdirSync('node_modules')
   });
 
 gulp.task('generate-icons-map', function (done) {
-  var iconsFolder = path.join(__dirname, '../grommet/src/img/icons');
+  var iconsFolder = path.join(__dirname, './node_modules/grommet/img/icons');
   var iconsMap = ['module.exports = {'];
   fs.readdir(iconsFolder, function(err, icons) {
     icons.forEach(function (icon, index) {
@@ -192,7 +192,7 @@ gulp.task('generate-icons-map', function (done) {
           return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
         });
 
-        var grommetIconPath = "../../../../grommet/src/js/components/icons/base/";
+        var grommetIconPath = "grommet/components/icons/base/";
         iconsMap.push(
           "\"" + icon.replace('.svg', '') + "\":" +
           " require('" + grommetIconPath + componentName + "')"
