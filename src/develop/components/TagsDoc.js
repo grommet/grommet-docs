@@ -28,20 +28,49 @@ var TagsDoc = React.createClass({
         <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
+          <h2>Tags Options</h2>
+          <dl>
+            <dt><code>direction    row|column</code></dt>
+            <dd>The orientation to layout the child components in.
+              Defaults to <code>column</code>.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Tag Options</h2>
+          <dl>
+            <dt><code>label         {"{text}"}</code></dt>
+            <dd>Label text for the tag.</dd>
+          </dl>
+        </section>
+
+        <section>
           <h2>Examples</h2>
 
           <p>These examples show a variety of different options for the Tags.</p>
 
-          <h3>Simple</h3>
+          <h3>default</h3>
           <Box className="example">
-            <Tags direction="row">
-              <Tag label="First" route="/stories" />
+            <Tags>
+              <Tag label="First" />
               <Tag label="Second" />
               <Tag label="Third" />
             </Tags>
           </Box>
           <pre><code className="html hljs xml">
             {"<Tags>\n  <Tag label='First' />\n  ...\n</Tags>"}
+          </code></pre>
+
+          <h3>column</h3>
+          <Box className="example">
+            <Tags direction="column">
+              <Tag label="First" />
+              <Tag label="Second" />
+              <Tag label="Third" />
+            </Tags>
+          </Box>
+          <pre><code className="html hljs xml">
+            {"<Tags direction=\"column\">\n  <Tag label='First' />\n  ...\n</Tags>"}
           </code></pre>
 
         </section>
