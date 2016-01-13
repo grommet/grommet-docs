@@ -1,12 +1,10 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var jsxToString = require('jsx-to-string');
 var stringify = require("json-stringify-pretty-compact");
 var DocsArticle = require('../../DocsArticle');
 var Distribution = require('grommet/components/Distribution');
-
-var inline =
-  "<Distribution series={[...]} />";
 
 var series = [
   {label: 'First', value: 40},
@@ -15,12 +13,28 @@ var series = [
   {label: 'Fourth', value: 10}
 ];
 
-var seriesEmpty = [
-  {label: 'First', value: 4},
-  {label: 'Second', value: 3},
-  {label: 'Third', value: 1},
-  {label: 'Fourth', value: 0}
+var clickableSeries = [
+  {label: 'First', value: 40, onClick: function () {
+    alert('You\'ve clicked on 40');
+  }},
+  {label: 'Second', value: 30, onClick: function () {
+    alert('You\'ve clicked on 30');
+  }},
+  {label: 'Third', value: 20, onClick: function () {
+    alert('You\'ve clicked on 20');
+  }},
+  {label: 'Fourth', value: 10, onClick: function () {
+    alert('You\'ve clicked on 10');
+  }}
 ];
+
+var clickableSeriesDoc = clickableSeries.map(function (item) {
+  return {
+    label: item.label,
+    value: item.value,
+    onClick: '...'
+  };
+});
 
 var iconSeries = [
   {label: 'Female', value: 60, icon: {
@@ -46,6 +60,7 @@ var iconSeries = [
     )}
   }
 ];
+
 var iconSeriesDoc = iconSeries.map(function (item) {
   return {
     label: item.label,
@@ -58,14 +73,59 @@ var iconSeriesDoc = iconSeries.map(function (item) {
   };
 });
 
+function convertDistributionToString(distributionJSX) {
+  return jsxToString(distributionJSX, {
+    keyValueOverride: {
+      onClick: 'this._onClick'
+    }
+  });
+}
+
 var DistributionDoc = React.createClass({
 
+  _renderDistributionCode(heading, distributionJSX) {
+    return (
+      <div>
+        <h3>{heading}</h3>
+        <div className="example">
+          {distributionJSX}
+        </div>
+        <pre><code className="html hljs xml">
+          {convertDistributionToString(distributionJSX)}
+        </code></pre>
+      </div>
+    );
+  },
+
   render: function() {
+
+    var basicDistribution = (
+      <Distribution series={series} />
+    );
+
+    var legendDistribution = (
+      <Distribution legend={true} series={series} />
+    );
+
+    var smallDistribution = (
+      <Distribution size="small" series={series} />
+    );
+
+    var largeDistribution = (
+      <Distribution size="large" series={series} />
+    );
+
+    var loadingDistribution = (
+      <Distribution />
+    );
+
     return (
       <DocsArticle title="Distribution" colorIndex="neutral-3">
 
         <p>Shows a graphic of relatively sized items.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <pre><code className="html hljs xml">
+          {"<Distribution series={[...]} />"}
+        </code></pre>
 
         <section>
           <h2>Options</h2>
@@ -90,49 +150,17 @@ var DistributionDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          <h3>Basic</h3>
-          <div className="example">
-            <Distribution series={series} />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Distribution\n " +
-              "series={" + stringify(series, null, '  ') + "}  />"}
-          </code></pre>
+          {this._renderDistributionCode('Basic', basicDistribution)}
+          {this._renderDistributionCode('Legend', legendDistribution)}
+          {this._renderDistributionCode('Small', smallDistribution)}
+          {this._renderDistributionCode('Large', largeDistribution)}
 
-          <h3>Legend</h3>
+          <h3>onClick</h3>
           <div className="example">
-            <Distribution legend={true} series={series} />
+            <Distribution series={clickableSeries} />
           </div>
           <pre><code className="html hljs xml">
-            {"<Distribution legend={true}\n " +
-              "series={" + stringify(series, null, '  ') + "}  />"}
-          </code></pre>
-
-          <h3>Small</h3>
-          <div className="example">
-            <Distribution small={true} series={series} />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Distribution small={true}\n " +
-              "series={" + stringify(series, null, '  ') + "}  />"}
-          </code></pre>
-
-          <h3>Large</h3>
-          <div className="example">
-            <Distribution large={true} series={series} />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Distribution large={true}\n " +
-              "series={" + stringify(series, null, '  ') + "}  />"}
-          </code></pre>
-
-          <h3>Empty series</h3>
-          <div className="example">
-            <Distribution series={seriesEmpty} />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Distribution large={true}\n " +
-              "series={" + stringify(seriesEmpty, null, '  ') + "}  />"}
+            {"<Distribution series={" + stringify(clickableSeriesDoc, null, '  ') + "}  />"}
           </code></pre>
 
           <h3>Icon</h3>
@@ -144,13 +172,7 @@ var DistributionDoc = React.createClass({
               "series={" + stringify(iconSeriesDoc, null, '  ') + "}  />"}
           </code></pre>
 
-          <h3>Loading</h3>
-          <div className="example">
-            <Distribution />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Distribution />"}
-          </code></pre>
+          {this._renderDistributionCode('Loading', loadingDistribution)}
         </section>
 
       </DocsArticle>
