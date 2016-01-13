@@ -2,6 +2,7 @@
 
 var React = require('react');
 var jsxToString = require('jsx-to-string');
+var stringify = require("json-stringify-pretty-compact");
 var DocsArticle = require('../../DocsArticle');
 var Meter = require('grommet/components/Meter');
 var FormField = require('grommet/components/FormField');
@@ -30,6 +31,28 @@ var series = [
   {label: 'Gen 10', value: 300} //,
   // {label: 'Gen 11', value: 100}
 ];
+
+var clickableSeries = [
+  {label: 'Gen 7', value: 50, onClick: function () {
+    alert('You\'ve clicked Gen 7');
+  }},
+  {label: 'Gen 8', value: 200, onClick: function () {
+    alert('You\'ve clicked Gen 8');
+  }},
+  {label: 'Gen 9', value: 100, onClick: function () {
+    alert('You\'ve clicked Gen 9');
+  }},
+  {label: 'Gen 10', value: 300, onClick: function () {
+    alert('You\'ve clicked Gen 10');
+  }}
+];
+var clickableSeriesDoc = clickableSeries.map(function (item) {
+  return {
+    label: item.label,
+    value: item.value,
+    onClick: '...'
+  };
+});
 
 var statusSeries = [
   {label: 'OK', value: 70, colorIndex: 'ok'},
@@ -379,6 +402,16 @@ var MeterDoc = React.createClass({
             'Bar, Series, Legend',
             barLegendMeter)
           }
+
+          <h3>Bar, Legend, onClick</h3>
+          <div className="example">
+            <Meter legend={true} series={clickableSeries}
+              a11yTitleId='meter-title-29' a11yDescId='meter-desc-29' />
+          </div>
+          <pre><code className="html hljs xml">
+            {"<Meter legend={true} series={" + stringify(clickableSeriesDoc, null, '  ') + "}  />"}
+          </code></pre>
+
           {this._renderMeterCode(
             'Bar, Series, Legend, Vertical',
             barVerticalLegendMeter)
