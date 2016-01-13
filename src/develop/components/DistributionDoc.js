@@ -75,9 +75,7 @@ var iconSeriesDoc = iconSeries.map(function (item) {
 
 function convertDistributionToString(distributionJSX) {
   return jsxToString(distributionJSX, {
-    keyValueOverride: {
-      onClick: 'this._onClick'
-    }
+    ignoreProps: ['a11yTitleId', 'a11yDescId']
   });
 }
 
@@ -100,23 +98,28 @@ var DistributionDoc = React.createClass({
   render: function() {
 
     var basicDistribution = (
-      <Distribution series={series} />
+      <Distribution series={series} a11yTitleId='distribution-title-1'
+        a11yDescId='distribution-desc-1' />
     );
 
     var legendDistribution = (
-      <Distribution legend={true} series={series} />
+      <Distribution legend={true} series={series}
+        a11yTitleId='distribution-title-2' a11yDescId='distribution-desc-2' />
     );
 
     var smallDistribution = (
-      <Distribution size="small" series={series} />
+      <Distribution size="small" series={series}
+        a11yTitleId='distribution-title-3' a11yDescId='distribution-desc-3' />
     );
 
     var largeDistribution = (
-      <Distribution size="large" series={series} />
+      <Distribution size="large" series={series}
+        a11yTitleId='distribution-title-4' a11yDescId='distribution-desc-4' />
     );
 
     var loadingDistribution = (
-      <Distribution />
+      <Distribution a11yTitleId='distribution-title-5'
+        a11yDescId='distribution-desc-5' />
     );
 
     return (
@@ -157,7 +160,8 @@ var DistributionDoc = React.createClass({
 
           <h3>onClick</h3>
           <div className="example">
-            <Distribution series={clickableSeries} />
+            <Distribution series={clickableSeries}
+              a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
           </div>
           <pre><code className="html hljs xml">
             {"<Distribution series={" + stringify(clickableSeriesDoc, null, '  ') + "}  />"}
@@ -165,7 +169,8 @@ var DistributionDoc = React.createClass({
 
           <h3>Icon</h3>
           <div className="example">
-            <Distribution series={iconSeries} units="%"/>
+            <Distribution series={iconSeries} units="%"
+              a11yTitleId='distribution-title-7' a11yDescId='distribution-desc-7' />
           </div>
           <pre><code className="html hljs xml">
             {"<Distribution\n " +
