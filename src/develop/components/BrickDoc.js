@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Bricks = require('grommet/components/Bricks');
 var Brick = require('grommet/components/Brick');
@@ -8,13 +9,32 @@ var Box = require('grommet/components/Box');
 var Image = require('grommet/components/Image');
 var GrommetLogo = require('grommet/components/icons/Grommet');
 
+function convertBrickToString(brickJSX) {
+  return jsxToString(brickJSX);
+}
+
 var BrickDoc = React.createClass({
 
   _onClick: function () {
     // No-op
   },
 
+  _renderBrickCode(heading, brickJSX) {
+    return (
+      <div>
+        <h3>{heading}</h3>
+        <Box className="example">
+          {brickJSX}
+        </Box>
+        <pre><code className="html hljs xml">
+          {convertBrickToString(brickJSX)}
+        </code></pre>
+      </div>
+    );
+  },
+
   render: function() {
+
     var inline =
       "<Bricks>\n" +
       "  <Brick>\n" +
@@ -22,6 +42,27 @@ var BrickDoc = React.createClass({
       "  </Brick>\n" +
       "  ...\n" +
       "</Bricks>";
+
+    var simpleBrick = (
+      <Bricks>
+        <Brick label="First" />
+        <Brick label="Second" />
+        <Brick label="Third" />
+      </Bricks>
+    );
+
+    var varyingBrick = (
+      <Bricks>
+        <Brick label="First" colorIndex="neutral-1" width={2} height={2} route="http://www.grommet.io/docs/">
+          <Image src="img/carousel-1.png" size="medium" />
+        </Brick>
+        <Brick label="Second" colorIndex="neutral-2" width={1} height={2} />
+        <Brick label="Third" colorIndex="neutral-3">
+          <GrommetLogo size="large" />
+        </Brick>
+        <Brick label="Fourth" colorIndex="neutral-4" />
+      </Bricks>
+    );
 
     return (
       <DocsArticle title="Brick(s)" colorIndex="neutral-3">
@@ -56,37 +97,8 @@ var BrickDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          <p>These examples show a variety of different options for the Bricks.</p>
-
-          <h3>Simple</h3>
-          <Box className="example">
-            <Bricks>
-              <Brick label="First"/>
-              <Brick label="Second" />
-              <Brick label="Third" />
-            </Bricks>
-          </Box>
-          <pre><code className="html hljs xml">
-            {"<Bricks>\n  <Brick label='First' />\n  ...\n</Bricks>"}
-          </code></pre>
-
-          <h3>Varying Colors, Sizes, and Content</h3>
-          <Box className="example">
-            <Bricks>
-              <Brick label="First" colorIndex="neutral-1" width={2} height={2} route="http://www.grommet.io/docs/">
-                <Image src="img/carousel-1.png" size="medium" />
-              </Brick>
-              <Brick label="Second" colorIndex="neutral-2" width={1} height={2} />
-              <Brick label="Third" colorIndex="neutral-3">
-                <GrommetLogo size="large" />
-              </Brick>
-              <Brick label="Fourth" colorIndex="neutral-4" />
-            </Bricks>
-          </Box>
-          <pre><code className="html hljs xml">
-            {"<Bricks>\n  <Brick label=\"First\" colorIndex=\"neutral-1\" width={2} height={2} route=\"...\">\n    <Image ... />\n  </Brick>\n  <Brick label=\"Second\" colorIndex=\"neutral-2\" width={1} height={2} />\n  <Brick label=\"Third\" colorIndex=\"neutral-3\">\n    ...\n  </Brick>\n  <Brick label=\"Fourth\" colorIndex=\"neutral-4\" />\n  ...\n</Bricks>"}
-          </code></pre>
-
+          {this._renderBrickCode('Simple', simpleBrick)}
+          {this._renderBrickCode('Varying Colors, Sizes, and Content', varyingBrick)}
         </section>
 
       </DocsArticle>
