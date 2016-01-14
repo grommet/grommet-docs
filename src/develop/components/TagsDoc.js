@@ -1,11 +1,15 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var jsxToString = require('jsx-to-string');
 var Link = require('react-router').Link;
 var DocsArticle = require('../../DocsArticle');
 var Tags = require('grommet/components/Tags');
 var Tag = require('grommet/components/Tag');
-var Box = require('grommet/components/Box');
+
+function convertTagToString(tagJSX) {
+  return jsxToString(tagJSX);
+}
 
 var TagsDoc = React.createClass({
 
@@ -17,12 +21,42 @@ var TagsDoc = React.createClass({
     // No-op
   },
 
+  _renderTagCode(heading, tagJSX) {
+    return (
+      <div>
+        <h3>{heading}</h3>
+        <div className="example">
+          {tagJSX}
+        </div>
+        <pre><code className="html hljs xml">
+          {convertTagToString(tagJSX)}
+        </code></pre>
+      </div>
+    );
+  },
+
   render: function() {
     var inline =
       "<Tags>\n" +
       "  <Tag />\n" +
       "  ...\n" +
       "</Tags>";
+
+    var defaultTag = (
+      <Tags>
+        <Tag label="First" />
+        <Tag label="Second" />
+        <Tag label="Third" />
+      </Tags>
+    );
+
+    var columnTag = (
+      <Tags direction="column">
+        <Tag label="First" />
+        <Tag label="Second" />
+        <Tag label="Third" />
+      </Tags>
+    );
 
     return (
       <DocsArticle title="Tag(s)" colorIndex="neutral-3">
@@ -53,32 +87,10 @@ var TagsDoc = React.createClass({
 
         <section>
           <h2>Examples</h2>
-
           <p>These examples show a variety of different options for the Tags.</p>
 
-          <h3>Default</h3>
-          <Box className="example">
-            <Tags>
-              <Tag label="First" />
-              <Tag label="Second" />
-              <Tag label="Third" />
-            </Tags>
-          </Box>
-          <pre><code className="html hljs xml">
-            {"<Tags>\n  <Tag label='First' />\n  ...\n</Tags>"}
-          </code></pre>
-
-          <h3>Column</h3>
-          <Box className="example">
-            <Tags direction="column">
-              <Tag label="First" />
-              <Tag label="Second" />
-              <Tag label="Third" />
-            </Tags>
-          </Box>
-          <pre><code className="html hljs xml">
-            {"<Tags direction=\"column\">\n  <Tag label='First' />\n  ...\n</Tags>"}
-          </code></pre>
+          {this._renderTagCode('Default', defaultTag)}
+          {this._renderTagCode('Column', columnTag)}
         </section>
 
       </DocsArticle>
