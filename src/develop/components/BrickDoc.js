@@ -53,7 +53,7 @@ var BrickDoc = React.createClass({
 
     var varyingBrick = (
       <Bricks>
-        <Brick label="First" colorIndex="neutral-1" width={2} height={2} route="http://www.grommet.io/docs/">
+        <Brick label="First" colorIndex="neutral-1" width={2} height={2} href="http://www.grommet.io/docs/">
           <Image src="img/carousel-1.png" size="medium" />
         </Brick>
         <Brick label="Second" colorIndex="neutral-2" width={1} height={2} />
@@ -77,8 +77,8 @@ var BrickDoc = React.createClass({
             <dd>The label of the Brick.</dd>
           </dl>
           <dl>
-            <dt><code>route        {"{location}"}</code></dt>
-            <dd>The route that the Brick should link to.</dd>
+            <dt><code>href        {"{location}"}</code></dt>
+            <dd>The hyperlink reference that the Brick links to.</dd>
           </dl>
           <dl>
             <dt><code>width        1|2</code></dt>
