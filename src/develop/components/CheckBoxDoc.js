@@ -38,17 +38,17 @@ var CheckBoxDoc = React.createClass({
   render: function() {
 
     var basicCheckBox = (
-      <CheckBox id="item2" name="item2" label="Item 2"
+      <CheckBox id="item1" name="item1" label="Item 1"
         checked={this.state.checked} onChange={this._onChange} />
     );
 
     var toggleCheckBox = (
-      <CheckBox id="item3" name="item3" label="Item 3"
+      <CheckBox id="item2" name="item2" label="Item 2"
         checked={this.state.checked} toggle={true} onChange={this._onChange} />
     );
 
     var disabledCheckBox = (
-      <CheckBox id="item4" name="item4" label="Item 4"
+      <CheckBox id="item3" name="item3" label="Item 3"
         checked={this.state.checked} disabled={true}  />
     );
 
@@ -58,8 +58,13 @@ var CheckBoxDoc = React.createClass({
     );
 
     var reverseCheckBox = (
-      <CheckBox id="item2" name="item2" label="Item 2"
+      <CheckBox id="item5" name="item5" label="Item 5"
         checked={this.state.checked} reverse={true} onChange={this._onChange} />
+    );
+
+    var noLabelCheckBox = (
+      <CheckBox id="item6" name="item6"
+        checked={this.state.checked} onChange={this._onChange} />
     );
 
     return (
@@ -68,7 +73,7 @@ var CheckBoxDoc = React.createClass({
         <p>A check box in a web form. We have a separate component from the
           browser base so we can style it.</p>
         <pre><code className="html hljs xml">
-          {"<CheckBox id=\"item2\" label=\"Item 1\">"}
+          {"<CheckBox id=\"item1\" label=\"Item 1\">"}
         </code></pre>
 
         <section>
@@ -92,12 +97,12 @@ var CheckBoxDoc = React.createClass({
             {"<input>"} element.</dd>
           <dt><code>onChange        {"{func}"}</code></dt>
           <dd>Same as React {"<input onChange= >"}.</dd>
-          <dt><code>reverse        true|false</code></dt>
+          <dt><code>reverse         true|false</code></dt>
           <dd>
             Whether to show the label in front of the checkbox.
             Default is false.
           </dd>
-          <dt><code>toggle         true|false</code></dt>
+          <dt><code>toggle          true|false</code></dt>
           <dd>Whether to visualize it as a toggle switch. Default is false.</dd>
           </dl>
         </section>
@@ -110,6 +115,7 @@ var CheckBoxDoc = React.createClass({
           {this._renderCheckBoxCode('Disabled', disabledCheckBox)}
           {this._renderCheckBoxCode('Disabled Toggle', disabledToggleCheckBox)}
           {this._renderCheckBoxCode('Reverse', reverseCheckBox)}
+          {this._renderCheckBoxCode('No Label', noLabelCheckBox)}
         </section>
 
       </DocsArticle>
