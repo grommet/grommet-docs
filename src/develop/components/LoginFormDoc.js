@@ -30,8 +30,8 @@ var LoginFormDoc = React.createClass({
           <dd>A link that would take the user to a new page.</dd>
           <dt><code>logo            {"{component}"}</code></dt>
           <dd>A logo component.</dd>
-          <dt><code>onSubmit        {"function ({username: ..., password: ...}) {...}"}</code></dt>
-          <dd>Function that will be called with the username and password provided.</dd>
+          <dt><code>onSubmit        {"function ({username: ..., password: ..., rememberMe: ...}) {...}"}</code></dt>
+          <dd>Function that will be called with the username, password and rememberMe provided.</dd>
           <dt><code>rememberMe      true|false</code></dt>
           <dd>Whether to include a remember me input.</dd>
           <dt><code>title           {"{string}"}</code></dt>
