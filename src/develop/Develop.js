@@ -54,6 +54,7 @@ var SplitDoc = require('./components/SplitDoc');
 var StatusDoc = require('./components/StatusDoc');
 var TabsDoc = require('./components/TabsDoc');
 var TableDoc = require('./components/TableDoc');
+var TagsDoc = require('./components/TagsDoc');
 var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
@@ -117,6 +118,7 @@ var CONTENTS = [
       {route: 'develop_status', label: 'Status', component: StatusDoc},
       {route: 'develop_tabs', label: 'Tabs', component: TabsDoc},
       {route: 'develop_table', label: 'Table', component: TableDoc},
+      {route: 'develop_tags', label: 'Tags', component: TagsDoc},
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
       {route: 'develop_topology', label: 'Topology', component: TopologyDoc},
