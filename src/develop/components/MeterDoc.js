@@ -19,7 +19,7 @@ var simpleThreshold = 75;
 var simpleUnits = 'GB';
 
 var thresholds = [
-  {label: 'OK', value: 0, colorIndex: 'ok'},
+  // {label: 'OK', value: 0, colorIndex: 'ok'},
   {label: 'Warning', value: 60, colorIndex: 'warning'},
   {label: 'Error', value: 70, colorIndex: 'error'}
 ];
@@ -225,6 +225,11 @@ var MeterDoc = React.createClass({
         a11yTitleId='meter-title-12' a11yDescId='meter-desc-12' />
     );
 
+    var barInlineLegendMeter = (
+      <Meter legend={{placement: 'inline'}} series={series}
+        a11yTitleId='meter-title-12' a11yDescId='meter-desc-12' />
+    );
+
     var barVerticalLegendMeter = (
       <Meter legend={{total: true}} series={series} vertical={true}
         a11yTitleId='meter-title-13' a11yDescId='meter-desc-13' />
@@ -335,10 +340,11 @@ var MeterDoc = React.createClass({
               correspond to, if any.</dd>
             <dt><code>large       true|false</code></dt>
             <dd>Larger sized version. Deprecated, use <code>size</code>.</dd>
-            <dt><code>legend      {"{placement: right|bottom, total: true|false}"}</code></dt>
+            <dt><code>legend      {"{placement: right|bottom|inline, total: true|false}"}</code></dt>
             <dd>Whether to show a legend. If showing, whether to include a total,
               and where to place it. If placement is not specified, it will be
-              placed to match the aspect ratio of the window.</dd>
+              placed to match the aspect ratio of the window. <code>inline</code> is
+              only supported with horizontal bar.</dd>
             <dt><code>max         {"{value: , label: }|{number}"}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
@@ -401,6 +407,10 @@ var MeterDoc = React.createClass({
           {this._renderMeterCode(
             'Bar, Series, Legend',
             barLegendMeter)
+          }
+          {this._renderMeterCode(
+            'Bar, Series, Inline Legend',
+            barInlineLegendMeter)
           }
 
           <h3>Bar, Legend, onClick</h3>
