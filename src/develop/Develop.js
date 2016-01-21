@@ -21,6 +21,7 @@ var AnchorDoc = require('./components/AnchorDoc');
 var AppDoc = require('./components/AppDoc');
 var ArticleDoc = require('./components/ArticleDoc');
 var BoxDoc = require('./components/BoxDoc');
+var BrickDoc = require('./components/BrickDoc');
 var ButtonDoc = require('./components/ButtonDoc');
 var CalendarDoc = require('./components/CalendarDoc');
 var CarouselDoc = require('./components/CarouselDoc');
@@ -89,6 +90,7 @@ var CONTENTS = [
       {route: 'develop_app', label: 'App', component: AppDoc},
       {route: 'develop_article', label: 'Article', component: ArticleDoc},
       {route: 'develop_box', label: 'Box', component: BoxDoc},
+      {route: 'develop_brick', label: 'Brick', component: BrickDoc},
       {route: 'develop_button', label: 'Button', component: ButtonDoc},
       {route: 'develop_calendar', label: 'Calendar', component: CalendarDoc},
       {route: 'develop_carousel', label: 'Carousel', component: CarouselDoc},
