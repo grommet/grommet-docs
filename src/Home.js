@@ -10,6 +10,7 @@ var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
 var Menu = require('grommet/components/Menu');
 var Button = require('grommet/components/Button');
+var Anchor = require('grommet/components/Anchor');
 var Link = require('react-router').Link;
 var GrommetLogo = require('grommet/components/icons/Grommet');
 
@@ -238,10 +239,10 @@ var Home = React.createClass({
             This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International License</a>.
           </p>
           <Menu label="Theme">
-            <a href="/docs/" className={this.props.theme === 'generic' ? 'active' : ''}>Grommet</a>
-            <a href="/docs/hpe/" className={this.props.theme === 'hpe' ? 'active' : ''}>HPE</a>
-            <a href="/docs/hpinc/" className={this.props.theme === 'hpinc' ? 'active' : ''}>HPInc</a>
-            <a href="/docs/aruba/" className={this.props.theme === 'aruba' ? 'active' : ''}>Aruba</a>
+            <Anchor href="/docs/" className={this.props.theme === 'generic' ? 'active' : ''}>Grommet</Anchor>
+            <Anchor href="/docs/hpe/" className={this.props.theme === 'hpe' ? 'active' : ''}>HPE</Anchor>
+            <Anchor href="/docs/hpinc/" className={this.props.theme === 'hpinc' ? 'active' : ''}>HPInc</Anchor>
+            <Anchor href="/docs/aruba/" className={this.props.theme === 'aruba' ? 'active' : ''}>Aruba</Anchor>
           </Menu>
         </Footer>
 

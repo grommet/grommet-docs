@@ -21,6 +21,7 @@ var AnchorDoc = require('./components/AnchorDoc');
 var AppDoc = require('./components/AppDoc');
 var ArticleDoc = require('./components/ArticleDoc');
 var BoxDoc = require('./components/BoxDoc');
+var BrickDoc = require('./components/BrickDoc');
 var ButtonDoc = require('./components/ButtonDoc');
 var CalendarDoc = require('./components/CalendarDoc');
 var CarouselDoc = require('./components/CarouselDoc');
@@ -55,6 +56,7 @@ var SplitDoc = require('./components/SplitDoc');
 var StatusDoc = require('./components/StatusDoc');
 var TabsDoc = require('./components/TabsDoc');
 var TableDoc = require('./components/TableDoc');
+var TagsDoc = require('./components/TagsDoc');
 var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
@@ -89,6 +91,7 @@ var CONTENTS = [
       {route: 'develop_app', label: 'App', component: AppDoc},
       {route: 'develop_article', label: 'Article', component: ArticleDoc},
       {route: 'develop_box', label: 'Box', component: BoxDoc},
+      {route: 'develop_brick', label: 'Brick', component: BrickDoc},
       {route: 'develop_button', label: 'Button', component: ButtonDoc},
       {route: 'develop_calendar', label: 'Calendar', component: CalendarDoc},
       {route: 'develop_carousel', label: 'Carousel', component: CarouselDoc},
@@ -119,6 +122,7 @@ var CONTENTS = [
       {route: 'develop_status', label: 'Status', component: StatusDoc},
       {route: 'develop_tabs', label: 'Tabs', component: TabsDoc},
       {route: 'develop_table', label: 'Table', component: TableDoc},
+      {route: 'develop_tags', label: 'Tags', component: TagsDoc},
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
       {route: 'develop_topology', label: 'Topology', component: TopologyDoc},

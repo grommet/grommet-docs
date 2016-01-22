@@ -24,14 +24,16 @@ var LoginFormDoc = React.createClass({
           <dl>
           <dt><code>usernameType    text|email</code></dt>
           <dd>The type of username input. Defaults to email.</dd>
+          <dt><code>defaultValues   {"{username: ..., rememberMe: true|false}"}</code></dt>
+          <dd>Default values for username and rememberMe</dd>
           <dt><code>errors          {"[{message}, ...]"}</code></dt>
           <dd>An array of error messages. Use this if there is a failure to log in.</dd>
           <dt><code>forgotPassword  {"{component}"}</code></dt>
           <dd>A link that would take the user to a new page.</dd>
           <dt><code>logo            {"{component}"}</code></dt>
           <dd>A logo component.</dd>
-          <dt><code>onSubmit        {"function ({username: ..., password: ...}) {...}"}</code></dt>
-          <dd>Function that will be called with the username and password provided.</dd>
+          <dt><code>onSubmit        {"function ({username: ..., password: ..., rememberMe: ...}) {...}"}</code></dt>
+          <dd>Function that will be called with the username, password and rememberMe provided.</dd>
           <dt><code>rememberMe      true|false</code></dt>
           <dd>Whether to include a remember me input.</dd>
           <dt><code>title           {"{string}"}</code></dt>
@@ -56,9 +58,14 @@ var LoginFormDoc = React.createClass({
               secondaryText="Product Secondary Text"
               onSubmit={this._onSubmit}
               rememberMe={true} forgotPassword={<a>Forgot password?</a>}
-              errors={["Invalid username or password."]}/>
+              errors={["Invalid username or password."]}
+              defaultValues={{
+                username: 'username@grommet.io',
+                rememberMe: true
+              }}
+            />
           </div>
-          <pre><code className="html hljs xml">{"<LoginForm\n  logo={<Logo />}\n  title=\"Product Name\"\n  secondaryText=\"Product Secondary Text\"\n  rememberMe={true}\n  forgotPassword={<a>...</a>}\n  onSubmit={...}\n  errors={[\"Invalid username or password.\"]}\n/>"}</code></pre>
+          <pre><code className="html hljs xml">{"<LoginForm\n  logo={<Logo />}\n  title=\"Product Name\"\n  secondaryText=\"Product Secondary Text\"\n  rememberMe={true}\n  forgotPassword={<a>...</a>}\n  onSubmit={...}\n  errors={[\"Invalid username or password.\"]}\n  defaultValues={{\n    username: 'username@grommet.io',\n    rememberMe: true\n  }}\n/>"}</code></pre>
 
         </section>
 

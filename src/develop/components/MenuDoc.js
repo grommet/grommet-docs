@@ -8,6 +8,7 @@ var Menu = require('grommet/components/Menu');
 var ConfigIcon = require('grommet/components/icons/base/Configuration');
 var FilterIcon = require('grommet/components/icons/base/Filter');
 var CheckBox = require('grommet/components/CheckBox');
+var Anchor = require('grommet/components/Anchor');
 var Button = require('grommet/components/Button');
 
 function convertMenuToString(menuJSX) {
@@ -42,57 +43,57 @@ var MenuDoc = React.createClass({
 
     var columnInlineMenu = (
       <Menu>
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
     var rowInlineMenu = (
       <Menu direction="row">
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
     var rowEndMenu = (
       <Menu direction="row" justify="end">
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
     var labelDownMenu = (
       <Menu label="Label">
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
     var iconDownMenu = (
       <Menu inline={false}>
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
     var customIconMenu = (
       <Menu icon={<ConfigIcon />}>
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
     var iconLabelMenu = (
       <Menu icon={<ConfigIcon />} label="Label">
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
@@ -106,9 +107,9 @@ var MenuDoc = React.createClass({
 
     var notInlineUpMenu = (
       <Menu inline={false} dropAlign={{bottom: "bottom"}}>
-        <a href="#" className="active">First</a>
-        <a href="#">Second</a>
-        <a href="#">Third</a>
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
       </Menu>
     );
 
@@ -125,7 +126,7 @@ var MenuDoc = React.createClass({
 
         <p>Presents a list of choices responsively.</p>
         <pre><code className="html hljs xml">
-          {"<Menu>\n  <a href=\"#\">Link 1</a>\n  ...\n</Menu>"}
+          {"<Menu>\n  <Anchor href=\"#\">Link 1</Anchor>\n  ...\n</Menu>"}
         </code></pre>
 
         <section>

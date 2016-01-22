@@ -3,14 +3,47 @@
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var SearchInput = require('grommet/components/SearchInput');
+var Box = require('grommet/components/Box');
+
+var SearchInputSuggestion = React.createClass({
+  propTypes: {
+    name: React.PropTypes.string,
+    annotation: React.PropTypes.string
+  },
+
+  render: function () {
+    return (
+      <Box direction="row" justify="between">
+        {this.props.name}
+        <span className="secondary">{this.props.annotation}</span>
+      </Box>
+    );
+  }
+});
 
 var SearchInputDoc = React.createClass({
 
   getInitialState: function () {
-    return {value: "one", suggestions: this._values};
+    return {
+      value: "one",
+      suggestions: this._values,
+      richValue: "second",
+      richSuggestions: this._richValues
+    };
   },
 
   _values: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'],
+
+  _richValues: [
+    {value: "first", sub: "alpha",
+      label: <SearchInputSuggestion name="first" annotation="alpha" />},
+    {value: "second", sub: "beta",
+      label: <SearchInputSuggestion name="second" annotation="beta" />},
+    {value: "third", sub: "gamma",
+      label: <SearchInputSuggestion name="third" annotation="gamma" />},
+    {value: "fourth", sub: "delta",
+      label: <SearchInputSuggestion name="fourth" annotation="delta" />}
+  ],
 
   _onChange: function (value, selected) {
     if (selected) {
@@ -22,6 +55,18 @@ var SearchInputDoc = React.createClass({
       });
       this.setState({value: value, suggestions: suggestions});
     }
+  },
+
+  _onDOMChange: function (event) {
+    var regexp = new RegExp('^' + event.target.value);
+    var suggestions = this._richValues.filter(function (richValue) {
+      return regexp.test(richValue.value) || regexp.test(richValue.sub);
+    });
+    this.setState({richValue: event.target.value, richSuggestions: suggestions});
+  },
+
+  _onSelect: function (pseudoEvent) {
+    this.setState({richValue: pseudoEvent.suggestion.value, richSuggestions: this._richValues});
   },
 
   render: function() {
@@ -56,21 +101,34 @@ var SearchInputDoc = React.createClass({
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
             <dt><code>suggestions   {"[{value: , label: }|{string}, ...]"}</code></dt>
-            <dd>Suggestions</dd>
+            <dd>Suggestions can be either a string or an object.
+              The <code>label</code> property of suggestion objects can be a
+              string or a React element. This allows rendering richer
+              suggestion representations.</dd>
             <dt><code>value         {"{value: , label: }|{string}"}</code></dt>
             <dd>What text to put in the input.</dd>
           </dl>
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Examples</h2>
 
+          <h3>Simple</h3>
           <div className="example">
             <SearchInput id="item2" name="item-2"
               value={this.state.value} onChange={this._onChange}
               suggestions={this.state.suggestions} />
           </div>
           <pre><code className="html hljs xml">{"<SearchInput value=\"" + this.state.value + "\" />"}</code></pre>
+
+          <h3>Rich Suggestions</h3>
+          <div className="example">
+            <SearchInput id="item2" name="item-2"
+              value={this.state.richValue} onDOMChange={this._onDOMChange}
+              onSelect={this._onSelect}
+              suggestions={this.state.richSuggestions} />
+          </div>
+          <pre><code className="html hljs xml">{"<SearchInput value=\"" + this.state.richValue + "\" />"}</code></pre>
 
         </section>
 

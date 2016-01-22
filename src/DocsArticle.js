@@ -6,6 +6,13 @@ var Header = require('grommet/components/Header');
 var Box = require('grommet/components/Box');
 var DocsFooter = require('./DocsFooter');
 
+//hjjs configuration
+var hljs = require('highlight.js/lib/highlight');
+hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
+
 var DocsArticle = React.createClass({
 
   propTypes: {
@@ -17,6 +24,21 @@ var DocsArticle = React.createClass({
     return {colorIndex: 'neutral-1'};
   },
 
+  componentDidMount: function () {
+    this._highlightCode();
+  },
+
+  componentDidUpdate: function () {
+    this._highlightCode();
+  },
+
+  _highlightCode: function () {
+    var nodes = document.querySelectorAll('pre code');
+    for (var i = 0; i < nodes.length; i++) {
+      hljs.highlightBlock(nodes[i]);
+    }
+  },
+  
   render: function() {
     return (
       <Article primary={true}>

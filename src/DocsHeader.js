@@ -6,6 +6,7 @@ var Title = require('grommet/components/Title');
 var Box = require('grommet/components/Box');
 var GrommetLogo = require('grommet/components/icons/Grommet');
 var Menu = require('grommet/components/Menu');
+var Anchor = require('grommet/components/Anchor');
 var Link = require('react-router').Link;
 
 var DocsHeader = React.createClass({
@@ -30,9 +31,13 @@ var DocsHeader = React.createClass({
           </Link>
         </Title>
         <Menu direction="row" responsive={true}>
-          <Link id="design-link" to={this.context.routePrefix + 'design'}>Design</Link>
-          <Link id="develop-link" to={this.context.routePrefix + 'develop'}>Develop</Link>
-          <a href="http://blog.grommet.io" target="_blank">Blog</a>
+          <Link id="design-link" to={this.context.routePrefix + 'design'}>
+            <Anchor tag="span">Design</Anchor>
+          </Link>
+          <Link id="develop-link" to={this.context.routePrefix + 'develop'}>
+            <Anchor tag="span">Develop</Anchor>
+          </Link>
+          <Anchor href="http://blog.grommet.io" target="_blank">Blog</Anchor>
         </Menu>
       </Header>
     );
