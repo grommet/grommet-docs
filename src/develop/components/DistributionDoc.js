@@ -7,10 +7,10 @@ var DocsArticle = require('../../DocsArticle');
 var Distribution = require('grommet/components/Distribution');
 
 var series = [
-  {label: 'First', value: 40},
-  {label: 'Second', value: 30},
-  {label: 'Third', value: 20},
-  {label: 'Fourth', value: 10}
+  {label: 'First', value: 40, colorIndex: 'graph-1'},
+  {label: 'Second', value: 30, colorIndex: 'accent-2'},
+  {label: 'Third', value: 20, colorIndex: 'unset'},
+  {label: 'Fourth', value: 10, colorIndex: 'graph-1'}
 ];
 
 var clickableSeries = [
@@ -125,7 +125,16 @@ var DistributionDoc = React.createClass({
     return (
       <DocsArticle title="Distribution" colorIndex="neutral-3">
 
-        <p>Shows a graphic of relatively sized items.</p>
+        <p>Shows a graphic of relatively sized items.
+          If colorIndex properties are not specified per series item, they
+          will be automatically asigned.
+          One way to use a Distribution is to compare items across
+          two attributes. One attribute determining the area and another
+          determining the color.
+          The guidance for coloring items is to use colorIndex 'unset'
+          for less important items, neutral or graph colors for normal
+          items and accent colors for items to call attention to. Status
+          colorIndex values can be used as well.</p>
         <pre><code className="html hljs xml">
           {"<Distribution series={[...]} />"}
         </code></pre>
@@ -133,18 +142,20 @@ var DistributionDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>large       true|false</code></dt>
-            <dd>Larger sized version. Deprecated, use <code>size</code>.</dd>
+            <dt><code>full        true|false</code></dt>
+            <dd>Whether the height should fill its container.</dd>
             <dt><code>legend      true|false</code></dt>
             <dd>Whether to show a legend.</dd>
             <dt><code>legendTotal true|false</code></dt>
             <dd>Whether to show a total in the legend.</dd>
-            <dt><code>series     {"[{value: , label: , colorIndex: , onClick: , icon: }, ...]"}</code></dt>
-            <dd>An array of objects describing the data.</dd>
+            <dt><code>series      {"[{value: , label: , labelValue: , colorIndex: , onClick: , icon: }, ...]"}</code></dt>
+            <dd>An array of objects describing the
+              data. All properties except <code>value</code> are
+              optional. <code>labelValue</code> is used as the
+              visible value. If <code>labelValue</code> is not
+              set, the <code>value</code> is displayed instead.</dd>
             <dt><code>size         small|medium|large</code></dt>
             <dd>The height of the Distribution. Defaults to <code>medium</code>.</dd>
-            <dt><code>small        true|false</code></dt>
-            <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
             <dt><code>units       {"{string}"}</code></dt>
             <dd>Optional units to display next to the value label.</dd>
           </dl>
