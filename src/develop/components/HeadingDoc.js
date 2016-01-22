@@ -19,7 +19,7 @@ var HeadingDoc = React.createClass({
           <h2>Options</h2>
           <dl>
             <dt><code>size        small|medium|large</code></dt>
-            <dd>The size of the heading.  Defaults to <code>medium</code>.</dd>
+            <dd>The size of the heading.  Optional.</dd>
             <dt><code>strong      true|false</code></dt>
             <dd>If the heading should be bold.  Defaults to <code>false</code>.</dd>
             <dt><code>tag         h1|h2|h3|h4|h5|h6</code></dt>
@@ -40,10 +40,10 @@ var HeadingDoc = React.createClass({
 
           <h3>Different sizes</h3>
           <div className="example">
-            <Heading size="large" strong="true" tag="h3">Sample Heading</Heading>
+            <Heading size="large" strong={true} tag="h3">Sample Heading</Heading>
           </div>
           <pre><code className="html">
-            {"<Heading size=\"large\" strong=\"true\" tag=\"h3\">\n  Sample Heading\n</Heading>"}
+            {"<Heading size=\"large\" strong={true} tag=\"h3\">\n  Sample Heading\n</Heading>"}
           </code></pre>
         </section>
 
