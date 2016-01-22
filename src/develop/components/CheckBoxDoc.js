@@ -1,8 +1,15 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var CheckBox = require('grommet/components/CheckBox');
+
+function convertCheckBoxToString(checkBoxJSX) {
+  return jsxToString(checkBoxJSX, {
+    ignoreProps: ['onChange']
+  });
+}
 
 var CheckBoxDoc = React.createClass({
 
@@ -14,16 +21,60 @@ var CheckBoxDoc = React.createClass({
     this.setState({checked: ! this.state.checked});
   },
 
+  _renderCheckBoxCode(heading, checkBoxJSX) {
+    return (
+      <div>
+        <h3>{heading}</h3>
+        <div className="example">
+          {checkBoxJSX}
+        </div>
+        <pre><code className="html hljs xml">
+          {convertCheckBoxToString(checkBoxJSX)}
+        </code></pre>
+      </div>
+    );
+  },
+
   render: function() {
-    var inline = [
-      "<CheckBox id=\"item2\" label=\"Item 1\">"
-    ].join("\n");
+
+    var basicCheckBox = (
+      <CheckBox id="item1" name="item1" label="Item 1"
+        checked={this.state.checked} onChange={this._onChange} />
+    );
+
+    var toggleCheckBox = (
+      <CheckBox id="item2" name="item2" label="Item 2"
+        checked={this.state.checked} toggle={true} onChange={this._onChange} />
+    );
+
+    var disabledCheckBox = (
+      <CheckBox id="item3" name="item3" label="Item 3"
+        checked={this.state.checked} disabled={true}  />
+    );
+
+    var disabledToggleCheckBox = (
+      <CheckBox id="item4" name="item4" label="Item 4"
+        checked={this.state.checked} toggle={true} disabled={true}  />
+    );
+
+    var reverseCheckBox = (
+      <CheckBox id="item5" name="item5" label="Item 5"
+        checked={this.state.checked} reverse={true} onChange={this._onChange} />
+    );
+
+    var noLabelCheckBox = (
+      <CheckBox id="item6" name="item6"
+        checked={this.state.checked} onChange={this._onChange} />
+    );
+
     return (
       <DocsArticle title="CheckBox" colorIndex="neutral-3">
 
         <p>A check box in a web form. We have a separate component from the
           browser base so we can style it.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <pre><code className="html hljs xml">
+          {"<CheckBox id=\"item1\" label=\"Item 1\">"}
+        </code></pre>
 
         <section>
           <h2>Options</h2>
@@ -46,42 +97,25 @@ var CheckBoxDoc = React.createClass({
             {"<input>"} element.</dd>
           <dt><code>onChange        {"{func}"}</code></dt>
           <dd>Same as React {"<input onChange= >"}.</dd>
-          <dt><code>toggle         true|false</code></dt>
-          <dd>Whether to visualize it as a toggle switch.</dd>
-          <dt><code>ariaDescribedby {"{text}"}</code></dt>
-          <dd>Optional attribute to enhance accessibility in case the checkbox is used inside a context.</dd>
+          <dt><code>reverse         true|false</code></dt>
+          <dd>
+            Whether to show the label in front of the checkbox.
+            Default is false.
+          </dd>
+          <dt><code>toggle          true|false</code></dt>
+          <dd>Whether to visualize it as a toggle switch. Default is false.</dd>
           </dl>
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Examples</h2>
 
-          <h3>Basic</h3>
-          <div className="example">
-            <CheckBox id="item2" name="item2" label="Item 2"
-              checked={this.state.checked} onChange={this._onChange} />
-          </div>
-          <pre><code className="html hljs xml">{"<CheckBox id=\"item2\" name=\"item2\" label=\"Item 2\" />"}</code></pre>
-
-          <h3>Toggle</h3>
-          <div className="example">
-            <CheckBox id="item3" name="item3" label="Item 3" toggle={true} />
-          </div>
-          <pre><code className="html hljs xml">{"<CheckBox id=\"item3\" name=\"item3\" label=\"Item 3\" toggle={true} />"}</code></pre>
-
-          <h3>Disabled</h3>
-          <div className="example">
-            <CheckBox id="item4" name="item4" label="Item 4" disabled={true} checked={this.state.checked} />
-          </div>
-          <pre><code className="html hljs xml">{"<CheckBox id=\"item4\" name=\"item4\" label=\"Item 4\" disabled=\{true\} />"}</code></pre>
-
-          <h3>Disabled Toggle</h3>
-          <div className="example">
-            <CheckBox id="item5" name="item5" label="Item 5" toggle={true}
-              disabled={true} checked={this.state.checked} />
-          </div>
-          <pre><code className="html hljs xml">{"<CheckBox id=\"item5\" name=\"item5\" label=\"Item 5\" toggle={true} disabled={true} />"}</code></pre>
-
+          {this._renderCheckBoxCode('Basic', basicCheckBox)}
+          {this._renderCheckBoxCode('Toggle', toggleCheckBox)}
+          {this._renderCheckBoxCode('Disabled', disabledCheckBox)}
+          {this._renderCheckBoxCode('Disabled Toggle', disabledToggleCheckBox)}
+          {this._renderCheckBoxCode('Reverse', reverseCheckBox)}
+          {this._renderCheckBoxCode('No Label', noLabelCheckBox)}
         </section>
 
       </DocsArticle>

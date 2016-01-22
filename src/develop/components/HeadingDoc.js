@@ -1,6 +1,13 @@
+// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
 var React = require('react');
+var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Heading = require('grommet/components/Heading');
+
+function convertHeadingToString(headingJSX) {
+  return jsxToString(headingJSX);
+}
 
 var inline =
       "<Heading>\n" +
@@ -8,7 +15,33 @@ var inline =
       "</Heading>";
 
 var HeadingDoc = React.createClass({
+  _renderHeadingCode(heading, headingJSX) {
+    return (
+      <div>
+        <h3>{heading}</h3>
+        <div className="example">
+          {headingJSX}
+        </div>
+        <pre><code className="html hljs xml">
+          {convertHeadingToString(headingJSX)}
+        </code></pre>
+      </div>
+    );
+  },
+
   render: function() {
+    var simpleHeading = (
+      <Heading>
+        Sample Heading
+      </Heading>
+    );
+
+    var differentSizesHeading = (
+      <Heading size="large" strong={true} tag="h3">
+        Sample Heading
+      </Heading>
+    );
+
     return (
       <DocsArticle title="Heading" colorIndex="neutral-3">
 
@@ -30,21 +63,8 @@ var HeadingDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          <h3>Simple</h3>
-          <div className="example">
-            <Heading>Sample Heading</Heading>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Heading>\n  Sample Heading\n</Heading>"}
-          </code></pre>
-
-          <h3>Different sizes</h3>
-          <div className="example">
-            <Heading size="large" strong={true} tag="h3">Sample Heading</Heading>
-          </div>
-          <pre><code className="html">
-            {"<Heading size=\"large\" strong={true} tag=\"h3\">\n  Sample Heading\n</Heading>"}
-          </code></pre>
+          {this._renderHeadingCode('Simple', simpleHeading)}
+          {this._renderHeadingCode('Different sizes', differentSizesHeading)}
         </section>
 
       </DocsArticle>

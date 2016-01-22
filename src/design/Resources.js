@@ -41,39 +41,35 @@ var Resources = React.createClass({
             <li>
               <a id="hpe-ai-general"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general-0-9-3.ai"
-                target="_blank">General Sticker Sheet for Applications v0.9.3</a>
-              (<a id="hpe-ai-general-pdf" href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general-0-9-3.pdf"
+                target="_blank">General Sticker Sheet for Applications v0.9.3</a> (<a id="hpe-ai-general-pdf" 
+                href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general-0-9-3.pdf"
                 target="_blank">pdf</a>)
             </li>
             <li>
               <a id="hpe-ai-app-templates"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-app-templates-0-7.ai"
-                target="_blank">Application Templates Sticker Sheet v0.7</a>
-              (<a id="hpe-ai-app-templates-pdf"
+                target="_blank">Application Templates Sticker Sheet v0.7</a> (<a id="hpe-ai-app-templates-pdf"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-app-templates-0-7.pdf"
                 target="_blank">pdf</a>)
             </li>
             <li>
               <a id="hpe-ai-data"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-data-0-5.ai"
-                target="_blank">Data Sticker Sheet for Applications v0.5</a>
-              (<a id="hpe-ai-data-pdf"
+                target="_blank">Data Sticker Sheet for Applications v0.5</a> (<a id="hpe-ai-data-pdf"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-data-0-5.pdf"
                 target="_blank">pdf</a>)
             </li>
             <li>
               <a id="hpe-ai-icons"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-functional-icons-0-2.ai"
-                target="_blank">Functional Icons Sticker Sheet v0.2</a>
-              (<a id="hpe-ai-icons-pdf"
+                target="_blank">Functional Icons Sticker Sheet v0.2</a> (<a id="hpe-ai-icons-pdf"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-functional-icons-0-2.pdf"
                 target="_blank">pdf</a>)
             </li>
             <li>
               <a id="hpe-ai-classic"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-classic-0-6.ai"
-                target="_blank">Classic Sticker Sheet for Applications v0.6</a>
-              (<a id="hpe-ai-classic-pdf"
+                target="_blank">Classic Sticker Sheet for Applications v0.6</a> (<a id="hpe-ai-classic-pdf"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-classic-0-6.pdf"
                 target="_blank">pdf</a>)
             </li>
@@ -125,8 +121,7 @@ var Resources = React.createClass({
             <li>
               <a id="hpi-ai-general"
                 href="https://github.com/grommet/grommet-design/raw/master/hpi/hpi-sticker-sheet-apps-general-0-3.ai"
-                target="_blank">General Sticker Sheet v0.3</a>
-              (<a id="hpi-ai-general-pdf"
+                target="_blank">General Sticker Sheet v0.3</a> (<a id="hpi-ai-general-pdf"
                 href="https://github.com/grommet/grommet-design/raw/master/hpi/hpi-sticker-sheet-apps-general-0-3.pdf"
                 target="_blank">pdf</a>)
             </li>
