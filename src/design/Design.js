@@ -31,6 +31,7 @@ var CONTENTS = [
   {route: "design_basics", label: 'Basics', component: Basics,
     contents: [
       {label: 'Color', id: 'color'},
+      {label: 'Padding', id: 'padding'},
       {label: 'Text', id: 'text'},
       {label: 'Typography', id: 'typography'},
       {label: 'Writing Style', id: 'writing-style'},
