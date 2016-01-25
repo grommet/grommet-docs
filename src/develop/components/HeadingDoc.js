@@ -36,14 +36,14 @@ var HeadingDoc = React.createClass({
       </Heading>
     );
 
-    var smallHeading = (
-      <Heading size="small" tag="h1">
+    var h2Heading = (
+      <Heading tag="h2">
         Sample Heading
       </Heading>
     );
 
-    var largeHeading = (
-      <Heading size="large" strong={true} tag="h3">
+    var strongHeading = (
+      <Heading strong={true} tag="h6">
         Sample Heading
       </Heading>
     );
@@ -57,8 +57,6 @@ var HeadingDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>size        small|medium|large</code></dt>
-            <dd>The size of the heading.  Optional.  If no size is specified, it will use the default styling for whatever heading level is specified.</dd>
             <dt><code>strong      true|false</code></dt>
             <dd>If the heading should be bold.  Defaults to <code>false</code>.</dd>
             <dt><code>tag         h1|h2|h3|h4|h5|h6</code></dt>
@@ -70,8 +68,8 @@ var HeadingDoc = React.createClass({
           <h2>Examples</h2>
 
           {this._renderHeadingCode('Default', simpleHeading)}
-          {this._renderHeadingCode('Different sizes', smallHeading)}
-          {this._renderHeadingCode('', largeHeading)}
+          {this._renderHeadingCode('Different styles', h2Heading)}
+          {this._renderHeadingCode('', strongHeading)}
         </section>
 
       </DocsArticle>
