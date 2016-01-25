@@ -26,7 +26,6 @@ var NumberInputDoc = React.createClass({
           browser base so we can style it.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
-        {/*}
         <section>
           <h2>Options</h2>
           <dl>
@@ -54,7 +53,6 @@ var NumberInputDoc = React.createClass({
           <dd>Optional attribute to enhance accessibility in case the checkbox is used inside a context.</dd>
           </dl>
         </section>
-        {*/}
 
         <section>
           <h2>Example</h2>
