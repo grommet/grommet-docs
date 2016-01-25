@@ -42,6 +42,7 @@ var MapDoc = require('./components/MapDoc');
 var MenuDoc = require('./components/MenuDoc');
 var MeterDoc = require('./components/MeterDoc');
 var NavigationDoc = require('./patterns/NavigationDoc');
+var NotificationDoc = require('./components/NotificationDoc');
 var NumberInputDoc = require('./components/NumberInputDoc');
 var ParagraphDoc = require('./components/ParagraphDoc');
 var RadioButtonDoc = require('./components/RadioButtonDoc');
@@ -109,6 +110,7 @@ var CONTENTS = [
       {route: 'develop_map', label: 'Map', component: MapDoc},
       {route: 'develop_menu', label: 'Menu', component: MenuDoc},
       {route: 'develop_meter', label: 'Meter', component: MeterDoc},
+      {route: 'develop_notification', label: 'Notification', component: NotificationDoc},
       {route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc},
       {route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc},
       {route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc},
