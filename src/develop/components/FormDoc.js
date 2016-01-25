@@ -43,6 +43,12 @@ var FormDoc = React.createClass({
           <dd>Whether to render the form in a compact style.</dd>
           <dt><code>onSubmit  {"{func}"}</code></dt>
           <dd>A function called when the user submits the form.</dd>
+          <dt><code>pad       {"none|small|medium|large|{...}"}</code></dt>
+          <dd>The amount of padding to put around the contents.
+            An object can be specified to distinguish horizontal and vertical padding: <code>
+            {"{horizontal: none|small|medium|large, vertical: none|small|medium|large}"}
+            </code>. Defaults to <code>none</code>.
+          </dd>
           </dl>
         </section>
 
