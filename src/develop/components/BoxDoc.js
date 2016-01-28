@@ -4,10 +4,20 @@ var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
 
+var COLORS = ['brand', 'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4',
+  'accent-1', 'accent-2',
+  'grey-1', 'grey-2', 'grey-3', 'grey-4', 'light-2', 'light-1',
+  'critical', 'warning', 'ok', 'unknown'];
+
 var BoxDoc = React.createClass({
 
   render: function() {
     var inline = "<Box>\n  ...\n</Box>";
+
+    var coloredBoxes = COLORS.map(function (color) {
+      return <Box key={color} colorIndex={color} pad="small">{color}</Box>;
+    });
+
     return (
       <DocsArticle title="Box" colorIndex="neutral-3">
 
@@ -97,6 +107,14 @@ var BoxDoc = React.createClass({
             </Box>
           </div>
           <pre><code className="html hljs xml">{"<Box direction=\"row\" align=\"center\" colorIndex=\"neutral-1\"\n  justify=\"between\" reverse={true} tag=\"aside\"> ..."}</code></pre>
+
+            <h3>Color indexes</h3>
+            <div className="example">
+              <Box direction="row" wrap={true}>
+                {coloredBoxes}
+              </Box>
+            </div>
+            <pre><code className="html hljs xml">{"<Box colorIndex=\"...\" pad=\"small\"> ..."}</code></pre>
 
         </section>
 
