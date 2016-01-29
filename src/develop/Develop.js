@@ -32,6 +32,7 @@ var DistributionDoc = require('./components/DistributionDoc');
 var FooterDoc = require('./components/FooterDoc');
 var FormDoc = require('./components/FormDoc');
 var FormFieldDoc = require('./components/FormFieldDoc');
+var FormLabelDoc = require('./components/FormLabelDoc');
 var HeaderDoc = require('./components/HeaderDoc');
 var IconDoc = require('./components/IconDoc');
 var ImageDoc = require('./components/ImageDoc');
@@ -101,6 +102,7 @@ var CONTENTS = [
       {route: 'develop_footer', label: 'Footer', component: FooterDoc},
       {route: 'develop_form', label: 'Form', component: FormDoc},
       {route: 'develop_form-field', label: 'FormField', component: FormFieldDoc},
+      {route: 'develop_form-label', label: 'FormLabel', component: FormLabelDoc},
       {route: 'develop_header', label: 'Header', component: HeaderDoc},
       {route: 'develop_icon', label: 'Icon', component: IconDoc},
       {route: 'develop_image', label: 'Image', component: ImageDoc},
