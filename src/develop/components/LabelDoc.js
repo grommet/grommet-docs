@@ -3,47 +3,47 @@
 var React = require('react');
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
-var FormLabel = require('grommet/components/FormLabel');
+var Label = require('grommet/components/Label');
 
-function convertFormLabelToString(formLabelJSX) {
-  return jsxToString(formLabelJSX);
+function convertLabelToString(LabelJSX) {
+  return jsxToString(LabelJSX);
 }
 
 var inline =
-      "<FormLabel>\n" +
+      "<Label>\n" +
       "  ...\n" +
-      "</FormLabel>";
+      "</Label>";
 
-var FormLabelDoc = React.createClass({
-  _renderFormLabelCode(formLabel, formLabelJSX) {
+var LabelDoc = React.createClass({
+  _renderLabelCode(Label, LabelJSX) {
     return (
       <div>
-        <h3>{formLabel}</h3>
+        <h3>{Label}</h3>
         <div className="example">
-          {formLabelJSX}
+          {LabelJSX}
         </div>
         <pre><code className="html hljs xml">
-          {convertFormLabelToString(formLabelJSX)}
+          {convertLabelToString(LabelJSX)}
         </code></pre>
       </div>
     );
   },
 
   render: function() {
-    var defaultFormLabel = (
-      <FormLabel>
-        Sample Form Label
-      </FormLabel>
+    var defaultLabel = (
+      <Label>
+        Sample Label
+      </Label>
     );
 
-    var uppercaseFormLabel = (
-      <FormLabel uppercase={true}>
-        Sample Form Label
-      </FormLabel>
+    var uppercaseLabel = (
+      <Label uppercase={true}>
+        Sample Label
+      </Label>
     );
 
     return (
-      <DocsArticle title="Form Label" colorIndex="neutral-3">
+      <DocsArticle title=" Label" colorIndex="neutral-3">
 
         <p>Label component. Can be used with or without an associated input.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
@@ -61,8 +61,8 @@ var FormLabelDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          {this._renderFormLabelCode('Default', defaultFormLabel)}
-          {this._renderFormLabelCode('Uppercase', uppercaseFormLabel)}
+          {this._renderLabelCode('Default', defaultLabel)}
+          {this._renderLabelCode('Uppercase', uppercaseLabel)}
         </section>
 
       </DocsArticle>
@@ -70,4 +70,4 @@ var FormLabelDoc = React.createClass({
   }
 });
 
-module.exports = FormLabelDoc;
+module.exports = LabelDoc;
