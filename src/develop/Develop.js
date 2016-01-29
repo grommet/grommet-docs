@@ -33,6 +33,7 @@ var FooterDoc = require('./components/FooterDoc');
 var FormDoc = require('./components/FormDoc');
 var FormFieldDoc = require('./components/FormFieldDoc');
 var HeaderDoc = require('./components/HeaderDoc');
+var HeadingDoc = require('./components/HeadingDoc');
 var IconDoc = require('./components/IconDoc');
 var ImageDoc = require('./components/ImageDoc');
 var LayerDoc = require('./components/LayerDoc');
@@ -102,6 +103,7 @@ var CONTENTS = [
       {route: 'develop_form', label: 'Form', component: FormDoc},
       {route: 'develop_form-field', label: 'FormField', component: FormFieldDoc},
       {route: 'develop_header', label: 'Header', component: HeaderDoc},
+      {route: 'develop_heading', label: 'Heading', component: HeadingDoc},
       {route: 'develop_icon', label: 'Icon', component: IconDoc},
       {route: 'develop_image', label: 'Image', component: ImageDoc},
       {route: 'develop_layer', label: 'Layer', component: LayerDoc},
