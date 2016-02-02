@@ -36,6 +36,7 @@ var HeaderDoc = require('./components/HeaderDoc');
 var HeadingDoc = require('./components/HeadingDoc');
 var IconDoc = require('./components/IconDoc');
 var ImageDoc = require('./components/ImageDoc');
+var LabelDoc = require('./components/LabelDoc');
 var LayerDoc = require('./components/LayerDoc');
 var ListDoc = require('./components/ListDoc');
 var LoginFormDoc = require('./components/LoginFormDoc');
@@ -106,6 +107,7 @@ var CONTENTS = [
       {route: 'develop_heading', label: 'Heading', component: HeadingDoc},
       {route: 'develop_icon', label: 'Icon', component: IconDoc},
       {route: 'develop_image', label: 'Image', component: ImageDoc},
+      {route: 'develop_label', label: 'Label', component: LabelDoc},
       {route: 'develop_layer', label: 'Layer', component: LayerDoc},
       {route: 'develop_list', label: 'List', component: ListDoc},
       {route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc},
