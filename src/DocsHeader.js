@@ -30,7 +30,7 @@ var DocsHeader = React.createClass({
             </Box>
           </Link>
         </Title>
-        <Menu direction="row" responsive={true}>
+        <Menu direction="row" responsive={true} dropAlign={{right: 'right'}}>
           <Link id="design-link" to={this.context.routePrefix + 'design'}>
             <Anchor tag="span">Design</Anchor>
           </Link>
