@@ -58,7 +58,7 @@ var MenuDoc = React.createClass({
     );
 
     var rowEndMenu = (
-      <Menu direction="row" justify="end">
+      <Menu direction="row" justify="end" inline={true} label="Menu">
         <Anchor href="#" className="active">First</Anchor>
         <Anchor href="#">Second</Anchor>
         <Anchor href="#">Third</Anchor>
@@ -170,7 +170,7 @@ var MenuDoc = React.createClass({
 
           {this._renderMenuCode('column, inline', columnInlineMenu)}
           {this._renderMenuCode('row, inline', rowInlineMenu)}
-          {this._renderMenuCode('row, end, inline', rowEndMenu)}
+          {this._renderMenuCode('row, end, inline, label', rowEndMenu)}
           {this._renderMenuCode('label, down, not inline', labelDownMenu)}
           {this._renderMenuCode('icon, down, not inline', iconDownMenu)}
           {this._renderMenuCode(
