@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Link = require('react-router').Link;
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
@@ -17,6 +18,10 @@ function convertAnchorToString(anchorJSX) {
 }
 
 var AnchorDoc = React.createClass({
+
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
 
   _onClick: function () {
     // no-op
@@ -39,24 +44,24 @@ var AnchorDoc = React.createClass({
   render: function() {
 
     var defaultAnchor = (
-      <Anchor href="" onClick={this._onClick}>Text</Anchor>
+      <Anchor href=""  onClick={this._onClick}>Child text</Anchor>
     );
 
     var primaryAnchor = (
-      <Anchor href="" primary={true} onClick={this._onClick}>Text</Anchor>
+      <Anchor href="" label="Label text" primary={true} onClick={this._onClick} />
     );
 
     var iconAnchor = (
-      <Anchor href="" onClick={this._onClick}><AddIcon /></Anchor>
+      <Anchor href="" icon="Add" onClick={this._onClick} />
     );
 
     var targetAnchor = (
-      <Anchor href="" target="_blank" onClick={this._onClick}>Text</Anchor>
+      <Anchor href="" target="_blank" label="Text" onClick={this._onClick} />
     );
 
     var inHeaderAnchor = (
       <h3>
-        <Anchor href="" onClick={this._onClick}>Text</Anchor>
+        <Anchor href="" label="Text" onClick={this._onClick} />
       </h3>
     );
 
@@ -82,7 +87,8 @@ var AnchorDoc = React.createClass({
       <DocsArticle title="Anchor" colorIndex="neutral-3">
 
         <p>A text link. We have a separate component from the
-        browser base so we can style it.</p>
+        browser base so we can style it. You can either set the icon and/or
+        label properties or just use children.</p>
         <pre><code className="html hljs xml">
           {"<Anchor href=\"...\">label</Anchor>"}
         </code></pre>
@@ -90,17 +96,17 @@ var AnchorDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>disabled  true|false</code></dt>
+            <dt><code>disabled       true|false</code></dt>
             <dd>
               Whether to disable the anchor. Default is false.
             </dd>
             <dt><code>href           {"{location}"}</code></dt>
             <dd>Hyperlink reference to place in the anchor.</dd>
-            <dt><code>target         {"{location}"}</code></dt>
-            <dd>
-              Target of the link,
-              examples targets=_blank|_self|_parent|_top|framename.
-            </dd>
+            <dt><code>icon           {"{name}"}</code></dt>
+            <dd>Name of an icon to place in the anchor.
+              See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+            <dt><code>label          {"{text}"}</code></dt>
+            <dd>Label text to place in the anchor.</dd>
             <dt><code>onClick        {"{func}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>primary        true|false</code></dt>
@@ -110,6 +116,11 @@ var AnchorDoc = React.createClass({
               This should be used in conjunction with components like
               Link from React Router. In this case, Link controls the
               navigation while Anchor controls the styling.</dd>
+            <dt><code>target         {"{location}"}</code></dt>
+            <dd>
+              Target of the link,
+              examples targets=_blank|_self|_parent|_top|framename.
+            </dd>
           </dl>
         </section>
 
@@ -117,7 +128,7 @@ var AnchorDoc = React.createClass({
           <h2>Example</h2>
 
           {this._renderAnchorCode('Default', defaultAnchor)}
-          {this._renderAnchorCode('Primary', primaryAnchor)}
+          {this._renderAnchorCode('Primary, Label', primaryAnchor)}
           {this._renderAnchorCode('Icon', iconAnchor)}
           {this._renderAnchorCode('Target', targetAnchor)}
           {this._renderAnchorCode('Disabled', disabledAnchor)}
