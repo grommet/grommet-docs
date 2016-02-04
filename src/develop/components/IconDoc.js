@@ -88,14 +88,14 @@ var IconDoc = React.createClass({
       var iconText = iconName.replace(this.state.inputData, function (g) {
         return g ? '<strong>' + g + '</strong>' : '';
       });
+      const name = iconName.replace(/^(.)|-([a-z])/g, function (g) {
+        return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
+      });
 
-      var IconInstance = iconsMap[iconName];
       return (
         <Tile key={'tile_' + index} direction="row"
           align="center" justify="start">
-          <Button type="icon" onClick={this._onIconSelect}>
-            <IconInstance />
-          </Button>
+          <Button icon={name} onClick={this._onIconSelect} />
           <span dangerouslySetInnerHTML={{__html: iconText}} />
         </Tile>
       );

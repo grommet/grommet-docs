@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Link = require('react-router').Link;
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 
@@ -9,7 +10,6 @@ var Button = require('grommet/components/Button');
 var Section = require('grommet/components/Section');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
-var CloseIcon = require('grommet/components/icons/base/Close');
 
 function convertButtonToString(buttonJSX) {
   return jsxToString(buttonJSX, {
@@ -20,6 +20,10 @@ function convertButtonToString(buttonJSX) {
 }
 
 var ButtonDoc = React.createClass({
+
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
 
   _onClick: function () {
     // no-op
@@ -57,7 +61,7 @@ var ButtonDoc = React.createClass({
     );
 
     var iconButton = (
-      <Button type="icon" onClick={this._onClick}><CloseIcon /></Button>
+      <Button icon="Close" onClick={this._onClick} />
     );
 
     var disabledButton = (
@@ -108,7 +112,7 @@ var ButtonDoc = React.createClass({
           <Button label="Disabled" />
         </Box>
         <Box pad="small" direction="row">
-          <Button type="icon" onClick={this._onClick}><CloseIcon /></Button>
+          <Button icon="Close" onClick={this._onClick} />
         </Box>
       </Section>
     );
@@ -128,24 +132,31 @@ var ButtonDoc = React.createClass({
           <dt><code>accent         true|false</code></dt>
           <dd>Whether this is an accent button.</dd>
           <dt><code>fill           true|false</code></dt>
-          <dd>
-            Whether the button expands to fill all of the available
+          <dd>Whether the button expands to fill all of the available
             width and height.
           </dd>
+          <dt><code>icon           {"{name}"}</code></dt>
+          <dd>Name of an icon to place in the button.
+            See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
           <dt><code>label          {"{text|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
           <dt><code>onClick        {"{func}"}</code></dt>
           <dd>Click handler. Not providing an onClick function causes the
             control to be disabled.</dd>
+          <dt><code>plain          true|false</code></dt>
+          <dd>Whether this is a plain button with no border or padding. Use
+            this when wrapping children that provide the complete visualization
+            of the control.</dd>
           <dt><code>primary        true|false</code></dt>
           <dd>Whether this is a primary button. There should be at most
             one per page or screen.</dd>
           <dt><code>secondary      true|false</code></dt>
           <dd>Whether this is a secondary button.</dd>
-          <dt><code>type           button|reset|submit|icon</code></dt>
-          <dd>The type of button. Set the type to <code>submit</code>
-              for the default button on forms.
-              Defaults to <code>button</code>.</dd>
+          <dt><code>type           button|reset|submit</code></dt>
+          <dd>The type of button. Set the type to <code>submit</code> for the
+            default button on forms. Defaults to <code>button</code>. Previously,
+            a type of <code>icon</code> was supported. This type has been
+            deprecated in favor of <code>{"plain={true}"}</code></dd>
           </dl>
         </section>
 

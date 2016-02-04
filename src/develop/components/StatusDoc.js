@@ -42,10 +42,10 @@ var StatusDoc = React.createClass({
 
           <h3>Error</h3>
           <div className="example">
-            <Status value="error" a11yTitle="critical"/>
+            <Status value="critical" a11yTitle="critical"/>
           </div>
           <pre><code className="html hljs xml">
-            {"<Status value=\"error\" a11yTitle=\"critical\">"}
+            {"<Status value=\"critical\" a11yTitle=\"critical\">"}
           </code></pre>
 
           <h3>Warning</h3>

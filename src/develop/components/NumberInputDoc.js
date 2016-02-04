@@ -11,7 +11,6 @@ var NumberInputDoc = React.createClass({
   },
 
   _onChange: function (event) {
-    console.log('!!! _onChange', event.target.value);
     this.setState({value: parseInt(event.target.value)});
   },
 
