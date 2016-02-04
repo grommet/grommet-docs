@@ -6,7 +6,6 @@ var DocsArticle = require('../../DocsArticle');
 var Bricks = require('grommet/components/Bricks');
 var Brick = require('grommet/components/Brick');
 var Box = require('grommet/components/Box');
-var Image = require('grommet/components/Image');
 var GrommetLogo = require('grommet/components/icons/Grommet');
 
 function convertBrickToString(brickJSX) {
@@ -53,9 +52,7 @@ var BrickDoc = React.createClass({
 
     var varyingBrick = (
       <Bricks>
-        <Brick label="First" colorIndex="neutral-1" type="large" href="http://www.grommet.io/docs/">
-          <Image src="img/carousel-1.png" size="medium" />
-        </Brick>
+        <Brick colorIndex="neutral-1" type="large" href="http://www.grommet.io/docs/" texture="img/carousel-1.png" />
         <Brick label="Second" colorIndex="neutral-2" type="tall" />
         <Brick label="Third" colorIndex="neutral-3">
           <GrommetLogo size="large" />
@@ -87,6 +84,10 @@ var BrickDoc = React.createClass({
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color of the Brick.  For example: <code>"neutral-1"</code></dd>
+          </dl>
+          <dl>
+            <dt><code>texture      {"{url}"}</code></dt>
+            <dd>A texture image to apply to the background.</dd>
           </dl>
         </section>
 
