@@ -121,6 +121,22 @@ var MenuDoc = React.createClass({
       </Menu>
     );
 
+    var smallInlineMenu = (
+      <Menu direction="row" size="small">
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
+      </Menu>
+    );
+
+    var largeInlineMenu = (
+      <Menu direction="row" size="large">
+        <Anchor href="#" className="active">First</Anchor>
+        <Anchor href="#">Second</Anchor>
+        <Anchor href="#">Third</Anchor>
+      </Menu>
+    );
+
     return (
       <DocsArticle title="Menu" colorIndex="neutral-3">
 
@@ -183,6 +199,8 @@ var MenuDoc = React.createClass({
           )}
           {this._renderMenuCode('not inline, up', notInlineUpMenu)}
           {this._renderMenuCode('button bar', buttonBarMenu)}
+          {this._renderMenuCode('small', smallInlineMenu)}
+          {this._renderMenuCode('large', largeInlineMenu)}
         </section>
 
       </DocsArticle>
