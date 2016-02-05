@@ -7,7 +7,6 @@ var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
 var Section = require('grommet/components/Section');
 var Anchor = require('grommet/components/Anchor');
-var AddIcon = require('grommet/components/icons/base/Add');
 
 function convertAnchorToString(anchorJSX) {
   return jsxToString(anchorJSX, {
@@ -71,10 +70,10 @@ var AnchorDoc = React.createClass({
           <Anchor href="" onClick={this._onClick}>Text</Anchor>
         </Box>
         <Box pad="small">
-          <Anchor href="" primary={true} onClick={this._onClick}>Text</Anchor>
+          <Anchor href="" primary={true} icon="Checkmark" onClick={this._onClick}>Text</Anchor>
         </Box>
         <Box pad="small">
-          <Anchor href="" onClick={this._onClick}><AddIcon /></Anchor>
+          <Anchor href="" icon="Add" onClick={this._onClick} />
         </Box>
       </Section>
     );
