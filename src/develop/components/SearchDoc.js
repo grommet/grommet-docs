@@ -70,17 +70,20 @@ var SearchDoc = React.createClass({
             <dt><code>inline        true|false</code></dt>
             <dd>Indicates that the search input should always
               be visible.</dd>
-            <dt><code>onChange      {"function ({text}) {...}"}</code></dt>
-            <dd>Function that will be called when the user types some text.</dd>
+            <dt><code>onChange      {"function ({value: , label: }|{string}, selected) {...}"}</code></dt>
+            <dd>Function that will be called when the user types some text into the input. selected will be true when the user has chosen one of the suggestions. This property is deprecated in favor of onDOMChange and onSelect.</dd>
+            <dt><code>onDOMChange   {"function (event) {...}"}</code></dt>
+            <dd>Function that will be called when the user types in the input.</dd>
+            <dt><code>onSelect      {"function ({target: , suggestion: }, selected) {...}"}</code></dt>
+            <dd>Function that will be called when the user selects a suggestion. The target corresponds to the embedded input element, allowing you to distinguish which component triggered the event. The suggestion contains the object chosen from the supplied suggestions. selected will be true when the user has chosen one of the suggestions, and false when the user presses enter after entering text (without selecting a suggestion).</dd>
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
+            <dt><code>responsive    true|false</code></dt>
+            <dd>Whether the search control is responsive (turns off inline search option for small screen sizes) . Defaults to <code>true</code>.</dd>
             <dt><code>size          medium|large</code></dt>
             <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
             <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
-            <dd>Suggestions to show, typically based on what the user has typed so far.
-              You can pass an array of strings or objects. Objects must have a
-              label: property but can have any other properties you like. This object will
-              be given to the onChange() handler if the suggestion is selected.</dd>
+            <dd>Suggestions to show, typically based on what the user has typed so far. You can pass an array of strings or objects. Objects must have a label: property but can have any other properties you like. This object will be given to the onSelect() handler (or onChange() handler) if the suggestion is selected.</dd>
             <dt><code>value         {"{string}"}</code></dt>
             <dd>What text to show in the input.</dd>
           </dl>
