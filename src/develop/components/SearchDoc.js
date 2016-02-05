@@ -22,16 +22,22 @@ var SearchDoc = React.createClass({
     };
   },
 
-  _onChange: function (value) {
+  _onChange: function (value, selected) {
     var text;
+
     if (value.hasOwnProperty('label')) {
       text = value.label;
     } else {
       text = value;
     }
-    var simpleSuggestions;
-    var richSuggestions;
-    if (text) {
+
+    if (selected) {
+      this.setState({
+        value: text,
+        simpleSuggestions: [],
+        richSuggestions: []
+      });
+    } else {
       var regexp = new RegExp(text, 'i');
       var simpleSuggestions = SIMPLE_SUGGESTIONS.filter(function (suggestion) {
         return regexp.test(suggestion);
@@ -39,15 +45,25 @@ var SearchDoc = React.createClass({
       var richSuggestions = RICH_SUGGESTIONS.filter(function (suggestion) {
         return regexp.test(suggestion.label);
       });
-    } else {
-      simpleSuggestions = [];
-      richSuggestions = [];
+  
+      this.setState({
+        value: text,
+        simpleSuggestions: simpleSuggestions,
+        richSuggestions: richSuggestions
+      });
     }
-    this.setState({
-      value: text,
-      simpleSuggestions: simpleSuggestions,
-      richSuggestions: richSuggestions
+  },
+
+  _onDOMChange: function (value) {
+    var regexp = new RegExp('^' + value);
+    var richSuggestions = RICH_SUGGESTIONS.filter(function (suggestion) {
+      return regexp.test(suggestion.label);
     });
+    this.setState({value: value, richSuggestions: richSuggestions});
+  },
+
+  _onSelect: function (pseudoEvent, selected) {
+    this.setState({value: pseudoEvent.suggestion.label, richSuggestions: []});
   },
 
   render: function() {
@@ -72,7 +88,7 @@ var SearchDoc = React.createClass({
               be visible.</dd>
             <dt><code>onChange      {"function ({value: , label: }|{string}, selected) {...}"}</code></dt>
             <dd>Function that will be called when the user types some text into the input. selected will be true when the user has chosen one of the suggestions. This property is deprecated in favor of onDOMChange and onSelect.</dd>
-            <dt><code>onDOMChange   {"function (event) {...}"}</code></dt>
+            <dt><code>onDOMChange   {"function (value) {...}"}</code></dt>
             <dd>Function that will be called when the user types in the input.</dd>
             <dt><code>onSelect      {"function ({target: , suggestion: }, selected) {...}"}</code></dt>
             <dd>Function that will be called when the user selects a suggestion. The target corresponds to the embedded input element, allowing you to distinguish which component triggered the event. The suggestion contains the object chosen from the supplied suggestions. selected will be true when the user has chosen one of the suggestions, and false when the user presses enter after entering text (without selecting a suggestion).</dd>
@@ -141,6 +157,16 @@ var SearchDoc = React.createClass({
             <Search inline={true} value={this.state.value}
               suggestions={this.state.richSuggestions}
               onChange={this._onChange} />
+          </div>
+          <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
+            this.state.value + "\" suggestions={" +
+            stringify(this.state.simpleSuggestions) + "}/>"}</code></pre>
+
+          <h3>Inline, Value, Rich Suggestions (onDOMChange and onSelect)</h3>
+          <div className="example">
+            <Search inline={true} value={this.state.value}
+              suggestions={this.state.richSuggestions}
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
             this.state.value + "\" suggestions={" +
