@@ -90,11 +90,17 @@ var SearchDoc = React.createClass({
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
             <dt><code>responsive    true|false</code></dt>
-            <dd>Whether the search control is responsive (turns off inline search option for small screen sizes) . Defaults to <code>true</code>.</dd>
+            <dd>Whether the search control is responsive (turns off inline
+              search option for small screen sizes).
+              Defaults to <code>true</code>.</dd>
             <dt><code>size          medium|large</code></dt>
             <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
             <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
-            <dd>Suggestions to show, typically based on what the user has typed so far. You can pass an array of strings or objects. Objects must have a label: property but can have any other properties you like. This object will be given to the onSelect() handler (or onChange() handler) if the suggestion is selected.</dd>
+            <dd>Suggestions to show, typically based on what the user has
+            typed so far. You can pass an array of strings or objects. Objects
+            must have a label: property but can have any other properties you
+            like. This object will be given to the onSelect() handler (or
+            onChange() handler) if the suggestion is selected.</dd>
             <dt><code>value         {"{string}"}</code></dt>
             <dd>What text to show in the input.</dd>
           </dl>
