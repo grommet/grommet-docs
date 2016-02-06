@@ -40,7 +40,7 @@ var SearchDoc = React.createClass({
 
   _onSelect: function (pseudoEvent, selected) {
     var value;
-    if (pseudoEvent.suggestion.hasOwnProperty('label')) {
+    if (pseudoEvent.suggestion && pseudoEvent.suggestion.hasOwnProperty('label')) {
       value = pseudoEvent.suggestion.label;
     } else {
       value = pseudoEvent.suggestion;
@@ -77,7 +77,7 @@ var SearchDoc = React.createClass({
             <dd>Function that will be called when the user types some text
               into the input. This property is deprecated in favor of
               onDOMChange and onSelect.</dd>
-            <dt><code>onDOMChange   {"function (value) {...}"}</code></dt>
+            <dt><code>onDOMChange   {"function (value, event) {...}"}</code></dt>
             <dd>Function that will be called when the user types in the input.</dd>
             <dt><code>onSelect      {"function ({target: , suggestion: }, selected) {...}"}</code></dt>
             <dd>Function that will be called when the user selects a
