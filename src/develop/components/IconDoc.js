@@ -142,9 +142,15 @@ var IconDoc = React.createClass({
 
           <h3>Large, colored</h3>
           <div className="example">
-            <Icon large={true} colorIndex="brand" />
+            <Icon size="large" colorIndex="brand" />
           </div>
-          <pre><code className="html hljs xml">{"<" + componentName + " large={true} colorIndex=\"brand\" /> ..."}</code></pre>
+          <pre><code className="html hljs xml">{"<" + componentName + " size=\"large\" colorIndex=\"brand\" /> ..."}</code></pre>
+
+          <h3>Huge</h3>
+          <div className="example">
+            <Icon size="huge" />
+          </div>
+          <pre><code className="html hljs xml">{"<" + componentName + " size=\"huge\" /> ..."}</code></pre>
 
         </section>
 
