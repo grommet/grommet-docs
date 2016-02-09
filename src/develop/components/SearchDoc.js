@@ -22,37 +22,40 @@ var SearchDoc = React.createClass({
     };
   },
 
-  _onChange: function (value) {
-    var text;
-    if (value.hasOwnProperty('label')) {
-      text = value.label;
-    } else {
-      text = value;
-    }
-    var simpleSuggestions;
-    var richSuggestions;
-    if (text) {
-      var regexp = new RegExp(text, 'i');
-      var simpleSuggestions = SIMPLE_SUGGESTIONS.filter(function (suggestion) {
-        return regexp.test(suggestion);
-      });
-      var richSuggestions = RICH_SUGGESTIONS.filter(function (suggestion) {
-        return regexp.test(suggestion.label);
-      });
-    } else {
-      simpleSuggestions = [];
-      richSuggestions = [];
-    }
+  _onDOMChange: function (event) {
+    var regexp = new RegExp('^' + event.target.value);
+    var simpleSuggestions = SIMPLE_SUGGESTIONS.filter(function (suggestion) {
+      return regexp.test(suggestion);
+    });
+    var richSuggestions = RICH_SUGGESTIONS.filter(function (suggestion) {
+      return regexp.test(suggestion.label);
+    });
+
     this.setState({
-      value: text,
+      value: event.target.value,
       simpleSuggestions: simpleSuggestions,
       richSuggestions: richSuggestions
     });
   },
 
+  _onSelect: function (pseudoEvent, selected) {
+    var value;
+    if (pseudoEvent.suggestion && pseudoEvent.suggestion.hasOwnProperty('label')) {
+      value = pseudoEvent.suggestion.label;
+    } else {
+      value = pseudoEvent.suggestion;
+
+    }
+    this.setState({
+      value: value,
+      simpleSuggestions: [],
+      richSuggestions: []
+    });
+  },
+
   render: function() {
     var inline =
-    "<Search onChange={...} />";
+    "<Search onDOMChange={...} onSelect={...} />";
     return (
       <DocsArticle title="Search" colorIndex="neutral-3">
 
@@ -70,17 +73,34 @@ var SearchDoc = React.createClass({
             <dt><code>inline        true|false</code></dt>
             <dd>Indicates that the search input should always
               be visible.</dd>
-            <dt><code>onChange      {"function ({text}) {...}"}</code></dt>
-            <dd>Function that will be called when the user types some text.</dd>
+            <dt><code>onChange      {"function ({value: , label: }|{string}) {...}"}</code></dt>
+            <dd>Function that will be called when the user types some text
+              into the input. This property is deprecated in favor of
+              onDOMChange and onSelect.</dd>
+            <dt><code>onDOMChange   {"function (event) {...}"}</code></dt>
+            <dd>Function that will be called when the user types in the input.</dd>
+            <dt><code>onSelect      {"function ({target: , suggestion: }, selected) {...}"}</code></dt>
+            <dd>Function that will be called when the user selects a
+              suggestion. The target corresponds to the embedded input element
+              , allowing you to distinguish which component triggered the event
+              . The suggestion contains the object chosen from the supplied
+              suggestions. selected will be true when the user has chosen one
+              of the suggestions, and false when the user presses enter after
+              entering text (without selecting a suggestion).</dd>
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
+            <dt><code>responsive    true|false</code></dt>
+            <dd>Whether the search control is responsive (turns off inline
+              search option for small screen sizes).
+              Defaults to <code>true</code>.</dd>
             <dt><code>size          medium|large</code></dt>
             <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
             <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
-            <dd>Suggestions to show, typically based on what the user has typed so far.
-              You can pass an array of strings or objects. Objects must have a
-              label: property but can have any other properties you like. This object will
-              be given to the onChange() handler if the suggestion is selected.</dd>
+            <dd>Suggestions to show, typically based on what the user has
+            typed so far. You can pass an array of strings or objects. Objects
+            must have a label: property but can have any other properties you
+            like. This object will be given to the onSelect() handler (or
+            onChange() handler) if the suggestion is selected.</dd>
             <dt><code>value         {"{string}"}</code></dt>
             <dd>What text to show in the input.</dd>
           </dl>
@@ -91,13 +111,13 @@ var SearchDoc = React.createClass({
 
           <h3>Default</h3>
           <div className="example">
-            <Search />
+            <Search onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search />"}</code></pre>
 
           <h3>Left</h3>
           <div className="example">
-            <Search dropAlign={{right: 'right'}} />
+            <Search onDOMChange={this._onDOMChange} onSelect={this._onSelect}  dropAlign={{right: 'right'}} />
           </div>
           <pre><code className="html hljs xml">{"<Search dropAlign={{right: \"right\"}} />"}</code></pre>
 
@@ -105,7 +125,7 @@ var SearchDoc = React.createClass({
           <div className="example">
             <Search value={this.state.value}
               suggestions={this.state.simpleSuggestions}
-              onChange={this._onChange} />
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search defaultValue=\"" +
             this.state.value + "\" suggestions={" +
@@ -127,7 +147,7 @@ var SearchDoc = React.createClass({
           <div className="example">
             <Search inline={true} value={this.state.value}
               suggestions={this.state.simpleSuggestions}
-              onChange={this._onChange} />
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
             this.state.value + "\" suggestions={" +
@@ -137,7 +157,7 @@ var SearchDoc = React.createClass({
           <div className="example">
             <Search inline={true} value={this.state.value}
               suggestions={this.state.richSuggestions}
-              onChange={this._onChange} />
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true} value=\"" +
             this.state.value + "\" suggestions={" +
@@ -147,7 +167,7 @@ var SearchDoc = React.createClass({
           <div className="example">
             <Search inline={true} value={this.state.value} size="large"
               suggestions={this.state.simpleSuggestions}
-              onChange={this._onChange} />
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search size=\"large\"> ..."}</code></pre>
 
@@ -157,7 +177,7 @@ var SearchDoc = React.createClass({
           <div className="example">
             <Search inline={true} value={this.state.value} size="small"
               suggestions={this.state.simpleSuggestions}
-              onChange={this._onChange} />
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search size=\"small\"> ..."}</code></pre>
           {*/}
