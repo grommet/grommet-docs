@@ -128,7 +128,7 @@ var AnchorDoc = React.createClass({
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Examples</h2>
 
           {this._renderAnchorCode('Default', defaultAnchor)}
           {this._renderAnchorCode('Primary, Label', primaryAnchor)}
