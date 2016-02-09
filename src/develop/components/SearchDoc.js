@@ -22,8 +22,8 @@ var SearchDoc = React.createClass({
     };
   },
 
-  _onDOMChange: function (value) {
-    var regexp = new RegExp('^' + value);
+  _onDOMChange: function (event) {
+    var regexp = new RegExp('^' + event.target.value);
     var simpleSuggestions = SIMPLE_SUGGESTIONS.filter(function (suggestion) {
       return regexp.test(suggestion);
     });
@@ -32,7 +32,7 @@ var SearchDoc = React.createClass({
     });
 
     this.setState({
-      value: value,
+      value: event.target.value,
       simpleSuggestions: simpleSuggestions,
       richSuggestions: richSuggestions
     });
@@ -77,7 +77,7 @@ var SearchDoc = React.createClass({
             <dd>Function that will be called when the user types some text
               into the input. This property is deprecated in favor of
               onDOMChange and onSelect.</dd>
-            <dt><code>onDOMChange   {"function (value, event) {...}"}</code></dt>
+            <dt><code>onDOMChange   {"function (event) {...}"}</code></dt>
             <dd>Function that will be called when the user types in the input.</dd>
             <dt><code>onSelect      {"function ({target: , suggestion: }, selected) {...}"}</code></dt>
             <dd>Function that will be called when the user selects a
