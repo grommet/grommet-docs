@@ -5,6 +5,7 @@ var Link = require('react-router').Link;
 var DocsArticle = require('../../DocsArticle');
 var Header = require('grommet/components/Header');
 var Menu = require('grommet/components/Menu');
+var Anchor = require('grommet/components/Anchor');
 var Search = require('grommet/components/Search');
 var Title = require('grommet/components/Title');
 var ActionsLogo = require('grommet/components/icons/base/Actions');
@@ -61,9 +62,9 @@ var HeaderDoc = React.createClass({
             <Header justify="between">
               <Title>Title</Title>
               <Menu direction="row" align="center" responsive={false}>
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
                 <Search dropAlign={{right: "right"}} />
               </Menu>
             </Header>
@@ -75,9 +76,9 @@ var HeaderDoc = React.createClass({
             <Header justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
           </div>
@@ -88,9 +89,9 @@ var HeaderDoc = React.createClass({
             <Header justify="between">
               <Title><Logo /> Title</Title>
               <Menu label="Label" dropAlign={{right: "right"}}>
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
           </div>
@@ -101,9 +102,9 @@ var HeaderDoc = React.createClass({
             <Header size="large" justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
           </div>
@@ -114,9 +115,9 @@ var HeaderDoc = React.createClass({
             <Header size="small" justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
           </div>
@@ -127,9 +128,9 @@ var HeaderDoc = React.createClass({
             <Header size="large" justify="between">
               <Title onClick={function () {}}><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
           </div>
@@ -148,9 +149,9 @@ var HeaderDoc = React.createClass({
               <Menu icon={<ActionsLogo />}
                 dropAlign={{right: "right"}}
                 dropColorIndex="neutral-1">
-                <a href="#" className="active">First</a>
-                <a href="#">Second</a>
-                <a href="#">Third</a>
+                <Anchor href="#" className="active">First</Anchor>
+                <Anchor href="#">Second</Anchor>
+                <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
           </div>
@@ -164,16 +165,16 @@ var HeaderDoc = React.createClass({
                 <Menu icon={<NotificationIcon />}
                   dropAlign={{right: "right"}}
                   dropColorIndex="neutral-1">
-                  <a href="#" className="active">First</a>
-                  <a href="#">Second</a>
-                  <a href="#">Third</a>
+                  <Anchor href="#" className="active">First</Anchor>
+                  <Anchor href="#">Second</Anchor>
+                  <Anchor href="#">Third</Anchor>
                 </Menu>
                 <Menu icon={<UserSettingsIcon />}
                   dropAlign={{right: "right"}}
                   dropColorIndex="neutral-1">
-                  <a href="#" className="active">First</a>
-                  <a href="#">Second</a>
-                  <a href="#">Third</a>
+                  <Anchor href="#" className="active">First</Anchor>
+                  <Anchor href="#">Second</Anchor>
+                  <Anchor href="#">Third</Anchor>
                 </Menu>
               </Menu>
             </Header>
