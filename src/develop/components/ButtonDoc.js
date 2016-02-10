@@ -73,6 +73,10 @@ var ButtonDoc = React.createClass({
         onClick={this._onClick} />
     );
 
+    var hrefButton = (
+      <Button href="/docs/" label="Home Page" />
+    );
+
     var fillButtons = (
       <Tiles fill={true}>
         <Tile pad="small">
@@ -135,6 +139,8 @@ var ButtonDoc = React.createClass({
           <dd>Whether the button expands to fill all of the available
             width and height.
           </dd>
+          <dt><code>href           {"{text}"}</code></dt>
+          <dd>If specified, the button will behave like an anchor tag.</dd>
           <dt><code>icon           {"{name}"}</code></dt>
           <dd>Name of an icon to place in the button.
             See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
@@ -171,6 +177,7 @@ var ButtonDoc = React.createClass({
           {this._renderButtonCode('Long', longButton)}
           {this._renderButtonCode('Fill', fillButtons)}
           {this._renderButtonCode('Colored context', coloredButtons)}
+          {this._renderButtonCode('Href', hrefButton)}
         </section>
 
       </DocsArticle>
