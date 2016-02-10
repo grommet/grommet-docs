@@ -50,6 +50,10 @@ var AnchorDoc = React.createClass({
       <Anchor href="" label="Label text" primary={true} onClick={this._onClick} />
     );
 
+    var iconLabelAnchor = (
+      <Anchor href="" icon="Checkmark" label="Text" onClick={this._onClick} />
+    );
+
     var iconAnchor = (
       <Anchor href="" icon="Add" onClick={this._onClick} />
     );
@@ -70,7 +74,7 @@ var AnchorDoc = React.createClass({
           <Anchor href="" onClick={this._onClick}>Text</Anchor>
         </Box>
         <Box pad="small">
-          <Anchor href="" primary={true} icon="Checkmark" onClick={this._onClick}>Text</Anchor>
+          <Anchor href="" primary={true} label="Text" onClick={this._onClick} />
         </Box>
         <Box pad="small">
           <Anchor href="" icon="Add" onClick={this._onClick} />
@@ -124,10 +128,11 @@ var AnchorDoc = React.createClass({
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Examples</h2>
 
           {this._renderAnchorCode('Default', defaultAnchor)}
           {this._renderAnchorCode('Primary, Label', primaryAnchor)}
+          {this._renderAnchorCode('Icon, Label', iconLabelAnchor)}
           {this._renderAnchorCode('Icon', iconAnchor)}
           {this._renderAnchorCode('Target', targetAnchor)}
           {this._renderAnchorCode('Disabled', disabledAnchor)}
