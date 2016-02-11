@@ -43,6 +43,8 @@ var BoxDoc = React.createClass({
             <dt><code>direction    row|column</code></dt>
             <dd>The orientation to layout the child components in.
               Defaults to <code>column</code>.</dd>
+            <dt><code>focusable         true|false</code></dt>
+            <dd>Whether keyboard focus should be added for clickable Boxes. Defaults to <code>true</code>.</dd>
             <dt><code>full         true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport size.</dd>
             <dt><code>onClick      {"{func}"}</code></dt>
