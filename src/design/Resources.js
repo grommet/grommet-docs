@@ -25,8 +25,8 @@ var Resources = React.createClass({
           <ul>
             <li>
               <a id="grommet-sk-general"
-                href="https://github.com/grommet/grommet-design/raw/master/grommet/grommet-sticker-sheet-apps-general-0-2.sketch"
-                target="_blank">General Sticker Sheet for Applications v0.2</a>
+                href="https://github.com/grommet/grommet-design/raw/master/grommet/grommet-sticker-sheet-apps-general-0-3.sketch"
+                target="_blank">General Sticker Sheet for Applications v0.3</a>
             </li>
           </ul>
 
