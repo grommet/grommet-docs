@@ -54,6 +54,7 @@ var SearchDoc = require('./components/SearchDoc');
 var SearchInputDoc = require('./components/SearchInputDoc');
 var SectionDoc = require('./components/SectionDoc');
 var SidebarDoc = require('./components/SidebarDoc');
+var SpinningDoc = require('./components/SpinningDoc');
 var SplitDoc = require('./components/SplitDoc');
 var StatusDoc = require('./components/StatusDoc');
 var TabsDoc = require('./components/TabsDoc');
@@ -122,6 +123,7 @@ var CONTENTS = [
       {route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc},
       {route: 'develop_section', label: 'Section', component: SectionDoc},
       {route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc},
+      {route: 'develop_spinning', label: 'Spinning', component: SpinningDoc},
       {route: 'develop_split', label: 'Split', component: SplitDoc},
       {route: 'develop_status', label: 'Status', component: StatusDoc},
       {route: 'develop_tabs', label: 'Tabs', component: TabsDoc},
