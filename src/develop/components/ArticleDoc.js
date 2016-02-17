@@ -35,9 +35,6 @@ var ArticleDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>primary      true|false</code></dt>
-            <dd>Whether it should be treated as main content or not. Used
-            for Accessibility.</dd>
             <dt><code>scrollStep   true|false</code></dt>
             <dd>Whether to allow keyboard control of stepped scrolling through
             children. When true, directional keys will step through the
