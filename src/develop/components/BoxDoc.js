@@ -60,6 +60,11 @@ var BoxDoc = React.createClass({
               (adds horizontal padding between components for <code>row</code>,
               or vertical padding between components for <code>column</code>).
             </dd>
+            <dt><code>primary      true|false</code></dt>
+            <dd>
+              Whether this is a primary Box that will receive skip to main
+              content anchor. Default is false.
+            </dd>
             <dt><code>reverse      true|false</code></dt>
             <dd>Whether to reverse the order of the child components.</dd>
             <dt><code>responsive   true|false</code></dt>
