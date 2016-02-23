@@ -33,6 +33,13 @@ var RestWatchDoc = React.createClass({
       "}"
     ].join('\n');
 
+    var response = [
+      "{",
+      "  id: <id string>,",
+      "  result: <result object>",
+      "}"
+    ].join('\n');
+
     return (
       <DocsArticle title="RestWatch" colorIndex="neutral-4">
 
@@ -50,6 +57,13 @@ var RestWatchDoc = React.createClass({
           <p>WebSocket messages sent to the server are JSON and look like this:</p>
           <pre><code className="javascript">{message}</code></pre>
 
+          <p>The server should respond with JSON messages that look like this:</p>
+          <pre><code className="javascript">{response}</code></pre>
+
+          <p>When messages are received from the server, the
+          <code>result</code> will be sent to the callback that was passed
+          to <code>start()</code>.</p>
+
           <p>RestWatch is resilient to the server restarting. If the
           connection is lost, RestWatch will poll every five seconds trying
           to re-establish the connection. When the connection is restored,
@@ -63,7 +77,7 @@ var RestWatchDoc = React.createClass({
             <dt><code>initialize</code></dt>
             <dd>Initiate a connection to the server. This is optional as
               the <code>start()</code> method will perform this if needed.</dd>
-            <dt><code>start  (url, params, function (data) {})</code></dt>
+            <dt><code>start  (url, params, function (result) {})</code></dt>
             <dd>Start watching the response to the REST request defined
               by the specified url and parameters. When updates are received,
               the handler function is called with the data returned from
