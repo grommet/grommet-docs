@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Box = require('grommet/components/Box');
 var Form = require('grommet/components/Form');
 var FormFields = require('grommet/components/FormFields');
 var FormField = require('grommet/components/FormField');
@@ -47,25 +48,27 @@ var ConfirmationForm = React.createClass({
     var p = this.props.prefix;
 
     return (
-      <Form onSubmit={this._onSubmit} compact={this.props.compact}>
-        <Header>
-          <h1>Confirmation</h1>
-        </Header>
-        <FormFields>
-          <fieldset>
-            <p>You must acknowledge the destructive aspects of this action.</p>
-            <FormField error={this.state.error}>
-            <CheckBox id={p + "agree"} name="agree"
-              label="I acknowledge that I may lose data."
-              onChange={this._onChangeCheckBox} />
-            </FormField>
-          </fieldset>
-        </FormFields>
-        <Footer pad={{vertical: 'medium'}}>
-          <Button label="Destroy" primary={true} strong={true}
-            onClick={this._onSubmit} />
-        </Footer>
-      </Form>
+      <Box full="vertical" justify="center">
+        <Form onSubmit={this._onSubmit} compact={this.props.compact}>
+          <Header>
+            <h1>Confirmation</h1>
+          </Header>
+          <FormFields>
+            <fieldset>
+              <p>You must acknowledge the destructive aspects of this action.</p>
+              <FormField error={this.state.error}>
+              <CheckBox id={p + "agree"} name="agree"
+                label="I acknowledge that I may lose data."
+                onChange={this._onChangeCheckBox} />
+              </FormField>
+            </fieldset>
+          </FormFields>
+          <Footer pad={{vertical: 'medium'}}>
+            <Button label="Destroy" primary={true} strong={true}
+              onClick={this._onSubmit} />
+          </Footer>
+        </Form>
+      </Box>
     );
   }
 });
