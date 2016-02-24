@@ -70,6 +70,12 @@ var SearchDoc = React.createClass({
             <dt><code>dropAlign     {"{left: left|right, right: left|right, top: top|bottom, bottom: top|bottom}"}</code></dt>
             <dd>Where to place the drop down.
               At most one of left or right and one of top or bottom should be specified.</dd>
+            <dt><code>fill          true|false</code></dt>
+            <dd>Indicates whether an inline search input should take up the full
+              width of its parent container or not.</dd>
+            <dt><code>iconAlign     start|end</code></dt>
+            <dd>Whether the search icon should align with the start or end of
+              the input field. Defaults to <code>end</code>.</dd>
             <dt><code>inline        true|false</code></dt>
             <dd>Indicates that the search input should always
               be visible.</dd>
@@ -92,9 +98,12 @@ var SearchDoc = React.createClass({
             <dt><code>responsive    true|false</code></dt>
             <dd>Whether the search control is responsive (turns off inline
               search option for small screen sizes).
+              If responsive is <code>false</code>, large inputs will shrink to
+              the default inline size for smaller screens (instead of reverting
+              to the search control button by default).
               Defaults to <code>true</code>.</dd>
             <dt><code>size          medium|large</code></dt>
-            <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
+            <dd>The size of the inline search input. Defaults to <code>medium</code>.</dd>
             <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
             <dd>Suggestions to show, typically based on what the user has
             typed so far. You can pass an array of strings or objects. Objects
@@ -137,6 +146,12 @@ var SearchDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true}/>"}</code></pre>
 
+          <h3>Inline, iconAlign</h3>
+          <div className="example">
+            <Search inline={true} iconAlign="start"/>
+          </div>
+          <pre><code className="html hljs xml">{"<Search inline={true} iconAlign=\"start\" />"}</code></pre>
+
           <h3>Inline, Placeholder</h3>
           <div className="example">
             <Search inline={true} placeHolder="Search" />
@@ -170,6 +185,15 @@ var SearchDoc = React.createClass({
               onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
           </div>
           <pre><code className="html hljs xml">{"<Search size=\"large\"> ..."}</code></pre>
+
+          <h3>Large, Fill, Responsive False</h3>
+          <div className="example">
+            <Search inline={true} value={this.state.value} size="large"
+              fill={true} responsive={false}
+              suggestions={this.state.simpleSuggestions}
+              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
+          </div>
+          <pre><code className="html hljs xml">{"<Search size=\"large\" fill={true} responsive={false}> ..."}</code></pre>
 
           {/*}
           <h3>Small</h3>

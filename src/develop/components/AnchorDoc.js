@@ -54,6 +54,11 @@ var AnchorDoc = React.createClass({
       <Anchor href="" icon="Checkmark" label="Text" onClick={this._onClick} />
     );
 
+    var iconLabelReverseAnchor = (
+      <Anchor href="" icon="Checkmark" label="Text" reverse={true}
+        onClick={this._onClick} />
+    );
+
     var iconAnchor = (
       <Anchor href="" icon="Add" onClick={this._onClick} />
     );
@@ -114,6 +119,9 @@ var AnchorDoc = React.createClass({
             <dd>Click handler.</dd>
             <dt><code>primary        true|false</code></dt>
             <dd>Whether this is a primary anchor.</dd>
+            <dt><code>reverse        true|false</code></dt>
+            <dd>Whether an icon and label should be reversed so that the icon
+              is at the end of the anchor.</dd>
             <dt><code>tag            {"{text}"}</code></dt>
             <dd>The DOM tag to use for the element. The default is {'<a>'}.
               This should be used in conjunction with components like
@@ -133,6 +141,7 @@ var AnchorDoc = React.createClass({
           {this._renderAnchorCode('Default', defaultAnchor)}
           {this._renderAnchorCode('Primary, Label', primaryAnchor)}
           {this._renderAnchorCode('Icon, Label', iconLabelAnchor)}
+          {this._renderAnchorCode('Icon, Label, Reverse', iconLabelReverseAnchor)}
           {this._renderAnchorCode('Icon', iconAnchor)}
           {this._renderAnchorCode('Target', targetAnchor)}
           {this._renderAnchorCode('Disabled', disabledAnchor)}
