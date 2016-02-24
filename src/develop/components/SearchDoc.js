@@ -146,7 +146,7 @@ var SearchDoc = React.createClass({
           </div>
           <pre><code className="html hljs xml">{"<Search inline={true}/>"}</code></pre>
 
-          <h3>Inline, IconAlign Start</h3>
+          <h3>Inline, iconAlign</h3>
           <div className="example">
             <Search inline={true} iconAlign="start"/>
           </div>
