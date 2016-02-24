@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
 var Link = require('react-router').Link;
@@ -146,7 +146,7 @@ var HeaderDoc = React.createClass({
           <div className="example">
             <Header size="large" justify="between" colorIndex="neutral-1" pad={{horizontal: 'medium'}}>
               <Title onClick={function () {}}><Logo inverse={true} /> Title</Title>
-              <Menu icon={<ActionsLogo />}
+              <Menu label="Menu"
                 dropAlign={{right: "right"}}
                 dropColorIndex="neutral-1">
                 <Anchor href="#" className="active">First</Anchor>
