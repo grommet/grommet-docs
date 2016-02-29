@@ -7,6 +7,8 @@ var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
 var Section = require('grommet/components/Section');
 var Anchor = require('grommet/components/Anchor');
+var AddIcon = require('grommet/components/icons/base/Add');
+var CheckmarkIcon = require('grommet/components/icons/base/Checkmark');
 
 function convertAnchorToString(anchorJSX) {
   return jsxToString(anchorJSX, {
@@ -51,16 +53,16 @@ var AnchorDoc = React.createClass({
     );
 
     var iconLabelAnchor = (
-      <Anchor href="" icon="Checkmark" label="Text" onClick={this._onClick} />
+      <Anchor href="" icon={<CheckmarkIcon />} label="Text" onClick={this._onClick} />
     );
 
     var iconLabelReverseAnchor = (
-      <Anchor href="" icon="Checkmark" label="Text" reverse={true}
+      <Anchor href="" icon={<CheckmarkIcon />} label="Text" reverse={true}
         onClick={this._onClick} />
     );
 
     var iconAnchor = (
-      <Anchor href="" icon="Add" onClick={this._onClick} />
+      <Anchor href="" icon={<AddIcon />} onClick={this._onClick} />
     );
 
     var targetAnchor = (
@@ -82,7 +84,7 @@ var AnchorDoc = React.createClass({
           <Anchor href="" primary={true} label="Text" onClick={this._onClick} />
         </Box>
         <Box pad="small">
-          <Anchor href="" icon="Add" onClick={this._onClick} />
+          <Anchor href="" icon={<AddIcon />} onClick={this._onClick} />
         </Box>
       </Section>
     );
@@ -110,8 +112,8 @@ var AnchorDoc = React.createClass({
             </dd>
             <dt><code>href           {"{location}"}</code></dt>
             <dd>Hyperlink reference to place in the anchor.</dd>
-            <dt><code>icon           {"{name}"}</code></dt>
-            <dd>Name of an icon to place in the anchor.
+            <dt><code>icon           {"{element}"}</code></dt>
+            <dd>Icon element to place in the anchor.
               See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
             <dt><code>label          {"{text}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>

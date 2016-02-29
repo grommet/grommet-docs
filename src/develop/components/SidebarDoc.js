@@ -7,6 +7,7 @@ var Title = require('grommet/components/Title');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 var Button = require('grommet/components/Button');
+var CloseIcon = require('grommet/components/icons/base/Close');
 
 var inline =
       "<Sidebar>\n" +
@@ -60,7 +61,7 @@ var SidebarDoc = React.createClass({
             <Sidebar colorIndex="light-2">
               <Header pad="medium" justify="between">
                 <Title>Title</Title>
-                <Button icon="Close" onClose={this._onClose} />
+                <Button icon={<CloseIcon />} onClose={this._onClose} />
               </Header>
               <Menu primary={true}>
                 <Anchor>Navigation 1</Anchor>
