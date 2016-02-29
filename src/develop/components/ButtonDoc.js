@@ -10,6 +10,7 @@ var Button = require('grommet/components/Button');
 var Section = require('grommet/components/Section');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
+var CloseIcon = require('grommet/components/icons/base/Close');
 
 function convertButtonToString(buttonJSX) {
   return jsxToString(buttonJSX, {
@@ -61,7 +62,7 @@ var ButtonDoc = React.createClass({
     );
 
     var iconButton = (
-      <Button icon="Close" onClick={this._onClick} />
+      <Button icon={<CloseIcon />} onClick={this._onClick} />
     );
 
     var disabledButton = (
@@ -116,7 +117,7 @@ var ButtonDoc = React.createClass({
           <Button label="Disabled" />
         </Box>
         <Box pad="small" direction="row">
-          <Button icon="Close" onClick={this._onClick} />
+          <Button icon={<CloseIcon />} onClick={this._onClick} />
         </Box>
       </Section>
     );
@@ -142,7 +143,7 @@ var ButtonDoc = React.createClass({
           <dt><code>href           {"{text}"}</code></dt>
           <dd>If specified, the button will behave like an anchor tag.</dd>
           <dt><code>icon           {"{name}"}</code></dt>
-          <dd>Name of an icon to place in the button.
+          <dd>Icon element to place in the button.
             See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
           <dt><code>label          {"{text|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
