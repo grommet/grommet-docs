@@ -42,11 +42,11 @@ var FullForm = React.createClass({
   },
 
   _onChange: function (event) {
-    console.log('!!! FullForm changed', event.target, 'to', event.target.value);
+    // console.log('!!! FullForm changed', event.target, 'to', event.target.value);
   },
 
   _onSearchInputChange: function (value) {
-    console.log('!!! FullForm _onSearchInputChange', value);
+    // console.log('!!! FullForm _onSearchInputChange', value);
     this.setState({
       searchInput: {
         value: value,
@@ -56,7 +56,7 @@ var FullForm = React.createClass({
   },
 
   _onCalendarChange: function (value) {
-    console.log('!!! FullForm _onCalendarChange', value);
+    // console.log('!!! FullForm _onCalendarChange', value);
     this.setState({calendarDate: value});
   },
 
