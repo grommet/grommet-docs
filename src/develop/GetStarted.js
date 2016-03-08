@@ -133,6 +133,9 @@ class GetStarted extends Component {
             We recommend that you check out the {architectureLink} page and
             learn how Grommet works internally.
           </p>
+          <p>We also have
+            a <a href="http://vimeo.com/grommetux/videos">Grommet Vimeo channel</a> with
+            additional training materials.</p>
         </section>
       </DocsArticle>
     );
