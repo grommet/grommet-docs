@@ -63,6 +63,7 @@ var ParagraphDoc = React.createClass({
             <h3><strong>H3</strong> Light</h3>
             <h4><strong>H4</strong> Light</h4>
             <h5><strong>H5</strong> Light</h5>
+            <h6><strong>H6</strong> Light</h6>
             <blockquote>Blockquote</blockquote>
           </div>
         </section>
