@@ -47,14 +47,14 @@ var Home = React.createClass({
         <HomeSection texture={'url(img/home_intro.png)'} primary={true}>
           <DocsHeader float={true} />
           <GrommetLogo large={true} a11yTitle=""/>
-          <Headline large={true}>Grommet</Headline>
-          <Headline small={true}>The most advanced open source UX framework for
+          <Headline size="large">Grommet</Headline>
+          <Headline size="small">The most advanced open source UX framework for
             enterprise applications.</Headline>
         </HomeSection>
 
         <HomeSection colorIndex="neutral-1">
           <Headline>Create once and deliver everywhere.</Headline>
-          <Headline small={true}>Application experiences that look great while solving problems.</Headline>
+          <Headline size="small">Application experiences that look great while solving problems.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "design"}>
               <Button label="See more examples" onClick={this._onClick} large={true} primary={true} />
@@ -69,7 +69,7 @@ var Home = React.createClass({
 
         <HomeSection colorIndex="neutral-2" texture={'url(img/home_features.png)'}>
           <Headline>So little gets you sooooooo much!</Headline>
-          <Headline small={true}>We’ve tried it all in enterprise and we think we’ve got a good foundation.</Headline>
+          <Headline size="small">We’ve tried it all in enterprise and we think we’ve got a good foundation.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "develop/architecture"}>
               <Button label="Our architecture" onClick={this._onClick} large={true} primary={true} />
@@ -82,7 +82,7 @@ var Home = React.createClass({
 
         <HomeSection texture={'url(img/home_design.png)'}>
           <Headline>Ready for your Design Workflow.</Headline>
-          <Headline small={true}>All the resources you could possibly need! Sticker sheets, Stencils,
+          <Headline size="small">All the resources you could possibly need! Sticker sheets, Stencils,
             PSDs, and more.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "design"}>
@@ -93,7 +93,7 @@ var Home = React.createClass({
             </Link>
           </Menu>
           <p>or, grab your favorite sticker sheet:</p>
-          <Tiles small={true} fill={true}>
+          <Tiles size="small" fill={true}>
             <Tile align="center">
               <img src="img/Adobe_Illustrator.png" alt="Adobe Illustrator"/>
               <label>Adobe Illustrator</label>
@@ -119,7 +119,7 @@ var Home = React.createClass({
 
         <HomeSection colorIndex="neutral-3">
           <Headline>Develop your next project with Grommet.</Headline>
-          <Headline small={true}>Let’s get an application on your local environment!</Headline>
+          <Headline size="small">Let’s get an application on your local environment!</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Link to={this.context.routePrefix + "develop/get-started"}>
               <Button label="Start project" onClick={this._onClick} large={true} primary={true} />
@@ -143,7 +143,7 @@ var Home = React.createClass({
 
         <HomeSection>
           <Headline>Built with the best stuff.</Headline>
-          <Headline small={true}>The tools you know and love, all packaged together in one
+          <Headline size="small">The tools you know and love, all packaged together in one
             easy-to-use solution.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <a href="https://github.com/grommet/grommet">
@@ -151,7 +151,7 @@ var Home = React.createClass({
             </a>
           </Menu>
           <p>or, check out their sites, they have some cool stuff too...</p>
-          <Tiles small={true} fill={true} flush={false}>
+          <Tiles size="small" fill={true} flush={false}>
             <Tile>
               <a href="http://www.w3.org/TR/html5/">
                 <img src="img/HTML5.png" alt="HTML5" />
@@ -192,7 +192,7 @@ var Home = React.createClass({
 
         <HomeSection colorIndex="neutral-2">
           <Headline>Let’s keep in touch!</Headline>
-          <Headline small={true}>Follow us on the Grommet blog to get the latest updates.</Headline>
+          <Headline size="small">Follow us on the Grommet blog to get the latest updates.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <Button label="Grommet blog" onClick={this._onRequestForBlog} large={true} primary={true} />
           </Menu>
