@@ -87,7 +87,8 @@ var opts = {
   devPreprocess: [
     'set-webpack-alias', 'dist-css', 'generate-icons-map', 'watch-css'
   ],
-  distPreprocess: ['dist-css', 'generate-icons-map', 'generate-server-routes']
+  distPreprocess: ['set-webpack-alias', 'dist-css', 'generate-icons-map',
+    'generate-server-routes']
 };
 
 function distSass() {
