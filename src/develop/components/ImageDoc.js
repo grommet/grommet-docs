@@ -1,69 +1,58 @@
-var React = require('react');
-var DocsArticle = require('../../DocsArticle');
-var Image = require('grommet/components/Image');
+import React from 'react';
 
-var inline =
-      "<Image src=\"...\" />";
+import Image from 'grommet/components/Image';
 
-var ImageDoc = React.createClass({
-  render: function() {
-    return (
-      <DocsArticle title="Image" colorIndex="neutral-3">
+import DocsArticle from '../../DocsArticle';
+import Example from '../Example';
 
-        <p>An image.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+const ImageDoc = () => {
+  return (
+    <DocsArticle title="Image" colorIndex="neutral-3">
 
-        <section>
-          <h2>Options</h2>
-          <dl>
-            <dt><code>full       true|horizontal|vertical|false</code></dt>
-            <dd>Whether the width and/or height should take the full viewport size.</dd>
-            <dt><code>size       small|medium|large</code></dt>
-            <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
-            <dt><code>src        {"{string}"}</code></dt>
-            <dd>The actual image file source.</dd>
-          </dl>
-        </section>
+      <p>An image.</p>
+      <pre><code className="html hljs xml">
+        {`<Image src="..." />`}
+      </code></pre>
 
-        <section>
-          <h2>Examples</h2>
+      <section>
+        <h2>Options</h2>
+        <dl>
+          <dt><code>full       true|horizontal|vertical|false</code></dt>
+          <dd>Whether the width and/or height should take the full viewport size.</dd>
+          <dt><code>size       small|medium|large|thumb</code></dt>
+          <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
+          <dt><code>src        {"{string}"}</code></dt>
+          <dd>The actual image file source.</dd>
+        </dl>
+      </section>
 
-          <h3>Default</h3>
-          <div className="example">
+      <section>
+        <h2>Examples</h2>
+
+        <Example name="Default" code={
           <Image src="img/carousel-1.png" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" />"}
-          </code></pre>
+        } />
 
-          <h3>Small</h3>
-          <div className="example">
+        <Example name="Thumb" code={
+          <Image src="img/carousel-1.png" size="thumb" />
+        } />
+
+        <Example name="Small" code={
           <Image src="img/carousel-1.png" size="small" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" size=\"small\" />"}
-          </code></pre>
+        } />
 
-          <h3>Large</h3>
-          <div className="example">
+        <Example name="Large" code={
           <Image src="img/carousel-1.png" size="large" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" size=\"large\" />"}
-          </code></pre>
+        } />
 
-          <h3>Full horizontal</h3>
-          <div className="example">
+        <Example name="Full horizontal" code={
           <Image src="img/carousel-1.png" full="horizontal" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" full=\"horizontal\" />"}
-          </code></pre>
-        </section>
+        } />
 
-      </DocsArticle>
-    );
-  }
-});
+      </section>
 
-module.exports = ImageDoc;
+    </DocsArticle>
+  );
+};
+
+export default ImageDoc;
