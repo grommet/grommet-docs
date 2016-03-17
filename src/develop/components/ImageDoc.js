@@ -49,6 +49,10 @@ const ImageDoc = () => {
           <Image src="img/carousel-1.png" full="horizontal" />
         } />
 
+        <Example name="Caption" code={
+          <Image src="img/carousel-1.png" caption="1. Sample Image" />
+        } />
+
       </section>
 
     </DocsArticle>
