@@ -43,6 +43,7 @@ var LayerDoc = require('./components/LayerDoc');
 var ListDoc = require('./components/ListDoc');
 var LoginFormDoc = require('./components/LoginFormDoc');
 var MapDoc = require('./components/MapDoc');
+var MarkdownDoc = require('./utils/MarkdownDoc');
 var MenuDoc = require('./components/MenuDoc');
 var MeterDoc = require('./components/MeterDoc');
 var NavigationDoc = require('./patterns/NavigationDoc');
@@ -117,6 +118,7 @@ var CONTENTS = [
       {route: 'develop_list', label: 'List', component: ListDoc},
       {route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc},
       {route: 'develop_map', label: 'Map', component: MapDoc},
+      {route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc},
       {route: 'develop_menu', label: 'Menu', component: MenuDoc},
       {route: 'develop_meter', label: 'Meter', component: MeterDoc},
       {route: 'develop_notification', label: 'Notification', component: NotificationDoc},
