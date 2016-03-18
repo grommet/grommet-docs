@@ -64,7 +64,7 @@ export default class ButtonDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Examples</h2>
           <Example name="Default" code={
             <Button label="Action" onClick={this._onClick} />
           } />
