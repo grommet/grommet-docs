@@ -1,14 +1,13 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
 var Link = require('react-router').Link;
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
-var Box = require('grommet/components/Box');
 var Section = require('grommet/components/Section');
 var Anchor = require('grommet/components/Anchor');
-var AddIcon = require('grommet/components/icons/base/Add');
-var CheckmarkIcon = require('grommet/components/icons/base/Checkmark');
+var NextIcon = require('grommet/components/icons/base/Next');
+var EditIcon = require('grommet/components/icons/base/Edit');
 
 function convertAnchorToString(anchorJSX) {
   return jsxToString(anchorJSX, {
@@ -49,43 +48,39 @@ var AnchorDoc = React.createClass({
     );
 
     var primaryAnchor = (
-      <Anchor href="" label="Label text" primary={true} onClick={this._onClick} />
+      <Anchor href="" label="Label" primary={true} onClick={this._onClick} />
     );
 
     var iconLabelAnchor = (
-      <Anchor href="" icon={<CheckmarkIcon />} label="Text" onClick={this._onClick} />
+      <Anchor href="" icon={<EditIcon />} label="Edit" onClick={this._onClick} />
     );
 
     var iconLabelReverseAnchor = (
-      <Anchor href="" icon={<CheckmarkIcon />} label="Text" reverse={true}
+      <Anchor href="" icon={<NextIcon />} label="Next" reverse={true}
         onClick={this._onClick} />
     );
 
     var iconAnchor = (
-      <Anchor href="" icon={<AddIcon />} onClick={this._onClick} />
+      <Anchor href="" icon={<EditIcon />} onClick={this._onClick} />
     );
 
     var targetAnchor = (
-      <Anchor href="" target="_blank" label="Text" onClick={this._onClick} />
+      <Anchor href="" target="_blank" label="Label" onClick={this._onClick} />
     );
 
     var inHeaderAnchor = (
       <h3>
-        <Anchor href="" label="Text" onClick={this._onClick} />
+        <Anchor href="" label="Label" onClick={this._onClick} />
       </h3>
     );
 
     var coloredContextAnchor = (
-      <Section direction="column" colorIndex="neutral-1" pad="large">
-        <Box pad="small">
-          <Anchor href="" onClick={this._onClick}>Text</Anchor>
-        </Box>
-        <Box pad="small">
-          <Anchor href="" primary={true} label="Text" onClick={this._onClick} />
-        </Box>
-        <Box pad="small">
-          <Anchor href="" icon={<AddIcon />} onClick={this._onClick} />
-        </Box>
+      <Section colorIndex="neutral-1"
+        pad={{horizontal: 'medium', vertical: 'medium', between: 'medium'}}>
+        <Anchor href="" onClick={this._onClick}>Text</Anchor>
+        <Anchor href="" primary={true} label="Label" onClick={this._onClick} />
+        <Anchor href="" icon={<EditIcon />} onClick={this._onClick} />
+        <Anchor href="" icon={<EditIcon />} label="Edit" onClick={this._onClick} />
       </Section>
     );
 

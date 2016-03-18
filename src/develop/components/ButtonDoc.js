@@ -1,16 +1,15 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
 var Link = require('react-router').Link;
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
-
-var Box = require('grommet/components/Box');
 var Button = require('grommet/components/Button');
 var Section = require('grommet/components/Section');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
 var CloseIcon = require('grommet/components/icons/base/Close');
+var EditIcon = require('grommet/components/icons/base/Edit');
 
 function convertButtonToString(buttonJSX) {
   return jsxToString(buttonJSX, {
@@ -65,6 +64,14 @@ var ButtonDoc = React.createClass({
       <Button icon={<CloseIcon />} onClick={this._onClick} />
     );
 
+    var iconLabelButton = (
+      <Button icon={<EditIcon />} label="Edit" onClick={this._onClick} />
+    );
+
+    var iconLabelPlainButton = (
+      <Button icon={<EditIcon />} label="Edit" plain={true} onClick={this._onClick} />
+    );
+
     var disabledButton = (
       <Button label="Action" />
     );
@@ -100,25 +107,14 @@ var ButtonDoc = React.createClass({
     );
 
     var coloredButtons = (
-      <Section colorIndex="neutral-1" pad="medium">
-        <Box pad="small" direction="row">
-          <Button label="Default" onClick={this._onClick} />
-        </Box>
-        <Box pad="small" direction="row">
-          <Button label="Primary" primary={true} onClick={this._onClick} />
-        </Box>
-        <Box pad="small" direction="row">
-          <Button label="Secondary" secondary={true} onClick={this._onClick} />
-        </Box>
-        <Box pad="small" direction="row">
-          <Button label="Accent" accent={true} onClick={this._onClick} />
-        </Box>
-        <Box pad="small" direction="row">
-          <Button label="Disabled" />
-        </Box>
-        <Box pad="small" direction="row">
-          <Button icon={<CloseIcon />} onClick={this._onClick} />
-        </Box>
+      <Section colorIndex="neutral-1" align="start"
+        pad={{horizontal: 'medium', vertical: 'medium', between: 'medium'}}>
+        <Button label="Default" onClick={this._onClick} />
+        <Button label="Primary" primary={true} onClick={this._onClick} />
+        <Button label="Secondary" secondary={true} onClick={this._onClick} />
+        <Button label="Accent" accent={true} onClick={this._onClick} />
+        <Button label="Disabled" />
+        <Button icon={<CloseIcon />} onClick={this._onClick} />
       </Section>
     );
 
@@ -174,6 +170,8 @@ var ButtonDoc = React.createClass({
           {this._renderButtonCode('Secondary', secondaryButton)}
           {this._renderButtonCode('Accent', accentButton)}
           {this._renderButtonCode('Icon', iconButton)}
+          {this._renderButtonCode('Icon, label', iconLabelButton)}
+          {this._renderButtonCode('Icon, label, plain', iconLabelPlainButton)}
           {this._renderButtonCode('Disabled', disabledButton)}
           {this._renderButtonCode('Long', longButton)}
           {this._renderButtonCode('Fill', fillButtons)}
