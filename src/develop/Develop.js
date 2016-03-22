@@ -118,7 +118,6 @@ var CONTENTS = [
       {route: 'develop_list', label: 'List', component: ListDoc},
       {route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc},
       {route: 'develop_map', label: 'Map', component: MapDoc},
-      {route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc},
       {route: 'develop_menu', label: 'Menu', component: MenuDoc},
       {route: 'develop_meter', label: 'Meter', component: MeterDoc},
       {route: 'develop_notification', label: 'Notification', component: NotificationDoc},
@@ -143,6 +142,7 @@ var CONTENTS = [
   },
   {label: 'Utils',
     contents: [
+      {route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc},
       {route: 'develop_rest', label: 'Rest', component: RestDoc},
       {route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc}
     ]
