@@ -15,6 +15,7 @@ var GetStarted = require('./GetStarted');
 var Architecture = require('./Architecture');
 var Integration = require('./Integration');
 var Accessibility = require('./Accessibility');
+var BrowserSupport = require('./BrowserSupport');
 
 var ActionsDoc = require('./patterns/ActionsDoc');
 var AnchorDoc = require('./components/AnchorDoc');
@@ -154,7 +155,9 @@ var CONTENTS = [
       {route: 'develop_integration', label: 'Integration',
         component: Integration},
       {route: 'develop_accessibility', label: 'Accessibility',
-        component: Accessibility}
+        component: Accessibility},
+      {route: 'develop_browser_support', label: 'Browser Support',
+        component: BrowserSupport}
     ]
   }
 ];
