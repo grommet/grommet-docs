@@ -9,6 +9,9 @@ import Anchor from 'grommet/components/Anchor';
 import NextIcon from 'grommet/components/icons/base/Next';
 import EditIcon from 'grommet/components/icons/base/Edit';
 
+Section.displayName = 'Section';
+Anchor.displayName = 'Anchor';
+
 export default class AnchorDoc extends Component {
 
   _onClick () {

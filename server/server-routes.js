@@ -14115,6 +14115,9 @@ module.exports =
 	        } else {
 	          this.props.onActivate(this.props.activeIndex - 1);
 	        }
+
+	        //stop event propagation
+	        return true;
 	      }
 	    }
 	  }, {
@@ -14129,6 +14132,9 @@ module.exports =
 	        } else {
 	          this.props.onActivate(this.props.activeIndex + 1);
 	        }
+
+	        //stop event propagation
+	        return true;
 	      }
 	    }
 	  }, {
@@ -18196,6 +18202,9 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
+	_Section2.default.displayName = 'Section';
+	_Anchor2.default.displayName = 'Anchor';
+
 	var AnchorDoc = function (_Component) {
 	  _inherits(AnchorDoc, _Component);
 
@@ -18673,6 +18682,10 @@ module.exports =
 	var App = __webpack_require__(4);
 	var Header = __webpack_require__(40);
 	var Title = __webpack_require__(41);
+
+	App.displayName = 'App';
+	Header.displayName = 'Header';
+	Title.displayName = 'Title';
 
 	var inline = "<App>\n" + "  ...\n" + "</App>";
 
@@ -19439,6 +19452,11 @@ module.exports =
 	var Box = __webpack_require__(14);
 	var GrommetLogo = __webpack_require__(42);
 
+	Brick.displayName = 'Brick';
+	Bricks.displayName = 'Bricks';
+	Box.displayName = 'Box';
+	GrommetLogo.displayName = 'GrommetLogo';
+
 	function convertBrickToString(brickJSX) {
 	  return jsxToString(brickJSX);
 	}
@@ -19925,6 +19943,11 @@ module.exports =
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	_Button2.default.displayName = 'Button';
+	_Tiles2.default.displayName = 'Tiles';
+	_Tile2.default.displayName = 'Tile';
+	_Section2.default.displayName = 'Section';
 
 	var ButtonDoc = function (_Component) {
 	  _inherits(ButtonDoc, _Component);
@@ -21454,6 +21477,10 @@ module.exports =
 	var Tiles = __webpack_require__(47);
 	var Tile = __webpack_require__(51);
 
+	Chart.displayName = 'Chart';
+	Tiles.displayName = 'Tiles';
+	Tile.displayName = 'Tile';
+
 	var series = [{
 	  label: 'first',
 	  values: [[8, 1], [7, 2], [6, 3], [5, 2], [4, 3], [3, 3], [2, 2], [1, 4]],
@@ -22030,6 +22057,9 @@ module.exports =
 	        } else {
 	          this._onMouseOver(this.state.activeXIndex - 1);
 	        }
+
+	        //stop event propagation
+	        return true;
 	      }
 	    }
 	  }, {
@@ -22045,6 +22075,9 @@ module.exports =
 	        } else {
 	          this._onMouseOver(this.state.activeXIndex + 1);
 	        }
+
+	        //stop event propagation
+	        return true;
 	      }
 	    }
 	  }, {
@@ -22993,6 +23026,8 @@ module.exports =
 	var DocsArticle = __webpack_require__(57);
 	var CheckBox = __webpack_require__(94);
 
+	CheckBox.displayName = 'CheckBox';
+
 	function convertCheckBoxToString(checkBoxJSX) {
 	  return jsxToString(checkBoxJSX, {
 	    ignoreProps: ['onChange']
@@ -23280,6 +23315,8 @@ module.exports =
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	_Columns2.default.displayName = 'Columns';
 
 	var ColumnsDoc = function ColumnsDoc() {
 	  var inline = "<Columns>...</Columns>";
@@ -23624,6 +23661,8 @@ module.exports =
 	var stringify = __webpack_require__(149);
 	var DocsArticle = __webpack_require__(57);
 	var Distribution = __webpack_require__(150);
+
+	Distribution.displayName = 'Distribution';
 
 	var series = [{ label: 'First', value: 40, colorIndex: 'graph-1' }, { label: 'Second', value: 30, colorIndex: 'accent-2' }, { label: 'Third', value: 20, colorIndex: 'unset' }, { label: 'Fourth', value: 10, colorIndex: 'graph-1' }];
 
@@ -24280,6 +24319,9 @@ module.exports =
 	        } else {
 	          this._onActivate(this.state.activeIndex - 1);
 	        }
+
+	        //stop event propagation
+	        return true;
 	      }
 	    }
 	  }, {
@@ -24294,6 +24336,9 @@ module.exports =
 	        } else {
 	          this._onActivate(this.state.activeIndex + 1);
 	        }
+
+	        //stop event propagation
+	        return true;
 	      }
 	    }
 	  }, {
@@ -24641,6 +24686,10 @@ module.exports =
 	var Footer = __webpack_require__(44);
 	var Menu = __webpack_require__(24);
 	var Button = __webpack_require__(23);
+
+	Footer.displayName = 'Footer';
+	Menu.displayName = 'Menu';
+	Button.displayName = 'Button';
 
 	var FooterDoc = React.createClass({
 	  displayName: 'FooterDoc',
@@ -27596,6 +27645,8 @@ module.exports =
 	var DocsArticle = __webpack_require__(57);
 	var Heading = __webpack_require__(168);
 
+	Heading.displayName = 'Heading';
+
 	var inline = "<Heading>\n" + "  ...\n" + "</Heading>";
 
 	var HeadingDoc = React.createClass({
@@ -27873,6 +27924,7 @@ module.exports =
 	// function convertHeadingToString(headingJSX) {
 	//   return jsxToString(headingJSX);
 	// }
+	Headline.displayName = 'Headline';
 
 	var inline = "<Headline>\n" + "  ...\n" + "</Headline>";
 
@@ -59504,6 +59556,8 @@ module.exports =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	_Image2.default.displayName = 'Image';
+
 	var ImageDoc = function ImageDoc() {
 	  return _react2.default.createElement(
 	    _DocsArticle2.default,
@@ -59800,6 +59854,8 @@ module.exports =
 	var DocsArticle = __webpack_require__(57);
 	var Label = __webpack_require__(455);
 
+	Label.displayName = 'Label';
+
 	function convertLabelToString(LabelJSX) {
 	  return jsxToString(LabelJSX);
 	}
@@ -59948,6 +60004,12 @@ module.exports =
 	var FullForm = __webpack_require__(153);
 	var ConfirmationForm = __webpack_require__(161);
 	var SampleArticle = __webpack_require__(458);
+
+	Box.displayName = 'Box';
+	Layer.displayName = 'Layer';
+	Header.displayName = 'Header';
+	Form.displayName = 'Form';
+	FormFields.displayName = 'FormFields';
 
 	function convertLayerToString(layerJSX) {
 	  return jsxToString(layerJSX, {
@@ -61611,6 +61673,8 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
+	_Markdown2.default.displayName = 'Markdown';
+
 	var TEXT = '\n# H1\n\nParagraph [link](/).\n\n## H2\n\n![image](img/carousel-1.png)\n';
 
 	var components = {
@@ -61852,6 +61916,11 @@ module.exports =
 	var CheckBox = __webpack_require__(94);
 	var Anchor = __webpack_require__(43);
 	var Button = __webpack_require__(23);
+
+	Menu.displayName = 'Menu';
+	CheckBox.displayName = 'CheckBox';
+	Anchor.displayName = 'Anchor';
+	Button.displayName = 'Button';
 
 	function convertMenuToString(menuJSX) {
 	  return jsxToString(menuJSX);
@@ -62310,6 +62379,11 @@ module.exports =
 	var FormField = __webpack_require__(93);
 	var RadioButton = __webpack_require__(155);
 	var CheckBox = __webpack_require__(94);
+
+	Meter.displayName = 'Meter';
+	FormField.displayName = 'FormField';
+	RadioButton.displayName = 'RadioButton';
+	CheckBox.displayName = 'CheckBox';
 
 	var inline = "<Meter value={70} total={100} units=\"GB\" />";
 
@@ -63236,6 +63310,8 @@ module.exports =
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	_Notification2.default.displayName = 'Notification';
 
 	function convertNotificationToString(notificationJSX) {
 	  return (0, _jsxToString2.default)(notificationJSX);
@@ -67360,6 +67436,9 @@ module.exports =
 	var DocsArticle = __webpack_require__(57);
 	var Tags = __webpack_require__(493);
 	var Tag = __webpack_require__(494);
+
+	Tags.displayName = 'Tags';
+	Tag.displayName = 'Tag';
 
 	function convertTagToString(tagJSX) {
 	  return jsxToString(tagJSX);

@@ -8,6 +8,10 @@ var Footer = require('grommet/components/Footer');
 var Menu = require('grommet/components/Menu');
 var Button = require('grommet/components/Button');
 
+Footer.displayName = 'Footer';
+Menu.displayName = 'Menu';
+Button.displayName = 'Button';
+
 var FooterDoc = React.createClass({
 
   contextTypes: {

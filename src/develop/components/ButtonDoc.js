@@ -11,6 +11,11 @@ import Tile from 'grommet/components/Tile';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import EditIcon from 'grommet/components/icons/base/Edit';
 
+Button.displayName = 'Button';
+Tiles.displayName = 'Tiles';
+Tile.displayName = 'Tile';
+Section.displayName = 'Section';
+
 export default class ButtonDoc extends Component {
 
   _onClick () {

@@ -5,6 +5,8 @@ import Image from 'grommet/components/Image';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 
+Image.displayName = 'Image';
+
 const ImageDoc = () => {
   return (
     <DocsArticle title="Image" colorIndex="neutral-3">

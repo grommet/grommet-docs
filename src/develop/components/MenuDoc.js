@@ -11,6 +11,11 @@ var CheckBox = require('grommet/components/CheckBox');
 var Anchor = require('grommet/components/Anchor');
 var Button = require('grommet/components/Button');
 
+Menu.displayName = 'Menu';
+CheckBox.displayName = 'CheckBox';
+Anchor.displayName = 'Anchor';
+Button.displayName = 'Button';
+
 function convertMenuToString(menuJSX) {
   return jsxToString(menuJSX);
 }

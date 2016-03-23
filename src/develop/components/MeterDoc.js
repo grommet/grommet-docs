@@ -9,6 +9,11 @@ var FormField = require('grommet/components/FormField');
 var RadioButton = require('grommet/components/RadioButton');
 var CheckBox = require('grommet/components/CheckBox');
 
+Meter.displayName = 'Meter';
+FormField.displayName = 'FormField';
+RadioButton.displayName = 'RadioButton';
+CheckBox.displayName = 'CheckBox';
+
 var inline =
   "<Meter value={70} total={100} units=\"GB\" />";
 

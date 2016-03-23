@@ -6,6 +6,8 @@ import DocsArticle from '../../DocsArticle';
 import Notification from 'grommet/components/Notification';
 import { Link } from 'react-router';
 
+Notification.displayName = 'Notification';
+
 function convertNotificationToString(notificationJSX) {
   return jsxToString(notificationJSX);
 }

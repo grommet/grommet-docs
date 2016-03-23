@@ -5,6 +5,8 @@ import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Columns from 'grommet/components/Columns';
 
+Columns.displayName = 'Columns';
+
 const ColumnsDoc = () => {
   var inline =
     "<Columns>...</Columns>";
