@@ -5,6 +5,8 @@ var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var CheckBox = require('grommet/components/CheckBox');
 
+CheckBox.displayName = 'CheckBox';
+
 function convertCheckBoxToString(checkBoxJSX) {
   return jsxToString(checkBoxJSX, {
     ignoreProps: ['onChange']

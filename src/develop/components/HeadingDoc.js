@@ -5,6 +5,8 @@ var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Heading = require('grommet/components/Heading');
 
+Heading.displayName = 'Heading';
+
 var inline =
       "<Heading>\n" +
       "  ...\n" +

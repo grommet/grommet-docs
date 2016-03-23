@@ -6,6 +6,8 @@ import Example from '../Example';
 
 import Markdown from 'grommet/components/Markdown';
 
+Markdown.displayName = 'Markdown';
+
 const TEXT = `
 # H1
 
