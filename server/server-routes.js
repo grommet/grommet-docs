@@ -66157,6 +66157,21 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
+	              'onResponsive   ',
+	              "function (columns) {...}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Function that will be called when the display area changes. When space is limited the \'columns\' parameter will be set to \'single\'. Otherwise \'columns\' will be set to \'multiple\'.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
 	              'priority   left|right'
 	            )
 	          ),
