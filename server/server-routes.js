@@ -66041,7 +66041,7 @@ module.exports =
 	var DocsArticle = __webpack_require__(57);
 	var Spinning = __webpack_require__(48);
 
-	var inline = '\nvar Spinning = require(\'grommet/components/icons/Spinning\');\n//or var Spinning = Grommet.Icons.Spinning\n';
+	var inline = 'var Spinning = require(\'grommet/components/icons/Spinning\');\n//or var Spinning = Grommet.Icons.Spinning\n';
 
 	var SpinningDoc = React.createClass({
 	  displayName: 'SpinningDoc',

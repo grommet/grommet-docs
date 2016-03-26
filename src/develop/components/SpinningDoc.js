@@ -2,8 +2,7 @@ var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Spinning = require('grommet/components/icons/Spinning');
 
-const inline = `
-var Spinning = require('grommet/components/icons/Spinning');
+const inline = `var Spinning = require('grommet/components/icons/Spinning');
 //or var Spinning = Grommet.Icons.Spinning
 `;
 
