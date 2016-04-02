@@ -41,6 +41,7 @@ var IconDoc = require('./components/IconDoc');
 var ImageDoc = require('./components/ImageDoc');
 var LabelDoc = require('./components/LabelDoc');
 var LayerDoc = require('./components/LayerDoc');
+var LegendDoc = require('./components/LegendDoc');
 var ListDoc = require('./components/ListDoc');
 var LoginFormDoc = require('./components/LoginFormDoc');
 var MapDoc = require('./components/MapDoc');
@@ -68,6 +69,7 @@ var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
 var VideoDoc = require('./components/VideoDoc');
+var WorldMapDoc = require('./components/WorldMapDoc');
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -116,6 +118,7 @@ var CONTENTS = [
       {route: 'develop_image', label: 'Image', component: ImageDoc},
       {route: 'develop_label', label: 'Label', component: LabelDoc},
       {route: 'develop_layer', label: 'Layer', component: LayerDoc},
+      {route: 'develop_legend', label: 'Legend', component: LegendDoc},
       {route: 'develop_list', label: 'List', component: ListDoc},
       {route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc},
       {route: 'develop_map', label: 'Map', component: MapDoc},
@@ -138,7 +141,8 @@ var CONTENTS = [
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
       {route: 'develop_topology', label: 'Topology', component: TopologyDoc},
-      {route: 'develop_video', label: 'Video', component: VideoDoc}
+      {route: 'develop_video', label: 'Video', component: VideoDoc},
+      {route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc}
     ]
   },
   {label: 'Utils',
