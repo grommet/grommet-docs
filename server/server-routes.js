@@ -5024,7 +5024,7 @@ module.exports =
 	        return child;
 	      });
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--disabled', this.props.disabled), _defineProperty(_classnames, CLASS_ROOT + '--icon', icon), _defineProperty(_classnames, CLASS_ROOT + '--icon-label', hasIcon && this.props.label), _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--reverse', this.props.reverse), _classnames));
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--animate-icon', hasIcon && this.props.animateIcon !== false), _defineProperty(_classnames, CLASS_ROOT + '--disabled', this.props.disabled), _defineProperty(_classnames, CLASS_ROOT + '--icon', icon), _defineProperty(_classnames, CLASS_ROOT + '--icon-label', hasIcon && this.props.label), _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--reverse', this.props.reverse), _classnames));
 
 	      if (!children) {
 	        children = this.props.label;
@@ -5055,6 +5055,7 @@ module.exports =
 
 	Anchor.propTypes = {
 	  a11yTitle: _react.PropTypes.string,
+	  animateIcon: _react.PropTypes.bool,
 	  disabled: _react.PropTypes.bool,
 	  href: _react.PropTypes.string,
 	  icon: _react.PropTypes.element,
@@ -5666,7 +5667,8 @@ module.exports =
 
 	Tiles.defaultProps = {
 	  flush: true,
-	  justify: 'start'
+	  justify: 'start',
+	  pad: 'small'
 	};
 	module.exports = exports['default'];
 
@@ -16049,33 +16051,35 @@ module.exports =
 	var ImageDoc = __webpack_require__(454);
 	var LabelDoc = __webpack_require__(457);
 	var LayerDoc = __webpack_require__(458);
-	var ListDoc = __webpack_require__(461);
-	var LoginFormDoc = __webpack_require__(464);
-	var MapDoc = __webpack_require__(465);
-	var MarkdownDoc = __webpack_require__(467);
-	var MenuDoc = __webpack_require__(471);
-	var MeterDoc = __webpack_require__(472);
-	var NavigationDoc = __webpack_require__(473);
-	var NotificationDoc = __webpack_require__(475);
-	var NumberInputDoc = __webpack_require__(477);
-	var ParagraphDoc = __webpack_require__(478);
-	var RadioButtonDoc = __webpack_require__(479);
-	var RestDoc = __webpack_require__(480);
-	var RestWatchDoc = __webpack_require__(481);
-	var SearchDoc = __webpack_require__(482);
-	var SearchInputDoc = __webpack_require__(483);
-	var SectionDoc = __webpack_require__(484);
-	var SidebarDoc = __webpack_require__(485);
-	var SpinningDoc = __webpack_require__(486);
-	var SplitDoc = __webpack_require__(487);
-	var StatusDoc = __webpack_require__(488);
-	var TabsDoc = __webpack_require__(489);
-	var TableDoc = __webpack_require__(492);
-	var TagsDoc = __webpack_require__(493);
-	var TilesDoc = __webpack_require__(496);
-	var TitleDoc = __webpack_require__(497);
-	var TopologyDoc = __webpack_require__(498);
-	var VideoDoc = __webpack_require__(500);
+	var LegendDoc = __webpack_require__(461);
+	var ListDoc = __webpack_require__(462);
+	var LoginFormDoc = __webpack_require__(465);
+	var MapDoc = __webpack_require__(466);
+	var MarkdownDoc = __webpack_require__(468);
+	var MenuDoc = __webpack_require__(472);
+	var MeterDoc = __webpack_require__(473);
+	var NavigationDoc = __webpack_require__(474);
+	var NotificationDoc = __webpack_require__(476);
+	var NumberInputDoc = __webpack_require__(478);
+	var ParagraphDoc = __webpack_require__(479);
+	var RadioButtonDoc = __webpack_require__(480);
+	var RestDoc = __webpack_require__(481);
+	var RestWatchDoc = __webpack_require__(482);
+	var SearchDoc = __webpack_require__(483);
+	var SearchInputDoc = __webpack_require__(484);
+	var SectionDoc = __webpack_require__(485);
+	var SidebarDoc = __webpack_require__(486);
+	var SpinningDoc = __webpack_require__(487);
+	var SplitDoc = __webpack_require__(488);
+	var StatusDoc = __webpack_require__(489);
+	var TabsDoc = __webpack_require__(490);
+	var TableDoc = __webpack_require__(493);
+	var TagsDoc = __webpack_require__(494);
+	var TilesDoc = __webpack_require__(497);
+	var TitleDoc = __webpack_require__(498);
+	var TopologyDoc = __webpack_require__(499);
+	var VideoDoc = __webpack_require__(501);
+	var WorldMapDoc = __webpack_require__(503);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(59);
@@ -16091,7 +16095,7 @@ module.exports =
 	}, { label: 'Patterns',
 	  contents: [{ route: 'develop_dashboard', label: 'Dashboard', component: DashboardDoc }, { route: 'develop_navigation', label: 'Navigation', component: NavigationDoc }, { route: 'develop_actions', label: 'Actions', component: ActionsDoc }]
 	}, { label: 'Components',
-	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }]
+	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
 	}, { label: 'Utils',
 	  contents: [{ route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc }, { route: 'develop_rest', label: 'Rest', component: RestDoc }, { route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc }]
 	}, { label: 'Reference',
@@ -60576,17 +60580,226 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _DocsArticle = __webpack_require__(57);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(125);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _Legend = __webpack_require__(96);
+
+	var _Legend2 = _interopRequireDefault(_Legend);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	_Legend2.default.displayName = 'Legend';
+
+	var series = [{ continent: 'NorthAmerica', label: 'North America', value: 40,
+	  colorIndex: 'graph-1', onClick: function onClick() {
+	    alert('North America');
+	  } }, { continent: 'SouthAmerica', label: 'South America', value: 30,
+	  colorIndex: 'accent-2', onClick: function onClick() {
+	    alert('North America');
+	  } }, { continent: 'Europe', label: 'Europe', value: 20,
+	  colorIndex: 'unset', onClick: function onClick() {
+	    alert('Europe');
+	  } }, { continent: 'Africa', label: 'Africa', value: 10,
+	  colorIndex: 'graph-2', onClick: function onClick() {
+	    alert('Africa');
+	  } }, { continent: 'Asia', label: 'Asia', value: 15,
+	  colorIndex: 'graph-3', onClick: function onClick() {
+	    alert('Asia');
+	  } }, { continent: 'Australia', label: 'Australia', value: 10,
+	  colorIndex: 'graph-4', onClick: function onClick() {
+	    alert('Australia');
+	  } }];
+
+	var LegendDoc = function (_Component) {
+	  _inherits(LegendDoc, _Component);
+
+	  function LegendDoc() {
+	    _classCallCheck(this, LegendDoc);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(LegendDoc).apply(this, arguments));
+	  }
+
+	  _createClass(LegendDoc, [{
+	    key: 'render',
+	    value: function render() {
+
+	      return _react2.default.createElement(
+	        _DocsArticle2.default,
+	        { title: 'Legend', colorIndex: 'neutral-3' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'A legend, typically associated with a data visualization such as ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'Meter'
+	          ),
+	          ', ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'Distribution'
+	          ),
+	          ', or ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'WorldMap'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'pre',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<Legend series={[...]} />"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Options'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'activeIndex   ',
+	                "{index}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Which data item should be shown as active, if any.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'onActive      ',
+	                "function (index) {...}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Function that will be called when the user hovers over one of the data items.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'series        ',
+	                "[{label: , value: , colorIndex: , onClick: }, ...]"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'An array of objects describing the data.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'total         true|false'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Whether to show the total of all values.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'units         ',
+	                "{string}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Optional units to display next to the value label.'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(_Example2.default, { name: 'Example', code: _react2.default.createElement(_Legend2.default, { series: series, units: 'B' }) })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return LegendDoc;
+	}(_react.Component);
+
+	exports.default = LegendDoc;
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 462 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _reactRouter = __webpack_require__(2);
 
 	var _DocsArticle = __webpack_require__(57);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _List = __webpack_require__(462);
+	var _List = __webpack_require__(463);
 
 	var _List2 = _interopRequireDefault(_List);
 
-	var _ListItem = __webpack_require__(463);
+	var _ListItem = __webpack_require__(464);
 
 	var _ListItem2 = _interopRequireDefault(_ListItem);
 
@@ -60872,7 +61085,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61056,7 +61269,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61142,7 +61355,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61440,7 +61653,7 @@ module.exports =
 	module.exports = LoginFormDoc;
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61449,7 +61662,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(57);
-	var GrommetMap = __webpack_require__(466);
+	var GrommetMap = __webpack_require__(467);
 
 	var MapDoc = React.createClass({
 	  displayName: 'MapDoc',
@@ -61543,7 +61756,7 @@ module.exports =
 	module.exports = MapDoc;
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61774,7 +61987,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 467 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61797,7 +62010,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Markdown = __webpack_require__(468);
+	var _Markdown = __webpack_require__(469);
 
 	var _Markdown2 = _interopRequireDefault(_Markdown);
 
@@ -61937,7 +62150,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 468 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61948,11 +62161,11 @@ module.exports =
 
 	var _react = __webpack_require__(1);
 
-	var _markdownToJsx = __webpack_require__(469);
+	var _markdownToJsx = __webpack_require__(470);
 
 	var _markdownToJsx2 = _interopRequireDefault(_markdownToJsx);
 
-	var _deepAssign = __webpack_require__(470);
+	var _deepAssign = __webpack_require__(471);
 
 	var _deepAssign2 = _interopRequireDefault(_deepAssign);
 
@@ -62023,19 +62236,19 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 469 */
+/* 470 */
 /***/ function(module, exports) {
 
 	module.exports = require("markdown-to-jsx");
 
 /***/ },
-/* 470 */
+/* 471 */
 /***/ function(module, exports) {
 
 	module.exports = require("deep-assign");
 
 /***/ },
-/* 471 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62500,7 +62713,7 @@ module.exports =
 	module.exports = MenuDoc;
 
 /***/ },
-/* 472 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63201,7 +63414,7 @@ module.exports =
 	module.exports = MeterDoc;
 
 /***/ },
-/* 473 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63215,7 +63428,7 @@ module.exports =
 	var Footer = __webpack_require__(44);
 	var Title = __webpack_require__(41);
 	var Menu = __webpack_require__(24);
-	var CloseIcon = __webpack_require__(474);
+	var CloseIcon = __webpack_require__(475);
 	var Gravatar = __webpack_require__(105);
 	var Search = __webpack_require__(103);
 
@@ -63346,7 +63559,7 @@ module.exports =
 	module.exports = NavigationDoc;
 
 /***/ },
-/* 474 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63410,7 +63623,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 475 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63433,7 +63646,7 @@ module.exports =
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Notification = __webpack_require__(476);
+	var _Notification = __webpack_require__(477);
 
 	var _Notification2 = _interopRequireDefault(_Notification);
 
@@ -63676,7 +63889,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 476 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63841,7 +64054,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 477 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64095,7 +64308,7 @@ module.exports =
 	module.exports = NumberInputDoc;
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64343,7 +64556,7 @@ module.exports =
 	module.exports = ParagraphDoc;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64576,7 +64789,7 @@ module.exports =
 	module.exports = RadioButtonDoc;
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64793,7 +65006,7 @@ module.exports =
 	module.exports = RestDoc;
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64980,7 +65193,7 @@ module.exports =
 	module.exports = RestWatchDoc;
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65501,7 +65714,7 @@ module.exports =
 	module.exports = SearchDoc;
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65812,7 +66025,7 @@ module.exports =
 	module.exports = SearchInputDoc;
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65928,7 +66141,7 @@ module.exports =
 	module.exports = SectionDoc;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66146,7 +66359,7 @@ module.exports =
 	module.exports = SidebarDoc;
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66208,7 +66421,7 @@ module.exports =
 	module.exports = SpinningDoc;
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66418,7 +66631,7 @@ module.exports =
 	module.exports = SplitDoc;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66701,7 +66914,7 @@ module.exports =
 	module.exports = StatusDoc;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66710,8 +66923,8 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(57);
-	var Tabs = __webpack_require__(490);
-	var Tab = __webpack_require__(491);
+	var Tabs = __webpack_require__(491);
+	var Tab = __webpack_require__(492);
 	var FormFields = __webpack_require__(154);
 	var FormField = __webpack_require__(93);
 	var Form = __webpack_require__(92);
@@ -66977,7 +67190,7 @@ module.exports =
 	module.exports = TabsDoc;
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67116,7 +67329,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67225,7 +67438,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67585,7 +67798,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67596,8 +67809,8 @@ module.exports =
 	var jsxToString = __webpack_require__(126);
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(57);
-	var Tags = __webpack_require__(494);
-	var Tag = __webpack_require__(495);
+	var Tags = __webpack_require__(495);
+	var Tag = __webpack_require__(496);
 
 	Tags.displayName = 'Tags';
 	Tag.displayName = 'Tag';
@@ -67787,7 +68000,7 @@ module.exports =
 	module.exports = TagsDoc;
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67868,7 +68081,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67951,7 +68164,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68552,7 +68765,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68705,7 +68918,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68714,7 +68927,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(57);
-	var Topology = __webpack_require__(499);
+	var Topology = __webpack_require__(500);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -69187,7 +69400,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69653,7 +69866,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69662,7 +69875,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(57);
-	var Video = __webpack_require__(501);
+	var Video = __webpack_require__(502);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -69946,7 +70159,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69961,9 +70174,25 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames2 = __webpack_require__(21);
+
+	var _classnames3 = _interopRequireDefault(_classnames2);
+
+	var _Intl = __webpack_require__(17);
+
+	var _Intl2 = _interopRequireDefault(_Intl);
+
 	var _Button = __webpack_require__(23);
 
 	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Box = __webpack_require__(14);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _Expand = __webpack_require__(283);
+
+	var _Expand2 = _interopRequireDefault(_Expand);
 
 	var _Play = __webpack_require__(352);
 
@@ -69978,6 +70207,8 @@ module.exports =
 	var _Refresh2 = _interopRequireDefault(_Refresh);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -70001,6 +70232,7 @@ module.exports =
 	    _this._onClickControl = _this._onClickControl.bind(_this);
 	    _this._onMouseMove = _this._onMouseMove.bind(_this);
 	    _this._onClickChapter = _this._onClickChapter.bind(_this);
+	    _this._onFullScreen = _this._onFullScreen.bind(_this);
 
 	    _this.state = { playing: false, progress: 0 };
 	    return _this;
@@ -70071,6 +70303,20 @@ module.exports =
 	      this.setState({ progress: time });
 	    }
 	  }, {
+	    key: '_onFullScreen',
+	    value: function _onFullScreen() {
+	      var video = this.refs.video;
+
+	      // check if webkit and mozilla fullscreen is available
+	      if (video.webkitRequestFullScreen) {
+	        video.webkitRequestFullScreen();
+	      } else if (video.mozRequestFullScreen) {
+	        video.mozRequestFullScreen();
+	      } else {
+	        console.warn('Your browser doesn\'t support fullscreen.');
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var classes = [CLASS_ROOT];
@@ -70086,6 +70332,9 @@ module.exports =
 	      if (this.state.interacting) {
 	        classes.push(CLASS_ROOT + '--interacting');
 	      }
+	      if (this.props.videoHeader) {
+	        classes.push(CLASS_ROOT + '--video-header');
+	      }
 	      if (this.props.colorIndex) {
 	        classes.push('background-color-index-' + this.props.colorIndex);
 	      }
@@ -70095,27 +70344,53 @@ module.exports =
 
 	      var controlIconSize = 'small' === this.props.size ? null : 'large';
 	      var controlIcon = this.state.playing ? _react2.default.createElement(_Pause2.default, { size: controlIconSize }) : this.state.ended ? _react2.default.createElement(_Refresh2.default, { size: controlIconSize }) : _react2.default.createElement(_Play2.default, { size: controlIconSize });
+	      var a11yControlButtonMessage = this.state.playing ? 'Pause Video' : this.state.ended ? 'Restart Video' : 'Play Video';
+	      var a11yControlButtonTitle = _Intl2.default.getMessage(this.context.intl, a11yControlButtonMessage);
 
-	      var title;
+	      var videoHeader = undefined;
+	      var videoSummaryJustify = 'between';
+	      if (this.props.videoHeader) {
+	        videoHeader = this.props.videoHeader;
+	      } else if (this.props.allowFullScreen) {
+	        var a11yExpandButtonTitle = _Intl2.default.getMessage(this.context.intl, 'Toggle Fullscreen');
+	        // fallback to only displaying full screen icon in header
+	        // if allowing fullscreen
+
+	        videoHeader = _react2.default.createElement(
+	          _Box2.default,
+	          { align: 'end', full: 'horizontal' },
+	          _react2.default.createElement(_Button2.default, { plain: true, onClick: this._onFullScreen,
+	            icon: _react2.default.createElement(_Expand2.default, null), a11yTitle: a11yExpandButtonTitle })
+	        );
+	      } else {
+	        videoSummaryJustify = 'center';
+	      }
+
+	      var title = undefined;
 	      if (this.props.title) {
 	        classes.push(CLASS_ROOT + '--titled');
 	        title = _react2.default.createElement(
-	          'div',
-	          { className: CLASS_ROOT + '__title' },
+	          _Box2.default,
+	          { align: 'center', justify: 'center', className: CLASS_ROOT + '__title' },
 	          this.props.title
 	        );
 	      }
 
-	      var timeline;
+	      var timeline = undefined;
 	      if (this.props.timeline && this.props.duration) {
 
-	        var chapters = this.props.timeline.map(function (chapter) {
+	        var chapters = this.props.timeline.map(function (chapter, index, chapters) {
 	          var percent = Math.round(chapter.time / this.props.duration * 100);
 	          var seconds = chapter.time % 60;
 	          var time = Math.floor(chapter.time / 60) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+	          var currentProgress = this.state.progress;
+	          var nextChapter = chapters[Math.min(chapters.length - 1, index + 1)];
+
+	          var timelineClasses = (0, _classnames3.default)(CLASS_ROOT + '__timeline-chapter', _defineProperty({}, CLASS_ROOT + '__timeline-active', currentProgress !== 0 && currentProgress >= chapter.time && currentProgress < nextChapter.time));
+
 	          return _react2.default.createElement(
 	            'div',
-	            { key: chapter.time, className: CLASS_ROOT + '__timeline-chapter',
+	            { key: chapter.time, className: timelineClasses,
 	              style: { left: percent.toString() + '%' },
 	              onClick: this._onClickChapter.bind(this, chapter.time) },
 	            _react2.default.createElement(
@@ -70138,7 +70413,7 @@ module.exports =
 	        );
 	      }
 
-	      var progress;
+	      var progress = undefined;
 	      if (this.props.duration) {
 	        var percent = Math.round(this.state.progress / this.props.duration * 100);
 	        progress = _react2.default.createElement(
@@ -70149,6 +70424,8 @@ module.exports =
 	        );
 	      }
 
+	      var onClickControl = this.props.onClick || this._onClickControl;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: classes.join(' '), onMouseMove: this._onMouseMove },
@@ -70158,16 +70435,18 @@ module.exports =
 	          this.props.children
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: CLASS_ROOT + '__summary' },
+	          _Box2.default,
+	          { pad: 'none', align: 'center', justify: videoSummaryJustify, className: CLASS_ROOT + '__summary' },
+	          videoHeader,
 	          _react2.default.createElement(
-	            _Button2.default,
-	            { className: CLASS_ROOT + '__control', plain: true,
-	              primary: true,
-	              onClick: this._onClickControl },
-	            controlIcon
+	            _Box2.default,
+	            { pad: 'large', align: 'center', justify: 'center' },
+	            _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + '__control', plain: true,
+	              primary: true, onClick: onClickControl,
+	              icon: controlIcon, a11yTitle: a11yControlButtonTitle }),
+	            title
 	          ),
-	          title
+	          _react2.default.createElement(_Box2.default, null)
 	        ),
 	        timeline,
 	        progress
@@ -70190,7 +70469,394 @@ module.exports =
 	    label: _react.PropTypes.string,
 	    time: _react.PropTypes.number
 	  })),
-	  title: _react.PropTypes.node
+	  title: _react.PropTypes.node,
+	  videoHeader: _react.PropTypes.node,
+	  onClick: _react.PropTypes.func,
+	  allowFullScreen: _react.PropTypes.bool
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 503 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DocsArticle = __webpack_require__(57);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(125);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _WorldMap = __webpack_require__(504);
+
+	var _WorldMap2 = _interopRequireDefault(_WorldMap);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	_WorldMap2.default.displayName = 'WorldMap';
+
+	var series = [{ continent: 'NorthAmerica', label: 'North America', value: 40,
+	  colorIndex: 'graph-1', onClick: function onClick() {
+	    alert('North America');
+	  } }, { continent: 'SouthAmerica', label: 'South America', value: 30,
+	  colorIndex: 'accent-2', onClick: function onClick() {
+	    alert('North America');
+	  } }, { continent: 'Europe', label: 'Europe', value: 20,
+	  colorIndex: 'unset', onClick: function onClick() {
+	    alert('Europe');
+	  } }, { continent: 'Africa', label: 'Africa', value: 10,
+	  colorIndex: 'graph-2', onClick: function onClick() {
+	    alert('Africa');
+	  } }, { continent: 'Asia', label: 'Asia', value: 15,
+	  colorIndex: 'graph-3', onClick: function onClick() {
+	    alert('Asia');
+	  } }, { continent: 'Australia', label: 'Australia', value: 10,
+	  colorIndex: 'graph-4', onClick: function onClick() {
+	    alert('Australia');
+	  } }];
+
+	var WorldMapDoc = function (_Component) {
+	  _inherits(WorldMapDoc, _Component);
+
+	  function WorldMapDoc() {
+	    _classCallCheck(this, WorldMapDoc);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(WorldMapDoc).apply(this, arguments));
+	  }
+
+	  _createClass(WorldMapDoc, [{
+	    key: 'render',
+	    value: function render() {
+
+	      return _react2.default.createElement(
+	        _DocsArticle2.default,
+	        { title: 'WorldMap', colorIndex: 'neutral-3' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'A world map of continents.'
+	        ),
+	        _react2.default.createElement(
+	          'pre',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            "<WorldMap series={[...]} />"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Note: It is a good idea to include a ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'Legend'
+	          ),
+	          ' along with this visualization. You can use the same ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'series'
+	          ),
+	          'property for both ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'WorldMap'
+	          ),
+	          ' and ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'Legend'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Options'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'series      ',
+	                "[{continent: , colorIndex: , onClick: }, ...]"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'An array of objects describing the data. The available continents are: ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'NorthAmerica'
+	              ),
+	              ', ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'SouthAmerica'
+	              ),
+	              ', ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'Europe'
+	              ),
+	              ', ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'Africa'
+	              ),
+	              ', ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'Asia'
+	              ),
+	              ', and ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'Australia'
+	              ),
+	              '. You must specify a continent in order for it to be rendered.'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(_Example2.default, { name: 'Example', code: _react2.default.createElement(_WorldMap2.default, { series: series, legend: true, units: 'B' }) })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return WorldMapDoc;
+	}(_react.Component);
+
+	exports.default = WorldMapDoc;
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 504 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+
+	var CLASS_ROOT = 'world-map';
+
+	var CONTINENTS = [{
+	  id: "Australia",
+	  origin: [74, 32],
+	  area: [[4, 0], [7, 1], [15, 7], [13, 9], [0, 6], [0, 2]],
+	  dots: [[4, 0, 1], [2, 1, 6], [0, 2, 9], [0, 3, 10], [0, 4, 10], [0, 5, 3], [5, 5, 5], [5, 6, 4], [15, 7, 1], [14, 8, 1], [13, 9, 1]]
+	}, {
+	  id: "Asia",
+	  origin: [52, 1],
+	  area: [[16, 0], [38, 5], [40, 7], [28, 17], [24, 25], [29, 29], [19, 29], [11, 24], [3, 23], [0, 20], [0, 19], [6, 13], [7, 6]],
+	  dots: [[16, 0, 1], [17, 1, 2], [18, 2, 2], [15, 3, 6], [28, 3, 1], [30, 3, 1], [10, 4, 2], [13, 4, 10], [24, 4, 1], [9, 5, 22], [32, 5, 1], [38, 5, 1], [7, 6, 2], [10, 6, 1], [12, 6, 27], [7, 7, 34], [7, 8, 31], [7, 9, 26], [34, 9, 3], [7, 10, 22], [31, 10, 1], [33, 10, 1], [7, 11, 21], [32, 11, 2], [7, 12, 21], [32, 12, 1], [6, 13, 22], [32, 13, 1], [6, 14, 22], [5, 15, 22], [3, 16, 2], [6, 16, 20], [2, 17, 3], [6, 17, 16], [24, 17, 1], [28, 17, 1], [1, 18, 22], [26, 18, 2], [0, 19, 24], [0, 20, 5], [6, 20, 17], [2, 21, 5], [10, 21, 14], [2, 22, 5], [11, 22, 4], [16, 22, 4], [3, 23, 3], [11, 23, 2], [17, 23, 3], [23, 23, 1], [11, 24, 2], [18, 24, 2], [23, 24, 1], [24, 25, 1], [18, 26, 1], [22, 26, 1], [18, 27, 1], [20, 27, 4], [18, 28, 1], [21, 28, 1], [23, 28, 1], [26, 28, 3], [19, 29, 1], [28, 29, 2]]
+	}, {
+	  // 21X, 40Y
+	  id: "Africa",
+	  origin: [40, 19],
+	  area: [[3, 0], [6, 0], [11, 2], [16, 7], [16, 15], [11, 18], [9, 18], [0, 6], [0, 3]],
+	  dots: [[3, 0, 4], [2, 1, 6], [9, 1, 2], [1, 2, 11], [0, 3, 13], [0, 4, 14], [0, 5, 14], [0, 6, 16], [1, 7, 16], [2, 8, 2], [6, 8, 11], [7, 9, 9], [7, 10, 8], [7, 11, 7], [8, 12, 7], [7, 13, 8], [7, 14, 7], [16, 14, 1], [8, 15, 5], [15, 15, 2], [8, 16, 5], [9, 17, 3], [9, 18, 3]]
+	}, {
+	  id: "Europe",
+	  origin: [39, 2],
+	  area: [[8, 0], [10, 0], [20, 2], [19, 11], [18, 13], [14, 16], [3, 16], [0, 7]],
+	  dots: [[8, 0, 3], [9, 1, 1], [20, 2, 1], [19, 3, 1], [12, 4, 1], [19, 4, 1], [9, 5, 6], [9, 6, 7], [17, 6, 3], [0, 7, 1], [8, 7, 12], [7, 8, 3], [11, 8, 9], [7, 9, 3], [11, 9, 9], [4, 10, 1], [7, 10, 1], [9, 10, 1], [11, 10, 9], [3, 11, 2], [7, 11, 13], [4, 12, 1], [6, 12, 13], [4, 13, 15], [5, 14, 3], [9, 14, 4], [15, 14, 2], [3, 15, 3], [8, 15, 1], [10, 15, 5], [6, 15, 2], [3, 16, 2], [10, 16, 5]]
+	}, {
+	  id: "SouthAmerica",
+	  origin: [22, 26],
+	  area: [[2, 0], [5, 0], [11, 4], [11, 8], [3, 18], [2, 17], [0, 4], [0, 3]],
+	  dots: [[2, 0, 4], [1, 1, 7], [1, 2, 7], [0, 3, 10], [0, 4, 12], [1, 5, 11], [2, 6, 9], [3, 7, 8], [3, 8, 8], [3, 9, 6], [3, 10, 6], [3, 11, 5], [3, 12, 3], [2, 13, 3], [2, 14, 3], [2, 15, 2], [2, 16, 2], [2, 17, 2], [3, 18, 1]]
+	}, {
+	  id: "NorthAmerica",
+	  origin: [0, 0],
+	  area: [[21, 0], [39, 0], [39, 6], [22, 26], [16, 23], [2, 12], [0, 7]],
+	  dots: [[22, 0, 6], [29, 0, 1], [31, 0, 1], [33, 0, 5], [20, 1, 1], [22, 1, 1], [24, 1, 2], [27, 1, 13], [17, 2, 1], [20, 2, 5], [26, 2, 13], [13, 3, 1], [19, 3, 1], [21, 3, 3], [26, 3, 14], [14, 4, 1], [16, 4, 4], [21, 4, 3], [29, 4, 11], [12, 5, 3], [16, 5, 1], [18, 5, 1], [20, 5, 3], [24, 5, 1], [30, 5, 8], [14, 6, 3], [19, 6, 1], [22, 6, 4], [31, 6, 8], [0, 7, 15], [16, 7, 1], [18, 7, 4], [24, 7, 2], [30, 7, 7], [2, 8, 20], [24, 8, 3], [29, 8, 5], [2, 9, 20], [24, 9, 2], [30, 9, 3], [1, 10, 18], [23, 10, 2], [31, 10, 1], [2, 11, 2], [8, 11, 11], [23, 11, 2], [26, 11, 1], [2, 12, 1], [8, 12, 13], [24, 12, 3], [10, 13, 12], [23, 13, 5], [11, 14, 17], [11, 15, 9], [21, 15, 6], [28, 15, 2], [11, 16, 11], [23, 16, 4], [11, 17, 14], [12, 18, 11], [12, 19, 12], [13, 20, 9], [15, 21, 3], [22, 21, 1], [16, 22, 2], [16, 23, 2], [20, 23, 1], [23, 23, 1], [18, 24, 3], [21, 25, 1], [22, 26, 1]]
+	}];
+
+	var FACTOR = 10;
+
+	var WorldMap = function (_Component) {
+	  _inherits(WorldMap, _Component);
+
+	  function WorldMap() {
+	    _classCallCheck(this, WorldMap);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(WorldMap).call(this));
+
+	    _this._onActivate = _this._onActivate.bind(_this);
+	    _this._onDeactivate = _this._onDeactivate.bind(_this);
+	    _this._renderContinent = _this._renderContinent.bind(_this);
+
+	    _this.state = _this._buildState();
+	    return _this;
+	  }
+
+	  _createClass(WorldMap, [{
+	    key: '_buildState',
+	    value: function _buildState() {
+	      var state = { activeIndex: -1, dots: {}, area: {} };
+	      var width = 0;
+	      var height = 0;
+	      CONTINENTS.forEach(function (continent) {
+	        var origin = continent.origin;
+	        state.dots[continent.id] = continent.dots.map(function (segment) {
+	          var dots = Array.apply(null, Array(segment[2])).map(function () {
+	            return 'h0';
+	          }).join(' m10,0 ');
+	          var x = FACTOR * (origin[0] + segment[0] + 1);
+	          var y = FACTOR * (origin[1] + segment[1] + 1);
+	          width = Math.max(width, FACTOR * (origin[0] + segment[0] + segment[2]));
+	          height = Math.max(height, y);
+	          return 'M' + x + ',' + y + ' ' + dots;
+	        }).join(' ');
+	        state.area[continent.id] = continent.area.map(function (point, index) {
+	          var x = FACTOR * (point[0] + origin[0] + 1);
+	          var y = FACTOR * (point[1] + origin[1] + 1);
+	          return '' + (index === 0 ? 'M' : 'L') + x + ',' + y;
+	        }).join(' ');
+	        if (state.area[continent.id]) {
+	          state.area[continent.id] += ' Z';
+	        }
+	      });
+	      state.width = width + FACTOR;
+	      state.height = height + FACTOR;
+	      return state;
+	    }
+	  }, {
+	    key: '_onActivate',
+	    value: function _onActivate(index) {
+	      this.setState({ activeIndex: index });
+	    }
+	  }, {
+	    key: '_onDeactivate',
+	    value: function _onDeactivate() {
+	      this.setState({ activeIndex: -1 });
+	    }
+	  }, {
+	    key: '_renderContinent',
+	    value: function _renderContinent(seriesData, index) {
+	      var continent = seriesData.continent;
+	      var colorIndex = seriesData.colorIndex || 'graph-' + index;
+	      var classes = [CLASS_ROOT + '__continent', 'color-index-' + colorIndex];
+	      if (index === this.state.activeIndex) {
+	        classes.push(CLASS_ROOT + '__continent--active');
+	      }
+	      var onMouseOver = undefined,
+	          onMouseLeave = undefined,
+	          onClick = undefined,
+	          area = undefined;
+	      if (seriesData.onClick) {
+	        onMouseOver = this._onActivate.bind(this, index);
+	        onMouseLeave = this._onDeactivate;
+	        onClick = seriesData.onClick;
+	        area = _react2.default.createElement('path', { stroke: 'none', fill: '#fff', fillOpacity: '0.01',
+	          d: this.state.area[continent] });
+	      }
+	      // We add the area so the mouse events work for the whole region, not just the dots
+	      return _react2.default.createElement(
+	        'g',
+	        { key: continent, id: continent, className: classes.join(' '),
+	          onMouseOver: onMouseOver, onMouseLeave: onMouseLeave, onClick: onClick },
+	        area,
+	        _react2.default.createElement('path', { d: this.state.dots[continent] })
+	      );
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var series = this.props.series;
+	      var _state = this.state;
+	      var width = _state.width;
+	      var height = _state.height;
+
+	      var continents = series.map(this._renderContinent);
+
+	      return _react2.default.createElement(
+	        'svg',
+	        { className: CLASS_ROOT, version: '1.1',
+	          preserveAspectRatio: 'xMidYMid meet',
+	          width: width + 'px', viewBox: '0 0 ' + width + ' ' + height },
+	        _react2.default.createElement(
+	          'g',
+	          { stroke: 'none', fill: 'none', fillRule: 'evenodd' },
+	          continents
+	        )
+	      );
+	    }
+	  }]);
+
+	  return WorldMap;
+	}(_react.Component);
+
+	exports.default = WorldMap;
+
+	WorldMap.propTypes = {
+	  series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+	    continent: _react.PropTypes.oneOf(['NorthAmerica', 'SouthAmerica', 'Europe', 'Africa', 'Asia', 'Australia']),
+	    // value: PropTypes.number,
+	    colorIndex: _react.PropTypes.string,
+	    // important: PropTypes.bool,
+	    onClick: _react.PropTypes.func
+	  }))
 	};
 	module.exports = exports['default'];
 
