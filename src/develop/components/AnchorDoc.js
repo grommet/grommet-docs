@@ -1,91 +1,24 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Link = require('react-router').Link;
-var jsxToString = require('jsx-to-string');
-var DocsArticle = require('../../DocsArticle');
-var Box = require('grommet/components/Box');
-var Section = require('grommet/components/Section');
-var Anchor = require('grommet/components/Anchor');
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import DocsArticle from '../../DocsArticle';
+import Example from '../Example';
+import Section from 'grommet/components/Section';
+import Anchor from 'grommet/components/Anchor';
+import NextIcon from 'grommet/components/icons/base/Next';
+import EditIcon from 'grommet/components/icons/base/Edit';
 
-function convertAnchorToString(anchorJSX) {
-  return jsxToString(anchorJSX, {
-    keyValueOverride: {
-      onClick: 'this._onClick'
-    }
-  });
-}
+Section.displayName = 'Section';
+Anchor.displayName = 'Anchor';
 
-var AnchorDoc = React.createClass({
+export default class AnchorDoc extends Component {
 
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
-
-  _onClick: function () {
+  _onClick () {
     // no-op
-  },
+  }
 
-  _renderAnchorCode(heading, anchorJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <div className="example">
-          {anchorJSX}
-        </div>
-        <pre><code className="html hljs xml">
-          {convertAnchorToString(anchorJSX)}
-        </code></pre>
-      </div>
-    );
-  },
-
-  render: function() {
-
-    var defaultAnchor = (
-      <Anchor href=""  onClick={this._onClick}>Child text</Anchor>
-    );
-
-    var primaryAnchor = (
-      <Anchor href="" label="Label text" primary={true} onClick={this._onClick} />
-    );
-
-    var iconLabelAnchor = (
-      <Anchor href="" icon="Checkmark" label="Text" onClick={this._onClick} />
-    );
-
-    var iconAnchor = (
-      <Anchor href="" icon="Add" onClick={this._onClick} />
-    );
-
-    var targetAnchor = (
-      <Anchor href="" target="_blank" label="Text" onClick={this._onClick} />
-    );
-
-    var inHeaderAnchor = (
-      <h3>
-        <Anchor href="" label="Text" onClick={this._onClick} />
-      </h3>
-    );
-
-    var coloredContextAnchor = (
-      <Section direction="column" colorIndex="neutral-1" pad="large">
-        <Box pad="small">
-          <Anchor href="" onClick={this._onClick}>Text</Anchor>
-        </Box>
-        <Box pad="small">
-          <Anchor href="" primary={true} label="Text" onClick={this._onClick} />
-        </Box>
-        <Box pad="small">
-          <Anchor href="" icon="Add" onClick={this._onClick} />
-        </Box>
-      </Section>
-    );
-
-    var disabledAnchor = (
-      <Anchor primary={true} disabled={true}>Text</Anchor>
-    );
-
+  render () {
     return (
       <DocsArticle title="Anchor" colorIndex="neutral-3">
 
@@ -105,8 +38,8 @@ var AnchorDoc = React.createClass({
             </dd>
             <dt><code>href           {"{location}"}</code></dt>
             <dd>Hyperlink reference to place in the anchor.</dd>
-            <dt><code>icon           {"{name}"}</code></dt>
-            <dd>Name of an icon to place in the anchor.
+            <dt><code>icon           {"{element}"}</code></dt>
+            <dd>Icon element to place in the anchor.
               See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
             <dt><code>label          {"{text}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>
@@ -114,6 +47,9 @@ var AnchorDoc = React.createClass({
             <dd>Click handler.</dd>
             <dt><code>primary        true|false</code></dt>
             <dd>Whether this is a primary anchor.</dd>
+            <dt><code>reverse        true|false</code></dt>
+            <dd>Whether an icon and label should be reversed so that the icon
+              is at the end of the anchor.</dd>
             <dt><code>tag            {"{text}"}</code></dt>
             <dd>The DOM tag to use for the element. The default is {'<a>'}.
               This should be used in conjunction with components like
@@ -129,19 +65,50 @@ var AnchorDoc = React.createClass({
 
         <section>
           <h2>Examples</h2>
-
-          {this._renderAnchorCode('Default', defaultAnchor)}
-          {this._renderAnchorCode('Primary, Label', primaryAnchor)}
-          {this._renderAnchorCode('Icon, Label', iconLabelAnchor)}
-          {this._renderAnchorCode('Icon', iconAnchor)}
-          {this._renderAnchorCode('Target', targetAnchor)}
-          {this._renderAnchorCode('Disabled', disabledAnchor)}
-          {this._renderAnchorCode('In a Header', inHeaderAnchor)}
-          {this._renderAnchorCode('Colored context', coloredContextAnchor)}
+          <Example name="Default" code={
+            <Anchor href="" onClick={this._onClick}>Child text</Anchor>
+          } />
+          <Example name="Primary, Label" code={
+            <Anchor href="" label="Label" primary={true}
+              onClick={this._onClick} />
+          } />
+          <Example name="Icon, Label" code={
+            <Anchor href="" icon={<EditIcon />} label="Edit"
+              onClick={this._onClick} />
+          } />
+          <Example name="Icon, Label, Reverse" code={
+            <Anchor href="" icon={<NextIcon />} label="Next" reverse={true}
+              onClick={this._onClick} />
+          } />
+          <Example name="Icon" code={
+            <Anchor href="" icon={<EditIcon />} onClick={this._onClick} />
+          } />
+          <Example name="Target" code={
+            <Anchor href="" target="_blank" label="Label" onClick={this._onClick} />
+          } />
+          <Example name="Disabled" code={
+            <Anchor primary={true} disabled={true}>Text</Anchor>
+          } />
+          <Example name="In a Header" code={
+            <h3>
+              <Anchor href="" label="Label" onClick={this._onClick} />
+            </h3>
+          } />
+          <Example name="Colored context" code={
+            <Section colorIndex="neutral-1"
+              pad={{horizontal: 'medium', vertical: 'medium', between: 'medium'}}>
+              <Anchor href="" onClick={this._onClick}>Text</Anchor>
+              <Anchor href="" primary={true} label="Label" onClick={this._onClick} />
+              <Anchor href="" icon={<EditIcon />} onClick={this._onClick} />
+              <Anchor href="" icon={<EditIcon />} label="Edit" onClick={this._onClick} />
+            </Section>
+          } />
         </section>
       </DocsArticle>
     );
   }
-});
+};
 
-module.exports = AnchorDoc;
+AnchorDoc.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};

@@ -7,6 +7,9 @@ var DocsArticle = require('../../DocsArticle');
 var Tags = require('grommet/components/Tags');
 var Tag = require('grommet/components/Tag');
 
+Tags.displayName = 'Tags';
+Tag.displayName = 'Tag';
+
 function convertTagToString(tagJSX) {
   return jsxToString(tagJSX);
 }

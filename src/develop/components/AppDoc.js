@@ -7,6 +7,10 @@ var App = require('grommet/components/App');
 var Header = require('grommet/components/Header');
 var Title = require('grommet/components/Title');
 
+App.displayName = 'App';
+Header.displayName = 'Header';
+Title.displayName = 'Title';
+
 var inline =
       "<App>\n" +
       "  ...\n" +

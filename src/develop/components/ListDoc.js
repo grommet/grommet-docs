@@ -6,13 +6,6 @@ import DocsArticle from '../../DocsArticle';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
 
-const SCHEMA = [
-  {attribute: 'uid', uid: true},
-  {attribute: 'face', image: true},
-  {attribute: 'name', primary: true},
-  {attribute: 'mood', secondary: true}
-];
-
 const DATA = [
   {uid: 1, face: '', name: 'Alan', mood: 'happy'},
   {uid: 2, face: '', name: 'Bryan', mood: 'calm'},
@@ -54,19 +47,6 @@ class ListDoc extends Component {
         );
     });
 
-    const schema = [
-      "{",
-      "  attribute: name,",
-      "  default:   string|node",
-      "  image:     true|false,",
-      "  label:     image label,",
-      "  primary:   true|false,",
-      "  secondary: true|false,",
-      "  timestamp: true|false,",
-      "  uid:       true|false",
-      "}"
-    ].join('\n');
-
     return (
       <DocsArticle title="List" colorIndex="neutral-3">
 
@@ -77,13 +57,6 @@ class ListDoc extends Component {
         <section>
           <h2>List Options</h2>
           <dl>
-            <dt><code>data           {"[{...}, ...]"}</code></dt>
-            <dd>The data set. This property, along with <code>schema</code> is
-              deprecated. Instead, callers should use ListItem children.</dd>
-            <dt><code>itemDirection  row|column</code></dt>
-            <dd>Direction of the item content. Default is <code>row</code>.
-              This property is deprecated. Instead, callers should use
-              ListItem children.</dd>
             <dt><code>onMore         {"function () {...}"}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
             <dt><code>onSelect       {"function (selected) {...}"}</code></dt>
@@ -91,18 +64,11 @@ class ListDoc extends Component {
               When only one item is selected, it returns the zero based index
               for that item. When multiple items are selected, it returns an
               array of those item's zero based indexes.</dd>
-            <dt><code>schema         {"[{...}, ...]"}</code></dt>
-            <dd>An array of objects describing the data.
-              <code>{schema}</code> This property, along with <code>data</code> is
-              deprecated. Instead, callers should use ListItem children.
-            </dd>
             <dt><code>selectable     true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
               that multiple rows may be selected</dd>
             <dt><code>selected       number|[number, ...]</code></dt>
             <dd>The currently selected item(s) using a zero based index.</dd>
-            <dt><code>size           small|medium|large</code></dt>
-            <dd>The size of the items. Defaults to <code>medium</code>.</dd>
           </dl>
         </section>
 
@@ -141,25 +107,6 @@ class ListDoc extends Component {
             <List selectable="multiple" onSelect={this._onMultipleSelect}>
               {items}
             </List>
-          </div>
-
-          <h3>Small</h3>
-          <div className="example">
-            <List size="small">
-              {items}
-            </List>
-          </div>
-
-          <h3>Large</h3>
-          <div className="example">
-            <List size="large">
-              {items}
-            </List>
-          </div>
-
-          <h3>Data, Schema (deprecated)</h3>
-          <div className="example">
-            <List schema={SCHEMA} data={DATA} />
           </div>
 
         </section>

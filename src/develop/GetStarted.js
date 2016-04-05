@@ -30,7 +30,7 @@ class GetStarted extends Component {
             </li>
             <li>
               Install <a href="https://nodejs.org/" target="_blank">Node.js
-              </a> <i>(at least Node 0.10+ and NPM 1.4.x+ required)</i>
+            </a> <i>(at least Node 4.4.x+ and NPM 2.14.x+ required)</i>
             </li>
             <li>
               Install <a href="https://www.python.org/downloads/"
@@ -133,6 +133,9 @@ class GetStarted extends Component {
             We recommend that you check out the {architectureLink} page and
             learn how Grommet works internally.
           </p>
+          <p>We also have
+            a <a href="http://vimeo.com/grommetux/videos">Grommet Vimeo channel</a> with
+            additional training materials.</p>
         </section>
       </DocsArticle>
     );

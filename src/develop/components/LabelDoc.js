@@ -5,6 +5,8 @@ var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Label = require('grommet/components/Label');
 
+Label.displayName = 'Label';
+
 function convertLabelToString(LabelJSX) {
   return jsxToString(LabelJSX);
 }

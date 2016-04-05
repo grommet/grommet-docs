@@ -6,6 +6,8 @@ var stringify = require("json-stringify-pretty-compact");
 var DocsArticle = require('../../DocsArticle');
 var Distribution = require('grommet/components/Distribution');
 
+Distribution.displayName = 'Distribution';
+
 var series = [
   {label: 'First', value: 40, colorIndex: 'graph-1'},
   {label: 'Second', value: 30, colorIndex: 'accent-2'},

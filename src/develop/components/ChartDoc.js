@@ -7,6 +7,10 @@ var Chart = require('grommet/components/Chart');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
 
+Chart.displayName = 'Chart';
+Tiles.displayName = 'Tiles';
+Tile.displayName = 'Tile';
+
 var series = [
   {
     label: 'first',

@@ -8,6 +8,7 @@ var Headline = require('grommet/components/Headline');
 // function convertHeadingToString(headingJSX) {
 //   return jsxToString(headingJSX);
 // }
+Headline.displayName = 'Headline';
 
 var inline =
       "<Headline>\n" +

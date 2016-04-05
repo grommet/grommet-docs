@@ -12,6 +12,12 @@ var FullForm = require('./samples/FullForm');
 var ConfirmationForm = require('./samples/ConfirmationForm');
 var SampleArticle = require('./samples/SampleArticle');
 
+Box.displayName = 'Box';
+Layer.displayName = 'Layer';
+Header.displayName = 'Header';
+Form.displayName = 'Form';
+FormFields.displayName = 'FormFields';
+
 function convertLayerToString(layerJSX) {
   return jsxToString(layerJSX, {
     keyValueOverride: {

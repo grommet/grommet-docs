@@ -15,6 +15,7 @@ var del = require('del');
 var http = require('http');
 var mkdirp = require('mkdirp');
 var replace = require('gulp-replace');
+var runSequence = require('run-sequence');
 
 var opts = {
   base: '.',
@@ -65,19 +66,9 @@ var opts = {
       root: [
         path.resolve(__dirname, './node_modules')
       ]
-    },
-    module: {
-      loaders: [
-        {
-          test: /develop(\/|\\).*\.htm$|design(\/|\\)[^\/]*\.htm$|design(\/|\\).*\/.*\.htm$/,
-          loader: 'babel-loader!imports?React=react,Router=react-router,Link=>Router.Link!html-jsx-loader',
-          exclude: /(node_modules|bower_components)/
-        }
-      ]
     }
   },
   devServerPort: 8002,
-  devServerDisableHot: true,
   // devServerHost: "0.0.0.0",
   scsslint: true,
   alias: {
@@ -87,7 +78,8 @@ var opts = {
   devPreprocess: [
     'set-webpack-alias', 'dist-css', 'generate-icons-map', 'watch-css'
   ],
-  distPreprocess: ['dist-css', 'generate-icons-map', 'generate-server-routes']
+  distPreprocess: ['set-webpack-alias', 'dist-css', 'generate-icons-map',
+    'generate-server-routes']
 };
 
 function distSass() {
@@ -125,50 +117,49 @@ gulp.task('watch-css', function() {
   }
 });
 
-gulp.task('dist-css', function() {
+function distCss (name) {
   var prefix = opts.webpack.resolve.alias ? 'grommet/' : '';
-
-  gulp.src('src/scss/index-aruba.scss')
+  return gulp.src('src/scss/index-' + name + '.scss')
     .pipe(replace(prefix, ''))
     .pipe(distSass())
-    .pipe(rename('aruba.min.css'))
+    .pipe(rename(name + '.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest('dist/'));
+}
 
-  gulp.src('src/scss/index-grommet.scss')
-    .pipe(replace(prefix, ''))
-    .pipe(distSass())
-    .pipe(rename('grommet.min.css'))
-    .pipe(minifyCss())
-    .pipe(gulp.dest('dist/'));
+gulp.task('dist-css-aruba', function () {
+  return distCss('aruba');
+});
 
-  gulp.src('src/scss/index-hpe.scss')
-    .pipe(replace(prefix, ''))
-    .pipe(distSass())
-    .pipe(rename('hpe.min.css'))
-    .pipe(minifyCss())
-    .pipe(gulp.dest('dist/'));
+gulp.task('dist-css-grommet', function () {
+  return distCss('grommet');
+});
 
-  gulp.src('src/scss/index-hpinc.scss')
-    .pipe(replace(prefix, ''))
-    .pipe(distSass())
-    .pipe(rename('hpinc.min.css'))
-    .pipe(minifyCss())
-    .pipe(gulp.dest('dist/'));
+gulp.task('dist-css-hpe', function () {
+  return distCss('hpe');
+});
 
-  return gulp.src('src/scss/index-vanilla.scss')
-    .pipe(replace(prefix, ''))
-    .pipe(distSass())
-    .pipe(rename('vanilla.min.css'))
-    .pipe(minifyCss())
-    .pipe(gulp.dest('dist/')).on('end', function () {
-      if (opts.webpack.resolve.alias) {
-        //notify the webpack dev server to reload when compilation is finished
-        http.get(
-          'http://' + host + ':' + opts.devServerPort + '/reload'
-        );
-      }
-    });
+gulp.task('dist-css-hpinc', function () {
+  return distCss('hpinc');
+});
+
+gulp.task('dist-css-vanilla', function () {
+  return distCss('vanilla');
+});
+
+gulp.task('notify', function () {
+  if (opts.webpack.resolve.alias) {
+    //notify the webpack dev server to reload when compilation is finished
+    http.get(
+      'http://' + host + ':' + opts.devServerPort + '/reload'
+    );
+  }
+});
+
+gulp.task('dist-css', function(done) {
+  runSequence(
+    ['dist-css-aruba', 'dist-css-grommet', 'dist-css-hpe',
+    'dist-css-hpinc', 'dist-css-vanilla'], 'notify', done);
 });
 
 var nodeModules = {};

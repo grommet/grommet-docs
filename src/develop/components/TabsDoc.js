@@ -32,6 +32,17 @@ var TabsDoc = React.createClass({
             <dt><code>initialIndex        default:0</code></dt>
             <dd>Optional initial tab index.</dd>
           </dl>
+          <dl>
+            <dt><code>justify             start|center|end</code></dt>
+            <dd>How to align the tabs along the main axis.
+              Defaults to <code>center</code>.</dd>
+          </dl>
+          <dl>
+            <dt><code>responsive          true|false</code></dt>
+            <dd>Whether the row of tabs should be
+              switched to a centered column layout when the display area narrows.
+              Defaults to <code>true</code>.</dd>
+          </dl>
         </section>
 
         <section>
@@ -67,9 +78,9 @@ var TabsDoc = React.createClass({
             {"<Tabs>\n  <Tab title=\"First Title\">\n    <h3>First Tab</h3>\n    <p>Contents of the first tab</p>\n  </Tab>\n  <Tab title=\"Second Title\">\n    <h3>Second Tab</h3>\n    <p>Contents of the second tab</p>\n  </Tab>\n  <Tab title=\"Third Title\">\n    <h3>Third Tab</h3>\n    <p>Contents of the third tab</p>\n  </Tab>\n</Tabs>"}
           </code></pre>
 
-          <h3>Initial Index</h3>
+          <h3>Initial Index, Justify Start</h3>
           <div className="example">
-            <Tabs initialIndex={1}>
+            <Tabs initialIndex={1} justify="start">
               <Tab title="First Title">
                 <h3>First Tab</h3>
                 <p>Contents of the first tab</p>

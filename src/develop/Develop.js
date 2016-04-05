@@ -15,6 +15,7 @@ var GetStarted = require('./GetStarted');
 var Architecture = require('./Architecture');
 var Integration = require('./Integration');
 var Accessibility = require('./Accessibility');
+var BrowserSupport = require('./BrowserSupport');
 
 var ActionsDoc = require('./patterns/ActionsDoc');
 var AnchorDoc = require('./components/AnchorDoc');
@@ -27,6 +28,7 @@ var CalendarDoc = require('./components/CalendarDoc');
 var CarouselDoc = require('./components/CarouselDoc');
 var ChartDoc = require('./components/ChartDoc');
 var CheckBoxDoc = require('./components/CheckBoxDoc');
+var ColumnsDoc = require('./components/ColumnsDoc');
 var DashboardDoc = require('./patterns/DashboardDoc');
 var DistributionDoc = require('./components/DistributionDoc');
 var FooterDoc = require('./components/FooterDoc');
@@ -39,9 +41,11 @@ var IconDoc = require('./components/IconDoc');
 var ImageDoc = require('./components/ImageDoc');
 var LabelDoc = require('./components/LabelDoc');
 var LayerDoc = require('./components/LayerDoc');
+var LegendDoc = require('./components/LegendDoc');
 var ListDoc = require('./components/ListDoc');
 var LoginFormDoc = require('./components/LoginFormDoc');
 var MapDoc = require('./components/MapDoc');
+var MarkdownDoc = require('./utils/MarkdownDoc');
 var MenuDoc = require('./components/MenuDoc');
 var MeterDoc = require('./components/MeterDoc');
 var NavigationDoc = require('./patterns/NavigationDoc');
@@ -65,6 +69,7 @@ var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
 var VideoDoc = require('./components/VideoDoc');
+var WorldMapDoc = require('./components/WorldMapDoc');
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -101,6 +106,7 @@ var CONTENTS = [
       {route: 'develop_carousel', label: 'Carousel', component: CarouselDoc},
       {route: 'develop_chart', label: 'Chart', component: ChartDoc},
       {route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc},
+      {route: 'develop_columns', label: 'Columns', component: ColumnsDoc},
       {route: 'develop_distribution', label: 'Distribution', component: DistributionDoc},
       {route: 'develop_footer', label: 'Footer', component: FooterDoc},
       {route: 'develop_form', label: 'Form', component: FormDoc},
@@ -112,6 +118,7 @@ var CONTENTS = [
       {route: 'develop_image', label: 'Image', component: ImageDoc},
       {route: 'develop_label', label: 'Label', component: LabelDoc},
       {route: 'develop_layer', label: 'Layer', component: LayerDoc},
+      {route: 'develop_legend', label: 'Legend', component: LegendDoc},
       {route: 'develop_list', label: 'List', component: ListDoc},
       {route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc},
       {route: 'develop_map', label: 'Map', component: MapDoc},
@@ -134,11 +141,13 @@ var CONTENTS = [
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
       {route: 'develop_topology', label: 'Topology', component: TopologyDoc},
-      {route: 'develop_video', label: 'Video', component: VideoDoc}
+      {route: 'develop_video', label: 'Video', component: VideoDoc},
+      {route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc}
     ]
   },
   {label: 'Utils',
     contents: [
+      {route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc},
       {route: 'develop_rest', label: 'Rest', component: RestDoc},
       {route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc}
     ]
@@ -150,7 +159,9 @@ var CONTENTS = [
       {route: 'develop_integration', label: 'Integration',
         component: Integration},
       {route: 'develop_accessibility', label: 'Accessibility',
-        component: Accessibility}
+        component: Accessibility},
+      {route: 'develop_browser_support', label: 'Browser Support',
+        component: BrowserSupport}
     ]
   }
 ];

@@ -1,69 +1,68 @@
-var React = require('react');
-var DocsArticle = require('../../DocsArticle');
-var Image = require('grommet/components/Image');
+import React from 'react';
 
-var inline =
-      "<Image src=\"...\" />";
+import Image from 'grommet/components/Image';
 
-var ImageDoc = React.createClass({
-  render: function() {
-    return (
-      <DocsArticle title="Image" colorIndex="neutral-3">
+import DocsArticle from '../../DocsArticle';
+import Example from '../Example';
 
-        <p>An image.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+Image.displayName = 'Image';
 
-        <section>
-          <h2>Options</h2>
-          <dl>
-            <dt><code>full       true|horizontal|vertical|false</code></dt>
-            <dd>Whether the width and/or height should take the full viewport size.</dd>
-            <dt><code>size       small|medium|large</code></dt>
-            <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
-            <dt><code>src        {"{string}"}</code></dt>
-            <dd>The actual image file source.</dd>
-          </dl>
-        </section>
+const ImageDoc = () => {
+  return (
+    <DocsArticle title="Image" colorIndex="neutral-3">
 
-        <section>
-          <h2>Examples</h2>
+      <p>An image.</p>
+      <pre><code className="html hljs xml">
+        {`<Image src="..." />`}
+      </code></pre>
 
-          <h3>Default</h3>
-          <div className="example">
+      <section>
+        <h2>Options</h2>
+        <dl>
+          <dt><code>caption       true|{"{string}"}</code></dt>
+          <dd>Whether to add image caption or not. If set to true, caption text
+            will be the image alt value. Also, caption can receive the text to be
+            used instead of the default one.</dd>
+          <dt><code>full       true|horizontal|vertical|false</code></dt>
+          <dd>Whether the width and/or height should take the full viewport size.</dd>
+          <dt><code>size       small|medium|large|thumb</code></dt>
+          <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
+          <dt><code>src        {"{string}"}</code></dt>
+          <dd>The actual image file source.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Examples</h2>
+
+        <Example name="Default" code={
           <Image src="img/carousel-1.png" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" />"}
-          </code></pre>
+        } />
 
-          <h3>Small</h3>
-          <div className="example">
+        <Example name="Thumb" code={
+          <Image src="img/carousel-1.png" size="thumb" />
+        } />
+
+        <Example name="Small" code={
           <Image src="img/carousel-1.png" size="small" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" size=\"small\" />"}
-          </code></pre>
+        } />
 
-          <h3>Large</h3>
-          <div className="example">
+        <Example name="Large" code={
           <Image src="img/carousel-1.png" size="large" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" size=\"large\" />"}
-          </code></pre>
+        } />
 
-          <h3>Full horizontal</h3>
-          <div className="example">
+        <Example name="Full horizontal" code={
           <Image src="img/carousel-1.png" full="horizontal" />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Image src=\"...\" full=\"horizontal\" />"}
-          </code></pre>
-        </section>
+        } />
 
-      </DocsArticle>
-    );
-  }
-});
+        <Example name="Caption" code={
+          <Image src="img/carousel-1.png" caption="1. Sample Image" />
+        } />
 
-module.exports = ImageDoc;
+      </section>
+
+    </DocsArticle>
+  );
+};
+
+export default ImageDoc;

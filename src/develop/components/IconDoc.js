@@ -88,14 +88,17 @@ var IconDoc = React.createClass({
       var iconText = iconName.replace(this.state.inputData, function (g) {
         return g ? '<strong>' + g + '</strong>' : '';
       });
+
       const name = iconName.replace(/^(.)|-([a-z])/g, function (g) {
         return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
       });
 
+      var Icon = require(`grommet/components/icons/base/${name}`);
+
       return (
         <Tile key={'tile_' + index} direction="row"
           align="center" justify="start">
-          <Button icon={name} onClick={this._onIconSelect} />
+          <Button icon={<Icon />} onClick={this._onIconSelect} />
           <span dangerouslySetInnerHTML={{__html: iconText}} />
         </Tile>
       );

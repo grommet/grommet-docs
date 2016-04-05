@@ -8,6 +8,11 @@ var Brick = require('grommet/components/Brick');
 var Box = require('grommet/components/Box');
 var GrommetLogo = require('grommet/components/icons/Grommet');
 
+Brick.displayName = 'Brick';
+Bricks.displayName = 'Bricks';
+Box.displayName = 'Box';
+GrommetLogo.displayName = 'GrommetLogo';
+
 function convertBrickToString(brickJSX) {
   return jsxToString(brickJSX);
 }
