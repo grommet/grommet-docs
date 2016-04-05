@@ -8,7 +8,7 @@
   margin-right: $inuit-base-spacing-unit;
   margin-bottom: double($inuit-base-spacing-unit);
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     top: round($inuit-base-spacing-unit * 3);
@@ -19,7 +19,7 @@
   &.brand {
     background-color: $brand-color;
 
-    &:after {
+    &::after {
       content: "#{$brand-color}";
     }
   }
@@ -28,7 +28,7 @@
     &.accent-#{$i} {
       background-color: nth($brand-accent-colors, $i);
 
-      &:after {
+      &::after {
         content: "#{nth($brand-accent-colors, $i)}";
       }
     }
@@ -38,7 +38,7 @@
     &.neutral-#{$i} {
       background-color: nth($brand-neutral-colors, $i);
 
-      &:after {
+      &::after {
         content: "#{nth($brand-neutral-colors, $i)}";
       }
     }
@@ -48,7 +48,7 @@
     &.status-#{$status} {
       background-color: $color;
 
-      &:after {
+      &::after {
         content: "#{$color}";
       }
     }
@@ -58,7 +58,7 @@
     &.graph-#{$i} {
       background-color: nth($brand-graph-colors, $i);
 
-      &:after {
+      &::after {
         content: "#{nth($brand-graph-colors, $i)}";
       }
     }
