@@ -49,8 +49,8 @@ var SidebarDoc = React.createClass({
               Deprecated, use <Link to={this.context.routePrefix + "box"}>Box colorIndex</Link>.</dd>
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
-            <dt><code>full    true|false</code></dt>
-            <dd>Whether the sidebar should take up the full browser height or not.</dd>
+            <dt><code>full       true|false</code></dt>
+            <dd>Whether the sidebar should take up the full browser height or not.  Default is true.</dd>
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
         </section>
