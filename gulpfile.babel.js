@@ -1,86 +1,22 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-var argv = require('yargs').argv;
-var gulp = require('gulp');
-var path = require('path');
-var fs = require('fs');
-var sass = require('gulp-sass');
-var rename = require('gulp-rename');
-var minifyCss = require('gulp-cssnano');
-var devGulpTasks = require('grommet/utils/gulp/gulp-tasks');
-var webpack = require('webpack');
-var gulpWebpack = require('webpack-stream');
-var git = require('gulp-git');
-var del = require('del');
-var http = require('http');
-var mkdirp = require('mkdirp');
-var replace = require('gulp-replace');
-var runSequence = require('run-sequence');
-
-var opts = {
-  base: '.',
-  publicPath: 'docs',
-  dist: path.resolve(__dirname, 'dist/'),
-  copyAssets: [
-    'src/index.html',
-    'src/robots.txt',
-    {
-      asset: 'src/develop/img/**',
-      dist: 'dist/img/'
-    },
-    {
-      asset: 'src/design/img/**',
-      dist: 'dist/img/'
-    },
-    {
-      asset: 'src/img/**',
-      dist: 'dist/img/'
-    },
-    {
-      asset: 'design/**',
-      dist: 'dist/assets/design/'
-    },
-    {
-      asset: 'node_modules/grommet/*.min.js',
-      dist: 'dist/assets/latest/'
-    },
-    {
-      asset: 'node_modules/grommet/*.min.css',
-      dist: 'dist/assets/latest/css/'
-    },
-    {
-      asset: 'node_modules/grommet/img/**',
-      dist: 'dist/img/'
-    },
-    {
-      asset: 'src/video/**',
-      dist: 'dist/video/'
-    }
-  ],
-  scssAssets: ['src/scss/**/*.scss'],
-  jsAssets: ['src/**/*.js'],
-  mainJs: 'src/index.js',
-  mainScss: 'src/scss/index.scss',
-  webpack: {
-    resolve: {
-      root: [
-        path.resolve(__dirname, './node_modules')
-      ]
-    }
-  },
-  devServerPort: 8002,
-  // devServerHost: "0.0.0.0",
-  scsslint: true,
-  alias: {
-    'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
-    'grommet': path.resolve(__dirname, '../grommet/src/js')
-  },
-  devPreprocess: [
-    'set-webpack-alias', 'dist-css', 'generate-icons-map', 'watch-css'
-  ],
-  distPreprocess: ['set-webpack-alias', 'dist-css', 'generate-icons-map',
-    'generate-server-routes']
-};
+import yargs from 'yargs';
+const argv = yargs.argv;
+import gulp from 'gulp';
+import path from 'path';
+import fs from 'fs';
+import sass from 'gulp-sass';
+import rename from 'gulp-rename';
+import minifyCss from 'gulp-cssnano';
+import grommetToolbox, {getOptions} from 'grommet-toolbox';
+import webpack from 'webpack';
+import gulpWebpack from 'webpack-stream';
+import git from 'gulp-git';
+import del from 'del';
+import http from 'http';
+import mkdirp from 'mkdirp';
+import replace from 'gulp-replace';
+import runSequence from 'run-sequence';
 
 function distSass() {
   return sass({
@@ -92,17 +28,18 @@ function distSass() {
   });
 }
 
-var host = opts.devServerHost ? opts.devServerHost : 'localhost';
+const options = getOptions();
+var host = options.devServerHost ? options.devServerHost : 'localhost';
 
 gulp.task('set-webpack-alias', function () {
-  if (opts.alias && argv.useAlias) {
+  if (options.alias && argv.useAlias) {
     console.log('Using local alias for development.');
-    opts.webpack.resolve.alias = opts.alias;
+    options.webpack.resolve.alias = options.alias;
   }
 });
 
 gulp.task('watch-css', function() {
-  if (opts.webpack.resolve.alias) {
+  if (options.webpack.resolve.alias) {
     var watcher = gulp.watch(
       path.resolve(__dirname, '../grommet/src/scss/**/*.scss'),
       ['dist-css']
@@ -111,14 +48,14 @@ gulp.task('watch-css', function() {
     watcher.on('change', function() {
       //notify the webpack dev server that a change happened
       http.get(
-        'http://' + host + ':' + opts.devServerPort + '/invalid'
+        'http://' + host + ':' + options.devServerPort + '/invalid'
       );
     });
   }
 });
 
 function distCss (name) {
-  var prefix = opts.webpack.resolve.alias ? 'grommet/' : '';
+  var prefix = options.webpack.resolve.alias ? 'grommet/' : '';
   return gulp.src('src/scss/index-' + name + '.scss')
     .pipe(replace(prefix, ''))
     .pipe(distSass())
@@ -148,10 +85,10 @@ gulp.task('dist-css-vanilla', function () {
 });
 
 gulp.task('notify', function () {
-  if (opts.webpack.resolve.alias) {
+  if (options.webpack.resolve.alias) {
     //notify the webpack dev server to reload when compilation is finished
     http.get(
-      'http://' + host + ':' + opts.devServerPort + '/reload'
+      'http://' + host + ':' + options.devServerPort + '/reload'
     );
   }
 });
@@ -317,4 +254,4 @@ gulp.task('release:heroku', ['dist', 'release:createTmp'], function(done) {
   }
 });
 
-devGulpTasks(gulp, opts);
+grommetToolbox(gulp, options);
