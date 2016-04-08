@@ -28,15 +28,15 @@ var SocialShareDoc = React.createClass({
     var inline = `<SocialShare />`;
 
     var defaultSocialShare = (
-      <SocialShare link="http://grommet.io" />
+      <SocialShare type="facebook" link="http://grommet.io" />
     );
 
     var twitterSocialShare = (
-      <SocialShare type="twitter" text="User Experience for the Enterprise" link="http://grommet.io" />
+      <SocialShare type="twitter" link="http://grommet.io" text="User Experience for the Enterprise" />
     );
 
     var linkedinSocialShare = (
-      <SocialShare type="linkedin" title="Grommet" text="User Experience for the Enterprise" link="http://grommet.io" />
+      <SocialShare type="linkedin" link="http://grommet.io" title="Grommet" text="User Experience for the Enterprise" />
     );
 
     var googleSocialShare = (
@@ -52,7 +52,7 @@ var SocialShareDoc = React.createClass({
           <h2>Options</h2>
           <dl>
             <dt><code>type         {"facebook|twitter|linkedin|google"}</code></dt>
-            <dd>Which social network to share link to. Defaults to <code>facebook</code>.</dd>
+            <dd>Which social network to share link to. Required.</dd>
             <dt><code>link         {"{string}"}</code></dt>
             <dd>Link to share. Required.</dd>
             <dt><code>text         {"{string}"}</code></dt>
@@ -65,7 +65,7 @@ var SocialShareDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          {this._renderSocialShareCode('Default - Facebook', defaultSocialShare)}
+          {this._renderSocialShareCode('Facebook', defaultSocialShare)}
           {this._renderSocialShareCode('Twitter', twitterSocialShare)}
           {this._renderSocialShareCode('Linkedin', linkedinSocialShare)}
           {this._renderSocialShareCode('Google Plus', googleSocialShare)}
