@@ -1,35 +1,35 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var jsxToString = require('jsx-to-string');
-var stringify = require("json-stringify-pretty-compact");
-var DocsArticle = require('../../DocsArticle');
-var Meter = require('grommet/components/Meter');
-var FormField = require('grommet/components/FormField');
-var RadioButton = require('grommet/components/RadioButton');
-var CheckBox = require('grommet/components/CheckBox');
+import React, { Component } from 'react';
+import stringify from "json-stringify-pretty-compact";
+import DocsArticle from '../../DocsArticle';
+import Example from '../Example';
+import Meter from 'grommet/components/Meter';
+import FormField from 'grommet/components/FormField';
+import RadioButton from 'grommet/components/RadioButton';
+import CheckBox from 'grommet/components/CheckBox';
 
 Meter.displayName = 'Meter';
 FormField.displayName = 'FormField';
 RadioButton.displayName = 'RadioButton';
 CheckBox.displayName = 'CheckBox';
 
-var inline =
+const inline =
   "<Meter value={70} total={100} units=\"GB\" />";
 
-var simpleValue = 40;
-var simpleMin = {value: 0, label: '0 GB'};
-var simpleMax = {value: 80, label: '80 GB'};
-var simpleThreshold = 75;
-var simpleUnits = 'GB';
+let simpleValue = 40;
+let simpleMin = {value: 0, label: '0 GB'};
+let simpleMax = {value: 80, label: '80 GB'};
+let simpleThreshold = 75;
+let simpleUnits = 'GB';
 
-var thresholds = [
+let thresholds = [
   // {label: 'OK', value: 0, colorIndex: 'ok'},
   {label: 'Warning', value: 60, colorIndex: 'warning'},
   {label: 'Error', value: 70, colorIndex: 'error'}
 ];
 
-var series = [
+let series = [
   {label: 'Gen 7', value: 50},
   {label: 'Gen 8', value: 200},
   {label: 'Gen 9', value: 100},
@@ -37,7 +37,7 @@ var series = [
   // {label: 'Gen 11', value: 100}
 ];
 
-var clickableSeries = [
+let clickableSeries = [
   {label: 'Gen 7', value: 50, onClick: function () {
     alert('You\'ve clicked Gen 7');
   }},
@@ -51,7 +51,7 @@ var clickableSeries = [
     alert('You\'ve clicked Gen 10');
   }}
 ];
-var clickableSeriesDoc = clickableSeries.map(function (item) {
+let clickableSeriesDoc = clickableSeries.map(function (item) {
   return {
     label: item.label,
     value: item.value,
@@ -59,278 +59,107 @@ var clickableSeriesDoc = clickableSeries.map(function (item) {
   };
 });
 
-var statusSeries = [
+let statusSeries = [
   {label: 'OK', value: 70, colorIndex: 'ok'},
   {label: 'Warning', value: 15, colorIndex: 'warning'},
   {label: 'Error', value: 5, colorIndex: 'error'}
 ];
-var statusSeriesMax = 90;
+let statusSeriesMax = 90;
 
-var storageSeries = [
+let storageSeries = [
   {label: 'Physical', value: 700},
   {label: 'Subscribed', value: 1200},
   {label: 'Allocated', value: 500}
 ];
 
-function convertMeterToString (meterJSX) {
-  return jsxToString(meterJSX, {
-    ignoreProps: ['a11yTitleId', 'a11yDescId']
-  });
-}
+export default class MeterDoc extends Component {
 
-//hjjs configuration
-var hljs = require('highlight.js/lib/highlight');
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
-hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-
-var MeterDoc = React.createClass({
-
-  getInitialState: function () {
-    return {simpleValue: simpleValue,
-      type: 'bar', valueType: 'single'
+  constructor () {
+    super();
+    this._onChangeValueType = this._onChangeValueType.bind(this);
+    this._onChangeSimpleValue = this._onChangeSimpleValue.bind(this);
+    this._onChangeSeriesValue = this._onChangeSeriesValue.bind(this);
+    this._onChangeSize = this._onChangeSize.bind(this);
+    this._onChangeType = this._onChangeType.bind(this);
+    this._onChangeVertical = this._onChangeVertical.bind(this);
+    this._onChangeStacked = this._onChangeStacked.bind(this);
+    this._onChangeLegend = this._onChangeLegend.bind(this);
+    this._onChangeThreshold = this._onChangeThreshold.bind(this);
+    this.state = {
+      simpleValue: simpleValue,
+      seriesValue: [
+        {label: 'Gen 7', value: 50},
+        {label: 'Gen 8', value: 200},
+        {label: 'Gen 9', value: 100},
+        {label: 'Gen 10', value: 300}
+      ],
+      type: 'bar',
+      valueType: 'single'
     };
-  },
+  }
 
-  componentDidMount: function () {
-    this._highlightCode();
-  },
+  _onChangeValueType (valueType) {
+    this.setState({ valueType: valueType });
+  }
 
-  componentDidUpdate: function () {
-    this._highlightCode();
-  },
+  _onChangeSimpleValue (event) {
+    this.setState({ simpleValue: parseInt(event.target.value, 10) });
+  }
 
-  _highlightCode: function () {
-    var nodes = document.querySelectorAll('pre code');
-    for (var i = 0; i < nodes.length; i++) {
-      hljs.highlightBlock(nodes[i]);
-    }
-  },
+  _onChangeSeriesValue (event) {
+    const { seriesValue } = this.state;
+    // extract index from name
+    const index = parseInt(event.target.getAttribute('name').split('-')[1], 10);
+    let nextSeriesValue = seriesValue.slice(0);
+    nextSeriesValue[index] = {
+      label: seriesValue[index].label,
+      value: parseInt(event.target.value, 10)
+    };
+    console.log("!!! _onChangeSeriesValue", index, nextSeriesValue);
+    this.setState({ seriesValue: nextSeriesValue });
+  }
 
-  _onChangeValueType: function (valueType) {
-    this.setState({valueType: valueType});
-  },
+  _onChangeSize (size) {
+    this.setState({ size: size });
+  }
 
-  _onChangeSimpleValue: function (event) {
-    this.setState({simpleValue: parseInt(event.target.value)});
-  },
+  _onChangeType (type) {
+    this.setState({ type: type });
+  }
 
-  _onChangeSize: function (size) {
-    this.setState({size: size});
-  },
+  _onChangeVertical () {
+    this.setState({ vertical: ! this.state.vertical });
+  }
 
-  _onChangeType: function (type) {
-    this.setState({type: type});
-  },
+  _onChangeStacked () {
+    this.setState({ stacked: ! this.state.stacked });
+  }
 
-  _onChangeVertical: function () {
-    this.setState({vertical: ! this.state.vertical});
-  },
+  _onChangeLegend () {
+    this.setState({ legend: ! this.state.legend });
+  }
 
-  _onChangeStacked: function () {
-    this.setState({stacked: ! this.state.stacked});
-  },
+  _onChangeThreshold () {
+    this.setState({ threshold: ! this.state.threshold });
+  }
 
-  _onChangeLegend: function () {
-    this.setState({legend: ! this.state.legend});
-  },
-
-  _onChangeThreshold: function () {
-    this.setState({threshold: ! this.state.threshold});
-  },
-
-  _renderMeterCode(heading, meterJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <div className="example">
-          {meterJSX}
-        </div>
-        <pre><code className="html hljs xml">
-          {convertMeterToString(meterJSX)}
-        </code></pre>
-      </div>
-    );
-  },
-
-  render: function() {
-    var simpleValueInput;
+  render () {
+    let simpleValueInput, seriesValueInputs;
     if ('single' === this.state.valueType) {
       simpleValueInput = (
         <input id="value" name="value" type="range"
           min="0" max="80" value={this.state.simpleValue}
           onChange={this._onChangeSimpleValue}/>
       );
+    } else if ('multiple' === this.state.valueType) {
+      seriesValueInputs = Array.apply(null, Array(4)).map((_, index) => (
+        <input key={index} id={`value-${index}`} name={`value-${index}`}
+          type="range" min="0" max="400"
+          value={this.state.seriesValue[index].value}
+          onChange={this._onChangeSeriesValue}/>
+      ));
     }
 
-    var barMeter = (
-      <Meter value={this.state.simpleValue} a11yTitleId='meter-title-1'
-        a11yDescId='meter-desc-1' />
-    );
-
-    var barVerticalMeter = (
-      <Meter value={this.state.simpleValue} vertical={true}
-        a11yTitleId='meter-title-2' a11yDescId='meter-desc-2' />
-    );
-
-    var arcMeter = (
-      <Meter value={this.state.simpleValue} type="arc"
-        a11yTitleId='meter-title-3' a11yDescId='meter-desc-3' />
-    );
-
-    var arcVerticalMeter = (
-      <Meter value={this.state.simpleValue} type="arc" vertical={true}
-        a11yTitleId='meter-title-4' a11yDescId='meter-desc-4' />
-    );
-
-    var circleMeter = (
-      <Meter value={this.state.simpleValue} type="circle"
-        a11yTitleId='meter-title-5' a11yDescId='meter-desc-5' />
-    );
-
-    var spiralMeter = (
-      <Meter value={this.state.simpleValue} type="spiral"
-        a11yTitleId='meter-title-6' a11yDescId='meter-desc-6' />
-    );
-
-    var complexBarMeter = (
-      <Meter value={this.state.simpleValue} units={simpleUnits}
-        min={simpleMin} max={simpleMax} threshold={simpleThreshold}
-        a11yTitleId='meter-title-7' a11yDescId='meter-desc-7' />
-    );
-
-    var complexVerticalBarMeter = (
-      <Meter value={this.state.simpleValue} min={simpleMin} max={simpleMax}
-        threshold={simpleThreshold} units={simpleUnits} vertical={true}
-        a11yTitleId='meter-title-8' a11yDescId='meter-desc-8' />
-    );
-
-    var complexArcMeter = (
-      <Meter type="arc" value={this.state.simpleValue} units={simpleUnits}
-        min={simpleMin} max={simpleMax} thresholds={thresholds}
-        a11yTitleId='meter-title-9' a11yDescId='meter-desc-9' />
-    );
-
-    var complexVerticalMeter = (
-      <Meter type="arc" value={this.state.simpleValue}
-        min={simpleMin} max={simpleMax} threshold={simpleThreshold}
-        units={simpleUnits} vertical={true}
-        a11yTitleId='meter-title-10' a11yDescId='meter-desc-10' />
-    );
-
-    var complexCircleMeter = (
-      <Meter type="circle" value={this.state.simpleValue} units={simpleUnits}
-        min={simpleMin} max={simpleMax} threshold={simpleThreshold}
-        a11yTitleId='meter-title-11' a11yDescId='meter-desc-11' />
-    );
-
-    var barLegendMeter = (
-      <Meter legend={true} series={series}
-        a11yTitleId='meter-title-12' a11yDescId='meter-desc-12' />
-    );
-
-    var barInlineLegendMeter = (
-      <Meter legend={{placement: 'inline'}} series={series}
-        a11yTitleId='meter-title-12' a11yDescId='meter-desc-12' />
-    );
-
-    var barVerticalLegendMeter = (
-      <Meter legend={{total: true}} series={series} vertical={true}
-        a11yTitleId='meter-title-13' a11yDescId='meter-desc-13' />
-    );
-
-    var arcLegendMeter = (
-      <Meter type="arc" legend={true} series={series}
-        a11yTitleId='meter-title-14' a11yDescId='meter-desc-14' />
-    );
-
-    var arcVerticalLegendMeter = (
-      <Meter type="arc" legend={true} series={storageSeries}
-        vertical={true} units="TB"
-        a11yTitleId='meter-title-15' a11yDescId='meter-desc-15' />
-    );
-
-    var circleLegendMeter = (
-      <Meter type="circle" legend={true} series={series}
-        a11yTitleId='meter-title-16' a11yDescId='meter-desc-16' />
-    );
-
-    var complexSpiralMeter = (
-      <Meter type="spiral" series={statusSeries} max={statusSeriesMax}
-        a11yTitleId='meter-title-17' a11yDescId='meter-desc-17' />
-    );
-
-    var complexStorageMeter = (
-      <Meter type="spiral" series={storageSeries} units="TB"
-        a11yTitleId='meter-title-18' a11yDescId='meter-desc-18' />
-    );
-
-    var stackedBarMeter = (
-      <Meter legend={true} series={series} stacked={true}
-        a11yTitleId='meter-title-19' a11yDescId='meter-desc-19' />
-    );
-
-    var smallBarMeter = (
-      <Meter value={this.state.simpleValue} size="small"
-        a11yTitleId='meter-title-20' a11yDescId='meter-desc-20' />
-    );
-
-    var smallArcMeter = (
-      <Meter value={this.state.simpleValue} type="arc" size="small"
-        a11yTitleId='meter-title-21' a11yDescId='meter-desc-21' />
-    );
-
-    var smallCircleMeter = (
-      <Meter value={this.state.simpleValue} type="circle" size="small"
-        a11yTitleId='meter-title-22' a11yDescId='meter-desc-22' />
-    );
-
-    var largeBarMeter = (
-      <Meter value={this.state.simpleValue} size="large"
-        a11yTitleId='meter-title-23' a11yDescId='meter-desc-23' />
-    );
-
-    var largeArcMeter = (
-      <Meter value={this.state.simpleValue} type="arc" size="large"
-        a11yTitleId='meter-title-24' a11yDescId='meter-desc-24' />
-    );
-
-    var largeCircleMeter = (
-      <Meter value={this.state.simpleValue} type="circle" size="large"
-        a11yTitleId='meter-title-25' a11yDescId='meter-desc-25' />
-    );
-
-    var loadingBarMeter = (
-      <Meter value={undefined} a11yTitleId='meter-title-26'
-        a11yDescId='meter-desc-26' />
-    );
-
-    var loadingArcMeter = (
-      <Meter value={undefined} type="arc"
-        a11yTitleId='meter-title-27' a11yDescId='meter-desc-27' />
-    );
-
-    var loadingSpiralMeter = (
-      <Meter value={undefined} type="spiral"
-        a11yTitleId='meter-title-28' a11yDescId='meter-desc-28' />
-    );
-
-    var customExampleMeter = (
-      <Meter
-        value={'single' === this.state.valueType ?
-          this.state.simpleValue : undefined}
-        legend={this.state.legend}
-        max={(this.state.stacked || 'multiple' !== this.state.valueType) ?
-          undefined : 400}
-        series={'multiple' === this.state.valueType ? series : undefined}
-        size={this.state.size}
-        stacked={this.state.stacked}
-        threshold={this.state.threshold ?
-          ('single' === this.state.valueType ? 90 : 360) : undefined}
-        type={this.state.type}
-        vertical={this.state.vertical} />
-    );
     return (
       <DocsArticle title="Meter" colorIndex="neutral-3">
 
@@ -384,39 +213,64 @@ var MeterDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          {this._renderMeterCode('Bar', barMeter)}
-          {this._renderMeterCode('Bar, Vertical', barVerticalMeter)}
-          {this._renderMeterCode('Arc', arcMeter)}
-          {this._renderMeterCode('Arc, Vertical', arcVerticalMeter)}
-          {this._renderMeterCode('Circle', circleMeter)}
-          {this._renderMeterCode('Spiral', spiralMeter)}
-          {this._renderMeterCode(
-            'Bar, Min, Max, Units, Threshold', complexBarMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Min, Max, Units, Thresholds, Vertical',
-            complexVerticalBarMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Min, Max, Units, Thresholds',
-            complexArcMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Min, Max, Units, Thresholds, Vertical',
-            complexVerticalMeter)
-          }
-          {this._renderMeterCode(
-            'Circle, Min, Max, Units, Threshold',
-            complexCircleMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Series, Legend',
-            barLegendMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Series, Inline Legend',
-            barInlineLegendMeter)
-          }
+          <Example name="Bar" code={
+            <Meter value={this.state.simpleValue} a11yTitleId='meter-title-1'
+              a11yDescId='meter-desc-1' />
+          } />
+          <Example name="Bar, Vertical" code={
+            <Meter value={this.state.simpleValue} vertical={true}
+              a11yTitleId='meter-title-2' a11yDescId='meter-desc-2' />
+          } />
+          <Example name="Arc" code={
+            <Meter value={this.state.simpleValue} type="arc"
+              a11yTitleId='meter-title-3' a11yDescId='meter-desc-3' />
+          } />
+          <Example name="Arc, Vertical" code={
+            <Meter value={this.state.simpleValue} type="arc" vertical={true}
+              a11yTitleId='meter-title-4' a11yDescId='meter-desc-4' />
+          } />
+          <Example name="Circle" code={
+            <Meter value={this.state.simpleValue} type="circle"
+              a11yTitleId='meter-title-5' a11yDescId='meter-desc-5' />
+          } />
+          <Example name="Spiral" code={
+            <Meter value={this.state.simpleValue} type="spiral"
+              a11yTitleId='meter-title-6' a11yDescId='meter-desc-6' />
+          } />
+          <Example name="Bar, Min, Max, Units, Threshold" code={
+            <Meter value={this.state.simpleValue} units={simpleUnits}
+              min={simpleMin} max={simpleMax} threshold={simpleThreshold}
+              a11yTitleId='meter-title-7' a11yDescId='meter-desc-7' />
+          } />
+          <Example name="Bar, Min, Max, Units, Thresholds, Vertical" code={
+            <Meter value={this.state.simpleValue} min={simpleMin} max={simpleMax}
+              threshold={simpleThreshold} units={simpleUnits} vertical={true}
+              a11yTitleId='meter-title-8' a11yDescId='meter-desc-8' />
+          } />
+          <Example name="Arc, Min, Max, Units, Thresholds" code={
+            <Meter type="arc" value={this.state.simpleValue} units={simpleUnits}
+              min={simpleMin} max={simpleMax} thresholds={thresholds}
+              a11yTitleId='meter-title-9' a11yDescId='meter-desc-9' />
+          } />
+          <Example name="Arc, Min, Max, Units, Thresholds, Vertical" code={
+            <Meter type="arc" value={this.state.simpleValue}
+              min={simpleMin} max={simpleMax} threshold={simpleThreshold}
+              units={simpleUnits} vertical={true}
+              a11yTitleId='meter-title-10' a11yDescId='meter-desc-10' />
+          } />
+          <Example name="Circle, Min, Max, Units, Threshold" code={
+            <Meter type="circle" value={this.state.simpleValue} units={simpleUnits}
+              min={simpleMin} max={simpleMax} threshold={simpleThreshold}
+              a11yTitleId='meter-title-11' a11yDescId='meter-desc-11' />
+          } />
+          <Example name="Bar, Series, Legend" code={
+            <Meter legend={true} series={series} max={400}
+              a11yTitleId='meter-title-12' a11yDescId='meter-desc-12' />
+          } />
+          <Example name="Bar, Series, Inline Legend" code={
+            <Meter legend={{placement: 'inline'}} series={series}
+              a11yTitleId='meter-title-12' a11yDescId='meter-desc-12' />
+          } />
 
           <h3>Bar, Legend, onClick</h3>
           <div className="example">
@@ -427,77 +281,90 @@ var MeterDoc = React.createClass({
             {"<Meter legend={true} series={" + stringify(clickableSeriesDoc, null, '  ') + "}  />"}
           </code></pre>
 
-          {this._renderMeterCode(
-            'Bar, Series, Legend, Vertical',
-            barVerticalLegendMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Series, Legend',
-            arcLegendMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Series, Legend, Vertical, Units',
-            arcVerticalLegendMeter)
-          }
-          {this._renderMeterCode(
-            'Circle, Series, Legend',
-            circleLegendMeter)
-          }
-          {this._renderMeterCode(
-            'Spiral, Series, Status',
-            complexSpiralMeter)
-          }
-          {this._renderMeterCode(
-            'Spiral, Series, Storage',
-            complexStorageMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Series, Stacked, Legend',
-            stackedBarMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Small',
-            smallBarMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Small',
-            smallArcMeter)
-          }
-          {this._renderMeterCode(
-            'Circle, Small',
-            smallCircleMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Large',
-            largeBarMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Large',
-            largeArcMeter)
-          }
-          {this._renderMeterCode(
-            'Circle, Large',
-            largeCircleMeter)
-          }
-          {this._renderMeterCode(
-            'Bar, Loading',
-            loadingBarMeter)
-          }
-          {this._renderMeterCode(
-            'Arc, Loading',
-            loadingArcMeter)
-          }
-          {this._renderMeterCode(
-            'Spiral, Loading',
-            loadingSpiralMeter)
-          }
+          <Example name="Bar, Series, Legend, Vertical" code={
+            <Meter legend={{total: true}} series={series} vertical={true}
+              a11yTitleId='meter-title-13' a11yDescId='meter-desc-13' />
+          } />
+          <Example name="Arc, Series, Legend" code={
+            <Meter type="arc" legend={true} series={series}
+              a11yTitleId='meter-title-14' a11yDescId='meter-desc-14' />
+          } />
+          <Example name="Arc, Series, Legend, Vertical, Units" code={
+            <Meter type="arc" legend={true} series={storageSeries}
+              vertical={true} units="TB"
+              a11yTitleId='meter-title-15' a11yDescId='meter-desc-15' />
+          } />
+          <Example name="Circle, Series, Legend" code={
+            <Meter type="circle" legend={true} series={series}
+              a11yTitleId='meter-title-16' a11yDescId='meter-desc-16' />
+          } />
+          <Example name="Spiral, Series, Status" code={
+            <Meter type="spiral" series={statusSeries} max={statusSeriesMax}
+              a11yTitleId='meter-title-17' a11yDescId='meter-desc-17' />
+          } />
+          <Example name="Spiral, Series, Storage" code={
+            <Meter type="spiral" series={storageSeries} units="TB"
+              a11yTitleId='meter-title-18' a11yDescId='meter-desc-18' />
+          } />
+          <Example name="Bar, Series, Stacked, Legend" code={
+            <Meter legend={true} series={series} stacked={true}
+              a11yTitleId='meter-title-19' a11yDescId='meter-desc-19' />
+          } />
+          <Example name="Bar, Small" code={
+            <Meter value={this.state.simpleValue} size="small"
+              a11yTitleId='meter-title-20' a11yDescId='meter-desc-20' />
+          } />
+          <Example name="Arc, Small" code={
+            <Meter value={this.state.simpleValue} type="arc" size="small"
+              a11yTitleId='meter-title-21' a11yDescId='meter-desc-21' />
+          } />
+          <Example name="Circle, Small" code={
+            <Meter value={this.state.simpleValue} type="circle" size="small"
+              a11yTitleId='meter-title-22' a11yDescId='meter-desc-22' />
+          } />
+          <Example name="Bar, Large" code={
+            <Meter value={this.state.simpleValue} size="large"
+              a11yTitleId='meter-title-23' a11yDescId='meter-desc-23' />
+          } />
+          <Example name="Arc, Large" code={
+            <Meter value={this.state.simpleValue} type="arc" size="large"
+              a11yTitleId='meter-title-24' a11yDescId='meter-desc-24' />
+          } />
+          <Example name="Circle, Large" code={
+            <Meter value={this.state.simpleValue} type="circle" size="large"
+              a11yTitleId='meter-title-25' a11yDescId='meter-desc-25' />
+          } />
+          <Example name="Bar, Loading" code={
+            <Meter value={undefined} a11yTitleId='meter-title-26'
+              a11yDescId='meter-desc-26' />
+          } />
+          <Example name="Arc, Loading" code={
+            <Meter value={undefined} type="arc"
+              a11yTitleId='meter-title-27' a11yDescId='meter-desc-27' />
+          } />
+          <Example name="Spiral, Loading" code={
+            <Meter value={undefined} type="spiral"
+              a11yTitleId='meter-title-28' a11yDescId='meter-desc-28' />
+          } />
         </section>
 
         <section>
-          {this._renderMeterCode(
-            'Custom Example',
-            customExampleMeter)
-          }
+          <Example name="Custom Example" code={
+            <Meter
+              value={'single' === this.state.valueType ?
+                this.state.simpleValue : undefined}
+              legend={this.state.legend}
+              max={(this.state.stacked || 'multiple' !== this.state.valueType) ?
+                undefined : 400}
+              series={'multiple' === this.state.valueType ?
+                this.state.seriesValue : undefined}
+              size={this.state.size}
+              stacked={this.state.stacked}
+              threshold={this.state.threshold ?
+                ('single' === this.state.valueType ? 90 : 360) : undefined}
+              type={this.state.type}
+              vertical={this.state.vertical} />
+          } />
 
           <FormField label="Value"
             help={'single' === this.state.valueType ? this.state.simpleValue : undefined}>
@@ -508,6 +375,7 @@ var MeterDoc = React.createClass({
             <RadioButton id="value-type-multiple" name="valueType" label="Multiple"
               checked={'multiple' === this.state.valueType}
               onChange={this._onChangeValueType.bind(this, 'multiple')} />
+            {seriesValueInputs}
             <RadioButton id="value-type-none" name="valueType" label="None"
               checked={'none' === this.state.valueType}
               onChange={this._onChangeValueType.bind(this, 'none')} />
@@ -562,6 +430,4 @@ var MeterDoc = React.createClass({
       </DocsArticle>
     );
   }
-});
-
-module.exports = MeterDoc;
+};
