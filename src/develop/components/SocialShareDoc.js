@@ -52,7 +52,7 @@ var SocialShareDoc = React.createClass({
           <h2>Options</h2>
           <dl>
             <dt><code>type         {"facebook|twitter|linkedin|google"}</code></dt>
-            <dd>Which social network to share link to. Default to <code>facebook</code>.</dd>
+            <dd>Which social network to share link to. Defaults to <code>facebook</code>.</dd>
             <dt><code>link         {"{string}"}</code></dt>
             <dd>Link to share. Required.</dd>
             <dt><code>text         {"{string}"}</code></dt>
