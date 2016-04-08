@@ -16386,17 +16386,18 @@ module.exports =
 	var SearchInputDoc = __webpack_require__(486);
 	var SectionDoc = __webpack_require__(487);
 	var SidebarDoc = __webpack_require__(488);
-	var SpinningDoc = __webpack_require__(489);
-	var SplitDoc = __webpack_require__(490);
-	var StatusDoc = __webpack_require__(491);
-	var TabsDoc = __webpack_require__(492);
-	var TableDoc = __webpack_require__(495);
-	var TagsDoc = __webpack_require__(496);
-	var TilesDoc = __webpack_require__(499);
-	var TitleDoc = __webpack_require__(500);
-	var TopologyDoc = __webpack_require__(501);
-	var VideoDoc = __webpack_require__(503);
-	var WorldMapDoc = __webpack_require__(505);
+	var SocialShareDoc = __webpack_require__(489);
+	var SpinningDoc = __webpack_require__(491);
+	var SplitDoc = __webpack_require__(492);
+	var StatusDoc = __webpack_require__(493);
+	var TabsDoc = __webpack_require__(494);
+	var TableDoc = __webpack_require__(497);
+	var TagsDoc = __webpack_require__(498);
+	var TilesDoc = __webpack_require__(501);
+	var TitleDoc = __webpack_require__(502);
+	var TopologyDoc = __webpack_require__(503);
+	var VideoDoc = __webpack_require__(505);
+	var WorldMapDoc = __webpack_require__(507);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(60);
@@ -16412,7 +16413,7 @@ module.exports =
 	}, { label: 'Patterns',
 	  contents: [{ route: 'develop_dashboard', label: 'Dashboard', component: DashboardDoc }, { route: 'develop_navigation', label: 'Navigation', component: NavigationDoc }, { route: 'develop_actions', label: 'Actions', component: ActionsDoc }]
 	}, { label: 'Components',
-	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
+	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_social-share', label: 'SocialShare', component: SocialShareDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
 	}, { label: 'Utils',
 	  contents: [{ route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc }, { route: 'develop_rest', label: 'Rest', component: RestDoc }, { route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc }]
 	}, { label: 'Reference',
@@ -66783,6 +66784,296 @@ module.exports =
 
 	'use strict';
 
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	var React = __webpack_require__(1);
+	var jsxToString = __webpack_require__(127);
+	var DocsArticle = __webpack_require__(58);
+	var SocialShare = __webpack_require__(490);
+
+	function convertSocialShareToString(jsx) {
+	  return jsxToString(jsx);
+	}
+
+	var SocialShareDoc = React.createClass({
+	  displayName: 'SocialShareDoc',
+	  _renderSocialShareCode: function _renderSocialShareCode(SocialShare, SocialShareJSX) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        SocialShare
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'example' },
+	        SocialShareJSX
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          convertSocialShareToString(SocialShareJSX)
+	        )
+	      )
+	    );
+	  },
+
+
+	  render: function render() {
+	    var inline = '<SocialShare />';
+
+	    var defaultSocialShare = React.createElement(SocialShare, { type: 'facebook', link: 'http://grommet.io' });
+
+	    var twitterSocialShare = React.createElement(SocialShare, { type: 'twitter', link: 'http://grommet.io', text: 'User Experience for the Enterprise' });
+
+	    var linkedinSocialShare = React.createElement(SocialShare, { type: 'linkedin', link: 'http://grommet.io', title: 'Grommet', text: 'User Experience for the Enterprise' });
+
+	    var googleSocialShare = React.createElement(SocialShare, { type: 'google', link: 'http://grommet.io' });
+
+	    return React.createElement(
+	      DocsArticle,
+	      { title: 'Social Share', colorIndex: 'neutral-3' },
+	      React.createElement(
+	        'p',
+	        null,
+	        'A social media share icon button.'
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          inline
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Options'
+	        ),
+	        React.createElement(
+	          'dl',
+	          null,
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'type         ',
+	              "facebook|twitter|linkedin|google"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Which social network to share link to. Required.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'link         ',
+	              "{string}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Link to share. Required.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'text         ',
+	              "{string}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Summary or description of link to be shared. Only valid with ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'twitter'
+	            ),
+	            ' and ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'linkedin'
+	            ),
+	            ' type. Optional.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'title        ',
+	              "{string}"
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Title of the link to be shared. Only valid with ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'linkedin'
+	            ),
+	            ' type.  Optional.'
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Examples'
+	        ),
+	        this._renderSocialShareCode('Facebook', defaultSocialShare),
+	        this._renderSocialShareCode('Twitter', twitterSocialShare),
+	        this._renderSocialShareCode('Linkedin', linkedinSocialShare),
+	        this._renderSocialShareCode('Google Plus', googleSocialShare)
+	      )
+	    );
+	  }
+	});
+
+	module.exports = SocialShareDoc;
+
+/***/ },
+/* 490 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Anchor = __webpack_require__(44);
+
+	var _Anchor2 = _interopRequireDefault(_Anchor);
+
+	var _SocialTwitter = __webpack_require__(79);
+
+	var _SocialTwitter2 = _interopRequireDefault(_SocialTwitter);
+
+	var _SocialFacebook = __webpack_require__(81);
+
+	var _SocialFacebook2 = _interopRequireDefault(_SocialFacebook);
+
+	var _SocialGoogle = __webpack_require__(388);
+
+	var _SocialGoogle2 = _interopRequireDefault(_SocialGoogle);
+
+	var _SocialLinkedin = __webpack_require__(80);
+
+	var _SocialLinkedin2 = _interopRequireDefault(_SocialLinkedin);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	var SocialShare = function (_Component) {
+	  _inherits(SocialShare, _Component);
+
+	  function SocialShare() {
+	    _classCallCheck(this, SocialShare);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SocialShare).apply(this, arguments));
+	  }
+
+	  _createClass(SocialShare, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var type = _props.type;
+	      var link = _props.link;
+	      var text = _props.text;
+	      var title = _props.title;
+
+	      var socialIcon = undefined;
+	      var href = '';
+
+	      var encodedLink = encodeURIComponent(link);
+	      var encodedTitle = encodeURIComponent(title);
+	      var encodedText = encodeURIComponent(text);
+
+	      if (type === 'twitter') {
+	        socialIcon = _react2.default.createElement(_SocialTwitter2.default, null);
+	        href = 'https://twitter.com/intent/tweet?url=' + encodedLink + '&text=' + encodedText;
+	      } else if (type === 'linkedin') {
+	        socialIcon = _react2.default.createElement(_SocialLinkedin2.default, null);
+	        href = 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodedLink + '&title=' + encodedTitle + '&summary=' + encodedText;
+	      } else if (type === 'google') {
+	        socialIcon = _react2.default.createElement(_SocialGoogle2.default, null);
+	        href = 'https://plus.google.com/share?url=' + encodedLink;
+	      } else {
+	        socialIcon = _react2.default.createElement(_SocialFacebook2.default, null);
+	        href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodedLink;
+	      }
+
+	      return _react2.default.createElement(_Anchor2.default, { href: href, icon: socialIcon, target: '_blank' });
+	    }
+	  }]);
+
+	  return SocialShare;
+	}(_react.Component);
+
+	exports.default = SocialShare;
+	;
+
+	SocialShare.propTypes = {
+	  type: _react.PropTypes.oneOf(['facebook', 'twitter', 'linkedin', 'google']).isRequired,
+	  link: _react.PropTypes.string.isRequired,
+	  title: _react.PropTypes.string,
+	  text: _react.PropTypes.string
+	};
+
+	SocialShare.defaultProps = {
+	  title: '',
+	  text: ''
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 491 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
 	var Spinning = __webpack_require__(49);
@@ -66840,7 +67131,7 @@ module.exports =
 	module.exports = SpinningDoc;
 
 /***/ },
-/* 490 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67050,7 +67341,7 @@ module.exports =
 	module.exports = SplitDoc;
 
 /***/ },
-/* 491 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67333,7 +67624,7 @@ module.exports =
 	module.exports = StatusDoc;
 
 /***/ },
-/* 492 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67342,8 +67633,8 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Tabs = __webpack_require__(493);
-	var Tab = __webpack_require__(494);
+	var Tabs = __webpack_require__(495);
+	var Tab = __webpack_require__(496);
 	var FormFields = __webpack_require__(155);
 	var FormField = __webpack_require__(94);
 	var Form = __webpack_require__(93);
@@ -67609,7 +67900,7 @@ module.exports =
 	module.exports = TabsDoc;
 
 /***/ },
-/* 493 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67748,7 +68039,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 494 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67857,7 +68148,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 495 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68217,7 +68508,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 496 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68228,8 +68519,8 @@ module.exports =
 	var jsxToString = __webpack_require__(127);
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(58);
-	var Tags = __webpack_require__(497);
-	var Tag = __webpack_require__(498);
+	var Tags = __webpack_require__(499);
+	var Tag = __webpack_require__(500);
 
 	Tags.displayName = 'Tags';
 	Tag.displayName = 'Tag';
@@ -68419,7 +68710,7 @@ module.exports =
 	module.exports = TagsDoc;
 
 /***/ },
-/* 497 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68500,7 +68791,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 498 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68583,7 +68874,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 499 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69184,7 +69475,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 500 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69337,7 +69628,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 501 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69346,7 +69637,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Topology = __webpack_require__(502);
+	var Topology = __webpack_require__(504);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -69819,7 +70110,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 502 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70285,7 +70576,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 503 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70294,7 +70585,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Video = __webpack_require__(504);
+	var Video = __webpack_require__(506);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -70578,7 +70869,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 504 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70896,7 +71187,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 505 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70919,7 +71210,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _WorldMap = __webpack_require__(506);
+	var _WorldMap = __webpack_require__(508);
 
 	var _WorldMap2 = _interopRequireDefault(_WorldMap);
 
@@ -71093,7 +71384,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 506 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
