@@ -45,7 +45,7 @@ var SocialShareDoc = React.createClass({
 
     return (
       <DocsArticle title="Social Share" colorIndex="neutral-3">
-        <p>Social share icons.</p>
+        <p>A social media share icon button.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
@@ -54,11 +54,11 @@ var SocialShareDoc = React.createClass({
             <dt><code>type         {"facebook|twitter|linkedin|google"}</code></dt>
             <dd>Which social network to share link to. Default to <code>facebook</code>.</dd>
             <dt><code>link         {"{string}"}</code></dt>
-            <dd>Link to share.</dd>
+            <dd>Link to share. Required.</dd>
             <dt><code>text         {"{string}"}</code></dt>
-            <dd>Summary or description of link to be shared.</dd>
+            <dd>Summary or description of link to be shared. Only valid with <code>twitter</code> and <code>linkedin</code> type. Optional.</dd>
             <dt><code>title        {"{string}"}</code></dt>
-            <dd>Title of the link to be shared.</dd>
+            <dd>Title of the link to be shared. Only valid with <code>linkedin</code> type.  Optional.</dd>
           </dl>
         </section>
 
