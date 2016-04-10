@@ -27,7 +27,11 @@ var SocialShareDoc = React.createClass({
   render: function() {
     var inline = `<SocialShare />`;
 
-    var defaultSocialShare = (
+    var emailSocialShare = (
+      <SocialShare type="email" link="http://grommet.io" title="Found this from the Grommet.io website" text="User Experience for the Enterprise" />
+    );
+
+    var facebookSocialShare = (
       <SocialShare type="facebook" link="http://grommet.io" />
     );
 
@@ -51,21 +55,22 @@ var SocialShareDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>type         {"facebook|twitter|linkedin|google"}</code></dt>
+            <dt><code>type         {"email|facebook|twitter|linkedin|google"}</code></dt>
             <dd>Which social network to share link to. Required.</dd>
             <dt><code>link         {"{string}"}</code></dt>
             <dd>Link to share. Required.</dd>
             <dt><code>text         {"{string}"}</code></dt>
-            <dd>Summary or description of link to be shared. Only valid with <code>twitter</code> and <code>linkedin</code> type. Optional.</dd>
+            <dd>Summary or description of link to be shared. Only valid with <code>twitter</code>, <code>linkedin</code>, and <code>email</code> type. Optional.</dd>
             <dt><code>title        {"{string}"}</code></dt>
-            <dd>Title of the link to be shared. Only valid with <code>linkedin</code> type.  Optional.</dd>
+            <dd>Title of the link to be shared. Only valid with <code>linkedin</code> and <code>email</code> type.  Optional.</dd>
           </dl>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          {this._renderSocialShareCode('Facebook', defaultSocialShare)}
+          {this._renderSocialShareCode('Email', emailSocialShare)}
+          {this._renderSocialShareCode('Facebook', facebookSocialShare)}
           {this._renderSocialShareCode('Twitter', twitterSocialShare)}
           {this._renderSocialShareCode('Linkedin', linkedinSocialShare)}
           {this._renderSocialShareCode('Google Plus', googleSocialShare)}
