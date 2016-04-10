@@ -60258,9 +60258,9 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames2 = __webpack_require__(22);
+	var _classnames3 = __webpack_require__(22);
 
-	var _classnames3 = _interopRequireDefault(_classnames2);
+	var _classnames4 = _interopRequireDefault(_classnames3);
 
 	var _Label = __webpack_require__(458);
 
@@ -60301,21 +60301,23 @@ module.exports =
 	      var size = _props.size;
 	      var src = _props.src;
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, CLASS_ROOT + '--full', typeof full === 'boolean' && full), _defineProperty(_classnames, CLASS_ROOT + '--full-' + full, typeof full === 'string'), _classnames), className);
+	      var classes = (0, _classnames4.default)(CLASS_ROOT, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, CLASS_ROOT + '--full', typeof full === 'boolean' && full), _defineProperty(_classnames, CLASS_ROOT + '--full-' + full, typeof full === 'string'), _classnames), className);
 
 	      var captionText = typeof caption === 'string' ? caption : alt;
-	      var containerClasses = (0, _classnames3.default)(classes, CLASS_ROOT + '__container');
+	      var imgNode = _react2.default.createElement('img', { id: id, src: src, alt: alt, className: classes });
 
+	      var labelRoot = CLASS_ROOT + '__caption';
+	      var labelClasses = (0, _classnames4.default)(labelRoot, _defineProperty({}, labelRoot + '--' + size, size));
 	      return caption && captionText ? _react2.default.createElement(
 	        'span',
-	        { className: containerClasses },
-	        _react2.default.createElement('img', { id: id, src: src, alt: alt }),
+	        { className: CLASS_ROOT + '__container' },
+	        imgNode,
 	        _react2.default.createElement(
 	          _Label2.default,
-	          { className: CLASS_ROOT + '__caption' },
+	          { className: labelClasses },
 	          captionText
 	        )
-	      ) : _react2.default.createElement('img', { id: id, src: src, alt: alt, className: classes });
+	      ) : imgNode;
 	    }
 	  }]);
 
