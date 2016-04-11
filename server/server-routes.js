@@ -13537,7 +13537,8 @@ module.exports =
 	        total = 0;
 	      }
 	      var seriesMax = undefined;
-	      if (props.series) {
+	      // only care about series max when there are multiple values
+	      if (props.series && props.series.length > 1) {
 	        seriesMax = this._seriesMax(props.series);
 	      }
 	      // Normalize min and max
@@ -66829,7 +66830,9 @@ module.exports =
 	  render: function render() {
 	    var inline = '<SocialShare />';
 
-	    var defaultSocialShare = React.createElement(SocialShare, { type: 'facebook', link: 'http://grommet.io' });
+	    var emailSocialShare = React.createElement(SocialShare, { type: 'email', link: 'http://grommet.io', title: 'Found this from the Grommet.io website', text: 'User Experience for the Enterprise' });
+
+	    var facebookSocialShare = React.createElement(SocialShare, { type: 'facebook', link: 'http://grommet.io' });
 
 	    var twitterSocialShare = React.createElement(SocialShare, { type: 'twitter', link: 'http://grommet.io', text: 'User Experience for the Enterprise' });
 
@@ -66872,7 +66875,7 @@ module.exports =
 	              'code',
 	              null,
 	              'type         ',
-	              "facebook|twitter|linkedin|google"
+	              "email|facebook|twitter|linkedin|google"
 	            )
 	          ),
 	          React.createElement(
@@ -66914,11 +66917,17 @@ module.exports =
 	              null,
 	              'twitter'
 	            ),
-	            ' and ',
+	            ', ',
 	            React.createElement(
 	              'code',
 	              null,
 	              'linkedin'
+	            ),
+	            ', and ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'email'
 	            ),
 	            ' type. Optional.'
 	          ),
@@ -66941,6 +66950,12 @@ module.exports =
 	              null,
 	              'linkedin'
 	            ),
+	            ' and ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'email'
+	            ),
 	            ' type.  Optional.'
 	          )
 	        )
@@ -66953,7 +66968,8 @@ module.exports =
 	          null,
 	          'Examples'
 	        ),
-	        this._renderSocialShareCode('Facebook', defaultSocialShare),
+	        this._renderSocialShareCode('Email', emailSocialShare),
+	        this._renderSocialShareCode('Facebook', facebookSocialShare),
 	        this._renderSocialShareCode('Twitter', twitterSocialShare),
 	        this._renderSocialShareCode('Linkedin', linkedinSocialShare),
 	        this._renderSocialShareCode('Google Plus', googleSocialShare)
@@ -67000,6 +67016,10 @@ module.exports =
 
 	var _SocialLinkedin2 = _interopRequireDefault(_SocialLinkedin);
 
+	var _SocialEmail = __webpack_require__(386);
+
+	var _SocialEmail2 = _interopRequireDefault(_SocialEmail);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67042,9 +67062,12 @@ module.exports =
 	      } else if (type === 'google') {
 	        socialIcon = _react2.default.createElement(_SocialGoogle2.default, null);
 	        href = 'https://plus.google.com/share?url=' + encodedLink;
-	      } else {
+	      } else if (type === 'facebook') {
 	        socialIcon = _react2.default.createElement(_SocialFacebook2.default, null);
 	        href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodedLink;
+	      } else if (type === 'email') {
+	        socialIcon = _react2.default.createElement(_SocialEmail2.default, null);
+	        href = 'mailto:?subject=' + encodedTitle + '&body=' + encodedText + '%0D%0A' + encodedLink;
 	      }
 
 	      return _react2.default.createElement(_Anchor2.default, { href: href, icon: socialIcon, target: '_blank' });
@@ -67058,7 +67081,7 @@ module.exports =
 	;
 
 	SocialShare.propTypes = {
-	  type: _react.PropTypes.oneOf(['facebook', 'twitter', 'linkedin', 'google']).isRequired,
+	  type: _react.PropTypes.oneOf(['email', 'facebook', 'twitter', 'linkedin', 'google']).isRequired,
 	  link: _react.PropTypes.string.isRequired,
 	  title: _react.PropTypes.string,
 	  text: _react.PropTypes.string
