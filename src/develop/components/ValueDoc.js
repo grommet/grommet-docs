@@ -8,8 +8,7 @@ import Value from 'grommet/components/Value';
 import GlobeIcon from 'grommet/components/icons/base/Globe';
 import UpIcon from 'grommet/components/icons/base/LinkUp';
 
-const inline =
-      "<Value value={75} />";
+Value.displayName = 'Value';
 
 export default class ValueDoc extends Component {
   render () {
@@ -17,7 +16,7 @@ export default class ValueDoc extends Component {
       <DocsArticle title="Value" colorIndex="neutral-3">
 
         <p>Value component, focusing on a single number.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <pre><code className="html hljs xml">{'<Value value={75} />'}</code></pre>
 
         <section>
           <h2>Options</h2>
