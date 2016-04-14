@@ -71804,9 +71804,17 @@ module.exports =
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(2);
 
 	var _DocsArticle = __webpack_require__(58);
 
@@ -71830,113 +71838,260 @@ module.exports =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+
 	var inline = "<Value value={75} />";
 
-	var ValueDoc = _react2.default.createClass({
-	  displayName: 'ValueDoc',
+	var ValueDoc = function (_Component) {
+	  _inherits(ValueDoc, _Component);
 
-	  render: function render() {
-	    return _react2.default.createElement(
-	      _DocsArticle2.default,
-	      { title: 'Value', colorIndex: 'neutral-3' },
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Value component, focusing on a single number.'
-	      ),
-	      _react2.default.createElement(
-	        'pre',
-	        null,
-	        _react2.default.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          inline
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'section',
-	        null,
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Options'
-	        ),
-	        _react2.default.createElement(
-	          'dl',
-	          null,
-	          _react2.default.createElement(
-	            'dt',
-	            null,
-	            _react2.default.createElement(
-	              'code',
-	              null,
-	              'a11yTitle      ',
-	              "{string}"
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'dd',
-	            null,
-	            'Custom title used by screen readers. Default is "Title". Only used if onClick handler is specified.'
-	          ),
-	          _react2.default.createElement(
-	            'dt',
-	            null,
-	            _react2.default.createElement(
-	              'code',
-	              null,
-	              'onClick        ',
-	              "{func}"
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'dd',
-	            null,
-	            'Click handler.'
-	          ),
-	          _react2.default.createElement(
-	            'dt',
-	            null,
-	            _react2.default.createElement(
-	              'code',
-	              null,
-	              'responsive     true|false'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'dd',
-	            null,
-	            'Whether to only display the logo when the display area narrows.'
-	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'section',
-	        null,
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Examples'
-	        ),
-	        _react2.default.createElement(_Example2.default, { name: 'Default', code: _react2.default.createElement(_Value2.default, { value: 75 }) }),
-	        _react2.default.createElement(_Example2.default, { name: 'Units, Icon, Trend, Label, Color', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
-	            icon: _react2.default.createElement(_Globe2.default, { colorIndex: 'neutral-1' }),
-	            trendIcon: _react2.default.createElement(_LinkUp2.default, { colorIndex: 'neutral-1' }),
-	            label: 'World wide coverage', colorIndex: 'neutral-1' }) }),
-	        _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
-	            icon: _react2.default.createElement(_Globe2.default, { size: 'large', colorIndex: 'neutral-1' }),
-	            trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'large', colorIndex: 'neutral-1' }),
-	            label: 'World wide coverage', colorIndex: 'neutral-1', size: 'large' }) }),
-	        _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
-	            icon: _react2.default.createElement(_Globe2.default, null),
-	            trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'small', colorIndex: 'ok' }),
-	            label: 'World wide coverage', size: 'small' }) })
-	      )
-	    );
+	  function ValueDoc() {
+	    _classCallCheck(this, ValueDoc);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ValueDoc).apply(this, arguments));
 	  }
-	});
 
-	module.exports = ValueDoc;
+	  _createClass(ValueDoc, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        _DocsArticle2.default,
+	        { title: 'Value', colorIndex: 'neutral-3' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Value component, focusing on a single number.'
+	        ),
+	        _react2.default.createElement(
+	          'pre',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            inline
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Options'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'align        start|center|end'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'The horizontal alignment of the label. Defaults to ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'center'
+	              ),
+	              '.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'colorIndex   ',
+	                "{category}-{index}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'The color identifier to use for the text color. For example: ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                '"neutral-1"'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'icon         ',
+	                "{element}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Optional icon element to place next to the value. See ',
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: this.context.routePrefix + "icon" },
+	                'Icon'
+	              ),
+	              '.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'label        ',
+	                "{string}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Optional short description of the value.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'onClick      ',
+	                "{func}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Click handler.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'size         small|medium|large'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'The size of the value. Defaults to ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'medium'
+	              ),
+	              '.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'trendIcon    ',
+	                "{element}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Optional icon element to place next to the value indicating the trend. For example, a ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'LinkUp'
+	              ),
+	              ' icon. See ',
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: this.context.routePrefix + "icon" },
+	                'Icon'
+	              ),
+	              '.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'value        ',
+	                "{number}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'The value itself.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'units        ',
+	                "{string}"
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Optional units to display next to the value.'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Examples'
+	          ),
+	          _react2.default.createElement(_Example2.default, { name: 'Default', code: _react2.default.createElement(_Value2.default, { value: 75 }) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Units, Icon, Trend, Label, Color', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	              icon: _react2.default.createElement(_Globe2.default, { colorIndex: 'neutral-1' }),
+	              trendIcon: _react2.default.createElement(_LinkUp2.default, { colorIndex: 'neutral-1' }),
+	              label: 'World wide coverage', colorIndex: 'neutral-1' }) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	              icon: _react2.default.createElement(_Globe2.default, { size: 'large', colorIndex: 'neutral-1' }),
+	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'large', colorIndex: 'neutral-1' }),
+	              label: 'World wide coverage', colorIndex: 'neutral-1', size: 'large' }) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	              icon: _react2.default.createElement(_Globe2.default, null),
+	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'small', colorIndex: 'ok' }),
+	              label: 'World wide coverage', size: 'small' }) })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ValueDoc;
+	}(_react.Component);
+
+	exports.default = ValueDoc;
+
+
+	ValueDoc.contextTypes = {
+	  routePrefix: _react2.default.PropTypes.string.isRequired
+	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 509 */
