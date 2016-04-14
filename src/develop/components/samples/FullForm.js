@@ -1,51 +1,48 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Form = require('grommet/components/Form');
-var FormFields = require('grommet/components/FormFields');
-var FormField = require('grommet/components/FormField');
-var Header = require('grommet/components/Header');
-var CheckBox = require('grommet/components/CheckBox');
-var RadioButton = require('grommet/components/RadioButton');
-var SearchInput = require('grommet/components/SearchInput');
-var NumberInput = require('grommet/components/NumberInput');
-var Table = require('grommet/components/Table');
-var Footer = require('grommet/components/Footer');
-var Button = require('grommet/components/Button');
-var Calendar = require('grommet/components/Calendar');
+import React, { Component, PropTypes } from 'react';
+import Form from 'grommet/components/Form';
+import FormFields from 'grommet/components/FormFields';
+import FormField from 'grommet/components/FormField';
+import Header from 'grommet/components/Header';
+import CheckBox from 'grommet/components/CheckBox';
+import RadioButton from 'grommet/components/RadioButton';
+import SearchInput from 'grommet/components/SearchInput';
+import NumberInput from 'grommet/components/NumberInput';
+import Table from 'grommet/components/Table';
+import Footer from 'grommet/components/Footer';
+import Button from 'grommet/components/Button';
+import Calendar from 'grommet/components/Calendar';
+import DateTime from 'grommet/components/DateTime';
 
-var FullForm = React.createClass({
+const SUGGESTIONS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
 
-  propTypes: {
-    compact: React.PropTypes.bool,
-    onCancel: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    prefix: React.PropTypes.string
-  },
+export default class FullForm extends Component {
 
-  getDefaultProps: function () {
-    return {prefix: 'ff'};
-  },
-
-  getInitialState: function () {
-    return {
+  constructor () {
+    super();
+    this._onChangeRange = this._onChangeRange.bind(this);
+    this._onChange = this._onChange.bind(this);
+    this._onSearchInputChange = this._onSearchInputChange.bind(this);
+    this._onCalendarChange = this._onCalendarChange.bind(this);
+    this._onDateTimeChange = this._onDateTimeChange.bind(this);
+    this._onSearch = this._onSearch.bind(this);
+    this.state = {
       rangeValue: 10,
-      searchInput: {suggestions: this._searchInputSuggestions},
+      searchInput: {suggestions: SUGGESTIONS},
       calendarDate: (new Date()).toISOString().slice(0, 10)
     };
-  },
+  }
 
-  _searchInputSuggestions: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'],
-
-  _onChangeRange: function (event) {
+  _onChangeRange (event) {
     this.setState({rangeValue: event.target.value});
-  },
+  }
 
-  _onChange: function (event) {
+  _onChange (event) {
     // console.log('!!! FullForm changed', event.target, 'to', event.target.value);
-  },
+  }
 
-  _onSearchInputChange: function (value) {
+  _onSearchInputChange (value) {
     // console.log('!!! FullForm _onSearchInputChange', value);
     this.setState({
       searchInput: {
@@ -53,25 +50,29 @@ var FullForm = React.createClass({
         suggestions: this._searchInputSuggestions
       }
     });
-  },
+  }
 
-  _onCalendarChange: function (value) {
+  _onCalendarChange (value) {
     // console.log('!!! FullForm _onCalendarChange', value);
     this.setState({calendarDate: value});
-  },
+  }
 
-  _onSearch: function (text) {
-    var searchInput = this.state.searchInput;
-    var regexp = new RegExp('^' + text);
+  _onDateTimeChange (value) {
+    this.setState({ date: value });
+  }
+
+  _onSearch (text) {
+    const searchInput = this.state.searchInput;
+    const regexp = new RegExp('^' + text);
     searchInput.suggestions =
       this._searchInputSuggestions.filter(function (value) {
         return regexp.test(value);
       });
     this.setState({searchInput: searchInput});
-  },
+  }
 
-  render: function() {
-    var p = this.props.prefix;
+  render () {
+    const p = this.props.prefix;
 
     return (
       <Form onSubmit={this.props.onSubmit} compact={this.props.compact}>
@@ -158,6 +159,12 @@ var FullForm = React.createClass({
             <FormField label="Item 12" htmlFor={p + "item12"}>
               <input id={p + "item12"} name="item-12" type="file" />
             </FormField>
+            <FormField label="Item 13" htmlFor={p + "item13"}>
+              <DateTime id={p + "item13"} name="item-13"
+                format="YYYY-MM-DD h:mm a" step={5}
+                value={this.state.date}
+                onChange={this._onDateTimeChange} />
+            </FormField>
           </fieldset>
         </FormFields>
         <Footer pad={{vertical: 'medium'}}>
@@ -166,6 +173,15 @@ var FullForm = React.createClass({
       </Form>
     );
   }
-});
+};
 
-module.exports = FullForm;
+FullForm.propTypes = {
+  compact: PropTypes.bool,
+  onCancel: PropTypes.func,
+  onSubmit: PropTypes.func,
+  prefix: PropTypes.string
+};
+
+FullForm.defaultProps = {
+  prefix: 'ff'
+};
