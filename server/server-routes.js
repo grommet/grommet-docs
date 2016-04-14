@@ -71844,7 +71844,7 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
 
-	var inline = "<Value value={75} />";
+	_Value2.default.displayName = 'Value';
 
 	var ValueDoc = function (_Component) {
 	  _inherits(ValueDoc, _Component);
@@ -71872,7 +71872,7 @@ module.exports =
 	          _react2.default.createElement(
 	            'code',
 	            { className: 'html hljs xml' },
-	            inline
+	            '<Value value={75} />'
 	          )
 	        ),
 	        _react2.default.createElement(
