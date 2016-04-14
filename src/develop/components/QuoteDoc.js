@@ -41,6 +41,11 @@ var QuoteDoc = React.createClass({
         quote={["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."]}
         quoteCredit="A famous person" />
     );
+    var longQuote = (
+      <Quote borderColorIndex="accent-2" size="medium"
+        quote={["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamrehenderit in voluptate mollit anim."]}
+        quoteCredit="A famous person" />
+    );
 
     return (
       <DocsArticle title="Quote" colorIndex="neutral-3">
@@ -67,7 +72,7 @@ var QuoteDoc = React.createClass({
         </section>
 
         <section>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are available.</p>
+          <p>Options for <Link to={`${this.context.routePrefix}box`}>Box</Link> are available.</p>
         </section>
 
         <section>
@@ -75,6 +80,7 @@ var QuoteDoc = React.createClass({
 
           {this._renderCode('Default', simpleQuote)}
           {this._renderCode('Small quote, emphasis reversed', smallQuote)}
+          {this._renderCode('Medium quote, with multiple paragraphs', longQuote)}
         </section>
 
       </DocsArticle>
