@@ -4231,10 +4231,10 @@ module.exports =
 
 	            var childElement = _reactDom2.default.findDOMNode(this.refs[activeIndex]);
 	            var rect = childElement.getBoundingClientRect();
-	            if (rect.left < 0) {
+	            if (rect.left < -1) {
 	              // scrolling right
 	              this._onNext();
-	            } else {
+	            } else if (rect.left > 1) {
 	              // scrolling left
 	              this._onPrevious();
 	            }
@@ -4251,7 +4251,7 @@ module.exports =
 	        // Horizontal scrolling.
 	        if (!this.state.ignoreScroll) {
 	          // Only step if the user isn't scrolling vertically, bias vertically
-	          if (Math.abs(event.deltaY) < Math.abs(event.deltaX * 2)) {
+	          if (event.deltaX > 10 && Math.abs(event.deltaY * 4) < Math.abs(event.deltaX)) {
 	            event.preventDefault();
 	            // Constrain scrolling to lock on each section.
 	            if (event.deltaX > 0) {
@@ -72069,14 +72069,18 @@ module.exports =
 	              icon: _react2.default.createElement(_Globe2.default, { colorIndex: 'neutral-1' }),
 	              trendIcon: _react2.default.createElement(_LinkUp2.default, { colorIndex: 'neutral-1' }),
 	              label: 'World wide coverage', colorIndex: 'neutral-1' }) }),
-	          _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
-	              icon: _react2.default.createElement(_Globe2.default, { size: 'large', colorIndex: 'neutral-1' }),
-	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'large', colorIndex: 'neutral-1' }),
-	              label: 'World wide coverage', colorIndex: 'neutral-1', size: 'large' }) }),
 	          _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
 	              icon: _react2.default.createElement(_Globe2.default, null),
 	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'small', colorIndex: 'ok' }),
-	              label: 'World wide coverage', size: 'small' }) })
+	              label: 'World wide coverage', size: 'small' }) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	              icon: _react2.default.createElement(_Globe2.default, { size: 'large', colorIndex: 'neutral-1' }),
+	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'large', colorIndex: 'neutral-1' }),
+	              label: 'World wide coverage', size: 'large', colorIndex: 'neutral-1' }) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Huge', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	              icon: _react2.default.createElement(_Globe2.default, { size: 'huge', colorIndex: 'neutral-1' }),
+	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'huge', colorIndex: 'neutral-1' }),
+	              label: 'World wide coverage', size: 'huge', colorIndex: 'neutral-1' }) })
 	        )
 	      );
 	    }
@@ -72172,14 +72176,14 @@ module.exports =
 	        _react2.default.createElement(
 	          'div',
 	          { className: CLASS_ROOT + '__annotated' },
-	          this.props.trendIcon,
+	          this.props.icon,
 	          _react2.default.createElement(
 	            'span',
 	            { className: CLASS_ROOT + '__value' },
 	            this.props.value
 	          ),
 	          units,
-	          this.props.icon
+	          this.props.trendIcon
 	        ),
 	        label
 	      );
@@ -72197,7 +72201,7 @@ module.exports =
 	  icon: _react.PropTypes.node,
 	  label: _react.PropTypes.string,
 	  onClick: _react.PropTypes.func,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge']),
 	  trendIcon: _react.PropTypes.node,
 	  value: _react.PropTypes.number.isRequired,
 	  units: _react.PropTypes.string
