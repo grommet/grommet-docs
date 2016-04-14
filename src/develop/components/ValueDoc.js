@@ -61,18 +61,25 @@ export default class ValueDoc extends Component {
               label="World wide coverage" colorIndex="neutral-1" />
           } />
 
-          <Example name="Large" code={
-            <Value value={75} units="%"
-              icon={<GlobeIcon size="large" colorIndex="neutral-1" />}
-              trendIcon={<UpIcon size="large" colorIndex="neutral-1" />}
-              label="World wide coverage" colorIndex="neutral-1" size="large" />
-          } />
-
           <Example name="Small" code={
             <Value value={75} units="%"
               icon={<GlobeIcon />}
               trendIcon={<UpIcon size="small" colorIndex="ok" />}
               label="World wide coverage" size="small" />
+          } />
+
+          <Example name="Large" code={
+            <Value value={75} units="%"
+              icon={<GlobeIcon size="large" colorIndex="neutral-1" />}
+              trendIcon={<UpIcon size="large" colorIndex="neutral-1" />}
+              label="World wide coverage" size="large" colorIndex="neutral-1" />
+          } />
+
+          <Example name="Huge" code={
+            <Value value={75} units="%"
+              icon={<GlobeIcon size="huge" colorIndex="neutral-1" />}
+              trendIcon={<UpIcon size="huge" colorIndex="neutral-1" />}
+              label="World wide coverage" size="huge" colorIndex="neutral-1" />
           } />
         </section>
 
