@@ -70,6 +70,7 @@ var TagsDoc = require('./components/TagsDoc');
 var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
+var ValueDoc = require('./components/ValueDoc');
 var VideoDoc = require('./components/VideoDoc');
 var WorldMapDoc = require('./components/WorldMapDoc');
 
@@ -145,6 +146,7 @@ var CONTENTS = [
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
       {route: 'develop_topology', label: 'Topology', component: TopologyDoc},
+      {route: 'develop_value', label: 'Value', component: ValueDoc},
       {route: 'develop_video', label: 'Video', component: VideoDoc},
       {route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc}
     ]

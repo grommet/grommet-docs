@@ -11594,11 +11594,15 @@ module.exports =
 	          { id: a11yTitleId },
 	          a11yTitle
 	        ),
+	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-twitter' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_307_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { d: 'M24,4.5565c-0.8831,0.3923-1.8319,0.6563-2.828,0.7755c1.0164-0.6093,1.7974-1.5744,2.1648-2.7242\r c-0.9512,0.5646-2.0053,0.974-3.1265,1.1953c-0.8982-0.9575-2.1779-1.5551-3.5941-1.5551c-2.7195,0-4.924,2.2045-4.924,4.924\r c0,0.386,0.0434,0.7617,0.1275,1.1216C7.7275,8.0887,4.0991,6.1282,1.671,3.1489C1.247,3.8761,1.0044,4.722,1.0044,5.625\r c0,1.7075,0.8689,3.2151,2.1904,4.0981C2.3875,9.6969,1.6282,9.4757,0.9644,9.1075c-0.0004,0.02-0.0007,0.0407-0.0007,0.0613\r c0,2.3858,1.6975,4.3759,3.9499,4.8281c-0.4129,0.1131-0.8482,0.173-1.297,0.173c-0.3174,0-0.6256-0.031-0.9265-0.0889\r c0.6266,1.9564,2.4451,3.3805,4.5996,3.4205c-1.6854,1.3201-3.8082,2.1073-6.1151,2.1073c-0.3978,0-0.7897-0.0234-1.1747-0.0683\r c2.179,1.396,4.7671,2.2115,7.5479,2.2115c9.0568,0,14.0094-7.5028,14.0094-14.0094c0-0.213-0.0049-0.4254-0.0145-0.6363\r C22.5052,6.4115,23.3399,5.5443,24,4.5565z' })
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          _react2.default.createElement(
+	            'g',
+	            { id: 'twiter-24', fill: '#000000' },
+	            _react2.default.createElement('path', { d: 'M22,5 C23,4 23,3 23,2 C22,3 21,4 20,4 C20,4 19,2 17,2 C13,2 12,4 12,8 C6,8 4.099,5.97949244 2,3 C0,5.97949243 2,9 3,10 C3,10 2,10 1,9 C1,11 2.661,13.5836965 5,14 C5,14 4,15 2,14 C2,16 5,18 7,18 C7,18 6,21 0,21 C2,22 5,22 8,22 C16.605,22 22,15 22,8 L22,7 C23,6 23.34,5.38067162 24,4 C23,5 22,5 22,5 Z', id: 'Twitter' })
+	          )
 	        )
 	      );
 	    }
@@ -11702,11 +11706,15 @@ module.exports =
 	          { id: a11yTitleId },
 	          a11yTitle
 	        ),
+	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-linkedin' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_309_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { d: 'M7.352,21.3818H3.2058V8.0466H7.352V21.3818z M5.2789,6.2234c-1.3278,0-2.4021-1.0766-2.4021-2.4024\r c0-1.3276,1.0743-2.4049,2.4021-2.4049c1.3254,0,2.402,1.0773,2.402,2.4049C7.681,5.1468,6.6043,6.2234,5.2789,6.2234z\r M22.8768,21.3818H18.734v-6.4857c0-1.5466-0.0272-3.5358-2.1533-3.5358c-2.1573,0-2.486,1.6858-2.486,3.4247v6.5968H9.9512V8.0466\r h3.9756v1.8232h0.0568c0.5536-1.0492,1.9055-2.1546,3.9219-2.1546c4.1971,0,4.9714,2.7619,4.9714,6.352V21.3818z' })
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          _react2.default.createElement(
+	            'g',
+	            { id: 'linkedin-24', fill: '#000000' },
+	            _react2.default.createElement('path', { d: 'M22,23 L18,23 L18,17.0000002 C18,15.3255457 17.5,13 15,13 C12.5,13 12,15.1165094 12,17 L12,23.0000002 L8,23.0000002 L8,9 L12,9 L12,12 C12,12 13.5,9 17,9 C19.5,9 22,11 22,15.5 L22,23 Z M6,23 L2,23 L2,9.00000002 L6,9.00000002 L6,23 Z M4,7 C5.38071187,7 6.5,5.88071187 6.5,4.5 C6.5,3.11928813 5.38071187,2 4,2 C2.61928813,2 1.5,3.11928813 1.5,4.5 C1.5,5.88071187 2.61928813,7 4,7 Z', id: 'Linkedin' })
+	          )
 	        )
 	      );
 	    }
@@ -11810,11 +11818,15 @@ module.exports =
 	          { id: a11yTitleId },
 	          a11yTitle
 	        ),
+	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-facebook' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_308_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { id: 'f', d: 'M13.1218,22.399V12.3634h3.3689l0.504-3.9107h-3.8729V5.9551c0-1.1321,0.3145-1.9037,1.9383-1.9037l2.0709-0.0006\r V0.5524C16.773,0.5052,15.5436,0.399,14.1134,0.399c-2.9857,0-5.03,1.822-5.03,5.1694v2.8843H5.7061v3.9107h3.3772V22.399H13.1218z\r ' })
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          _react2.default.createElement(
+	            'g',
+	            { id: 'facebook-24', fill: '#000000' },
+	            _react2.default.createElement('path', { d: 'M14,23 L14,13 L17,13 L18,9 L14,9 L14,7 C14.1401313,5.424 15,5 16,5 L18,5 L18,1 C17.6553173,1.106 16.472035,1 15,1 C12,1 10,3 10,6 L10,9 L7,9 L7,13 L10,13 L10,23 L14,23 Z', id: 'Facebook' })
+	          )
 	        )
 	      );
 	    }
@@ -16554,8 +16566,9 @@ module.exports =
 	var TilesDoc = __webpack_require__(504);
 	var TitleDoc = __webpack_require__(505);
 	var TopologyDoc = __webpack_require__(506);
-	var VideoDoc = __webpack_require__(508);
-	var WorldMapDoc = __webpack_require__(510);
+	var ValueDoc = __webpack_require__(508);
+	var VideoDoc = __webpack_require__(510);
+	var WorldMapDoc = __webpack_require__(512);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(60);
@@ -16571,7 +16584,7 @@ module.exports =
 	}, { label: 'Patterns',
 	  contents: [{ route: 'develop_dashboard', label: 'Dashboard', component: DashboardDoc }, { route: 'develop_navigation', label: 'Navigation', component: NavigationDoc }, { route: 'develop_actions', label: 'Actions', component: ActionsDoc }]
 	}, { label: 'Components',
-	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_date-time', label: 'DateTime', component: DateTimeDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_social-share', label: 'SocialShare', component: SocialShareDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
+	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_date-time', label: 'DateTime', component: DateTimeDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_social-share', label: 'SocialShare', component: SocialShareDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_value', label: 'Value', component: ValueDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
 	}, { label: 'Utils',
 	  contents: [{ route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc }, { route: 'develop_rest', label: 'Rest', component: RestDoc }, { route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc }]
 	}, { label: 'Reference',
@@ -53203,12 +53216,15 @@ module.exports =
 	          { id: a11yTitleId },
 	          a11yTitle
 	        ),
+	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-email' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_306_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,20.5H1v-16h22V20.5z' }),
-	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1,5.8985 12,14.8985 23,5.8985 \t' })
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          _react2.default.createElement(
+	            'g',
+	            { id: 'mail-option-24', fill: '#000000' },
+	            _react2.default.createElement('path', { d: 'M23,20 L23,6 L12,15 L1,6 L1,20 L23,20 Z M12,12 L22,4 L2,4 L12,12 Z', id: 'envelope' })
+	          )
 	        )
 	      );
 	    }
@@ -71788,11 +71804,266 @@ module.exports =
 
 	'use strict';
 
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DocsArticle = __webpack_require__(58);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(126);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _Value = __webpack_require__(509);
+
+	var _Value2 = _interopRequireDefault(_Value);
+
+	var _Globe = __webpack_require__(298);
+
+	var _Globe2 = _interopRequireDefault(_Globe);
+
+	var _LinkUp = __webpack_require__(74);
+
+	var _LinkUp2 = _interopRequireDefault(_LinkUp);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var inline = "<Value value={75} />";
+
+	var ValueDoc = _react2.default.createClass({
+	  displayName: 'ValueDoc',
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      _DocsArticle2.default,
+	      { title: 'Value', colorIndex: 'neutral-3' },
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Value component, focusing on a single number.'
+	      ),
+	      _react2.default.createElement(
+	        'pre',
+	        null,
+	        _react2.default.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          inline
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Options'
+	        ),
+	        _react2.default.createElement(
+	          'dl',
+	          null,
+	          _react2.default.createElement(
+	            'dt',
+	            null,
+	            _react2.default.createElement(
+	              'code',
+	              null,
+	              'a11yTitle      ',
+	              "{string}"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'dd',
+	            null,
+	            'Custom title used by screen readers. Default is "Title". Only used if onClick handler is specified.'
+	          ),
+	          _react2.default.createElement(
+	            'dt',
+	            null,
+	            _react2.default.createElement(
+	              'code',
+	              null,
+	              'onClick        ',
+	              "{func}"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'dd',
+	            null,
+	            'Click handler.'
+	          ),
+	          _react2.default.createElement(
+	            'dt',
+	            null,
+	            _react2.default.createElement(
+	              'code',
+	              null,
+	              'responsive     true|false'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'dd',
+	            null,
+	            'Whether to only display the logo when the display area narrows.'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Examples'
+	        ),
+	        _react2.default.createElement(_Example2.default, { name: 'Default', code: _react2.default.createElement(_Value2.default, { value: 75 }) }),
+	        _react2.default.createElement(_Example2.default, { name: 'Units, Icon, Trend, Label, Color', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	            icon: _react2.default.createElement(_Globe2.default, { colorIndex: 'neutral-1' }),
+	            trendIcon: _react2.default.createElement(_LinkUp2.default, { colorIndex: 'neutral-1' }),
+	            label: 'World wide coverage', colorIndex: 'neutral-1' }) }),
+	        _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	            icon: _react2.default.createElement(_Globe2.default, { size: 'large', colorIndex: 'neutral-1' }),
+	            trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'large', colorIndex: 'neutral-1' }),
+	            label: 'World wide coverage', colorIndex: 'neutral-1', size: 'large' }) }),
+	        _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	            icon: _react2.default.createElement(_Globe2.default, null),
+	            trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'small', colorIndex: 'ok' }),
+	            label: 'World wide coverage', size: 'small' }) })
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ValueDoc;
+
+/***/ },
+/* 509 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+
+	var CLASS_ROOT = "value";
+
+	var Value = function (_Component) {
+	  _inherits(Value, _Component);
+
+	  function Value() {
+	    _classCallCheck(this, Value);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Value).apply(this, arguments));
+	  }
+
+	  _createClass(Value, [{
+	    key: 'render',
+	    value: function render() {
+	      var classes = [CLASS_ROOT];
+	      if (this.props.size) {
+	        classes.push(CLASS_ROOT + '--' + this.props.size);
+	      }
+	      if (this.props.align) {
+	        classes.push(CLASS_ROOT + '--align-' + this.props.align);
+	      }
+	      if (this.props.onClick) {
+	        classes.push(CLASS_ROOT + '--interactive');
+	      }
+	      if (this.props.colorIndex) {
+	        classes.push('color-index-' + this.props.colorIndex);
+	      }
+	      if (this.props.className) {
+	        classes.push(this.props.className);
+	      }
+
+	      var units = undefined;
+	      if (this.props.units) {
+	        units = _react2.default.createElement(
+	          'span',
+	          { className: CLASS_ROOT + '__units' },
+	          this.props.units
+	        );
+	      }
+
+	      var label = undefined;
+	      if (this.props.label) {
+	        label = _react2.default.createElement(
+	          'span',
+	          { className: CLASS_ROOT + '__label' },
+	          this.props.label
+	        );
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: classes.join(' '), onClick: this.props.onClick },
+	        _react2.default.createElement(
+	          'div',
+	          { className: CLASS_ROOT + '__annotated' },
+	          this.props.trendIcon,
+	          _react2.default.createElement(
+	            'span',
+	            { className: CLASS_ROOT + '__value' },
+	            this.props.value
+	          ),
+	          units,
+	          this.props.icon
+	        ),
+	        label
+	      );
+	    }
+	  }]);
+
+	  return Value;
+	}(_react.Component);
+
+	exports.default = Value;
+
+	Value.propTypes = {
+	  align: _react.PropTypes.oneOf(['start', 'center', 'end']),
+	  colorIndex: _react.PropTypes.string,
+	  icon: _react.PropTypes.node,
+	  label: _react.PropTypes.string,
+	  onClick: _react.PropTypes.func,
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  trendIcon: _react.PropTypes.node,
+	  value: _react.PropTypes.number.isRequired,
+	  units: _react.PropTypes.string
+	};
+
+	Value.defaultProps = {
+	  align: 'center'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 510 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Video = __webpack_require__(509);
+	var Video = __webpack_require__(511);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -72076,7 +72347,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 509 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72394,7 +72665,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 510 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72417,7 +72688,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _WorldMap = __webpack_require__(511);
+	var _WorldMap = __webpack_require__(513);
 
 	var _WorldMap2 = _interopRequireDefault(_WorldMap);
 
@@ -72591,7 +72862,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 511 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
