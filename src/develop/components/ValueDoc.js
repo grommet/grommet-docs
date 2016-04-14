@@ -1,15 +1,18 @@
-import React from 'react';
+// (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Value from 'grommet/components/Value';
 import GlobeIcon from 'grommet/components/icons/base/Globe';
 import UpIcon from 'grommet/components/icons/base/LinkUp';
 
-var inline =
+const inline =
       "<Value value={75} />";
 
-var ValueDoc = React.createClass({
-  render: function() {
+export default class ValueDoc extends Component {
+  render () {
     return (
       <DocsArticle title="Value" colorIndex="neutral-3">
 
@@ -19,15 +22,29 @@ var ValueDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>a11yTitle      {"{string}"}</code></dt>
-            <dd>
-              Custom title used by screen readers. Default is "Title".
-              Only used if onClick handler is specified.
-            </dd>
-            <dt><code>onClick        {"{func}"}</code></dt>
+            <dt><code>align        start|center|end</code></dt>
+            <dd>The horizontal alignment of the label. Defaults
+              to <code>center</code>.</dd>
+            <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
+            <dd>The color identifier to use for the text color.
+              For example: <code>"neutral-1"</code></dd>
+            <dt><code>icon         {"{element}"}</code></dt>
+            <dd>Optional icon element to place next to the value.
+              See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+            <dt><code>label        {"{string}"}</code></dt>
+            <dd>Optional short description of the value.</dd>
+            <dt><code>onClick      {"{func}"}</code></dt>
             <dd>Click handler.</dd>
-            <dt><code>responsive     true|false</code></dt>
-            <dd>Whether to only display the logo when the display area narrows.</dd>
+            <dt><code>size         small|medium|large</code></dt>
+            <dd>The size of the value. Defaults to <code>medium</code>.</dd>
+            <dt><code>trendIcon    {"{element}"}</code></dt>
+            <dd>Optional icon element to place next to the value indicating
+              the trend. For example, a <code>LinkUp</code> icon.
+              See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+            <dt><code>value        {"{number}"}</code></dt>
+            <dd>The value itself.</dd>
+            <dt><code>units        {"{string}"}</code></dt>
+            <dd>Optional units to display next to the value.</dd>
           </dl>
         </section>
 
@@ -63,6 +80,8 @@ var ValueDoc = React.createClass({
       </DocsArticle>
     );
   }
-});
+}
 
-module.exports = ValueDoc;
+ValueDoc.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
