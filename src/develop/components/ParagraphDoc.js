@@ -1,76 +1,49 @@
-var React = require('react');
-var DocsArticle = require('../../DocsArticle');
-var Paragraph = require('grommet/components/Paragraph');
+// (C) Copyright 2015-2016 Hewlett Packard Enterprise Development LP
 
-var inline =
-      "<Paragraph>\n" +
-      "  ...\n" +
-      "</Paragraph>";
+import React from 'react';
+import DocsArticle from '../../DocsArticle';
+import Example from '../Example';
+import Paragraph from 'grommet/components/Paragraph';
 
-var TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+Paragraph.displayName = 'Paragraph';
 
-var ParagraphDoc = React.createClass({
-  render: function() {
-    return (
-      <DocsArticle title="Paragraph" colorIndex="neutral-3">
+const INLINE = `<Paragraph>
+  ...
+</Paragraph>`;
 
-        <p>A paragraph of text.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+const TEXT = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat.`;
 
-        <section>
-          <h2>Options</h2>
-          <dl>
-            <dt><code>size       small|medium|large</code></dt>
-            <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
-          </dl>
-        </section>
+export default (props) => {
+  return (
+    <DocsArticle title="Paragraph" colorIndex="neutral-3">
 
-        <section>
-          <h2>Examples</h2>
+      <p>A paragraph of text.</p>
+      <pre><code className="html hljs xml">{INLINE}</code></pre>
 
-          <h3>Default</h3>
-          <div className="example">
+      <section>
+        <h2>Options</h2>
+        <dl>
+          <dt><code>size       small|medium|large</code></dt>
+          <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Examples</h2>
+        <Example name="Default" code={
           <Paragraph>{TEXT} <a>link</a></Paragraph>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Paragraph>...</Paragraph>"}
-          </code></pre>
-
-          <h3>Small</h3>
-          <div className="example">
+        } />
+        <Example name="Small" code={
           <Paragraph size="small">{TEXT} <a>link</a></Paragraph>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Paragraph size=\"small\">...</Paragraph>"}
-          </code></pre>
-
-          <h3>Large</h3>
-          <div className="example">
+        } />
+        <Example name="Large" code={
           <Paragraph size="large">{TEXT} <a>link</a></Paragraph>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Paragraph size=\"large\">...</Paragraph>"}
-          </code></pre>
+        } />
+      </section>
 
-        </section>
-
-
-        <section>
-          <h2>Misc base text elements</h2>
-          <div className="example">
-            <h1><strong>H1</strong> Light</h1>
-            <h2><strong>H2</strong> Light</h2>
-            <h3><strong>H3</strong> Light</h3>
-            <h4><strong>H4</strong> Light</h4>
-            <h5><strong>H5</strong> Light</h5>
-            <h6><strong>H6</strong> Light</h6>
-            <blockquote>Blockquote</blockquote>
-          </div>
-        </section>
-
-      </DocsArticle>
-    );
-  }
-});
-
-module.exports = ParagraphDoc;
+    </DocsArticle>
+  );
+};

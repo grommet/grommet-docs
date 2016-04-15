@@ -132,11 +132,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -232,6 +232,7 @@ module.exports =
 
 	exports.default = App;
 
+
 	App.defaultProps = {
 	  centered: true
 	};
@@ -247,11 +248,12 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
 	exports.setLocale = setLocale;
 	exports.getCurrentLocale = getCurrentLocale;
 	exports.getLocaleData = getLocaleData;
@@ -296,7 +298,7 @@ module.exports =
 	  var appMessages = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	  var locale = arguments.length <= 1 || arguments[1] === undefined ? getCurrentLocale() : arguments[1];
 
-	  var grommetMessages = undefined;
+	  var grommetMessages = void 0;
 	  try {
 	    grommetMessages = __webpack_require__(7)("./" + locale);
 	  } catch (e) {
@@ -441,11 +443,11 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var _enUS = __webpack_require__(10);
 
@@ -948,11 +950,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -1111,7 +1113,7 @@ module.exports =
 	        );
 	      }.bind(this));
 
-	      var menuComponent = undefined;
+	      var menuComponent = void 0;
 	      if (anchorElements.length > 0) {
 	        menuComponent = _react2.default.createElement(
 	          _Menu2.default,
@@ -1142,6 +1144,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = SkipLinks;
+
 
 	SkipLinks.contextTypes = {
 	  intl: _react.PropTypes.object
@@ -1207,15 +1210,15 @@ module.exports =
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
 
 	var _react = __webpack_require__(1);
 
@@ -1343,7 +1346,7 @@ module.exports =
 	        }
 	      }
 
-	      var skipLinkAnchor = undefined;
+	      var skipLinkAnchor = void 0;
 	      if (this.props.primary) {
 	        var mainContentLabel = _Intl2.default.getMessage(this.context.intl, 'Main Content');
 	        skipLinkAnchor = _react2.default.createElement(_SkipLinkAnchor2.default, { label: mainContentLabel });
@@ -1360,7 +1363,7 @@ module.exports =
 	        style.background = this.props.backgroundImage + " no-repeat center center";
 	        style.backgroundSize = "cover";
 	      }
-	      var texture = undefined;
+	      var texture = void 0;
 	      if ('object' === _typeof(this.props.texture)) {
 	        texture = _react2.default.createElement(
 	          'div',
@@ -1408,6 +1411,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Box;
+
 
 	Box.propTypes = {
 	  a11yTitle: _react.PropTypes.string,
@@ -1538,6 +1542,7 @@ module.exports =
 	    delete _keyboardAccelerators[id];
 	  },
 
+
 	  // Add handlers for specific keys.
 	  // This function can be called multiple times, existing handlers will
 	  // be replaced, new handlers will be added.
@@ -1566,6 +1571,7 @@ module.exports =
 	      }
 	    }
 	  },
+
 
 	  // Remove handlers for all keys or specific keys.
 	  // If no argument is passed in, all handlers are removed.
@@ -1644,11 +1650,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -1701,15 +1707,15 @@ module.exports =
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
 
 	var _react = __webpack_require__(1);
 
@@ -2020,6 +2026,7 @@ module.exports =
 
 	exports.default = Layer;
 
+
 	Layer.propTypes = {
 	  align: _react.PropTypes.oneOf(['center', 'top', 'bottom', 'left', 'right']),
 	  closer: _react.PropTypes.oneOfType([_react.PropTypes.node, _react.PropTypes.bool]),
@@ -2047,11 +2054,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -2100,9 +2107,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-close', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -2136,8 +2140,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -2247,11 +2250,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -2290,7 +2293,7 @@ module.exports =
 	      var plain = this.props.plain !== undefined ? this.props.plain : this.props.icon && !this.props.label;
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--secondary', this.props.secondary), _defineProperty(_classnames, CLASS_ROOT + '--accent', this.props.accent), _defineProperty(_classnames, CLASS_ROOT + '--disabled', !this.props.onClick && !this.props.href), _defineProperty(_classnames, CLASS_ROOT + '--fill', this.props.fill), _defineProperty(_classnames, CLASS_ROOT + '--plain', plain), _defineProperty(_classnames, CLASS_ROOT + '--icon', this.props.icon), _defineProperty(_classnames, CLASS_ROOT + '--align-' + this.props.align, this.props.align), _classnames));
 
-	      var icon = undefined;
+	      var icon = void 0;
 	      if (this.props.icon) {
 	        icon = _react2.default.createElement(
 	          'span',
@@ -2360,13 +2363,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -2674,13 +2677,13 @@ module.exports =
 	    _this2._onFocusControl = _this2._onFocusControl.bind(_this2);
 	    _this2._onBlurControl = _this2._onBlurControl.bind(_this2);
 
-	    var inline = undefined;
+	    var inline = void 0;
 	    if (props.hasOwnProperty('inline')) {
 	      inline = props.inline;
 	    } else {
 	      inline = !props.label && !props.icon;
 	    }
-	    var responsive = undefined;
+	    var responsive = void 0;
 	    if (props.hasOwnProperty('responsive')) {
 	      responsive = props.responsive;
 	    } else {
@@ -2817,8 +2820,8 @@ module.exports =
 	  }, {
 	    key: '_renderControlContents',
 	    value: function _renderControlContents() {
-	      var icon = undefined,
-	          label = undefined;
+	      var icon = void 0,
+	          label = void 0;
 
 	      // If this is a collapsed inline Menu, use any icon and/or label provided,
 	      // revert to default icon if neither.
@@ -2876,7 +2879,7 @@ module.exports =
 
 	      if (this.state.inline) {
 	        var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
-	        var label = undefined;
+	        var label = void 0;
 	        if ('explode' === this.state.inline) {
 	          label = _react2.default.createElement(
 	            'div',
@@ -2923,6 +2926,7 @@ module.exports =
 
 	exports.default = Menu;
 
+
 	Menu.propTypes = _extends({
 	  closeOnClick: _react.PropTypes.bool,
 	  dropAlign: _Drop2.default.alignPropType,
@@ -2955,11 +2959,11 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014 Hewlett Packard Enterprise Development LP
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014 Hewlett Packard Enterprise Development LP
 
 	var _react = __webpack_require__(1);
 
@@ -3287,11 +3291,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -3340,9 +3344,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-down', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -3376,8 +3377,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -3395,11 +3395,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -3448,9 +3448,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-more', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -3486,8 +3483,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -4053,13 +4049,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -4118,6 +4114,7 @@ module.exports =
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	// import CarouselControls from './CarouselControls';
+
 
 	var CLASS_ROOT = 'article';
 	var DEFAULT_PLAY_INTERVAL = 10000; // 10s
@@ -4210,8 +4207,8 @@ module.exports =
 	        var currentScroll = this.refs.component.refs.boxContainer.scrollLeft;
 	        this._checkPreviousNextControls(currentScroll, 'left', 'right');
 	      } else {
-	        var currentScroll = this.refs.component.refs.boxContainer.scrollTop;
-	        this._checkPreviousNextControls(currentScroll, 'top', 'bottom');
+	        var _currentScroll = this.refs.component.refs.boxContainer.scrollTop;
+	        this._checkPreviousNextControls(_currentScroll, 'top', 'bottom');
 	      }
 	    }
 	  }, {
@@ -4520,7 +4517,7 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 
-	      var controls = undefined;
+	      var controls = void 0;
 	      if (this.props.controls) {
 	        controls = this._renderControls();
 	      }
@@ -4574,6 +4571,7 @@ module.exports =
 
 	exports.default = Article;
 
+
 	Article.propTypes = _extends({
 	  controls: _react.PropTypes.bool,
 	  primary: _react.PropTypes.bool,
@@ -4614,6 +4612,7 @@ module.exports =
 	    return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 	  },
 
+
 	  // component: component to scroll
 	  // property: 'scrollTop' | 'scrollLeft'
 	  // delta: amount to scroll
@@ -4652,11 +4651,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -4705,9 +4704,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link-next', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -4741,8 +4737,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -4760,11 +4755,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -4813,9 +4808,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link-previous', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -4849,8 +4841,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -4868,11 +4859,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -4921,9 +4912,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-up', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -4957,8 +4945,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -5056,13 +5043,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5203,6 +5190,7 @@ module.exports =
 
 	exports.default = Header;
 
+
 	Header.propTypes = _extends({
 	  fixed: _react.PropTypes.bool,
 	  float: _react.PropTypes.bool,
@@ -5227,11 +5215,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5295,6 +5283,7 @@ module.exports =
 
 	exports.default = Title;
 
+
 	Title.propTypes = {
 	  a11yTitle: _react.PropTypes.string,
 	  onClick: _react.PropTypes.func,
@@ -5316,11 +5305,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5362,7 +5351,7 @@ module.exports =
 	      if (this.props.className) {
 	        classes.push(this.props.className);
 	      }
-	      var title = undefined;
+	      var title = void 0;
 	      if (this.props.a11yTitle) {
 	        title = _react2.default.createElement(
 	          'title',
@@ -5387,6 +5376,7 @@ module.exports =
 
 	exports.default = Grommet;
 
+
 	Grommet.defaultProps = {
 	  a11yTitle: 'Grommet',
 	  a11yTitleId: 'grommet-logo-title'
@@ -5408,11 +5398,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5452,7 +5442,7 @@ module.exports =
 	    value: function render() {
 	      var _classnames;
 
-	      var icon = undefined;
+	      var icon = void 0;
 	      if (this.props.icon) {
 	        icon = this.props.icon;
 	      } else if (this.props.primary) {
@@ -5535,13 +5525,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5593,7 +5583,7 @@ module.exports =
 
 	      var containerClasses = (0, _classnames4.default)(CLASS_ROOT + '__container', _defineProperty({}, CLASS_ROOT + '__container--float', this.props.float));
 
-	      var footerSkipLink = undefined;
+	      var footerSkipLink = void 0;
 	      if (this.props.primary) {
 	        footerSkipLink = _react2.default.createElement(_SkipLinkAnchor2.default, { label: 'Footer' });
 	      }
@@ -5635,13 +5625,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5715,11 +5705,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -5785,13 +5775,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -6065,7 +6055,7 @@ module.exports =
 	        );
 	      }
 
-	      var onClickHandler = undefined;
+	      var onClickHandler = void 0;
 	      if (this.props.selectable) {
 	        onClickHandler = this._onClick;
 	      }
@@ -6111,6 +6101,7 @@ module.exports =
 
 	exports.default = Tiles;
 
+
 	Tiles.propTypes = _extends({
 	  fill: _react.PropTypes.bool,
 	  flush: _react.PropTypes.bool,
@@ -6134,11 +6125,11 @@ module.exports =
 
 	"use strict";
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -6295,7 +6286,7 @@ module.exports =
 
 	// Ensures it is an array.
 	function normalizeIndexes(selectedIndexes) {
-	  var result = undefined;
+	  var result = void 0;
 	  if (undefined === selectedIndexes || null === selectedIndexes) {
 	    result = [];
 	  } else if (typeof selectedIndexes === 'number') {
@@ -6369,7 +6360,7 @@ module.exports =
 	    indexInContainer += 1;
 	  }
 
-	  var selectedIndexes = undefined; // what will be returned
+	  var selectedIndexes = void 0; // what will be returned
 
 	  if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
 
@@ -6447,13 +6438,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -6519,6 +6510,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Tile;
+
 
 	Tile.propTypes = _extends({
 	  selected: _react.PropTypes.bool,
@@ -6875,11 +6867,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -7030,6 +7022,7 @@ module.exports =
 
 	exports.default = Split;
 
+
 	Split.propTypes = {
 	  fixed: _react.PropTypes.bool,
 	  flex: _react.PropTypes.oneOf(['left', 'right', 'both']),
@@ -7050,13 +7043,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10233,11 +10226,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10286,9 +10279,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-add', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10322,8 +10312,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10341,11 +10330,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10394,9 +10383,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-edit', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10430,8 +10416,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10449,11 +10434,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10502,9 +10487,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-drag', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10538,8 +10520,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10557,11 +10538,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10610,9 +10591,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-filter', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10646,8 +10624,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10665,11 +10642,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10718,9 +10695,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-search', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10754,8 +10728,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10773,11 +10746,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10826,9 +10799,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-calendar', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10862,8 +10832,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10881,11 +10850,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -10934,9 +10903,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-help', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -10971,8 +10937,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -10990,11 +10955,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11043,9 +11008,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link-up', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11079,8 +11041,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11098,11 +11059,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11151,9 +11112,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link-top', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11187,8 +11145,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11206,11 +11163,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11259,9 +11216,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11295,8 +11249,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11314,11 +11267,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11367,9 +11320,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-language', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11403,8 +11353,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11422,11 +11371,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11475,9 +11424,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-mail', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11511,8 +11457,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11530,11 +11475,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11583,9 +11528,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-twitter', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11602,7 +11544,7 @@ module.exports =
 	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none' },
 	          _react2.default.createElement(
 	            'g',
 	            { id: 'twiter-24', fill: '#000000' },
@@ -11623,8 +11565,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11642,11 +11583,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11695,9 +11636,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-linkedin', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11714,7 +11652,7 @@ module.exports =
 	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none' },
 	          _react2.default.createElement(
 	            'g',
 	            { id: 'linkedin-24', fill: '#000000' },
@@ -11735,8 +11673,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11754,11 +11691,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11807,9 +11744,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-facebook', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -11826,7 +11760,7 @@ module.exports =
 	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none' },
 	          _react2.default.createElement(
 	            'g',
 	            { id: 'facebook-24', fill: '#000000' },
@@ -11847,8 +11781,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -11866,11 +11799,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -11951,6 +11884,7 @@ module.exports =
 	      var a11yTitle = this.props.a11yTitle;
 	      var size = this.state.size;
 
+
 	      if (this.props.className) {
 	        classes.push(this.props.className);
 	      }
@@ -12000,6 +11934,7 @@ module.exports =
 
 	exports.default = Status;
 
+
 	Status.defaultProps = { value: 'unknown' };
 
 	Status.propTypes = {
@@ -12017,11 +11952,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12089,6 +12024,7 @@ module.exports =
 
 	exports.default = OK;
 
+
 	OK.propTypes = {
 	  a11yTitle: _react.PropTypes.string
 	};
@@ -12100,11 +12036,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12174,6 +12110,7 @@ module.exports =
 
 	exports.default = CriticalStatus;
 
+
 	CriticalStatus.propTypes = {
 	  a11yTitle: _react.PropTypes.string
 	};
@@ -12185,11 +12122,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12258,6 +12195,7 @@ module.exports =
 
 	exports.default = ErrorStatus;
 
+
 	ErrorStatus.propTypes = {
 	  a11yTitle: _react.PropTypes.string
 	};
@@ -12269,11 +12207,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12342,6 +12280,7 @@ module.exports =
 
 	exports.default = Warning;
 
+
 	Warning.propTypes = {
 	  a11yTitle: _react.PropTypes.string
 	};
@@ -12353,11 +12292,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12425,6 +12364,7 @@ module.exports =
 
 	exports.default = Disabled;
 
+
 	Disabled.propTypes = {
 	  a11yTitle: _react.PropTypes.string
 	};
@@ -12436,11 +12376,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12516,11 +12456,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12585,11 +12525,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12815,11 +12755,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -12909,7 +12849,7 @@ module.exports =
 	        return errorComponent;
 	      });
 
-	      var logo = undefined;
+	      var logo = void 0;
 	      if (this.props.logo) {
 	        logo = _react2.default.createElement(
 	          'div',
@@ -12918,7 +12858,7 @@ module.exports =
 	        );
 	      }
 
-	      var title = undefined;
+	      var title = void 0;
 	      if (this.props.title) {
 	        title = _react2.default.createElement(
 	          'h1',
@@ -12931,7 +12871,7 @@ module.exports =
 	        );
 	      }
 
-	      var secondaryText = undefined;
+	      var secondaryText = void 0;
 	      if (this.props.secondaryText) {
 	        secondaryText = _react2.default.createElement(
 	          'p',
@@ -12940,7 +12880,7 @@ module.exports =
 	        );
 	      }
 
-	      var rememberMe = undefined;
+	      var rememberMe = void 0;
 	      if (this.props.rememberMe) {
 
 	        var rememberMeLabel = _react2.default.createElement(_FormattedMessage2.default, { id: 'Remember me', defaultMessage: 'Remember me' });
@@ -12952,7 +12892,7 @@ module.exports =
 	          ref: 'rememberMe' });
 	      }
 
-	      var forgot = undefined;
+	      var forgot = void 0;
 	      if (this.props.forgotPassword) {
 	        forgot = _react2.default.createElement(
 	          'div',
@@ -12961,7 +12901,7 @@ module.exports =
 	        );
 	      }
 
-	      var username = undefined;
+	      var username = void 0;
 	      if (this.props.usernameType === 'email') {
 	        username = _react2.default.createElement(_FormattedMessage2.default, { id: 'Email', defaultMessage: 'Email' });
 	      } else {
@@ -13015,6 +12955,7 @@ module.exports =
 
 	exports.default = LoginForm;
 
+
 	LoginForm.propTypes = {
 	  align: _react.PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
 	  defaultValues: _react.PropTypes.shape({
@@ -13047,13 +12988,13 @@ module.exports =
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -13134,11 +13075,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -13233,7 +13174,7 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 
-	      var error = undefined;
+	      var error = void 0;
 	      if (this.props.error) {
 	        classes.push(CLASS_ROOT + "--error");
 	        error = _react2.default.createElement(
@@ -13242,7 +13183,7 @@ module.exports =
 	          this.props.error
 	        );
 	      }
-	      var help = undefined;
+	      var help = void 0;
 	      if (this.props.help !== null && this.props.help !== undefined) {
 	        help = _react2.default.createElement(
 	          'span',
@@ -13251,7 +13192,7 @@ module.exports =
 	        );
 	      }
 
-	      var labelNode = undefined;
+	      var labelNode = void 0;
 	      if (this.props.label) {
 	        labelNode = _react2.default.createElement(
 	          'label',
@@ -13280,6 +13221,7 @@ module.exports =
 
 	exports.default = FormField;
 
+
 	FormField.propTypes = {
 	  error: _react.PropTypes.node,
 	  help: _react.PropTypes.node,
@@ -13303,11 +13245,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -13337,7 +13279,7 @@ module.exports =
 	    value: function render() {
 	      var classes = [CLASS_ROOT];
 
-	      var label = undefined;
+	      var label = void 0;
 	      var labelId = CLASS_ROOT + '-label';
 	      if (this.props.label) {
 	        label = _react2.default.createElement(
@@ -13352,7 +13294,7 @@ module.exports =
 	        classes.push(CLASS_ROOT + '--toggle');
 	      }
 
-	      var hidden = undefined;
+	      var hidden = void 0;
 	      if (this.props.disabled) {
 	        classes.push(CLASS_ROOT + '--disabled');
 	        if (this.props.checked) {
@@ -13411,6 +13353,7 @@ module.exports =
 
 	exports.default = CheckBox;
 
+
 	CheckBox.propTypes = {
 	  checked: _react.PropTypes.bool,
 	  defaultChecked: _react.PropTypes.bool,
@@ -13430,13 +13373,13 @@ module.exports =
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -13701,7 +13644,7 @@ module.exports =
 	  }, {
 	    key: '_stateFromProps',
 	    value: function _stateFromProps(props) {
-	      var total = undefined;
+	      var total = void 0;
 	      if (props.series) {
 	        total = this._seriesTotal(props.series);
 	      } else if (props.hasOwnProperty('value')) {
@@ -13709,7 +13652,7 @@ module.exports =
 	      } else {
 	        total = 0;
 	      }
-	      var seriesMax = undefined;
+	      var seriesMax = void 0;
 	      // only care about series max when there are multiple values
 	      if (props.series && props.series.length > 1) {
 	        seriesMax = this._seriesMax(props.series);
@@ -13747,7 +13690,7 @@ module.exports =
 	  }, {
 	    key: '_getActiveFields',
 	    value: function _getActiveFields() {
-	      var fields = undefined;
+	      var fields = void 0;
 	      if (null === this.state.activeIndex) {
 	        fields = {
 	          value: this.state.total,
@@ -13774,7 +13717,7 @@ module.exports =
 	      if (fields.onClick) {
 	        classes.push(CLASS_ROOT + '__value--active');
 	      }
-	      var units = undefined;
+	      var units = void 0;
 	      if (this.props.units) {
 	        units = _react2.default.createElement(
 	          'span',
@@ -13804,7 +13747,7 @@ module.exports =
 	  }, {
 	    key: '_renderMinMax',
 	    value: function _renderMinMax(classes) {
-	      var minLabel = undefined;
+	      var minLabel = void 0;
 	      if (this.state.min.label) {
 	        minLabel = _react2.default.createElement(
 	          'div',
@@ -13812,7 +13755,7 @@ module.exports =
 	          this.state.min.label
 	        );
 	      }
-	      var maxLabel = undefined;
+	      var maxLabel = void 0;
 	      if (this.state.max.label) {
 	        maxLabel = _react2.default.createElement(
 	          'div',
@@ -13820,7 +13763,7 @@ module.exports =
 	          this.state.max.label
 	        );
 	      }
-	      var minMax = undefined;
+	      var minMax = void 0;
 	      if (minLabel || maxLabel) {
 	        minMax = _react2.default.createElement(
 	          'div',
@@ -13879,12 +13822,12 @@ module.exports =
 	      }
 
 	      var minMax = this._renderMinMax(classes);
-	      var activeValue = undefined;
+	      var activeValue = void 0;
 	      if (this.state.series.length > 0) {
 	        activeValue = this._renderActiveValue();
 	      }
-	      var legend = undefined;
-	      var a11yRole = undefined;
+	      var legend = void 0;
+	      var a11yRole = void 0;
 
 	      if (this.props.legend || this.props.series) {
 	        a11yRole = 'tablist';
@@ -13950,6 +13893,7 @@ module.exports =
 
 	exports.default = Meter;
 
+
 	Meter.propTypes = {
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
@@ -14007,11 +13951,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -14176,6 +14120,7 @@ module.exports =
 
 	exports.default = Legend;
 
+
 	Legend.propTypes = {
 	  activeIndex: _react.PropTypes.number,
 	  onActive: _react.PropTypes.func,
@@ -14200,11 +14145,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -14245,8 +14190,8 @@ module.exports =
 	  _createClass(Bar, [{
 	    key: '_viewBoxDimensions',
 	    value: function _viewBoxDimensions(props) {
-	      var viewBoxHeight = undefined;
-	      var viewBoxWidth = undefined;
+	      var viewBoxHeight = void 0;
+	      var viewBoxWidth = void 0;
 	      if (props.vertical) {
 	        if (props.stacked) {
 	          viewBoxWidth = BAR_THICKNESS;
@@ -14291,7 +14236,7 @@ module.exports =
 	      var value = item.value - this.props.min.value;
 	      var start = this._translateBarWidth(startValue);
 	      var distance = Math.max(item.value > 0 ? MID_BAR_THICKNESS : 0, this._translateBarWidth(value));
-	      var commands = undefined;
+	      var commands = void 0;
 	      if (this.props.legend && 'inline' === this.props.legend.placement) {
 	        trackIndex *= 2;
 	      }
@@ -14309,7 +14254,7 @@ module.exports =
 	  }, {
 	    key: '_renderInlineLegend',
 	    value: function _renderInlineLegend() {
-	      var result = undefined;
+	      var result = void 0;
 	      if (this.props.legend && 'inline' === this.props.legend.placement) {
 	        result = this.props.series.map(function (item, index) {
 	          var spot = index * BAR_THICKNESS * 2 + MID_BAR_THICKNESS;
@@ -14351,6 +14296,7 @@ module.exports =
 
 	//needed in Graphic.js to fix minification issues
 
+
 	exports.default = Bar;
 	Bar.displayName = 'Bar';
 	module.exports = exports['default'];
@@ -14361,11 +14307,11 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var _react = __webpack_require__(1);
 
@@ -14439,8 +14385,8 @@ module.exports =
 	      var onOut = onActivate.bind(null, null);
 
 	      var a11yRoles = {};
-	      var titleComponent = undefined;
-	      var activeSlice = undefined;
+	      var titleComponent = void 0;
+	      var activeSlice = void 0;
 	      if (a11yTitle && a11yDescId) {
 	        activeSlice = activeMeterSlice;
 	        var pathTitleId = 'title_' + a11yDescId;
@@ -14476,13 +14422,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -14571,10 +14517,10 @@ module.exports =
 	  }, {
 	    key: '_renderSlice',
 	    value: function _renderSlice(trackIndex, item, itemIndex, startValue, threshold) {
-	      var path = undefined;
+	      var path = void 0;
 	      if (!item.hidden) {
 	        var classes = [CLASS_ROOT + '__slice'];
-	        var activeMeterSlice = undefined;
+	        var activeMeterSlice = void 0;
 	        if (itemIndex === this.props.activeIndex) {
 	          activeMeterSlice = 'activeMeterSlice';
 	          classes.push(CLASS_ROOT + '__slice--active');
@@ -14680,7 +14626,7 @@ module.exports =
 	    value: function _renderValues() {
 	      var _this2 = this;
 
-	      var values = undefined;
+	      var values = void 0;
 	      if (this.props.stacked) {
 	        values = this._renderSlices(this.props.series, 0);
 	      } else {
@@ -14703,7 +14649,7 @@ module.exports =
 	      var _this3 = this;
 
 	      var trackValue = { value: this.props.max.value, colorIndex: 'unset' };
-	      var tracks = undefined;
+	      var tracks = void 0;
 	      if (this.props.stacked) {
 	        tracks = this._renderSlice(0, trackValue, 0, this.props.min.value, true);
 	      } else {
@@ -14720,7 +14666,7 @@ module.exports =
 	  }, {
 	    key: '_renderThresholds',
 	    value: function _renderThresholds() {
-	      var result = undefined;
+	      var result = void 0;
 	      var thresholds = this._renderSlices(this.props.thresholds, -0.4, true);
 	      if (thresholds.length > 0) {
 	        result = _react2.default.createElement(
@@ -14851,6 +14797,7 @@ module.exports =
 
 	exports.default = Graphic;
 
+
 	Graphic.propTypes = _extends({
 	  a11yRole: _react.PropTypes.string,
 	  stacked: _react.PropTypes.bool,
@@ -14877,11 +14824,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -14995,6 +14942,7 @@ module.exports =
 
 	exports.default = Spiral;
 
+
 	Spiral.defaultProps = {
 	  thresholds: []
 	};
@@ -15009,11 +14957,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _utils = __webpack_require__(99);
 
@@ -15079,6 +15027,7 @@ module.exports =
 
 	//needed in Graphic.js to fix minification issues
 
+
 	exports.default = Circle;
 	Circle.displayName = 'Circle';
 	module.exports = exports['default'];
@@ -15089,11 +15038,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -15217,13 +15166,13 @@ module.exports =
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -15356,7 +15305,7 @@ module.exports =
 	        document.addEventListener('click', this._onRemoveDrop);
 	        _KeyboardAccelerators2.default.startListeningToKeyboard(this, activeKeyboardHandlers);
 
-	        var baseElement = undefined;
+	        var baseElement = void 0;
 	        if (this.refs.control) {
 	          baseElement = this.refs.control.firstChild;
 	        } else {
@@ -15428,7 +15377,7 @@ module.exports =
 	  }, {
 	    key: '_fireDOMChange',
 	    value: function _fireDOMChange() {
-	      var event = undefined;
+	      var event = void 0;
 	      try {
 	        event = new Event('change', {
 	          'bubbles': true,
@@ -15474,7 +15423,7 @@ module.exports =
 	    value: function _onEnter(event) {
 	      event.preventDefault(); // prevent submitting forms
 	      this._onRemoveDrop();
-	      var suggestion = undefined;
+	      var suggestion = void 0;
 	      if (this.state.activeSuggestionIndex >= 0) {
 	        suggestion = this.props.suggestions[this.state.activeSuggestionIndex];
 	        this.setState({ value: suggestion });
@@ -15550,7 +15499,7 @@ module.exports =
 
 	      var classes = (0, _classnames5.default)((_classnames = {}, _defineProperty(_classnames, 'background-color-index-' + this.props.dropColorIndex, this.props.dropColorIndex), _defineProperty(_classnames, CLASS_ROOT + '__drop', true), _defineProperty(_classnames, CLASS_ROOT + '__drop--controlled', !this.state.inline), _defineProperty(_classnames, CLASS_ROOT + '__drop--large', this.props.large), _classnames));
 
-	      var input = undefined;
+	      var input = void 0;
 	      if (!this.state.inline) {
 	        input = _react2.default.createElement('input', { key: 'input', id: 'search-drop-input', type: 'search',
 	          autoComplete: 'off',
@@ -15560,7 +15509,7 @@ module.exports =
 	          onChange: this._onChangeInput });
 	      }
 
-	      var suggestions = undefined;
+	      var suggestions = void 0;
 	      if (this.props.suggestions) {
 	        suggestions = this.props.suggestions.map(function (suggestion, index) {
 	          var _classnames2;
@@ -15647,6 +15596,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Search;
+
 
 	Search.propTypes = {
 	  defaultValue: _react.PropTypes.string,
@@ -16135,11 +16085,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -17672,11 +17622,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -17923,7 +17873,7 @@ module.exports =
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--small', this.state.small), _defineProperty(_classnames, CLASS_ROOT + '--selectable', this.props.selectable), _defineProperty(_classnames, CLASS_ROOT + '--scrollable', this.props.scrollable), _classnames));
 
-	      var mirror = undefined;
+	      var mirror = void 0;
 	      if (this.props.scrollable) {
 	        mirror = _react2.default.createElement(
 	          'table',
@@ -17936,7 +17886,7 @@ module.exports =
 	        );
 	      }
 
-	      var more = undefined;
+	      var more = void 0;
 	      if (this.props.onMore) {
 	        more = _react2.default.createElement(
 	          'div',
@@ -17964,6 +17914,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Table;
+
 
 	Table.propTypes = {
 	  onMore: _react.PropTypes.func,
@@ -18100,11 +18051,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -18153,9 +18104,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-firefox', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -18189,8 +18137,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -18208,11 +18155,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -18261,9 +18208,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-internet-explorer', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -18297,8 +18241,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -18316,11 +18259,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -18369,9 +18312,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-edge', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -18405,8 +18345,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -18424,11 +18363,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -18477,9 +18416,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-chrome', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -18513,8 +18449,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -18532,11 +18467,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -18585,9 +18520,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-apple', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -18621,8 +18553,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -19101,11 +19032,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -19154,9 +19085,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-next', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -19190,8 +19118,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -20209,11 +20136,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -20270,13 +20197,13 @@ module.exports =
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -20360,7 +20287,7 @@ module.exports =
 	        style.background = "url(" + this.props.backgroundImage + ") no-repeat center center";
 	        style.backgroundSize = "cover";
 	      }
-	      var texture = undefined;
+	      var texture = void 0;
 	      if ('object' === _typeof(this.props.texture)) {
 	        texture = _react2.default.createElement(
 	          'div',
@@ -20954,11 +20881,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -21347,6 +21274,7 @@ module.exports =
 
 	exports.default = Calendar;
 
+
 	Calendar.propTypes = {
 	  id: _react.PropTypes.string,
 	  name: _react.PropTypes.string,
@@ -21545,11 +21473,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -21895,6 +21823,7 @@ module.exports =
 
 	exports.default = Carousel;
 
+
 	Carousel.propTypes = {
 	  autoplay: _react.PropTypes.bool,
 	  autoplaySpeed: _react.PropTypes.number,
@@ -21916,11 +21845,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -21969,9 +21898,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-previous', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -22005,8 +21931,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -22503,11 +22428,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -22666,7 +22591,7 @@ module.exports =
 	    key: '_bounds',
 	    value: function _bounds(series, xAxisArg, width, height) {
 	      // normalize xAxis
-	      var xAxis = undefined;
+	      var xAxis = void 0;
 	      if (xAxisArg) {
 	        if (xAxisArg.data) {
 	          xAxis = xAxisArg;
@@ -22951,7 +22876,7 @@ module.exports =
 
 	      // Put the control X coordinates midway between the coordinates.
 	      var deltaX = (current[0] - previous[0]) / 2;
-	      var deltaY = undefined;
+	      var deltaY = void 0;
 
 	      // Start with a flat slope. This works for peaks, valleys, and flats.
 	      var first = [current[0] - deltaX, current[1]];
@@ -23022,21 +22947,21 @@ module.exports =
 	          previousControlCoordinates = controlCoordinates;
 	        }, this);
 
-	        var linePath = undefined;
+	        var linePath = void 0;
 	        if ('line' === this.props.type || this.props.points) {
 	          var classes = [CLASS_ROOT + "__values-line", "color-index-" + colorIndex];
 	          linePath = _react2.default.createElement('path', { fill: 'none', className: classes.join(' '), d: commands });
 	        }
 
-	        var areaPath = undefined;
+	        var areaPath = void 0;
 	        if ('area' === this.props.type) {
 	          // For area charts, close the path by drawing down to the bottom
 	          // and across to the bottom of where we started.
 	          var close = 'L' + coordinates[coordinates.length - 1][0] + ',' + bounds.graphBottom + 'L' + coordinates[0][0] + ',' + bounds.graphBottom + 'Z';
 	          var areaCommands = commands + close;
-	          var classes = [CLASS_ROOT + "__values-area", "color-index-" + colorIndex];
+	          var _classes = [CLASS_ROOT + "__values-area", "color-index-" + colorIndex];
 
-	          areaPath = _react2.default.createElement('path', { stroke: 'none', className: classes.join(' '), d: areaCommands });
+	          areaPath = _react2.default.createElement('path', { stroke: 'none', className: _classes.join(' '), d: areaCommands });
 	        }
 
 	        return _react2.default.createElement(
@@ -23113,7 +23038,7 @@ module.exports =
 	    value: function _labelPosition(value, bounds) {
 	      var x = this._translateX(value);
 	      var startX = x;
-	      var anchor = undefined;
+	      var anchor = void 0;
 	      if ('line' === this.props.type || 'area' === this.props.type) {
 	        // Place the text in the middle for line and area type charts.
 	        anchor = 'middle';
@@ -23148,7 +23073,7 @@ module.exports =
 	    key: '_renderXAxis',
 	    value: function _renderXAxis() {
 	      var bounds = this.state.bounds;
-	      var labelY = undefined;
+	      var labelY = void 0;
 	      if ('bottom' === bounds.xAxis.placement) {
 	        labelY = this.state.height - Math.round(XAXIS_HEIGHT * 0.3);
 	      } else {
@@ -23205,7 +23130,7 @@ module.exports =
 	    value: function _renderYAxis() {
 	      var bounds = this.state.bounds;
 	      var start = bounds.minY;
-	      var end = undefined;
+	      var end = void 0;
 	      var width = Math.max(4, YAXIS_WIDTH / 2);
 
 	      var bars = this.props.thresholds.map(function (item, index) {
@@ -23286,8 +23211,8 @@ module.exports =
 	          x -= bounds.xStepWidth / 2;
 	        }
 
-	        var onMouseOver = undefined;
-	        var onMouseOut = undefined;
+	        var onMouseOver = void 0;
+	        var onMouseOut = void 0;
 	        if ('front' === layer) {
 	          onMouseOver = this._onMouseOver.bind(this, xIndex);
 	          onMouseOut = this._onMouseOut.bind(this, xIndex);
@@ -23335,7 +23260,7 @@ module.exports =
 	      var x = Math.max(1, Math.min(coordinates[0], this.state.bounds.graphWidth - 1));
 	      var line = _react2.default.createElement('line', { fill: 'none', x1: x, y1: bounds.graphTop, x2: x, y2: bounds.graphBottom });
 
-	      var points = undefined;
+	      var points = void 0;
 	      if (this.props.points) {
 	        // for area and line charts, include a dot at the intersection
 	        if ('line' === this.props.type || 'area' === this.props.type) {
@@ -23455,8 +23380,8 @@ module.exports =
 	        yAxis = this._renderYAxis();
 	      }
 
-	      var frontBands = undefined;
-	      var activeDescendant = undefined;
+	      var frontBands = void 0;
+	      var activeDescendant = void 0;
 	      var role = 'img';
 	      if (this.props.legend) {
 	        frontBands = this._renderXBands('front');
@@ -23465,7 +23390,7 @@ module.exports =
 	      }
 
 	      var a11yTitle = this._renderA11YTitle();
-	      var a11yTitleNode = undefined;
+	      var a11yTitleNode = void 0;
 	      if (a11yTitle) {
 	        a11yTitleNode = _react2.default.createElement(
 	          'title',
@@ -23474,7 +23399,7 @@ module.exports =
 	        );
 	      }
 
-	      var a11yDescNode = undefined;
+	      var a11yDescNode = void 0;
 	      if (this.props.a11yDesc) {
 	        a11yDescNode = _react2.default.createElement(
 	          'desc',
@@ -23515,6 +23440,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Chart;
+
 
 	Chart.propTypes = {
 	  a11yTitle: _react.PropTypes.string,
@@ -23964,11 +23890,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -24074,6 +24000,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Columns;
+
 
 	Columns.propTypes = {
 	  size: _react.PropTypes.oneOf(['small', 'medium', 'large'])
@@ -24446,13 +24373,13 @@ module.exports =
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -24763,6 +24690,7 @@ module.exports =
 
 	exports.default = DateTime;
 
+
 	DateTime.propTypes = {
 	  format: _react.PropTypes.string,
 	  id: _react.PropTypes.string,
@@ -24784,11 +24712,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -24837,9 +24765,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-clock', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -24873,8 +24798,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -24892,11 +24816,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -25035,6 +24959,7 @@ module.exports =
 	      var _state = this.state;
 	      var value = _state.value;
 	      var timeOfDay = _state.timeOfDay;
+
 
 	      var headerCells = WEEK_DAYS.map(function (day) {
 	        return _react2.default.createElement(
@@ -25190,8 +25115,9 @@ module.exports =
 	    value: function render() {
 	      var format = this.props.format;
 
-	      var date = undefined,
-	          time = undefined;
+
+	      var date = void 0,
+	          time = void 0;
 	      if (DATE_REGEXP.test(format)) {
 	        date = this._renderDate();
 	      }
@@ -25215,6 +25141,7 @@ module.exports =
 
 	exports.default = DateTimeDrop;
 
+
 	DateTimeDrop.propTypes = {
 	  format: _react.PropTypes.string,
 	  onChange: _react.PropTypes.func.isRequired,
@@ -25229,11 +25156,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -25282,9 +25209,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-subtract', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -25318,8 +25242,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -25671,13 +25594,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -25795,7 +25718,7 @@ module.exports =
 	  }, {
 	    key: '_stateFromProps',
 	    value: function _stateFromProps(props) {
-	      var total = undefined;
+	      var total = void 0;
 	      var allIcons = false;
 	      if (props.series) {
 	        total = this._seriesTotal(props.series);
@@ -25867,13 +25790,13 @@ module.exports =
 
 	        // Start a new group.
 	        var groupValue = datum.value;
-	        var targetGroupValue = undefined;
+	        var targetGroupValue = void 0;
 
 	        // Make the first item as square as possible.
 	        var itemArea = areaPer * datum.value;
 	        var edgeLength = Math.round(Math.sqrt(itemArea));
-	        var itemHeight = undefined;
-	        var itemWidth = undefined;
+	        var itemHeight = void 0;
+	        var itemWidth = void 0;
 
 	        // Figure out how much value we can fit inside a rectangle
 	        // that takes the full minor axis length
@@ -25899,7 +25822,7 @@ module.exports =
 
 	        // Now that we know the actual value of the group, give it a
 	        // rectangle whose area corresponds to the actual group value.
-	        var groupRect = undefined;
+	        var groupRect = void 0;
 	        if (remainingRect.width > remainingRect.height) {
 	          // landscape, lay out left to right
 	          groupRect = { x: remainingRect.x, y: remainingRect.y,
@@ -25920,7 +25843,7 @@ module.exports =
 	        // We take the full minor axis length and as much major axis length
 	        // as needed to match the item's area.
 	        group.forEach(function (datum) {
-	          var itemRect = undefined;
+	          var itemRect = void 0;
 	          if (groupRect.width > groupRect.height) {
 	            // landscape, use full height
 	            itemRect = { x: groupRect.x, y: groupRect.y,
@@ -26163,14 +26086,14 @@ module.exports =
 	        itemClasses.push(itemClass + '--clickable');
 	      }
 
-	      var activeDistribution = undefined;
+	      var activeDistribution = void 0;
 	      if (index === this.state.activeIndex) {
 	        activeDistribution = 'activeDistribution';
 	      }
 
 	      var colorIndex = this._itemColorIndex(datum, index);
 
-	      var contents = undefined;
+	      var contents = void 0;
 	      if (datum.icon) {
 	        contents = this._renderItemIcon(datum.icon, rect, colorIndex);
 	      } else {
@@ -26241,19 +26164,19 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 
-	      var legend = undefined;
+	      var legend = void 0;
 	      if (this.props.legend) {
 	        legend = this._renderLegend();
 	      }
 
-	      var background = undefined;
+	      var background = void 0;
 	      if (!this.state.allIcons) {
 	        background = _react2.default.createElement('rect', { className: CLASS_ROOT + '__background', x: 0, y: 0, stroke: 'none',
 	          width: this.state.width, height: this.state.height });
 	      }
 
 	      var boxes = [];
-	      var labels = undefined;
+	      var labels = void 0;
 	      if (this.state.items) {
 	        boxes = this._renderBoxes();
 	        labels = this._renderLabels();
@@ -26269,7 +26192,7 @@ module.exports =
 	        a11yTitle = _Intl2.default.getMessage(this.context.intl, 'Loading');
 	      }
 
-	      var activeDescendant = undefined;
+	      var activeDescendant = void 0;
 	      if (this.state.activeIndex >= 0) {
 	        activeDescendant = this.props.a11yTitleId + '_item_' + this.state.activeIndex;
 	      }
@@ -26280,7 +26203,7 @@ module.exports =
 	        a11yTitle
 	      );
 
-	      var a11yDescNode = undefined;
+	      var a11yDescNode = void 0;
 	      if (this.props.a11yDesc) {
 	        a11yDescNode = _react2.default.createElement(
 	          'desc',
@@ -26318,6 +26241,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Distribution;
+
 
 	Distribution.contextTypes = {
 	  intl: _react.PropTypes.object
@@ -27129,11 +27053,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -27188,11 +27112,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -27272,13 +27196,13 @@ module.exports =
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -27401,7 +27325,7 @@ module.exports =
 	  }, {
 	    key: '_fireDOMChange',
 	    value: function _fireDOMChange() {
-	      var event = undefined;
+	      var event = void 0;
 	      try {
 	        event = new Event('change', {
 	          'bubbles': true,
@@ -27568,6 +27492,7 @@ module.exports =
 
 	exports.default = SearchInput;
 
+
 	SearchInput.propTypes = {
 	  defaultValue: _react.PropTypes.oneOfType([_react.PropTypes.shape({
 	    label: _react.PropTypes.string,
@@ -27596,11 +27521,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -27644,7 +27569,7 @@ module.exports =
 	  _createClass(NumberInput, [{
 	    key: '_fireChange',
 	    value: function _fireChange() {
-	      var event = undefined;
+	      var event = void 0;
 	      try {
 	        event = new Event('change', {
 	          'bubbles': true,
@@ -27732,6 +27657,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = NumberInput;
+
 
 	NumberInput.propTypes = {
 	  ariaDescribedby: _react.PropTypes.string,
@@ -28978,11 +28904,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -29031,9 +28957,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-actions', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -29067,8 +28990,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -29086,11 +29008,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -29139,9 +29061,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-notification', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -29175,8 +29094,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -29194,11 +29112,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -29247,9 +29165,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-settings', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -29283,8 +29198,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -29302,192 +29216,279 @@ module.exports =
 
 	'use strict';
 
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(127);
-	var DocsArticle = __webpack_require__(58);
-	var Heading = __webpack_require__(173);
-
-	Heading.displayName = 'Heading';
-
-	var inline = "<Heading>\n" + "  ...\n" + "</Heading>";
-
-	var HeadingDoc = React.createClass({
-	  displayName: 'HeadingDoc',
-	  _renderCode: function _renderCode(name, jsx) {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h3',
-	        null,
-	        name
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'example' },
-	        jsx
-	      ),
-	      React.createElement(
-	        'pre',
-	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          jsxToString(jsx)
-	        )
-	      )
-	    );
-	  },
-
-
-	  render: function render() {
-	    var simpleHeading = React.createElement(
-	      Heading,
-	      null,
-	      'Sample Heading'
-	    );
-
-	    var h2Heading = React.createElement(
-	      Heading,
-	      { tag: 'h2', align: 'center' },
-	      'Sample Heading'
-	    );
-
-	    var strongHeading = React.createElement(
-	      Heading,
-	      { strong: true, tag: 'h6' },
-	      'Sample Heading'
-	    );
-
-	    return React.createElement(
-	      DocsArticle,
-	      { title: 'Heading', colorIndex: 'neutral-3' },
-	      React.createElement(
-	        'p',
-	        null,
-	        'An HTML heading, one of h1, h2, h3, h4, h5, h6.'
-	      ),
-	      React.createElement(
-	        'pre',
-	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          inline
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Options'
-	        ),
-	        React.createElement(
-	          'dl',
-	          null,
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'align       start|center|end'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The horizontal alignment of the Heading. Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'start'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'margin      none|small|medium|large'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The vertical margin below the Heading. Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'medium'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'strong      true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'If the Heading should be bold.  Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'false'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'tag         h1|h2|h3|h4|h5|h6'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Which HTML heading level should be used.  Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'h1'
-	            ),
-	            '.'
-	          )
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Examples'
-	        ),
-	        this._renderCode('Default', simpleHeading),
-	        this._renderCode('H2, Centered', h2Heading),
-	        this._renderCode('H6, Strong', strongHeading)
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = HeadingDoc;
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DocsArticle = __webpack_require__(58);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(126);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _Heading = __webpack_require__(173);
+
+	var _Heading2 = _interopRequireDefault(_Heading);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	_Heading2.default.displayName = 'Heading';
+
+	var INLINE = '<Heading>\n  ...\n</Heading>';
+
+	var LONG_TEXT = 'A Long Heading That Will Probably Wrap Which Should Be Avoided';
+
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    _DocsArticle2.default,
+	    { title: 'Heading', colorIndex: 'neutral-3' },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'An HTML heading, one of h1, h2, h3, h4, h5, h6.'
+	    ),
+	    _react2.default.createElement(
+	      'pre',
+	      null,
+	      _react2.default.createElement(
+	        'code',
+	        { className: 'html hljs xml' },
+	        INLINE
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Options'
+	      ),
+	      _react2.default.createElement(
+	        'dl',
+	        null,
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'align       start|center|end'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The horizontal alignment of the Heading. Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'start'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'margin      none|small|medium|large'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The vertical margin below the Heading. Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'medium'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'strong      true|false'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'If the Heading should be bold.  Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'false'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'tag         h1|h2|h3|h4|h5|h6'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Which HTML heading level should be used.  Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'h1'
+	          ),
+	          '.'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Examples'
+	      ),
+	      _react2.default.createElement(_Example2.default, { name: 'Default', code: _react2.default.createElement(
+	          _Heading2.default,
+	          null,
+	          'Sample Heading'
+	        ) }),
+	      _react2.default.createElement(_Example2.default, { name: 'H2, Centered', code: _react2.default.createElement(
+	          _Heading2.default,
+	          { tag: 'h2', align: 'center' },
+	          'Sample Heading'
+	        ) }),
+	      _react2.default.createElement(_Example2.default, { name: 'H6, Strong', code: _react2.default.createElement(
+	          _Heading2.default,
+	          { strong: true, tag: 'h6' },
+	          'Sample Heading'
+	        ) })
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'example' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'H1 strong ',
+	            LONG_TEXT
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'H1 ',
+	          LONG_TEXT
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'H2 strong ',
+	            LONG_TEXT
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'H2 ',
+	          LONG_TEXT
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'H3 strong ',
+	            LONG_TEXT
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'H3 ',
+	          LONG_TEXT
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'H4 strong ',
+	            LONG_TEXT
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'H4 ',
+	          LONG_TEXT
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'H5 strong ',
+	            LONG_TEXT
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'H5 ',
+	          LONG_TEXT
+	        ),
+	        _react2.default.createElement(
+	          'h6',
+	          null,
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'H6 strong ',
+	            LONG_TEXT
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h6',
+	          null,
+	          'H6 ',
+	          LONG_TEXT
+	        )
+	      )
+	    )
+	  );
+	};
+
+	module.exports = exports['default'];
 
 /***/ },
 /* 173 */
@@ -29495,11 +29496,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -29558,6 +29559,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Heading;
+
 
 	Heading.propTypes = {
 	  align: _react.PropTypes.oneOf(['start', 'center', 'end']),
@@ -30062,11 +30064,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30115,9 +30117,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-3d', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30151,8 +30150,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30170,11 +30168,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30223,9 +30221,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-achievement', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30259,8 +30254,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30278,11 +30272,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30331,9 +30325,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-action', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30367,8 +30358,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30386,11 +30376,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30439,9 +30429,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-advanced-search', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30475,8 +30462,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30494,11 +30480,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30547,9 +30533,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-aggregate', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30583,8 +30566,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30602,11 +30584,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30655,9 +30637,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-alarm', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30691,8 +30670,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30710,11 +30688,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30763,9 +30741,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-alert', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30805,8 +30780,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30824,11 +30798,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30877,9 +30851,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-analytics', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -30913,8 +30884,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -30932,11 +30902,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -30985,9 +30955,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-announcement', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31021,8 +30988,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31040,11 +31006,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31093,9 +31059,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-app', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31129,8 +31092,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31148,11 +31110,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31201,9 +31163,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-archive', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31237,8 +31196,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31256,11 +31214,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31309,9 +31267,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-article', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31349,8 +31304,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31368,11 +31322,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31421,9 +31375,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-ascend', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31457,8 +31408,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31476,11 +31426,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31529,9 +31479,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-assistant', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31568,8 +31515,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31587,11 +31533,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31640,9 +31586,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-attachment', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31676,8 +31619,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31695,11 +31637,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31748,9 +31690,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-bar-chart', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31784,8 +31723,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31803,11 +31741,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31856,9 +31794,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-blog', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -31892,8 +31827,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -31911,11 +31845,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -31964,9 +31898,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-book', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32000,8 +31931,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32019,11 +31949,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32072,9 +32002,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-bookmark', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32108,8 +32035,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32127,11 +32053,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32180,9 +32106,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-bundle', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32216,8 +32139,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32235,11 +32157,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32288,9 +32210,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-calculator', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32331,8 +32250,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32350,11 +32268,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32403,9 +32321,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-camera', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32439,8 +32354,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32458,11 +32372,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32511,9 +32425,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-capacity', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32547,8 +32458,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32566,11 +32476,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32619,9 +32529,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-caret-down', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32655,8 +32562,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32674,11 +32580,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32727,9 +32633,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-caret-next', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32763,8 +32666,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32782,11 +32684,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32835,9 +32737,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-caret-previous', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32871,8 +32770,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32890,11 +32788,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -32943,9 +32841,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-caret-up', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -32979,8 +32874,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -32998,11 +32892,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33051,9 +32945,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-catalog', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33087,8 +32978,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33106,11 +32996,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33159,9 +33049,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-chapter-add', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33195,8 +33082,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33214,11 +33100,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33267,9 +33153,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-chapter-next', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33304,8 +33187,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33323,11 +33205,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33376,9 +33258,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-chapter-previous', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33413,8 +33292,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33432,11 +33310,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33485,9 +33363,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-chat', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33521,8 +33396,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33540,11 +33414,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33593,9 +33467,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-checkbox-selected', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33630,8 +33501,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33649,11 +33519,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33702,9 +33572,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-checkbox', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33738,8 +33605,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33757,11 +33623,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33810,9 +33676,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-checkmark', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33846,8 +33709,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33865,11 +33727,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -33918,9 +33780,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-circular-view', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -33954,8 +33813,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -33973,11 +33831,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34026,9 +33884,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-clipboard', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34062,8 +33917,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34081,11 +33935,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34134,9 +33988,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-clone', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34170,8 +34021,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34189,11 +34039,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34242,9 +34092,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cloud-computer', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34278,8 +34125,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34297,11 +34143,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34350,9 +34196,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cloud-download', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34386,8 +34229,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34405,11 +34247,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34458,9 +34300,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cloud-software', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34494,8 +34333,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34513,11 +34351,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34566,9 +34404,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cloud-upload', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34602,8 +34437,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34621,11 +34455,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34674,9 +34508,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cloud', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34710,8 +34541,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34729,11 +34559,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34782,9 +34612,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cluster', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34818,8 +34645,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34837,11 +34663,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34890,9 +34716,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-code', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -34926,8 +34749,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -34945,11 +34767,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -34998,9 +34820,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-command-line', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35034,8 +34853,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35053,11 +34871,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35106,9 +34924,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-compare', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35154,8 +34969,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35173,11 +34987,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35226,9 +35040,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-compasss', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35263,8 +35074,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35282,11 +35092,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35335,9 +35145,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-compliance', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35371,8 +35178,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35390,11 +35196,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35443,9 +35249,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-computer-personal', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35479,8 +35282,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35498,11 +35300,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35551,9 +35353,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-configuration', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35587,8 +35386,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35606,11 +35404,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35659,9 +35457,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-connect', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35695,8 +35490,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35714,11 +35508,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35767,9 +35561,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-contact-card', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35803,8 +35594,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35822,11 +35612,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35875,9 +35665,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-contact-us', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -35914,8 +35701,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -35933,11 +35719,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -35986,9 +35772,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-contract', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36022,8 +35805,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36041,11 +35823,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36094,9 +35876,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-copy', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36130,8 +35909,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36149,11 +35927,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36202,9 +35980,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cube', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36238,8 +36013,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36257,11 +36031,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36310,9 +36084,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cubes', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36346,8 +36117,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36365,11 +36135,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36418,9 +36188,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cursor', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36454,8 +36221,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36473,11 +36239,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36526,9 +36292,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cut', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36562,8 +36325,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36581,11 +36343,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36634,9 +36396,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-cycle', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36674,8 +36433,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36693,11 +36451,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36746,9 +36504,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-dashboard', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36782,8 +36537,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36801,11 +36555,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36854,9 +36608,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-database', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -36895,8 +36646,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -36914,11 +36664,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -36967,9 +36717,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-defect', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37003,8 +36750,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37022,11 +36768,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37075,9 +36821,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-deliver', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37111,8 +36854,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37130,11 +36872,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37183,9 +36925,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-deployment', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37220,8 +36959,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37239,11 +36977,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37292,9 +37030,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-descend', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37328,8 +37063,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37347,11 +37081,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37400,9 +37134,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-desktop', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37436,8 +37167,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37455,11 +37185,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37508,9 +37238,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-detach', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37544,8 +37271,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37563,11 +37289,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37616,9 +37342,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-directions', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37652,8 +37375,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37671,11 +37393,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37724,9 +37446,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-dislike', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37760,8 +37479,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37779,11 +37497,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37832,9 +37550,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-divide-four', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37868,8 +37583,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37887,11 +37601,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -37940,9 +37654,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-divide-right', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -37976,8 +37687,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -37995,11 +37705,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38048,9 +37758,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-divide-three', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38084,8 +37791,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38103,11 +37809,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38156,9 +37862,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-divide', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38192,8 +37895,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38211,11 +37913,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38264,9 +37966,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-cloud', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38303,8 +38002,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38322,11 +38020,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38375,9 +38073,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-compress', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38411,8 +38106,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38430,11 +38124,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38483,9 +38177,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-conig', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38519,8 +38210,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38538,11 +38228,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38591,9 +38281,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-csv', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38631,8 +38318,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38650,11 +38336,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38703,9 +38389,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-data', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38739,8 +38422,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38758,11 +38440,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38811,9 +38493,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-download', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38847,8 +38526,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38866,11 +38544,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -38919,9 +38597,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-excel', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -38958,8 +38633,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -38977,11 +38651,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39030,9 +38704,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-executable', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39077,8 +38748,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39096,11 +38766,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39149,9 +38819,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-image', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39188,8 +38855,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39207,11 +38873,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39260,9 +38926,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-locked', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39299,8 +38962,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39318,11 +38980,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39371,9 +39033,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-missing', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39407,8 +39066,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39426,11 +39084,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39479,9 +39137,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-notes', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39518,8 +39173,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39537,11 +39191,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39590,9 +39244,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-outlook', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39629,8 +39280,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39648,11 +39298,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39701,9 +39351,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-pdf', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39743,8 +39390,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39762,11 +39408,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39815,9 +39461,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-performance', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39853,8 +39496,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39872,11 +39514,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -39925,9 +39567,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-powerpoint', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -39968,8 +39607,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -39987,11 +39625,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40040,9 +39678,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-rtf', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40086,8 +39721,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40105,11 +39739,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40158,9 +39792,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-sound', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40198,8 +39829,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40217,11 +39847,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40270,9 +39900,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-test', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40311,8 +39938,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40330,11 +39956,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40383,9 +40009,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-text', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40419,8 +40042,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40438,11 +40060,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40491,9 +40113,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-threat', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40527,8 +40146,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40546,11 +40164,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40599,9 +40217,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-time', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40635,8 +40250,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40654,11 +40268,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40707,9 +40321,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-transfer', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40743,8 +40354,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40762,11 +40372,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40815,9 +40425,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-txt', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40859,8 +40466,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40878,11 +40484,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -40931,9 +40537,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-update', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -40969,8 +40572,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -40988,11 +40590,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41041,9 +40643,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-upload', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41077,8 +40676,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41096,11 +40694,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41149,9 +40747,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-user', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41185,8 +40780,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41204,11 +40798,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41257,9 +40851,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-verified', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41293,8 +40884,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41312,11 +40902,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41365,9 +40955,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-video', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41403,8 +40990,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41422,11 +41008,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41475,9 +41061,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document-word', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41514,8 +41097,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41533,11 +41115,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41586,9 +41168,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-document', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41622,8 +41201,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41641,11 +41219,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41694,9 +41272,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-domain', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41730,8 +41305,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41749,11 +41323,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41802,9 +41376,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-download', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41838,8 +41409,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41857,11 +41427,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -41910,9 +41480,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-drive-cage', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -41949,8 +41516,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -41968,11 +41534,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42021,9 +41587,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-duplicate', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42057,8 +41620,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42076,11 +41638,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42129,9 +41691,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-eject', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42165,8 +41724,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42184,11 +41742,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42237,9 +41795,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-expand', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42273,8 +41828,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42292,11 +41846,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42345,9 +41899,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-fan', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42381,8 +41932,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42400,11 +41950,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42453,9 +42003,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-fast-forward', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42489,8 +42036,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42508,11 +42054,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42561,9 +42107,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-favorite', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42597,8 +42140,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42616,11 +42158,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42669,9 +42211,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-first-aid', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42705,8 +42244,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42724,11 +42262,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42777,9 +42315,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-flag', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42813,8 +42348,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42832,11 +42366,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42885,9 +42419,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-folder-cycle', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -42925,8 +42456,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -42944,11 +42474,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -42997,9 +42527,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-folder-open', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43033,8 +42560,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43052,11 +42578,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43105,9 +42631,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-folder', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43141,8 +42664,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43160,11 +42682,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43213,9 +42735,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-gallery', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43250,8 +42769,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43269,11 +42787,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43322,9 +42840,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-globe', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43358,8 +42873,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43377,11 +42891,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43430,9 +42944,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-grid', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43466,8 +42977,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43485,11 +42995,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43538,9 +43048,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-group', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43574,8 +43081,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43593,11 +43099,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43646,9 +43152,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-grow', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43682,8 +43185,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43701,11 +43203,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43754,9 +43256,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-halt', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43790,8 +43289,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43809,11 +43307,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43862,9 +43360,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-history', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -43898,8 +43393,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -43917,11 +43411,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -43970,9 +43464,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-home', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44006,8 +43497,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44025,11 +43515,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44078,9 +43568,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-host-maintenance', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44116,8 +43603,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44135,11 +43621,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44188,9 +43674,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-host', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44225,8 +43708,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44244,11 +43726,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44297,9 +43779,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-image', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44334,8 +43813,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44353,11 +43831,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44406,9 +43884,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-impact', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44442,8 +43917,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44461,11 +43935,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44514,9 +43988,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-in-progress', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44552,8 +44023,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44571,11 +44041,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44624,9 +44094,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-inbox', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44660,8 +44127,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44679,11 +44145,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44732,9 +44198,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-indicator', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44768,8 +44231,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44787,11 +44249,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44840,9 +44302,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-information', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44876,8 +44335,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -44895,11 +44353,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -44948,9 +44406,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-inherit', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -44984,8 +44439,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45003,11 +44457,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45056,9 +44510,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-install', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45092,8 +44543,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45111,11 +44561,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45164,9 +44614,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-integration', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45200,8 +44647,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45219,11 +44665,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45272,9 +44718,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-iteration', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45308,8 +44751,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45327,11 +44769,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45380,9 +44822,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-java', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45416,8 +44855,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45435,11 +44873,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45488,9 +44926,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-launch', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45525,8 +44960,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45544,11 +44978,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45597,9 +45031,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-license', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45634,8 +45065,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45653,11 +45083,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45706,9 +45136,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-like', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45742,8 +45169,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45761,11 +45187,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45814,9 +45240,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-line-chart', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45850,8 +45273,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45869,11 +45291,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -45922,9 +45344,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link-bottom', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -45958,8 +45377,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -45977,11 +45395,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46030,9 +45448,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link-down', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46066,8 +45481,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46085,11 +45499,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46138,9 +45552,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-link', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46174,8 +45585,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46193,11 +45603,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46246,9 +45656,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-location-pin', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46282,8 +45689,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46301,11 +45707,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46354,9 +45760,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-location', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46390,8 +45793,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46409,11 +45811,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46462,9 +45864,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-lock', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46498,8 +45897,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46517,11 +45915,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46570,9 +45968,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-login', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46606,8 +46001,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46625,11 +46019,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46678,9 +46072,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-logout', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46714,8 +46105,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46733,11 +46123,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46786,9 +46176,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-manual', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46822,8 +46209,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46841,11 +46227,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -46894,9 +46280,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-map-location', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -46932,8 +46315,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -46951,11 +46333,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47004,9 +46386,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-map', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47040,8 +46419,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47059,11 +46437,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47112,9 +46490,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-menu', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47148,8 +46523,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47167,11 +46541,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47220,9 +46594,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-microphone', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47256,8 +46627,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47275,11 +46645,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47328,9 +46698,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-monitor', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47364,8 +46731,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47383,11 +46749,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47436,9 +46802,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-multiple', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47472,8 +46835,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47491,11 +46853,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47544,9 +46906,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-navigate', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47580,8 +46939,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47599,11 +46957,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47652,9 +47010,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-new-window', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47688,8 +47043,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47707,11 +47061,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47760,9 +47114,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-new', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47796,8 +47147,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47815,11 +47165,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47868,9 +47218,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-notes', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -47904,8 +47251,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -47923,11 +47269,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -47976,9 +47322,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-optimization', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48012,8 +47355,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48031,11 +47373,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48084,9 +47426,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-organization', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48125,8 +47464,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48144,11 +47482,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48197,9 +47535,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-overlay', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48237,8 +47572,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48256,11 +47590,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48309,9 +47643,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-overview', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48350,8 +47681,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48369,11 +47699,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48422,9 +47752,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-pan', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48458,8 +47785,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48477,11 +47803,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48530,9 +47856,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-pause', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48566,8 +47889,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48585,11 +47907,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48638,9 +47960,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-payment-google-wallet', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48677,8 +47996,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48696,11 +48014,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48749,9 +48067,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-payment-mastercard', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48794,8 +48109,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48813,11 +48127,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48866,9 +48180,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-payment-paypal', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -48902,8 +48213,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -48921,11 +48231,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -48974,9 +48284,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-payment-square', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49011,8 +48318,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49030,11 +48336,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49083,9 +48389,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-payment-visa', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49119,8 +48422,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49138,11 +48440,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49191,9 +48493,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-pin', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49229,8 +48528,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49248,11 +48546,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49301,9 +48599,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-plan', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49337,8 +48632,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49356,11 +48650,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49409,9 +48703,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-dropbox', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49448,8 +48739,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49467,11 +48757,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49520,9 +48810,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-skype', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49556,8 +48843,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49575,11 +48861,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49628,9 +48914,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-platform-windows', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49664,8 +48947,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49683,11 +48965,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49736,9 +49018,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-play', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49772,8 +49051,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49791,11 +49069,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49844,9 +49122,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-power', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49880,8 +49155,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -49899,11 +49173,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -49952,9 +49226,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-print', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -49989,8 +49260,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50008,11 +49278,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50061,9 +49331,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-quick-view', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50097,8 +49364,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50116,11 +49382,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50169,9 +49435,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-radial-selected', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50206,8 +49469,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50225,11 +49487,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50278,9 +49540,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-radial', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50314,8 +49573,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50333,11 +49591,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50386,9 +49644,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-refresh', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50422,8 +49677,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50441,11 +49695,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50494,9 +49748,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-resources', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50530,8 +49781,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50549,11 +49799,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50602,9 +49852,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-rewind', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50638,8 +49885,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50657,11 +49903,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50710,9 +49956,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-risk', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50752,8 +49995,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50771,11 +50013,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50824,9 +50066,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-rss', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50860,8 +50099,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50879,11 +50117,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -50932,9 +50170,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-satellite', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -50968,8 +50203,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -50987,11 +50221,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51040,9 +50274,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-schedule-clone', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51076,8 +50307,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51095,11 +50325,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51148,9 +50378,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-schedule-new', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51184,8 +50411,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51203,11 +50429,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51256,9 +50482,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-schedule-play', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51293,8 +50516,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51312,11 +50534,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51365,9 +50587,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-schedule', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51401,8 +50620,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51420,11 +50638,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51473,9 +50691,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-scorecard', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51509,8 +50724,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51528,11 +50742,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51581,9 +50795,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-secure', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51619,8 +50830,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51638,11 +50848,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51691,9 +50901,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-select-left', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51728,8 +50935,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51747,11 +50953,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51800,9 +51006,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-select', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51837,8 +51040,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51856,11 +51058,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -51909,9 +51111,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-server-cluster', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -51954,8 +51153,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -51973,11 +51171,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52026,9 +51224,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-server', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52063,8 +51258,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52082,11 +51276,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52135,9 +51329,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-servers', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52173,8 +51364,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52192,11 +51382,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52245,9 +51435,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-service-business', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52281,8 +51468,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52300,11 +51486,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52353,9 +51539,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-service-start', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52390,8 +51573,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52409,11 +51591,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52462,9 +51644,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-share', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52498,8 +51677,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52517,11 +51695,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52570,9 +51748,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-sheild-configure', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52606,8 +51781,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52625,11 +51799,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52678,9 +51852,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-shield', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52714,8 +51885,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52733,11 +51903,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52786,9 +51956,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-shift', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52822,8 +51989,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52841,11 +52007,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -52894,9 +52060,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-shop-basket', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -52930,8 +52093,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -52949,11 +52111,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53002,9 +52164,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-shop-cart', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53040,8 +52199,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53059,11 +52217,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53112,9 +52270,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-soa', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53148,8 +52303,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53167,11 +52321,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53220,9 +52374,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-email', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53239,7 +52390,7 @@ module.exports =
 	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none' },
 	          _react2.default.createElement(
 	            'g',
 	            { id: 'mail-option-24', fill: '#000000' },
@@ -53260,8 +52411,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53279,11 +52429,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53332,9 +52482,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-github', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53368,8 +52515,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53387,11 +52533,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53440,9 +52586,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-google', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53477,8 +52620,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53496,11 +52638,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53549,9 +52691,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-instagram', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53588,8 +52727,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53607,11 +52745,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53660,9 +52798,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-medium', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53700,8 +52835,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53719,11 +52853,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53772,9 +52906,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-pinterest', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53808,8 +52939,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53827,11 +52957,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53880,9 +53010,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-reddit', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -53916,8 +53043,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -53935,11 +53061,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -53988,9 +53114,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-slack', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54024,8 +53147,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54043,11 +53165,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54096,9 +53218,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-tumblr', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54132,8 +53251,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54151,11 +53269,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54204,9 +53322,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-vimeo', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54240,8 +53355,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54259,11 +53373,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54312,9 +53426,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-social-youtube', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54356,8 +53467,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54375,11 +53485,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54428,9 +53538,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-sort', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54471,8 +53578,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54490,11 +53596,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54543,9 +53649,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-stakeholder', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54579,8 +53682,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54598,11 +53700,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54651,9 +53753,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-star-half', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54692,8 +53791,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54711,11 +53809,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54764,9 +53862,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-star', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54804,8 +53899,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54823,11 +53917,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54876,9 +53970,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-steps', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -54912,8 +54003,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -54931,11 +54021,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -54984,9 +54074,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-storage', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55020,8 +54107,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55039,11 +54125,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55092,9 +54178,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-street-view', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55128,8 +54211,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55147,11 +54229,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55200,9 +54282,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-support', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55236,8 +54315,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55255,11 +54333,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55308,9 +54386,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-svg', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55339,8 +54414,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55358,11 +54432,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55411,9 +54485,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-sync', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55447,8 +54518,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55466,11 +54536,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55519,9 +54589,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-system', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55555,8 +54622,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55574,11 +54640,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55627,9 +54693,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tab-next', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55663,8 +54726,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55682,11 +54744,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55735,9 +54797,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tab-previous', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55771,8 +54830,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55790,11 +54848,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55843,9 +54901,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tab-up', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55879,8 +54934,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -55898,11 +54952,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -55951,9 +55005,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-table-add', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -55987,8 +55038,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56006,11 +55056,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56059,9 +55109,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-table', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56095,8 +55142,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56114,11 +55160,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56167,9 +55213,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tag', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56204,8 +55247,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56223,11 +55265,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56276,9 +55318,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-target', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56312,8 +55351,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56331,11 +55369,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56384,9 +55422,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-task', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56420,8 +55455,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56439,11 +55473,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56492,9 +55526,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-template', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56528,8 +55559,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56547,11 +55577,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56600,9 +55630,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-test-desktop', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56636,8 +55663,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56655,11 +55681,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56708,9 +55734,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-test', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56746,8 +55769,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56765,11 +55787,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56818,9 +55840,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tesxt-wrap', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56858,8 +55877,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56877,11 +55895,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -56930,9 +55948,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-threats', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -56966,8 +55981,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -56985,11 +55999,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57038,9 +56052,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-three-d', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57074,8 +56085,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57093,11 +56103,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57146,9 +56156,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-ticket', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57182,8 +56189,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57201,11 +56207,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57254,9 +56260,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tools', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57290,8 +56293,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57309,11 +56311,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57362,9 +56364,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tooltip', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57401,8 +56400,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57420,11 +56418,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57473,9 +56471,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-transaction', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57509,8 +56504,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57528,11 +56522,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57581,9 +56575,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-trash', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57617,8 +56608,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57636,11 +56626,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57689,9 +56679,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-tree', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57725,8 +56712,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57744,11 +56730,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57797,9 +56783,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-trigger', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57833,8 +56816,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57852,11 +56834,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -57905,9 +56887,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-trophy', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -57941,8 +56920,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -57960,11 +56938,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58013,9 +56991,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-troubleshooting', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58049,8 +57024,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58068,11 +57042,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58121,9 +57095,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-unlock', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58157,8 +57128,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58176,11 +57146,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58229,9 +57199,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-update', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58265,8 +57232,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58284,11 +57250,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58337,9 +57303,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-upgrade', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58373,8 +57336,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58392,11 +57354,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58445,9 +57407,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-upload', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58481,8 +57440,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58500,11 +57458,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58553,9 +57511,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-add', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58589,8 +57544,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58608,11 +57562,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58661,9 +57615,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-admin', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58697,8 +57648,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58716,11 +57666,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58769,9 +57719,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-expert', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58805,8 +57752,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58824,11 +57770,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58877,9 +57823,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-female', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -58913,8 +57856,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -58932,11 +57874,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -58985,9 +57927,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-manager', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59021,8 +57960,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59040,11 +57978,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59093,9 +58031,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-new', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59129,8 +58064,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59148,11 +58082,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59201,9 +58135,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-police', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59238,8 +58169,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59257,11 +58187,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59310,9 +58240,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-user-worker', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59346,8 +58273,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59365,11 +58291,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59418,9 +58344,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-validation', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59454,8 +58377,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59473,11 +58395,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59526,9 +58448,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-video', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59562,8 +58481,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59581,11 +58499,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59634,9 +58552,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-view', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59670,8 +58585,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59689,11 +58603,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59742,9 +58656,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-virtual-machine', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59778,8 +58689,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59797,11 +58707,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59850,9 +58760,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-vm-maintenance', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59887,8 +58794,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -59906,11 +58812,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -59959,9 +58865,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-volume-low', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -59995,8 +58898,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -60014,11 +58916,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -60067,9 +58969,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-volume-mute', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -60105,8 +59004,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -60124,11 +59022,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -60177,9 +59075,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-volume', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -60213,8 +59108,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -60232,11 +59126,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -60285,9 +59179,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-vulnerability', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -60321,8 +59212,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -60340,11 +59230,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -60393,9 +59283,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-waypoint', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -60429,8 +59316,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -60448,11 +59334,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -60501,9 +59387,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-workshop', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -60539,8 +59422,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -60558,11 +59440,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -60611,9 +59493,6 @@ module.exports =
 	      var a11yTitle = _props2.a11yTitle;
 	      var size = _props2.size;
 
-	      if (!size && large) {
-	        size = 'large';
-	      }
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '-zoom-in', className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, 'color-index-' + colorIndex, colorIndex), _classnames));
 
@@ -60650,8 +59529,7 @@ module.exports =
 	  a11yTitle: _react.PropTypes.string,
 	  a11yTitleId: _react.PropTypes.string,
 	  colorIndex: _react.PropTypes.string,
-	  large: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge'])
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'huge'])
 	};
 
 	Icon.defaultProps = {
@@ -61463,11 +60341,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -61563,11 +60441,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -62147,11 +61025,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -62739,11 +61617,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -62874,7 +61752,7 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 
-	      var empty = undefined;
+	      var empty = void 0;
 	      if (this.props.emptyIndicator) {
 	        empty = _react2.default.createElement(
 	          'li',
@@ -62908,6 +61786,7 @@ module.exports =
 
 	exports.default = List;
 
+
 	List.propTypes = {
 	  emptyIndicator: _react.PropTypes.node,
 	  onMore: _react.PropTypes.func,
@@ -62923,13 +61802,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -63410,11 +62289,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -63616,6 +62495,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = ResourceMap;
+
 
 	ResourceMap.propTypes = {
 	  data: _react.PropTypes.shape({
@@ -63839,6 +62719,7 @@ module.exports =
 	var Markdown = function Markdown(props) {
 	  var content = props.content;
 	  var components = props.components;
+
 
 	  var heading = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].reduce(function (heading, current) {
 	    heading[current] = {
@@ -65191,11 +64072,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -65521,13 +64402,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -65583,13 +64464,13 @@ module.exports =
 
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, CLASS_ROOT + '--status-' + this.props.status.toLowerCase(), 'background-color-index-' + this.props.status.toLowerCase(), this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + this.props.size, this.props.size), _defineProperty(_classnames, CLASS_ROOT + '--disabled', !this.props.onClick), _classnames));
 
-	      var status = undefined;
+	      var status = void 0;
 	      if (this.props.status) {
 	        status = _react2.default.createElement(_Status2.default, { className: CLASS_ROOT + '__status',
 	          value: this.props.status, size: this.props.size });
 	      }
 
-	      var state = undefined;
+	      var state = void 0;
 	      if (this.props.state) {
 	        state = _react2.default.createElement(
 	          'div',
@@ -65598,7 +64479,7 @@ module.exports =
 	        );
 	      }
 
-	      var progress = undefined;
+	      var progress = void 0;
 	      if (this.props.percentComplete || 0 === this.props.percentComplete) {
 	        progress = _react2.default.createElement(_Meter2.default, { units: '%',
 	          series: [{
@@ -65609,7 +64490,7 @@ module.exports =
 	          size: 'large' });
 	      }
 
-	      var timestamp = undefined;
+	      var timestamp = void 0;
 	      if (this.props.timestamp) {
 	        var timestampFormatted = this.props.timestamp.toString();
 	        if (this.context.intl) {
@@ -65940,247 +64821,133 @@ module.exports =
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(58);
-	var Paragraph = __webpack_require__(465);
-
-	var inline = "<Paragraph>\n" + "  ...\n" + "</Paragraph>";
-
-	var TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-	var ParagraphDoc = React.createClass({
-	  displayName: 'ParagraphDoc',
-
-	  render: function render() {
-	    return React.createElement(
-	      DocsArticle,
-	      { title: 'Paragraph', colorIndex: 'neutral-3' },
-	      React.createElement(
-	        'p',
-	        null,
-	        'A paragraph of text.'
-	      ),
-	      React.createElement(
-	        'pre',
-	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          inline
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Options'
-	        ),
-	        React.createElement(
-	          'dl',
-	          null,
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'size       small|medium|large'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The size of the Paragraph text. Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'medium'
-	            ),
-	            '.'
-	          )
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Examples'
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Default'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Paragraph,
-	            null,
-	            TEXT,
-	            ' ',
-	            React.createElement(
-	              'a',
-	              null,
-	              'link'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Paragraph>...</Paragraph>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Small'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Paragraph,
-	            { size: 'small' },
-	            TEXT,
-	            ' ',
-	            React.createElement(
-	              'a',
-	              null,
-	              'link'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Paragraph size=\"small\">...</Paragraph>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Large'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Paragraph,
-	            { size: 'large' },
-	            TEXT,
-	            ' ',
-	            React.createElement(
-	              'a',
-	              null,
-	              'link'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Paragraph size=\"large\">...</Paragraph>"
-	          )
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Misc base text elements'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            'h1',
-	            null,
-	            React.createElement(
-	              'strong',
-	              null,
-	              'H1'
-	            ),
-	            ' Light'
-	          ),
-	          React.createElement(
-	            'h2',
-	            null,
-	            React.createElement(
-	              'strong',
-	              null,
-	              'H2'
-	            ),
-	            ' Light'
-	          ),
-	          React.createElement(
-	            'h3',
-	            null,
-	            React.createElement(
-	              'strong',
-	              null,
-	              'H3'
-	            ),
-	            ' Light'
-	          ),
-	          React.createElement(
-	            'h4',
-	            null,
-	            React.createElement(
-	              'strong',
-	              null,
-	              'H4'
-	            ),
-	            ' Light'
-	          ),
-	          React.createElement(
-	            'h5',
-	            null,
-	            React.createElement(
-	              'strong',
-	              null,
-	              'H5'
-	            ),
-	            ' Light'
-	          ),
-	          React.createElement(
-	            'h6',
-	            null,
-	            React.createElement(
-	              'strong',
-	              null,
-	              'H6'
-	            ),
-	            ' Light'
-	          ),
-	          React.createElement(
-	            'blockquote',
-	            null,
-	            'Blockquote'
-	          )
-	        )
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = ParagraphDoc;
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DocsArticle = __webpack_require__(58);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(126);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _Paragraph = __webpack_require__(465);
+
+	var _Paragraph2 = _interopRequireDefault(_Paragraph);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// (C) Copyright 2015-2016 Hewlett Packard Enterprise Development LP
+
+	_Paragraph2.default.displayName = 'Paragraph';
+
+	var INLINE = '<Paragraph>\n  ...\n</Paragraph>';
+
+	var TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris\nnisi ut aliquip ex ea commodo consequat.';
+
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    _DocsArticle2.default,
+	    { title: 'Paragraph', colorIndex: 'neutral-3' },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'A paragraph of text.'
+	    ),
+	    _react2.default.createElement(
+	      'pre',
+	      null,
+	      _react2.default.createElement(
+	        'code',
+	        { className: 'html hljs xml' },
+	        INLINE
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Options'
+	      ),
+	      _react2.default.createElement(
+	        'dl',
+	        null,
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'size       small|medium|large'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The size of the Paragraph text. Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'medium'
+	          ),
+	          '.'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Examples'
+	      ),
+	      _react2.default.createElement(_Example2.default, { name: 'Default', code: _react2.default.createElement(
+	          _Paragraph2.default,
+	          null,
+	          TEXT,
+	          ' ',
+	          _react2.default.createElement(
+	            'a',
+	            null,
+	            'link'
+	          )
+	        ) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(
+	          _Paragraph2.default,
+	          { size: 'small' },
+	          TEXT,
+	          ' ',
+	          _react2.default.createElement(
+	            'a',
+	            null,
+	            'link'
+	          )
+	        ) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(
+	          _Paragraph2.default,
+	          { size: 'large' },
+	          TEXT,
+	          ' ',
+	          _react2.default.createElement(
+	            'a',
+	            null,
+	            'link'
+	          )
+	        ) })
+	    )
+	  );
+	};
+
+	module.exports = exports['default'];
 
 /***/ },
 /* 485 */
@@ -66411,13 +65178,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -68528,11 +67295,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -68587,6 +67354,7 @@ module.exports =
 	      var link = _props.link;
 	      var text = _props.text;
 	      var title = _props.title;
+
 
 	      var socialIcon = undefined;
 	      var href = '';
@@ -69472,11 +68240,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -69588,6 +68356,7 @@ module.exports =
 
 	exports.default = Tabs;
 
+
 	Tabs.propTypes = {
 	  activeIndex: _react.PropTypes.number,
 	  justify: _react.PropTypes.oneOf(['start', 'center', 'end']),
@@ -69611,11 +68380,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -69706,6 +68475,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Tab;
+
 
 	Tab.propTypes = {
 	  title: _react.PropTypes.string.isRequired,
@@ -70282,13 +69052,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -70349,6 +69119,7 @@ module.exports =
 
 	exports.default = Tags;
 
+
 	Tags.propTypes = _extends({}, _Box2.default.propTypes);
 
 	Tags.defaultProps = {
@@ -70363,13 +69134,13 @@ module.exports =
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -70434,6 +69205,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Tag;
+
 
 	Tag.propTypes = _extends({
 	  label: _react2.default.PropTypes.string
@@ -71682,11 +70454,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -71844,17 +70616,17 @@ module.exports =
 	        }
 	        // find max
 	        var max = 0;
-	        for (var i = 0; i < parts.length; i += 1) {
+	        for (var _i = 0; _i < parts.length; _i += 1) {
 	          if ('column' === this.props.direction) {
-	            max = Math.max(max, parts[i].offsetHeight);
+	            max = Math.max(max, parts[_i].offsetHeight);
 	          } else {
-	            max = Math.max(max, parts[i].offsetWidth);
+	            max = Math.max(max, parts[_i].offsetWidth);
 	          }
 	        }
 	        // set basis
-	        for (var i = 0; i < parts.length; i += 1) {
-	          parts[i].style.webkitFlexBasis = '' + max + 'px';
-	          parts[i].style.flexBasis = '' + max + 'px';
+	        for (var _i2 = 0; _i2 < parts.length; _i2 += 1) {
+	          parts[_i2].style.webkitFlexBasis = '' + max + 'px';
+	          parts[_i2].style.flexBasis = '' + max + 'px';
 	        }
 	      }
 	    }
@@ -71994,8 +70766,8 @@ module.exports =
 	              var delta = [Math.abs(p1[0] - p2[0]), Math.abs(p1[1] - p2[1])];
 	              context.beginPath();
 	              context.moveTo(p1[0], p1[1]);
-	              var cp1 = undefined;
-	              var cp2 = undefined;
+	              var cp1 = void 0;
+	              var cp2 = void 0;
 
 	              if (this.state.highlights[id]) {
 	                context.lineWidth = 4;
@@ -72123,6 +70895,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Topology;
+
 
 	Topology.propTypes = {
 	  links: _react.PropTypes.arrayOf(_react.PropTypes.shape({
@@ -72447,11 +71220,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -72496,7 +71269,7 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 
-	      var units = undefined;
+	      var units = void 0;
 	      if (this.props.units) {
 	        units = _react2.default.createElement(
 	          'span',
@@ -72505,7 +71278,7 @@ module.exports =
 	        );
 	      }
 
-	      var label = undefined;
+	      var label = void 0;
 	      if (this.props.label) {
 	        label = _react2.default.createElement(
 	          'span',
@@ -72538,6 +71311,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Value;
+
 
 	Value.propTypes = {
 	  align: _react.PropTypes.oneOf(['start', 'center', 'end']),
@@ -72855,11 +71629,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -73038,7 +71812,7 @@ module.exports =
 	      var a11yControlButtonMessage = this.state.playing ? 'Pause Video' : this.state.ended ? 'Restart Video' : 'Play Video';
 	      var a11yControlButtonTitle = _Intl2.default.getMessage(this.context.intl, a11yControlButtonMessage);
 
-	      var videoHeader = undefined;
+	      var videoHeader = void 0;
 	      var videoSummaryJustify = 'between';
 	      if (this.props.videoHeader) {
 	        videoHeader = this.props.videoHeader;
@@ -73057,7 +71831,7 @@ module.exports =
 	        videoSummaryJustify = 'center';
 	      }
 
-	      var title = undefined;
+	      var title = void 0;
 	      if (this.props.title) {
 	        classes.push(CLASS_ROOT + '--titled');
 	        title = _react2.default.createElement(
@@ -73067,7 +71841,7 @@ module.exports =
 	        );
 	      }
 
-	      var timeline = undefined;
+	      var timeline = void 0;
 	      if (this.props.timeline && this.props.duration) {
 
 	        var chapters = this.props.timeline.map(function (chapter, index, chapters) {
@@ -73104,7 +71878,7 @@ module.exports =
 	        );
 	      }
 
-	      var progress = undefined;
+	      var progress = void 0;
 	      if (this.props.duration) {
 	        var percent = Math.round(this.state.progress / this.props.duration * 100);
 	        progress = _react2.default.createElement(
@@ -73149,6 +71923,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = Video;
+
 
 	Video.propTypes = {
 	  colorIndex: _react.PropTypes.string,
@@ -73370,11 +72145,11 @@ module.exports =
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -73491,10 +72266,10 @@ module.exports =
 	      if (index === this.state.activeIndex) {
 	        classes.push(CLASS_ROOT + '__continent--active');
 	      }
-	      var onMouseOver = undefined,
-	          onMouseLeave = undefined,
-	          onClick = undefined,
-	          area = undefined;
+	      var onMouseOver = void 0,
+	          onMouseLeave = void 0,
+	          onClick = void 0,
+	          area = void 0;
 	      if (seriesData.onClick) {
 	        onMouseOver = this._onActivate.bind(this, index);
 	        onMouseLeave = this._onDeactivate;
@@ -73539,6 +72314,7 @@ module.exports =
 	}(_react.Component);
 
 	exports.default = WorldMap;
+
 
 	WorldMap.propTypes = {
 	  series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
