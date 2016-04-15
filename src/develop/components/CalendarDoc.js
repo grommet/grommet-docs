@@ -26,6 +26,11 @@ var CalendarDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
+            <dt><code>format        {"{string}"}</code></dt>
+            <dd>The date format. Available syntax can be seen in the
+              documentation
+              for <a href="http://momentjs.com/docs/#/displaying/format/">moment</a>.
+              The default is <code>{"M/D/YYYY h:mm a"}</code>.</dd>
             <dt><code>id            {"{string}"}</code></dt>
             <dd>The id attribute of the input.</dd>
             <dt><code>name          {"{string}"}</code></dt>
@@ -33,8 +38,9 @@ var CalendarDoc = React.createClass({
             <dt><code>onChange      {"function ({string}) {...}"}</code></dt>
             <dd>Function that will be called when the user types some text into
               the input or selects a date from the drop down.</dd>
-            <dt><code>value         {"{string}"}</code></dt>
-            <dd>What text to put in the input.</dd>
+            <dt><code>value         {"{string}|{Date}|{moment}"}</code></dt>
+            <dd>If a string is specified, it is put in the input. If a Date
+              or moment is specified, it is formatted and put in the input.</dd>
           </dl>
         </section>
 

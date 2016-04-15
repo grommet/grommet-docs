@@ -30,6 +30,7 @@ var ChartDoc = require('./components/ChartDoc');
 var CheckBoxDoc = require('./components/CheckBoxDoc');
 var ColumnsDoc = require('./components/ColumnsDoc');
 var DashboardDoc = require('./patterns/DashboardDoc');
+var DateTimeDoc = require('./components/DateTimeDoc');
 var DistributionDoc = require('./components/DistributionDoc');
 var FooterDoc = require('./components/FooterDoc');
 var FormDoc = require('./components/FormDoc');
@@ -70,6 +71,7 @@ var TagsDoc = require('./components/TagsDoc');
 var TilesDoc = require('./components/TilesDoc');
 var TitleDoc = require('./components/TitleDoc');
 var TopologyDoc = require('./components/TopologyDoc');
+var ValueDoc = require('./components/ValueDoc');
 var VideoDoc = require('./components/VideoDoc');
 var WorldMapDoc = require('./components/WorldMapDoc');
 
@@ -109,6 +111,7 @@ var CONTENTS = [
       {route: 'develop_chart', label: 'Chart', component: ChartDoc},
       {route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc},
       {route: 'develop_columns', label: 'Columns', component: ColumnsDoc},
+      {route: 'develop_date-time', label: 'DateTime', component: DateTimeDoc},
       {route: 'develop_distribution', label: 'Distribution', component: DistributionDoc},
       {route: 'develop_footer', label: 'Footer', component: FooterDoc},
       {route: 'develop_form', label: 'Form', component: FormDoc},
@@ -145,6 +148,7 @@ var CONTENTS = [
       {route: 'develop_tiles', label: 'Tiles', component: TilesDoc},
       {route: 'develop_title', label: 'Title', component: TitleDoc},
       {route: 'develop_topology', label: 'Topology', component: TopologyDoc},
+      {route: 'develop_value', label: 'Value', component: ValueDoc},
       {route: 'develop_video', label: 'Video', component: VideoDoc},
       {route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc}
     ]
