@@ -1,32 +1,39 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Link = require('react-router').Link;
-var DocsArticle = require('../../DocsArticle');
-var Header = require('grommet/components/Header');
-var Menu = require('grommet/components/Menu');
-var Anchor = require('grommet/components/Anchor');
-var Search = require('grommet/components/Search');
-var Title = require('grommet/components/Title');
-var ActionsLogo = require('grommet/components/icons/base/Actions');
-var NotificationIcon = require('grommet/components/icons/base/Notification');
-var UserSettingsIcon = require('grommet/components/icons/base/UserSettings');
-var Logo = require('../../img/Logo');
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import DocsArticle from '../../DocsArticle';
+import Example from '../Example';
+import Header from 'grommet/components/Header';
+import Menu from 'grommet/components/Menu';
+import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
+import Search from 'grommet/components/Search';
+import Title from 'grommet/components/Title';
+import ActionsLogo from 'grommet/components/icons/base/Actions';
+import NotificationIcon from 'grommet/components/icons/base/Notification';
+import UserSettingsIcon from 'grommet/components/icons/base/UserSettings';
+import Logo from '../../img/Logo';
 
-var HeaderDoc = React.createClass({
+Header.displayName = 'Header';
+Title.displayName = 'Title';
+Search.displayName = 'Search';
+Menu.displayName = 'Menu';
+Anchor.displayName = 'Anchor';
+Button.displayName = 'Button';
 
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
+const INLINE = `<Header>
+  <Link to={route}>{label}</Link>
+  ...
+</Header>`;
 
-  render: function() {
-    var inline =
-    "<Header>\n  <Link to={route}>{label}</Link>\n  ...\n</Header>";
+export default class HeaderDoc extends Component {
+  render () {
     return (
       <DocsArticle title="Header" colorIndex="neutral-3">
 
         <p>Combines Title and Menu elements responsively.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <pre><code className="html hljs xml">{INLINE}</code></pre>
 
         <section>
           <h2>Options</h2>
@@ -48,17 +55,14 @@ var HeaderDoc = React.createClass({
         <section>
           <h2>Examples</h2>
 
-          <h3>Title and Search</h3>
-          <div className="example">
+          <Example name="Title and Search" code={
             <Header>
               <Title>Title</Title>
-              <Search inline={true} />
+              <Search inline={true} className="flex" placeHolder="Search" />
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+          } />
 
-          <h3>Title, inline Menu, and Search</h3>
-          <div className="example">
+          <Example name="Title, inline Menu, and Search" code={
             <Header justify="between">
               <Title>Title</Title>
               <Menu direction="row" align="center" responsive={false}>
@@ -68,11 +72,9 @@ var HeaderDoc = React.createClass({
                 <Search dropAlign={{right: "right"}} />
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+          } />
 
-          <h3>Logo, title and icon Menu</h3>
-          <div className="example">
+          <Example name="Logo, Title and icon Menu" code={
             <Header justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
@@ -81,11 +83,9 @@ var HeaderDoc = React.createClass({
                 <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+          } />
 
-          <h3>Logo, title and labelled Menu</h3>
-          <div className="example">
+          <Example name="Logo, Title and labelled Menu" code={
             <Header justify="between">
               <Title><Logo /> Title</Title>
               <Menu label="Label" dropAlign={{right: "right"}}>
@@ -94,11 +94,9 @@ var HeaderDoc = React.createClass({
                 <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+          } />
 
-          <h3>Large</h3>
-          <div className="example">
+          <Example name="Large" code={
             <Header size="large" justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
@@ -107,11 +105,9 @@ var HeaderDoc = React.createClass({
                 <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header size=\"large\"> ..."}</code></pre>
+          } />
 
-          <h3>Small</h3>
-          <div className="example">
+          <Example name="Small" code={
             <Header size="small" justify="between">
               <Title><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
@@ -120,11 +116,9 @@ var HeaderDoc = React.createClass({
                 <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header size=\"small\"> ..."}</code></pre>
+          } />
 
-          <h3>Title menu and icon Menu</h3>
-          <div className="example">
+          <Example name="Title menu and icon Menu" code={
             <Header size="large" justify="between">
               <Title onClick={function () {}}><Logo /> Title</Title>
               <Menu icon={<ActionsLogo />} dropAlign={{right: "right"}}>
@@ -133,18 +127,15 @@ var HeaderDoc = React.createClass({
                 <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header size=\"large\"> ..."}</code></pre>
+          } />
 
-          <h3>Tag, Separator</h3>
-          <div className="example">
-            <Header tag="h4" separator="top">Heading Text</Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header tag=\"h4\" separator=\"top\"> ..."}</code></pre>
+          <Example name="Separator" code={
+            <Header separator="top">Heading Text</Header>
+          } />
 
-          <h3>Large, Title Menu and icon Menu, colored</h3>
-          <div className="example">
-            <Header size="large" justify="between" colorIndex="neutral-1" pad={{horizontal: 'medium'}}>
+          <Example name="Large, Title Menu and icon Menu, colored" code={
+            <Header size="large" justify="between" colorIndex="neutral-1"
+              pad={{horizontal: 'medium'}}>
               <Title onClick={function () {}}><Logo inverse={true} /> Title</Title>
               <Menu label="Menu"
                 dropAlign={{right: "right"}}
@@ -154,12 +145,11 @@ var HeaderDoc = React.createClass({
                 <Anchor href="#">Third</Anchor>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header size=\"large\" justify=\"between\" colorIndex=\"neutral-1\" pad={{vertical: 'small'}}> ..."}</code></pre>
+          } />
 
-          <h3>Logo, Title and nested Menus, colored</h3>
-          <div className="example">
-            <Header justify="between" colorIndex="neutral-1" pad={{horizontal: 'medium'}}>
+          <Example name="Logo, Title and nested Menus, colored" code={
+            <Header justify="between" colorIndex="neutral-1"
+              pad={{horizontal: 'medium'}}>
               <Title><Logo inverse={true} /> Title</Title>
               <Menu inline={true} responsive={false} direction="row">
                 <Menu icon={<NotificationIcon />}
@@ -178,14 +168,15 @@ var HeaderDoc = React.createClass({
                 </Menu>
               </Menu>
             </Header>
-          </div>
-          <pre><code className="html hljs xml">{"<Header> ..."}</code></pre>
+          } />
 
         </section>
 
       </DocsArticle>
     );
   }
-});
+};
 
-module.exports = HeaderDoc;
+HeaderDoc.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
