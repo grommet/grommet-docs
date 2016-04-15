@@ -5,11 +5,14 @@ var Link = require('react-router').Link;
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Quote = require('grommet/components/Quote');
+var Paragraph = require('grommet/components/Paragraph');
 
 Quote.displayName = 'Quote';
 
 var inline =
-      "<Quote />";
+      "<Quote>\n" +
+      "  ...\n" +
+      "</Quote>";
 
 var QuoteDoc = React.createClass({
 
@@ -33,18 +36,20 @@ var QuoteDoc = React.createClass({
 
   render: function() {
     var simpleQuote = (
-      <Quote quote={["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."]}
-        quoteCredit="A famous person" />
+      <Quote credit="A famous person">
+        <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
+      </Quote>
     );
     var smallQuote = (
-      <Quote borderColorIndex="accent-1" size="small" emphasizeQuote={true} emphasizeCredit={false}
-        quote={["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."]}
-        quoteCredit="A famous person" />
+      <Quote borderColorIndex="accent-1" size="small" emphasizeCredit={false} credit="A famous person">
+        <Paragraph><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</strong></Paragraph>
+      </Quote>
     );
     var longQuote = (
-      <Quote borderColorIndex="accent-2" size="medium"
-        quote={["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Ut enim ad minim veniam, quis nostrud exercitation ullamrehenderit in voluptate mollit anim."]}
-        quoteCredit="A famous person" />
+      <Quote borderColorIndex="accent-2" size="medium" credit="A famous person">
+        <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
+        <Paragraph>Ut enim ad minim veniam, quis nostrud exercitation ullamrehenderit in voluptate mollit anim.</Paragraph>
+      </Quote>
     );
 
     return (
@@ -60,12 +65,8 @@ var QuoteDoc = React.createClass({
             <dd>ColorIndex of the border.</dd>
             <dt><code>size                        small|medium|large|full</code></dt>
             <dd>Width of the box containing the quote.  Defaults to <code>large</code>.</dd>
-            <dt><code>quote                       array</code></dt>
-            <dd>Array of strings that make up the quote.  Required.</dd>
-            <dt><code>quoteCredit                 string</code></dt>
+            <dt><code>credit                      string</code></dt>
             <dd>The name of the entity that the quote is credited to.</dd>
-            <dt><code>emphasizeQuote              true|false</code></dt>
-            <dd>Whether the quote should be bolded for emphasis.  Defaults to <code>false</code>.</dd>
             <dt><code>emphasizeCredit             true|false</code></dt>
             <dd>Whether the quote credit should be bolded for emphasis.  Defaults to <code>true</code>.</dd>
           </dl>
