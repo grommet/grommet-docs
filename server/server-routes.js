@@ -71983,7 +71983,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'code',
 	                null,
-	                'size         small|medium|large'
+	                'size         small|medium|large|xlarge'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -72077,10 +72077,10 @@ module.exports =
 	              icon: _react2.default.createElement(_Globe2.default, { size: 'large', colorIndex: 'neutral-1' }),
 	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'large', colorIndex: 'neutral-1' }),
 	              label: 'World wide coverage', size: 'large', colorIndex: 'neutral-1' }) }),
-	          _react2.default.createElement(_Example2.default, { name: 'Huge', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
-	              icon: _react2.default.createElement(_Globe2.default, { size: 'huge', colorIndex: 'neutral-1' }),
-	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'huge', colorIndex: 'neutral-1' }),
-	              label: 'World wide coverage', size: 'huge', colorIndex: 'neutral-1' }) })
+	          _react2.default.createElement(_Example2.default, { name: 'xLarge', code: _react2.default.createElement(_Value2.default, { value: 75, units: '%',
+	              icon: _react2.default.createElement(_Globe2.default, { size: 'xlarge', colorIndex: 'neutral-1' }),
+	              trendIcon: _react2.default.createElement(_LinkUp2.default, { size: 'xlarge', colorIndex: 'neutral-1' }),
+	              label: 'World wide coverage', size: 'xlarge', colorIndex: 'neutral-1' }) })
 	        )
 	      );
 	    }
@@ -72201,7 +72201,7 @@ module.exports =
 	  icon: _react.PropTypes.node,
 	  label: _react.PropTypes.string,
 	  onClick: _react.PropTypes.func,
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'huge']),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 	  trendIcon: _react.PropTypes.node,
 	  value: _react.PropTypes.number.isRequired,
 	  units: _react.PropTypes.string

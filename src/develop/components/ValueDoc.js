@@ -34,7 +34,7 @@ export default class ValueDoc extends Component {
             <dd>Optional short description of the value.</dd>
             <dt><code>onClick      {"{func}"}</code></dt>
             <dd>Click handler.</dd>
-            <dt><code>size         small|medium|large</code></dt>
+            <dt><code>size         small|medium|large|xlarge</code></dt>
             <dd>The size of the value. Defaults to <code>medium</code>.</dd>
             <dt><code>trendIcon    {"{element}"}</code></dt>
             <dd>Optional icon element to place next to the value indicating
@@ -75,11 +75,11 @@ export default class ValueDoc extends Component {
               label="World wide coverage" size="large" colorIndex="neutral-1" />
           } />
 
-          <Example name="Huge" code={
+          <Example name="xLarge" code={
             <Value value={75} units="%"
-              icon={<GlobeIcon size="huge" colorIndex="neutral-1" />}
-              trendIcon={<UpIcon size="huge" colorIndex="neutral-1" />}
-              label="World wide coverage" size="huge" colorIndex="neutral-1" />
+              icon={<GlobeIcon size="xlarge" colorIndex="neutral-1" />}
+              trendIcon={<UpIcon size="xlarge" colorIndex="neutral-1" />}
+              label="World wide coverage" size="xlarge" colorIndex="neutral-1" />
           } />
         </section>
 
