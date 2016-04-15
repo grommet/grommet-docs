@@ -1703,6 +1703,8 @@ module.exports =
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
@@ -1842,7 +1844,10 @@ module.exports =
 	    key: 'render',
 	    value: function render() {
 	      var closer = null;
-	      if (this.props.onClose && this.props.closer) {
+
+	      if (_typeof(this.props.closer) === 'object') {
+	        closer = this.props.closer;
+	      } else if (this.props.onClose && this.props.closer) {
 	        //TODO: remove a11yCloserTitle after 0.6 release
 	        var closeLabel = _Intl2.default.getMessage(this.context.intl, 'Close');
 	        var layerLabel = _Intl2.default.getMessage(this.context.intl, 'Layer');
@@ -5475,7 +5480,7 @@ module.exports =
 	        return child;
 	      });
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--animate-icon', hasIcon && this.props.animateIcon !== false), _defineProperty(_classnames, CLASS_ROOT + '--disabled', this.props.disabled), _defineProperty(_classnames, CLASS_ROOT + '--icon', icon), _defineProperty(_classnames, CLASS_ROOT + '--icon-label', hasIcon && this.props.label), _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--reverse', this.props.reverse), _classnames));
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--animate-icon', hasIcon && this.props.animateIcon !== false), _defineProperty(_classnames, CLASS_ROOT + '--disabled', this.props.disabled), _defineProperty(_classnames, CLASS_ROOT + '--icon', icon || hasIcon), _defineProperty(_classnames, CLASS_ROOT + '--icon-label', hasIcon && this.props.label), _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--reverse', this.props.reverse), _classnames));
 
 	      if (!children) {
 	        children = this.props.label;
@@ -16549,26 +16554,27 @@ module.exports =
 	var NotificationDoc = __webpack_require__(481);
 	var NumberInputDoc = __webpack_require__(483);
 	var ParagraphDoc = __webpack_require__(484);
-	var RadioButtonDoc = __webpack_require__(485);
-	var RestDoc = __webpack_require__(486);
-	var RestWatchDoc = __webpack_require__(487);
-	var SearchDoc = __webpack_require__(488);
-	var SearchInputDoc = __webpack_require__(489);
-	var SectionDoc = __webpack_require__(490);
-	var SidebarDoc = __webpack_require__(491);
-	var SocialShareDoc = __webpack_require__(492);
-	var SpinningDoc = __webpack_require__(494);
-	var SplitDoc = __webpack_require__(495);
-	var StatusDoc = __webpack_require__(496);
-	var TabsDoc = __webpack_require__(497);
-	var TableDoc = __webpack_require__(500);
-	var TagsDoc = __webpack_require__(501);
-	var TilesDoc = __webpack_require__(504);
-	var TitleDoc = __webpack_require__(505);
-	var TopologyDoc = __webpack_require__(506);
-	var ValueDoc = __webpack_require__(508);
-	var VideoDoc = __webpack_require__(510);
-	var WorldMapDoc = __webpack_require__(512);
+	var QuoteDoc = __webpack_require__(485);
+	var RadioButtonDoc = __webpack_require__(487);
+	var RestDoc = __webpack_require__(488);
+	var RestWatchDoc = __webpack_require__(489);
+	var SearchDoc = __webpack_require__(490);
+	var SearchInputDoc = __webpack_require__(491);
+	var SectionDoc = __webpack_require__(492);
+	var SidebarDoc = __webpack_require__(493);
+	var SocialShareDoc = __webpack_require__(494);
+	var SpinningDoc = __webpack_require__(496);
+	var SplitDoc = __webpack_require__(497);
+	var StatusDoc = __webpack_require__(498);
+	var TabsDoc = __webpack_require__(499);
+	var TableDoc = __webpack_require__(502);
+	var TagsDoc = __webpack_require__(503);
+	var TilesDoc = __webpack_require__(506);
+	var TitleDoc = __webpack_require__(507);
+	var TopologyDoc = __webpack_require__(508);
+	var ValueDoc = __webpack_require__(510);
+	var VideoDoc = __webpack_require__(512);
+	var WorldMapDoc = __webpack_require__(514);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(60);
@@ -16584,7 +16590,7 @@ module.exports =
 	}, { label: 'Patterns',
 	  contents: [{ route: 'develop_dashboard', label: 'Dashboard', component: DashboardDoc }, { route: 'develop_navigation', label: 'Navigation', component: NavigationDoc }, { route: 'develop_actions', label: 'Actions', component: ActionsDoc }]
 	}, { label: 'Components',
-	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_date-time', label: 'DateTime', component: DateTimeDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_social-share', label: 'SocialShare', component: SocialShareDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_value', label: 'Value', component: ValueDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
+	  contents: [{ route: 'develop_anchor', label: 'Anchor', component: AnchorDoc }, { route: 'develop_app', label: 'App', component: AppDoc }, { route: 'develop_article', label: 'Article', component: ArticleDoc }, { route: 'develop_box', label: 'Box', component: BoxDoc }, { route: 'develop_brick', label: 'Brick', component: BrickDoc }, { route: 'develop_button', label: 'Button', component: ButtonDoc }, { route: 'develop_calendar', label: 'Calendar', component: CalendarDoc }, { route: 'develop_carousel', label: 'Carousel', component: CarouselDoc }, { route: 'develop_chart', label: 'Chart', component: ChartDoc }, { route: 'develop_check-box', label: 'CheckBox', component: CheckBoxDoc }, { route: 'develop_columns', label: 'Columns', component: ColumnsDoc }, { route: 'develop_date-time', label: 'DateTime', component: DateTimeDoc }, { route: 'develop_distribution', label: 'Distribution', component: DistributionDoc }, { route: 'develop_footer', label: 'Footer', component: FooterDoc }, { route: 'develop_form', label: 'Form', component: FormDoc }, { route: 'develop_form-field', label: 'FormField', component: FormFieldDoc }, { route: 'develop_header', label: 'Header', component: HeaderDoc }, { route: 'develop_heading', label: 'Heading', component: HeadingDoc }, { route: 'develop_headline', label: 'Headline', component: HeadlineDoc }, { route: 'develop_icon', label: 'Icon', component: IconDoc }, { route: 'develop_image', label: 'Image', component: ImageDoc }, { route: 'develop_label', label: 'Label', component: LabelDoc }, { route: 'develop_layer', label: 'Layer', component: LayerDoc }, { route: 'develop_legend', label: 'Legend', component: LegendDoc }, { route: 'develop_list', label: 'List', component: ListDoc }, { route: 'develop_login-form', label: 'LoginForm', component: LoginFormDoc }, { route: 'develop_map', label: 'Map', component: MapDoc }, { route: 'develop_menu', label: 'Menu', component: MenuDoc }, { route: 'develop_meter', label: 'Meter', component: MeterDoc }, { route: 'develop_notification', label: 'Notification', component: NotificationDoc }, { route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc }, { route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc }, { route: 'develop_quote', label: 'Quote', component: QuoteDoc }, { route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc }, { route: 'develop_search', label: 'Search', component: SearchDoc }, { route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc }, { route: 'develop_section', label: 'Section', component: SectionDoc }, { route: 'develop_sidebar', label: 'Sidebar', component: SidebarDoc }, { route: 'develop_social-share', label: 'SocialShare', component: SocialShareDoc }, { route: 'develop_spinning', label: 'Spinning', component: SpinningDoc }, { route: 'develop_split', label: 'Split', component: SplitDoc }, { route: 'develop_status', label: 'Status', component: StatusDoc }, { route: 'develop_tabs', label: 'Tabs', component: TabsDoc }, { route: 'develop_table', label: 'Table', component: TableDoc }, { route: 'develop_tags', label: 'Tags', component: TagsDoc }, { route: 'develop_tiles', label: 'Tiles', component: TilesDoc }, { route: 'develop_title', label: 'Title', component: TitleDoc }, { route: 'develop_topology', label: 'Topology', component: TopologyDoc }, { route: 'develop_value', label: 'Value', component: ValueDoc }, { route: 'develop_video', label: 'Video', component: VideoDoc }, { route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc }]
 	}, { label: 'Utils',
 	  contents: [{ route: 'develop_markdown', label: 'Markdown', component: MarkdownDoc }, { route: 'develop_rest', label: 'Rest', component: RestDoc }, { route: 'develop_rest-watch', label: 'RestWatch', component: RestWatchDoc }]
 	}, { label: 'Reference',
@@ -66171,6 +66177,330 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
+	var Link = __webpack_require__(2).Link;
+	var jsxToString = __webpack_require__(127);
+	var DocsArticle = __webpack_require__(58);
+	var Quote = __webpack_require__(486);
+	var Paragraph = __webpack_require__(465);
+
+	Quote.displayName = 'Quote';
+
+	var inline = "<Quote>\n" + "  ...\n" + "</Quote>";
+
+	var QuoteDoc = React.createClass({
+	  displayName: 'QuoteDoc',
+
+
+	  contextTypes: {
+	    routePrefix: React.PropTypes.string.isRequired
+	  },
+
+	  _renderCode: function _renderCode(name, jsx) {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h3',
+	        null,
+	        name
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'example' },
+	        jsx
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          jsxToString(jsx)
+	        )
+	      )
+	    );
+	  },
+
+
+	  render: function render() {
+	    var simpleQuote = React.createElement(
+	      Quote,
+	      { credit: 'A famous person' },
+	      React.createElement(
+	        Paragraph,
+	        null,
+	        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+	      )
+	    );
+	    var smallQuote = React.createElement(
+	      Quote,
+	      { borderColorIndex: 'accent-1', size: 'small', emphasizeCredit: false, credit: 'A famous person' },
+	      React.createElement(
+	        Paragraph,
+	        null,
+	        React.createElement(
+	          'strong',
+	          null,
+	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+	        )
+	      )
+	    );
+	    var longQuote = React.createElement(
+	      Quote,
+	      { borderColorIndex: 'accent-2', size: 'medium', credit: 'A famous person' },
+	      React.createElement(
+	        Paragraph,
+	        null,
+	        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+	      ),
+	      React.createElement(
+	        Paragraph,
+	        null,
+	        'Ut enim ad minim veniam, quis nostrud exercitation ullamrehenderit in voluptate mollit anim.'
+	      )
+	    );
+
+	    return React.createElement(
+	      DocsArticle,
+	      { title: 'Quote', colorIndex: 'neutral-3' },
+	      React.createElement(
+	        'p',
+	        null,
+	        'A quote with a colored border.'
+	      ),
+	      React.createElement(
+	        'pre',
+	        null,
+	        React.createElement(
+	          'code',
+	          { className: 'html hljs xml' },
+	          inline
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Options'
+	        ),
+	        React.createElement(
+	          'dl',
+	          null,
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'borderColorIndex            string'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'ColorIndex of the border.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'size                        small|medium|large|full'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Width of the box containing the quote.  Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'large'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'credit                      string'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'The name of the entity that the quote is credited to.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'emphasizeCredit             true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the quote credit should be bolded for emphasis.  Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'true'
+	            ),
+	            '.'
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'p',
+	          null,
+	          'Options for ',
+	          React.createElement(
+	            Link,
+	            { to: this.context.routePrefix + 'box' },
+	            'Box'
+	          ),
+	          ' are available.'
+	        )
+	      ),
+	      React.createElement(
+	        'section',
+	        null,
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Examples'
+	        ),
+	        this._renderCode('Default', simpleQuote),
+	        this._renderCode('Small quote, emphasis reversed', smallQuote),
+	        this._renderCode('Medium quote, with multiple paragraphs', longQuote)
+	      )
+	    );
+	  }
+	});
+
+	module.exports = QuoteDoc;
+
+/***/ },
+/* 486 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames2 = __webpack_require__(22);
+
+	var _classnames3 = _interopRequireDefault(_classnames2);
+
+	var _Box = __webpack_require__(15);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _Paragraph = __webpack_require__(465);
+
+	var _Paragraph2 = _interopRequireDefault(_Paragraph);
+
+	var _Props = __webpack_require__(27);
+
+	var _Props2 = _interopRequireDefault(_Props);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	var CLASS_ROOT = 'quote';
+
+	var Quote = function (_Component) {
+	  _inherits(Quote, _Component);
+
+	  function Quote() {
+	    _classCallCheck(this, Quote);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Quote).apply(this, arguments));
+	  }
+
+	  _createClass(Quote, [{
+	    key: 'render',
+	    value: function render() {
+	      var _classnames;
+
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, 'border-color-index-' + this.props.borderColorIndex, this.props.borderColorIndex), _defineProperty(_classnames, CLASS_ROOT + '--' + this.props.size, this.props.size), _defineProperty(_classnames, CLASS_ROOT + '--emphasize-credit', this.props.emphasizeCredit), _classnames));
+
+	      var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
+
+	      return _react2.default.createElement(
+	        _Box2.default,
+	        _extends({}, boxProps, { className: classes }),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.props.children,
+	          _react2.default.createElement(
+	            _Paragraph2.default,
+	            { className: CLASS_ROOT + '__credit' },
+	            this.props.credit
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Quote;
+	}(_react.Component);
+
+	exports.default = Quote;
+	;
+
+	Quote.propTypes = _extends({
+	  borderColorIndex: _react.PropTypes.string,
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'full']),
+	  credit: _react.PropTypes.string,
+	  emphasizeCredit: _react.PropTypes.bool
+	}, _Box2.default.propTypes);
+
+	Quote.defaultProps = {
+	  pad: { horizontal: 'large', vertical: 'small' },
+	  size: 'large',
+	  emphasizeCredit: true
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 487 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
 	var RadioButton = __webpack_require__(161);
 
@@ -66396,7 +66726,7 @@ module.exports =
 	module.exports = RadioButtonDoc;
 
 /***/ },
-/* 486 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66613,7 +66943,7 @@ module.exports =
 	module.exports = RestDoc;
 
 /***/ },
-/* 487 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66800,7 +67130,7 @@ module.exports =
 	module.exports = RestWatchDoc;
 
 /***/ },
-/* 488 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67321,7 +67651,7 @@ module.exports =
 	module.exports = SearchDoc;
 
 /***/ },
-/* 489 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67632,7 +67962,7 @@ module.exports =
 	module.exports = SearchInputDoc;
 
 /***/ },
-/* 490 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67748,7 +68078,7 @@ module.exports =
 	module.exports = SectionDoc;
 
 /***/ },
-/* 491 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67980,7 +68310,7 @@ module.exports =
 	module.exports = SidebarDoc;
 
 /***/ },
-/* 492 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67990,7 +68320,7 @@ module.exports =
 	var React = __webpack_require__(1);
 	var jsxToString = __webpack_require__(127);
 	var DocsArticle = __webpack_require__(58);
-	var SocialShare = __webpack_require__(493);
+	var SocialShare = __webpack_require__(495);
 
 	function convertSocialShareToString(jsx) {
 	  return jsxToString(jsx);
@@ -68179,7 +68509,7 @@ module.exports =
 	module.exports = SocialShareDoc;
 
 /***/ },
-/* 493 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68292,7 +68622,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 494 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68354,7 +68684,7 @@ module.exports =
 	module.exports = SpinningDoc;
 
 /***/ },
-/* 495 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68564,7 +68894,7 @@ module.exports =
 	module.exports = SplitDoc;
 
 /***/ },
-/* 496 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68847,7 +69177,7 @@ module.exports =
 	module.exports = StatusDoc;
 
 /***/ },
-/* 497 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68856,8 +69186,8 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Tabs = __webpack_require__(498);
-	var Tab = __webpack_require__(499);
+	var Tabs = __webpack_require__(500);
+	var Tab = __webpack_require__(501);
 	var FormFields = __webpack_require__(160);
 	var FormField = __webpack_require__(94);
 	var Form = __webpack_require__(93);
@@ -69123,7 +69453,7 @@ module.exports =
 	module.exports = TabsDoc;
 
 /***/ },
-/* 498 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69262,7 +69592,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 499 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69371,7 +69701,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 500 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69731,7 +70061,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 501 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69742,8 +70072,8 @@ module.exports =
 	var jsxToString = __webpack_require__(127);
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(58);
-	var Tags = __webpack_require__(502);
-	var Tag = __webpack_require__(503);
+	var Tags = __webpack_require__(504);
+	var Tag = __webpack_require__(505);
 
 	Tags.displayName = 'Tags';
 	Tag.displayName = 'Tag';
@@ -69933,7 +70263,7 @@ module.exports =
 	module.exports = TagsDoc;
 
 /***/ },
-/* 502 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70014,7 +70344,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 503 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70097,7 +70427,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 504 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70698,7 +71028,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 505 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70851,7 +71181,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 506 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70860,7 +71190,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Topology = __webpack_require__(507);
+	var Topology = __webpack_require__(509);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -71333,7 +71663,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 507 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71799,7 +72129,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 508 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71824,7 +72154,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Value = __webpack_require__(509);
+	var _Value = __webpack_require__(511);
 
 	var _Value2 = _interopRequireDefault(_Value);
 
@@ -72098,7 +72428,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 509 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72213,7 +72543,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 510 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72222,7 +72552,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Video = __webpack_require__(511);
+	var Video = __webpack_require__(513);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -72506,7 +72836,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 511 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72824,7 +73154,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 512 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72847,7 +73177,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _WorldMap = __webpack_require__(513);
+	var _WorldMap = __webpack_require__(515);
 
 	var _WorldMap2 = _interopRequireDefault(_WorldMap);
 
@@ -73021,7 +73351,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 513 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
