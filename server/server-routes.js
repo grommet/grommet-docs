@@ -28299,604 +28299,499 @@ module.exports =
 
 	'use strict';
 
-	// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
-
-	var React = __webpack_require__(1);
-	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(58);
-	var Header = __webpack_require__(41);
-	var Menu = __webpack_require__(25);
-	var Anchor = __webpack_require__(44);
-	var Search = __webpack_require__(104);
-	var Title = __webpack_require__(42);
-	var ActionsLogo = __webpack_require__(169);
-	var NotificationIcon = __webpack_require__(170);
-	var UserSettingsIcon = __webpack_require__(171);
-	var Logo = __webpack_require__(105);
-
-	var HeaderDoc = React.createClass({
-	  displayName: 'HeaderDoc',
-
-
-	  contextTypes: {
-	    routePrefix: React.PropTypes.string.isRequired
-	  },
-
-	  render: function render() {
-	    var inline = "<Header>\n  <Link to={route}>{label}</Link>\n  ...\n</Header>";
-	    return React.createElement(
-	      DocsArticle,
-	      { title: 'Header', colorIndex: 'neutral-3' },
-	      React.createElement(
-	        'p',
-	        null,
-	        'Combines Title and Menu elements responsively.'
-	      ),
-	      React.createElement(
-	        'pre',
-	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          inline
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Options'
-	        ),
-	        React.createElement(
-	          'dl',
-	          null,
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'fixed       true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Whether the header is fixed on the page, typically so content below it will scroll under it.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'float       true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Whether the header floats above content underneath it.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'size        small|medium|large'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The size of the Header. Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'medium'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'splash      true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Whether to render it in a style suitable for a splash screen.'
-	          )
-	        ),
-	        React.createElement(
-	          'p',
-	          null,
-	          'Options for ',
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "box" },
-	            'Box'
-	          ),
-	          ' are also available.'
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Examples'
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Title and Search'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            null,
-	            React.createElement(
-	              Title,
-	              null,
-	              'Title'
-	            ),
-	            React.createElement(Search, { inline: true })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Title, inline Menu, and Search'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { justify: 'between' },
-	            React.createElement(
-	              Title,
-	              null,
-	              'Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { direction: 'row', align: 'center', responsive: false },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              ),
-	              React.createElement(Search, { dropAlign: { right: "right" } })
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Logo, title and icon Menu'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { justify: 'between' },
-	            React.createElement(
-	              Title,
-	              null,
-	              React.createElement(Logo, null),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Logo, title and labelled Menu'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { justify: 'between' },
-	            React.createElement(
-	              Title,
-	              null,
-	              React.createElement(Logo, null),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { label: 'Label', dropAlign: { right: "right" } },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Large'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { size: 'large', justify: 'between' },
-	            React.createElement(
-	              Title,
-	              null,
-	              React.createElement(Logo, null),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header size=\"large\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Small'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { size: 'small', justify: 'between' },
-	            React.createElement(
-	              Title,
-	              null,
-	              React.createElement(Logo, null),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header size=\"small\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Title menu and icon Menu'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { size: 'large', justify: 'between' },
-	            React.createElement(
-	              Title,
-	              { onClick: function onClick() {} },
-	              React.createElement(Logo, null),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { icon: React.createElement(ActionsLogo, null), dropAlign: { right: "right" } },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header size=\"large\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Tag, Separator'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { tag: 'h4', separator: 'top' },
-	            'Heading Text'
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header tag=\"h4\" separator=\"top\"> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Large, Title Menu and icon Menu, colored'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { size: 'large', justify: 'between', colorIndex: 'neutral-1', pad: { horizontal: 'medium' } },
-	            React.createElement(
-	              Title,
-	              { onClick: function onClick() {} },
-	              React.createElement(Logo, { inverse: true }),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { label: 'Menu',
-	                dropAlign: { right: "right" },
-	                dropColorIndex: 'neutral-1' },
-	              React.createElement(
-	                Anchor,
-	                { href: '#', className: 'active' },
-	                'First'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Second'
-	              ),
-	              React.createElement(
-	                Anchor,
-	                { href: '#' },
-	                'Third'
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header size=\"large\" justify=\"between\" colorIndex=\"neutral-1\" pad={{vertical: 'small'}}> ..."
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Logo, Title and nested Menus, colored'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
-	            Header,
-	            { justify: 'between', colorIndex: 'neutral-1', pad: { horizontal: 'medium' } },
-	            React.createElement(
-	              Title,
-	              null,
-	              React.createElement(Logo, { inverse: true }),
-	              ' Title'
-	            ),
-	            React.createElement(
-	              Menu,
-	              { inline: true, responsive: false, direction: 'row' },
-	              React.createElement(
-	                Menu,
-	                { icon: React.createElement(NotificationIcon, null),
-	                  dropAlign: { right: "right" },
-	                  dropColorIndex: 'neutral-1' },
-	                React.createElement(
-	                  Anchor,
-	                  { href: '#', className: 'active' },
-	                  'First'
-	                ),
-	                React.createElement(
-	                  Anchor,
-	                  { href: '#' },
-	                  'Second'
-	                ),
-	                React.createElement(
-	                  Anchor,
-	                  { href: '#' },
-	                  'Third'
-	                )
-	              ),
-	              React.createElement(
-	                Menu,
-	                { icon: React.createElement(UserSettingsIcon, null),
-	                  dropAlign: { right: "right" },
-	                  dropColorIndex: 'neutral-1' },
-	                React.createElement(
-	                  Anchor,
-	                  { href: '#', className: 'active' },
-	                  'First'
-	                ),
-	                React.createElement(
-	                  Anchor,
-	                  { href: '#' },
-	                  'Second'
-	                ),
-	                React.createElement(
-	                  Anchor,
-	                  { href: '#' },
-	                  'Third'
-	                )
-	              )
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<Header> ..."
-	          )
-	        )
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = HeaderDoc;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(2);
+
+	var _DocsArticle = __webpack_require__(58);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(126);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _Header = __webpack_require__(41);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _Menu = __webpack_require__(25);
+
+	var _Menu2 = _interopRequireDefault(_Menu);
+
+	var _Anchor = __webpack_require__(44);
+
+	var _Anchor2 = _interopRequireDefault(_Anchor);
+
+	var _Button = __webpack_require__(24);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Search = __webpack_require__(104);
+
+	var _Search2 = _interopRequireDefault(_Search);
+
+	var _Title = __webpack_require__(42);
+
+	var _Title2 = _interopRequireDefault(_Title);
+
+	var _Actions = __webpack_require__(169);
+
+	var _Actions2 = _interopRequireDefault(_Actions);
+
+	var _Notification = __webpack_require__(170);
+
+	var _Notification2 = _interopRequireDefault(_Notification);
+
+	var _UserSettings = __webpack_require__(171);
+
+	var _UserSettings2 = _interopRequireDefault(_UserSettings);
+
+	var _Logo = __webpack_require__(105);
+
+	var _Logo2 = _interopRequireDefault(_Logo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	_Header2.default.displayName = 'Header';
+	_Title2.default.displayName = 'Title';
+	_Search2.default.displayName = 'Search';
+	_Menu2.default.displayName = 'Menu';
+	_Anchor2.default.displayName = 'Anchor';
+	_Button2.default.displayName = 'Button';
+
+	var INLINE = '<Header>\n  <Link to={route}>{label}</Link>\n  ...\n</Header>';
+
+	var HeaderDoc = function (_Component) {
+	  _inherits(HeaderDoc, _Component);
+
+	  function HeaderDoc() {
+	    _classCallCheck(this, HeaderDoc);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HeaderDoc).apply(this, arguments));
+	  }
+
+	  _createClass(HeaderDoc, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        _DocsArticle2.default,
+	        { title: 'Header', colorIndex: 'neutral-3' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Combines Title and Menu elements responsively.'
+	        ),
+	        _react2.default.createElement(
+	          'pre',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            { className: 'html hljs xml' },
+	            INLINE
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Options'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'fixed       true|false'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Whether the header is fixed on the page, typically so content below it will scroll under it.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'float       true|false'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Whether the header floats above content underneath it.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'size        small|medium|large'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'The size of the Header. Defaults to ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'medium'
+	              ),
+	              '.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'splash      true|false'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Whether to render it in a style suitable for a splash screen.'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Options for ',
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: this.context.routePrefix + "box" },
+	              'Box'
+	            ),
+	            ' are also available.'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Examples'
+	          ),
+	          _react2.default.createElement(_Example2.default, { name: 'Title and Search', code: _react2.default.createElement(
+	              _Header2.default,
+	              null,
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                'Title'
+	              ),
+	              _react2.default.createElement(_Search2.default, { inline: true, className: 'flex', placeHolder: 'Search' })
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Title, inline Menu, and Search', code: _react2.default.createElement(
+	              _Header2.default,
+	              { justify: 'between' },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                'Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { direction: 'row', align: 'center', responsive: false },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                ),
+	                _react2.default.createElement(_Search2.default, { dropAlign: { right: "right" } })
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Logo, Title and icon Menu', code: _react2.default.createElement(
+	              _Header2.default,
+	              { justify: 'between' },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                _react2.default.createElement(_Logo2.default, null),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { icon: _react2.default.createElement(_Actions2.default, null), dropAlign: { right: "right" } },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Logo, Title and labelled Menu', code: _react2.default.createElement(
+	              _Header2.default,
+	              { justify: 'between' },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                _react2.default.createElement(_Logo2.default, null),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { label: 'Label', dropAlign: { right: "right" } },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(
+	              _Header2.default,
+	              { size: 'large', justify: 'between' },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                _react2.default.createElement(_Logo2.default, null),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { icon: _react2.default.createElement(_Actions2.default, null), dropAlign: { right: "right" } },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(
+	              _Header2.default,
+	              { size: 'small', justify: 'between' },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                _react2.default.createElement(_Logo2.default, null),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { icon: _react2.default.createElement(_Actions2.default, null), dropAlign: { right: "right" } },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Title menu and icon Menu', code: _react2.default.createElement(
+	              _Header2.default,
+	              { size: 'large', justify: 'between' },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                { onClick: function onClick() {} },
+	                _react2.default.createElement(_Logo2.default, null),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { icon: _react2.default.createElement(_Actions2.default, null), dropAlign: { right: "right" } },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Separator', code: _react2.default.createElement(
+	              _Header2.default,
+	              { separator: 'top' },
+	              'Heading Text'
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Large, Title Menu and icon Menu, colored', code: _react2.default.createElement(
+	              _Header2.default,
+	              { size: 'large', justify: 'between', colorIndex: 'neutral-1',
+	                pad: { horizontal: 'medium' } },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                { onClick: function onClick() {} },
+	                _react2.default.createElement(_Logo2.default, { inverse: true }),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { label: 'Menu',
+	                  dropAlign: { right: "right" },
+	                  dropColorIndex: 'neutral-1' },
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#', className: 'active' },
+	                  'First'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Second'
+	                ),
+	                _react2.default.createElement(
+	                  _Anchor2.default,
+	                  { href: '#' },
+	                  'Third'
+	                )
+	              )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Logo, Title and nested Menus, colored', code: _react2.default.createElement(
+	              _Header2.default,
+	              { justify: 'between', colorIndex: 'neutral-1',
+	                pad: { horizontal: 'medium' } },
+	              _react2.default.createElement(
+	                _Title2.default,
+	                null,
+	                _react2.default.createElement(_Logo2.default, { inverse: true }),
+	                ' Title'
+	              ),
+	              _react2.default.createElement(
+	                _Menu2.default,
+	                { inline: true, responsive: false, direction: 'row' },
+	                _react2.default.createElement(
+	                  _Menu2.default,
+	                  { icon: _react2.default.createElement(_Notification2.default, null),
+	                    dropAlign: { right: "right" },
+	                    dropColorIndex: 'neutral-1' },
+	                  _react2.default.createElement(
+	                    _Anchor2.default,
+	                    { href: '#', className: 'active' },
+	                    'First'
+	                  ),
+	                  _react2.default.createElement(
+	                    _Anchor2.default,
+	                    { href: '#' },
+	                    'Second'
+	                  ),
+	                  _react2.default.createElement(
+	                    _Anchor2.default,
+	                    { href: '#' },
+	                    'Third'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  _Menu2.default,
+	                  { icon: _react2.default.createElement(_UserSettings2.default, null),
+	                    dropAlign: { right: "right" },
+	                    dropColorIndex: 'neutral-1' },
+	                  _react2.default.createElement(
+	                    _Anchor2.default,
+	                    { href: '#', className: 'active' },
+	                    'First'
+	                  ),
+	                  _react2.default.createElement(
+	                    _Anchor2.default,
+	                    { href: '#' },
+	                    'Second'
+	                  ),
+	                  _react2.default.createElement(
+	                    _Anchor2.default,
+	                    { href: '#' },
+	                    'Third'
+	                  )
+	                )
+	              )
+	            ) })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return HeaderDoc;
+	}(_react.Component);
+
+	exports.default = HeaderDoc;
+	;
+
+	HeaderDoc.contextTypes = {
+	  routePrefix: _react2.default.PropTypes.string.isRequired
+	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 169 */
