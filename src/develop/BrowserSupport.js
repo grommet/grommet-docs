@@ -2,11 +2,24 @@
 
 var React = require('react');
 var DocsArticle = require('../DocsArticle');
-var Firefox = require('grommet/components/icons/base/PlatformFirefox');
-var IE = require('grommet/components/icons/base/PlatformInternetExplorer');
-var Edge = require('grommet/components/icons/base/PlatformEdge');
-var Chrome = require('grommet/components/icons/base/PlatformChrome');
-var Apple = require('grommet/components/icons/base/PlatformApple');
+var Box = require('grommet/components/Box');
+var FirefoxIcon = require('grommet/components/icons/base/PlatformFirefox');
+var IEIcon = require('grommet/components/icons/base/PlatformInternetExplorer');
+var EdgeIcon = require('grommet/components/icons/base/PlatformEdge');
+var ChromeIcon = require('grommet/components/icons/base/PlatformChrome');
+var AppleIcon = require('grommet/components/icons/base/PlatformApple');
+
+var Browser = React.createClass({
+  render: function () {
+    return (
+      <Box direction="row" align="center"
+        pad={{between: 'small', vertical: 'medium'}}>
+        <this.props.icon size="large" />
+        <strong>{this.props.children}</strong>
+      </Box>
+    );
+  }
+});
 
 var BrowserSupport = React.createClass({
   render: function () {
@@ -15,11 +28,11 @@ var BrowserSupport = React.createClass({
         <section>
           <h2>Supported web browsers and versions</h2>
           <p>The following web browsers are tested and supported with Grommet.</p>
-          <p><IE /> Microsoft Internet Explorer Version 11</p>
-          <p><Edge />Microsoft Edge, latest version</p>
-          <p><Firefox /> Mozilla Firefox, latest version</p>
-          <p><Chrome /> Google Chrome mobile and desktop, latest versions</p>
-          <p><Apple />Apple Safari mobile and desktop, latest versions</p>
+          <Browser icon={IEIcon}>Microsoft Internet Explorer Version 11</Browser>
+          <Browser icon={EdgeIcon}>Microsoft Edge, latest version</Browser>
+          <Browser icon={FirefoxIcon}>Mozilla Firefox, latest version</Browser>
+          <Browser icon={ChromeIcon}>Google Chrome mobile and desktop, latest versions</Browser>
+          <Browser icon={AppleIcon}>Apple Safari mobile and desktop, latest versions</Browser>
           <p>
           Grommet makes heavy use of the <a href="https://www.w3.org/TR/css-flexbox-1/">
           HTML5 Flexible Box Layout Module</a>.  For this reason, Grommet requires

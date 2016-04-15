@@ -17984,11 +17984,30 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Firefox = __webpack_require__(119);
-	var IE = __webpack_require__(120);
-	var Edge = __webpack_require__(121);
-	var Chrome = __webpack_require__(122);
-	var Apple = __webpack_require__(123);
+	var Box = __webpack_require__(15);
+	var FirefoxIcon = __webpack_require__(119);
+	var IEIcon = __webpack_require__(120);
+	var EdgeIcon = __webpack_require__(121);
+	var ChromeIcon = __webpack_require__(122);
+	var AppleIcon = __webpack_require__(123);
+
+	var Browser = React.createClass({
+	  displayName: 'Browser',
+
+	  render: function render() {
+	    return React.createElement(
+	      Box,
+	      { direction: 'row', align: 'center',
+	        pad: { between: 'small', vertical: 'medium' } },
+	      React.createElement(this.props.icon, { size: 'large' }),
+	      React.createElement(
+	        'strong',
+	        null,
+	        this.props.children
+	      )
+	    );
+	  }
+	});
 
 	var BrowserSupport = React.createClass({
 	  displayName: 'BrowserSupport',
@@ -18011,33 +18030,28 @@ module.exports =
 	          'The following web browsers are tested and supported with Grommet.'
 	        ),
 	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(IE, null),
-	          ' Microsoft Internet Explorer Version 11'
+	          Browser,
+	          { icon: IEIcon },
+	          'Microsoft Internet Explorer Version 11'
 	        ),
 	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(Edge, null),
+	          Browser,
+	          { icon: EdgeIcon },
 	          'Microsoft Edge, latest version'
 	        ),
 	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(Firefox, null),
-	          ' Mozilla Firefox, latest version'
+	          Browser,
+	          { icon: FirefoxIcon },
+	          'Mozilla Firefox, latest version'
 	        ),
 	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(Chrome, null),
-	          ' Google Chrome mobile and desktop, latest versions'
+	          Browser,
+	          { icon: ChromeIcon },
+	          'Google Chrome mobile and desktop, latest versions'
 	        ),
 	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(Apple, null),
+	          Browser,
+	          { icon: AppleIcon },
 	          'Apple Safari mobile and desktop, latest versions'
 	        ),
 	        React.createElement(
