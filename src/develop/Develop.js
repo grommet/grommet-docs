@@ -53,6 +53,7 @@ var NavigationDoc = require('./patterns/NavigationDoc');
 var NotificationDoc = require('./components/NotificationDoc');
 var NumberInputDoc = require('./components/NumberInputDoc');
 var ParagraphDoc = require('./components/ParagraphDoc');
+var QuoteDoc = require('./components/QuoteDoc');
 var RadioButtonDoc = require('./components/RadioButtonDoc');
 var RestDoc = require('./utils/RestDoc');
 var RestWatchDoc = require('./utils/RestWatchDoc');
@@ -131,6 +132,7 @@ var CONTENTS = [
       {route: 'develop_notification', label: 'Notification', component: NotificationDoc},
       {route: 'develop_number-input', label: 'NumberInput', component: NumberInputDoc},
       {route: 'develop_paragraph', label: 'Paragraph', component: ParagraphDoc},
+      {route: 'develop_quote', label: 'Quote', component: QuoteDoc},
       {route: 'develop_radio-button', label: 'RadioButton', component: RadioButtonDoc},
       {route: 'develop_search', label: 'Search', component: SearchDoc},
       {route: 'develop_search-input', label: 'SearchInput', component: SearchInputDoc},
