@@ -2291,7 +2291,6 @@ module.exports =
 	      var _classnames;
 
 	      var plain = this.props.plain !== undefined ? this.props.plain : this.props.icon && !this.props.label;
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--secondary', this.props.secondary), _defineProperty(_classnames, CLASS_ROOT + '--accent', this.props.accent), _defineProperty(_classnames, CLASS_ROOT + '--disabled', !this.props.onClick && !this.props.href), _defineProperty(_classnames, CLASS_ROOT + '--fill', this.props.fill), _defineProperty(_classnames, CLASS_ROOT + '--plain', plain), _defineProperty(_classnames, CLASS_ROOT + '--icon', this.props.icon), _defineProperty(_classnames, CLASS_ROOT + '--align-' + this.props.align, this.props.align), _classnames));
 
 	      var icon = void 0;
 	      if (this.props.icon) {
@@ -2302,17 +2301,20 @@ module.exports =
 	        );
 	      }
 
+	      var hasIcon = icon !== undefined;
 	      var children = _react2.default.Children.map(this.props.children, function (child) {
 	        if (child && child.type && child.type.icon) {
+	          hasIcon = true;
 	          child = _react2.default.createElement(
 	            'span',
 	            { className: CLASS_ROOT + '__icon' },
 	            child
 	          );
 	        }
-
 	        return child;
 	      });
+
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--primary', this.props.primary), _defineProperty(_classnames, CLASS_ROOT + '--secondary', this.props.secondary), _defineProperty(_classnames, CLASS_ROOT + '--accent', this.props.accent), _defineProperty(_classnames, CLASS_ROOT + '--disabled', !this.props.onClick && !this.props.href), _defineProperty(_classnames, CLASS_ROOT + '--fill', this.props.fill), _defineProperty(_classnames, CLASS_ROOT + '--plain', plain), _defineProperty(_classnames, CLASS_ROOT + '--icon', this.props.icon || hasIcon), _defineProperty(_classnames, CLASS_ROOT + '--align-' + this.props.align, this.props.align), _classnames));
 
 	      if (!children) {
 	        children = this.props.label;
@@ -4085,6 +4087,10 @@ module.exports =
 
 	var _Scroll2 = _interopRequireDefault(_Scroll);
 
+	var _Responsive = __webpack_require__(28);
+
+	var _Responsive2 = _interopRequireDefault(_Responsive);
+
 	var _Button = __webpack_require__(24);
 
 	var _Button2 = _interopRequireDefault(_Button);
@@ -4122,10 +4128,10 @@ module.exports =
 	var Article = function (_Component) {
 	  _inherits(Article, _Component);
 
-	  function Article() {
+	  function Article(props) {
 	    _classCallCheck(this, Article);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Article).call(this));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Article).call(this, props));
 
 	    _this._onFocusChange = _this._onFocusChange.bind(_this);
 	    _this._onScroll = _this._onScroll.bind(_this);
@@ -4139,10 +4145,12 @@ module.exports =
 	    _this._onSelect = _this._onSelect.bind(_this);
 	    _this._checkControls = _this._checkControls.bind(_this);
 	    _this._checkPreviousNextControls = _this._checkPreviousNextControls.bind(_this);
+	    _this._onResponsive = _this._onResponsive.bind(_this);
 
 	    _this.state = {
 	      activeIndex: 0,
-	      playing: false
+	      playing: false,
+	      showControls: _this.props.controls
 	    };
 	    return _this;
 	  }
@@ -4164,6 +4172,10 @@ module.exports =
 	        this._scrollParent = _reactDom2.default.findDOMNode(this.refs.component);
 
 	        this._checkControls();
+
+	        if ('row' === this.props.direction && this.props.scrollStep) {
+	          this._responsive = _Responsive2.default.start(this._onResponsive);
+	        }
 	      }
 	    }
 	  }, {
@@ -4173,6 +4185,9 @@ module.exports =
 	        _KeyboardAccelerators2.default.stopListeningToKeyboard(this, this._keys);
 	        document.removeEventListener('wheel', this._onWheel);
 	        window.removeEventListener('resize', this._onResize);
+	      }
+	      if (this._responsive) {
+	        this._responsive.stop();
 	      }
 	    }
 	  }, {
@@ -4212,37 +4227,48 @@ module.exports =
 	      }
 	    }
 	  }, {
-	    key: '_ignoreScrolling',
-	    value: function _ignoreScrolling() {
-	      var _this2 = this;
+	    key: '_visibleIndexes',
+	    value: function _visibleIndexes() {
+	      var _props = this.props;
+	      var children = _props.children;
+	      var direction = _props.direction;
 
-	      // ignore scroll and wheel events for a while to avoid acceleration artifacts
-	      this.setState({ ignoreScroll: true });
-	      clearTimeout(this._ignoreScrollTimer);
-	      this._ignoreScrollTimer = setTimeout(function () {
-	        _this2.setState({ ignoreScroll: false });
-	      }, 1000);
-	    }
-	  }, {
-	    key: '_onScroll',
-	    value: function _onScroll(event) {
-	      if (event.target === this._scrollParent) {
-	        if ('row' === this.props.direction) {
-	          if (!this.state.ignoreScroll) {
-	            var activeIndex = this.state.activeIndex;
-
-	            var childElement = _reactDom2.default.findDOMNode(this.refs[activeIndex]);
-	            var rect = childElement.getBoundingClientRect();
-	            if (rect.left < -1) {
-	              // scrolling right
-	              this._onNext();
-	            } else if (rect.left > 1) {
-	              // scrolling left
-	              this._onPrevious();
-	            }
+	      var result = [];
+	      var childCount = _react2.default.Children.count(children);
+	      var limit = 'row' === direction ? window.innerWidth : window.innerHeight;
+	      for (var index = 0; index < childCount; index += 1) {
+	        var childElement = _reactDom2.default.findDOMNode(this.refs[index]);
+	        var rect = childElement.getBoundingClientRect();
+	        // ignore small drifts of 10 pixels on either end
+	        if ('row' === direction) {
+	          if (rect.right > 10 && rect.left < limit - 10) {
+	            result.push(index);
+	          } else if (result.length > 0) {
+	            break;
+	          }
+	        } else {
+	          if (rect.bottom > 10 && rect.top < limit - 10) {
+	            result.push(index);
+	          } else if (result.length > 0) {
+	            break;
 	          }
 	        }
 	      }
+	      return result;
+	    }
+	  }, {
+	    key: '_shortTimer',
+	    value: function _shortTimer(name, duration) {
+	      var _this2 = this;
+
+	      if (!this[name]) {
+	        this[name] = true;
+	      }
+	      var timerName = this[name] + 'Timer';
+	      clearTimeout(this[timerName]);
+	      this[timerName] = setTimeout(function () {
+	        _this2[name] = false;
+	      }, duration);
 	    }
 	  }, {
 	    key: '_onWheel',
@@ -4250,23 +4276,16 @@ module.exports =
 	      var _this3 = this;
 
 	      if ('row' === this.props.direction) {
-	        // Horizontal scrolling.
-	        if (!this.state.ignoreScroll) {
-	          // Only step if the user isn't scrolling vertically, bias vertically
-	          if (event.deltaX > 10 && Math.abs(event.deltaY * 4) < Math.abs(event.deltaX)) {
-	            event.preventDefault();
-	            // Constrain scrolling to lock on each section.
-	            if (event.deltaX > 0) {
-	              this._onNext();
-	            } else {
-	              this._onPrevious();
+	        if (this._scrollingHorizontally) {
+	          // no-op
+	        } else if (!this._scrollingVertically) {
+	            if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+	              // user is scrolling vertically
+	              this._shortTimer('_scrollingVertically', 1000);
 	            }
 	          }
-	        } else {
-	          event.preventDefault();
-	        }
 	      } else {
-	        // Vertical scrolling. Give the user lots of control.
+	        // Give the user lots of control.
 	        var delta = event.deltaY;
 	        if (Math.abs(delta) > 100) {
 	          // The user is expressing a resolute interest in controlling the
@@ -4287,6 +4306,53 @@ module.exports =
 	          } else {
 	            clearInterval(this._controlTimer);
 	            this._controlTimer = setTimeout(this._checkControls, 200);
+	          }
+	        }
+	      }
+	    }
+	  }, {
+	    key: '_onScroll',
+	    value: function _onScroll(event) {
+	      var _this4 = this;
+
+	      if ('row' === this.props.direction) {
+	        if (event.target === this._scrollParent) {
+	          // scrolling Article
+	          if (this._scrollingVertically) {
+	            // prevent Article horizontal scrolling while scrolling vertically
+	            var activeIndex = this.state.activeIndex;
+
+	            var childElement = _reactDom2.default.findDOMNode(this.refs[activeIndex]);
+	            var rect = childElement.getBoundingClientRect();
+	            this._scrollParent.scrollLeft += rect.left;
+	          } else {
+	            (function () {
+	              var scrollingRight = _this4._priorScrollLeft < _this4._scrollParent.scrollLeft;
+	              // once we stop scrolling, align with child boundaries
+	              clearTimeout(_this4._scrollTimer);
+	              _this4._scrollTimer = setTimeout(function () {
+	                var indexes = _this4._visibleIndexes();
+	                if (indexes.length > 1 && scrollingRight) {
+	                  _this4._onSelect(indexes[1]);
+	                } else {
+	                  _this4._onSelect(indexes[0]);
+	                }
+	              }, 100);
+	              _this4._priorScrollLeft = _this4._scrollParent.scrollLeft;
+	            })();
+	          }
+	        } else if (event.target.parentNode === this._scrollParent) {
+	          // scrolling child
+	          // Has it scrolled near the bottom?
+	          var grandchildren = event.target.children;
+	          var lastGrandChild = grandchildren[grandchildren.length - 1];
+	          var _rect = lastGrandChild.getBoundingClientRect();
+	          if (_rect.bottom <= window.innerHeight + 24) {
+	            // at the bottom
+	            this.setState({ atBottom: true });
+	          } else {
+	            // not at the bottom
+	            this.setState({ atBottom: false });
 	          }
 	        }
 	      }
@@ -4318,83 +4384,54 @@ module.exports =
 	  }, {
 	    key: '_onResize',
 	    value: function _onResize() {
-	      var _this4 = this;
+	      var _this5 = this;
 
 	      clearTimeout(this._resizeTimer);
 	      this._resizeTimer = setTimeout(function () {
-	        _this4._onSelect(_this4.state.activeIndex);
+	        _this5._onSelect(_this5.state.activeIndex);
 	      }, 50);
 	    }
 	  }, {
 	    key: '_onNext',
 	    value: function _onNext(event, wrap) {
-	      var _props = this.props;
-	      var children = _props.children;
-	      var direction = _props.direction;
+	      var children = this.props.children;
 	      var activeIndex = this.state.activeIndex;
 
+	      var childCount = _react2.default.Children.count(children);
 	      if (event) {
 	        this._stop();
 	        event.preventDefault();
 	      }
-	      var childCount = _react2.default.Children.count(children);
-	      var limit = 'row' === direction ? window.innerWidth : window.innerHeight;
-	      var advanced = false;
-	      for (var index = 0; index < childCount; index += 1) {
-	        var childElement = _reactDom2.default.findDOMNode(this.refs[index]);
-	        var rect = childElement.getBoundingClientRect();
-	        var edge = 'row' === direction ? rect.right : rect.bottom;
-	        if (edge > 0) {
-	          if (event || wrap || edge <= limit) {
-	            // This is the first visible child, select the next one
-	            if (index + 1 !== activeIndex) {
-	              this._onSelect(Math.min(childCount - 1, index + 1));
-	            }
-	            advanced = true;
-	          }
-	          break;
+	      var targetIndex = this._visibleIndexes()[0] + 1;
+	      if (targetIndex !== activeIndex) {
+	        if (targetIndex < childCount) {
+	          this._onSelect(Math.min(childCount - 1, targetIndex));
+	        } else if (wrap) {
+	          this._onSelect(1);
 	        }
-	      }
-	      if (wrap && !advanced) {
-	        this._onSelect(1);
 	      }
 	    }
 	  }, {
 	    key: '_onPrevious',
 	    value: function _onPrevious(event) {
-	      var _props2 = this.props;
-	      var children = _props2.children;
-	      var direction = _props2.direction;
 	      var activeIndex = this.state.activeIndex;
 
 	      if (event) {
 	        this._stop();
 	        event.preventDefault();
 	      }
-	      var childCount = _react2.default.Children.count(children);
-	      var limit = 'row' === direction ? window.innerWidth : window.innerHeight;
-	      for (var index = childCount - 1; index >= 0; index -= 1) {
-	        var childElement = _reactDom2.default.findDOMNode(this.refs[index]);
-	        var rect = childElement.getBoundingClientRect();
-	        var edge = 'row' === direction ? rect.left : rect.top;
-	        if (edge < limit) {
-	          if (event || edge >= 0) {
-	            // This is the first visible child, select the previous one
-	            if (index - 1 !== activeIndex) {
-	              this._onSelect(Math.max(0, index - 1));
-	            }
-	          }
-	          break;
-	        }
+	      var targetIndex = this._visibleIndexes()[0] - 1;
+	      if (targetIndex !== activeIndex) {
+	        this._onSelect(Math.max(0, targetIndex));
 	      }
 	    }
 	  }, {
 	    key: '_start',
 	    value: function _start() {
-	      var _this5 = this;
+	      var _this6 = this;
 
 	      this._playTimer = setInterval(function () {
-	        _this5._onNext(null, true);
+	        _this6._onNext(null, true);
 	      }, DEFAULT_PLAY_INTERVAL);
 	      this.setState({ playing: true });
 	    }
@@ -4417,44 +4454,62 @@ module.exports =
 	  }, {
 	    key: '_onSelect',
 	    value: function _onSelect(activeIndex) {
-	      var _this6 = this;
+	      var _this7 = this;
 
 	      var childElement = _reactDom2.default.findDOMNode(this.refs[activeIndex]);
 	      if (childElement) {
+	        // scroll child to top
+	        childElement.scrollTop = 0;
 	        var rect = childElement.getBoundingClientRect();
 	        if ('row' === this.props.direction) {
-	          _Scroll2.default.scrollBy(this._scrollParent, 'scrollLeft', rect.left);
+	          if (rect.left !== 0) {
+	            this._scrollingHorizontally = true;
+	            _Scroll2.default.scrollBy(this._scrollParent, 'scrollLeft', rect.left, function () {
+	              _this7._scrollingHorizontally = false;
+	            });
+	          }
 	        } else {
-	          _Scroll2.default.scrollBy(this._scrollParent, 'scrollTop', rect.top);
+	          if (rect.top !== 0) {
+	            this._scrollingVertically = true;
+	            _Scroll2.default.scrollBy(this._scrollParent, 'scrollTop', rect.top, function () {
+	              _this7._scrollingVertically = false;
+	            });
+	          }
 	        }
 
-	        this.setState({ activeIndex: activeIndex }, function () {
+	        this.setState({
+	          activeIndex: activeIndex,
+	          atBottom: false
+	        }, function () {
 	          var items = childElement.getElementsByTagName('*');
 	          var firstFocusable = _DOM2.default.getBestFirstFocusable(items);
 	          if (!firstFocusable) {
-	            _this6.refs['anchor_step_' + activeIndex].focus();
+	            _this7.refs['anchor_step_' + activeIndex].focus();
 	          }
 
-	          if (_this6.props.onFocusChange) {
-	            _this6.props.onFocusChange(activeIndex);
+	          if (_this7.props.onFocusChange) {
+	            _this7.props.onFocusChange(activeIndex);
 	          }
 	        });
-
-	        this._ignoreScrolling();
 	      }
 	    }
 	  }, {
 	    key: '_onFocusChange',
 	    value: function _onFocusChange(e) {
-	      var _this7 = this;
+	      var _this8 = this;
 
 	      _react2.default.Children.forEach(this.props.children, function (element, index) {
-	        var parent = _reactDom2.default.findDOMNode(_this7.refs[index]);
+	        var parent = _reactDom2.default.findDOMNode(_this8.refs[index]);
 	        if (parent && parent.contains(e.target)) {
-	          _this7._onSelect(index);
+	          _this8._onSelect(index);
 	          return false;
 	        }
 	      });
+	    }
+	  }, {
+	    key: '_onResponsive',
+	    value: function _onResponsive(small) {
+	      this.setState({ narrow: small });
 	    }
 	  }, {
 	    key: '_renderControls',
@@ -4472,15 +4527,17 @@ module.exports =
 
 	      var a11yTitle = this.props.a11yTitle || {};
 	      if ('row' === this.props.direction) {
-	        if (this.state.activeIndex > 0) {
-	          controls.push(_react2.default.createElement(_Button2.default, { key: 'previous', plain: true, a11yTitle: a11yTitle.previous,
-	            className: CONTROL_CLASS_PREFIX + '-left',
-	            onClick: this._onPrevious, icon: _react2.default.createElement(_LinkPrevious2.default, { size: 'large' }) }));
-	        }
-	        if (this.state.activeIndex < childCount - 1) {
-	          controls.push(_react2.default.createElement(_Button2.default, { key: 'next', plain: true, a11yTitle: a11yTitle.next,
-	            className: CONTROL_CLASS_PREFIX + '-right',
-	            onClick: this._onNext, icon: _react2.default.createElement(_LinkNext2.default, { size: 'large' }) }));
+	        if (!this.state.narrow || this.state.atBottom) {
+	          if (this.state.activeIndex > 0) {
+	            controls.push(_react2.default.createElement(_Button2.default, { key: 'previous', plain: true, a11yTitle: a11yTitle.previous,
+	              className: CONTROL_CLASS_PREFIX + '-left',
+	              onClick: this._onPrevious, icon: _react2.default.createElement(_LinkPrevious2.default, { size: 'large' }) }));
+	          }
+	          if (this.state.activeIndex < childCount - 1) {
+	            controls.push(_react2.default.createElement(_Button2.default, { key: 'next', plain: true, a11yTitle: a11yTitle.next,
+	              className: CONTROL_CLASS_PREFIX + '-right',
+	              onClick: this._onNext, icon: _react2.default.createElement(_LinkNext2.default, { size: 'large' }) }));
+	          }
 	        }
 	      } else {
 	        if (this.state.activeIndex > 0) {
@@ -4599,7 +4656,7 @@ module.exports =
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	// (C) Copyright 2014 Hewlett Packard Enterprise Development LP
+	// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 	/*
 	 * Scroll provides smooth scrolling.
@@ -4607,40 +4664,47 @@ module.exports =
 
 	var SCROLL_STEPS = 25;
 
-	exports.default = {
-	  _easeInOutQuad: function _easeInOutQuad(t) {
-	    return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-	  },
+	function easeInOutQuad(t) {
+	  return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+	}
 
+	exports.default = {
 
 	  // component: component to scroll
 	  // property: 'scrollTop' | 'scrollLeft'
 	  // delta: amount to scroll
+	  // doneHandler: optional function called when the scroll is done
 
-	  scrollBy: function scrollBy(component, property, delta) {
+	  scrollBy: function scrollBy(component, property, delta, doneHandler) {
+	    var _this = this;
+
 	    clearInterval(this._scrollToTimer);
 	    var start = component[property];
-	    var position = start + delta;
+	    var end = start + delta;
 	    var step = 1;
 	    this._scrollToTimer = setInterval(function () {
-	      var next;
-	      var easing = this._easeInOutQuad(step / SCROLL_STEPS);
-	      if (position > start) {
-	        next = Math.min(position, Math.max(component[property], Math.round(start + (position - start) * easing)));
+	      var current = component[property];
+	      var next = void 0;
+	      var easing = easeInOutQuad(step / SCROLL_STEPS);
+	      if (end > start) {
+	        next = Math.min(end, Math.max(current, Math.round(start + (end - start) * easing)));
 	      } else {
-	        next = Math.max(position, Math.min(component[property], Math.round(start - (start - position) * easing)));
+	        next = Math.max(end, Math.min(current, Math.round(start - (start - end) * easing)));
 	      }
 	      component[property] = next;
 	      step += 1;
 	      if (step > SCROLL_STEPS) {
 	        // we're done, but the browser/OS might still be easing from a
 	        // mouse wheel interaction. So, set it one more time after a bit.
-	        clearInterval(this._scrollToTimer);
-	        this._scrollToTimer = setTimeout(function () {
+	        clearInterval(_this._scrollToTimer);
+	        _this._scrollToTimer = setTimeout(function () {
 	          component[property] = next;
+	          if (doneHandler) {
+	            doneHandler();
+	          }
 	        }, 200);
 	      }
-	    }.bind(this), 8);
+	    }, 8);
 	  }
 	};
 	module.exports = exports['default'];
@@ -21955,18 +22019,41 @@ module.exports =
 
 	'use strict';
 
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(127);
-	var DocsArticle = __webpack_require__(58);
-	var Chart = __webpack_require__(144);
-	var Tiles = __webpack_require__(48);
-	var Tile = __webpack_require__(52);
+	var _react = __webpack_require__(1);
 
-	Chart.displayName = 'Chart';
-	Tiles.displayName = 'Tiles';
-	Tile.displayName = 'Tile';
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DocsArticle = __webpack_require__(58);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	var _Example = __webpack_require__(126);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
+	var _Chart = __webpack_require__(144);
+
+	var _Chart2 = _interopRequireDefault(_Chart);
+
+	var _Tiles = __webpack_require__(48);
+
+	var _Tiles2 = _interopRequireDefault(_Tiles);
+
+	var _Tile = __webpack_require__(52);
+
+	var _Tile2 = _interopRequireDefault(_Tile);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+	_Chart2.default.displayName = 'Chart';
+	_Tiles2.default.displayName = 'Tiles';
+	_Tile2.default.displayName = 'Tile';
 
 	var series = [{
 	  label: 'first',
@@ -21988,439 +22075,367 @@ module.exports =
 
 	var thresholds = [{ label: 'OK', value: 0, colorIndex: 'ok' }, { label: 'Warning', value: 3, colorIndex: 'warning' }, { label: 'Error', value: 4, colorIndex: 'error' }];
 
-	function convertChartToString(chartJSX) {
-	  return jsxToString(chartJSX, {
-	    ignoreProps: ['a11yTitleId', 'a11yDescId']
-	  });
-	}
+	exports.default = function () {
 
-	var ChartDoc = React.createClass({
-	  displayName: 'ChartDoc',
-	  _renderChartCode: function _renderChartCode(heading, chartJSX) {
-	    return React.createElement(
-	      'div',
+	  return _react2.default.createElement(
+	    _DocsArticle2.default,
+	    { title: 'Chart', colorIndex: 'neutral-3' },
+	    _react2.default.createElement(
+	      'p',
 	      null,
-	      React.createElement(
-	        'h3',
-	        null,
-	        heading
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'example' },
-	        chartJSX
-	      ),
-	      React.createElement(
-	        'pre',
-	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          convertChartToString(chartJSX)
-	        )
-	      )
-	    );
-	  },
-
-
-	  render: function render() {
-
-	    var lineChart = React.createElement(Chart, { series: singleSeries, min: 0, max: 5, threshold: 3,
-	      a11yTitleId: 'lineChartTitle', a11yDescId: 'lineChartDesc' });
-
-	    var barChart = React.createElement(Chart, { series: singleSeries, min: 0, threshold: 3, type: 'bar',
-	      a11yTitleId: 'barChartTitle', a11yDescId: 'barChartDesc' });
-
-	    var areaChart = React.createElement(Chart, { series: singleSeries, min: 0, max: 5, threshold: 3, type: 'area',
-	      a11yTitleId: 'areaChartTitle', a11yDescId: 'areaChartDesc' });
-
-	    var complexBarChart = React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
-	      xAxis: seriesXAxis, units: 'TB', legend: {},
-	      a11yTitleId: 'complexBarChartTitle',
-	      a11yDescId: 'complexBarChartDesc' });
-
-	    var complexAreaChart = React.createElement(Chart, { series: series, min: 0, max: 5, threshold: 3,
-	      type: 'area', legend: {}, points: true,
-	      xAxis: { placement: 'bottom', data: seriesXAxis },
-	      units: 'TB', thresholds: thresholds,
-	      a11yTitleId: 'complexAreaChartTitle',
-	      a11yDescId: 'complexAreaChartDesc' });
-
-	    var smallChart = React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar', legend: {},
-	      xAxis: seriesXAxis, units: 'TB', small: true,
-	      a11yTitleId: 'smallChartTitle', a11yDescId: 'smallChartDesc' });
-
-	    var largeChart = React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
-	      legend: { total: true }, xAxis: seriesXAxis, units: 'TB', large: true,
-	      a11yTitleId: 'largeChartTitle', a11yDescId: 'largeChartDesc' });
-
-	    var sparklineBarChart = React.createElement(Chart, { series: singleSeries, min: 0, type: 'bar', sparkline: true,
-	      a11yTitleId: 'sparklineBarChartTitle',
-	      a11yDescId: 'sparklineBarChartDesc' });
-
-	    var sparklineAreaChart = React.createElement(Chart, { series: singleSeries, min: 0, type: 'area', sparkline: true,
-	      a11yTitleId: 'sparklineAreaChartTitle',
-	      a11yDescId: 'sparklineAreaChartDesc' });
-
-	    var dateSmoothChart = React.createElement(Chart, { series: dateSeries, min: 0, max: 5, threshold: 3,
-	      type: 'area', smooth: true, legend: {},
-	      xAxis: dateSeriesXAxis, a11yTitleId: 'dateSmoothChartTitle',
-	      a11yDescId: 'dateSmoothChartDesc' });
-
-	    var tilesChart = React.createElement(
-	      Tiles,
+	      'Shows a graphical data chart.'
+	    ),
+	    _react2.default.createElement(
+	      'pre',
 	      null,
-	      React.createElement(
-	        Tile,
-	        null,
-	        React.createElement(Chart, { series: singleSeries, min: 0, threshold: 3, type: 'bar',
-	          xAxis: seriesXAxis, units: 'TB', max: 6,
-	          legend: { position: 'after' }, a11yTitleId: 'tileChart1Title',
-	          a11yDescId: 'tileChart1Desc' })
-	      ),
-	      React.createElement(
-	        Tile,
-	        null,
-	        React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'bar',
-	          xAxis: seriesXAxis, units: 'TB',
-	          legend: { position: 'after' }, a11yTitleId: 'tileChart2Title',
-	          a11yDescId: 'tileChart2Desc' })
-	      ),
-	      React.createElement(
-	        Tile,
-	        null,
-	        React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'area',
-	          xAxis: seriesXAxis, units: 'TB',
-	          legend: { position: 'after' }, a11yTitleId: 'tileChart3Title',
-	          a11yDescId: 'tileChart3Desc' })
-	      ),
-	      React.createElement(
-	        Tile,
-	        null,
-	        React.createElement(Chart, { series: series, min: 0, threshold: 3, type: 'line',
-	          xAxis: seriesXAxis, units: 'TB',
-	          legend: { position: 'after' }, a11yTitleId: 'tileChart4Title',
-	          a11yDescId: 'tileChart4Desc' })
+	      _react2.default.createElement(
+	        'code',
+	        { className: 'html hljs xml' },
+	        "<Chart ... />"
 	      )
-	    );
-
-	    var loadingChart = React.createElement(Chart, { series: [], min: 0, threshold: 3, type: 'bar', legend: {},
-	      xAxis: [], units: 'TB', small: true, a11yTitleId: 'loadingChartTitle',
-	      a11yDescId: 'loadingChartDesc' });
-
-	    return React.createElement(
-	      DocsArticle,
-	      { title: 'Chart', colorIndex: 'neutral-3' },
-	      React.createElement(
-	        'p',
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
 	        null,
-	        'Shows a graphical data chart.'
+	        'Options'
 	      ),
-	      React.createElement(
-	        'pre',
+	      _react2.default.createElement(
+	        'dl',
 	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'html hljs xml' },
-	          "<Chart ... />"
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
+	        _react2.default.createElement(
+	          'dt',
 	          null,
-	          'Options'
-	        ),
-	        React.createElement(
-	          'dl',
-	          null,
-	          React.createElement(
-	            'dt',
+	          _react2.default.createElement(
+	            'code',
 	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'important   ',
-	              "{number}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The index of the series data that the legend should correspond to, if any.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'large       true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Larger sized version. Deprecated, use ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'size'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'legend      ',
-	              "{position: overlay|after, total: true|false}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Whether to show a legend, where to place it, and whether to show a total value.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'max         ',
-	              "{number}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The largest possible value. Defaults to the largest y value in the series data.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'min         ',
-	              "{number}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The smallest possible value. Defaults to the smallest y value in the series data.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'points      true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'For line and area charts, whether to draw individual data points.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'series       ',
-	              "[{...}]"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'An array of: ',
-	            React.createElement(
-	              'code',
-	              null,
-	              "{label: <string>, colorIndex: <string>, values: [[x,y], ...]}"
-	            ),
-	            '. The x values can be either numbers or Date objects. The y values should be numbers.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'size         small|medium|large'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'The height of the Chart. Defaults to ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'medium'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'small        true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Smaller sized version. Deprecated, use ',
-	            React.createElement(
-	              'code',
-	              null,
-	              'size'
-	            ),
-	            '.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'smooth       true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'For line and area charts, smooth the drawing.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'sparkline    true|false'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Sparkline sized version.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'threshold    ',
-	              "{number}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Optional threshold value.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'type         line|bar|area'
-	            )
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'thresholds   ',
-	              "[{value: , label: , colorIndex: }, ...]"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'An array of objects describing thresholds.'
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Whether to draw a line graph, bar graph, or area graph.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'units        ',
-	              "{string}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Optional units to include.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'xAxis        ',
-	              "{placement: top|bottom: data: [{string}, ...]}"
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Optional xAxis placement and labels.'
+	            'important   ',
+	            "{number}"
 	          )
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Examples'
 	        ),
-	        this._renderChartCode('Line', lineChart),
-	        this._renderChartCode('Bar', barChart),
-	        this._renderChartCode('Area', areaChart),
-	        this._renderChartCode('Bar, Legend, xAxis, and Units', complexBarChart),
-	        this._renderChartCode('Area, Legend, xAxis, Units, Points, and Thresholds', complexAreaChart),
-	        this._renderChartCode('Small', smallChart),
-	        this._renderChartCode('Large, Legend total', largeChart),
-	        this._renderChartCode('Sparkline, Bar', sparklineBarChart),
-	        this._renderChartCode('Sparkline, Area', sparklineAreaChart),
-	        this._renderChartCode('Dates, Smooth', dateSmoothChart),
-	        this._renderChartCode('Tiles', tilesChart),
-	        this._renderChartCode('Small, loading', loadingChart)
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The index of the series data that the legend should correspond to, if any.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'legend      ',
+	            "{position: overlay|after, total: true|false}"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Whether to show a legend, where to place it, and whether to show a total value.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'max         ',
+	            "{number}"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The largest possible value. Defaults to the largest y value in the series data.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'min         ',
+	            "{number}"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The smallest possible value. Defaults to the smallest y value in the series data.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'points      true|false'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'For line and area charts, whether to draw individual data points.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'segmented   true|false'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'For bar charts, whether to draw the bars with distinct segments. Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'false'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'series       ',
+	            "[{...}]"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'An array of: ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            "{label: <string>, colorIndex: <string>, values: [[x,y], ...]}"
+	          ),
+	          '. The x values can be either numbers or Date objects. The y values should be numbers.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'size         small|medium|large'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'The height of the Chart. Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'medium'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'smooth       true|false'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'For line and area charts, smooth the drawing.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'sparkline    true|false'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Sparkline sized version.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'threshold    ',
+	            "{number}"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Optional threshold value.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'type         line|bar|area'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'thresholds   ',
+	            "[{value: , label: , colorIndex: }, ...]"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'An array of objects describing thresholds.'
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Whether to draw a line graph, bar graph, or area graph.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'units        ',
+	            "{string}"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Optional units to include.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'xAxis        ',
+	            "{placement: top|bottom: data: [{string}, ...]}"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Optional xAxis placement and labels.'
+	        )
 	      )
-	    );
-	  }
-	});
+	    ),
+	    _react2.default.createElement(
+	      'section',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Examples'
+	      ),
+	      _react2.default.createElement(_Example2.default, { name: 'Line', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, min: 0, max: 5, threshold: 3,
+	          a11yTitleId: 'lineChartTitle', a11yDescId: 'lineChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Bar', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, min: 0, threshold: 3, type: 'bar',
+	          a11yTitleId: 'barChartTitle', a11yDescId: 'barChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Area', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, min: 0, max: 5, threshold: 3, type: 'area',
+	          a11yTitleId: 'areaChartTitle', a11yDescId: 'areaChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Bar, Legend, xAxis, and Units', code: _react2.default.createElement(_Chart2.default, { series: series, min: 0, threshold: 3, type: 'bar',
+	          xAxis: seriesXAxis, units: 'TB', legend: {},
+	          a11yTitleId: 'complexBarChartTitle',
+	          a11yDescId: 'complexBarChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Bar, Segmented', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, type: 'bar',
+	          segmented: true,
+	          a11yTitleId: 'segmentedBarChartTitle',
+	          a11yDescId: 'segmentedBarChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Area, Legend, xAxis, Units, Points, and Thresholds', code: _react2.default.createElement(_Chart2.default, { series: series, min: 0, max: 5, threshold: 3,
+	          type: 'area', legend: {}, points: true,
+	          xAxis: { placement: 'bottom', data: seriesXAxis },
+	          units: 'TB', thresholds: thresholds,
+	          a11yTitleId: 'complexAreaChartTitle',
+	          a11yDescId: 'complexAreaChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Small', code: _react2.default.createElement(_Chart2.default, { series: series, min: 0, threshold: 3, type: 'bar', legend: {},
+	          xAxis: seriesXAxis, units: 'TB', size: 'small',
+	          a11yTitleId: 'smallChartTitle', a11yDescId: 'smallChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Large, Legend total', code: _react2.default.createElement(_Chart2.default, { series: series, min: 0, threshold: 3, type: 'bar',
+	          legend: { total: true }, xAxis: seriesXAxis, units: 'TB', size: 'large',
+	          a11yTitleId: 'largeChartTitle', a11yDescId: 'largeChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Sparkline, Bar', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, min: 0, type: 'bar', sparkline: true,
+	          a11yTitleId: 'sparklineBarChartTitle',
+	          a11yDescId: 'sparklineBarChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Sparkline, Area', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, min: 0, type: 'area', sparkline: true,
+	          a11yTitleId: 'sparklineAreaChartTitle',
+	          a11yDescId: 'sparklineAreaChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Dates, Smooth', code: _react2.default.createElement(_Chart2.default, { series: dateSeries, min: 0, max: 5, threshold: 3,
+	          type: 'area', smooth: true, legend: {},
+	          xAxis: dateSeriesXAxis, a11yTitleId: 'dateSmoothChartTitle',
+	          a11yDescId: 'dateSmoothChartDesc' }) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Tiles', code: _react2.default.createElement(
+	          _Tiles2.default,
+	          null,
+	          _react2.default.createElement(
+	            _Tile2.default,
+	            { pad: 'small' },
+	            _react2.default.createElement(_Chart2.default, { type: 'bar', min: 0, max: 6, threshold: 3,
+	              xAxis: seriesXAxis, units: 'TB',
+	              series: singleSeries,
+	              legend: { position: 'after' }, a11yTitleId: 'tileChart1Title',
+	              a11yDescId: 'tileChart1Desc' })
+	          ),
+	          _react2.default.createElement(
+	            _Tile2.default,
+	            { pad: 'small' },
+	            _react2.default.createElement(_Chart2.default, { type: 'bar', min: 0, max: 6, threshold: 3,
+	              xAxis: seriesXAxis, units: 'TB',
+	              series: series,
+	              legend: { position: 'after' }, a11yTitleId: 'tileChart2Title',
+	              a11yDescId: 'tileChart2Desc' })
+	          ),
+	          _react2.default.createElement(
+	            _Tile2.default,
+	            { pad: 'small' },
+	            _react2.default.createElement(_Chart2.default, { type: 'area', min: 0, max: 6, threshold: 3,
+	              xAxis: seriesXAxis, units: 'TB',
+	              series: series,
+	              legend: { position: 'after' }, a11yTitleId: 'tileChart3Title',
+	              a11yDescId: 'tileChart3Desc' })
+	          ),
+	          _react2.default.createElement(
+	            _Tile2.default,
+	            { pad: 'small' },
+	            _react2.default.createElement(_Chart2.default, { type: 'line', min: 0, max: 6, threshold: 3,
+	              xAxis: seriesXAxis, units: 'TB',
+	              series: series,
+	              legend: { position: 'after' }, a11yTitleId: 'tileChart4Title',
+	              a11yDescId: 'tileChart4Desc' })
+	          )
+	        ) }),
+	      _react2.default.createElement(_Example2.default, { name: 'Small, loading', code: _react2.default.createElement(_Chart2.default, { series: [], min: 0, threshold: 3, type: 'bar', legend: {},
+	          xAxis: [], units: 'TB', size: 'small', a11yTitleId: 'loadingChartTitle',
+	          a11yDescId: 'loadingChartDesc' }) })
+	    )
+	  );
+	};
 
-	module.exports = ChartDoc;
+	module.exports = exports['default'];
 
 /***/ },
 /* 144 */
@@ -22473,6 +22488,7 @@ module.exports =
 	var SPARKLINE_STEP_WIDTH = 6;
 	var SPARKLINE_BAR_PADDING = 1;
 	var POINT_RADIUS = 6;
+	var BAR_SEGMENT_HEIGHT = 18; // 12 + 6 tied to stroke-dashoffset in CSS
 
 	var Chart = function (_Component) {
 	  _inherits(Chart, _Component);
@@ -22901,16 +22917,18 @@ module.exports =
 	  }, {
 	    key: '_renderLinesOrAreas',
 	    value: function _renderLinesOrAreas() {
+	      var _this2 = this;
+
 	      var bounds = this.state.bounds;
 	      var values = this.props.series.map(function (item, seriesIndex) {
 
 	        // Get all coordinates up front so they are available
 	        // if we are drawing a smooth chart.
 	        var coordinates = item.values.map(function (value) {
-	          return this._coordinates(value);
-	        }, this);
+	          return _this2._coordinates(value);
+	        });
 
-	        var colorIndex = this._itemColorIndex(item, seriesIndex);
+	        var colorIndex = _this2._itemColorIndex(item, seriesIndex);
 	        var commands = null;
 	        var controlCoordinates = null;
 	        var previousControlCoordinates = null;
@@ -22918,13 +22936,13 @@ module.exports =
 
 	        // Build the commands for this set of coordinates.
 	        coordinates.forEach(function (coordinate, index) {
-	          if (this.props.smooth) {
-	            controlCoordinates = this._controlCoordinates(coordinates, index);
+	          if (_this2.props.smooth) {
+	            controlCoordinates = _this2._controlCoordinates(coordinates, index);
 	          }
 	          if (0 === index) {
 	            commands = "M" + coordinate.join(',');
 	          } else {
-	            if (this.props.smooth) {
+	            if (_this2.props.smooth) {
 	              // Use the previous right control coordinate and the current
 	              // left control coordinate. We do this because we calculate
 	              // the left and right sides for a particular index together,
@@ -22937,7 +22955,7 @@ module.exports =
 	            }
 	          }
 
-	          if (this.props.points && !this.props.sparkline) {
+	          if (_this2.props.points && !_this2.props.sparkline) {
 	            var x = Math.max(POINT_RADIUS + 1, Math.min(bounds.graphWidth - (POINT_RADIUS + 1), coordinate[0]));
 	            points.push(_react2.default.createElement('circle', { key: index,
 	              className: CLASS_ROOT + "__values-point color-index-" + colorIndex,
@@ -22945,16 +22963,16 @@ module.exports =
 	          }
 
 	          previousControlCoordinates = controlCoordinates;
-	        }, this);
+	        });
 
 	        var linePath = void 0;
-	        if ('line' === this.props.type || this.props.points) {
+	        if ('line' === _this2.props.type || _this2.props.points) {
 	          var classes = [CLASS_ROOT + "__values-line", "color-index-" + colorIndex];
 	          linePath = _react2.default.createElement('path', { fill: 'none', className: classes.join(' '), d: commands });
 	        }
 
 	        var areaPath = void 0;
-	        if ('area' === this.props.type) {
+	        if ('area' === _this2.props.type) {
 	          // For area charts, close the path by drawing down to the bottom
 	          // and across to the bottom of where we started.
 	          var close = 'L' + coordinates[coordinates.length - 1][0] + ',' + bounds.graphBottom + 'L' + coordinates[0][0] + ',' + bounds.graphBottom + 'Z';
@@ -22971,7 +22989,7 @@ module.exports =
 	          linePath,
 	          points
 	        );
-	      }, this);
+	      });
 
 	      return values;
 	    }
@@ -22981,20 +22999,24 @@ module.exports =
 	  }, {
 	    key: '_renderBars',
 	    value: function _renderBars() {
+	      var _this3 = this;
+
+	      var segmented = this.props.segmented;
 	      var bounds = this.state.bounds;
+
 
 	      var values = bounds.xAxis.data.map(function (obj, xIndex) {
 	        var baseY = bounds.minY;
-	        var stepBars = this.props.series.map(function (item, seriesIndex) {
+	        var stepBars = _this3.props.series.map(function (item, seriesIndex) {
 
 	          var colorIndex = item.colorIndex || 'graph-' + (seriesIndex + 1);
 	          var value = item.values[xIndex];
-	          var stepBarHeight = this._translateHeight(value[1]);
-	          var stepBarBase = this._translateHeight(baseY);
+	          var stepBarHeight = _this3._translateHeight(value[1]);
+	          var stepBarBase = _this3._translateHeight(baseY);
 	          baseY += value[1];
 
 	          var classes = [CLASS_ROOT + "__values-bar", "color-index-" + colorIndex];
-	          if (!this.props.legend || xIndex === this.state.activeXIndex) {
+	          if (!_this3.props.legend || xIndex === _this3.state.activeXIndex) {
 	            classes.push(CLASS_ROOT + "__values-bar--active");
 	          }
 
@@ -23002,20 +23024,27 @@ module.exports =
 	            stepBarBase += XAXIS_HEIGHT;
 	          }
 
-	          return _react2.default.createElement('rect', { key: 'bar_rect_' + item.label || seriesIndex,
+	          var width = bounds.xStepWidth - 2 * bounds.barPadding;
+	          var x = _this3._translateX(value[0]) + bounds.barPadding + width / 2;
+
+	          if (segmented) {
+	            stepBarBase = Math.floor(stepBarBase / BAR_SEGMENT_HEIGHT) * BAR_SEGMENT_HEIGHT;
+	            stepBarHeight = Math.floor(stepBarHeight / BAR_SEGMENT_HEIGHT) * BAR_SEGMENT_HEIGHT;
+	          }
+	          var y = _this3.state.height - (stepBarHeight + stepBarBase);
+
+	          return _react2.default.createElement('line', { key: 'bar_' + item.label || seriesIndex,
 	            className: classes.join(' '),
-	            x: this._translateX(value[0]) + bounds.barPadding,
-	            y: this.state.height - (stepBarHeight + stepBarBase),
-	            width: bounds.xStepWidth - 2 * bounds.barPadding,
-	            height: stepBarHeight });
-	        }, this);
+	            x1: x, y1: y + stepBarHeight, x2: x, y2: y,
+	            strokeWidth: width });
+	        });
 
 	        return _react2.default.createElement(
 	          'g',
 	          { key: 'bar_' + xIndex },
 	          stepBars
 	        );
-	      }, this);
+	      });
 
 	      return values;
 	    }
@@ -23072,6 +23101,8 @@ module.exports =
 	  }, {
 	    key: '_renderXAxis',
 	    value: function _renderXAxis() {
+	      var _this4 = this;
+
 	      var bounds = this.state.bounds;
 	      var labelY = void 0;
 	      if ('bottom' === bounds.xAxis.placement) {
@@ -23091,14 +23122,14 @@ module.exports =
 
 	      var labels = bounds.xAxis.data.map(function (obj, xIndex) {
 	        var classes = [CLASS_ROOT + "__xaxis-index"];
-	        if (xIndex === this.state.activeXIndex) {
+	        if (xIndex === _this4.state.activeXIndex) {
 	          classes.push(CLASS_ROOT + "__xaxis-index--active");
 	        }
-	        var position = this._labelPosition(obj.value, bounds);
+	        var position = _this4._labelPosition(obj.value, bounds);
 
 	        // Ensure we don't overlap labels. But, make sure we show the first and
 	        // last ones.
-	        if (this._labelOverlaps(position, activePosition) || xIndex !== 0 && xIndex !== bounds.xAxis.data.length - 1 && (this._labelOverlaps(position, priorPosition) || this._labelOverlaps(position, lastPosition))) {
+	        if (_this4._labelOverlaps(position, activePosition) || xIndex !== 0 && xIndex !== bounds.xAxis.data.length - 1 && (_this4._labelOverlaps(position, priorPosition) || _this4._labelOverlaps(position, lastPosition))) {
 	          classes.push(CLASS_ROOT + "__xaxis-index--eclipse");
 	        } else {
 	          priorPosition = position;
@@ -23114,7 +23145,7 @@ module.exports =
 	            obj.label
 	          )
 	        );
-	      }, this);
+	      });
 
 	      return _react2.default.createElement(
 	        'g',
@@ -23128,6 +23159,8 @@ module.exports =
 	  }, {
 	    key: '_renderYAxis',
 	    value: function _renderYAxis() {
+	      var _this5 = this;
+
 	      var bounds = this.state.bounds;
 	      var start = bounds.minY;
 	      var end = void 0;
@@ -23136,22 +23169,22 @@ module.exports =
 	      var bars = this.props.thresholds.map(function (item, index) {
 	        var classes = [CLASS_ROOT + "__bar"];
 	        classes.push("color-index-" + (item.colorIndex || 'graph-' + (index + 1)));
-	        if (index < this.props.thresholds.length - 1) {
-	          end = this.props.thresholds[index + 1].value;
+	        if (index < _this5.props.thresholds.length - 1) {
+	          end = _this5.props.thresholds[index + 1].value;
 	        } else {
 	          end = bounds.maxY;
 	        }
-	        var height = this._translateHeight(end - start);
-	        var y = this._translateY(end);
+	        var height = _this5._translateHeight(end - start);
+	        var y = _this5._translateY(end);
 	        start = end;
 
 	        return _react2.default.createElement('rect', { key: 'y_rect_' + index,
 	          className: classes.join(' '),
-	          x: this.state.width - width,
+	          x: _this5.state.width - width,
 	          y: y,
 	          width: width,
 	          height: height });
-	      }, this);
+	      });
 
 	      return _react2.default.createElement(
 	        'g',
@@ -23195,18 +23228,20 @@ module.exports =
 	  }, {
 	    key: '_renderXBands',
 	    value: function _renderXBands(layer) {
+	      var _this6 = this;
+
 	      var className = CLASS_ROOT + "__" + layer;
 	      var bounds = this.state.bounds;
 
 	      var bands = bounds.xAxis.data.map(function (obj, xIndex) {
 	        var classes = [className + "-xband"];
-	        if (xIndex === this.state.activeXIndex) {
+	        if (xIndex === _this6.state.activeXIndex) {
 	          classes.push(className + "-xband--active");
 	        }
 
 	        // For bar charts, the band is left aligned with the bars.
-	        var x = this._translateX(obj.value);
-	        if ('line' === this.props.type || 'area' === this.props.type) {
+	        var x = _this6._translateX(obj.value);
+	        if ('line' === _this6.props.type || 'area' === _this6.props.type) {
 	          // For line and area charts, the band is centered.
 	          x -= bounds.xStepWidth / 2;
 	        }
@@ -23214,14 +23249,14 @@ module.exports =
 	        var onMouseOver = void 0;
 	        var onMouseOut = void 0;
 	        if ('front' === layer) {
-	          onMouseOver = this._onMouseOver.bind(this, xIndex);
-	          onMouseOut = this._onMouseOut.bind(this, xIndex);
+	          onMouseOver = _this6._onMouseOver.bind(_this6, xIndex);
+	          onMouseOut = _this6._onMouseOut.bind(_this6, xIndex);
 	        }
 
-	        var xBandId = this.props.a11yTitleId + '_x_band_' + xIndex;
-	        var xBandTitleId = this.props.a11yTitleId + '_x_band_title_' + xIndex;
+	        var xBandId = _this6.props.a11yTitleId + '_x_band_' + xIndex;
+	        var xBandTitleId = _this6.props.a11yTitleId + '_x_band_title_' + xIndex;
 
-	        var seriesText = this._activeSeriesAsString();
+	        var seriesText = _this6._activeSeriesAsString();
 
 	        return _react2.default.createElement(
 	          'g',
@@ -23234,7 +23269,7 @@ module.exports =
 	            obj.label + ' ' + seriesText
 	          ),
 	          _react2.default.createElement('rect', { role: 'presentation', className: className + "-xband-background",
-	            x: x, y: 0, width: bounds.xStepWidth, height: this.state.height })
+	            x: x, y: 0, width: bounds.xStepWidth, height: _this6.state.height })
 	        );
 	      }, this);
 
@@ -23250,6 +23285,8 @@ module.exports =
 	  }, {
 	    key: '_renderCursor',
 	    value: function _renderCursor() {
+	      var _this7 = this;
+
 	      var bounds = this.state.bounds;
 	      var value = this.props.series[0].values[this.state.activeXIndex];
 	      var coordinates = this._coordinates(value);
@@ -23265,13 +23302,13 @@ module.exports =
 	        // for area and line charts, include a dot at the intersection
 	        if ('line' === this.props.type || 'area' === this.props.type) {
 	          points = this.props.series.map(function (item, seriesIndex) {
-	            value = item.values[this.state.activeXIndex];
-	            coordinates = this._coordinates(value);
-	            var colorIndex = this._itemColorIndex(item, seriesIndex);
+	            value = item.values[_this7.state.activeXIndex];
+	            coordinates = _this7._coordinates(value);
+	            var colorIndex = _this7._itemColorIndex(item, seriesIndex);
 	            return _react2.default.createElement('circle', { key: seriesIndex,
 	              className: CLASS_ROOT + "__cursor-point color-index-" + colorIndex,
 	              cx: x, cy: coordinates[1], r: Math.round(POINT_RADIUS * 1.2) });
-	          }, this);
+	          });
 	        }
 	      }
 
@@ -23285,20 +23322,22 @@ module.exports =
 	  }, {
 	    key: '_getActiveSeries',
 	    value: function _getActiveSeries(addColorIndex) {
+	      var _this8 = this;
+
 	      return this.props.series.map(function (item) {
 	        var datum = {
-	          value: item.values[this.state.activeXIndex][1],
-	          units: item.units || this.props.units
+	          value: item.values[_this8.state.activeXIndex][1],
+	          units: item.units || _this8.props.units
 	        };
 	        // only show label and swatch if we have more than one series
-	        if (this.props.series.length > 1) {
+	        if (_this8.props.series.length > 1) {
 	          datum.label = item.label;
 	          if (addColorIndex) {
 	            datum.colorIndex = item.colorIndex;
 	          }
 	        }
 	        return datum;
-	      }, this);
+	      });
 	    }
 
 	    // Builds a Legend appropriate for the currently active X index.
@@ -23333,6 +23372,9 @@ module.exports =
 	      classes.push(CLASS_ROOT + "--" + this.props.type);
 	      if (this.state.size) {
 	        classes.push(CLASS_ROOT + "--" + this.state.size);
+	      }
+	      if (this.props.segmented) {
+	        classes.push(CLASS_ROOT + "--segmented");
 	      }
 	      if (this.props.sparkline) {
 	        classes.push(CLASS_ROOT + "--sparkline");
@@ -23456,6 +23498,7 @@ module.exports =
 	  max: _react.PropTypes.number,
 	  min: _react.PropTypes.number,
 	  points: _react.PropTypes.bool,
+	  segmented: _react.PropTypes.bool,
 	  series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
 	    label: _react.PropTypes.string,
 	    values: _react.PropTypes.arrayOf(_react.PropTypes.arrayOf(_react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.object // Date
@@ -67253,6 +67296,7 @@ module.exports =
 
 	      var socialIcon = undefined;
 	      var href = '';
+	      var target = '_blank';
 
 	      var encodedLink = encodeURIComponent(link);
 	      var encodedTitle = encodeURIComponent(title);
@@ -67273,9 +67317,10 @@ module.exports =
 	      } else if (type === 'email') {
 	        socialIcon = _react2.default.createElement(_SocialEmail2.default, null);
 	        href = 'mailto:?subject=' + encodedTitle + '&body=' + encodedText + '%0D%0A' + encodedLink;
+	        target = '_self';
 	      }
 
-	      return _react2.default.createElement(_Anchor2.default, { href: href, icon: socialIcon, target: '_blank' });
+	      return _react2.default.createElement(_Anchor2.default, { href: href, icon: socialIcon, target: target });
 	    }
 	  }]);
 
@@ -71216,7 +71261,7 @@ module.exports =
 	  onClick: _react.PropTypes.func,
 	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 	  trendIcon: _react.PropTypes.node,
-	  value: _react.PropTypes.number.isRequired,
+	  value: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]).isRequired,
 	  units: _react.PropTypes.string
 	};
 
@@ -71800,7 +71845,7 @@ module.exports =
 	          videoHeader,
 	          _react2.default.createElement(
 	            _Box2.default,
-	            { pad: 'large', align: 'center', justify: 'center' },
+	            { pad: 'none', align: 'center', justify: 'center' },
 	            _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + '__control', plain: true,
 	              primary: true, onClick: onClickControl,
 	              icon: controlIcon, a11yTitle: a11yControlButtonTitle }),
