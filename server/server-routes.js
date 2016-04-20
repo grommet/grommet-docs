@@ -19465,7 +19465,7 @@ module.exports =
 	var DocsArticle = __webpack_require__(58);
 	var Box = __webpack_require__(15);
 
-	var COLORS = ['brand', 'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4', 'accent-1', 'accent-2', 'grey-1', 'grey-2', 'grey-3', 'grey-4', 'light-2', 'light-1', 'critical', 'warning', 'ok', 'unknown'];
+	var COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', 'neutral-3', 'neutral-3-t', 'neutral-4', 'accent-1', 'accent-1-t', 'accent-2', 'accent-2-t', 'grey-1', 'grey-2', 'grey-3', 'grey-4', 'light-2', 'light-1', 'critical', 'warning', 'ok', 'unknown'];
 
 	var BoxDoc = React.createClass({
 	  displayName: 'BoxDoc',
