@@ -85,7 +85,7 @@ export default () => {
           <dt><code>important   {"{number}"}</code></dt>
           <dd>The index of the series data that the legend should
             correspond to, if any.</dd>
-          <dt><code>legend      {"{position: overlay|after, total: true|false}"}</code></dt>
+          <dt><code>legend      {"{position: overlay|after|inline, total: true|false}"}</code></dt>
           <dd>Whether to show a legend, where to place it,
             and whether to show a total value.</dd>
           <dt><code>max         {"{number}"}</code></dt>
@@ -144,9 +144,9 @@ export default () => {
             a11yTitleId="complexBarChartTitle"
             a11yDescId="complexBarChartDesc" />
         } />
-        <Example name="Bar, Segmented" code={
+      <Example name="Bar, Segmented, Inline Legend" code={
           <Chart series={singleSeries} type="bar"
-            segmented={true}
+            segmented={true} legend={{position: 'inline'}}
             a11yTitleId="segmentedBarChartTitle"
             a11yDescId="segmentedBarChartDesc" />
         } />

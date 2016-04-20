@@ -22127,7 +22127,7 @@ module.exports =
 	            'code',
 	            null,
 	            'legend      ',
-	            "{position: overlay|after, total: true|false}"
+	            "{position: overlay|after|inline, total: true|false}"
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -22362,8 +22362,8 @@ module.exports =
 	          xAxis: seriesXAxis, units: 'TB', legend: {},
 	          a11yTitleId: 'complexBarChartTitle',
 	          a11yDescId: 'complexBarChartDesc' }) }),
-	      _react2.default.createElement(_Example2.default, { name: 'Bar, Segmented', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, type: 'bar',
-	          segmented: true,
+	      _react2.default.createElement(_Example2.default, { name: 'Bar, Segmented, Inline Legend', code: _react2.default.createElement(_Chart2.default, { series: singleSeries, type: 'bar',
+	          segmented: true, legend: { position: 'inline' },
 	          a11yTitleId: 'segmentedBarChartTitle',
 	          a11yDescId: 'segmentedBarChartDesc' }) }),
 	      _react2.default.createElement(_Example2.default, { name: 'Area, Legend, xAxis, Units, Points, and Thresholds', code: _react2.default.createElement(_Chart2.default, { series: series, min: 0, max: 5, threshold: 3,
@@ -22776,7 +22776,7 @@ module.exports =
 	  }, {
 	    key: '_layout',
 	    value: function _layout() {
-	      if (this.props.legend && 'below' !== this.props.legend.position) {
+	      if (this.props.legend && 'overlay' === this.props.legend.position) {
 	        this._alignLegend();
 	      }
 	      var element = this.refs.chart;
@@ -23007,6 +23007,7 @@ module.exports =
 
 	      var values = bounds.xAxis.data.map(function (obj, xIndex) {
 	        var baseY = bounds.minY;
+	        var legend = [];
 	        var stepBars = _this3.props.series.map(function (item, seriesIndex) {
 
 	          var colorIndex = item.colorIndex || 'graph-' + (seriesIndex + 1);
@@ -23016,7 +23017,7 @@ module.exports =
 	          baseY += value[1];
 
 	          var classes = [CLASS_ROOT + "__values-bar", "color-index-" + colorIndex];
-	          if (!_this3.props.legend || xIndex === _this3.state.activeXIndex) {
+	          if (!_this3.props.legend || 'inline' === _this3.props.legend.position || xIndex === _this3.state.activeXIndex) {
 	            classes.push(CLASS_ROOT + "__values-bar--active");
 	          }
 
@@ -23026,12 +23027,20 @@ module.exports =
 
 	          var width = bounds.xStepWidth - 2 * bounds.barPadding;
 	          var x = _this3._translateX(value[0]) + bounds.barPadding + width / 2;
-
 	          if (segmented) {
 	            stepBarBase = Math.floor(stepBarBase / BAR_SEGMENT_HEIGHT) * BAR_SEGMENT_HEIGHT;
 	            stepBarHeight = Math.floor(stepBarHeight / BAR_SEGMENT_HEIGHT) * BAR_SEGMENT_HEIGHT;
 	          }
 	          var y = _this3.state.height - (stepBarHeight + stepBarBase);
+
+	          if (_this3.props.legend && 'inline' === _this3.props.legend.position) {
+	            legend.push(_react2.default.createElement(
+	              'text',
+	              { key: 'bar-value_' + item.label || seriesIndex,
+	                x: x, y: y, role: 'presentation', textAnchor: 'middle', fontSize: 24 },
+	              value[1]
+	            ));
+	          }
 
 	          return _react2.default.createElement('line', { key: 'bar_' + item.label || seriesIndex,
 	            className: classes.join(' '),
@@ -23042,7 +23051,8 @@ module.exports =
 	        return _react2.default.createElement(
 	          'g',
 	          { key: 'bar_' + xIndex },
-	          stepBars
+	          stepBars,
+	          legend
 	        );
 	      });
 
@@ -23271,7 +23281,7 @@ module.exports =
 	          _react2.default.createElement('rect', { role: 'presentation', className: className + "-xband-background",
 	            x: x, y: 0, width: bounds.xStepWidth, height: _this6.state.height })
 	        );
-	      }, this);
+	      });
 
 	      return _react2.default.createElement(
 	        'g',
@@ -23407,7 +23417,7 @@ module.exports =
 
 	      var cursor = null;
 	      var legend = null;
-	      if (this.props.legend && this.state.activeXIndex >= 0 && this.props.series[0].values.length > 0) {
+	      if (this.props.legend && 'inline' !== this.props.legend.position && this.state.activeXIndex >= 0 && this.props.series[0].values.length > 0) {
 	        cursor = this._renderCursor();
 	        legend = this._renderLegend();
 	      }
@@ -23492,7 +23502,7 @@ module.exports =
 	  important: _react.PropTypes.number,
 	  large: _react.PropTypes.bool,
 	  legend: _react.PropTypes.shape({
-	    position: _react.PropTypes.oneOf(['overlay', 'after']),
+	    position: _react.PropTypes.oneOf(['overlay', 'after', 'inline']),
 	    total: _react.PropTypes.bool
 	  }),
 	  max: _react.PropTypes.number,
