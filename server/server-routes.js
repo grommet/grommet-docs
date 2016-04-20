@@ -19775,6 +19775,26 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
+	              'size         auto|small|medium|large'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'The width of the Box.  Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'auto'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
 	              'tag          ',
 	              "{text}"
 	            )

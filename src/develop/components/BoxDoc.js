@@ -73,6 +73,8 @@ var BoxDoc = React.createClass({
               Defaults to <code>true</code>.</dd>
             <dt><code>separator   top|bottom|left|right</code></dt>
             <dd>Add a separator.</dd>
+            <dt><code>size         auto|small|medium|large</code></dt>
+            <dd>The width of the Box.  Defaults to <code>auto</code>.</dd>
             <dt><code>tag          {"{text}"}</code></dt>
             <dd>The DOM tag to use for the element.
               Defaults to <code>div</code>.</dd>
