@@ -26,7 +26,7 @@ export default (props) => {
       <section>
         <h2>Options</h2>
         <dl>
-          <dt><code>size       small|medium|large</code></dt>
+          <dt><code>size       small|medium|large|xlarge</code></dt>
           <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
         </dl>
       </section>
@@ -41,6 +41,9 @@ export default (props) => {
         } />
         <Example name="Large" code={
           <Paragraph size="large">{TEXT} <a>link</a></Paragraph>
+        } />
+        <Example name="XLarge" code={
+          <Paragraph size="xlarge">{TEXT} <a>link</a></Paragraph>
         } />
       </section>
 
