@@ -60988,7 +60988,7 @@ module.exports =
 	  align: _react.PropTypes.oneOf(['start', 'center', 'end']),
 	  id: _react.PropTypes.string,
 	  margin: _react.PropTypes.oneOf(['none', 'small', 'medium', 'large']),
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 	  width: _react.PropTypes.oneOf(['small', 'medium', 'large'])
 	};
 	module.exports = exports['default'];
@@ -64794,7 +64794,7 @@ module.exports =
 	          _react2.default.createElement(
 	            'code',
 	            null,
-	            'size       small|medium|large'
+	            'size       small|medium|large|xlarge'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -64843,6 +64843,17 @@ module.exports =
 	      _react2.default.createElement(_Example2.default, { name: 'Large', code: _react2.default.createElement(
 	          _Paragraph2.default,
 	          { size: 'large' },
+	          TEXT,
+	          ' ',
+	          _react2.default.createElement(
+	            'a',
+	            null,
+	            'link'
+	          )
+	        ) }),
+	      _react2.default.createElement(_Example2.default, { name: 'XLarge', code: _react2.default.createElement(
+	          _Paragraph2.default,
+	          { size: 'xlarge' },
 	          TEXT,
 	          ' ',
 	          _react2.default.createElement(
