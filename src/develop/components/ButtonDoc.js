@@ -62,9 +62,7 @@ export default class ButtonDoc extends Component {
           <dd>Whether this is a secondary button.</dd>
           <dt><code>type           button|reset|submit</code></dt>
           <dd>The type of button. Set the type to <code>submit</code> for the
-            default button on forms. Defaults to <code>button</code>. Previously,
-            a type of <code>icon</code> was supported. This type has been
-            deprecated in favor of <code>{"plain={true}"}</code></dd>
+            default button on forms. Defaults to <code>button</code>.</dd>
           </dl>
         </section>
 
