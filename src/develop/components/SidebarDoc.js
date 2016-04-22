@@ -45,9 +45,6 @@ var SidebarDoc = React.createClass({
             <dt><code>fixed      true|false</code></dt>
             <dd>Whether any contained Header and Footer should be fixed to
               the top and bottom.</dd>
-            <dt><code>primary    true|false</code></dt>
-            <dd>Whether this is the primary application sidebar or not.
-              Deprecated, use <Link to={this.context.routePrefix + "box"}>Box colorIndex</Link>.</dd>
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
             <dt><code>full       true|false</code></dt>

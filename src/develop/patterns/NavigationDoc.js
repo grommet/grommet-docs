@@ -7,7 +7,7 @@ var Header = require('grommet/components/Header');
 var Footer = require('grommet/components/Footer');
 var Title = require('grommet/components/Title');
 var Menu = require('grommet/components/Menu');
-var CloseIcon = require('grommet/components/icons/Clear');
+var CloseIcon = require('grommet/components/icons/base/Close');
 var Gravatar = require('react-gravatar');
 var Search = require('grommet/components/Search');
 
