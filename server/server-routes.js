@@ -5261,6 +5261,8 @@ module.exports =
 	      if (this.props.size) {
 	        classes.push(CLASS_ROOT + '--' + this.props.size);
 	        wrapperClasses.push(CLASS_ROOT + '__wrapper--' + this.props.size);
+	        // don't transfer size to Box since it means something different
+	        delete other.size;
 	      }
 	      if (this.props.splash) {
 	        classes.push(CLASS_ROOT + '--splash');
@@ -5701,6 +5703,8 @@ module.exports =
 	      }
 
 	      var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
+	      // don't transfer size to Box since it means something different
+	      delete boxProps.size;
 
 	      return _react2.default.createElement(
 	        _Box2.default,
@@ -16491,13 +16495,13 @@ module.exports =
 	var StatusDoc = __webpack_require__(496);
 	var TabsDoc = __webpack_require__(497);
 	var TableDoc = __webpack_require__(500);
-	var TagsDoc = __webpack_require__(501);
-	var TilesDoc = __webpack_require__(504);
-	var TitleDoc = __webpack_require__(505);
-	var TopologyDoc = __webpack_require__(506);
-	var ValueDoc = __webpack_require__(508);
-	var VideoDoc = __webpack_require__(510);
-	var WorldMapDoc = __webpack_require__(512);
+	var TagsDoc = __webpack_require__(502);
+	var TilesDoc = __webpack_require__(505);
+	var TitleDoc = __webpack_require__(506);
+	var TopologyDoc = __webpack_require__(507);
+	var ValueDoc = __webpack_require__(509);
+	var VideoDoc = __webpack_require__(511);
+	var WorldMapDoc = __webpack_require__(513);
 
 	//hjjs configuration
 	var hljs = __webpack_require__(60);
@@ -60148,8 +60152,9 @@ module.exports =
 	      var size = _props.size;
 	      var src = _props.src;
 	      var title = _props.title;
+	      var mask = _props.mask;
 
-	      var classes = (0, _classnames4.default)(CLASS_ROOT, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, CLASS_ROOT + '--full', typeof full === 'boolean' && full), _defineProperty(_classnames, CLASS_ROOT + '--full-' + full, typeof full === 'string'), _classnames), className);
+	      var classes = (0, _classnames4.default)(CLASS_ROOT, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + size, size), _defineProperty(_classnames, CLASS_ROOT + '--full', typeof full === 'boolean' && full), _defineProperty(_classnames, CLASS_ROOT + '--full-' + full, typeof full === 'string'), _defineProperty(_classnames, CLASS_ROOT + '--mask', mask), _classnames), className);
 
 	      var captionText = typeof caption === 'string' ? caption : alt;
 	      var imgNode = _react2.default.createElement('img', { id: id, src: src, alt: alt, title: title, className: classes });
@@ -60181,6 +60186,7 @@ module.exports =
 	  className: _react.PropTypes.string,
 	  full: _react.PropTypes.oneOf([true, 'horizontal', 'vertical', false]),
 	  id: _react.PropTypes.string,
+	  mask: _react.PropTypes.bool,
 	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'thumb']),
 	  src: _react.PropTypes.string,
 	  title: _react.PropTypes.string
@@ -68039,6 +68045,14 @@ module.exports =
 
 	var _Table2 = _interopRequireDefault(_Table);
 
+	var _TableRow = __webpack_require__(501);
+
+	var _TableRow2 = _interopRequireDefault(_TableRow);
+
+	var _Example = __webpack_require__(125);
+
+	var _Example2 = _interopRequireDefault(_Example);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68135,6 +68149,53 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'tr',
+	          null,
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            'third'
+	          ),
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            'note 3'
+	          )
+	        )
+	      );
+
+	      var tableRow = _react2.default.createElement(
+	        'tbody',
+	        null,
+	        _react2.default.createElement(
+	          _TableRow2.default,
+	          null,
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            'first'
+	          ),
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            'note 1'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _TableRow2.default,
+	          null,
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            'second'
+	          ),
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            'note 2'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          _TableRow2.default,
 	          null,
 	          _react2.default.createElement(
 	            'td',
@@ -68319,51 +68380,30 @@ module.exports =
 	            null,
 	            'Examples'
 	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Simple'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'example' },
-	            _react2.default.createElement(
+	          _react2.default.createElement(_Example2.default, { name: 'Simple', code: _react2.default.createElement(
 	              _Table2.default,
 	              null,
 	              tableBody
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Selectable'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'example' },
-	            _react2.default.createElement(
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Selectable', code: _react2.default.createElement(
 	              _Table2.default,
 	              { selectable: true, selected: this.state.singleSelected,
 	                onSelect: this._onSingleSelect },
 	              tableHeader,
 	              tableBody
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Multi-select'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'example' },
-	            _react2.default.createElement(
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'Multi-select', code: _react2.default.createElement(
 	              _Table2.default,
 	              { selectable: 'multiple', onSelect: this._onMultipleSelect },
 	              tableHeader,
 	              tableBody
-	            )
-	          )
+	            ) }),
+	          _react2.default.createElement(_Example2.default, { name: 'TableRow', code: _react2.default.createElement(
+	              _Table2.default,
+	              { selectable: true, onSelect: this._onMultipleSelect },
+	              tableHeader,
+	              tableRow
+	            ) })
 	        )
 	      );
 	    }
@@ -68381,14 +68421,82 @@ module.exports =
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames2 = __webpack_require__(23);
+
+	var _classnames3 = _interopRequireDefault(_classnames2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	var CLASS_ROOT = 'table-row';
+
+	var TableRow = function (_Component) {
+	  _inherits(TableRow, _Component);
+
+	  function TableRow() {
+	    _classCallCheck(this, TableRow);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TableRow).apply(this, arguments));
+	  }
+
+	  _createClass(TableRow, [{
+	    key: 'render',
+	    value: function render() {
+	      var _classnames;
+
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--selected', this.props.selected), _defineProperty(_classnames, CLASS_ROOT + '--selectable', this.props.onClick), _classnames));
+
+	      return _react2.default.createElement(
+	        'tr',
+	        { className: classes, onClick: this.props.onClick },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return TableRow;
+	}(_react.Component);
+
+	exports.default = TableRow;
+	;
+
+	TableRow.propTypes = {
+	  onClick: _react.PropTypes.func,
+	  selected: _react.PropTypes.bool
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 502 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
 	var jsxToString = __webpack_require__(126);
 	var Link = __webpack_require__(2).Link;
 	var DocsArticle = __webpack_require__(58);
-	var Tags = __webpack_require__(502);
-	var Tag = __webpack_require__(503);
+	var Tags = __webpack_require__(503);
+	var Tag = __webpack_require__(504);
 
 	Tags.displayName = 'Tags';
 	Tag.displayName = 'Tag';
@@ -68578,7 +68686,7 @@ module.exports =
 	module.exports = TagsDoc;
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68660,7 +68768,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68744,7 +68852,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69345,7 +69453,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69498,7 +69606,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69507,7 +69615,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Topology = __webpack_require__(507);
+	var Topology = __webpack_require__(508);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -69980,7 +70088,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70447,7 +70555,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70472,7 +70580,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Value = __webpack_require__(509);
+	var _Value = __webpack_require__(510);
 
 	var _Value2 = _interopRequireDefault(_Value);
 
@@ -70746,7 +70854,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 509 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70862,7 +70970,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 510 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70871,7 +70979,7 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
-	var Video = __webpack_require__(511);
+	var Video = __webpack_require__(512);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -71155,7 +71263,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 511 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71509,7 +71617,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 512 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71532,7 +71640,7 @@ module.exports =
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _WorldMap = __webpack_require__(513);
+	var _WorldMap = __webpack_require__(514);
 
 	var _WorldMap2 = _interopRequireDefault(_WorldMap);
 
@@ -71706,7 +71814,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
