@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../DocsArticle';
 import Table from 'grommet/components/Table';
+import TableRow from 'grommet/components/TableRow';
+import Example from '../Example';
 
 export default class TableDoc extends Component {
 
@@ -25,7 +27,7 @@ export default class TableDoc extends Component {
   }
 
   render () {
-    var inline = [
+    const inline = [
       "<Table>",
       "  <thead>",
       "    <tr>",
@@ -42,7 +44,7 @@ export default class TableDoc extends Component {
       "</Table>"
     ].join('\n');
 
-    var tableHeader = (
+    const tableHeader = (
       <thead>
         <tr>
           <th>header 1</th>
@@ -51,7 +53,7 @@ export default class TableDoc extends Component {
       </thead>
     );
 
-    var tableBody = (
+    const tableBody = (
       <tbody>
         <tr>
           <td>first</td>
@@ -65,6 +67,24 @@ export default class TableDoc extends Component {
           <td>third</td>
           <td>note 3</td>
         </tr>
+      </tbody>
+    );
+
+
+    const tableRow = (
+      <tbody>
+        <TableRow>
+          <td>first</td>
+          <td>note 1</td>
+        </TableRow>
+        <TableRow>
+          <td>second</td>
+          <td>note 2</td>
+        </TableRow>
+        <TableRow>
+          <td>third</td>
+          <td>note 3</td>
+        </TableRow>
       </tbody>
     );
 
@@ -117,28 +137,31 @@ export default class TableDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <h3>Simple</h3>
-          <div className="example">
+          <Example name="Simple" code={
             <Table>{tableBody}</Table>
-          </div>
+          } />
 
-          <h3>Selectable</h3>
-          <div className="example">
+          <Example name="Selectable" code={
             <Table selectable={true} selected={this.state.singleSelected}
               onSelect={this._onSingleSelect}>
               {tableHeader}
               {tableBody}
             </Table>
-          </div>
+          } />
 
-          <h3>Multi-select</h3>
-          <div className="example">
-              <Table selectable="multiple" onSelect={this._onMultipleSelect}>
+          <Example name="Multi-select" code={
+            <Table selectable="multiple" onSelect={this._onMultipleSelect}>
               {tableHeader}
               {tableBody}
             </Table>
-          </div>
+          } />
 
+          <Example name="TableRow" code={
+            <Table selectable={true} onSelect={this._onMultipleSelect}>
+              {tableHeader}
+              {tableRow}
+            </Table>
+          } />
         </section>
 
       </DocsArticle>
