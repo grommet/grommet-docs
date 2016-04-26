@@ -7,7 +7,7 @@ import path from 'path';
 import fs from 'fs';
 import sass from 'gulp-sass';
 import rename from 'gulp-rename';
-import minifyCss from 'gulp-cssnano';
+import minifyCss from 'gulp-clean-css';
 import grommetToolbox, {getOptions} from 'grommet-toolbox';
 import webpack from 'webpack';
 import gulpWebpack from 'webpack-stream';
