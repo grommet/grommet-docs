@@ -4646,14 +4646,31 @@ module.exports =
 	      if (this.props.scrollStep || this.props.controls) {
 	        children = _react.Children.map(this.props.children, function (element, index) {
 	          if (element) {
-	            return _react2.default.cloneElement(element, {
+	            var elementClone = _react2.default.cloneElement(element, {
 	              ref: index,
 	              'aria-hidden': _this9.state.activeIndex !== index
 	            });
+
+	            var elementNode = elementClone;
+
+	            var ariaHidden = void 0;
+	            if (_this9.state.activeIndex !== index) {
+	              ariaHidden = 'true';
+	            }
+
+	            if (_this9.props.controls) {
+	              elementNode = _react2.default.createElement(
+	                'div',
+	                { 'aria-hidden': ariaHidden },
+	                elementClone
+	              );
+	            }
+
+	            return elementNode;
 	          }
 
 	          return undefined;
-	        });
+	        }, this);
 	      }
 
 	      delete other.a11yTitle;
@@ -6566,6 +6583,10 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames2 = __webpack_require__(23);
+
+	var _classnames3 = _interopRequireDefault(_classnames2);
+
 	var _Props = __webpack_require__(19);
 
 	var _Props2 = _interopRequireDefault(_Props);
@@ -6575,6 +6596,8 @@ module.exports =
 	var _Box2 = _interopRequireDefault(_Box);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6596,28 +6619,31 @@ module.exports =
 	  _createClass(Tile, [{
 	    key: 'render',
 	    value: function render() {
-	      var classes = [CLASS_ROOT];
+	      var _classnames;
+
+	      var _props = this.props;
+	      var children = _props.children;
+	      var className = _props.className;
+	      var onClick = _props.onClick;
+	      var wide = _props.wide;
+	      var status = _props.status;
+	      var selected = _props.selected;
+
+
+	      if (selected) {
+	        console.log('Selected option has been deprecated, please use selected option at the Tiles level.');
+	      }
+
+	      var statusClass = status ? status.toLowerCase() : undefined;
+
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--status-' + statusClass, status), _defineProperty(_classnames, CLASS_ROOT + '--wide', wide), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _classnames));
+
 	      var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
-	      if (this.props.status) {
-	        classes.push(CLASS_ROOT + "--status-" + this.props.status.toLowerCase());
-	      }
-	      if (this.props.wide) {
-	        classes.push(CLASS_ROOT + "--wide");
-	      }
-	      if (this.props.onClick) {
-	        classes.push(CLASS_ROOT + "--selectable");
-	      }
-	      if (this.props.selected) {
-	        classes.push(CLASS_ROOT + "--selected");
-	      }
-	      if (this.props.className) {
-	        classes.push(this.props.className);
-	      }
 
 	      return _react2.default.createElement(
 	        _Box2.default,
-	        _extends({}, boxProps, { className: classes.join(' ') }),
-	        this.props.children
+	        _extends({}, boxProps, { className: classes }),
+	        children
 	      );
 	    }
 	  }]);
@@ -61615,14 +61641,25 @@ module.exports =
 	    value: function render() {
 	      var _classnames;
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--selected', this.props.selected), _defineProperty(_classnames, CLASS_ROOT + '--selectable', this.props.onClick), _classnames));
+	      var _props = this.props;
+	      var children = _props.children;
+	      var className = _props.className;
+	      var onClick = _props.onClick;
+	      var selected = _props.selected;
+
+
+	      if (selected) {
+	        console.log('Selected option has been deprecated, please use selected option at the List level.');
+	      }
+
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _classnames));
 
 	      var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
 
 	      return _react2.default.createElement(
 	        _Box2.default,
 	        _extends({}, boxProps, { tag: 'li', className: classes }),
-	        this.props.children
+	        children
 	      );
 	    }
 	  }]);
@@ -68461,12 +68498,23 @@ module.exports =
 	    value: function render() {
 	      var _classnames;
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--selected', this.props.selected), _defineProperty(_classnames, CLASS_ROOT + '--selectable', this.props.onClick), _classnames));
+	      var _props = this.props;
+	      var children = _props.children;
+	      var className = _props.className;
+	      var onClick = _props.onClick;
+	      var selected = _props.selected;
+
+
+	      if (selected) {
+	        console.log('Selected option has been deprecated, please use selected option at the Table level.');
+	      }
+
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _classnames));
 
 	      return _react2.default.createElement(
 	        'tr',
-	        { className: classes, onClick: this.props.onClick },
-	        this.props.children
+	        { className: classes, onClick: onClick },
+	        children
 	      );
 	    }
 	  }]);
@@ -68479,6 +68527,7 @@ module.exports =
 
 	TableRow.propTypes = {
 	  onClick: _react.PropTypes.func,
+	  //Deprecated in 0.6.2
 	  selected: _react.PropTypes.bool
 	};
 	module.exports = exports['default'];
