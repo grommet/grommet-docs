@@ -17,7 +17,7 @@ class GetStarted extends Component {
     return (
       <DocsArticle title="Get Started" colorIndex="neutral-1">
         <p>
-          Welcome to Grommet get started page. Here you will find instructions
+          Welcome to the Grommet Get Started page. Here you will find instructions
           on how to install Grommet in your local environment.
         </p>
         <section>
@@ -41,7 +41,7 @@ class GetStarted extends Component {
               For Windows, install <a
               href="http://www.microsoft.com/en-us/download/details.aspx?id=11310"
               target="_blank">Windows SDK for Windows Server 2008 and .NET
-              Framework 3.5</a> <i>(Ensure that a C compiler is installed.)</i>.
+              Framework 3.5</a> <i>(Ensure that a C compiler is installed)</i>.
             </li>
             <li>
               <p>
@@ -52,8 +52,8 @@ class GetStarted extends Component {
                 {"npm config set proxy http://{host}:{port}"}<br/>
                 {"npm config set https-proxy https://{host}:{port}"}
               </code></pre>
-              <p>If you find problems on downloading packages through https proxy,
-              try using http protocol in your https-proxy variable, as in:</p>
+              <p>If you find problems on downloading packages through an https proxy,
+              try using the http protocol in your https-proxy variable, as in:</p>
               <pre><code className="hljs bash">
                 {"npm config set https-proxy http://{host}:{port}"}
               </code></pre>
@@ -76,7 +76,7 @@ class GetStarted extends Component {
                   </code></pre>
                 </li>
                 <li>
-                	<p>Use the Grommet generator to bootstrap your new app</p>
+                	<p>Use the Grommet generator to bootstrap your new app.</p>
                 	<pre><code className="hljs bash">
                     {"grommet init sample-app"}
                     <br />
@@ -84,25 +84,25 @@ class GetStarted extends Component {
                     </code></pre>
                 </li>
                 <li>
-                	<p>Start a development server with hot reload enabled</p>
+                	<p>Start a development server with hot reload enabled.</p>
                 	<pre><code className="hljs bash">gulp dev</code></pre>
                 </li>
                 <li>
                 	<p>Open http://localhost:9000/webpack-dev-server/</p>
-                	<p>At this point you should be able to see the
+                	<p>At this point, you should be able to see the
                   application dashboard running.</p>
                 </li>
               </ol>
             <h4>Bower</h4>
               <ol>
               	<li>
-              		<p>Install <a href="http://bower.io/" target="_blank">Bower</a>
-                  <i>(at least 1.x required)</i></p>
+              		<p>Install <a href="http://bower.io/" target="_blank">Bower</a> 
+                  <i>(at least 1.x required)</i>.</p>
               		<pre><code className="hljs bash">npm install -g bower</code></pre>
               	</li>
                 <li>
-                  <p>Create environment variable with your proxy settings
-                  (only required if you&#39;re behind a proxy server)</p>
+                  <p>Create an environment variable with your proxy settings
+                  (only required if you&#39;re behind a proxy server).</p>
                   <p><b>Windows</b></p>
                   <pre><code className="hljs bash">
                     {"set HTTPS_PROXY=https://{host}:{port}"}
@@ -113,13 +113,13 @@ class GetStarted extends Component {
                   </code></pre>
                 </li>
                 <li>
-                  <p>Install Grommet</p>
+                  <p>Install Grommet.</p>
                   <pre><code className="hljs bash">bower install grommet</code></pre>
                   <p>At this point, a <i>bower_components</i> folder will be
                   created which contains Grommet and its dependencies.</p>
                 </li>
                 <li>
-                  <p>Open sample application in the browser</p>
+                  <p>Open the sample application in your web browser.</p>
                   <pre><code className="hljs bash">
                     bower_components/grommet/sample-grommet.html
                   </code></pre>
