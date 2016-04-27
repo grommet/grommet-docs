@@ -52,7 +52,7 @@ class GetStarted extends Component {
                 {"npm config set proxy http://{host}:{port}"}<br/>
                 {"npm config set https-proxy https://{host}:{port}"}
               </code></pre>
-              <p>If you find problems on downloading packages through an https proxy,
+              <p>If you encounter problems while downloading packages through an https proxy,
               try using the http protocol in your https-proxy variable, as in:</p>
               <pre><code className="hljs bash">
                 {"npm config set https-proxy http://{host}:{port}"}
