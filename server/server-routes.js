@@ -9088,7 +9088,7 @@ module.exports =
 	var Spinning = __webpack_require__(49);
 	var Status = __webpack_require__(82);
 
-	var STATUS_ICONS = [{ component: Status, value: 'error', labels: ['Error', 'Critical'] }, { component: Status, value: 'warning', labels: ['Warning'] }, { component: Status, value: 'ok', labels: ['OK', 'Normal'] }, { component: Status, value: 'unknown', labels: ['Unknown'] }, { component: Status, value: 'disabled', labels: ['Disabled'] }, { component: Status, value: 'label', labels: ['Label', 'Table header'] }];
+	var STATUS_ICONS = [{ component: Status, value: 'Critical', labels: ['Critical'] }, { component: Status, value: 'warning', labels: ['Warning'] }, { component: Status, value: 'ok', labels: ['OK', 'Normal'] }, { component: Status, value: 'unknown', labels: ['Unknown'] }, { component: Status, value: 'disabled', labels: ['Disabled'] }, { component: Status, value: 'label', labels: ['Label', 'Table header'] }];
 
 	var Basics = React.createClass({
 	  displayName: 'Basics',
@@ -9132,9 +9132,9 @@ module.exports =
 	      return React.createElement(
 	        'div',
 	        { key: item.labels[0], className: 'icon-tile' },
-	        React.createFactory(item.component)({ value: item.value, large: true }),
+	        React.createFactory(item.component)({ value: item.value, size: 'large' }),
 	        React.createFactory(item.component)({ value: item.value }),
-	        React.createFactory(item.component)({ value: item.value, small: true }),
+	        React.createFactory(item.component)({ value: item.value, size: 'small' }),
 	        React.createElement(
 	          'label',
 	          null,

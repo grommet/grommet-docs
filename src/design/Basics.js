@@ -30,7 +30,7 @@ var Spinning = require('grommet/components/icons/Spinning');
 var Status = require('grommet/components/icons/Status');
 
 var STATUS_ICONS = [
-  {component: Status, value: 'error', labels: ['Error', 'Critical']},
+  {component: Status, value: 'Critical', labels: ['Critical']},
   {component: Status, value: 'warning', labels: ['Warning']},
   {component: Status, value: 'ok', labels: ['OK', 'Normal']},
   {component: Status, value: 'unknown', labels: ['Unknown']},
@@ -65,9 +65,9 @@ var Basics = React.createClass({
       });
       return (
         <div key={item.labels[0]} className="icon-tile">
-          {React.createFactory(item.component)({value: item.value, large: true})}
+          {React.createFactory(item.component)({value: item.value, size: 'large'})}
           {React.createFactory(item.component)({value: item.value})}
-          {React.createFactory(item.component)({value: item.value, small: true})}
+          {React.createFactory(item.component)({value: item.value, size: 'small'})}
           <label>{labels}</label>
         </div>
       );
