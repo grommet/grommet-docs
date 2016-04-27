@@ -6475,12 +6475,9 @@ module.exports =
 
 	  // Go up the DOM tree until we match the childSelector
 	  var item = event.target;
-	  if (item.matches) {
-	    while (item && !item.matches(options.childSelector)) {
-	      item = item.parentNode;
-	    }
-	  } else if (item.matchesElement) {
-	    while (item && !item.matchesElement(options.childSelector)) {
+	  var matchFunction = item.matches || item.matchesElement || item.msMatchesSelector;
+	  if (matchFunction) {
+	    while (item && !matchFunction(options.childSelector)) {
 	      item = item.parentNode;
 	    }
 	  }
@@ -16842,7 +16839,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'Welcome to Grommet get started page. Here you will find instructions on how to install Grommet in your local environment.'
+	          'Welcome to the Grommet Get Started page. Here you will find instructions on how to install Grommet in your local environment.'
 	        ),
 	        _react2.default.createElement(
 	          'section',
@@ -16916,7 +16913,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'i',
 	                null,
-	                '(Ensure that a C compiler is installed.)'
+	                '(Ensure that a C compiler is installed)'
 	              ),
 	              '.'
 	            ),
@@ -16942,7 +16939,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'If you find problems on downloading packages through https proxy, try using http protocol in your https-proxy variable, as in:'
+	                'If you encounter problems while downloading packages through an https proxy, try using the http protocol in your https-proxy variable, as in:'
 	              ),
 	              _react2.default.createElement(
 	                'pre',
@@ -17015,7 +17012,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'Use the Grommet generator to bootstrap your new app'
+	                'Use the Grommet generator to bootstrap your new app.'
 	              ),
 	              _react2.default.createElement(
 	                'pre',
@@ -17035,7 +17032,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'Start a development server with hot reload enabled'
+	                'Start a development server with hot reload enabled.'
 	              ),
 	              _react2.default.createElement(
 	                'pre',
@@ -17058,7 +17055,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'At this point you should be able to see the application dashboard running.'
+	                'At this point, you should be able to see the application dashboard running.'
 	              )
 	            )
 	          ),
@@ -17086,7 +17083,8 @@ module.exports =
 	                  'i',
 	                  null,
 	                  '(at least 1.x required)'
-	                )
+	                ),
+	                '.'
 	              ),
 	              _react2.default.createElement(
 	                'pre',
@@ -17104,7 +17102,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'Create environment variable with your proxy settings (only required if you\'re behind a proxy server)'
+	                'Create an environment variable with your proxy settings (only required if you\'re behind a proxy server).'
 	              ),
 	              _react2.default.createElement(
 	                'p',
@@ -17149,7 +17147,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'Install Grommet'
+	                'Install Grommet.'
 	              ),
 	              _react2.default.createElement(
 	                'pre',
@@ -17178,7 +17176,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'p',
 	                null,
-	                'Open sample application in the browser'
+	                'Open the sample application in your web browser.'
 	              ),
 	              _react2.default.createElement(
 	                'pre',
