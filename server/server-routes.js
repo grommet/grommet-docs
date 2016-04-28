@@ -16883,7 +16883,7 @@ module.exports =
 	              _react2.default.createElement(
 	                'i',
 	                null,
-	                '(at least Node 4.4.x+ and NPM 2.14.x+ required)'
+	                '(at least Node 4.4.x+ and NPM 3.0.x+ required)'
 	              )
 	            ),
 	            _react2.default.createElement(
