@@ -6159,6 +6159,8 @@ module.exports =
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var classes = [CLASS_ROOT];
 	      if (this.props.fill) {
 	        classes.push(CLASS_ROOT + "--fill");
@@ -6193,6 +6195,19 @@ module.exports =
 	        onClickHandler = this._onClick;
 	      }
 
+	      var children = this.props.children;
+	      children = _react.Children.map(this.props.children, function (element, index) {
+	        if (element) {
+	          var elementClone = _react2.default.cloneElement(element, {
+	            hoverBorder: !_this2.props.flush
+	          });
+
+	          return elementClone;
+	        }
+
+	        return undefined;
+	      }, this);
+
 	      var contents = _react2.default.createElement(
 	        _Box2.default,
 	        _extends({ ref: 'tiles' }, other, {
@@ -6201,7 +6216,7 @@ module.exports =
 	          className: classes.join(' '),
 	          onClick: onClickHandler,
 	          focusable: false }),
-	        this.props.children,
+	        children,
 	        more
 	      );
 
@@ -6625,6 +6640,9 @@ module.exports =
 	      var wide = _props.wide;
 	      var status = _props.status;
 	      var selected = _props.selected;
+	      var hoverStyle = _props.hoverStyle;
+	      var hoverColorIndex = _props.hoverColorIndex;
+	      var hoverBorder = _props.hoverBorder;
 
 
 	      if (selected) {
@@ -6633,7 +6651,7 @@ module.exports =
 
 	      var statusClass = status ? status.toLowerCase() : undefined;
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--status-' + statusClass, status), _defineProperty(_classnames, CLASS_ROOT + '--wide', wide), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _classnames));
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--status-' + statusClass, status), _defineProperty(_classnames, CLASS_ROOT + '--wide', wide), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _defineProperty(_classnames, '' + hoverStyle + (hoverStyle == 'border' ? hoverBorder ? '-large' : '-small' : '') + '-hover-color-index-' + hoverColorIndex, hoverStyle), _classnames));
 
 	      var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
 
@@ -6653,13 +6671,17 @@ module.exports =
 
 	Tile.propTypes = _extends({
 	  selected: _react.PropTypes.bool,
-	  wide: _react.PropTypes.bool
+	  wide: _react.PropTypes.bool,
+	  hoverStyle: _react.PropTypes.oneOf(['border', 'background', 'none']),
+	  hoverColorIndex: _react.PropTypes.string
 	}, _Box2.default.propTypes);
 
 	Tile.defaultProps = {
 	  pad: 'none',
 	  direction: 'column',
-	  align: 'center'
+	  align: 'center',
+	  hoverStyle: 'none',
+	  hoverColorIndex: 'disabled'
 	};
 	module.exports = exports['default'];
 
@@ -9929,132 +9951,47 @@ module.exports =
 	        React.createElement(
 	          'p',
 	          null,
-	          'Date and time formats should generally be displayed in the user’s local timezone.  Any exceptions to this should include the timezone being used to display the time and date. In addition, dates and times shall always be localized to use the most recognizable format for the user’s locale. Here are examples of recommended date and time formats. Notice, that we use words like “Today” and “Yesterday” as it doesn’t force the user to remember today’s date to process the information.  In each of these examples, showing seconds is optional.'
+	          'Date and time formats should generally be displayed in the user’s local timezone.  Any exceptions to this should include the timezone being used to display the time and date. Here are examples of recommended date and time formats. The ',
+	          React.createElement(
+	            'a',
+	            { href: 'http://index.grommet.io/docs/grommet-index/timestamp' },
+	            'Timestamp'
+	          ),
+	          ' component in ',
+	          React.createElement(
+	            'code',
+	            null,
+	            'grommet-index'
+	          ),
+	          ' provides an implementation of this.'
 	        ),
 	        React.createElement(
-	          'ol',
+	          'ul',
 	          null,
 	          React.createElement(
 	            'li',
 	            null,
-	            'Today, since 12:00 am today:',
-	            React.createElement(
-	              'ul',
-	              null,
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Today <HH:MM[:SS] am|pm>'
-	                )
-	              ),
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Today 10:10:05 am'
-	                )
-	              ),
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Today 11:11 am'
-	                )
-	              )
-	            )
+	            'Apr 28, 2016 2:47 pm'
 	          ),
 	          React.createElement(
 	            'li',
 	            null,
-	            'Yesterday, since 12:00 am yesterday, before 12:00 am today:',
-	            React.createElement(
-	              'ul',
-	              null,
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Yesterday <HH:MM[:SS] am|pm>'
-	                )
-	              ),
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Yesterday 10:10:05 pm'
-	                )
-	              ),
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Yesterday 11:11 am'
-	                )
-	              )
-	            )
+	            'Apr 28, 2016'
 	          ),
 	          React.createElement(
 	            'li',
 	            null,
-	            'This year, since 12:00 am this year, before yesterday:',
-	            React.createElement(
-	              'ul',
-	              null,
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  '<3 char month name> <day> <HH:MM[:SS] am/pm>'
-	                )
-	              ),
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  'Jan 28 10:10:05 am'
-	                )
-	              )
-	            )
+	            'Apr 28'
 	          ),
 	          React.createElement(
 	            'li',
 	            null,
-	            'Last years messages, before 12:00 am this year:',
-	            React.createElement(
-	              'ul',
-	              null,
-	              React.createElement(
-	                'li',
-	                null,
-	                React.createElement(
-	                  'code',
-	                  null,
-	                  '<month> <day> <year> <HH:MM[:SS] am/pm>'
-	                )
-	              ),
-	              React.createElement(
-	                'li',
-	                null,
-	                '1-1-2014 10:10:05 am'
-	              )
-	            )
+	            '2:47 pm'
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            'Apr 28, 2016 2:47:23 pm'
 	          )
 	        ),
 	        React.createElement('a', { className: 'anchor', id: 'capitalization' }),
