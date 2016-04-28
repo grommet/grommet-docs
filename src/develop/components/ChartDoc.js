@@ -23,8 +23,48 @@ const series = [
   }
 ];
 
+const clickableSeries = [
+  {
+    label: 'first',
+    values: [[8, 1], [7, 2], [6, 3], [5, 2], [4, 3], [3, 3], [2, 2], [1, 4]],
+    colorIndex: "graph-1",
+    onClick: function () {
+      alert('first');
+    }
+  }, {
+    label: 'second',
+    values: [[8, 4], [7, 2], [6, 3], [5, 4], [4, 3], [3, 0], [2, 1], [1, 0]],
+    colorIndex: "graph-2",
+    onClick: function () {
+      alert('second');
+    }
+  }
+];
+
 const singleSeries = [
   {values: [[8, 1], [7, 2], [6, 3], [5, 2], [4, 3], [3, 3], [2, 2], [1, 4]],
+    colorIndex: "graph-1"}
+];
+
+const singleClickableSeries = [
+  {values: [
+    {x: 8, y: 1, onClick: function () {
+      alert('8, 1');
+    }}, {x: 7, y: 2, onClick: function () {
+      alert('7, 2');
+    }}, {x: 6, y: 3, onClick: function () {
+      alert('6, 3');
+    }}, {x: 5, y: 2, onClick: function () {
+      alert('5, 2');
+    }}, {x: 4, y: 3, onClick: function () {
+      alert('4, 3');
+    }}, {x: 3, y: 3, onClick: function () {
+      alert('3, 3');
+    }}, {x: 2, y: 2, onClick: function () {
+      alert('2, 2');
+    }}, {x: 1, y: 4, onClick: function () {
+      alert('1, 4');
+    }}],
     colorIndex: "graph-1"}
 ];
 
@@ -101,9 +141,10 @@ export default () => {
             Defaults to <code>false</code>.</dd>
           <dt><code>series       {"[{...}]"}</code></dt>
           <dd>An array of: <code>
-            {"{label: <string>, colorIndex: <string>, values: [[x,y], ...]}"}
+            {"{label: <string>, colorIndex: <string>, values: [[x,y]|{x: , y: , onClick: }]}"}
             </code>. The x values can be either numbers or Date objects.
-            The y values should be numbers.</dd>
+            The y values should be numbers. Currently, onClick interaction
+            is only available for <code>type="bar"</code> Charts.</dd>
           <dt><code>size         small|medium|large</code></dt>
           <dd>The height of the Chart. Defaults to <code>medium</code>.</dd>
           <dt><code>smooth       true|false</code></dt>
@@ -138,13 +179,17 @@ export default () => {
           <Chart series={singleSeries} min={0} max={5} threshold={3} type="area"
             a11yTitleId="areaChartTitle" a11yDescId="areaChartDesc" />
         } />
+        <Example name="Bar, Clickable" code={
+          <Chart series={singleClickableSeries} min={0} threshold={3} type="bar"
+            a11yTitleId="barClickableChartTitle" a11yDescId="barClickableChartDesc" />
+        } />
         <Example name="Bar, Legend, xAxis, and Units" code={
           <Chart series={series} min={0} threshold={3} type="bar"
             xAxis={seriesXAxis} units="TB" legend={{}}
             a11yTitleId="complexBarChartTitle"
             a11yDescId="complexBarChartDesc" />
         } />
-      <Example name="Bar, Segmented, Inline Legend" code={
+        <Example name="Bar, Segmented, Inline Legend" code={
           <Chart series={singleSeries} type="bar"
             segmented={true} legend={{position: 'inline'}}
             a11yTitleId="segmentedBarChartTitle"
@@ -157,6 +202,14 @@ export default () => {
             units="TB" thresholds={thresholds}
             a11yTitleId="complexAreaChartTitle"
             a11yDescId="complexAreaChartDesc" />
+        } />
+        <Example name="Area, Clickable" code={
+          <Chart series={clickableSeries} min={0} max={5} threshold={3} type="area"
+            a11yTitleId="areaClickableChartTitle" a11yDescId="areaClickableChartDesc" />
+        } />
+      <Example name="Line, Clickable" code={
+          <Chart series={clickableSeries} min={0} max={5} threshold={3} type="line"
+            a11yTitleId="areaClickableChartTitle" a11yDescId="areaClickableChartDesc" />
         } />
         <Example name="Small" code={
           <Chart series={series} min={0} threshold={3} type="bar" legend={{}}
