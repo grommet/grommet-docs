@@ -252,44 +252,20 @@ var Basics = React.createClass({
           <h3>Date and Time</h3>
           <p>Date and time formats should generally be displayed in the user’s
           local timezone.  Any exceptions to this should include the timezone being
-          used to display the time and date. In addition, dates and times shall always
-          be localized to use the most recognizable format for the user’s locale.
-          Here are examples of recommended date and time formats. Notice, that we use
-          words like “Today” and “Yesterday” as it doesn’t force the user to remember
-          today’s date to process the information.  In each of these examples, showing
-          seconds is optional.</p>
+          used to display the time and date. Here are examples of recommended
+          date and time
+          formats. The <a href="http://index.grommet.io/docs/grommet-index/timestamp">
+          Timestamp</a> component
+          in <code>grommet-index</code> provides an implementation of this.
+          </p>
 
-          <ol>
-            <li>Today, since 12:00 am today:
-              <ul>
-                <li><code>Today &lt;HH:MM[:SS] am|pm&gt;</code></li>
-                <li><code>Today 10:10:05 am</code></li>
-                <li><code>Today 11:11 am</code></li>
-              </ul>
-            </li>
-
-            <li>Yesterday, since 12:00 am yesterday, before 12:00 am today:
-              <ul>
-                <li><code>Yesterday &lt;HH:MM[:SS] am|pm&gt;</code></li>
-                <li><code>Yesterday 10:10:05 pm</code></li>
-                <li><code>Yesterday 11:11 am</code></li>
-              </ul>
-            </li>
-
-            <li>This year, since 12:00 am this year, before yesterday:
-              <ul>
-                <li><code>&lt;3 char month name&gt; &lt;day&gt; &lt;HH:MM[:SS] am/pm&gt;</code></li>
-                <li><code>Jan 28 10:10:05 am</code></li>
-              </ul>
-            </li>
-
-            <li>Last years messages, before 12:00 am this year:
-              <ul>
-                <li><code>&lt;month&gt; &lt;day&gt; &lt;year&gt; &lt;HH:MM[:SS] am/pm&gt;</code></li>
-                <li>1-1-2014 10:10:05 am</li>
-              </ul>
-            </li>
-          </ol>
+          <ul>
+            <li>Apr 28, 2016 2:47 pm</li>
+            <li>Apr 28, 2016</li>
+            <li>Apr 28</li>
+            <li>2:47 pm</li>
+            <li>Apr 28, 2016 2:47:23 pm</li>
+          </ul>
 
           <a className="anchor" id="capitalization"></a>
           <h3>Capitalization</h3>
