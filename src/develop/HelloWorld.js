@@ -3,7 +3,16 @@
 var React = require('react');
 var DocsArticle = require('../DocsArticle');
 
+var Router = require('react-router');
+var Link = Router.Link;
+
+var Anchor = require('grommet/components/Anchor');
+
 var HelloWorld = React.createClass({
+  contextTypes: {
+    routePrefix: React.PropTypes.string.isRequired
+  },
+
   render: function () {
     return (
       <DocsArticle title="Hello World" colorIndex="neutral-1">
@@ -37,7 +46,9 @@ var HelloWorld = React.createClass({
           <h2>Next Steps</h2>
           <p>
             Now that you've already played with Grommet, we recommend that you check
-            out the <a data-to="develop_getstarted">Get Started</a> page and learn
+            out the <Link to={this.context.routePrefix + "get-started"}>
+              <Anchor tag="span">Get Started</Anchor>
+            </Link> page and learn
             how to install Grommet in your local environment.
           </p>
         </section>

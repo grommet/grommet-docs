@@ -1831,11 +1831,7 @@ module.exports =
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var items = this.refs.container.getElementsByTagName('*');
-	      var firstFocusable = _DOM2.default.getBestFirstFocusable(items);
-	      if (firstFocusable) {
-	        firstFocusable.focus();
-	      }
+	      this.refs.anchorStep.focus();
 
 	      this._keyboardHandlers = {
 	        tab: this._processTab
@@ -1922,6 +1918,8 @@ module.exports =
 	      return _react2.default.createElement(
 	        'div',
 	        { ref: 'container', className: CLASS_ROOT + "__container" },
+	        _react2.default.createElement('a', { tabIndex: '-1', 'aria-hidden': 'true',
+	          ref: 'anchorStep' }),
 	        closer,
 	        this.props.children
 	      );
@@ -2287,6 +2285,10 @@ module.exports =
 	    }
 
 	    return bestFirstFocusable;
+	  },
+	  isFormElement: function isFormElement(element) {
+	    var elementType = element ? element.tagName.toLowerCase() : undefined;
+	    return elementType && (elementType === 'input' || elementType === 'textarea');
 	  }
 	};
 	module.exports = exports['default'];
@@ -2658,6 +2660,8 @@ module.exports =
 	      delete boxProps.colorIndex; // manage colorIndex at the outer menuDrop element
 
 	      delete boxProps.onClick;
+
+	      delete boxProps.size;
 
 	      // Put nested Menus inline
 	      var children = _react2.default.Children.map(this.props.children, function (child) {
@@ -4209,7 +4213,7 @@ module.exports =
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(props) {
-	      if (props.selected) {
+	      if (props.selected !== undefined) {
 	        this._onSelect(props.selected);
 	      }
 	    }
@@ -4432,35 +4436,41 @@ module.exports =
 	  }, {
 	    key: '_onNext',
 	    value: function _onNext(event, wrap) {
-	      var children = this.props.children;
-	      var selectedIndex = this.state.selectedIndex;
+	      // only process if the focus is NOT in a form element
+	      if (!_DOM2.default.isFormElement(document.activeElement)) {
+	        var children = this.props.children;
+	        var selectedIndex = this.state.selectedIndex;
 
-	      var childCount = _react2.default.Children.count(children);
-	      if (event) {
-	        this._stop();
-	        event.preventDefault();
-	      }
-	      var targetIndex = this._visibleIndexes()[0] + 1;
-	      if (targetIndex !== selectedIndex) {
-	        if (targetIndex < childCount) {
-	          this._onSelect(Math.min(childCount - 1, targetIndex));
-	        } else if (wrap) {
-	          this._onSelect(1);
+	        var childCount = _react2.default.Children.count(children);
+	        if (event) {
+	          this._stop();
+	          event.preventDefault();
+	        }
+	        var targetIndex = this._visibleIndexes()[0] + 1;
+	        if (targetIndex !== selectedIndex) {
+	          if (targetIndex < childCount) {
+	            this._onSelect(Math.min(childCount - 1, targetIndex));
+	          } else if (wrap) {
+	            this._onSelect(1);
+	          }
 	        }
 	      }
 	    }
 	  }, {
 	    key: '_onPrevious',
 	    value: function _onPrevious(event) {
-	      var selectedIndex = this.state.selectedIndex;
+	      // only process if the focus is NOT in a form element
+	      if (!_DOM2.default.isFormElement(document.activeElement)) {
+	        var selectedIndex = this.state.selectedIndex;
 
-	      if (event) {
-	        this._stop();
-	        event.preventDefault();
-	      }
-	      var targetIndex = this._visibleIndexes()[0] - 1;
-	      if (targetIndex !== selectedIndex) {
-	        this._onSelect(Math.max(0, targetIndex));
+	        if (event) {
+	          this._stop();
+	          event.preventDefault();
+	        }
+	        var targetIndex = this._visibleIndexes()[0] - 1;
+	        if (targetIndex !== selectedIndex) {
+	          this._onSelect(Math.max(0, targetIndex));
+	        }
 	      }
 	    }
 	  }, {
@@ -4692,8 +4702,7 @@ module.exports =
 	        _extends({ ref: 'component', tag: 'article' }, other, {
 	          className: classes.join(' '), onFocus: this._onFocusChange,
 	          onScroll: this._onScroll, onTouchStart: this._onTouchStart,
-	          onTouchMove: this._onTouchMove,
-	          primary: this.props.primary }),
+	          onTouchMove: this._onTouchMove, primary: this.props.primary }),
 	        _react2.default.createElement('a', { tabIndex: '-1', 'aria-hidden': 'true',
 	          ref: 'anchorStep' }),
 	        children,
@@ -6505,7 +6514,7 @@ module.exports =
 	  var item = event.target;
 	  var matchFunction = item.matches || item.matchesElement || item.msMatchesSelector;
 	  if (matchFunction) {
-	    while (item && !matchFunction(options.childSelector)) {
+	    while (item && !matchFunction.bind(item, options.childSelector)()) {
 	      item = item.parentNode;
 	    }
 	  }
@@ -6656,6 +6665,7 @@ module.exports =
 	      var hoverStyle = _props.hoverStyle;
 	      var hoverColorIndex = _props.hoverColorIndex;
 	      var hoverBorder = _props.hoverBorder;
+	      var hoverBorderSize = _props.hoverBorderSize;
 
 
 	      if (selected) {
@@ -6663,8 +6673,10 @@ module.exports =
 	      }
 
 	      var statusClass = status ? status.toLowerCase() : undefined;
+	      // if Tiles flush is true, default borderSize to small (1px)
+	      var borderSize = hoverBorder ? hoverBorderSize ? hoverBorderSize : 'large' : 'small';
 
-	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--status-' + statusClass, status), _defineProperty(_classnames, CLASS_ROOT + '--wide', wide), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _defineProperty(_classnames, '' + hoverStyle + (hoverStyle == 'border' ? hoverBorder ? '-large' : '-small' : '') + '-hover-color-index-' + hoverColorIndex, hoverStyle), _classnames));
+	      var classes = (0, _classnames3.default)(CLASS_ROOT, className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--status-' + statusClass, status), _defineProperty(_classnames, CLASS_ROOT + '--wide', wide), _defineProperty(_classnames, CLASS_ROOT + '--selectable', onClick), _defineProperty(_classnames, CLASS_ROOT + '--selected', selected), _defineProperty(_classnames, '' + hoverStyle + (hoverStyle == 'border' ? borderSize ? '-' + borderSize : '-medium' : '') + '-hover-color-index-' + hoverColorIndex, hoverStyle), _defineProperty(_classnames, CLASS_ROOT + '--hover-border-' + borderSize, borderSize), _classnames));
 
 	      var boxProps = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
 
@@ -6686,7 +6698,8 @@ module.exports =
 	  selected: _react.PropTypes.bool,
 	  wide: _react.PropTypes.bool,
 	  hoverStyle: _react.PropTypes.oneOf(['border', 'background', 'none']),
-	  hoverColorIndex: _react.PropTypes.string
+	  hoverColorIndex: _react.PropTypes.string,
+	  hoverBorderSize: _react.PropTypes.oneOf(['small', 'medium', 'large'])
 	}, _Box2.default.propTypes);
 
 	Tile.defaultProps = {
@@ -13350,6 +13363,10 @@ module.exports =
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _Responsive = __webpack_require__(28);
+
+	var _Responsive2 = _interopRequireDefault(_Responsive);
+
 	var _Legend = __webpack_require__(96);
 
 	var _Legend2 = _interopRequireDefault(_Legend);
@@ -13399,6 +13416,7 @@ module.exports =
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Meter).call(this));
 
+	    _this._onResponsive = _this._onResponsive.bind(_this);
 	    _this._initialTimeout = _this._initialTimeout.bind(_this);
 	    _this._layout = _this._layout.bind(_this);
 	    _this._onResize = _this._onResize.bind(_this);
@@ -13409,12 +13427,17 @@ module.exports =
 	      _this.state.legendPlacement = 'bottom';
 	    }
 	    _this.state.initial = true;
+	    _this.state.limitMeterSize = false;
 	    return _this;
 	  }
 
 	  _createClass(Meter, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      if (this.props.responsive) {
+	        this._responsive = _Responsive2.default.start(this._onResponsive);
+	      }
+
 	      this._initialTimer = setTimeout(this._initialTimeout, 10);
 	      window.addEventListener('resize', this._onResize);
 	      this._onResize();
@@ -13432,6 +13455,10 @@ module.exports =
 	      clearTimeout(this._initialTimer);
 	      clearTimeout(this._resizeTimer);
 	      window.removeEventListener('resize', this._onResize);
+
+	      if (this._responsive) {
+	        this._responsive.stop();
+	      }
 	    }
 	  }, {
 	    key: '_initialTimeout',
@@ -13441,6 +13468,15 @@ module.exports =
 	        activeIndex: this.state.importantIndex
 	      });
 	      clearTimeout(this._initialTimer);
+	    }
+	  }, {
+	    key: '_onResponsive',
+	    value: function _onResponsive(small) {
+	      if (small) {
+	        this.setState({ limitMeterSize: true });
+	      } else {
+	        this.setState({ limitMeterSize: false });
+	      }
 	    }
 	  }, {
 	    key: '_onActivate',
@@ -13763,7 +13799,12 @@ module.exports =
 	        classes.push(CLASS_ROOT + '--stacked');
 	      }
 	      if (this.props.size) {
-	        classes.push(CLASS_ROOT + '--' + this.props.size);
+	        var responsiveSize = this.props.size;
+	        // shrink Meter to medium size if large and up
+	        if (this.state.limitMeterSize && (this.props.size === 'large' || this.props.size === 'xlarge')) {
+	          responsiveSize = 'medium';
+	        }
+	        classes.push(CLASS_ROOT + '--' + responsiveSize);
 	      }
 	      if (this.state.series.length === 0) {
 	        classes.push(CLASS_ROOT + '--loading');
@@ -13874,7 +13915,7 @@ module.exports =
 	    value: _react.PropTypes.number.isRequired,
 	    label: _react.PropTypes.string
 	  }), _react.PropTypes.number]),
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 	  series: _react.PropTypes.arrayOf(_react.PropTypes.shape({
 	    label: _react.PropTypes.string,
 	    value: _react.PropTypes.number.isRequired,
@@ -13892,7 +13933,8 @@ module.exports =
 	  type: _react.PropTypes.oneOf(['bar', 'arc', 'circle', 'spiral']),
 	  units: _react.PropTypes.string,
 	  value: _react.PropTypes.number,
-	  vertical: _react.PropTypes.bool
+	  vertical: _react.PropTypes.bool,
+	  responsive: _react.PropTypes.bool
 	};
 
 	Meter.defaultProps = {
@@ -14527,9 +14569,9 @@ module.exports =
 	    }
 	  }, {
 	    key: '_onRequestForPreviousLegend',
-	    value: function _onRequestForPreviousLegend(e) {
-	      e.preventDefault();
+	    value: function _onRequestForPreviousLegend(event) {
 	      if (document.activeElement === this.refs.meter) {
+	        event.preventDefault();
 	        var totalValueCount = _reactDom2.default.findDOMNode(this.refs.meterValues).childNodes.length;
 
 	        if (this.props.activeIndex - 1 < 0) {
@@ -14544,9 +14586,9 @@ module.exports =
 	    }
 	  }, {
 	    key: '_onRequestForNextLegend',
-	    value: function _onRequestForNextLegend(e) {
-	      e.preventDefault();
+	    value: function _onRequestForNextLegend(event) {
 	      if (document.activeElement === this.refs.meter) {
+	        event.preventDefault();
 	        var totalValueCount = _reactDom2.default.findDOMNode(this.refs.meterValues).childNodes.length;
 
 	        if (this.props.activeIndex + 1 >= totalValueCount) {
@@ -16648,8 +16690,17 @@ module.exports =
 	var React = __webpack_require__(1);
 	var DocsArticle = __webpack_require__(58);
 
+	var Router = __webpack_require__(2);
+	var Link = Router.Link;
+
+	var Anchor = __webpack_require__(44);
+
 	var HelloWorld = React.createClass({
 	  displayName: 'HelloWorld',
+
+	  contextTypes: {
+	    routePrefix: React.PropTypes.string.isRequired
+	  },
 
 	  render: function render() {
 	    return React.createElement(
@@ -16726,9 +16777,13 @@ module.exports =
 	          null,
 	          'Now that you\'ve already played with Grommet, we recommend that you check out the ',
 	          React.createElement(
-	            'a',
-	            { 'data-to': 'develop_getstarted' },
-	            'Get Started'
+	            Link,
+	            { to: this.context.routePrefix + "get-started" },
+	            React.createElement(
+	              Anchor,
+	              { tag: 'span' },
+	              'Get Started'
+	            )
 	          ),
 	          ' page and learn how to install Grommet in your local environment.'
 	        )
@@ -22518,10 +22573,9 @@ module.exports =
 	    }
 	  }, {
 	    key: '_onRequestForNextLegend',
-	    value: function _onRequestForNextLegend(e) {
-	      e.preventDefault();
+	    value: function _onRequestForNextLegend(event) {
 	      if (document.activeElement === this.refs.chart) {
-
+	        event.preventDefault();
 	        var totalBandCount = _reactDom2.default.findDOMNode(this.refs.front).childNodes.length;
 
 	        if (this.state.highlightXIndex - 1 < 0) {
@@ -22536,10 +22590,9 @@ module.exports =
 	    }
 	  }, {
 	    key: '_onRequestForPreviousLegend',
-	    value: function _onRequestForPreviousLegend(e) {
-	      e.preventDefault();
+	    value: function _onRequestForPreviousLegend(event) {
 	      if (document.activeElement === this.refs.chart) {
-
+	        event.preventDefault();
 	        var totalBandCount = _reactDom2.default.findDOMNode(this.refs.front).childNodes.length;
 
 	        if (this.state.highlightXIndex + 1 >= totalBandCount) {
@@ -25886,9 +25939,9 @@ module.exports =
 	    }
 	  }, {
 	    key: '_onPreviousDistribution',
-	    value: function _onPreviousDistribution(e) {
-	      e.preventDefault();
+	    value: function _onPreviousDistribution(event) {
 	      if (document.activeElement === this.refs.distribution) {
+	        event.preventDefault();
 	        var totalDistributionCount = _reactDom2.default.findDOMNode(this.refs.distributionItems).childNodes.length;
 
 	        if (this.state.activeIndex - 1 < 0) {
@@ -25903,9 +25956,9 @@ module.exports =
 	    }
 	  }, {
 	    key: '_onNextDistribution',
-	    value: function _onNextDistribution(e) {
-	      e.preventDefault();
+	    value: function _onNextDistribution(event) {
 	      if (document.activeElement === this.refs.distribution) {
+	        event.preventDefault();
 	        var totalDistributionCount = _reactDom2.default.findDOMNode(this.refs.distributionItems).childNodes.length;
 
 	        if (this.state.activeIndex + 1 >= totalDistributionCount) {
@@ -71394,9 +71447,9 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames2 = __webpack_require__(23);
+	var _classnames4 = __webpack_require__(23);
 
-	var _classnames3 = _interopRequireDefault(_classnames2);
+	var _classnames5 = _interopRequireDefault(_classnames4);
 
 	var _Intl = __webpack_require__(18);
 
@@ -71639,11 +71692,12 @@ module.exports =
 	          var nextChapter = chapters[Math.min(chapters.length - 1, index + 1)];
 	          var lastChapter = chapters[chapters.length - 1];
 
-	          var timelineClasses = (0, _classnames3.default)(CLASS_ROOT + '__timeline-chapter', _defineProperty({}, CLASS_ROOT + '__timeline-active', currentProgress !== 0 && (currentProgress >= chapter.time && currentProgress < nextChapter.time || index === chapters.length - 1 && currentProgress >= lastChapter.time)));
+	          var timelineClasses = (0, _classnames5.default)(CLASS_ROOT + '__timeline-chapter', _defineProperty({}, CLASS_ROOT + '__timeline-active', currentProgress !== 0 && (currentProgress >= chapter.time && currentProgress < nextChapter.time || index === chapters.length - 1 && currentProgress >= lastChapter.time)));
 
 	          return _react2.default.createElement(
-	            'div',
+	            _Box2.default,
 	            { key: chapter.time, className: timelineClasses,
+	              pad: { vertical: 'small' },
 	              style: { left: percent.toString() + '%' },
 	              onClick: this._onClickChapter.bind(this, chapter.time) },
 	            _react2.default.createElement(
@@ -71666,20 +71720,46 @@ module.exports =
 	        );
 	      }
 
+	      var progressTicks = void 0;
+	      if (this.props.timeline && this.props.duration) {
+
+	        var _chapters = this.props.timeline.map(function (chapter, index, chapters) {
+	          var percent = Math.round(chapter.time / this.props.duration * 100);
+	          var currentProgress = this.state.progress;
+	          var nextChapter = chapters[Math.min(chapters.length - 1, index + 1)];
+
+	          var progressTicksClasses = (0, _classnames5.default)(CLASS_ROOT + '__progress-ticks-chapter', _defineProperty({}, CLASS_ROOT + '__progress-ticks-active', currentProgress !== 0 && currentProgress >= chapter.time && currentProgress < nextChapter.time));
+
+	          return _react2.default.createElement('div', { key: chapter.time, className: progressTicksClasses,
+	            style: { left: percent.toString() + '%' },
+	            onClick: this._onClickChapter.bind(this, chapter.time) });
+	        }, this);
+
+	        progressTicks = _react2.default.createElement(
+	          'div',
+	          { className: CLASS_ROOT + '__progress-ticks' },
+	          _chapters
+	        );
+	      }
+
 	      var progress = void 0;
 	      if (this.props.duration) {
-	        // making sure percent is <= 100,
-	        // so that progress bar does not extend beyond container width
+	        var progressClass = (0, _classnames5.default)(CLASS_ROOT + '__progress', _defineProperty({}, CLASS_ROOT + '--has-timeline', this.props.timeline));
+
 	        var percent = Math.min(Math.round(this.state.progress / this.props.duration * 100), 100);
 	        progress = _react2.default.createElement(
 	          'div',
-	          { className: CLASS_ROOT + '__progress' },
+	          { className: progressClass },
 	          _react2.default.createElement('div', { className: CLASS_ROOT + '__progress-meter',
-	            style: { width: percent.toString() + '%' } })
+	            style: { width: percent.toString() + '%' } }),
+	          progressTicks
 	        );
 	      }
 
 	      var onClickControl = this.props.onClick || this._onClickControl;
+	      // when iconSize is small (mobile screen sizes), remove the extra padding
+	      // so that the play control is centered
+	      var emptyBox = this.state.iconSize === 'small' ? null : _react2.default.createElement(_Box2.default, null);
 
 	      return _react2.default.createElement(
 	        'div',
@@ -71695,13 +71775,13 @@ module.exports =
 	          videoHeader,
 	          _react2.default.createElement(
 	            _Box2.default,
-	            { pad: 'none', align: 'center', justify: 'center' },
+	            { pad: 'medium', align: 'center', justify: 'center' },
 	            _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + '__control', plain: true,
 	              primary: true, onClick: onClickControl,
 	              icon: controlIcon, a11yTitle: a11yControlButtonTitle }),
 	            title
 	          ),
-	          _react2.default.createElement(_Box2.default, null)
+	          emptyBox
 	        ),
 	        timeline,
 	        progress
