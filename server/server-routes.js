@@ -2558,7 +2558,9 @@ module.exports =
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
-	      this._originalFocusedElement.focus();
+	      if (this._originalFocusedElement.focus) {
+	        this._originalFocusedElement.focus();
+	      }
 	      _KeyboardAccelerators2.default.stopListeningToKeyboard(this, this._keyboardHandlers);
 	    }
 	  }, {
@@ -7073,6 +7075,7 @@ module.exports =
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var CLASS_ROOT = "split";
+	var BREAK_WIDTH = 720; //adds the breakpoint of single/multiple split
 
 	var Split = function (_Component) {
 	  _inherits(Split, _Component);
@@ -7092,15 +7095,6 @@ module.exports =
 	  _createClass(Split, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      // figure out the break width
-	      this._breakWidth = 720; // default
-	      // CSS stores the break width in a hidden pseudo element
-	      var splitElement = this.refs.split;
-	      var after = window.getComputedStyle(splitElement, ':after');
-	      if (after) {
-	        this._breakWidth = parseInt(after.getPropertyValue('width'), 10);
-	      }
-
 	      window.addEventListener('resize', this._onResize);
 	      this._layout();
 	    }
@@ -7161,7 +7155,7 @@ module.exports =
 	    value: function _layout() {
 	      var splitElement = this.refs.split;
 	      if (splitElement) {
-	        if (splitElement.offsetWidth < this._breakWidth) {
+	        if (splitElement.offsetWidth < BREAK_WIDTH) {
 	          this._setResponsive('single');
 	        } else {
 	          this._setResponsive('multiple');
