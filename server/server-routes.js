@@ -6515,10 +6515,9 @@ module.exports =
 	  // Go up the DOM tree until we match the childSelector
 	  var item = event.target;
 	  var matchFunction = item.matches || item.matchesElement || item.msMatchesSelector;
-	  if (matchFunction) {
-	    while (item && !matchFunction.bind(item, options.childSelector)()) {
-	      item = item.parentNode;
-	    }
+	  while (matchFunction && item && !matchFunction.bind(item, options.childSelector)()) {
+	    item = item.parentNode;
+	    matchFunction = item.matches || item.matchesElement || item.msMatchesSelector;
 	  }
 
 	  // determine the index of the clicked element
@@ -7535,19 +7534,23 @@ module.exports =
 
 	(function(factory) {
 
+	  // Find the global object for export to both the browser and web workers.
+	  var globalObject = typeof window == 'object' && window ||
+	                     typeof self == 'object' && self;
+
 	  // Setup highlight.js for different environments. First is Node.js or
 	  // CommonJS.
 	  if(true) {
 	    factory(exports);
-	  } else {
+	  } else if(globalObject) {
 	    // Export hljs globally even when using AMD for cases when this script
 	    // is loaded with others that may still expect a global hljs.
-	    window.hljs = factory({});
+	    globalObject.hljs = factory({});
 
 	    // Finally register the global hljs with AMD.
 	    if(typeof define === 'function' && define.amd) {
-	      define('hljs', [], function() {
-	        return window.hljs;
+	      define([], function() {
+	        return globalObject.hljs;
 	      });
 	    }
 	  }
@@ -7579,7 +7582,7 @@ module.exports =
 
 	    classes += block.parentNode ? block.parentNode.className : '';
 
-	    // language-* takes precedence over non-prefixed class names
+	    // language-* takes precedence over non-prefixed class names.
 	    match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
 	    if (match) {
 	      return getLanguage(match[1]) ? match[1] : 'no-highlight';
@@ -7751,7 +7754,7 @@ module.exports =
 	        }
 	        mode.keywords = compiled_keywords;
 	      }
-	      mode.lexemesRe = langRe(mode.lexemes || /\b\w+\b/, true);
+	      mode.lexemesRe = langRe(mode.lexemes || /\w+/, true);
 
 	      if (parent) {
 	        if (mode.beginKeywords) {
@@ -7899,35 +7902,37 @@ module.exports =
 	    }
 
 	    function processBuffer() {
-	      return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
+	      result += (top.subLanguage !== undefined ? processSubLanguage() : processKeywords());
+	      mode_buffer = '';
 	    }
 
 	    function startNewMode(mode, lexeme) {
-	      var markup = mode.className? buildSpan(mode.className, '', true): '';
-	      if (mode.returnBegin) {
-	        result += markup;
-	        mode_buffer = '';
-	      } else if (mode.excludeBegin) {
-	        result += escape(lexeme) + markup;
-	        mode_buffer = '';
-	      } else {
-	        result += markup;
-	        mode_buffer = lexeme;
-	      }
+	      result += mode.className? buildSpan(mode.className, '', true): '';
 	      top = Object.create(mode, {parent: {value: top}});
 	    }
 
 	    function processLexeme(buffer, lexeme) {
 
 	      mode_buffer += buffer;
+
 	      if (lexeme === undefined) {
-	        result += processBuffer();
+	        processBuffer();
 	        return 0;
 	      }
 
 	      var new_mode = subMode(lexeme, top);
 	      if (new_mode) {
-	        result += processBuffer();
+	        if (new_mode.skip) {
+	          mode_buffer += lexeme;
+	        } else {
+	          if (new_mode.excludeBegin) {
+	            mode_buffer += lexeme;
+	          }
+	          processBuffer();
+	          if (!new_mode.returnBegin && !new_mode.excludeBegin) {
+	            mode_buffer = lexeme;
+	          }
+	        }
 	        startNewMode(new_mode, lexeme);
 	        return new_mode.returnBegin ? 0 : lexeme.length;
 	      }
@@ -7935,21 +7940,26 @@ module.exports =
 	      var end_mode = endOfMode(top, lexeme);
 	      if (end_mode) {
 	        var origin = top;
-	        if (!(origin.returnEnd || origin.excludeEnd)) {
+	        if (origin.skip) {
 	          mode_buffer += lexeme;
+	        } else {
+	          if (!(origin.returnEnd || origin.excludeEnd)) {
+	            mode_buffer += lexeme;
+	          }
+	          processBuffer();
+	          if (origin.excludeEnd) {
+	            mode_buffer = lexeme;
+	          }
 	        }
-	        result += processBuffer();
 	        do {
 	          if (top.className) {
 	            result += '</span>';
 	          }
-	          relevance += top.relevance;
+	          if (!top.skip) {
+	            relevance += top.relevance;
+	          }
 	          top = top.parent;
 	        } while (top != end_mode.parent);
-	        if (origin.excludeEnd) {
-	          result += escape(lexeme);
-	        }
-	        mode_buffer = '';
 	        if (end_mode.starts) {
 	          startNewMode(end_mode.starts, '');
 	        }
@@ -8036,10 +8046,7 @@ module.exports =
 	      value: escape(text)
 	    };
 	    var second_best = result;
-	    languageSubset.forEach(function(name) {
-	      if (!getLanguage(name)) {
-	        return;
-	      }
+	    languageSubset.filter(getLanguage).forEach(function(name) {
 	      var current = highlight(name, text, false);
 	      current.language = name;
 	      if (current.relevance > second_best.relevance) {
@@ -8139,7 +8146,7 @@ module.exports =
 	  };
 
 	  /*
-	  Updates highlight.js global options with values passed in the form of an object
+	  Updates highlight.js global options with values passed in the form of an object.
 	  */
 	  function configure(user_options) {
 	    options = inherit(options, user_options);
@@ -8202,7 +8209,7 @@ module.exports =
 	  hljs.IDENT_RE = '[a-zA-Z]\\w*';
 	  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
 	  hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-	  hljs.C_NUMBER_RE = '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
+	  hljs.C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
 	  hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
 	  hljs.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
@@ -8223,7 +8230,7 @@ module.exports =
 	    contains: [hljs.BACKSLASH_ESCAPE]
 	  };
 	  hljs.PHRASAL_WORDS_MODE = {
-	    begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|like)\b/
+	    begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|like)\b/
 	  };
 	  hljs.COMMENT = function (begin, end, inherits) {
 	    var mode = hljs.inherit(
@@ -8296,6 +8303,11 @@ module.exports =
 	    begin: hljs.UNDERSCORE_IDENT_RE,
 	    relevance: 0
 	  };
+	  hljs.METHOD_GUARD = {
+	    // excludes method names from keyword processing
+	    begin: '\\.\\s*' + hljs.UNDERSCORE_IDENT_RE,
+	    relevance: 0
+	  };
 
 	  return hljs;
 	}));
@@ -8356,12 +8368,12 @@ module.exports =
 	        'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
 	        'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
 	        'zpty zregexparse zsocket zstyle ztcp',
-	      operator:
+	      _:
 	        '-ne -eq -lt -gt -f -d -e -s -l -a' // relevance booster
 	    },
 	    contains: [
 	      {
-	        className: 'shebang',
+	        className: 'meta',
 	        begin: /^#![^\n]+sh\s*$/,
 	        relevance: 10
 	      },
@@ -8373,7 +8385,6 @@ module.exports =
 	        relevance: 0
 	      },
 	      hljs.HASH_COMMENT_MODE,
-	      hljs.NUMBER_MODE,
 	      QUOTE_STRING,
 	      APOS_STRING,
 	      VAR
@@ -8387,32 +8398,27 @@ module.exports =
 
 	module.exports = function(hljs) {
 	  var XML_IDENT_RE = '[A-Za-z0-9\\._:-]+';
-	  var PHP = {
-	    begin: /<\?(php)?(?!\w)/, end: /\?>/,
-	    subLanguage: 'php'
-	  };
 	  var TAG_INTERNALS = {
 	    endsWithParent: true,
 	    illegal: /</,
 	    relevance: 0,
 	    contains: [
-	      PHP,
 	      {
-	        className: 'attribute',
+	        className: 'attr',
 	        begin: XML_IDENT_RE,
 	        relevance: 0
 	      },
 	      {
-	        begin: '=',
+	        begin: /=\s*/,
 	        relevance: 0,
 	        contains: [
 	          {
-	            className: 'value',
-	            contains: [PHP],
+	            className: 'string',
+	            endsParent: true,
 	            variants: [
 	              {begin: /"/, end: /"/},
 	              {begin: /'/, end: /'/},
-	              {begin: /[^\s\/>]+/}
+	              {begin: /[^\s"'=<>`]+/}
 	            ]
 	          }
 	        ]
@@ -8424,7 +8430,7 @@ module.exports =
 	    case_insensitive: true,
 	    contains: [
 	      {
-	        className: 'doctype',
+	        className: 'meta',
 	        begin: '<!DOCTYPE', end: '>',
 	        relevance: 10,
 	        contains: [{begin: '\\[', end: '\\]'}]
@@ -8437,9 +8443,13 @@ module.exports =
 	        }
 	      ),
 	      {
-	        className: 'cdata',
 	        begin: '<\\!\\[CDATA\\[', end: '\\]\\]>',
 	        relevance: 10
+	      },
+	      {
+	        begin: /<\?(php)?/, end: /\?>/,
+	        subLanguage: 'php',
+	        contains: [{begin: '/\\*', end: '\\*/', skip: true}]
 	      },
 	      {
 	        className: 'tag',
@@ -8450,36 +8460,37 @@ module.exports =
 	        by hljs.subMode() that tests lexemes outside the stream.
 	        */
 	        begin: '<style(?=\\s|>|$)', end: '>',
-	        keywords: {title: 'style'},
+	        keywords: {name: 'style'},
 	        contains: [TAG_INTERNALS],
 	        starts: {
 	          end: '</style>', returnEnd: true,
-	          subLanguage: 'css'
+	          subLanguage: ['css', 'xml']
 	        }
 	      },
 	      {
 	        className: 'tag',
 	        // See the comment in the <style tag about the lookahead pattern
 	        begin: '<script(?=\\s|>|$)', end: '>',
-	        keywords: {title: 'script'},
+	        keywords: {name: 'script'},
 	        contains: [TAG_INTERNALS],
 	        starts: {
 	          end: '\<\/script\>', returnEnd: true,
-	          subLanguage: ['actionscript', 'javascript', 'handlebars']
+	          subLanguage: ['actionscript', 'javascript', 'handlebars', 'xml']
 	        }
 	      },
-	      PHP,
 	      {
-	        className: 'pi',
-	        begin: /<\?\w+/, end: /\?>/,
-	        relevance: 10
+	        className: 'meta',
+	        variants: [
+	          {begin: /<\?xml/, end: /\?>/, relevance: 10},
+	          {begin: /<\?\w+/, end: /\?>/}
+	        ]
 	      },
 	      {
 	        className: 'tag',
 	        begin: '</?', end: '/?>',
 	        contains: [
 	          {
-	            className: 'title', begin: /[^ \/><\n\t]+/, relevance: 0
+	            className: 'name', begin: /[^\/><\s]+/, relevance: 0
 	          },
 	          TAG_INTERNALS
 	        ]
@@ -8494,12 +8505,15 @@ module.exports =
 
 	module.exports = function(hljs) {
 	  return {
-	    aliases: ['js'],
+	    aliases: ['js', 'jsx'],
 	    keywords: {
 	      keyword:
 	        'in of if for while finally var new function do return void else break catch ' +
 	        'instanceof with throw case default try this switch continue typeof delete ' +
-	        'let yield const export super debugger as async await',
+	        'let yield const export super debugger as async await static ' +
+	        // ECMAScript 6 modules import
+	        'import from as'
+	      ,
 	      literal:
 	        'true false null undefined NaN Infinity',
 	      built_in:
@@ -8514,9 +8528,13 @@ module.exports =
 	    },
 	    contains: [
 	      {
-	        className: 'pi',
+	        className: 'meta',
 	        relevance: 10,
 	        begin: /^\s*['"]use (strict|asm)['"]/
+	      },
+	      {
+	        className: 'meta',
+	        begin: /^#!/, end: /$/
 	      },
 	      hljs.APOS_STRING_MODE,
 	      hljs.QUOTE_STRING_MODE,
@@ -8550,9 +8568,12 @@ module.exports =
 	          hljs.C_BLOCK_COMMENT_MODE,
 	          hljs.REGEXP_MODE,
 	          { // E4X / JSX
-	            begin: /</, end: />\s*[);\]]/,
-	            relevance: 0,
-	            subLanguage: 'xml'
+	            begin: /</, end: /(\/\w+|\w+\/)>/,
+	            subLanguage: 'xml',
+	            contains: [
+	              {begin: /<\w+\s*\/>/, skip: true},
+	              {begin: /<\w+/, end: /(\/\w+|\w+\/)>/, skip: true, contains: ['self']}
+	            ]
 	          }
 	        ],
 	        relevance: 0
@@ -8578,18 +8599,7 @@ module.exports =
 	      {
 	        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
 	      },
-	      {
-	        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
-	      },
-	      // ECMAScript 6 modules import
-	      {
-	        beginKeywords: 'import', end: '[;$]',
-	        keywords: 'import from as',
-	        contains: [
-	          hljs.APOS_STRING_MODE,
-	          hljs.QUOTE_STRING_MODE
-	        ]
-	      },
+	      hljs.METHOD_GUARD,
 	      { // ES6 class
 	        className: 'class',
 	        beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
@@ -8598,9 +8608,12 @@ module.exports =
 	          {beginKeywords: 'extends'},
 	          hljs.UNDERSCORE_TITLE_MODE
 	        ]
+	      },
+	      {
+	        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
 	      }
 	    ],
-	    illegal: /#/
+	    illegal: /#(?!!)/
 	  };
 	};
 
@@ -8614,15 +8627,8 @@ module.exports =
 	    className: 'variable',
 	    begin: '(\\$' + IDENT_RE + ')\\b'
 	  };
-	  var FUNCTION = {
-	    className: 'function',
-	    begin: IDENT_RE + '\\(',
-	    returnBegin: true,
-	    excludeEnd: true,
-	    end: '\\('
-	  };
 	  var HEXCOLOR = {
-	    className: 'hexcolor', begin: '#[0-9A-Fa-f]+'
+	    className: 'number', begin: '#[0-9A-Fa-f]+'
 	  };
 	  var DEF_INTERNALS = {
 	    className: 'attribute',
@@ -8630,17 +8636,15 @@ module.exports =
 	    excludeEnd: true,
 	    illegal: '[^\\s]',
 	    starts: {
-	      className: 'value',
 	      endsWithParent: true, excludeEnd: true,
 	      contains: [
-	        FUNCTION,
 	        HEXCOLOR,
 	        hljs.CSS_NUMBER_MODE,
 	        hljs.QUOTE_STRING_MODE,
 	        hljs.APOS_STRING_MODE,
 	        hljs.C_BLOCK_COMMENT_MODE,
 	        {
-	          className: 'important', begin: '!important'
+	          className: 'meta', begin: '!important'
 	        }
 	      ]
 	    }
@@ -8651,31 +8655,27 @@ module.exports =
 	    contains: [
 	      hljs.C_LINE_COMMENT_MODE,
 	      hljs.C_BLOCK_COMMENT_MODE,
-	      FUNCTION,
 	      {
-	        className: 'id', begin: '\\#[A-Za-z0-9_-]+',
+	        className: 'selector-id', begin: '\\#[A-Za-z0-9_-]+',
 	        relevance: 0
 	      },
 	      {
-	        className: 'class', begin: '\\.[A-Za-z0-9_-]+',
+	        className: 'selector-class', begin: '\\.[A-Za-z0-9_-]+',
 	        relevance: 0
 	      },
 	      {
-	        className: 'attr_selector',
-	        begin: '\\[', end: '\\]',
+	        className: 'selector-attr', begin: '\\[', end: '\\]',
 	        illegal: '$'
 	      },
 	      {
-	        className: 'tag', // begin: IDENT_RE, end: '[,|\\s]'
+	        className: 'selector-tag', // begin: IDENT_RE, end: '[,|\\s]'
 	        begin: '\\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|command|datalist|dd|del|details|dfn|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|map|mark|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|rp|rt|ruby|samp|script|section|select|small|span|strike|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)\\b',
 	        relevance: 0
 	      },
 	      {
-	        className: 'pseudo',
 	        begin: ':(visited|valid|root|right|required|read-write|read-only|out-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-child|nth-child|not|link|left|last-of-type|last-child|lang|invalid|indeterminate|in-range|hover|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|disabled|default|checked|before|after|active)'
 	      },
 	      {
-	        className: 'pseudo',
 	        begin: '::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|selection|value)'
 	      },
 	      VARIABLE,
@@ -8685,37 +8685,31 @@ module.exports =
 	        illegal: '[^\\s]'
 	      },
 	      {
-	        className: 'value',
 	        begin: '\\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute|table|table-cell)\\b'
 	      },
 	      {
-	        className: 'value',
 	        begin: ':', end: ';',
 	        contains: [
-	          FUNCTION,
 	          VARIABLE,
 	          HEXCOLOR,
 	          hljs.CSS_NUMBER_MODE,
 	          hljs.QUOTE_STRING_MODE,
 	          hljs.APOS_STRING_MODE,
 	          {
-	            className: 'important', begin: '!important'
+	            className: 'meta', begin: '!important'
 	          }
 	        ]
 	      },
 	      {
-	        className: 'at_rule',
 	        begin: '@', end: '[{;]',
 	        keywords: 'mixin include extend for if else each while charset import debug media page content font-face namespace warn',
 	        contains: [
-	          FUNCTION,
 	          VARIABLE,
 	          hljs.QUOTE_STRING_MODE,
 	          hljs.APOS_STRING_MODE,
 	          HEXCOLOR,
 	          hljs.CSS_NUMBER_MODE,
 	          {
-	            className: 'preprocessor',
 	            begin: '\\s[A-Za-z0-9_.-]+',
 	            relevance: 0
 	          }
@@ -62616,6 +62610,10 @@ module.exports =
 
 	var _Paragraph2 = _interopRequireDefault(_Paragraph);
 
+	var _Table = __webpack_require__(116);
+
+	var _Table2 = _interopRequireDefault(_Table);
+
 	var _Heading = __webpack_require__(171);
 
 	var _Heading2 = _interopRequireDefault(_Heading);
@@ -62629,6 +62627,8 @@ module.exports =
 	var _Image2 = _interopRequireDefault(_Image);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// (C) Copyright 2016 Hewlett Packard Enterprise Development LP
 
 	var Markdown = function Markdown(props) {
 	  var content = props.content;
@@ -62647,9 +62647,6 @@ module.exports =
 	  }, {});
 
 	  var options = (0, _deepAssign2.default)({
-	    p: {
-	      component: _Paragraph2.default
-	    },
 	    a: {
 	      component: _Anchor2.default
 	    },
@@ -62658,11 +62655,20 @@ module.exports =
 	      props: {
 	        caption: true
 	      }
+	    },
+	    p: {
+	      component: _Paragraph2.default
+	    },
+	    table: {
+	      component: _Table2.default
 	    }
 	  }, heading, components);
 
-	  return (0, _markdownToJsx2.default)(content, {}, options);
-	}; // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+	  return (0, _markdownToJsx2.default)(content, {
+	    breaks: true,
+	    gfm: true
+	  }, options);
+	};
 
 	Markdown.propTypes = {
 	  content: _react.PropTypes.string,
