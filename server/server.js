@@ -15,10 +15,7 @@ var docs = require('./docs');
 var WORKERS = process.env.WEB_CONCURRENCY || 1;
 var PORT = process.env.PORT || 8000;
 
-throng(start, {
-  workers: WORKERS,
-  lifetime: Infinity
-});
+throng(WORKERS, start);
 
 function start() {
   var app = express();
