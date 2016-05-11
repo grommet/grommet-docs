@@ -29720,7 +29720,8 @@ module.exports =
 	    this._highlightCode();
 	  },
 
-	  _onChange: function _onChange(value) {
+	  _onChange: function _onChange(e) {
+	    var value = e.target.value;
 	    var caseInsensitiveValue = new RegExp(value, 'i');
 	    var icons = iconNames.filter(function (icon) {
 	      return icon.match(caseInsensitiveValue);
@@ -29933,7 +29934,7 @@ module.exports =
 	          { tag: 'h2' },
 	          'Icons',
 	          React.createElement(SearchInput, { id: 'iconSearchInput', name: 'iconSearchInput',
-	            onChange: this._onChange, value: this.state.inputData })
+	            onDOMChange: this._onChange, value: this.state.inputData })
 	        ),
 	        React.createElement(
 	          Tiles,
