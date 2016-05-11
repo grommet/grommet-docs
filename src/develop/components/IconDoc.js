@@ -36,7 +36,8 @@ var IconDoc = React.createClass({
     this._highlightCode();
   },
 
-  _onChange: function (value) {
+  _onChange: function (e) {
+    var value = e.target.value;
     var caseInsensitiveValue = new RegExp(value, 'i');
     var icons = iconNames.filter(function (icon) {
       return icon.match(caseInsensitiveValue);
@@ -161,7 +162,7 @@ var IconDoc = React.createClass({
           <Header tag="h2">
             Icons
             <SearchInput id="iconSearchInput" name="iconSearchInput"
-              onChange={this._onChange} value={this.state.inputData} />
+              onDOMChange={this._onChange} value={this.state.inputData} />
           </Header>
           <Tiles flush={true} onMore={moreIcons}>
             {tiles}
