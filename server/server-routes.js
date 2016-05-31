@@ -1304,8 +1304,6 @@ module.exports =
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-
 	      var classes = [CLASS_ROOT];
 	      var containerClasses = [CLASS_ROOT + "__container"];
 	      var restProps = _Props2.default.omit(this.props, Object.keys(Box.propTypes));
@@ -1386,21 +1384,13 @@ module.exports =
 	        );
 	      }
 
-	      var eventRegex = /^on[A-Z].*$/;
-	      var eventListeners = {};
-	      Object.keys(this.props).forEach(function (prop) {
-	        if (eventRegex.test(prop)) {
-	          eventListeners[prop] = _this2.props[prop];
-	        }
-	      });
-
 	      var Component = this.props.tag;
 
 	      if (this.props.appCentered) {
 	        return _react2.default.createElement(
 	          'div',
 	          _extends({}, restProps, { ref: 'boxContainer', className: containerClasses.join(' '),
-	            style: style, role: this.props.role }, a11yProps, eventListeners),
+	            style: style, role: this.props.role }, a11yProps),
 	          skipLinkAnchor,
 	          _react2.default.createElement(
 	            Component,
@@ -1414,7 +1404,8 @@ module.exports =
 	          Component,
 	          _extends({}, restProps, { ref: 'boxContainer', id: this.props.id,
 	            className: classes.join(' '), style: style,
-	            role: this.props.role, tabIndex: this.props.tabIndex }, a11yProps, eventListeners),
+	            role: this.props.role, tabIndex: this.props.tabIndex,
+	            onClick: this.props.onClick }, a11yProps),
 	          skipLinkAnchor,
 	          texture,
 	          this.props.children
@@ -1751,8 +1742,12 @@ module.exports =
 	    var id = void 0;
 	    var elementId = element.getAttribute('id');
 	    if (!elementId) {
-	      id = hash(element.parentElement.innerHTML);
-	      element.setAttribute('id', id);
+	      // IE11 fix: check for parentNode instead of parentElement
+	      var parentElement = element.parentElement || element.parentNode;
+	      if (parentElement) {
+	        id = hash(parentElement.innerHTML);
+	        element.setAttribute('id', id);
+	      }
 	    } else {
 	      id = elementId;
 	    }
@@ -4209,10 +4204,14 @@ module.exports =
 	    _this._onResponsive = _this._onResponsive.bind(_this);
 	    _this._updateHiddenElements = _this._updateHiddenElements.bind(_this);
 
+	    // Necessary to detect for Firefox or Edge to implement accessibility tabbing
+	    var accessibilityTabbingCompatible = typeof navigator !== 'undefined' && navigator.userAgent.indexOf("Firefox") === -1 && navigator.userAgent.indexOf("Edge") === -1;
+
 	    _this.state = {
 	      selectedIndex: props.selected || 0,
 	      playing: false,
-	      showControls: _this.props.controls
+	      showControls: _this.props.controls,
+	      accessibilityTabbingCompatible: accessibilityTabbingCompatible
 	    };
 	    return _this;
 	  }
@@ -4220,6 +4219,7 @@ module.exports =
 	  _createClass(Article, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+
 	      if (this.props.scrollStep) {
 	        this._keys = { up: this._onPrevious, down: this._onNext };
 	        if ('row' === this.props.direction) {
@@ -4228,7 +4228,9 @@ module.exports =
 	            right: this._onNext
 	          };
 
-	          this._updateHiddenElements();
+	          if (this.state.accessibilityTabbingCompatible) {
+	            this._updateHiddenElements();
+	          }
 	        }
 	        //keys.space = this._onTogglePlay;
 	        _KeyboardAccelerators2.default.startListeningToKeyboard(this, this._keys);
@@ -4249,9 +4251,10 @@ module.exports =
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(props) {
-	      if (props.selected !== undefined) {
-	        this._onSelect(props.selected);
+	    value: function componentWillReceiveProps(nextProps) {
+	      // allow updates to selected props to trigger new chapter select
+	      if (typeof nextProps.selected !== 'undefined' && nextProps.selected !== null && nextProps.selected !== this.state.selectedIndex) {
+	        this._onSelect(nextProps.selected);
 	      }
 	    }
 	  }, {
@@ -4542,23 +4545,35 @@ module.exports =
 	      var _this7 = this;
 
 	      var childElement = (0, _reactDom.findDOMNode)(this.refs[selectedIndex]);
+	      var windowHeight = window.innerHeight + 24;
+
 	      if (childElement) {
+	        var parentElement = childElement.parentNode;
+	        var atBottom = Math.round(parentElement.scrollTop) >= parentElement.scrollHeight - parentElement.clientHeight;
+
 	        if (selectedIndex !== this.state.selectedIndex) {
 	          // scroll child to top
 	          childElement.scrollTop = 0;
-
+	          // ensures controls are displayed when selecting a new index and
+	          // scrollbar is at bottom of article
 	          this.setState({
 	            selectedIndex: selectedIndex,
-	            atBottom: false
+	            atBottom: atBottom
 	          }, function () {
 	            if (_this7.props.onSelect) {
 	              _this7.props.onSelect(selectedIndex);
 	            }
-	            if (_this7.props.direction === 'row') {
+
+	            // Necessary to detect for Firefox or Edge to implement accessibility tabbing
+	            if (_this7.props.direction === 'row' && _this7.state.accessibilityTabbingCompatible) {
 	              _this7.refs.anchorStep.focus();
 	              _this7._updateHiddenElements();
 	            }
 	          });
+	        } else if (childElement.scrollHeight <= windowHeight) {
+	          // on initial chapter load, ensure arrows are rendered
+	          // when there are no scrollbars
+	          this.setState({ atBottom: true });
 	        }
 
 	        var rect = childElement.getBoundingClientRect();
@@ -4701,19 +4716,23 @@ module.exports =
 	        controls = this._renderControls();
 	      }
 
+	      var anchorStepNode = void 0;
+	      if (this.state.accessibilityTabbingCompatible) {
+	        anchorStepNode = _react2.default.createElement('a', { tabIndex: '-1', 'aria-hidden': 'true', ref: 'anchorStep' });
+	      }
+
 	      var children = this.props.children;
 	      if (this.props.scrollStep || this.props.controls) {
 	        children = _react.Children.map(this.props.children, function (element, index) {
 	          if (element) {
 	            var elementClone = _react2.default.cloneElement(element, {
-	              ref: index,
-	              'aria-hidden': _this9.state.selectedIndex !== index
+	              ref: index
 	            });
 
 	            var elementNode = elementClone;
 
 	            var ariaHidden = void 0;
-	            if (_this9.state.selectedIndex !== index) {
+	            if (_this9.state.selectedIndex !== index && _this9.state.accessibilityTabbingCompatible) {
 	              ariaHidden = 'true';
 	            }
 
@@ -4740,8 +4759,7 @@ module.exports =
 	          className: classes.join(' '), onFocus: this._onFocusChange,
 	          onScroll: this._onScroll, onTouchStart: this._onTouchStart,
 	          onTouchMove: this._onTouchMove, primary: this.props.primary }),
-	        _react2.default.createElement('a', { tabIndex: '-1', 'aria-hidden': 'true',
-	          ref: 'anchorStep' }),
+	        anchorStepNode,
 	        children,
 	        controls
 	      );
@@ -5329,6 +5347,11 @@ module.exports =
 	      var other = _Props2.default.pick(this.props, Object.keys(_Box2.default.propTypes));
 	      if (this.props.fixed) {
 	        containerClasses.push(CLASS_ROOT + '__container--fixed');
+
+	        // add default color index if none is provided
+	        if (!this.props.colorIndex) {
+	          containerClasses.push(CLASS_ROOT + '__container--fill');
+	        }
 	      }
 	      if (this.props.float) {
 	        classes.push(CLASS_ROOT + '--float');
@@ -5727,9 +5750,13 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames3 = __webpack_require__(24);
+	var _reactDom = __webpack_require__(17);
 
-	var _classnames4 = _interopRequireDefault(_classnames3);
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _classnames4 = __webpack_require__(24);
+
+	var _classnames5 = _interopRequireDefault(_classnames4);
 
 	var _Box = __webpack_require__(15);
 
@@ -5761,17 +5788,66 @@ module.exports =
 	  function Footer() {
 	    _classCallCheck(this, Footer);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this));
+
+	    _this._alignMirror = _this._alignMirror.bind(_this);
+	    _this._onResize = _this._onResize.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(Footer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.props.fixed) {
+	        this._alignMirror();
+	        window.addEventListener('resize', this._onResize);
+	      }
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (this.props.fixed) {
+	        this._alignMirror();
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      if (this.props.fixed) {
+	        window.removeEventListener('resize', this._onResize);
+	      }
+	    }
+	  }, {
+	    key: '_onResize',
+	    value: function _onResize() {
+	      this._alignMirror();
+	    }
+	  }, {
+	    key: '_alignMirror',
+	    value: function _alignMirror() {
+	      var contentElement = _reactDom2.default.findDOMNode(this.refs.content);
+	      var mirrorElement = this.refs.mirror;
+
+	      // constrain fixed content to the width of the mirror
+	      var mirrorRect = mirrorElement.getBoundingClientRect();
+	      contentElement.style.width = Math.floor(mirrorRect.width) + 'px';
+
+	      // align the mirror height with the content's height
+	      var contentRect = contentElement.getBoundingClientRect();
+	      mirrorElement.style.height = Math.floor(contentRect.height) + 'px';
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _classnames;
+	      var _classnames, _classnames2;
 
-	      var classes = (0, _classnames4.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + this.props.size, this.props.size), _defineProperty(_classnames, CLASS_ROOT + '--float', this.props.float), _classnames));
+	      var classes = (0, _classnames5.default)(CLASS_ROOT, this.props.className, (_classnames = {}, _defineProperty(_classnames, CLASS_ROOT + '--' + this.props.size, this.props.size), _defineProperty(_classnames, CLASS_ROOT + '--float', this.props.float), _classnames));
 
-	      var containerClasses = (0, _classnames4.default)(CLASS_ROOT + '__container', _defineProperty({}, CLASS_ROOT + '__container--float', this.props.float));
+	      var containerClasses = (0, _classnames5.default)(CLASS_ROOT + '__container', (_classnames2 = {}, _defineProperty(_classnames2, CLASS_ROOT + '__container--float', this.props.float), _defineProperty(_classnames2, CLASS_ROOT + '__container--fixed', this.props.fixed), _defineProperty(_classnames2, CLASS_ROOT + '__container--fill',
+	      // add default color index if none is provided
+	      this.props.fixed && !this.props.colorIndex), _classnames2));
+
+	      var wrapperClasses = (0, _classnames5.default)(CLASS_ROOT + '__wrapper', _defineProperty({}, CLASS_ROOT + '__wrapper--' + this.props.size, this.props.size));
 
 	      var footerSkipLink = void 0;
 	      if (this.props.primary) {
@@ -5782,14 +5858,33 @@ module.exports =
 	      // don't transfer size to Box since it means something different
 	      delete boxProps.size;
 
-	      return _react2.default.createElement(
-	        _Box2.default,
-	        _extends({}, boxProps, { tag: 'footer', className: classes,
-	          containerClassName: containerClasses,
-	          primary: false }),
-	        footerSkipLink,
-	        this.props.children
-	      );
+	      if (this.props.fixed) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: containerClasses },
+	          _react2.default.createElement('div', { ref: 'mirror', className: CLASS_ROOT + '__mirror' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: wrapperClasses },
+	            _react2.default.createElement(
+	              _Box2.default,
+	              _extends({ ref: 'content' }, boxProps, { tag: 'footer', className: classes,
+	                primary: false }),
+	              footerSkipLink,
+	              this.props.children
+	            )
+	          )
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          _Box2.default,
+	          _extends({}, boxProps, { tag: 'footer', className: classes,
+	            containerClassName: containerClasses,
+	            primary: false }),
+	          footerSkipLink,
+	          this.props.children
+	        );
+	      }
 	    }
 	  }]);
 
@@ -5800,6 +5895,7 @@ module.exports =
 	;
 
 	Footer.propTypes = _extends({
+	  fixed: _react.PropTypes.bool,
 	  float: _react.PropTypes.bool,
 	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
 	  primary: _react.PropTypes.bool
@@ -14880,7 +14976,6 @@ module.exports =
 	var SPIRAL_RADIUS = _utils.baseDimension / 2 - _utils.baseUnit / 2;
 	var RING_THICKNESS = _utils.baseUnit;
 	// Allow for active value content next to a spiral meter
-	var SPIRAL_TEXT_PADDING = _utils.baseUnit * 2;
 
 	var Spiral = function (_Graphic) {
 	  _inherits(Spiral, _Graphic);
@@ -14900,7 +14995,7 @@ module.exports =
 	    key: '_stateFromProps',
 	    value: function _stateFromProps(props) {
 	      var viewBoxHeight = Math.max(SPIRAL_WIDTH, RING_THICKNESS * (props.series.length + 1) * 2);
-	      var viewBoxWidth = viewBoxHeight + 2 * SPIRAL_TEXT_PADDING;
+	      var viewBoxWidth = viewBoxHeight;
 
 	      var state = {
 	        startAngle: 0,
@@ -22744,6 +22839,11 @@ module.exports =
 
 	      var graphWidth = width;
 	      var graphHeight = height;
+	      if (this.props.legend && 'inline' === this.props.legend.position) {
+	        // provides a buffer at the top of the graph to ensure
+	        // none of the labels are cutoff by the bounds
+	        graphHeight -= XAXIS_HEIGHT;
+	      }
 	      if (this.props.thresholds) {
 	        graphWidth -= YAXIS_WIDTH;
 	      }
@@ -29284,6 +29384,26 @@ module.exports =
 	            'code',
 	            null,
 	            'h1'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'dt',
+	          null,
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'uppercase         true|false'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'dd',
+	          null,
+	          'Convert the heading to uppercase.  Defaults to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'false'
 	          ),
 	          '.'
 	        )
