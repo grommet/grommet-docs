@@ -65545,216 +65545,384 @@ module.exports =
 
 	'use strict';
 
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(58);
-
-	var RestDoc = React.createClass({
-	  displayName: 'RestDoc',
-
-
-	  render: function render() {
-	    var inline = ["Rest", "  .get('/rest/index/resources', params)", "  .end(this._onResponse);"].join('\n');
-
-	    var example = ["var Component = React.createClass({", "  ...", "  _onResponse: function (err, res) {", "    if (err && err.timeout > 1000) {", "      this.setState({error: 'Timeout', result: {}});", "    } else if (res.status === 400) {", "      Actions.logout();", "    } else if (!res.ok) {", "      this.setState({error: res.body || res.text, result: {}});", "    } else {", "      var result = res.body;", "      this.setState({result: result, error: null});", "    }", "  },", "  _getData: function () {", "    Rest.get('/rest/index/resources', this.state.options.params)", "      .end(this._onResponse);", "  },", "  ...", "});"].join('\n');
-
-	    return React.createElement(
-	      DocsArticle,
-	      { title: 'Rest', colorIndex: 'neutral-4' },
-	      React.createElement(
-	        'p',
-	        null,
-	        'Perform REST calls. Uses ',
-	        React.createElement(
-	          'a',
-	          { href: 'https://github.com/visionmedia/superagent' },
-	          'superagent'
-	        ),
-	        ' under the hood.'
-	      ),
-	      React.createElement(
-	        'pre',
-	        null,
-	        React.createElement(
-	          'code',
-	          { className: 'javascript' },
-	          inline
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Methods'
-	        ),
-	        React.createElement(
-	          'dl',
-	          null,
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'del (uri)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Delete the resource indicated by the uri.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'get (uri, object)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Get the resource indicated by the uri and optional query parameters. The second argument will be converted into a query string.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'head (uri, object)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Chek the resource indicated by the uri and optional query parameters. The second argument will be converted into a query string.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'patch (uri, data)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Update some of the resource indicated by the uri with the provided data.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'post (uri, data)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Create a resource under the indicated uri with the provided data.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'put (uri, data)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Create or update the resource indicated by the uri with the provided data.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'setHeader (name, value)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Set a default HTTP header.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'setHeaders (object)'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Set multiple HTTP headers.'
-	          ),
-	          React.createElement(
-	            'dt',
-	            null,
-	            React.createElement(
-	              'code',
-	              null,
-	              'setTimeout'
-	            )
-	          ),
-	          React.createElement(
-	            'dd',
-	            null,
-	            'Set the default request timeout.'
-	          )
-	        ),
-	        React.createElement(
-	          'p',
-	          null,
-	          'Note, the object returned from head, get, patch, post, put, and del is the superagent request object. You must call ',
-	          React.createElement(
-	            'code',
-	            null,
-	            'end()'
-	          ),
-	          ' to actually perform the request.'
-	        )
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        React.createElement(
-	          'h2',
-	          null,
-	          'Example'
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'javascript' },
-	            example
-	          )
-	        )
-	      )
-	    );
-	  }
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
 	});
 
-	module.exports = RestDoc;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _DocsArticle = __webpack_require__(58);
+
+	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	var RestDoc = function (_Component) {
+	  _inherits(RestDoc, _Component);
+
+	  function RestDoc() {
+	    _classCallCheck(this, RestDoc);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(RestDoc).apply(this, arguments));
+	  }
+
+	  _createClass(RestDoc, [{
+	    key: 'render',
+	    value: function render() {
+
+	      var example = 'import { headers, buildQuery, processStatus } from \'grommet/utils/Rest\';\n\nexport default class MyComponent extends Component {\n\n  _getData (filters) {\n    const query = buildQuery(filters);\n    const options = { method: \'GET\', headers: { ...headers, Auth: _token };\n    fetch(`/rest/index/resources${query}`, options)\n    .then(processStatus)\n    .then(response => response.json())\n    .then(result => this.setState({ result: result, error: undefined }))\n    .catch(error => this.setState({ result: undefined, error: error }));\n  }\n\n})';
+
+	      var deprecatedExample = 'export default class MyComponent extends Component {\n  ...\n  _onResponse (err, res) {\n    if (err && err.timeout > 1000) {\n      this.setState({error: \'Timeout\', result: {}});\n    } else if (res.status === 400) {\n      Actions.logout();\n    } else if (!res.ok) {\n      this.setState({error: res.body || res.text, result: {}});\n    } else {\n      var result = res.body;\n      this.setState({result: result, error: null});\n    }\n  }\n  ...\n  _getData () {\n    Rest.get(\'/rest/index/resources\', this.state.options.params)\n      .end(this._onResponse);\n  }\n  ...\n})';
+
+	      return _react2.default.createElement(
+	        _DocsArticle2.default,
+	        { title: 'Rest', colorIndex: 'neutral-4' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Utility functions for performing REST calls. Applications that interact with REST APIs should use ',
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'https://github.com/whatwg/fetch' },
+	            'fetch'
+	          ),
+	          ' and',
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'https://www.promisejs.org' },
+	            'promises'
+	          ),
+	          '. This Rest module provides a few helper functions along the way.'
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Variables'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'headers'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'Accept'
+	              ),
+	              ' and ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'Content-Type'
+	              ),
+	              ' headers for JSON APIs.'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Methods'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'buildParams    (object)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Converts object to parameter array of strings of ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'name=URI-encoded-value'
+	              ),
+	              '. Handles array values.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'buildQuery     (object|Array)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Calls ',
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'buildParams'
+	              ),
+	              ' if passed an object. Then joins the params array with \'&\' and adds a \'?\' prefix if needed'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'processStatus  (response)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'For use in a ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: 'https://www.promisejs.org' },
+	                'promise'
+	              ),
+	              ' chain. Rejects promise if response is not ok.'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Example'
+	          ),
+	          _react2.default.createElement(
+	            'pre',
+	            null,
+	            _react2.default.createElement(
+	              'code',
+	              { className: 'javascript' },
+	              example
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Deprecated'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The following methods and the embedding of ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/visionmedia/superagent' },
+	              'superagent'
+	            ),
+	            ' are deprecated and will be removed in a future release. The rationale for this is that fetch is a simple enough interface.'
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Deprecated Methods'
+	          ),
+	          _react2.default.createElement(
+	            'dl',
+	            null,
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'del (uri)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Delete the resource indicated by the uri.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'get (uri, object)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Get the resource indicated by the uri and optional query parameters. The second argument will be converted into a query string.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'head (uri, object)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Chek the resource indicated by the uri and optional query parameters. The second argument will be converted into a query string.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'patch (uri, data)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Update some of the resource indicated by the uri with the provided data.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'post (uri, data)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Create a resource under the indicated uri with the provided data.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'put (uri, data)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Create or update the resource indicated by the uri with the provided data.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'setHeader (name, value)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Set a default HTTP header.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'setHeaders (object)'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Set multiple HTTP headers.'
+	            ),
+	            _react2.default.createElement(
+	              'dt',
+	              null,
+	              _react2.default.createElement(
+	                'code',
+	                null,
+	                'setTimeout'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'dd',
+	              null,
+	              'Set the default request timeout.'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Note, the object returned from head, get, patch, post, put, and del is the superagent request object. You must call ',
+	            _react2.default.createElement(
+	              'code',
+	              null,
+	              'end()'
+	            ),
+	            ' to actually perform the request.'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'section',
+	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Deprecated Example'
+	          ),
+	          _react2.default.createElement(
+	            'pre',
+	            null,
+	            _react2.default.createElement(
+	              'code',
+	              { className: 'javascript' },
+	              deprecatedExample
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return RestDoc;
+	}(_react.Component);
+
+	exports.default = RestDoc;
+	;
+	module.exports = exports['default'];
 
 /***/ },
 /* 487 */
