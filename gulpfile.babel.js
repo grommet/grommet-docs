@@ -42,7 +42,7 @@ gulp.task('watch-css', function() {
   if (options.webpack.resolve.alias) {
     var watcher = gulp.watch(
       path.resolve(__dirname, '../grommet/src/scss/**/*.scss'),
-      ['dist-css']
+      ['dist-css', 'notify']
     );
 
     watcher.on('change', function() {
@@ -96,7 +96,7 @@ gulp.task('notify', function () {
 gulp.task('dist-css', function(done) {
   runSequence(
     ['dist-css-aruba', 'dist-css-grommet', 'dist-css-hpe',
-    'dist-css-hpinc', 'dist-css-vanilla'], 'notify', done);
+    'dist-css-hpinc', 'dist-css-vanilla'], done);
 });
 
 var nodeModules = {};
