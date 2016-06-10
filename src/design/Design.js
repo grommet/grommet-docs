@@ -11,58 +11,42 @@ var DocsArticle = require('../DocsArticle');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
-var Philosophy = require('./Philosophy');
-var Basics = require('./Basics');
-var Patterns = require('./Patterns');
-var Showcase = require('./Showcase');
-var Login = require('./patterns/Login');
-var TBD = require('grommet/components/TBD');
+// var Philosophy = require('./Philosophy');
+var BestPractices = require('./BestPractices');
+var Usability = require('./Usability');
+var Interactions = require('./Interactions');
+var Mobile = require('./Mobile');
+var Accessibility = require('./Accessibility');
+var Color = require('./Color');
+var Padding = require('./Padding');
+var Text = require('./Text');
+var Typography = require('./Typography');
+var WritingStyle = require('./WritingStyle');
+var DateTime = require('./DateTime');
+var Capitalization = require('./Capitalization');
+var Icons = require('./Icons');
 var Resources = require('./Resources');
 
 var CONTENTS = [
-  {route: "design_philosophy", label: 'Philosophy', component: Philosophy,
+  {label: 'Philosophy',
     contents: [
-      {label: 'Best Practices', id: 'best-practices'},
-      {label: 'Usability', id: 'usability'},
-      {label: 'Interactions', id: 'interactions'},
-      {label: 'Mobile', id: 'mobile'},
-      {label: 'Accessibility', id: 'accessibility'}
+      {route: "design_best_practices", label: 'Best Practices', component: BestPractices},
+      {route: "design_usability", label: 'Usability', component: Usability},
+      {route: "design_interactions", label: 'Interactions', component: Interactions},
+      {route: "design_mobile", label: 'Mobile', component: Mobile},
+      {route: "design_accessibility", label: 'Accessibility', component: Accessibility}
     ]},
-  {route: "design_basics", label: 'Basics', component: Basics,
+  {label: 'Basics',
     contents: [
-      {label: 'Color', id: 'color'},
-      {label: 'Padding', id: 'padding'},
-      {label: 'Text', id: 'text'},
-      {label: 'Typography', id: 'typography'},
-      {label: 'Writing Style', id: 'writing-style'},
-      {label: 'Date and Time', id: 'date-time'},
-      {label: 'Capitalization', id: 'capitalization'},
-      {label: 'Icons', id: 'icons'}
+      {route: "design_color", label: 'Color', component: Color},
+      {route: "design_padding", label: 'Padding', component: Padding},
+      {route: "design_text", label: 'Text', component: Text},
+      {route: "design_typography", label: 'Typography', component: Typography},
+      {route: "design_writing_style", label: 'Writing Style', component: WritingStyle},
+      {route: "design_date_time", label: 'Date and Time', component: DateTime},
+      {route: "design_capitalization", label: 'Capitalization', component: Capitalization},
+      {route: "design_icons", label: 'Icons', component: Icons}
     ]},
-  {route: "design_patterns", label: 'Patterns', component: Patterns,
-    contents: [
-      {route: "design_login", label: 'Login', component: Login},
-      {route: "design_header", label: 'Header', component: TBD},
-      {route: "design_dashboard", label: 'Dashboard', component: TBD},
-      {route: "design_search", label: 'Search', component: TBD}
-    ]
-  },
-  {route: "design_showcase", label: 'Showcase', component: Showcase,
-    contents: [
-      {id: "hpsw-analytics", label: 'Analytics'},
-      {id: "hpsw-big-data", label: 'Big Data'},
-      {id: "hpsw-cloud-analytics", label: 'Cloud Analytics'},
-      {id: "hpsw-business-analytics", label: 'IT Business Analytics'},
-      {id: "hpsw-login", label: 'Login'},
-      {id: "oneview-dashboard", label: 'OneView Dashboard'},
-      {id: "oneview-detail-page", label: 'OneView Detail Page'},
-      {id: "hpsw-ops-dashboard", label: 'Ops Dashboard'},
-      {id: "propel-dashboard", label: 'Propel Dashboard'},
-      {id: "propel-prod-detail", label: 'Propel Product Detail'},
-      {id: "hpsw-service-anywhere", label: 'Service Anywhere'},
-      {id: "hpsw-web-inspect", label: 'Web Inspect'}
-    ]
-  },
   {route: "design_resources", label: 'Resources', component: Resources}
 ];
 
