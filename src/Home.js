@@ -69,7 +69,7 @@ export default class Home extends Component {
           <Button href={`${this.context.routePrefix}learn`} label="Learn" />
         </HomeSection>
 
-        <HomeSection justify="start" colorIndex="neutral-1">
+        <HomeSection colorIndex="neutral-1">
           <Heading tag="h2">Start making now</Heading>
           <Paragraph align="center">The easiest way to learn a new tool is to have it done
             for you and then make it yours!</Paragraph>

@@ -129,7 +129,7 @@ gulp.task('generate-icons-map', function (done) {
         if (index === icons.length - 1) {
           iconsMap.push('};\n');
 
-          var destinationFile = path.join(__dirname, 'src/develop/components/iconsMap.js');
+          var destinationFile = path.join(__dirname, 'src/docs/components/iconsMap.js');
           fs.writeFile(destinationFile, iconsMap.join(''), function(err) {
             if (err) {
               throw err;
@@ -162,7 +162,7 @@ gulp.task('generate-server-routes', function() {
             exclude: /(node_modules|bower_components)/
           },
           {
-            test: /develop(\/|\\).*\.htm$|design(\/|\\)[^\/]*\.htm$|design(\/|\\).*\/.*\.htm$/,
+            test: /docs(\/|\\).*\.htm$/,
             loader: 'babel-loader!imports?React=react,Router=react-router,Link=>Router.Link!html-jsx-loader',
             exclude: /(node_modules|bower_components)/
           }

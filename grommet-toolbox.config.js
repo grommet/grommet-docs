@@ -9,20 +9,12 @@ export default {
     'src/index.html',
     'src/robots.txt',
     {
-      asset: 'src/develop/img/**',
-      dist: 'dist/img/'
-    },
-    {
-      asset: 'src/design/img/**',
+      asset: 'src/docs/img/**',
       dist: 'dist/img/'
     },
     {
       asset: 'src/img/**',
       dist: 'dist/img/'
-    },
-    {
-      asset: 'design/**',
-      dist: 'dist/assets/design/'
     },
     {
       asset: 'node_modules/grommet/*.min.js',
