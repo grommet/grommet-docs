@@ -56,15 +56,15 @@ var DashboardDoc = React.createClass({
             <Tiles fill={true} flush={false}>
               <Tile wide={true}>
                 <Chart series={dateSeries} min={0} max={5} threshold={2}
-                type="area" smooth={true} legend={{}} small={true}
+                type="area" smooth={true} legend={{}} small="small"
                   xAxis={dateSeriesXAxis} />
               </Tile>
               <Tile>
-                <Header small={true}><h4>Utilization</h4></Header>
+                <Header small="small"><h4>Utilization</h4></Header>
                 <Meter value={40} type="arc" units="TB" />
               </Tile>
               <Tile>
-                <Header small={true}><h4>Throughput</h4></Header>
+                <Header small="small"><h4>Throughput</h4></Header>
                 <Meter value={80} type="arc" units="GB/s"/>
               </Tile>
             </Tiles>

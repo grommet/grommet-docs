@@ -40,7 +40,7 @@ var STATUS_ICONS = [
 
 export default class Icons extends Component {
   render () {
-    
+
     var controlIcons = CONTROL_ICONS.map(function (item) {
       var labels = item.labels.map(function (label) {
         return (<span key={label}>{label}</span>);
@@ -95,7 +95,7 @@ export default class Icons extends Component {
           <div className="example">
             <div className="icon-tile">
               <div><Spinning /></div>
-              <div><Spinning small={true} /></div>
+              <div><Spinning small="small" /></div>
               <label>
                 <span>Changing</span>
                 <span>Loading</span>

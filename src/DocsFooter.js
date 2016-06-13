@@ -17,7 +17,7 @@ var DocsFooter = React.createClass({
   render: function() {
     return (
       <Footer colorIndex={this.props.colorIndex} centered={this.props.centered}
-        large={true} pad="large">
+        size="large" pad="large">
         {this.props.children}
         <div>
           This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International License</a>.

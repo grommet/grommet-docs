@@ -103,7 +103,7 @@ var DocsSplit = React.createClass({
     }
     return (
       <Sidebar size="small" primary={true} separator="right">
-        <Header justify="between" large={true} pad={{horizontal: 'medium'}}>
+        <Header justify="between" size="large" pad={{horizontal: 'medium'}}>
           {title}
           {closer}
         </Header>
@@ -119,7 +119,7 @@ var DocsSplit = React.createClass({
     if ('single' === this.state.responsive) {
       var title = this._renderTitle();
       header = (
-        <Header justify="between" large={true} pad={{horizontal: 'large'}}>
+        <Header justify="between" size="large" pad={{horizontal: 'large'}}>
           {title}
           <Menu direction="row" responsive={false}>
             <a onClick={this._onMenuOpen}>Contents</a>

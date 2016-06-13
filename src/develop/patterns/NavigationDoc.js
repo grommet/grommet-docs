@@ -25,7 +25,7 @@ var NavigationDoc = React.createClass({
 
           <div className="example">
             <Sidebar primary={true}>
-              <Header large={true} flush={false}>
+              <Header size="large" flush={false}>
                 <Title>
                   <span>App</span>
                 </Title>
