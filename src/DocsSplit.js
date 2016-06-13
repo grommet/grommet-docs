@@ -1,59 +1,52 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Link = require('react-router').Link;
-var Split = require('grommet/components/Split');
-var Sidebar = require('grommet/components/Sidebar');
-var Header = require('grommet/components/Header');
-var Title = require('grommet/components/Title');
-var Box = require('grommet/components/Box');
-var Menu = require('grommet/components/Menu');
-var Button = require('grommet/components/Button');
-var CloseIcon = require('grommet/components/icons/base/Close');
-var GrommetLogo = require('grommet/components/icons/Grommet');
-var DocsMenu = require('./DocsMenu');
-var DOM = require('grommet/utils/DOM');
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+import Split from 'grommet/components/Split';
+import Sidebar from 'grommet/components/Sidebar';
+import Header from 'grommet/components/Header';
+import Title from 'grommet/components/Title';
+import Box from 'grommet/components/Box';
+import Menu from 'grommet/components/Menu';
+import Button from 'grommet/components/Button';
+import CloseIcon from 'grommet/components/icons/base/Close';
+import GrommetLogo from 'grommet/components/icons/Grommet';
+import DocsMenu from './DocsMenu';
+import DOM from 'grommet/utils/DOM';
 
-var DocsSplit = React.createClass({
+export default class DocsSplit extends Component {
 
-  propTypes: {
-    contents: React.PropTypes.arrayOf(React.PropTypes.object),
-    onChange: React.PropTypes.func,
-    title: React.PropTypes.node.isRequired
-  },
+  constructor () {
+    super();
+    this._onResponsive = this._onResponsive.bind(this);
+    this._onMenuOpen = this._onMenuOpen.bind(this);
+    this._onMenuClick = this._onMenuClick.bind(this);
+    this.state = {showMenu: true, responsive: 'multiple'};
+  }
 
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired,
-    rootPath: React.PropTypes.string.isRequired
-  },
-
-  getInitialState: function () {
-    return {showMenu: true, responsive: 'multiple'};
-  },
-
-  componentDidMount: function () {
+  componentDidMount () {
     this._scrollToAnchor();
-  },
+  }
 
-  componentDidUpdate: function () {
+  componentDidUpdate () {
     this._scrollToAnchor();
-  },
+  }
 
-  _scrollToAnchor: function () {
+  _scrollToAnchor () {
     if (this.refs.doc) {
-      var doc = this.refs.doc;
-      var hash = window.location.hash.slice(1);
+      const doc = this.refs.doc;
+      const hash = window.location.hash.slice(1);
       if (hash) {
-        var anchor = document.querySelectorAll('[id=' + hash + ']')[0];
-        var scrollParent = DOM.findScrollParents(anchor)[0];
+        const anchor = document.querySelectorAll('[id=' + hash + ']')[0];
+        const scrollParent = DOM.findScrollParents(anchor)[0];
         scrollParent.scrollTop = anchor.offsetTop;
       } else {
         doc.scrollTop = 0;
       }
     }
-  },
+  }
 
-  _onResponsive: function (responsive) {
+  _onResponsive (responsive) {
     this.setState({responsive: responsive});
     if ('multiple' === responsive) {
       this.setState({showMenu: true});
@@ -64,13 +57,13 @@ var DocsSplit = React.createClass({
     if (this.props.onChange) {
       this.props.onChange();
     }
-  },
+  }
 
-  _onMenuOpen: function () {
+  _onMenuOpen () {
     this.setState({showMenu: true});
-  },
+  }
 
-  _onMenuClick: function () {
+  _onMenuClick () {
     if ('single' === this.state.responsive) {
       this.setState({showMenu: false});
     }
@@ -79,9 +72,9 @@ var DocsSplit = React.createClass({
     if (this.props.onChange) {
       this.props.onChange();
     }
-  },
+  }
 
-  _renderTitle: function () {
+  _renderTitle () {
     return (
       <Title responsive={false}>
         <Link to={this.context.rootPath}>
@@ -91,11 +84,11 @@ var DocsSplit = React.createClass({
         </Link>
       </Title>
     );
-  },
+  }
 
-  _renderMenu: function () {
-    var title = this._renderTitle();
-    var closer;
+  _renderMenu () {
+    const title = this._renderTitle();
+    let closer;
     if ('single' === this.state.responsive) {
       closer = (
         <Button icon={<CloseIcon />} onClick={this._onMenuClick} />
@@ -107,17 +100,16 @@ var DocsSplit = React.createClass({
           {title}
           {closer}
         </Header>
-        <DocsMenu direction="column"
-          title={this.props.title} contents={this.props.contents}
+        <DocsMenu direction="column" contents={this.props.contents}
           onClick={this._onMenuClick} />
       </Sidebar>
     );
-  },
+  }
 
-  _renderDoc: function () {
-    var header;
+  _renderDoc () {
+    let header;
     if ('single' === this.state.responsive) {
-      var title = this._renderTitle();
+      const title = this._renderTitle();
       header = (
         <Header justify="between" size="large" pad={{horizontal: 'large'}}>
           {title}
@@ -133,11 +125,11 @@ var DocsSplit = React.createClass({
         {this.props.children}
       </div>
     );
-  },
+  }
 
-  render: function() {
-    var left;
-    var right;
+  render () {
+    let left;
+    let right;
     if (this.state.showMenu) {
       left = this._renderMenu();
       if ('multiple' === this.state.responsive) {
@@ -154,6 +146,14 @@ var DocsSplit = React.createClass({
       </Split>
     );
   }
-});
+};
 
-module.exports = DocsSplit;
+DocsSplit.propTypes = {
+  contents: PropTypes.arrayOf(React.PropTypes.object),
+  onChange: PropTypes.func
+};
+
+DocsSplit.contextTypes = {
+  routePrefix: PropTypes.string.isRequired,
+  rootPath: PropTypes.string.isRequired
+};

@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var DocsArticle = require('../DocsArticle');
+var DocsArticle = require('../../DocsArticle');
 var Table = require('grommet/components/Table');
 var Status = require('grommet/components/icons/Status');
 
@@ -14,6 +14,18 @@ var Accessibility = React.createClass({
   render: function() {
     return (
       <DocsArticle title="Accessibility" colorIndex="neutral-5">
+
+        <section>
+          <p>Products that are accessible to all users are good for people,
+          products, and business.  All users should be empowered with access
+          and the ability to have a pleasant experience with your application.</p>
+
+          <p>We follow the <a href="http://www.w3.org/TR/WCAG20/">Web Content
+          Accessibility Guidelines (WCAG)</a>.  By following this style guide
+          and utilizing the accompanying implementation platform, you will be
+          well on your way to satisfying the WCAG recommendations.</p>
+        </section>
+
         <section>
           <p>This section describes the Grommet guidelines for developing accessible applications.</p>
 

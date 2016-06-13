@@ -1,12 +1,10 @@
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
-var IndexRoute = Router.IndexRoute;
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var Docs = require('./Docs');
-var Home = require('./Home');
-var Design = require('./design/Design');
-var Develop = require('./develop/Develop');
+import React from 'react';
+import { Route, IndexRoute } from 'react-router';
+import Docs from './Docs';
+import Home from './Home';
+import { routes } from './docs/Index';
 
 module.exports = function (rootPath) {
   var DocsRouter = React.createClass({
@@ -32,8 +30,7 @@ module.exports = function (rootPath) {
   return (
     <Route path={rootPath} component={DocsRouter}>
       <IndexRoute component={Home} />
-      {Design.routes()}
-      {Develop.routes()}
+      {routes()}
     </Route>
   );
 };

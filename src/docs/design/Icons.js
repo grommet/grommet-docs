@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../DocsArticle';
+import DocsArticle from '../../DocsArticle';
 
 var CONTROL_ICONS = [
   {component: require('grommet/components/icons/base/Add'), labels: ['Add']},

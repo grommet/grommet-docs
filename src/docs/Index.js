@@ -1,88 +1,99 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
-var Link = Router.Link;
+import React, { Component } from 'react';
+import { Route, Link } from 'react-router';
 
-var DocsSplit = require('../DocsSplit');
-var DocsArticle = require('../DocsArticle');
-var Menu = require('grommet/components/Menu');
-var Anchor = require('grommet/components/Anchor');
+import DocsSplit from '../DocsSplit';
+import DocsArticle from '../DocsArticle';
+import Menu from 'grommet/components/Menu';
+import Anchor from 'grommet/components/Anchor';
 
-var HelloWorld = require('./HelloWorld');
-var GetStarted = require('./GetStarted');
-var Architecture = require('./Architecture');
-var Integration = require('./Integration');
-var Accessibility = require('./Accessibility');
-var BrowserSupport = require('./BrowserSupport');
+import HelloWorld from './guides/HelloWorld';
+import GetStarted from './guides/GetStarted';
 
-var ActionsDoc = require('./patterns/ActionsDoc');
-var AnchorDoc = require('./components/AnchorDoc');
-var AppDoc = require('./components/AppDoc');
-var ArticleDoc = require('./components/ArticleDoc');
-var BoxDoc = require('./components/BoxDoc');
-var BrickDoc = require('./components/BrickDoc');
-var ButtonDoc = require('./components/ButtonDoc');
-var CalendarDoc = require('./components/CalendarDoc');
-var CarouselDoc = require('./components/CarouselDoc');
-var ChartDoc = require('./components/ChartDoc');
-var CheckBoxDoc = require('./components/CheckBoxDoc');
-var ColumnsDoc = require('./components/ColumnsDoc');
-var DashboardDoc = require('./patterns/DashboardDoc');
-var DateTimeDoc = require('./components/DateTimeDoc');
-var DistributionDoc = require('./components/DistributionDoc');
-var FooterDoc = require('./components/FooterDoc');
-var FormDoc = require('./components/FormDoc');
-var FormFieldDoc = require('./components/FormFieldDoc');
-var HeaderDoc = require('./components/HeaderDoc');
-var HeadingDoc = require('./components/HeadingDoc');
-var HeadlineDoc = require('./components/HeadlineDoc');
-var IconDoc = require('./components/IconDoc');
-var ImageDoc = require('./components/ImageDoc');
-var LabelDoc = require('./components/LabelDoc');
-var LayerDoc = require('./components/LayerDoc');
-var LegendDoc = require('./components/LegendDoc');
-var ListDoc = require('./components/ListDoc');
-var LoginFormDoc = require('./components/LoginFormDoc');
-var MapDoc = require('./components/MapDoc');
-var MarkdownDoc = require('./utils/MarkdownDoc');
-var MenuDoc = require('./components/MenuDoc');
-var MeterDoc = require('./components/MeterDoc');
-var NavigationDoc = require('./patterns/NavigationDoc');
-var NotificationDoc = require('./components/NotificationDoc');
-var NumberInputDoc = require('./components/NumberInputDoc');
-var ParagraphDoc = require('./components/ParagraphDoc');
-var QuoteDoc = require('./components/QuoteDoc');
-var RadioButtonDoc = require('./components/RadioButtonDoc');
-var RestDoc = require('./utils/RestDoc');
-var RestWatchDoc = require('./utils/RestWatchDoc');
-var SearchDoc = require('./components/SearchDoc');
-var SearchInputDoc = require('./components/SearchInputDoc');
-var SectionDoc = require('./components/SectionDoc');
-var SidebarDoc = require('./components/SidebarDoc');
-var SocialShareDoc = require('./components/SocialShareDoc');
-var SpinningDoc = require('./components/SpinningDoc');
-var SplitDoc = require('./components/SplitDoc');
-var StatusDoc = require('./components/StatusDoc');
-var TabsDoc = require('./components/TabsDoc');
-var TableDoc = require('./components/TableDoc');
-var TagsDoc = require('./components/TagsDoc');
-var TilesDoc = require('./components/TilesDoc');
-var TitleDoc = require('./components/TitleDoc');
-var TopologyDoc = require('./components/TopologyDoc');
-var ValueDoc = require('./components/ValueDoc');
-var VideoDoc = require('./components/VideoDoc');
-var WorldMapDoc = require('./components/WorldMapDoc');
+import BestPractices from './design/BestPractices';
+import Usability from './design/Usability';
+import Interactions from './design/Interactions';
+import Mobile from './design/Mobile';
+import Color from './design/Color';
+import Padding from './design/Padding';
+import Typography from './design/Typography';
+import WritingStyle from './design/WritingStyle';
+import DateTime from './design/DateTime';
+import Capitalization from './design/Capitalization';
+import Resources from './design/Resources';
+
+import Architecture from './reference/Architecture';
+import Integration from './reference/Integration';
+import Accessibility from './reference/Accessibility';
+import BrowserSupport from './reference/BrowserSupport';
+
+import ActionsDoc from './patterns/ActionsDoc';
+import AnchorDoc from './components/AnchorDoc';
+import AppDoc from './components/AppDoc';
+import ArticleDoc from './components/ArticleDoc';
+import BoxDoc from './components/BoxDoc';
+import BrickDoc from './components/BrickDoc';
+import ButtonDoc from './components/ButtonDoc';
+import CalendarDoc from './components/CalendarDoc';
+import CarouselDoc from './components/CarouselDoc';
+import ChartDoc from './components/ChartDoc';
+import CheckBoxDoc from './components/CheckBoxDoc';
+import ColumnsDoc from './components/ColumnsDoc';
+import DashboardDoc from './patterns/DashboardDoc';
+import DateTimeDoc from './components/DateTimeDoc';
+import DistributionDoc from './components/DistributionDoc';
+import FooterDoc from './components/FooterDoc';
+import FormDoc from './components/FormDoc';
+import FormFieldDoc from './components/FormFieldDoc';
+import HeaderDoc from './components/HeaderDoc';
+import HeadingDoc from './components/HeadingDoc';
+import HeadlineDoc from './components/HeadlineDoc';
+import IconDoc from './components/IconDoc';
+import ImageDoc from './components/ImageDoc';
+import LabelDoc from './components/LabelDoc';
+import LayerDoc from './components/LayerDoc';
+import LegendDoc from './components/LegendDoc';
+import ListDoc from './components/ListDoc';
+import LoginFormDoc from './components/LoginFormDoc';
+import MapDoc from './components/MapDoc';
+import MarkdownDoc from './utils/MarkdownDoc';
+import MenuDoc from './components/MenuDoc';
+import MeterDoc from './components/MeterDoc';
+import NavigationDoc from './patterns/NavigationDoc';
+import NotificationDoc from './components/NotificationDoc';
+import NumberInputDoc from './components/NumberInputDoc';
+import ParagraphDoc from './components/ParagraphDoc';
+import QuoteDoc from './components/QuoteDoc';
+import RadioButtonDoc from './components/RadioButtonDoc';
+import RestDoc from './utils/RestDoc';
+import RestWatchDoc from './utils/RestWatchDoc';
+import SearchDoc from './components/SearchDoc';
+import SearchInputDoc from './components/SearchInputDoc';
+import SectionDoc from './components/SectionDoc';
+import SidebarDoc from './components/SidebarDoc';
+import SocialShareDoc from './components/SocialShareDoc';
+import SpinningDoc from './components/SpinningDoc';
+import SplitDoc from './components/SplitDoc';
+import StatusDoc from './components/StatusDoc';
+import TabsDoc from './components/TabsDoc';
+import TableDoc from './components/TableDoc';
+import TagsDoc from './components/TagsDoc';
+import TilesDoc from './components/TilesDoc';
+import TitleDoc from './components/TitleDoc';
+import TopologyDoc from './components/TopologyDoc';
+import ValueDoc from './components/ValueDoc';
+import VideoDoc from './components/VideoDoc';
+import WorldMapDoc from './components/WorldMapDoc';
 
 //hjjs configuration
-var hljs = require('highlight.js/lib/highlight');
+import hljs from 'highlight.js/lib/highlight';
 hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
 hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 
-var CONTENTS = [
+const CONTENTS = [
   {label: 'Guides',
     contents: [
       {route: 'develop_helloworld', label: 'Hello World',
@@ -91,6 +102,20 @@ var CONTENTS = [
         component: GetStarted}
     ]
   },
+  {label: 'Design',
+    contents: [
+      {route: "design_resources", label: 'Resources', component: Resources},
+      {route: "design_best_practices", label: 'Best Practices', component: BestPractices},
+      {route: "design_usability", label: 'Usability', component: Usability},
+      {route: "design_interactions", label: 'Interactions', component: Interactions},
+      {route: "design_mobile", label: 'Mobile', component: Mobile},
+      {route: "design_color", label: 'Color', component: Color},
+      {route: "design_padding", label: 'Padding', component: Padding},
+      {route: "design_typography", label: 'Typography', component: Typography},
+      {route: "design_writing_style", label: 'Writing Style', component: WritingStyle},
+      {route: "design_date_time", label: 'Date and Time', component: DateTime},
+      {route: "design_capitalization", label: 'Capitalization', component: Capitalization}
+    ]},
   {label: 'Patterns',
     contents: [
       {route: 'develop_dashboard', label: 'Dashboard', component: DashboardDoc},
@@ -174,23 +199,16 @@ var CONTENTS = [
   }
 ];
 
-var Develop = React.createClass({
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
+class Introduction extends Component {
 
-  childContextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
-
-  getChildContext: function() {
+  getChildContext () {
     return {
       routePrefix: this.context.routePrefix + 'develop/'
     };
-  },
+  }
 
-  render: function () {
-    var title = <Link to={this.context.routePrefix + "develop"}>Docs</Link>;
+  render () {
+    const title = <Link to={this.context.routePrefix + "develop"}>Docs</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Docs" colorIndex="neutral-1">
@@ -201,7 +219,7 @@ var Develop = React.createClass({
             methods and screen sizes.</p>
             <Menu direction="column">
               <Link to={this.context.routePrefix + "develop/hello-world"}>
-                <Anchor tag="span" primary={true}>Hello Grommet!</Anchor>
+                <Anchor tag="span" primary={true}>Hello World</Anchor>
               </Link>
               <Link to={this.context.routePrefix + "develop/get-started"}>
                 <Anchor tag="span" primary={true}>Get Started</Anchor>
@@ -215,51 +233,58 @@ var Develop = React.createClass({
       </DocsSplit>
     );
   }
-});
+};
 
-var DevelopDocument = React.createClass({
+Introduction.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
 
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
+Introduction.childContextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
 
-  childContextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
+class Document extends Component {
 
-  getChildContext: function() {
+  getChildContext () {
     return {
       routePrefix: this.context.routePrefix + 'develop/'
     };
-  },
+  }
 
-  componentDidMount: function () {
+  componentDidMount () {
     this._highlightCode();
-  },
+  }
 
-  componentDidUpdate: function () {
+  componentDidUpdate () {
     this._highlightCode();
-  },
+  }
 
-  _highlightCode: function () {
-    var nodes = document.querySelectorAll('pre code');
+  _highlightCode () {
+    const nodes = document.querySelectorAll('pre code');
     for (var i = 0; i < nodes.length; i++) {
       hljs.highlightBlock(nodes[i]);
     }
-  },
+  }
 
-  render: function () {
-    var title = <Link to={this.context.routePrefix + "develop"}>Docs</Link>;
+  render () {
     return (
-      <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
+      <DocsSplit contents={CONTENTS} onChange={this._highlightCode}>
         {this.props.children}
       </DocsSplit>
     );
   }
-});
+};
+
+Document.contextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
+
+Document.childContextTypes = {
+  routePrefix: React.PropTypes.string.isRequired
+};
 
 function createContentRoutes(contents) {
-  var result = [];
+  let result = [];
   contents.forEach(function (content) {
     result.push(
       <Route key={content.label}
@@ -273,12 +298,10 @@ function createContentRoutes(contents) {
   return result;
 }
 
-Develop.routes = function () {
+export var routes = function () {
   var routes = createContentRoutes(CONTENTS);
   return [
-    <Route key="top" path="develop" component={Develop} />,
-    <Route key="docs" path="develop" component={DevelopDocument}>{routes}</Route>
+    <Route key="top" path="develop" component={Introduction} />,
+    <Route key="docs" path="develop" component={Document}>{routes}</Route>
   ];
 };
-
-module.exports = Develop;
