@@ -39,7 +39,7 @@ export default class Home extends Component {
               <Link to="/docs/develop/get-started">
                 <Anchor tag="span">Start</Anchor>
               </Link>
-              <Link to="/docs">
+              <Link to="/docs/develop/learn">
                 <Anchor tag="span">Learn</Anchor>
               </Link>
               <Link to="/docs/develop">
@@ -66,7 +66,9 @@ export default class Home extends Component {
           <Heading tag="h2">Mobile-first ready for business</Heading>
           <Paragraph align="center">Think small. Starting with mobile-first
             design allows for easy app scalability to larger devices.</Paragraph>
-          <Button href={`${this.context.routePrefix}learn`} label="Learn" />
+          <Link to="/docs/develop/learn">
+            <Button tag="span" label="Learn" onClick={() => {}} />
+          </Link>
         </HomeSection>
 
         <HomeSection colorIndex="neutral-1">
@@ -82,7 +84,9 @@ export default class Home extends Component {
             <a href='http://codepen.io'>CodePen</a>.
           </iframe>
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
-          <Button href={`${this.context.routePrefix}docs`} label="Docs" />
+          <Link to="/docs/develop">
+            <Button label="Docs" onClick={() => {}} />
+          </Link>
         </HomeSection>
 
         <HomeSection>
@@ -92,7 +96,9 @@ export default class Home extends Component {
               <Paragraph align="center">Grommet is structured to foster active communication
                 between designers and developers in hopes of creating better
                 user experience. </Paragraph>
-              <Button href={`${this.context.routePrefix}about`} label="About" />
+              <Link to="/docs/develop/about">
+                <Button label="About" onClick={() => {}} />
+              </Link>
             </Box>
             <Hands />
           </Box>
@@ -108,13 +114,13 @@ export default class Home extends Component {
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
                 <Link to="/docs/develop/get-started">Start</Link>
-                <span>Learn</span>
+                <Link to="/docs/develop/learn">Learn</Link>
                 <Link to="/docs/develop">Docs</Link>
               </Box>
               <Box direction="column">
                 <Anchor href="https://blog.grommet.io">Blog</Anchor>
                 <Anchor href="https://vimeo.com/grommetux">Training</Anchor>
-                <span>About</span>
+                <Link to="/docs/develop/about">About</Link>
               </Box>
               <Box direction="column">
                 <Anchor href="">Podcast</Anchor>
@@ -147,5 +153,5 @@ export default class Home extends Component {
 };
 
 Home.contextTypes = {
-  routePrefix: PropTypes.string.isRequired
+  router: PropTypes.object
 };

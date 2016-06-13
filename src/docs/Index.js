@@ -22,11 +22,13 @@ import WritingStyle from './design/WritingStyle';
 import DateTime from './design/DateTime';
 import Capitalization from './design/Capitalization';
 import Resources from './design/Resources';
+import Learn from './design/Learn';
 
 import Architecture from './reference/Architecture';
 import Integration from './reference/Integration';
 import Accessibility from './reference/Accessibility';
 import BrowserSupport from './reference/BrowserSupport';
+import About from './reference/About';
 
 import ActionsDoc from './patterns/ActionsDoc';
 import AnchorDoc from './components/AnchorDoc';
@@ -104,6 +106,7 @@ const CONTENTS = [
   },
   {label: 'Design',
     contents: [
+      {route: "design_learn", label: 'Learn', component: Learn},
       {route: "design_resources", label: 'Resources', component: Resources},
       {route: "design_best_practices", label: 'Best Practices', component: BestPractices},
       {route: "design_usability", label: 'Usability', component: Usability},
@@ -194,7 +197,8 @@ const CONTENTS = [
       {route: 'develop_accessibility', label: 'Accessibility',
         component: Accessibility},
       {route: 'develop_browser_support', label: 'Browser Support',
-        component: BrowserSupport}
+        component: BrowserSupport},
+      {route: 'develop_about', label: 'About', component: About}
     ]
   }
 ];
