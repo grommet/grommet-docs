@@ -190,10 +190,10 @@ var Develop = React.createClass({
   },
 
   render: function () {
-    var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
+    var title = <Link to={this.context.routePrefix + "develop"}>Docs</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
-        <DocsArticle title="Develop" colorIndex="neutral-1">
+        <DocsArticle title="Docs" colorIndex="neutral-1">
           <section>
             <p>Grommet was created to give developers and designers alike access to tools
             that otherwise are out of reach of most product teams. Grommet’s goal is to
@@ -205,6 +205,9 @@ var Develop = React.createClass({
               </Link>
               <Link to={this.context.routePrefix + "develop/get-started"}>
                 <Anchor tag="span" primary={true}>Get Started</Anchor>
+              </Link>
+              <Link to={this.context.routePrefix + "design/resources"}>
+                <Anchor tag="span" primary={true}>Design Resources</Anchor>
               </Link>
             </Menu>
           </section>
@@ -246,7 +249,7 @@ var DevelopDocument = React.createClass({
   },
 
   render: function () {
-    var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
+    var title = <Link to={this.context.routePrefix + "develop"}>Docs</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         {this.props.children}

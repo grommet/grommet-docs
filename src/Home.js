@@ -36,13 +36,13 @@ export default class Home extends Component {
         <HomeSection primary={true}>
           <Header fixed={false} float={true} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
-              <Link id="start-link" to={`${this.context.routePrefix}start`}>
+              <Link to="/docs/develop/get-started">
                 <Anchor tag="span">Start</Anchor>
               </Link>
-              <Link id="learn-link" to={`${this.context.routePrefix}learn`}>
+              <Link to="/docs">
                 <Anchor tag="span">Learn</Anchor>
               </Link>
-              <Link id="docs-link" to={`${this.context.routePrefix}docs`}>
+              <Link to="/docs/develop">
                 <Anchor tag="span">Docs</Anchor>
               </Link>
             </Menu>
@@ -107,24 +107,23 @@ export default class Home extends Component {
             </Box>
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
-                <span>Start</span>
+                <Link to="/docs/develop/get-started">Start</Link>
                 <span>Learn</span>
-                <span>Docs</span>
+                <Link to="/docs/develop">Docs</Link>
               </Box>
               <Box direction="column">
-                <span>Blog</span>
-                <span>Training</span>
+                <Anchor href="https://blog.grommet.io">Blog</Anchor>
+                <Anchor href="https://vimeo.com/grommetux">Training</Anchor>
                 <span>About</span>
               </Box>
               <Box direction="column">
-                <span>Podcast</span>
-                <span>Slack</span>
-                <span>Github</span>
+                <Anchor href="">Podcast</Anchor>
+                <Anchor href="http://slackin.grommet.io">Slack</Anchor>
+                <Anchor href="https://github.com/grommet/grommet">Github</Anchor>
               </Box>
               <Box direction="column">
-                <span>Facebook</span>
-                <span>Twitter</span>
-                <span>LinkedIn</span>
+                <Anchor href="https://www.facebook.com/grommetux">Facebook</Anchor>
+                <Anchor href="https://twitter.com/grommetux">Twitter</Anchor>
               </Box>
             </Box>
           </Box>
