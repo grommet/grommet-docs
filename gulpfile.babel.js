@@ -10,7 +10,6 @@ import git from 'gulp-git';
 import del from 'del';
 import mkdirp from 'mkdirp';
 import gulpWebpack from 'webpack-stream';
-import staticSiteConfig from './site-generator.webpack.config';
 
 const options = getOptions();
 
@@ -21,7 +20,8 @@ gulp.task('set-webpack-alias', () => {
   }
 });
 
-gulp.task('generate-static-site', () => {
+gulp.task('generate-static-site', ['generate-icons-map'], () => {
+  var staticSiteConfig = require('./site-generator.webpack.config');
   delete options.copyAssets[0];
   return gulp.src(options.mainJs)
       .pipe(gulpWebpack(staticSiteConfig))

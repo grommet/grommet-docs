@@ -68,5 +68,7 @@ export default {
     'grommet': path.resolve(__dirname, '../grommet/src/js')
   },
   devPreprocess: ['set-webpack-alias', 'generate-icons-map'],
-  distPreprocess: ['set-webpack-alias', 'generate-icons-map', 'generate-static-site']
+  distPreprocess: [
+    'set-webpack-alias', 'generate-static-site'
+  ]
 };
