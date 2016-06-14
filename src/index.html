@@ -8,51 +8,48 @@
   <meta name="fragment" content="!" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="shortcut icon" type="image/png" href="/docs/img/shortcut-icon.png" />
-  <link rel="apple-touch-icon" sizes="196x196" type="image/png" href="/docs/img/mobile-app-icon.png">
-  <link id="theme-link" href='/docs/vanilla.min.css' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" type="image/png" href="/img/shortcut-icon.png" />
+  <link rel="apple-touch-icon" sizes="196x196" type="image/png" href="/img/mobile-app-icon.png">
+  <link id="theme-link" href='/assets/css/index-vanilla.css' rel='stylesheet' type='text/css'>
   <style>
-  body.loading {margin: 0px; width: 100vw; height: 100vh;
-    background-image: radial-gradient(circle at 50% 15%, #fff, #fff 30%, #ccc);
-  }
-  body.loading #content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    font-size: 0px;
-  }
-  body.loading #logo {
-    position: absolute; display: block;
-    width: 182px; height: 182px;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  div.t {
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 0px;
-    width: 10vw;
-    height: 10vh;
-    background-color: #e2e2e2;
-  }
-  div.t.on {
-    -webkit-animation: pulse 3s infinite linear alternate;
-    -moz-animation: pulse 3s infinite linear alternate;
-    animation: pulse 3s infinite linear alternate;
-  }
-  div.t.on:hover {
-    -webkit-animation: none;
-    background-color: #ccc;
-  }
-  @-webkit-keyframes pulse {
-    100% { background-color: #fff; }
-  }
-  @-moz-keyframes pulse {
-    100% { background-color: #fff; }
-  }
-  @keyframes pulse {
-    100% { background-color: #fff; }
-  }
+    body.loading {margin: 0px; width: 100vw; height: 100vh;
+      background-image: radial-gradient(circle at 50% 15%, #fff, #fff 30%, #ccc);
+    }
+    body.loading #content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-size: 0px;
+    }
+    body.loading #logo {
+      position: absolute; display: block; width: 140px; height: 140px;
+      top: calc(50vh - 70px); left: calc(50vw - 70px);
+    }
+    div.t {
+      display: inline-block;
+      box-sizing: border-box;
+      margin: 0px;
+      width: 10vw;
+      height: 10vh;
+      background-color: #e2e2e2;
+    }
+    div.t.on {
+      -webkit-animation: pulse 3s infinite linear alternate;
+      -moz-animation: pulse 3s infinite linear alternate;
+      animation: pulse 3s infinite linear alternate;
+    }
+    div.t.on:hover {
+      -webkit-animation: none;
+      background-color: #ccc;
+    }
+    @-webkit-keyframes pulse {
+      100% { background-color: #fff; }
+    }
+    @-moz-keyframes pulse {
+      100% { background-color: #fff; }
+    }
+    @keyframes pulse {
+      100% { background-color: #fff; }
   </style>
 </head>
 <body class="loading">
@@ -86,6 +83,6 @@
     }, 100)
     </script>
   </div>
-  <script async src="/docs/index.js"></script>
+  <script async src="/index.js"></script>
 </body>
 </html>

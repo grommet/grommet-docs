@@ -57,7 +57,7 @@ var BrickDoc = React.createClass({
 
     var varyingBrick = (
       <Bricks>
-        <Brick colorIndex="neutral-1" type="large" href="http://www.grommet.io/docs/" texture="img/carousel-1.png" />
+        <Brick colorIndex="neutral-1" type="large" href="http://www.grommet.io/" texture="img/carousel-1.png" />
         <Brick label="Second" colorIndex="neutral-2" type="tall" />
         <Brick label="Third" colorIndex="neutral-3">
           <GrommetLogo size="large" />

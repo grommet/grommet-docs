@@ -6,7 +6,7 @@ import Docs from './Docs';
 import Home from './Home';
 import { routes } from './docs/Index';
 
-module.exports = function (rootPath) {
+export default function (rootPath) {
   var DocsRouter = React.createClass({
 
     childContextTypes: {

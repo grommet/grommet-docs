@@ -125,7 +125,7 @@ export default class ButtonDoc extends Component {
             </Section>
           } />
           <Example name="Href" code={
-            <Button href="/docs/" label="Home Page" />
+            <Button href="/" label="Home Page" />
           } />
         </section>
 

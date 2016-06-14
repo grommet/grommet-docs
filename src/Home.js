@@ -36,13 +36,13 @@ export default class Home extends Component {
         <HomeSection primary={true}>
           <Header fixed={false} float={true} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
-              <Link to="/docs/develop/get-started">
+              <Link to="/develop/get-started">
                 <Anchor tag="span">Start</Anchor>
               </Link>
-              <Link to="/docs/develop/learn">
+              <Link to="/develop/learn">
                 <Anchor tag="span">Learn</Anchor>
               </Link>
-              <Link to="/docs/develop">
+              <Link to="/develop">
                 <Anchor tag="span">Docs</Anchor>
               </Link>
             </Menu>

@@ -2,8 +2,6 @@
 import path from 'path';
 
 export default {
-  base: '.',
-  publicPath: 'docs',
   dist: path.resolve(__dirname, 'dist/'),
   copyAssets: [
     'src/index.html',
@@ -42,7 +40,25 @@ export default {
       root: [
         path.resolve(__dirname, './node_modules')
       ]
+    },
+    module: {
+      loaders: [
+        {test: /\.ejs$/, loader: 'ejs-compiled?htmlmin'}
+      ]
     }
+  },
+  scssLoader: {
+    test: /\.scss$/,
+    loader: "file?name=assets/css/[name].css!sass?" +
+      'includePaths[]=' +
+      (encodeURIComponent(
+        path.resolve(process.cwd(), './node_modules')
+      )) +
+      '&includePaths[]=' +
+      (encodeURIComponent(
+        path.resolve( process.cwd(),
+        './node_modules/grommet/node_modules'))
+      )
   },
   devServerPort: 8002,
   // devServerHost: "0.0.0.0",
@@ -51,9 +67,6 @@ export default {
     'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
     'grommet': path.resolve(__dirname, '../grommet/src/js')
   },
-  devPreprocess: [
-    'set-webpack-alias', 'dist-css', 'generate-icons-map', 'watch-css'
-  ],
-  distPreprocess: ['set-webpack-alias', 'dist-css', 'generate-icons-map',
-    'generate-server-routes']
+  devPreprocess: ['set-webpack-alias', 'generate-icons-map'],
+  distPreprocess: ['set-webpack-alias', 'generate-icons-map', 'generate-static-site']
 };
