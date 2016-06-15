@@ -77,7 +77,7 @@ gulp.task('release:createTmp', (done) => {
 
 gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
   if (process.env.CI) {
-    git.clone('https://' + process.env.GH_TOKEN + '@github.com/grommet/grommet-docs.git',
+    git.clone('https://' + process.env.GH_TOKEN + '@github.com/grommet/grommet.github.io.git',
       {
         cwd: './tmp/'
       },
@@ -86,15 +86,15 @@ gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
           throw err;
         }
 
-        process.chdir('./tmp/grommet-docs');
-        git.checkout('gh-pages', (err) => {
+        process.chdir('./tmp/grommet.github.io');
+        git.checkout('master', (err) => {
           if (err) {
             throw err;
           }
 
           del.sync(['./**/*']);
 
-          gulp.src(['../../**'])
+          gulp.src(['../../dist/**'])
           .pipe(gulp.dest('./')).on('end', () => {
             git.status({
               args: '--porcelain'
@@ -109,7 +109,7 @@ gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
                     args: '--all'
                   }))
                   .pipe(git.commit('Heroku dev version update.')).on('end', () => {
-                    git.push('origin', 'gh-pages', { quiet: true }, (err) => {
+                    git.push('origin', 'master', { quiet: true }, (err) => {
                       if (err) {
                         throw err;
                       }
