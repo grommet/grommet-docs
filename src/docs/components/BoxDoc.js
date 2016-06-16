@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Box = require('grommet/components/Box');
 
 var COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', 'neutral-3', 'neutral-3-t', 'neutral-4',

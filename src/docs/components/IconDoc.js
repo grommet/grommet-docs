@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Header = require('grommet/components/Header');
 var SearchInput = require('grommet/components/SearchInput');
 var Tiles = require('grommet/components/Tiles');

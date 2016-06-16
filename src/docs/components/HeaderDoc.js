@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 import Header from 'grommet/components/Header';
 import Menu from 'grommet/components/Menu';
@@ -48,7 +48,7 @@ export default class HeaderDoc extends Component {
             <dt><code>splash      true|false</code></dt>
             <dd>Whether to render it in a style suitable for a splash screen.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available.</p>
         </section>
 
@@ -175,8 +175,4 @@ export default class HeaderDoc extends Component {
       </DocsArticle>
     );
   }
-};
-
-HeaderDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
 };

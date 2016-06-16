@@ -1,5 +1,5 @@
 var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Spinning = require('grommet/components/icons/Spinning');
 
 const inline = `var Spinning = require('grommet/components/icons/Spinning');

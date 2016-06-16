@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
 import Example from '../Example';

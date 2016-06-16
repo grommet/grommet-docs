@@ -2,7 +2,7 @@
 
 var React = require('react');
 var jsxToString = require('jsx-to-string');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Bricks = require('grommet/components/Bricks');
 var Brick = require('grommet/components/Brick');
 var Box = require('grommet/components/Box');

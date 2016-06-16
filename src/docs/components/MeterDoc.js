@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import stringify from "json-stringify-pretty-compact";
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import Meter from 'grommet/components/Meter';
 import FormField from 'grommet/components/FormField';

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from 'grommet/components/Image';
 
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
 Image.displayName = 'Image';

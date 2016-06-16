@@ -1,6 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
@@ -14,6 +14,13 @@ import GrommetLogo from 'grommet/components/icons/Grommet';
 import DocsMenu from './DocsMenu';
 import DOM from 'grommet/utils/DOM';
 
+//hjjs configuration
+import hljs from 'highlight.js/lib/highlight';
+hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
+hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
+hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
+
 export default class DocsSplit extends Component {
 
   constructor () {
@@ -26,10 +33,19 @@ export default class DocsSplit extends Component {
 
   componentDidMount () {
     this._scrollToAnchor();
+    this._highlightCode();
   }
 
   componentDidUpdate () {
     this._scrollToAnchor();
+    this._highlightCode();
+  }
+
+  _highlightCode () {
+    const nodes = document.querySelectorAll('pre code');
+    for (var i = 0; i < nodes.length; i++) {
+      hljs.highlightBlock(nodes[i]);
+    }
   }
 
   _scrollToAnchor () {
@@ -54,9 +70,6 @@ export default class DocsSplit extends Component {
     if ('single' === responsive) {
       this.setState({showMenu: false});
     }
-    if (this.props.onChange) {
-      this.props.onChange();
-    }
   }
 
   _onMenuOpen () {
@@ -69,15 +82,12 @@ export default class DocsSplit extends Component {
     }
     // allow time for hash to change
     setTimeout(this._scrollToAnchor, 1);
-    if (this.props.onChange) {
-      this.props.onChange();
-    }
   }
 
   _renderTitle () {
     return (
       <Title responsive={false}>
-        <Link to={this.context.rootPath}>
+        <Link to="/">
           <Box align="center" direction="row">
             <GrommetLogo />
           </Box>
@@ -100,8 +110,7 @@ export default class DocsSplit extends Component {
           {title}
           {closer}
         </Header>
-        <DocsMenu direction="column" contents={this.props.contents}
-          onClick={this._onMenuClick} />
+        <DocsMenu direction="column" onClick={this._onMenuClick} />
       </Sidebar>
     );
   }
@@ -146,14 +155,4 @@ export default class DocsSplit extends Component {
       </Split>
     );
   }
-};
-
-DocsSplit.propTypes = {
-  contents: PropTypes.arrayOf(React.PropTypes.object),
-  onChange: PropTypes.func
-};
-
-DocsSplit.contextTypes = {
-  routePrefix: PropTypes.string.isRequired,
-  rootPath: PropTypes.string.isRequired
 };

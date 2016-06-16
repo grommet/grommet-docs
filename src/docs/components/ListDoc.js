@@ -1,19 +1,19 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
 
 const DATA = [
   {uid: 1, face: '', name: 'Alan', mood: 'happy'},
-  {uid: 2, face: '', name: 'Bryan', mood: 'calm'},
-  {uid: 3, face: '', name: 'Chris', mood: 'cool'},
-  {uid: 4, face: '', name: 'Eric', mood: 'odd'}
+  {uid: 2, face: '', name: 'Chris', mood: 'cool'},
+  {uid: 3, face: '', name: 'Eric', mood: 'odd'}
 ];
 
-class ListDoc extends Component {
+export default class ListDoc extends Component {
 
   constructor () {
     super();
@@ -63,7 +63,7 @@ class ListDoc extends Component {
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index
               for that item. When multiple items are selected, it returns an
-              array of those item's zero based indexes.</dd>
+              array of those {"item's"} zero based indexes.</dd>
             <dt><code>selectable     true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
               that multiple rows may be selected</dd>
@@ -82,42 +82,30 @@ class ListDoc extends Component {
             <dt><code>selected    true|false</code></dt>
             <dd>Whether this item is currently selected.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
             also available for ListItem.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <h3>Default</h3>
-          <div className="example">
+          <Example name="Default" code={
             <List>{items}</List>
-          </div>
-
-          <h3>Selectable</h3>
-          <div className="example">
+          } />
+          <Example name="Selectable" code={
             <List selectable={true} selected={this.state.singleSelected}
               onSelect={this._onSingleSelect}>
               {items}
             </List>
-          </div>
-
-          <h3>Multi-select</h3>
-          <div className="example">
+          } />
+          <Example name="Multi-select" code={
             <List selectable="multiple" onSelect={this._onMultipleSelect}>
               {items}
             </List>
-          </div>
-
+          } />
         </section>
 
       </DocsArticle>
     );
   }
 }
-
-ListDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
-};
-
-export default ListDoc;

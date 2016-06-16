@@ -1,8 +1,8 @@
 // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 import Value from 'grommet/components/Value';
 import GlobeIcon from 'grommet/components/icons/base/Globe';
@@ -29,7 +29,7 @@ export default class ValueDoc extends Component {
               For example: <code>"neutral-1"</code></dd>
             <dt><code>icon         {"{element}"}</code></dt>
             <dd>Optional icon element to place next to the value.
-              See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
             <dt><code>label        {"{string}"}</code></dt>
             <dd>Optional short description of the value.</dd>
             <dt><code>onClick      {"{func}"}</code></dt>
@@ -39,7 +39,7 @@ export default class ValueDoc extends Component {
             <dt><code>trendIcon    {"{element}"}</code></dt>
             <dd>Optional icon element to place next to the value indicating
               the trend. For example, a <code>LinkUp</code> icon.
-              See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
             <dt><code>value        {"{number}"}</code></dt>
             <dd>The value itself.</dd>
             <dt><code>units        {"{string}"}</code></dt>
@@ -87,7 +87,3 @@ export default class ValueDoc extends Component {
     );
   }
 }
-
-ValueDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
-};

@@ -18,6 +18,7 @@ import SlackIcon from 'grommet/components/icons/base/SocialSlack';
 import GithubIcon from 'grommet/components/icons/base/SocialGithub';
 import TwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import Hands from './img/Hands.js';
+import NavAnchor from './components/NavAnchor';
 
 const HomeSection = (props) => (
   <Section
@@ -36,13 +37,11 @@ export default class Home extends Component {
         <HomeSection primary={true}>
           <Header fixed={false} float={true} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
-              <Link to="/develop/get-started">
-                <Anchor tag="span">Start</Anchor>
-              </Link>
-              <Link to="/develop/learn">
+              <NavAnchor path="/docs/get-started">Start</NavAnchor>
+              <Link to="/docs/learn">
                 <Anchor tag="span">Learn</Anchor>
               </Link>
-              <Link to="/develop">
+              <Link to="/docs">
                 <Anchor tag="span">Docs</Anchor>
               </Link>
             </Menu>
@@ -66,7 +65,7 @@ export default class Home extends Component {
           <Heading tag="h2">Mobile-first ready for business</Heading>
           <Paragraph align="center">Think small. Starting with mobile-first
             design allows for easy app scalability to larger devices.</Paragraph>
-          <Link to="/docs/develop/learn">
+          <Link to="/docs/learn">
             <Button tag="span" label="Learn" onClick={() => {}} />
           </Link>
         </HomeSection>
@@ -84,7 +83,7 @@ export default class Home extends Component {
             <a href='http://codepen.io'>CodePen</a>.
           </iframe>
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
-          <Link to="/docs/develop">
+          <Link to="/docs">
             <Button label="Docs" onClick={() => {}} />
           </Link>
         </HomeSection>
@@ -96,7 +95,7 @@ export default class Home extends Component {
               <Paragraph align="center">Grommet is structured to foster active communication
                 between designers and developers in hopes of creating better
                 user experience. </Paragraph>
-              <Link to="/docs/develop/about">
+              <Link to="/docs/about">
                 <Button label="About" onClick={() => {}} />
               </Link>
             </Box>
@@ -113,14 +112,14 @@ export default class Home extends Component {
             </Box>
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
-                <Link to="/docs/develop/get-started">Start</Link>
-                <Link to="/docs/develop/learn">Learn</Link>
-                <Link to="/docs/develop">Docs</Link>
+                <Link to="/docs/get-started">Start</Link>
+                <Link to="/docs/learn">Learn</Link>
+                <Link to="/docs">Docs</Link>
               </Box>
               <Box direction="column">
                 <Anchor href="https://blog.grommet.io">Blog</Anchor>
                 <Anchor href="https://vimeo.com/grommetux">Training</Anchor>
-                <Link to="/docs/develop/about">About</Link>
+                <Link to="/docs/about">About</Link>
               </Box>
               <Box direction="column">
                 <Anchor href="">Podcast</Anchor>

@@ -1,5 +1,5 @@
 var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Status = require('grommet/components/icons/Status');
 
 var inline =

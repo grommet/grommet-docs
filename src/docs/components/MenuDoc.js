@@ -1,147 +1,28 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Link = require('react-router').Link;
-var jsxToString = require('jsx-to-string');
-var DocsArticle = require('../../DocsArticle');
-var Menu = require('grommet/components/Menu');
-var ConfigIcon = require('grommet/components/icons/base/Configuration');
-var FilterIcon = require('grommet/components/icons/base/Filter');
-var CheckBox = require('grommet/components/CheckBox');
-var Anchor = require('grommet/components/Anchor');
-var Button = require('grommet/components/Button');
+import React, { Component } from 'react';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
+import Menu from 'grommet/components/Menu';
+import ConfigIcon from 'grommet/components/icons/base/Configuration';
+import FilterIcon from 'grommet/components/icons/base/Filter';
+import CheckBox from 'grommet/components/CheckBox';
+import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 
 Menu.displayName = 'Menu';
 CheckBox.displayName = 'CheckBox';
 Anchor.displayName = 'Anchor';
 Button.displayName = 'Button';
 
-function convertMenuToString(menuJSX) {
-  return jsxToString(menuJSX);
-}
+export default class MenuDoc extends Component {
 
-var MenuDoc = React.createClass({
-
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
-
-  _onClick: function () {
+  _onClick () {
     // no-op
-  },
+  }
 
-  _renderMenuCode: function (heading, menuJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <div className="example">
-          {menuJSX}
-        </div>
-        <pre><code className="html hljs xml">
-          {convertMenuToString(menuJSX)}
-        </code></pre>
-      </div>
-    );
-  },
-
-  render: function() {
-
-    var columnInlineMenu = (
-      <Menu>
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var rowInlineMenu = (
-      <Menu direction="row">
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var rowEndMenu = (
-      <Menu direction="row" justify="end" inline={true} label="Menu">
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var labelDownMenu = (
-      <Menu label="Label">
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var iconDownMenu = (
-      <Menu inline={false}>
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var customIconMenu = (
-      <Menu icon={<ConfigIcon />}>
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var iconLabelMenu = (
-      <Menu icon={<ConfigIcon />} label="Label">
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var doNotCloseMenu = (
-      <Menu icon={<FilterIcon />} closeOnClick={false} pad="medium">
-        <CheckBox id="check-1" label="first" />
-        <CheckBox id="check-2" label="second" />
-        <CheckBox id="check-3" label="third" />
-      </Menu>
-    );
-
-    var notInlineUpMenu = (
-      <Menu inline={false} dropAlign={{bottom: "bottom"}}>
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var buttonBarMenu = (
-      <Menu direction="row">
-        <Button label="Button 1" onClick={this._onClick} />
-        <Button label="Button 2" onClick={this._onClick} />
-        <Button label="Button 3" onClick={this._onClick} />
-      </Menu>
-    );
-
-    var smallInlineMenu = (
-      <Menu direction="row" size="small">
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
-    var largeInlineMenu = (
-      <Menu direction="row" size="large">
-        <Anchor href="#" className="active">First</Anchor>
-        <Anchor href="#">Second</Anchor>
-        <Anchor href="#">Third</Anchor>
-      </Menu>
-    );
-
+  render () {
     return (
       <DocsArticle title="Menu" colorIndex="neutral-3">
 
@@ -182,35 +63,100 @@ var MenuDoc = React.createClass({
             <dt><code>size          small|medium|large</code></dt>
             <dd>The size of the Menu. Defaults to <code>medium</code>.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          {this._renderMenuCode('column, inline', columnInlineMenu)}
-          {this._renderMenuCode('row, inline', rowInlineMenu)}
-          {this._renderMenuCode('row, end, inline, label', rowEndMenu)}
-          {this._renderMenuCode('label, down, not inline', labelDownMenu)}
-          {this._renderMenuCode('icon, down, not inline', iconDownMenu)}
-          {this._renderMenuCode(
-            'custom icon, down, not inline', customIconMenu
-          )}
-          {this._renderMenuCode('custon icon, label, down, not inline', iconLabelMenu)}
-          {this._renderMenuCode(
-            'custom icon, down, not inline, do not close on click',
-            doNotCloseMenu
-          )}
-          {this._renderMenuCode('not inline, up', notInlineUpMenu)}
-          {this._renderMenuCode('button bar', buttonBarMenu)}
-          {this._renderMenuCode('small', smallInlineMenu)}
-          {this._renderMenuCode('large', largeInlineMenu)}
+          <Example name="column, inline" code={
+            <Menu>
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="row, inline" code={
+            <Menu direction="row">
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="row, end, inline, label" code={
+            <Menu direction="row" justify="end" inline={true} label="Menu">
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="label, down, not inline" code={
+            <Menu label="Label">
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="icon, down, not inline" code={
+            <Menu inline={false}>
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="custom icon, down, not inline" code={
+            <Menu icon={<ConfigIcon />}>
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="custon icon, label, down, not inline" code={
+            <Menu icon={<ConfigIcon />} label="Label">
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="custom icon, down, not inline, do not close on click" code={
+            <Menu icon={<FilterIcon />} closeOnClick={false} pad="medium">
+              <CheckBox id="check-1" label="first" />
+              <CheckBox id="check-2" label="second" />
+              <CheckBox id="check-3" label="third" />
+            </Menu>
+          } />
+          <Example name="not inline, up" code={
+            <Menu inline={false} dropAlign={{bottom: "bottom"}}>
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="button bar" code={
+            <Menu direction="row">
+              <Button label="Button 1" onClick={this._onClick} />
+              <Button label="Button 2" onClick={this._onClick} />
+              <Button label="Button 3" onClick={this._onClick} />
+            </Menu>
+          } />
+          <Example name="small" code={
+            <Menu direction="row" size="small">
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
+          <Example name="large" code={
+            <Menu direction="row" size="large">
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+            </Menu>
+          } />
         </section>
 
       </DocsArticle>
     );
   }
-});
-
-module.exports = MenuDoc;
+};

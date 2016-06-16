@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import { match, Router, RoutingContext } from 'react-router';
-import { createHistory } from 'history';
+import history from './PrefixedHistory';
 import template from './template.ejs';
 
 const onRouteUpdate = () => {
@@ -13,38 +13,33 @@ const onRouteUpdate = () => {
   }
 };
 
+const THEMES = ['aruba', 'hpe', 'hpeinc'];
+
 if (typeof document !== 'undefined') {
   require('autotrack');
   require('./lib/modernizr');
-  const themeGroups = /([^\/]+)\/?/.exec(window.location.pathname);
-
-  let theme = '';
-  if (themeGroups && themeGroups.length > 1) {
-    theme = themeGroups[1];
-    var possibleThemes = 'aruba,hpe,hpinc';
-    if (possibleThemes.indexOf(theme) === -1) {
-      theme = '';
-    }
+  let theme = window.location.pathname.split('/')[1];
+  if (THEMES.indexOf(theme) === -1) {
+    theme = '';
   }
 
-  if (theme === '') {
-    require('./scss/index-vanilla');
-  } else {
+  if (theme) {
     require(`./scss/index-${theme}`);
+    history.setPrefix(theme);
+  } else {
+    require('./scss/index-vanilla');
   }
 
-  if (__DEV_MODE__) {
-    var themeLink = document.getElementById('theme-link');
-    var themeUrl = `/assets/css/index-${theme === '' ? 'vanilla' : theme}.css`;
-    themeLink.setAttribute('href', themeUrl);
-  }
+  // if (__DEV_MODE__) {
+  //   var themeLink = document.getElementById('theme-link');
+  //   var themeUrl = `/assets/css/index-${theme === '' ? 'vanilla' : theme}.css`;
+  //   themeLink.setAttribute('href', themeUrl);
+  // }
 
-  const rootPath = `/${theme === '' ? '' : theme + '/'}`;
-  const routes = require('./routes')(rootPath);
-
+  const routes = require('./routes');
   const element = document.getElementById('content');
   ReactDOM.render(<Router onUpdate={onRouteUpdate} routes={routes}
-    history={createHistory()} />, element);
+    history={history} />, element);
 
   document.body.classList.remove('loading');
 }

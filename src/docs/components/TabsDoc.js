@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Tabs = require('grommet/components/Tabs');
 var Tab = require('grommet/components/Tab');
 var FormFields = require('grommet/components/FormFields');

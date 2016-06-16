@@ -1,19 +1,12 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+import React, { Component } from 'react';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 
-var Router = require('react-router');
-var Link = Router.Link;
+export default class HelloWorld extends Component {
 
-var Anchor = require('grommet/components/Anchor');
-
-var HelloWorld = React.createClass({
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
-
-  render: function () {
+  render () {
     return (
       <DocsArticle title="Hello World" colorIndex="neutral-1">
         <section>
@@ -46,15 +39,11 @@ var HelloWorld = React.createClass({
           <h2>Next Steps</h2>
           <p>
             Now that you've already played with Grommet, we recommend that you check
-            out the <Link to={this.context.routePrefix + "get-started"}>
-              <Anchor tag="span">Get Started</Anchor>
-            </Link> page and learn
+            out the <NavAnchor path="/develop/get-started">Get Started</NavAnchor> page and learn
             how to install Grommet in your local environment.
           </p>
         </section>
       </DocsArticle>
     );
   }
-});
-
-module.exports = HelloWorld;
+};

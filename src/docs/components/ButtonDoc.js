@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 import Button from 'grommet/components/Button';
 import Section from 'grommet/components/Section';
@@ -45,7 +45,7 @@ export default class ButtonDoc extends Component {
           <dd>If specified, the button will behave like an anchor tag.</dd>
           <dt><code>icon           {"{name}"}</code></dt>
           <dd>Icon element to place in the button.
-            See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+            See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
           <dt><code>label          {"{text|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
           <dt><code>onClick        {"{func}"}</code></dt>
@@ -132,8 +132,4 @@ export default class ButtonDoc extends Component {
       </DocsArticle>
     );
   }
-};
-
-ButtonDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
 };

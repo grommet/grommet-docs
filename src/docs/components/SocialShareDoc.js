@@ -2,7 +2,7 @@
 
 var React = require('react');
 var jsxToString = require('jsx-to-string');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var SocialShare = require('grommet/components/SocialShare');
 
 function convertSocialShareToString(jsx) {

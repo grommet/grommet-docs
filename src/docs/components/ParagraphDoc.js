@@ -1,7 +1,7 @@
 // (C) Copyright 2015-2016 Hewlett Packard Enterprise Development LP
 
 import React from 'react';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import Paragraph from 'grommet/components/Paragraph';
 

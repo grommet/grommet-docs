@@ -1,60 +1,24 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var jsxToString = require('jsx-to-string');
-var Link = require('react-router').Link;
-var DocsArticle = require('../../DocsArticle');
-var Footer = require('grommet/components/Footer');
-var Menu = require('grommet/components/Menu');
-var Button = require('grommet/components/Button');
+import React, { Component } from 'react';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
+import Footer from 'grommet/components/Footer';
+import Menu from 'grommet/components/Menu';
+import Button from 'grommet/components/Button';
 
 Footer.displayName = 'Footer';
 Menu.displayName = 'Menu';
 Button.displayName = 'Button';
 
-var FooterDoc = React.createClass({
+export default class FooterDoc extends Component {
 
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
-
-  _onClick: function () {
+  _onClick () {
     // no-op
-  },
+  }
 
-  _renderFooterCode(heading, footerJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <div className="example">
-          {footerJSX}
-        </div>
-        <pre><code className="html hljs xml">
-          {jsxToString(footerJSX)}
-        </code></pre>
-      </div>
-    );
-  },
-
-  render: function() {
-    var basicFooter = (
-      <Footer>
-        <Menu direction="row">
-          <Button label="OK" primary={true} onClick={this._onClick} />
-          <Button label="Cancel" onClick={this._onClick} />
-        </Menu>
-      </Footer>
-    );
-
-    var rightFooter = (
-      <Footer justify="end">
-        <Menu direction="row" justify="end">
-          <Button label="Cancel" onClick={this._onClick} />
-          <Button label="OK" primary={true} onClick={this._onClick} />
-        </Menu>
-      </Footer>
-    );
-
+  render () {
     return (
       <DocsArticle title="Footer" colorIndex="neutral-3">
 
@@ -72,20 +36,33 @@ var FooterDoc = React.createClass({
             <dd>Whether it should be treated as main footer or not.
               Used for Accessibility.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          {this._renderFooterCode("Form Footer", basicFooter)}
-          {this._renderFooterCode("Form Footer, right", rightFooter)}
+            <Example name="Form Footer" code={
+              <Footer>
+                <Menu direction="row">
+                  <Button label="OK" primary={true} onClick={this._onClick} />
+                  <Button label="Cancel" onClick={this._onClick} />
+                </Menu>
+              </Footer>
+            } />
+
+            <Example name="Form Footer, right" code={
+              <Footer justify="end">
+                <Menu direction="row" justify="end">
+                  <Button label="Cancel" onClick={this._onClick} />
+                  <Button label="OK" primary={true} onClick={this._onClick} />
+                </Menu>
+              </Footer>
+            } />
         </section>
 
       </DocsArticle>
     );
   }
-});
-
-module.exports = FooterDoc;
+};

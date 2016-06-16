@@ -1,5 +1,5 @@
 var React = require('react');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var Title = require('grommet/components/Title');
 var Logo = require('../../img/Logo');
 

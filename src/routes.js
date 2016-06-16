@@ -2,35 +2,35 @@
 
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import Docs from './Docs';
+import Docs from './components/Docs';
 import Home from './Home';
-import { routes } from './docs/Index';
+import DocsSplit from './components/DocsSplit';
+import Introduction from './docs/Introduction';
+import Contents from './docs/Contents';
 
-export default function (rootPath) {
-  var DocsRouter = React.createClass({
-
-    childContextTypes: {
-      rootPath: React.PropTypes.string.isRequired,
-      routePrefix: React.PropTypes.string.isRequired
-    },
-
-    getChildContext: function() {
-      return {
-        rootPath: rootPath,
-        routePrefix: rootPath
-      };
-    },
-
-    render: function() {
-      return (
-        <Docs {...this.props} />
-      );
+function createContentRoutes (contents) {
+  let result = [];
+  contents.forEach(content => {
+    result.push(
+      <Route key={content.label}
+        path={content.label.toLowerCase().replace(/ /g, "-")}
+        component={content.component} />
+    );
+    if (content.hasOwnProperty('contents')) {
+      result = result.concat(createContentRoutes(content.contents));
     }
   });
-  return (
-    <Route path={rootPath} component={DocsRouter}>
-      <IndexRoute component={Home} />
-      {routes()}
+  return result;
+}
+
+const routes = createContentRoutes(Contents);
+
+export default (
+  <Route path="/" component={Docs}>
+    <IndexRoute component={Home} />
+    <Route path="docs" component={DocsSplit}>
+      <IndexRoute component={Introduction} />
+      {routes}
     </Route>
-  );
-};
+  </Route>
+);

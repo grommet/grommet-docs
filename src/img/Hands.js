@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var Logo = React.createClass({
+var Hands = React.createClass({
 
   render: function() {
     var classes = [];
@@ -40,4 +40,4 @@ var Logo = React.createClass({
 
 });
 
-module.exports = Logo;
+module.exports = Hands;

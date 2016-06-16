@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 import Section from 'grommet/components/Section';
 import Anchor from 'grommet/components/Anchor';
@@ -40,7 +40,7 @@ export default class AnchorDoc extends Component {
             <dd>Hyperlink reference to place in the anchor.</dd>
             <dt><code>icon           {"{element}"}</code></dt>
             <dd>Icon element to place in the anchor.
-              See <Link to={this.context.routePrefix + "icon"}>Icon</Link>.</dd>
+              See <NavAnchor path="/develop/icon">Icon</NavAnchor>.</dd>
             <dt><code>label          {"{text}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>
             <dt><code>onClick        {"{func}"}</code></dt>
@@ -107,8 +107,4 @@ export default class AnchorDoc extends Component {
       </DocsArticle>
     );
   }
-};
-
-AnchorDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
 };

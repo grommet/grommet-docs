@@ -2,7 +2,7 @@
 
 var React = require('react');
 var jsxToString = require('jsx-to-string');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var App = require('grommet/components/App');
 var Header = require('grommet/components/Header');
 var Title = require('grommet/components/Title');

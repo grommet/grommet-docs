@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Header from 'grommet/components/Header';
@@ -11,7 +11,7 @@ import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 
-class TileDoc extends Component {
+export default class TileDoc extends Component {
 
   constructor () {
     super();
@@ -125,7 +125,7 @@ class TileDoc extends Component {
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index
               for that item. When multiple items are selected, it returns an
-              array of those item's zero based indexes.</dd>
+              array of those {"item's"} zero based indexes.</dd>
             <dt><code>selectable  true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
               that multiple rows may be selected</dd>
@@ -134,7 +134,7 @@ class TileDoc extends Component {
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of the contained tiles. Defaults to <code>medium</code>.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available for Tiles.</p>
         </section>
 
@@ -151,7 +151,7 @@ class TileDoc extends Component {
             <dd>Whether the tile should fill the full width of the Tiles
             component that contains it.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
             also available for Tile.</p>
         </section>
 
@@ -240,9 +240,3 @@ class TileDoc extends Component {
     );
   }
 };
-
-TileDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
-};
-
-export default TileDoc;

@@ -2,7 +2,7 @@
 
 var React = require('react');
 var jsxToString = require('jsx-to-string');
-var DocsArticle = require('../../DocsArticle');
+var DocsArticle = require('../../components/DocsArticle');
 var CheckBox = require('grommet/components/CheckBox');
 
 CheckBox.displayName = 'CheckBox';

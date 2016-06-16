@@ -1,41 +1,40 @@
-var React = require('react');
-var Link = require('react-router').Link;
-var DocsArticle = require('../../DocsArticle');
-var Sidebar = require('grommet/components/Sidebar');
-var Header = require('grommet/components/Header');
-var Title = require('grommet/components/Title');
-var Menu = require('grommet/components/Menu');
-var Anchor = require('grommet/components/Anchor');
-var Button = require('grommet/components/Button');
-var CloseIcon = require('grommet/components/icons/base/Close');
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+import React, { Component } from 'react';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
+import Sidebar from 'grommet/components/Sidebar';
+import Header from 'grommet/components/Header';
+import Title from 'grommet/components/Title';
+import Menu from 'grommet/components/Menu';
+import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
+import CloseIcon from 'grommet/components/icons/base/Close';
 
 var inline =
       "<Sidebar>\n" +
       "  ...\n" +
       "</Sidebar>";
 
-var SidebarDoc = React.createClass({
+export default class SidebarDoc extends Component {
 
-  contextTypes: {
-    routePrefix: React.PropTypes.string.isRequired
-  },
-
-  _onClose: function () {
+  _onClose () {
     // no-op
-  },
+  }
 
-  render: function() {
+  render () {
     return (
       <DocsArticle title="Sidebar" colorIndex="neutral-3">
 
         <p>A full height, fixed width container. Usually a Sidebar is placed
-        inside a <Link to={this.context.routePrefix + "split"}>Split</Link> component.
+        inside a <NavAnchor path="/docs/split">Split</NavAnchor> component.
         A typical usage is for primary navigation, in which case it typically contains
-        a <Link to={this.context.routePrefix + "header"}>Header</Link> and
-        a <Link to={this.context.routePrefix + "menu"}>Menu</Link>. The Sidebar may
+        a <NavAnchor path="/docs/header">Header</NavAnchor> and
+        a <NavAnchor path="/docs/menu">Menu</NavAnchor>. The Sidebar may
         or may not be always visible. If it comes and goes, it is typically
-        controlled via a <Link to={this.context.routePrefix + "title"}>Title</Link> component
-        inside a <Link to={this.context.routePrefix + "header"}>Header</Link> component
+        controlled via a <NavAnchor path="/docs/title">Title</NavAnchor> component
+        inside a <NavAnchor path="/docs/header">Header</NavAnchor> component
         residing in the other side of the Split.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
@@ -50,13 +49,11 @@ var SidebarDoc = React.createClass({
             <dt><code>full       true|false</code></dt>
             <dd>Whether the sidebar should take up the full browser height or not.  Default is true.</dd>
           </dl>
-          <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> area also available.</p>
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> area also available.</p>
         </section>
 
         <section>
-          <h2>Example</h2>
-
-          <div className="example">
+          <Example name="Example" code={
             <Sidebar colorIndex="light-2">
               <Header pad="medium" justify="between">
                 <Title>Title</Title>
@@ -68,24 +65,10 @@ var SidebarDoc = React.createClass({
                 <Anchor>Navigation 3</Anchor>
               </Menu>
             </Sidebar>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Sidebar colorIndex=\"light-2\">\n" +
-            "  <Header pad=\"medium\">\n" +
-            "    <Title>Title</Title>\n" +
-            "  </Header>\n" +
-            "  <Menu primary={true}>\n" +
-            "    <Anchor>Navigation 1</Anchor>\n" +
-            "    ...\n" +
-            "  </Menu>\n" +
-            "</Sidebar>"}
-          </code></pre>
-
+          } />
         </section>
 
       </DocsArticle>
     );
   }
-});
-
-module.exports = SidebarDoc;
+};
