@@ -4,7 +4,7 @@ import { createHistory } from 'history';
 let history = createHistory();
 
 // We have our own history implementation so we can insert a prefix.
-// We use this to preserve theme links without having to change paths.
+// We use this to have themed links without having to change paths.
 
 let prefix = '';
 

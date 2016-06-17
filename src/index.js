@@ -13,11 +13,12 @@ const onRouteUpdate = () => {
   }
 };
 
-const THEMES = ['aruba', 'hpe', 'hpeinc'];
+const THEMES = ['aruba', 'hpe', 'hpinc'];
 
 if (typeof document !== 'undefined') {
   require('autotrack');
   require('./lib/modernizr');
+
   let theme = window.location.pathname.split('/')[1];
   if (THEMES.indexOf(theme) === -1) {
     theme = '';
@@ -25,16 +26,16 @@ if (typeof document !== 'undefined') {
 
   if (theme) {
     require(`./scss/index-${theme}`);
-    history.setPrefix(theme);
+    history.setPrefix(`/${theme}`);
   } else {
     require('./scss/index-vanilla');
   }
 
-  // if (__DEV_MODE__) {
-  //   var themeLink = document.getElementById('theme-link');
-  //   var themeUrl = `/assets/css/index-${theme === '' ? 'vanilla' : theme}.css`;
-  //   themeLink.setAttribute('href', themeUrl);
-  // }
+  if (__DEV_MODE__) {
+    var themeLink = document.getElementById('theme-link');
+    var themeUrl = `/assets/css/index-${theme === '' ? 'vanilla' : theme}.css`;
+    themeLink.setAttribute('href', themeUrl);
+  }
 
   const routes = require('./routes');
   const element = document.getElementById('content');

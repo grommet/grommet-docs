@@ -110,7 +110,7 @@ export default class DocsSplit extends Component {
           {title}
           {closer}
         </Header>
-        <DocsMenu direction="column" onClick={this._onMenuClick} />
+        <DocsMenu onClick={this._onMenuClick} />
       </Sidebar>
     );
   }

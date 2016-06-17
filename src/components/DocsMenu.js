@@ -4,15 +4,41 @@ import React, { Component, PropTypes } from 'react';
 import Menu from 'grommet/components/Menu';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
+import Footer from 'grommet/components/Footer';
 import Contents from '../docs/Contents';
 import NavAnchor from './NavAnchor';
 
+const THEMES = ['aruba', 'hpe', 'hpinc', 'grommet'];
+
 export default class DocsMenu extends Component {
+
+  constructor () {
+    super();
+    this._onChangeTheme = this._onChangeTheme.bind(this);
+  }
+
+  _onChangeTheme (event) {
+    const theme = event.target.value;
+    let prefix;
+    if ('grommet' === theme) {
+      prefix = '';
+    } else {
+      prefix = `/${theme}`;
+    }
+    let currentTheme = window.location.pathname.split('/')[1];
+    let path;
+    if (THEMES.indexOf(currentTheme) !== -1) {
+      path = window.location.pathname.slice(currentTheme.length + 1);
+      currentTheme = undefined;
+    } else {
+      path = window.location.pathname;
+    }
+    window.location = `${prefix}${path}`;
+  }
 
   _renderMenuItems (contents, context) {
     return contents.map((content, index) => {
       let item;
-      console.log('!!! rMI', content.label, content.path);
 
       if (content.path) {
         item = (
@@ -23,8 +49,8 @@ export default class DocsMenu extends Component {
         );
       } else {
         item = (
-          <Box pad={{horizontal: 'medium'}}>
-            <Heading key={content.label} tag="h3" strong={true}>
+          <Box key={content.label} pad={{horizontal: 'medium'}}>
+            <Heading tag="h3" strong={true}>
               {content.label}
             </Heading>
           </Box>
@@ -49,17 +75,30 @@ export default class DocsMenu extends Component {
     });
   }
 
+
+
   render () {
     const menuItems = this._renderMenuItems(Contents, null);
+
+    let theme = window.location.pathname.split('/')[1];
+    if (THEMES.indexOf(theme) === -1) {
+      theme = 'grommet';
+    }
+    const options = THEMES.map(theme => (<option>{theme}</option>));
+
     return (
-      <Menu direction={this.props.direction} align="start" justify="between" primary={true}>
+      <Menu direction="column" align="start" justify="between" primary={true}>
         {menuItems}
+        <Footer primary={true} colorIndex="light-2">
+          <select onChange={this._onChangeTheme} value={theme}>
+            {options}
+          </select>
+        </Footer>
       </Menu>
     );
   }
 };
 
 DocsMenu.propTypes = {
-  direction: PropTypes.oneOf(['column', 'row']),
   onClick: PropTypes.func
 };
