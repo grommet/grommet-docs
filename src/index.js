@@ -48,6 +48,8 @@ if (typeof document !== 'undefined') {
 export default (locals, callback) => {
   const routes = locals.routes;
   const location = locals.path;
+  const theme = locals.theme;
+  history.setPrefix(`/${theme}`);
 
   match({ routes, location },
     (error, redirectLocation, renderProps) => {

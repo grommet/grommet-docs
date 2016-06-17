@@ -15,6 +15,15 @@ export default class DocsMenu extends Component {
   constructor () {
     super();
     this._onChangeTheme = this._onChangeTheme.bind(this);
+    this.state = { theme: 'grommet' };
+  }
+
+  componentDidMount () {
+    let theme = window.location.pathname.split('/')[1];
+    if (THEMES.indexOf(theme) === -1) {
+      theme = 'grommet';
+    }
+    this.setState({ theme: theme });
   }
 
   _onChangeTheme (event) {
@@ -75,15 +84,9 @@ export default class DocsMenu extends Component {
     });
   }
 
-
-
   render () {
+    const { theme } = this.state;
     const menuItems = this._renderMenuItems(Contents, null);
-
-    let theme = window.location.pathname.split('/')[1];
-    if (THEMES.indexOf(theme) === -1) {
-      theme = 'grommet';
-    }
     const options = THEMES.map(theme => (<option>{theme}</option>));
 
     return (
