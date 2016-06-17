@@ -19,6 +19,7 @@ config.output = {
 const themes = ['', 'aruba', 'hpe', 'hpinc'];
 
 const staticGenerators = themes.map((theme) => {
+  routes.path = `/${theme}`;
   return (
     new StaticSiteGeneratorPlugin(
       'main', reactRouterToArray(routes), {
