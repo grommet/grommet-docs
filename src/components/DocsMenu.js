@@ -8,7 +8,7 @@ import Footer from 'grommet/components/Footer';
 import Contents from '../docs/Contents';
 import NavAnchor from './NavAnchor';
 
-const THEMES = ['aruba', 'hpe', 'hpinc', 'grommet'];
+const THEMES = ['grommet', 'aruba', 'hpe', 'hpinc'];
 
 export default class DocsMenu extends Component {
 
