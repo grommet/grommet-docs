@@ -13,27 +13,36 @@ const onRouteUpdate = () => {
   }
 };
 
-const THEMES = ['aruba', 'hpe', 'hpinc'];
+const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
+
+function rootForTheme (theme) {
+  let root;
+  if ('vanilla' === theme || THEMES.indexOf(theme) === -1) {
+    root = '/';
+  } else {
+    root = `/${theme}`;
+  }
+  return root;
+}
 
 if (typeof document !== 'undefined') {
   require('autotrack');
   require('./lib/modernizr');
 
-  let theme = window.location.pathname.split('/')[1];
-  if (THEMES.indexOf(theme) === -1) {
-    theme = '';
-  }
+  const firstPathElement = window.location.pathname.split('/')[1];
+  const theme = (THEMES.indexOf(firstPathElement) === -1 ? 'vanilla' :
+    firstPathElement);
+  const root = rootForTheme(theme);
 
-  if (theme) {
-    require(`./scss/index-${theme}`);
-    history.setPrefix(`/${theme}`);
-  } else {
-    require('./scss/index-vanilla');
+  require(`./scss/index-${theme}`);
+
+  if ('/' !== root) {
+    history.setPrefix(root);
   }
 
   if (__DEV_MODE__) {
     var themeLink = document.getElementById('theme-link');
-    var themeUrl = `/assets/css/index-${theme === '' ? 'vanilla' : theme}.css`;
+    var themeUrl = `/assets/css/index-${theme}.css`;
     themeLink.setAttribute('href', themeUrl);
   }
 
@@ -49,7 +58,11 @@ export default (locals, callback) => {
   const routes = locals.routes;
   const location = locals.path;
   const theme = locals.theme;
-  history.setPrefix(`/${theme}`);
+  const root = rootForTheme(theme);
+
+  if ('/' !== root) {
+    history.setPrefix(root);
+  }
 
   match({ routes, location },
     (error, redirectLocation, renderProps) => {

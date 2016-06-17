@@ -16,10 +16,10 @@ config.output = {
   libraryTarget: 'commonjs2'
 };
 
-const themes = ['', 'aruba', 'hpe', 'hpinc'];
+const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
 
-const staticGenerators = themes.map((theme) => {
-  routes.path = `/${theme}`;
+const staticGenerators = THEMES.map((theme) => {
+  routes.path = ('vanilla' === theme ? '/' : `/${theme}`);
   return (
     new StaticSiteGeneratorPlugin(
       'main', reactRouterToArray(routes), {
