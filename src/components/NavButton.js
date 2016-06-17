@@ -2,7 +2,6 @@
 
 import React, { Component, PropTypes } from 'react';
 import Button from 'grommet/components/Button';
-import history from '../PrefixedHistory';
 
 /**
 * This component is used to augment Grommet button
@@ -17,11 +16,11 @@ export default class NavButton extends Component {
 
   _onClick (event) {
     event.preventDefault();
-    history.push(this.props.path);
+    this.context.router.push(this.props.path);
   }
 
   render () {
-    let href = history.makeHref(this.props.path);
+    let href = this.context.router.createPath(this.props.path);
     return (
       <Button {...this.props} href={href} onClick={this._onClick} />
     );
@@ -30,4 +29,8 @@ export default class NavButton extends Component {
 
 NavButton.propTypes = {
   path: PropTypes.string.isRequired
+};
+
+NavButton.contextTypes = {
+  router: PropTypes.object.isRequired
 };

@@ -26,7 +26,6 @@
     "express": "^4.10.6",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "highlight.js": "^9.3.0",
-    "history": "^1.17.0",
     "json-stringify-pretty-compact": "^1.0.1",
     "jsx-to-string": "^0.2.6",
     "morgan": "^1.5.0",

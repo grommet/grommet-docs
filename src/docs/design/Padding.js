@@ -17,40 +17,42 @@ export default class Padding extends Component {
 
           <p>
             Components that accept the <code>size</code> attribute include:
-
-            <ul>
-              <li><code>Chart</code></li>
-              <li><code>Distribution</code></li>
-              <li><code>Footer</code></li>
-              <li><code>Header</code></li>
-              <li><code>Image</code> (<code>small</code> and <code>large</code> only. <code>small</code> = 240px; <code>large</code> = 960px)</li>
-              <li><code>List</code></li>
-              <li><code>Menu</code></li>
-              <li><code>Meter</code></li>
-              <li><code>Search</code> (<code>medium</code> and <code>large</code> only)</li>
-              <li><code>Sidebar</code> (<code>small</code> = 240px; <code>medium</code> = 336px; <code>large</code> = 360px)</li>
-              <li><code>Status</code> (<code>small</code> = 12px; <code>medium</code> = 24px; <code>large</code> = 48px)</li>
-              <li><code>Tile</code> (<code>small</code> = 96px; <code>medium</code> = 192px; <code>large</code> = 384px)</li>
-              <li><code>Video</code> (<code>small</code> = 240px; <code>medium</code> = 480px; <code>large</code> = 960px)</li>
-            </ul>
           </p>
+
+          <ul>
+            <li><code>Chart</code></li>
+            <li><code>Distribution</code></li>
+            <li><code>Footer</code></li>
+            <li><code>Header</code></li>
+            <li><code>Image</code> (<code>small</code> and <code>large</code> only. <code>small</code> = 240px; <code>large</code> = 960px)</li>
+            <li><code>List</code></li>
+            <li><code>Menu</code></li>
+            <li><code>Meter</code></li>
+            <li><code>Search</code> (<code>medium</code> and <code>large</code> only)</li>
+            <li><code>Sidebar</code> (<code>small</code> = 240px; <code>medium</code> = 336px; <code>large</code> = 360px)</li>
+            <li><code>Status</code> (<code>small</code> = 12px; <code>medium</code> = 24px; <code>large</code> = 48px)</li>
+            <li><code>Tile</code> (<code>small</code> = 96px; <code>medium</code> = 192px; <code>large</code> = 384px)</li>
+            <li><code>Video</code> (<code>small</code> = 240px; <code>medium</code> = 480px; <code>large</code> = 960px)</li>
+          </ul>
 
           <p>
             Components that accept the <code>pad</code> attribute include:
+          </p>
 
-            <ul>
-              <li><code>Article</code></li>
-              <li><code>Box</code></li>
-              <li><code>Footer</code></li>
-              <li><code>Form</code> (all <code>pad</code> attributes available, except for <code>between</code>)</li>
-              <li><code>Header</code></li>
-              <li><code>ListItem (in List)</code></li>
-              <li><code>Menu</code></li>
-              <li><code>Section</code></li>
-              <li><code>Sidebar</code></li>
-              <li><code>Tiles/Tile</code></li>
-            </ul>
+          <ul>
+            <li><code>Article</code></li>
+            <li><code>Box</code></li>
+            <li><code>Footer</code></li>
+            <li><code>Form</code> (all <code>pad</code> attributes available, except for <code>between</code>)</li>
+            <li><code>Header</code></li>
+            <li><code>ListItem (in List)</code></li>
+            <li><code>Menu</code></li>
+            <li><code>Section</code></li>
+            <li><code>Sidebar</code></li>
+            <li><code>Tiles/Tile</code></li>
+          </ul>
 
+          <p>
             For the <code>pad</code> attribute, <code>small</code> = 12px, <code>medium</code> = 24px, and <code>large</code> = 48px.
           </p>
 

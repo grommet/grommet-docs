@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import { match, Router, RoutingContext } from 'react-router';
-import history from './PrefixedHistory';
+import { match, Router, RouterContext, useRouterHistory } from 'react-router';
+import { createHistory, createMemoryHistory } from 'history';
 import template from './template.ejs';
 
 const onRouteUpdate = () => {
@@ -15,14 +15,14 @@ const onRouteUpdate = () => {
 
 const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
 
-function rootForTheme (theme) {
-  let root;
+function basenameForTheme (theme) {
+  let basename;
   if ('vanilla' === theme || THEMES.indexOf(theme) === -1) {
-    root = '/';
+    basename = '/';
   } else {
-    root = `/${theme}`;
+    basename = `/${theme}`;
   }
-  return root;
+  return basename;
 }
 
 if (typeof document !== 'undefined') {
@@ -32,13 +32,14 @@ if (typeof document !== 'undefined') {
   const firstPathElement = window.location.pathname.split('/')[1];
   const theme = (THEMES.indexOf(firstPathElement) === -1 ? 'vanilla' :
     firstPathElement);
-  const root = rootForTheme(theme);
-
   require(`./scss/index-${theme}`);
 
-  if ('/' !== root) {
-    history.setPrefix(root);
+  const basename = basenameForTheme(theme);
+  let historyOptions = {};
+  if ('/' !== basename) {
+    historyOptions.basename = basename;
   }
+  const history = useRouterHistory(createHistory)(historyOptions);
 
   if (__DEV_MODE__) {
     var themeLink = document.getElementById('theme-link');
@@ -56,21 +57,21 @@ if (typeof document !== 'undefined') {
 
 export default (locals, callback) => {
   const routes = locals.routes;
-  const location = locals.path;
-  const theme = locals.theme;
-  const root = rootForTheme(theme);
-
-  if ('/' !== root) {
-    history.setPrefix(root);
+  const basename = basenameForTheme(locals.theme);
+  let historyOptions = {};
+  if ('/' !== basename) {
+    historyOptions.basename = basename;
   }
+  const history = useRouterHistory(createMemoryHistory)(historyOptions);
+  const location = history.createLocation(locals.path);
 
-  match({ routes, location },
+  match({ routes, history, location },
     (error, redirectLocation, renderProps) => {
       callback(
         null, template({
           theme: locals.theme,
           html: ReactDOMServer.renderToString(
-            <RoutingContext {...renderProps} />
+            <RouterContext {...renderProps} />
           )
         })
       );

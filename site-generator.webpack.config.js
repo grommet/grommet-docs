@@ -19,11 +19,12 @@ config.output = {
 const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
 
 const staticGenerators = THEMES.map((theme) => {
-  routes.path = ('vanilla' === theme ? '/' : `/${theme}`);
+  const themeRoutes = { ...routes };
+  themeRoutes.path = ('vanilla' === theme ? '/' : `/${theme}`);
   return (
     new StaticSiteGeneratorPlugin(
-      'main', reactRouterToArray(routes), {
-        routes: routes, theme: theme
+      'main', reactRouterToArray(themeRoutes), {
+        routes: themeRoutes, theme: theme
       }
     )
   );

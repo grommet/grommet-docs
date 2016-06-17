@@ -2,7 +2,6 @@
 
 import React, { Component, PropTypes } from 'react';
 import Anchor from 'grommet/components/Anchor';
-import history from '../PrefixedHistory';
 
 /**
 * This component is used to augment Grommet anchor
@@ -17,16 +16,16 @@ export default class NavAnchor extends Component {
 
   _onClick (event) {
     event.preventDefault();
-    history.push(this.props.path);
+    this.context.router.push(this.props.path);
   }
 
   render () {
     const { path } = this.props;
     let className = this.props.className || '';
-    if (this.context.router && this.context.router.isActive(path)) {
+    if (this.context.router.isActive(path)) {
       className += ' active';
     }
-    let href = history.makeHref(path);
+    let href = this.context.router.createPath(path);
     return (
       <Anchor {...this.props} className={className} href={href}
         onClick={this._onClick} />
