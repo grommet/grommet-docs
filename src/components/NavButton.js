@@ -1,6 +1,6 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Button from 'grommet/components/Button';
 import history from '../PrefixedHistory';
 
@@ -26,4 +26,8 @@ export default class NavButton extends Component {
       <Button {...this.props} href={href} onClick={this._onClick} />
     );
   }
+};
+
+NavButton.propTypes = {
+  path: PropTypes.string.isRequired
 };

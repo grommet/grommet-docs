@@ -23,9 +23,10 @@ export default class NavAnchor extends Component {
   render () {
     const { path } = this.props;
     let className = this.props.className || '';
-    // if (path === routePathname.slice(0, path.length)) {
-    //   className += ' active';
-    // }
+    console.log('!!! NA', this.context.router);
+    if (this.context.router && this.context.router.isActive(path)) {
+      className += ' active';
+    }
     let href = history.makeHref(path);
     return (
       <Anchor {...this.props} className={className} href={href}
@@ -39,5 +40,5 @@ NavAnchor.propTypes = {
 };
 
 NavAnchor.contextTypes = {
-  router: PropTypes.any
+  router: PropTypes.object.isRequired
 };

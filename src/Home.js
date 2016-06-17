@@ -1,7 +1,6 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
@@ -10,7 +9,6 @@ import Section from 'grommet/components/Section';
 import Headline from 'grommet/components/Headline';
 import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
-import Button from 'grommet/components/Button';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import GrommetLogo from 'grommet/components/icons/Grommet';
@@ -19,8 +17,8 @@ import GithubIcon from 'grommet/components/icons/base/SocialGithub';
 import TwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import Hands from './img/Hands.js';
 import NavAnchor from './components/NavAnchor';
+import NavButton from './components/NavButton';
 import ThemeMenu from './components/ThemeMenu';
-
 
 const HomeSection = (props) => (
   <Section
@@ -40,12 +38,8 @@ export default class Home extends Component {
           <Header fixed={false} float={true} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
               <NavAnchor path="/docs/get-started">Start</NavAnchor>
-              <Link to="/docs/learn">
-                <Anchor tag="span">Learn</Anchor>
-              </Link>
-              <Link to="/docs">
-                <Anchor tag="span">Docs</Anchor>
-              </Link>
+              <NavAnchor path="/docs/learn">Learn</NavAnchor>
+              <NavAnchor path="/docs">Docs</NavAnchor>
             </Menu>
           </Header>
           <GrommetLogo size="xlarge" a11yTitle=""/>
@@ -67,9 +61,7 @@ export default class Home extends Component {
           <Heading tag="h2">Mobile-first ready for business</Heading>
           <Paragraph align="center">Think small. Starting with mobile-first
             design allows for easy app scalability to larger devices.</Paragraph>
-          <Link to="/docs/learn">
-            <Button tag="span" label="Learn" onClick={() => {}} />
-          </Link>
+          <NavButton path="/docs/learn" label="Learn" />
         </HomeSection>
 
         <HomeSection colorIndex="neutral-1">
@@ -85,9 +77,7 @@ export default class Home extends Component {
             <a href='http://codepen.io'>CodePen</a>.
           </iframe>
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
-          <Link to="/docs">
-            <Button label="Docs" onClick={() => {}} />
-          </Link>
+          <NavButton path="/docs" label="Docs" />
         </HomeSection>
 
         <HomeSection>
@@ -97,9 +87,7 @@ export default class Home extends Component {
               <Paragraph align="center">Grommet is structured to foster active communication
                 between designers and developers in hopes of creating better
                 user experience. </Paragraph>
-              <Link to="/docs/about">
-                <Button label="About" onClick={() => {}} />
-              </Link>
+              <NavButton path="/docs/about" label="About" />
             </Box>
             <Hands />
           </Box>
@@ -115,14 +103,14 @@ export default class Home extends Component {
             <ThemeMenu />
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
-                <Link to="/docs/get-started">Start</Link>
-                <Link to="/docs/learn">Learn</Link>
-                <Link to="/docs">Docs</Link>
+                <NavAnchor path="/docs/get-started">Start</NavAnchor>
+                <NavAnchor path="/docs/learn">Learn</NavAnchor>
+                <NavAnchor path="/docs">Docs</NavAnchor>
               </Box>
               <Box direction="column">
                 <Anchor href="https://blog.grommet.io">Blog</Anchor>
                 <Anchor href="https://vimeo.com/grommetux">Training</Anchor>
-                <Link to="/docs/about">About</Link>
+                <NavAnchor path="/docs/about">About</NavAnchor>
               </Box>
               <Box direction="column">
                 <Anchor href="">Podcast</Anchor>
@@ -152,8 +140,4 @@ export default class Home extends Component {
     );
   }
 
-};
-
-Home.contextTypes = {
-  router: PropTypes.object
 };
