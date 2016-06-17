@@ -23,7 +23,6 @@ export default class NavAnchor extends Component {
   render () {
     const { path } = this.props;
     let className = this.props.className || '';
-    console.log('!!! NA', this.context.router);
     if (this.context.router && this.context.router.isActive(path)) {
       className += ' active';
     }
