@@ -19,6 +19,8 @@ import GithubIcon from 'grommet/components/icons/base/SocialGithub';
 import TwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import Hands from './img/Hands.js';
 import NavAnchor from './components/NavAnchor';
+import ThemeMenu from './components/ThemeMenu';
+
 
 const HomeSection = (props) => (
   <Section
@@ -110,6 +112,7 @@ export default class Home extends Component {
               pad={{ between: 'small'}}>
               <GrommetLogo /> <strong>grommet</strong>
             </Box>
+            <ThemeMenu />
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
                 <Link to="/docs/get-started">Start</Link>

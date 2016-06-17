@@ -7,43 +7,9 @@ import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
 import Contents from '../docs/Contents';
 import NavAnchor from './NavAnchor';
-
-const THEMES = ['grommet', 'aruba', 'hpe', 'hpinc'];
+import ThemeMenu from './ThemeMenu';
 
 export default class DocsMenu extends Component {
-
-  constructor () {
-    super();
-    this._onChangeTheme = this._onChangeTheme.bind(this);
-    this.state = { theme: 'grommet' };
-  }
-
-  componentDidMount () {
-    let theme = window.location.pathname.split('/')[1];
-    if (THEMES.indexOf(theme) === -1) {
-      theme = 'grommet';
-    }
-    this.setState({ theme: theme });
-  }
-
-  _onChangeTheme (event) {
-    const theme = event.target.value;
-    let prefix;
-    if ('grommet' === theme) {
-      prefix = '';
-    } else {
-      prefix = `/${theme}`;
-    }
-    let currentTheme = window.location.pathname.split('/')[1];
-    let path;
-    if (THEMES.indexOf(currentTheme) !== -1) {
-      path = window.location.pathname.slice(currentTheme.length + 1);
-      currentTheme = undefined;
-    } else {
-      path = window.location.pathname;
-    }
-    window.location = `${prefix}${path}`;
-  }
 
   _renderMenuItems (contents, context) {
     return contents.map((content, index) => {
@@ -85,17 +51,13 @@ export default class DocsMenu extends Component {
   }
 
   render () {
-    const { theme } = this.state;
     const menuItems = this._renderMenuItems(Contents, null);
-    const options = THEMES.map(theme => (<option>{theme}</option>));
 
     return (
       <Menu direction="column" align="start" justify="between" primary={true}>
         {menuItems}
-        <Footer primary={true} colorIndex="light-2">
-          <select onChange={this._onChangeTheme} value={theme}>
-            {options}
-          </select>
+        <Footer primary={true} colorIndex="light-2" pad={{ horizontal: 'small' }}>
+          <ThemeMenu />
         </Footer>
       </Menu>
     );
