@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import { createHistory } from 'history';
-let history = createHistory();
 
 // We have our own history implementation so we can insert a prefix.
 // We use this to have themed links without having to change paths.
@@ -33,21 +32,31 @@ function removePrefix (location) {
   return result;
 }
 
-export default {
-  ...history,
-  listen: (handler) => {
-    return history.listen((location) => {
-      handler(removePrefix(location));
-    });
-  },
-  push: (location) => {
-    history.push(addPrefix(location));
-  },
-  replace: (location) => {
-    history.replace(addPrefix(location));
-  },
-  setPrefix: (prefixArg) => {
-    prefix = prefixArg;
-  },
-  makeHref: (path) => `${prefix}${path}`
+let history = {};
+
+if (typeof document !== 'undefined') {
+  let baseHistory = createHistory();
+  history = {
+    ...baseHistory,
+    listen: (handler) => {
+      return baseHistory.listen((location) => {
+        handler(removePrefix(location));
+      });
+    },
+    push: (location) => {
+      baseHistory.push(addPrefix(location));
+    },
+    replace: (location) => {
+      baseHistory.replace(addPrefix(location));
+    }
+  };
+}
+
+history.setPrefix = (prefixArg) => {
+  prefix = prefixArg;
 };
+
+history.makeHref = (path) => `${prefix}${path}`;
+
+
+export default history;
