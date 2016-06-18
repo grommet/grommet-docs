@@ -41,13 +41,13 @@ const DEVELOP = [
   'calendar',
   'carousel',
   'chart',
-  'check-box',
+  'checkbox',
   'columns',
-  'date-time',
+  'datetime',
   'distribution',
   'footer',
   'form',
-  'form-field',
+  'formfield',
   'header',
   'heading',
   'headline',
@@ -57,20 +57,20 @@ const DEVELOP = [
   'layer',
   'legend',
   'list',
-  'login-form',
+  'loginform',
   'map',
   'menu',
   'meter',
   'notification',
-  'number-input',
+  'numberinput',
   'paragraph',
   'quote',
-  'radio-button',
+  'radiobutton',
   'search',
-  'search-input',
+  'searchinput',
   'section',
   'sidebar',
-  'social-share',
+  'socialshare',
   'spinning',
   'split',
   'status',
@@ -82,20 +82,35 @@ const DEVELOP = [
   'topology',
   'value',
   'video',
-  'world-map',
+  'worldmap',
   'markdown',
   'rest',
-  'rest-watch',
+  'restwatch',
   'architecture',
   'integration',
   'accessibility',
   'browser_support'
 ];
 
+const REMAP = {
+  'checkbox': 'check-box',
+  'datetime': 'date-time',
+  'date-and-time': 'date-time',
+  'formfield': 'form-field',
+  'loginform': 'login-form',
+  'numberinput': 'number-input',
+  'radiobutton': 'radio-button',
+  'searchinput': 'search-input',
+  'socialshare': 'social-share',
+  'worldmap': 'world-map',
+  'restwatch': 'rest-watch'
+};
+
 DESIGN.forEach(function (pathname) {
   BASENAMES.forEach(function (basename) {
     app.get('/docs' + basename + '/design/' + pathname, function (req, res) {
-      res.redirect(301, 'http://grommet.github.io' + basename + '/docs/' + pathname);
+      const newPathname = REMAP[pathname] || pathname;
+      res.redirect(301, 'http://grommet.github.io' + basename + '/docs/' + newPathname);
     });
   });
 });
@@ -103,7 +118,8 @@ DESIGN.forEach(function (pathname) {
 DEVELOP.forEach(function (pathname) {
   BASENAMES.forEach(function (basename) {
     app.get('/docs' + basename + '/develop/' + pathname, function (req, res) {
-      res.redirect(301, 'http://grommet.github.io' + basename + '/docs/' + pathname);
+      const newPathname = REMAP[pathname] || pathname;
+      res.redirect(301, 'http://grommet.github.io' + basename + '/docs/' + newPathname);
     });
   });
 });
