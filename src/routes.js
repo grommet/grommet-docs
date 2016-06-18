@@ -9,12 +9,9 @@ import Contents from './docs/Contents';
 function createContentRoutes (contents) {
   let result = [];
   contents.forEach(content => {
-    result.push(
-      {
-        path: content.label.toLowerCase().replace(/ /g, "-"),
-        component: content.component
-      }
-    );
+    if (content.path) {
+      result.push({ path: content.path, component: content.component });
+    }
     if (content.contents) {
       result = result.concat(createContentRoutes(content.contents));
     }
