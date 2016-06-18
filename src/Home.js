@@ -56,7 +56,7 @@ export default class Home extends Component {
           </Footer>
         </HomeSection>
 
-        <HomeSection backgroundImage={'url(img/mobile_first.jpg)'} justify="start"
+        <HomeSection backgroundImage={'url(/img/mobile_first.jpg)'} justify="start"
           colorIndex="dark">
           <Heading tag="h2">Mobile-first ready for business</Heading>
           <Paragraph align="center">Think small. Starting with mobile-first

@@ -40,8 +40,8 @@ var TileDoc = React.createClass({
 
           <div className="example">
             <Carousel>
-              <img src="img/carousel-1.png" />
-              <img src="img/carousel-2.png" />
+              <img src="/img/carousel-1.png" />
+              <img src="/img/carousel-2.png" />
               <Box pad="large" colorIndex="neutral-3">
                 <Box pad="medium" colorIndex="neutral-2">
                   Content inside of a Box element.

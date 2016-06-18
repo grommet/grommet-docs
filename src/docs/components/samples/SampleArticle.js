@@ -19,7 +19,7 @@ var SampleArticle = React.createClass({
         </Header>
         <Section pad="large">
           <Paragraph size="large">{loremIpsum}</Paragraph>
-          <Image src="img/carousel-1.png" full="horizontal" />
+          <Image src="/img/carousel-1.png" full="horizontal" />
         </Section>
         <Section pad="large">
           <h2>Heading</h2>

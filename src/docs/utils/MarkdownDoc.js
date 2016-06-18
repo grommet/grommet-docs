@@ -15,7 +15,7 @@ Paragraph [link](/).
 
 ## H2
 
-![image](img/carousel-1.png)
+![image](/img/carousel-1.png)
 `;
 
 const components = {

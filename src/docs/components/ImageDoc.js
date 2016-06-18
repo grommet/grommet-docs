@@ -36,27 +36,27 @@ const ImageDoc = () => {
         <h2>Examples</h2>
 
         <Example name="Default" code={
-          <Image src="img/carousel-1.png" />
+          <Image src="/img/carousel-1.png" />
         } />
 
         <Example name="Thumb" code={
-          <Image src="img/carousel-1.png" size="thumb" />
+          <Image src="/img/carousel-1.png" size="thumb" />
         } />
 
         <Example name="Small" code={
-          <Image src="img/carousel-1.png" size="small" />
+          <Image src="/img/carousel-1.png" size="small" />
         } />
 
         <Example name="Large" code={
-          <Image src="img/carousel-1.png" size="large" />
+          <Image src="/img/carousel-1.png" size="large" />
         } />
 
         <Example name="Full horizontal" code={
-          <Image src="img/carousel-1.png" full="horizontal" />
+          <Image src="/img/carousel-1.png" full="horizontal" />
         } />
 
         <Example name="Caption" code={
-          <Image src="img/carousel-1.png" caption="1. Sample Image" />
+          <Image src="/img/carousel-1.png" caption="1. Sample Image" />
         } />
 
       </section>
