@@ -56,8 +56,8 @@ export default class DocsMenu extends Component {
     return (
       <Menu direction="column" align="start" justify="between" primary={true}>
         {menuItems}
-        <Footer primary={true} colorIndex="light-2" pad={{ horizontal: 'small' }}>
-          <ThemeMenu />
+        <Footer primary={true} colorIndex="light-2" pad={{ horizontal: 'medium' }}>
+          <ThemeMenu align="left" />
         </Footer>
       </Menu>
     );

@@ -2,37 +2,7 @@
 
 @import 'highlight-js.github';
 
-.console {
-  border-style: solid;
-  border-color: #ccc;
-  border-width: $inuit-base-spacing-unit;
-  border-radius: $inuit-base-spacing-unit;
-  background-color: #333;
-  color: #fff;
-  padding: double($inuit-base-spacing-unit);
-  text-align: left;
-
-  @include media-query(lap-and-up) {
-    max-width: $readable-text-width + double($inuit-base-spacing-unit);
-  }
-
-  @include media-query(palm) {
-    max-width: 100%;
-  }
-
-  pre {
-    border-left: 2px solid #ccc;
-    padding-left: $inuit-base-spacing-unit;
-  }
-}
-
-.docs {
-  div.docs__code-heading {
-  	text-align: right;
-  	padding-right: 5px;
-  }
-
-  svg g.doc-brand {
-    stroke: $brand-color;
-  }
+.home__mobile {
+  flex: 0 0 auto;
+  margin-bottom: round($inuit-base-spacing-unit * 14);
 }

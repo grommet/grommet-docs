@@ -22,7 +22,7 @@ import ThemeMenu from './components/ThemeMenu';
 
 const HomeSection = (props) => (
   <Section
-    appCentered={true} justify="center" align="center" full={true}
+    appCentered={true} justify="center" align="center"
     textCentered={true} pad={{vertical: "large"}} {...props}>
     {props.children}
   </Section>
@@ -34,20 +34,23 @@ export default class Home extends Component {
     return (
       <Article className="home">
 
-        <HomeSection primary={true}>
-          <Header fixed={false} float={true} appCentered={true} justify="center">
+        <HomeSection primary={true} pad="none">
+          <Header fixed={false} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
               <NavAnchor path="/docs/get-started">Start</NavAnchor>
               <NavAnchor path="/docs/learn">Learn</NavAnchor>
               <NavAnchor path="/docs">Docs</NavAnchor>
             </Menu>
           </Header>
-          <GrommetLogo size="xlarge" a11yTitle=""/>
-          <Heading tag="h1" margin="medium">grommet</Heading>
-          <Headline size="small" align="center">
-            focus on the essential experience
-          </Headline>
-          <Footer fixed={false} float={true} appCentered={true} justify="center">
+          <Box pad={{vertical: 'large'}} direction="column" align="center"
+            flex={false}>
+            <GrommetLogo size="xlarge" a11yTitle=""/>
+            <Heading tag="h1" margin="medium">grommet</Heading>
+            <Headline size="small" align="center">
+              focus on the essential experience
+            </Headline>
+          </Box>
+          <Footer appCentered={true} justify="center">
             <Menu inline={true} responsive={false} direction="row">
               <Anchor href="http://slackin.grommet.io" icon={<SlackIcon />}/>
               <Anchor href="https://github.com/grommet/grommet" icon={<GithubIcon />}/>
@@ -58,18 +61,20 @@ export default class Home extends Component {
 
         <HomeSection backgroundImage={'url(/img/mobile_first.jpg)'} justify="start"
           colorIndex="dark">
-          <Heading tag="h2">Mobile-first ready for business</Heading>
-          <Paragraph align="center">Think small. Starting with mobile-first
-            design allows for easy app scalability to larger devices.</Paragraph>
-          <NavButton path="/docs/learn" label="Learn" />
+          <Box className="home__mobile" align="center">
+            <Heading tag="h2">Mobile-first ready for business</Heading>
+            <Paragraph align="center">Think small. Starting with mobile-first
+              design allows for easy app scalability to larger devices.</Paragraph>
+            <NavButton path="/docs/learn" label="Learn" />
+          </Box>
         </HomeSection>
 
-        <HomeSection colorIndex="neutral-1">
+        <HomeSection>
           <Heading tag="h2">Start making now</Heading>
           <Paragraph align="center">The easiest way to learn a new tool is to have it done
             for you and then make it yours!</Paragraph>
           <iframe height='268' scrolling='no'
-            src='//codepen.io/grommet/embed/gaEGPY/?height=268&theme-id=0&default-tab=result'
+            src='//codepen.io/grommet/embed/gaEGPY/?height=268&theme-id=0&default-tab=js'
             frameBorder='no' allowTransparency='true' allowFullScreen='true'
             style={{width: '100%'}}>See the Pen
             <a href='http://codepen.io/grommet/pen/gaEGPY/'>Grommet Hello World</a>
@@ -80,7 +85,7 @@ export default class Home extends Component {
           <NavButton path="/docs" label="Docs" />
         </HomeSection>
 
-        <HomeSection>
+        <HomeSection colorIndex="light-2">
           <Box direction="row">
             <Box align="center">
               <Heading tag="h2">Together is better</Heading>
@@ -93,14 +98,14 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <Footer primary={true} appCentered={true} direction="column">
+        <Footer primary={true} appCentered={true} direction="column"
+          pad={{ vertical: 'medium' }}>
           <Box direction="row" justify="between" align="start"
-            pad={{ between: 'medium'}}>
+            pad={{ between: 'medium' }}>
             <Box direction="row" align="center" responsive={false}
               pad={{ between: 'small'}}>
               <GrommetLogo /> <strong>grommet</strong>
             </Box>
-            <ThemeMenu />
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
                 <NavAnchor path="/docs/get-started">Start</NavAnchor>
@@ -120,19 +125,20 @@ export default class Home extends Component {
               <Box direction="column">
                 <Anchor href="https://www.facebook.com/grommetux">Facebook</Anchor>
                 <Anchor href="https://twitter.com/grommetux">Twitter</Anchor>
+                <ThemeMenu size="small" align="right" />
               </Box>
             </Box>
           </Box>
           <Box direction="row" justify="between">
-            <Paragraph>
+            <span>
               Documentation licensed under <Anchor
                 href="http://creativecommons.org/licenses/by/4.0/legalcode">
                 CC BY 4.0
               </Anchor>
-            </Paragraph>
-            <Paragraph>
+            </span>
+            <span>
               © 2016 Hewlett Packard Enterprise Development LP.
-            </Paragraph>
+            </span>
           </Box>
         </Footer>
 
