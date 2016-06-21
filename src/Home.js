@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
@@ -20,17 +21,48 @@ import NavAnchor from './components/NavAnchor';
 import NavButton from './components/NavButton';
 import ThemeMenu from './components/ThemeMenu';
 
-const HomeSection = (props) => (
-  <Section
-    appCentered={true} justify="center" align="center"
-    textCentered={true} pad={{vertical: "large"}} {...props}>
-    {props.children}
-  </Section>
-);
+class HomeSection extends Component {
+  render () {
+    return (
+      <Section
+        appCentered={true} justify="center" align="center"
+        textCentered={true} pad={{vertical: "large"}} {...this.props}>
+        {this.props.children}
+      </Section>
+    );
+  }
+};
 
 export default class Home extends Component {
 
+  constructor () {
+    super();
+    this._onScroll = this._onScroll.bind(this);
+    this.state = { mobileOffset: 0 };
+  }
+
+  componentDidMount () {
+    this._app = document.querySelector('.app');
+    this._app.addEventListener('scroll', this._onScroll);
+  }
+
+  componentWillUnmount () {
+    this._app.removeEventListener('scroll', this._onScroll);
+  }
+
+  _onScroll (event) {
+    const elem = findDOMNode(this.refs.mobile);
+    const rect = elem.getBoundingClientRect();
+    if (rect.top < 0) {
+      this.setState({ mobileOffset: Math.abs(rect.top) / 12 });
+    }
+  }
+
   render () {
+    const mobileStyle = {
+      backgroundPosition: `50% ${50 - this.state.mobileOffset}%`
+    };
+
     return (
       <Article className="home">
 
@@ -59,8 +91,9 @@ export default class Home extends Component {
           </Footer>
         </HomeSection>
 
-        <HomeSection backgroundImage={'url(/img/mobile_first.jpg)'} justify="start"
-          colorIndex="dark">
+        <HomeSection ref="mobile"
+          backgroundImage={'url(/img/mobile_first.jpg)'} justify="start"
+          colorIndex="dark" style={mobileStyle}>
           <Box className="home__mobile" align="center">
             <Heading tag="h2">Mobile-first ready for business</Heading>
             <Paragraph align="center">Think small. Starting with mobile-first
