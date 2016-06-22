@@ -16625,13 +16625,32 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
-	              'align        start|center|end'
+	              'align        start|center|end|baseline|stretch'
 	            )
 	          ),
 	          React.createElement(
 	            'dd',
 	            null,
 	            'How to align the contents along the cross axis.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'alignContent        start|center|end|between|around|stretch'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'How to align within a container when there is extra space in the cross axis. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'stretch'
+	            )
 	          ),
 	          React.createElement(
 	            'dt',

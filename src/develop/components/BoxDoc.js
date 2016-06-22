@@ -33,8 +33,10 @@ var BoxDoc = React.createClass({
               Custom title used by screen readers. Default is "Box".
               Only used if onClick handler is specified.
             </dd>
-            <dt><code>align        start|center|end</code></dt>
+            <dt><code>align        start|center|end|baseline|stretch</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
+            <dt><code>alignContent        start|center|end|between|around|stretch</code></dt>
+            <dd>How to align within a container when there is extra space in the cross axis. Defaults to <code>stretch</code></dd>
             <dt><code>appCentered  true|false</code></dt>
             <dd>Whether the box background should stretch across an App that is centered.</dd>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
