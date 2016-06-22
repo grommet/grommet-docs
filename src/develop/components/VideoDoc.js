@@ -40,6 +40,8 @@ var VideoDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
+            <dt><code>allowFullScreen   true|false</code></dt>
+            <dd>Enables fullscreen/expand control button on player.</dd>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code>. This is visible when a
@@ -47,6 +49,8 @@ var VideoDoc = React.createClass({
             <dt><code>duration     number</code></dt>
             <dd>The length of the video in seconds.</dd><dt><code>full         true|false</code></dt>
             <dd>Whether the width should take the full container width.</dd>
+            <dt><code>onClick      {"{func}"}</code></dt>
+            <dd>Click handler to override the default click handler to play video and pass in a different function instead.</dd>
             <dt><code>poster       {"{url}"}</code></dt>
             <dd>Poster image to show before the video first plays.</dd>
             <dt><code>size         small|medium|large</code></dt>
@@ -59,6 +63,8 @@ var VideoDoc = React.createClass({
               </code> used to indicate chapter markers.</dd>
             <dt><code>title        {"{string}|{node}"}</code></dt>
             <dd>Descriptive title.</dd>
+            <dt><code>videoHeader        {"{node}"}</code></dt>
+            <dd>For instances when the video and header components are used together.</dd>
           </dl>
         </section>
 

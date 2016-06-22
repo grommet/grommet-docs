@@ -178,7 +178,8 @@ export default class MeterDoc extends Component {
             <dd>Whether to show a legend. If showing, whether to include a total,
               and where to place it. If placement is not specified, it will be
               placed to match the aspect ratio of the window. <code>inline</code> is
-              only supported with horizontal bar.</dd>
+              only supported with horizontal bar. If placement is set to <code>inline</code> and 
+              total is set to <code>false</code>, the active value is hidden.</dd>
             <dt><code>max         {"{value: , label: }|{number}"}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
