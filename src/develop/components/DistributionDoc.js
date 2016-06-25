@@ -4,6 +4,7 @@ import React from 'react';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Distribution from 'grommet/components/Distribution';
+import Legend from 'grommet/components/Legend';
 
 Distribution.displayName = 'Distribution';
 
@@ -51,6 +52,57 @@ const iconSeries = [
         <path d="M28,36 L28,31"></path>
       </g>
     )}
+  }
+];
+
+const THRESHOLDS = [
+  { label: '90% or more', value: 90, colorIndex: 'accent-1' },
+  { label: '40% or more', value: 40, colorIndex: 'graph-1' },
+  { label: 'less than 40%', value: 0, colorIndex: 'unset' }
+];
+
+const MultipleAxisLabel = ({ text, value, unit }) => (
+  <div>
+    <div>
+      <strong>{value} {unit}</strong>
+    </div>
+    <span>{text}</span>
+  </div>
+);
+
+const multipleAxisSeries = [
+  {
+    label: <MultipleAxisLabel text="First" value={57} unit="% cpu" />,
+    value: 5.3,
+    colorIndex: 'graph-1'
+  }, {
+    label: <MultipleAxisLabel text="Second" value={39} unit="% cpu" />,
+    value: 4.7,
+    colorIndex: 'unset'
+  }, {
+    label: <MultipleAxisLabel text="Third" value={96} unit="% cpu" />,
+    value: 2.2,
+    colorIndex: 'accent-1'
+  }, {
+    label: <MultipleAxisLabel text="Forth" value={25} unit="% cpu" />,
+    value: 1.9,
+    colorIndex: 'unset'
+  }, {
+    label: <MultipleAxisLabel text="Fifth" value={50} unit="% cpu" />,
+    value: 3.9,
+    colorIndex: 'graph-1'
+  }, {
+    label: <MultipleAxisLabel text="Sixth" value={81} unit="% cpu" />,
+    value: 1.4,
+    colorIndex: 'graph-1'
+  }, {
+    label: <MultipleAxisLabel text="Seventh" value={13} unit="% cpu" />,
+    value: 2.1,
+    colorIndex: 'unset'
+  }, {
+    label: <MultipleAxisLabel text="Eighth" value={99} unit="% cpu" />,
+    value: 1,
+    colorIndex: 'accent-1'
   }
 ];
 
@@ -116,15 +168,29 @@ export default () => {
         } />
         <Example name="onClick" code={
           <Distribution series={clickableSeries}
-            a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
+            a11yTitleId='distribution-title-5' a11yDescId='distribution-desc-5' />
+        } />
+        <Example name="Multiple Axis" code={
+          <div>
+            <Distribution full={true} units="GB" series={multipleAxisSeries}
+              a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
+            <Legend
+              series={
+                THRESHOLDS.map(threshold => ({
+                  label: threshold.label,
+                  colorIndex: threshold.colorIndex
+                }))
+              }
+            />
+          </div>
         } />
         <Example name="Icon" code={
           <Distribution series={iconSeries} units="%"
             a11yTitleId='distribution-title-7' a11yDescId='distribution-desc-7' />
         } overrides={['svgElement']}/>
         <Example name="Loading" code={
-          <Distribution a11yTitleId='distribution-title-5'
-            a11yDescId='distribution-desc-5' />
+          <Distribution a11yTitleId='distribution-title-8'
+            a11yDescId='distribution-desc-8' />
         } />
       </section>
 
