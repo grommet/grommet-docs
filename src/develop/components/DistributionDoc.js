@@ -70,41 +70,25 @@ const MultipleAxisLabel = ({ text, value, unit }) => (
   </div>
 );
 
-const multipleAxisSeries = [
-  {
-    label: <MultipleAxisLabel text="First" value={57} unit="% cpu" />,
-    value: 5.3,
-    colorIndex: 'graph-1'
-  }, {
-    label: <MultipleAxisLabel text="Second" value={39} unit="% cpu" />,
-    value: 4.7,
-    colorIndex: 'unset'
-  }, {
-    label: <MultipleAxisLabel text="Third" value={96} unit="% cpu" />,
-    value: 2.2,
-    colorIndex: 'accent-1'
-  }, {
-    label: <MultipleAxisLabel text="Forth" value={25} unit="% cpu" />,
-    value: 1.9,
-    colorIndex: 'unset'
-  }, {
-    label: <MultipleAxisLabel text="Fifth" value={50} unit="% cpu" />,
-    value: 3.9,
-    colorIndex: 'graph-1'
-  }, {
-    label: <MultipleAxisLabel text="Sixth" value={81} unit="% cpu" />,
-    value: 1.4,
-    colorIndex: 'graph-1'
-  }, {
-    label: <MultipleAxisLabel text="Seventh" value={13} unit="% cpu" />,
-    value: 2.1,
-    colorIndex: 'unset'
-  }, {
-    label: <MultipleAxisLabel text="Eighth" value={99} unit="% cpu" />,
-    value: 1,
-    colorIndex: 'accent-1'
+const generateSeries = (label) => {
+  const areaValue = Math.round((Math.random() * 8 + 2) * 10) / 10;
+  const colorValue = Math.floor(Math.random() * 99) + 1;
+  let colorIndex;
+  for (let i = 0; i < THRESHOLDS.length; i++) {
+    if (colorValue >= THRESHOLDS[i].value) {
+      colorIndex = THRESHOLDS[i].colorIndex;
+      break;
+    }
   }
-];
+
+  return {
+    colorIndex,
+    label: <MultipleAxisLabel text={label} value={colorValue} unit="% cpu" />,
+    value: areaValue
+  };
+};
+
+const multipleAxisSeries = ['First', 'Second', 'Third', 'Forth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'].map(generateSeries);
 
 export default () => {
 
