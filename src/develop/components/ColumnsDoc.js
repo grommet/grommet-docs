@@ -13,7 +13,7 @@ const ColumnsDoc = () => {
 
   var labels = [];
   for (var i=1; i<=23; i++) {
-    labels.push(`label ${i}`);
+    labels.push(<span key={i}>{`label${i}`}</span>);
   }
 
   return (

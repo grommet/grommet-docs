@@ -7,8 +7,10 @@ var SearchInput = require('grommet/components/SearchInput');
 var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
 var Button = require('grommet/components/Button');
+var SVGIcon = require('grommet/components/SVGIcon');
 var iconsMap = require('./iconsMap');
 var iconNames = Object.keys(iconsMap);
+import Example from '../Example';
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -122,7 +124,9 @@ var IconDoc = React.createClass({
       <DocsArticle title="Icon" colorIndex="neutral-3">
 
         <p>Load icons inside your Grommet application.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <pre><code className="html hljs xml">
+          {"<SVGIcon type=\"...\" viewBox=\"...\"><path .../></SVGIcon>"}
+        </code></pre>
 
         <section>
           <h2>Options</h2>
@@ -130,9 +134,32 @@ var IconDoc = React.createClass({
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the stroke color.
               For example: <code>"brand"</code></dd>
-            <dt><code>large        true|false</code></dt>
-            <dd>Larger sized version.</dd>
+            <dt><code>size         small|medium|large|xlarge|huge</code></dt>
+            <dd>The icon size.  Defaults to <code>medium</code>.</dd>
+            <dt><code>type         control|logo|status</code></dt>
+            <dd>The type of the icon. Defaults to <code>control</code>.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Examples</h2>
+
+          <Example name="Custom Logo" code={
+            <SVGIcon viewBox='0 0 130 108' version='1.1'
+              type='logo' a11yTitle='Locations Finder'>
+              <g stroke='#865CD6' strokeWidth='4' fill='none' strokeLinejoin='round'>
+                <path d='M40,65 L40,96 L16,107 L16,49 L16,49 L28.4679195,43.2855369 M75.6892892,43.6424091 L88,38 L88,96 L64,107 L64,64.5 L64,64.5 M64,64 L64,107 L40,96 L40,65 M89,38 L113,49 L113,107 L89,96 L89,38 Z M52,49 C56.971,49 61,44.971 61,40 C61,35.029 56.971,31 52,31 C47.029,31 43,35.029 43,40 C43,44.971 47.029,49 52,49 L52,49 Z M52,76 C52,76 28,58 28,40 C28,25 40,16 52,16 C64,16 76,25 76,40 C76,58 52,76 52,76 Z' />
+              </g>
+            </SVGIcon>
+          } />
+        </section>
+
+        <section>
+          <h2>Built-in icons</h2>
+          <p>Most likely the icon you are looking is already available inside
+            Grommet iconography. This is how you import it:</p>
+          <pre><code className="html hljs xml">{inline}</code></pre>
+
         </section>
 
         <section>
@@ -152,7 +179,7 @@ var IconDoc = React.createClass({
 
           <h3>Huge</h3>
           <div className="example">
-            <Icon size="huge" />
+            <Icon size="huge" colorIndex="brand" />
           </div>
           <pre><code className="html hljs xml">{"<" + componentName + " size=\"huge\" /> ..."}</code></pre>
 
