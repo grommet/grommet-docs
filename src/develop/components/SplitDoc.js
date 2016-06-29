@@ -33,20 +33,24 @@ var SplitDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>fixed      true|false</code></dt>
+            <dt><code>fixed               true|false</code></dt>
             <dd>Whether each side should scroll independently.</dd>
-            <dt><code>flex       both|left|right</code></dt>
+            <dt><code>flex                both|left|right</code></dt>
             <dd>Which side to give flexible space to.
               The default value is 'both'.</dd>
-            <dt><code>onResponsive   {"function (columns) {...}"}</code></dt>
+            <dt><code>onResponsive        {"function (columns) {...}"}</code></dt>
             <dd>Function that will be called when the display area changes.
               When space is limited the 'columns' parameter will be set to
               'single'. Otherwise 'columns' will be set to 'multiple'.</dd>
-            <dt><code>priority   left|right</code></dt>
+            <dt><code>priority            left|right</code></dt>
             <dd>Which side to prioritize when space is limited.
               The default value is 'right'.</dd>
-            <dt><code>separator  true|false</code></dt>
+            <dt><code>separator           true|false</code></dt>
             <dd>Whether to include a separator between the children.</dd>
+            <dt><code>showOnResponsive    priority|both</code></dt>
+            <dd>Whether the Split should show both sides for mobile, or 
+            collapse down to just the priority side.  The default value is
+            'priority'</dd>
           </dl>
         </section>
 
