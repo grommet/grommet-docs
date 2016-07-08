@@ -4,6 +4,7 @@ import React from 'react';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Distribution from 'grommet/components/Distribution';
+import Legend from 'grommet/components/Legend';
 
 Distribution.displayName = 'Distribution';
 
@@ -53,6 +54,41 @@ const iconSeries = [
     )}
   }
 ];
+
+const THRESHOLDS = [
+  { label: '90% or more', value: 90, colorIndex: 'accent-1' },
+  { label: '40% or more', value: 40, colorIndex: 'graph-1' },
+  { label: 'less than 40%', value: 0, colorIndex: 'unset' }
+];
+
+const MultipleAxisLabel = ({ text, value, unit }) => (
+  <div>
+    <div>
+      <strong>{value} {unit}</strong>
+    </div>
+    <span>{text}</span>
+  </div>
+);
+
+const generateSeries = (label) => {
+  const areaValue = Math.round((Math.random() * 8 + 2) * 10) / 10;
+  const colorValue = Math.floor(Math.random() * 99) + 1;
+  let colorIndex;
+  for (let i = 0; i < THRESHOLDS.length; i++) {
+    if (colorValue >= THRESHOLDS[i].value) {
+      colorIndex = THRESHOLDS[i].colorIndex;
+      break;
+    }
+  }
+
+  return {
+    colorIndex,
+    label: <MultipleAxisLabel text={label} value={colorValue} unit="% cpu" />,
+    value: areaValue
+  };
+};
+
+const multipleAxisSeries = ['First', 'Second', 'Third', 'Forth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'].map(generateSeries);
 
 export default () => {
 
@@ -116,15 +152,29 @@ export default () => {
         } />
         <Example name="onClick" code={
           <Distribution series={clickableSeries}
-            a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
+            a11yTitleId='distribution-title-5' a11yDescId='distribution-desc-5' />
+        } />
+        <Example name="Multiple Axis" code={
+          <div>
+            <Distribution full={true} units="GB" series={multipleAxisSeries}
+              a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
+            <Legend
+              series={
+                THRESHOLDS.map(threshold => ({
+                  label: threshold.label,
+                  colorIndex: threshold.colorIndex
+                }))
+              }
+            />
+          </div>
         } />
         <Example name="Icon" code={
           <Distribution series={iconSeries} units="%"
             a11yTitleId='distribution-title-7' a11yDescId='distribution-desc-7' />
         } overrides={['svgElement']}/>
         <Example name="Loading" code={
-          <Distribution a11yTitleId='distribution-title-5'
-            a11yDescId='distribution-desc-5' />
+          <Distribution a11yTitleId='distribution-title-8'
+            a11yDescId='distribution-desc-8' />
         } />
       </section>
 
