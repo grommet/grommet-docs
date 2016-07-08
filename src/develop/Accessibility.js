@@ -4,8 +4,12 @@ var React = require('react');
 var DocsArticle = require('../DocsArticle');
 var Table = require('grommet/components/Table');
 var Status = require('grommet/components/icons/Status');
+var A11y = require('../utils/a11y');
 
 var Accessibility = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Accessibility');
+  },
 
   _onClick: function () {
     // no-op

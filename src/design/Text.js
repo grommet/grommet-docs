@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Text extends Component {
+  componentDidMount () {
+    updatePageTitle('Text');
+  }
+
   render () {
     return (
       <DocsArticle title="Text" colorIndex="neutral-2">

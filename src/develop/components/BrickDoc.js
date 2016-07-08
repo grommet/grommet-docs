@@ -7,6 +7,7 @@ var Bricks = require('grommet/components/Bricks');
 var Brick = require('grommet/components/Brick');
 var Box = require('grommet/components/Box');
 var GrommetLogo = require('grommet/components/icons/Grommet');
+var A11y = require('../../utils/a11y');
 
 Brick.displayName = 'Brick';
 Bricks.displayName = 'Bricks';
@@ -18,6 +19,9 @@ function convertBrickToString(brickJSX) {
 }
 
 var BrickDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Brick');
+  },
 
   _onClick: function () {
     // No-op

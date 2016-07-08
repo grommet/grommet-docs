@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import DateTime from 'grommet/components/DateTime';
+import { updatePageTitle } from '../../utils/a11y';
 
 export default class DateTimeDoc extends Component {
 
@@ -13,6 +14,10 @@ export default class DateTimeDoc extends Component {
     this._onChangeDate = this._onChangeDate.bind(this);
     this._onChangeTime = this._onChangeTime.bind(this);
     this.state = { value: undefined, date: undefined, time: undefined };
+  }
+
+  componentDidMount () {
+    updatePageTitle('Date Time');
   }
 
   _onChange (value) {

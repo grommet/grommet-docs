@@ -26,6 +26,7 @@ var DateTime = require('./DateTime');
 var Capitalization = require('./Capitalization');
 var Icons = require('./Icons');
 var Resources = require('./Resources');
+var A11y = require('../utils/a11y');
 
 var CONTENTS = [
   {label: 'Philosophy',
@@ -64,6 +65,10 @@ var Design = React.createClass({
     return {
       routePrefix: this.context.routePrefix + 'design/'
     };
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Design');
   },
 
   render: function () {

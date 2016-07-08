@@ -2,11 +2,16 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
-export default class Usability extends Component {
+export default class Accessibility extends Component {
+  componentDidMount () {
+    updatePageTitle('Accessibility');
+  }
+
   render () {
     return (
-      <DocsArticle title="Usability" colorIndex="neutral-1">
+      <DocsArticle title="Accessibility" colorIndex="neutral-1">
         <section>
           <p>Products that are accessible to all users are good for people,
           products, and business.  All users should be empowered with access

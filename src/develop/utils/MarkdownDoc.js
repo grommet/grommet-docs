@@ -5,6 +5,7 @@ import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 
 import Markdown from 'grommet/components/Markdown';
+import { updatePageTitle } from '../../utils/a11y';
 
 Markdown.displayName = 'Markdown';
 
@@ -42,6 +43,9 @@ const components = {
 };
 
 export default class MarkdownDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Markdown');
+  }
 
   render () {
     return (

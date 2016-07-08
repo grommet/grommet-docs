@@ -11,6 +11,7 @@ var FormFields = require('grommet/components/FormFields');
 var FullForm = require('./samples/FullForm');
 var ConfirmationForm = require('./samples/ConfirmationForm');
 var SampleArticle = require('./samples/SampleArticle');
+var A11y = require('../../utils/a11y');
 
 Box.displayName = 'Box';
 Layer.displayName = 'Layer';
@@ -34,6 +35,10 @@ var LayerDoc = React.createClass({
     return {
       active: undefined
     };
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Layer');
   },
 
   _onOpen: function (which) {

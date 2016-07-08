@@ -3,11 +3,16 @@
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var NumberInput = require('grommet/components/NumberInput');
+var A11y = require('../../utils/a11y');
 
 var NumberInputDoc = React.createClass({
 
   getInitialState: function () {
     return {value: 10};
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Number Input');
   },
 
   _onChange: function (event) {

@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Capitalization extends Component {
+  componentDidMount () {
+    updatePageTitle('Capitalization');
+  }
+
   render () {
     return (
       <DocsArticle title="Capitalization" colorIndex="neutral-2">

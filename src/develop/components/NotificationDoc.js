@@ -5,6 +5,7 @@ import jsxToString from 'jsx-to-string';
 import DocsArticle from '../../DocsArticle';
 import Notification from 'grommet/components/Notification';
 import { Link } from 'react-router';
+import { updatePageTitle } from '../../utils/a11y';
 
 Notification.displayName = 'Notification';
 
@@ -13,6 +14,9 @@ function convertNotificationToString(notificationJSX) {
 }
 
 export default class NotificationDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Notification');
+  }
 
   _renderNotificationCode(heading, notificationJSX) {
     return (

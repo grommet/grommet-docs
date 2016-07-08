@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class WritingStyle extends Component {
+  componentDidMount () {
+    updatePageTitle('Writing Style');
+  }
+
   render () {
     return (
       <DocsArticle title="Writing Style" colorIndex="neutral-2">

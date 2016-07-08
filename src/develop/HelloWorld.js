@@ -8,9 +8,15 @@ var Link = Router.Link;
 
 var Anchor = require('grommet/components/Anchor');
 
+var A11y = require('../utils/a11y');
+
 var HelloWorld = React.createClass({
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Hello World');
   },
 
   render: function () {

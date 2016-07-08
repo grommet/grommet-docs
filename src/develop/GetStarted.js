@@ -4,8 +4,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 class GetStarted extends Component {
+  componentDidMount () {
+    updatePageTitle('Get Started');
+  }
 
   render () {
     var architectureLink = (
@@ -96,7 +100,7 @@ class GetStarted extends Component {
             <h4>Bower</h4>
               <ol>
               	<li>
-              		<p>Install <a href="http://bower.io/" target="_blank">Bower</a> 
+              		<p>Install <a href="http://bower.io/" target="_blank">Bower</a>
                   <i>(at least 1.x required)</i>.</p>
               		<pre><code className="hljs bash">npm install -g bower</code></pre>
               	</li>

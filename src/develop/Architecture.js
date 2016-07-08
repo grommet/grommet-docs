@@ -2,8 +2,13 @@
 
 var React = require('react');
 var DocsArticle = require('../DocsArticle');
+var A11y = require('../utils/a11y');
 
 var Architecture = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Accessibility');
+  },
+
   render: function () {
     return (
       <DocsArticle title="Architecture" colorIndex="neutral-4">

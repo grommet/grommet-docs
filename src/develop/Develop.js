@@ -75,6 +75,8 @@ var ValueDoc = require('./components/ValueDoc');
 var VideoDoc = require('./components/VideoDoc');
 var WorldMapDoc = require('./components/WorldMapDoc');
 
+var A11y = require('../utils/a11y');
+
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
 hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
@@ -187,6 +189,10 @@ var Develop = React.createClass({
     return {
       routePrefix: this.context.routePrefix + 'develop/'
     };
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Develop');
   },
 
   render: function () {

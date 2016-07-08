@@ -6,6 +6,7 @@ var Link = require('react-router').Link;
 var DocsArticle = require('../../DocsArticle');
 var Tags = require('grommet/components/Tags');
 var Tag = require('grommet/components/Tag');
+var A11y = require('../../utils/a11y');
 
 Tags.displayName = 'Tags';
 Tag.displayName = 'Tag';
@@ -18,6 +19,10 @@ var TagsDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Tags');
   },
 
   _onClick: function () {

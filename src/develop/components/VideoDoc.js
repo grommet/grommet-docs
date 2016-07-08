@@ -3,6 +3,7 @@
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Video = require('grommet/components/Video');
+var A11y = require('../../utils/a11y');
 
 var VideoDoc = React.createClass({
 
@@ -10,6 +11,10 @@ var VideoDoc = React.createClass({
     return {
       singleSelection: [0]
     };
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Video');
   },
 
   // single selection is managed by the caller via state.singleSelection

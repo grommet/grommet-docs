@@ -13,6 +13,7 @@ var Button = require('grommet/components/Button');
 var Anchor = require('grommet/components/Anchor');
 var Link = require('react-router').Link;
 var GrommetLogo = require('grommet/components/icons/Grommet');
+var A11y = require('./utils/a11y');
 
 var HomeSection = React.createClass({
   render: function () {
@@ -30,6 +31,10 @@ var Home = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle();
   },
 
   _onClick: function () {
