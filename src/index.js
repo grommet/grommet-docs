@@ -33,15 +33,17 @@ themeLink.setAttribute('href', themeUrl);
 var rootPath = '/docs/' + (theme === '' ? '' : theme + '/');
 
 var routes = require('./routes')(rootPath);
+var element = document.getElementById('content');
 
 var onRouteUpdate = function () {
   var docElements = document.querySelectorAll('.article');
   if (docElements.length > 0 && window.location.hash === '') {
     docElements[0].scrollTop = 0;
   }
+  element.focus();
 };
 
-var element = document.getElementById('content');
-ReactDOM.render(<Router onUpdate={onRouteUpdate} routes={routes} history={createHistory()} />, element);
+ReactDOM.render(<Router onUpdate={onRouteUpdate}
+  routes={routes} history={createHistory()} />, element);
 
 document.body.classList.remove('loading');

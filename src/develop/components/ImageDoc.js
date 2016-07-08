@@ -1,68 +1,73 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Image from 'grommet/components/Image';
 
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
+import { updatePageTitle } from '../../utils/a11y';
 
 Image.displayName = 'Image';
 
-const ImageDoc = () => {
-  return (
-    <DocsArticle title="Image" colorIndex="neutral-3">
+export default class ImageDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Image');
+  }
 
-      <p>An image.</p>
-      <pre><code className="html hljs xml">
-        {`<Image src="..." />`}
-      </code></pre>
+  render () {
+    return (
+      <DocsArticle title="Image" colorIndex="neutral-3">
 
-      <section>
-        <h2>Options</h2>
-        <dl>
-          <dt><code>caption       true|{"{string}"}</code></dt>
-          <dd>Whether to add image caption or not. If set to true, caption text
-            will be the image alt value. Also, caption can receive the text to be
-            used instead of the default one.</dd>
-          <dt><code>full       true|horizontal|vertical|false</code></dt>
-          <dd>Whether the width and/or height should take the full viewport size.</dd>
-          <dt><code>size       small|medium|large|thumb</code></dt>
-          <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
-          <dt><code>src        {"{string}"}</code></dt>
-          <dd>The actual image file source.</dd>
-        </dl>
-      </section>
+        <p>An image.</p>
+        <pre><code className="html hljs xml">
+          {`<Image src="..." />`}
+        </code></pre>
 
-      <section>
-        <h2>Examples</h2>
+        <section>
+          <h2>Options</h2>
+          <dl>
+            <dt><code>caption       true|{"{string}"}</code></dt>
+            <dd>Whether to add image caption or not. If set to true, caption text
+              will be the image alt value. Also, caption can receive the text to be
+              used instead of the default one.</dd>
+            <dt><code>full       true|horizontal|vertical|false</code></dt>
+            <dd>Whether the width and/or height should take the full viewport size.</dd>
+            <dt><code>size       small|medium|large|thumb</code></dt>
+            <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
+            <dt><code>src        {"{string}"}</code></dt>
+            <dd>The actual image file source.</dd>
+          </dl>
+        </section>
 
-        <Example name="Default" code={
-          <Image src="img/carousel-1.png" />
-        } />
+        <section>
+          <h2>Examples</h2>
 
-        <Example name="Thumb" code={
-          <Image src="img/carousel-1.png" size="thumb" />
-        } />
+          <Example name="Default" code={
+            <Image src="img/carousel-1.png" />
+          } />
 
-        <Example name="Small" code={
-          <Image src="img/carousel-1.png" size="small" />
-        } />
+          <Example name="Thumb" code={
+            <Image src="img/carousel-1.png" size="thumb" />
+          } />
 
-        <Example name="Large" code={
-          <Image src="img/carousel-1.png" size="large" />
-        } />
+          <Example name="Small" code={
+            <Image src="img/carousel-1.png" size="small" />
+          } />
 
-        <Example name="Full horizontal" code={
-          <Image src="img/carousel-1.png" full="horizontal" />
-        } />
+          <Example name="Large" code={
+            <Image src="img/carousel-1.png" size="large" />
+          } />
 
-        <Example name="Caption" code={
-          <Image src="img/carousel-1.png" caption="1. Sample Image" />
-        } />
+          <Example name="Full horizontal" code={
+            <Image src="img/carousel-1.png" full="horizontal" />
+          } />
 
-      </section>
+          <Example name="Caption" code={
+            <Image src="img/carousel-1.png" caption="1. Sample Image" />
+          } />
 
-    </DocsArticle>
-  );
+        </section>
+
+      </DocsArticle>
+    );
+  }
 };
-
-export default ImageDoc;

@@ -10,6 +10,7 @@ var FilterIcon = require('grommet/components/icons/base/Filter');
 var CheckBox = require('grommet/components/CheckBox');
 var Anchor = require('grommet/components/Anchor');
 var Button = require('grommet/components/Button');
+var A11y = require('../../utils/a11y');
 
 Menu.displayName = 'Menu';
 CheckBox.displayName = 'CheckBox';
@@ -24,6 +25,10 @@ var MenuDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Menu');
   },
 
   _onClick: function () {

@@ -2,8 +2,13 @@
 
 var React = require('react');
 var DocsArticle = require('../DocsArticle');
+var A11y = require('../utils/a11y');
 
 var Integration = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Integration');
+  },
+
   render: function () {
     return (
       <DocsArticle title="Integration" colorIndex="neutral-4">

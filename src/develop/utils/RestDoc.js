@@ -2,8 +2,12 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../DocsArticle';
+import { updatePageTitle } from '../../utils/a11y';
 
 export default class RestDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Rest');
+  }
 
   render () {
 

@@ -7,6 +7,7 @@ var DocsArticle = require('../../DocsArticle');
 var Footer = require('grommet/components/Footer');
 var Menu = require('grommet/components/Menu');
 var Button = require('grommet/components/Button');
+var A11y = require('../../utils/a11y');
 
 Footer.displayName = 'Footer';
 Menu.displayName = 'Menu';
@@ -16,6 +17,10 @@ var FooterDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Footer');
   },
 
   _onClick: function () {

@@ -6,8 +6,13 @@ var DocsArticle = require('../../DocsArticle');
 var FullForm = require('./samples/FullForm');
 var AddUserForm = require('./samples/AddUserForm');
 var ConfirmationForm = require('./samples/ConfirmationForm');
+var A11y = require('../../utils/a11y');
 
 var FormDoc = React.createClass({
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Form');
+  },
 
   _onSubmit: function (event) {
     event.preventDefault();

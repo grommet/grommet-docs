@@ -2,9 +2,12 @@
 
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
-
+var A11y = require('../../utils/a11y');
 
 var RestWatchDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Rest Watch');
+  },
 
   render: function() {
     var inline = [

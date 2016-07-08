@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import DocsArticle from '../../DocsArticle';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
+import { updatePageTitle } from '../../utils/a11y';
 
 const DATA = [
   {uid: 1, face: '', name: 'Alan', mood: 'happy'},
@@ -21,6 +22,10 @@ class ListDoc extends Component {
     this._onMultipleSelect = this._onMultipleSelect.bind(this);
 
     this.state = { singleSelected: [0] };
+  }
+
+  componentDidMount () {
+    updatePageTitle('List');
   }
 
   // single selection is managed by the caller via state.singleSelection

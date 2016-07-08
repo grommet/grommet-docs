@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Mobile extends Component {
+  componentDidMount () {
+    updatePageTitle('Mobile');
+  }
+
   render () {
     return (
       <DocsArticle title="Mobile" colorIndex="neutral-1">

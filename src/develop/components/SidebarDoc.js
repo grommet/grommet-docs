@@ -8,6 +8,7 @@ var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 var Button = require('grommet/components/Button');
 var CloseIcon = require('grommet/components/icons/base/Close');
+var A11y = require('../../utils/a11y');
 
 var inline =
       "<Sidebar>\n" +
@@ -18,6 +19,10 @@ var SidebarDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Sidebar');
   },
 
   _onClose: function () {

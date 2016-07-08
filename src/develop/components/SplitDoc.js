@@ -8,6 +8,7 @@ var Header = require('grommet/components/Header');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 var Section = require('grommet/components/Section');
+var A11y = require('../../utils/a11y');
 
 var inline =
       "<Split>\n" +
@@ -15,6 +16,10 @@ var inline =
       "</Split>";
 
 var SplitDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Split');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Split" colorIndex="neutral-3">
@@ -48,7 +53,7 @@ var SplitDoc = React.createClass({
             <dt><code>separator           true|false</code></dt>
             <dd>Whether to include a separator between the children.</dd>
             <dt><code>showOnResponsive    priority|both</code></dt>
-            <dd>Whether the Split should show both sides for mobile, or 
+            <dd>Whether the Split should show both sides for mobile, or
             collapse down to just the priority side.  The default value is
             'priority'</dd>
           </dl>

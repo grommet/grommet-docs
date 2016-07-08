@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 var CONTROL_ICONS = [
   {component: require('grommet/components/icons/base/Add'), labels: ['Add']},
@@ -39,8 +40,11 @@ var STATUS_ICONS = [
 ];
 
 export default class Icons extends Component {
+  componentDidMount () {
+    updatePageTitle('Icons');
+  }
+
   render () {
-    
     var controlIcons = CONTROL_ICONS.map(function (item) {
       var labels = item.labels.map(function (label) {
         return (<span key={label}>{label}</span>);

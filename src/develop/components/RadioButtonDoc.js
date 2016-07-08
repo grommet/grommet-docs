@@ -3,11 +3,16 @@
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var RadioButton = require('grommet/components/RadioButton');
+var A11y = require('../../utils/a11y');
 
 var RadioButtonDoc = React.createClass({
 
   getInitialState: function () {
     return {choice: 'choice-1'};
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Radio Button');
   },
 
   _onChange: function (choice) {

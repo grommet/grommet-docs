@@ -3,11 +3,16 @@
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Calendar = require('grommet/components/Calendar');
+var A11y = require('../../utils/a11y');
 
 var CalendarDoc = React.createClass({
 
   getInitialState: function () {
     return {value: (new Date()).toISOString().slice(0, 10)};
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Calendar');
   },
 
   _onChange: function (value) {

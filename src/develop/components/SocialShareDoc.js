@@ -4,12 +4,17 @@ var React = require('react');
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var SocialShare = require('grommet/components/SocialShare');
+var A11y = require('../../utils/a11y');
 
 function convertSocialShareToString(jsx) {
   return jsxToString(jsx);
 }
 
 var SocialShareDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Social Share');
+  },
+
   _renderSocialShareCode(SocialShare, SocialShareJSX) {
     return (
       <div>
