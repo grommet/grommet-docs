@@ -8927,11 +8927,11 @@ module.exports =
 
 	var _history = __webpack_require__(129);
 
-	var history;
-	if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-	  history = (0, _history.createMemoryHistory)();
-	} else {
+	var history = void 0;
+	if (typeof document !== 'undefined') {
 	  history = (0, _history.createHistory)();
+	} else {
+	  history = (0, _history.createMemoryHistory)();
 	}
 
 	exports.default = history;
