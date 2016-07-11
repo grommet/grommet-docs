@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Section from 'grommet/components/Section';
+import Tiles from 'grommet/components/Tiles';
 import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 import Button from 'grommet/components/Button';
@@ -17,6 +18,7 @@ export default class AnimateDoc extends Component {
   constructor () {
     super();
     this.state = {
+      boxCount: 3,
       toggleFade: true,
       toggleSlide: true
     };
@@ -92,6 +94,29 @@ export default class AnimateDoc extends Component {
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat.
               </Paragraph>
+            </Animate>
+          } />
+
+          <Button
+            label="Add"
+            primary={true}
+            onClick={() => this.setState({boxCount: this.state.boxCount + 1})}
+          />
+          <Button
+            label="Remove"
+            onClick={() => this.setState({boxCount: this.state.boxCount - 1})}
+          />
+          <Example name="Boxes" code={
+            <Animate
+              enter={{ animation: 'slide-up', duration: 1000 }}
+              component={Tiles}
+              childComponent={Box}
+            >
+              {(this.state.boxCount > 0) &&
+                new Array(this.state.boxCount).fill().map((c, i) => {
+                  return <Box key={`box-${i}`} style={{ width: 50, height: 50 }} colorIndex="brand" />;
+                })
+              }
             </Animate>
           } />
         </section>
