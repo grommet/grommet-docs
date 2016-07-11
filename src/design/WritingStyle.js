@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -12,7 +13,7 @@ export default class WritingStyle extends Component {
   render () {
     return (
       <DocsArticle title="Writing Style" colorIndex="neutral-2">
-        <section>
+        <Box>
           <p>Applications should use a conversational tone and should not include
           excessive technical jargon.</p>
 
@@ -51,7 +52,7 @@ export default class WritingStyle extends Component {
             <li>Avoid the use of the word “please”. It can imply that a required
             action is optional.</li>
           </ul>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

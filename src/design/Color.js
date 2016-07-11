@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -12,7 +13,7 @@ export default class Color extends Component {
   render () {
     return (
       <DocsArticle title="Color" colorIndex="neutral-2">
-        <section>
+        <Box>
           <div className="generic-branding">
             <p>These are the generic, or un-branded, colors. It is expected that
               applications will define their own brand color scheme.</p>
@@ -57,7 +58,7 @@ export default class Color extends Component {
           <span className="swatch graph-4"></span>
           <span className="swatch graph-5"></span>
           <span className="swatch graph-6"></span>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -16,7 +17,7 @@ export default class Typography extends Component {
   render () {
     return (
       <DocsArticle title="Typography" colorIndex="neutral-2">
-        <section>
+        <Box>
           <p>Applications use the <span ref="fontName">Arial</span> font.  The
           typographic scale and styles can be found in the attached assets.</p>
           <h1 className="font-sample">H1 font sample</h1>
@@ -24,7 +25,7 @@ export default class Typography extends Component {
           <h3 className="font-sample">H3 font sample</h3>
           <h4 className="font-sample">H4 font sample</h4>
           <h5 className="font-sample">H5 font sample</h5>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

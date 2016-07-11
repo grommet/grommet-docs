@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -12,7 +13,7 @@ export default class Usability extends Component {
   render () {
     return (
       <DocsArticle title="Usability" colorIndex="neutral-1">
-        <section>
+        <Box>
           <dl>
             <dt>Use progressive disclosure to create depth of content</dt>
             <dd>Minimize content and avoid clutter in the interface by presenting the user with
@@ -30,7 +31,7 @@ export default class Usability extends Component {
             product works and they will need less hand holding while navigating
             through your interface.</dd>
           </dl>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

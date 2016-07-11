@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -12,7 +13,7 @@ export default class Padding extends Component {
   render () {
     return (
       <DocsArticle title="Padding" colorIndex="neutral-2">
-        <section>
+        <Box>
           <p>Padding on elements is based off of multiples and fractions of 24px. This value is used for line height, sizing, padding and margins on objects, etc.</p>
 
           <h3>Padding and sizing on components</h3>
@@ -62,7 +63,7 @@ export default class Padding extends Component {
           <p>
             The <code>pad</code> attribute can be set to <code>small</code>, <code>medium</code>, or <code>large</code>, or an object which affects the padding of components horizontally, vertically, or in-between multiple components: <code>{"{horizontal: none|small|medium|large, vertical: none|small|medium|large, between: none|small|medium|large}"}</code>. Padding set using <code>between</code> only affects components based on the direction set (adds horizontal padding between components for <code>row</code>, or vertical padding between components for <code>column</code>).
           </p>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

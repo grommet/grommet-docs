@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -12,7 +13,7 @@ export default class Interactions extends Component {
   render () {
     return (
       <DocsArticle title="Interactions" colorIndex="neutral-1">
-        <section>
+        <Box>
           <dl>
             <dt>Use device appropriate gestures and interactions</dt>
             <dd>Users expect interfaces to work naturally on their device.
@@ -24,7 +25,7 @@ export default class Interactions extends Component {
             interaction with  your application.  They should not be distracting
             or disruptive.</dd>
           </dl>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

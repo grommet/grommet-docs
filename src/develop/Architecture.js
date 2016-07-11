@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Box = require('grommet/components/Box');
 var DocsArticle = require('../DocsArticle');
 var A11y = require('../utils/a11y');
 
@@ -12,7 +13,7 @@ var Architecture = React.createClass({
   render: function () {
     return (
       <DocsArticle title="Architecture" colorIndex="neutral-4">
-        <section>
+        <Box>
           <a className="reference" id="technology-stack"> </a>
         	<h2>Technology Stack</h2>
         	<p>
@@ -32,7 +33,7 @@ var Architecture = React.createClass({
             We've done that for you.  But if you would like to contribute,
             please do so!
           </p>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }
