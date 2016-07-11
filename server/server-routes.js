@@ -9798,7 +9798,7 @@ module.exports =
 	      ),
 	      React.createElement(
 	        Box,
-	        { pad: { horizontal: 'large' } },
+	        { pad: { horizontal: 'large', vertical: 'medium' } },
 	        this.props.children
 	      ),
 	      React.createElement(DocsFooter, null)
