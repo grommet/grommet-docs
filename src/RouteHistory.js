@@ -1,3 +1,10 @@
-import { createHistory } from 'history';
+import { createHistory, createMemoryHistory } from 'history';
 
-export default createHistory();
+var history;
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  history = createMemoryHistory();
+} else {
+  history = createHistory();
+}
+
+export default history;
