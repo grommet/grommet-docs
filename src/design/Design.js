@@ -3,13 +3,12 @@
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
-var Link = Router.Link;
 
 var Box = require('grommet/components/Box');
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
+var NavAnchor = require('../NavAnchor');
 var Menu = require('grommet/components/Menu');
-var Anchor = require('grommet/components/Anchor');
 
 // var Philosophy = require('./Philosophy');
 var BestPractices = require('./BestPractices');
@@ -72,7 +71,7 @@ var Design = React.createClass({
   },
 
   render: function () {
-    var title = <Link to={this.context.routePrefix + "design"}>Design</Link>;
+    var title = <NavAnchor href={this.context.routePrefix + "design"}>Design</NavAnchor>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Design" colorIndex="neutral-2">
@@ -85,9 +84,10 @@ var Design = React.createClass({
             Finally, we've also created a web-based development platform that enables
             developers to quickly begin implementing enterprise applications.</p>
             <Menu direction="column">
-              <Link to={this.context.routePrefix + "design/resources"}>
-                <Anchor id="resources-button" tag="span" primary={true}>Resources</Anchor>
-              </Link>
+              <NavAnchor id="resources-button" primary={true}
+                href={this.context.routePrefix + "design/resources"}>
+                Resources
+              </NavAnchor>
             </Menu>
           </Box>
         </DocsArticle>
@@ -113,7 +113,7 @@ var DesignDocument = React.createClass({
   },
 
   render: function () {
-    var title = <Link to={this.context.routePrefix + "design"}>Design</Link>;
+    var title = <NavAnchor href={this.context.routePrefix + "design"}>Design</NavAnchor>;
     return (
       <DocsSplit title={title} contents={CONTENTS}>
         {this.props.children}
