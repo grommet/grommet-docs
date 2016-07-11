@@ -1,10 +1,10 @@
 import { createHistory, createMemoryHistory } from 'history';
 
-var history;
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  history = createMemoryHistory();
-} else {
+let history;
+if (typeof document !== 'undefined') {
   history = createHistory();
+} else {
+  history = createMemoryHistory();
 }
 
 export default history;
