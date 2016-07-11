@@ -94,23 +94,23 @@ var Home = React.createClass({
           <Tiles size="small" fill={true}>
             <Tile align="center">
               <img src="img/Adobe_Illustrator.png" alt="Adobe Illustrator"/>
-              <label>Adobe Illustrator</label>
+              <span>Adobe Illustrator</span>
             </Tile>
             <Tile align="center">
               <img src="img/Adobe_Photoshop.png" alt="Adobe Photoshop" />
-              <label>Adobe Photoshop</label>
+              <span>Adobe Photoshop</span>
             </Tile>
             <Tile align="center">
               <img src="img/Sketch.png" alt="Sketch" />
-              <label>Sketch</label>
+              <span>Sketch</span>
             </Tile>
             <Tile align="center">
               <img src="img/Axure.png" alt="Axure" />
-              <label>Axure</label>
+              <span>Axure</span>
             </Tile>
             <Tile align="center">
               <img src="img/Balsamiq.png" alt="Balsamiq" />
-              <label>Balsamiq</label>
+              <span>Balsamiq</span>
             </Tile>
           </Tiles>
         </HomeSection>
