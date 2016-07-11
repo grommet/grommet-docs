@@ -48,13 +48,13 @@ var Home = React.createClass({
         <HomeSection texture={'url(img/home_intro.png)'} primary={true}>
           <DocsHeader float={true} />
           <GrommetLogo large={true} a11yTitle=""/>
-          <Headline size="large">Grommet</Headline>
+          <Heading>Grommet</Heading>
           <Headline size="small">The most advanced open source UX framework for
             enterprise applications.</Headline>
         </HomeSection>
 
         <HomeSection colorIndex="neutral-1">
-          <Heading>Create once and deliver everywhere.</Heading>
+          <Heading tag='h2' strong={true}>Create once and deliver everywhere.</Heading>
           <Headline size="small">Application experiences that look great while solving problems.</Headline>
           <Menu direction="row" justify="center" pad={{between: 'small'}}
             full="horizontal" responsive={false}>
@@ -68,7 +68,7 @@ var Home = React.createClass({
         </HomeSection>
 
         <HomeSection colorIndex="neutral-2" texture={'url(img/home_features.png)'}>
-          <Heading>So little gets you sooooooo much!</Heading>
+          <Heading tag='h2' strong={true}>So little gets you sooooooo much!</Heading>
           <Headline size="small">We’ve tried it all in enterprise and we think we’ve got a good foundation.</Headline>
           <Menu direction="row" justify="center" pad={{between: 'small'}}
             full="horizontal" responsive={false}>
@@ -80,7 +80,7 @@ var Home = React.createClass({
         </HomeSection>
 
         <HomeSection texture={'url(img/home_design.png)'}>
-          <Heading>Ready for your Design Workflow.</Heading>
+          <Heading tag='h2' strong={true}>Ready for your Design Workflow.</Heading>
           <Headline size="small">All the resources you could possibly need! Sticker sheets, Stencils,
             PSDs, and more.</Headline>
           <Menu direction="row" justify="center" pad={{between: 'small'}}
@@ -116,7 +116,7 @@ var Home = React.createClass({
         </HomeSection>
 
         <HomeSection colorIndex="neutral-3">
-          <Heading>Develop your next project with Grommet.</Heading>
+          <Heading tag='h2' strong={true}>Develop your next project with Grommet.</Heading>
           <Headline size="small">Let’s get an application on your local environment!</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <NavButton label="Start project" large={true} primary={true}
@@ -139,7 +139,7 @@ var Home = React.createClass({
         </HomeSection>
 
         <HomeSection>
-          <Heading>Built with the best stuff.</Heading>
+          <Heading tag='h2' strong={true}>Built with the best stuff.</Heading>
           <Headline size="small">The tools you know and love, all packaged together in one
             easy-to-use solution.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
@@ -187,7 +187,7 @@ var Home = React.createClass({
         </HomeSection>
 
         <HomeSection colorIndex="neutral-2">
-          <Heading>Let’s keep in touch!</Heading>
+          <Heading tag='h2' strong={true}>Let’s keep in touch!</Heading>
           <Headline size="small">Follow us on the Grommet blog to get the latest updates.</Headline>
           <Menu direction="row" justify="center" full="horizontal" responsive={false}>
             <NavButton label="Grommet blog" large={true} primary={true}
