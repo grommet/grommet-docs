@@ -1,7 +1,9 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 var CONTROL_ICONS = [
   {component: require('grommet/components/icons/base/Add'), labels: ['Add']},
@@ -39,8 +41,11 @@ var STATUS_ICONS = [
 ];
 
 export default class Icons extends Component {
+  componentDidMount () {
+    updatePageTitle('Icons');
+  }
+
   render () {
-    
     var controlIcons = CONTROL_ICONS.map(function (item) {
       var labels = item.labels.map(function (label) {
         return (<span key={label}>{label}</span>);
@@ -69,7 +74,7 @@ export default class Icons extends Component {
 
     return (
       <DocsArticle title="Icons" colorIndex="neutral-2">
-        <section>
+        <Box>
           <p>Icons are used for inline controls. Users should be able to identify
             an icon’s function without any supporting text decoration. This is why
             we have a fairly small icon set. Text is used for non-iconifiable controls.</p>
@@ -102,7 +107,7 @@ export default class Icons extends Component {
               </label>
             </div>
           </div>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

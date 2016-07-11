@@ -1,13 +1,19 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Box = require('grommet/components/Box');
 var DocsArticle = require('../DocsArticle');
+var A11y = require('../utils/a11y');
 
 var Integration = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Integration');
+  },
+
   render: function () {
     return (
       <DocsArticle title="Integration" colorIndex="neutral-4">
-        <section id="integration">
+        <Box id="integration">
           <p>
             Grommet's modular design enables you to use the parts of Grommet
             applicable to your application.  There are several ways you can
@@ -62,7 +68,7 @@ var Integration = React.createClass({
             components and a set of common services for features as search,
             associations, and dashboards.
           </p>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

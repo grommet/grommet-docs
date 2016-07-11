@@ -7,6 +7,7 @@ var Link = Router.Link;
 
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
+var Box = require('grommet/components/Box');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
@@ -75,6 +76,8 @@ var TopologyDoc = require('./components/TopologyDoc');
 var ValueDoc = require('./components/ValueDoc');
 var VideoDoc = require('./components/VideoDoc');
 var WorldMapDoc = require('./components/WorldMapDoc');
+
+var A11y = require('../utils/a11y');
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -191,12 +194,16 @@ var Develop = React.createClass({
     };
   },
 
+  componentDidMount: function () {
+    A11y.updatePageTitle('Develop');
+  },
+
   render: function () {
     var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Develop" colorIndex="neutral-1">
-          <section>
+          <Box>
             <p>Grommet was created to give developers and designers alike access to tools
             that otherwise are out of reach of most product teams. Grommet’s goal is to
             assist in creating experiences that work accross the many different interaction
@@ -209,7 +216,7 @@ var Develop = React.createClass({
                 <Anchor tag="span" primary={true}>Get Started</Anchor>
               </Link>
             </Menu>
-          </section>
+          </Box>
         </DocsArticle>
       </DocsSplit>
     );

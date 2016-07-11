@@ -1,13 +1,19 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class BestPractices extends Component {
+  componentDidMount () {
+    updatePageTitle('Best Practices');
+  }
+
   render () {
     return (
       <DocsArticle title="Best Practices" colorIndex="neutral-1">
-        <section>
+        <Box>
           <dl>
             <dt>Know your users</dt>
             <dd>It is critically important that you know your users.  Get to know some of them
@@ -69,7 +75,7 @@ export default class BestPractices extends Component {
             person’s role in the project, increasing individual ownership
             and commitment.</dd>
           </dl>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

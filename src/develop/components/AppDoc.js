@@ -6,6 +6,7 @@ var DocsArticle = require('../../DocsArticle');
 var App = require('grommet/components/App');
 var Header = require('grommet/components/Header');
 var Title = require('grommet/components/Title');
+var A11y = require('../../utils/a11y');
 
 App.displayName = 'App';
 Header.displayName = 'Header';
@@ -17,6 +18,10 @@ var inline =
       "</App>";
 
 var AppDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('App');
+  },
+
   render: function() {
 
     var appCode = (

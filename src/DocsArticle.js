@@ -46,7 +46,7 @@ var DocsArticle = React.createClass({
           colorIndex={this.props.colorIndex}>
           <h1>{this.props.title}</h1>
         </Header>
-        <Box pad={{horizontal: 'large'}}>
+        <Box pad={{horizontal: 'large', vertical: 'medium'}}>
           {this.props.children}
         </Box>
         <DocsFooter />

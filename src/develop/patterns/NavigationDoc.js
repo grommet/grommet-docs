@@ -10,8 +10,13 @@ var Menu = require('grommet/components/Menu');
 var CloseIcon = require('grommet/components/icons/base/Close');
 var Gravatar = require('react-gravatar');
 var Search = require('grommet/components/Search');
+var A11y = require('../../utils/a11y');
 
 var NavigationDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Navigation');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Navigation" colorIndex="neutral-2">

@@ -5,6 +5,7 @@ import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import SearchInput from 'grommet/components/SearchInput';
 import Box from 'grommet/components/Box';
+import { updatePageTitle } from '../../utils/a11y';
 
 const SearchInputSuggestion = (props) => {
   return (
@@ -47,6 +48,10 @@ export default class SearchInputDoc extends Component {
       richValue: "second",
       richSuggestions: RICH_VALUES
     };
+  }
+
+  componentDidMount () {
+    updatePageTitle('Search Input');
   }
 
   _onDOMChange (event) {

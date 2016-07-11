@@ -4,6 +4,7 @@ var DocsArticle = require('../../DocsArticle');
 var Section = require('grommet/components/Section');
 var Header = require('grommet/components/Header');
 var Menu = require('grommet/components/Menu');
+var A11y = require('../../utils/a11y');
 
 var inline =
       "<Section>\n" +
@@ -14,6 +15,10 @@ var SectionDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Section');
   },
 
   render: function() {

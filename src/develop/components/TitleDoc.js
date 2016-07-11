@@ -2,6 +2,7 @@ var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Title = require('grommet/components/Title');
 var Logo = require('../../img/Logo');
+var A11y = require('../../utils/a11y');
 
 var inline =
       "<Title>\n" +
@@ -9,6 +10,10 @@ var inline =
       "</Title>";
 
 var TitleDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Title');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Title" colorIndex="neutral-3">

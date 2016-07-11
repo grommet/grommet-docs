@@ -14,6 +14,7 @@ import ActionsLogo from 'grommet/components/icons/base/Actions';
 import NotificationIcon from 'grommet/components/icons/base/Notification';
 import UserSettingsIcon from 'grommet/components/icons/base/UserSettings';
 import Logo from '../../img/Logo';
+import { updatePageTitle } from '../../utils/a11y';
 
 Header.displayName = 'Header';
 Title.displayName = 'Title';
@@ -28,6 +29,10 @@ const INLINE = `<Header>
 </Header>`;
 
 export default class HeaderDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Header');
+  }
+
   render () {
     return (
       <DocsArticle title="Header" colorIndex="neutral-3">

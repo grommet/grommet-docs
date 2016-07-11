@@ -3,6 +3,7 @@
 var React = require('react');
 var DocsArticle = require('../../DocsArticle');
 var Box = require('grommet/components/Box');
+var A11y = require('../../utils/a11y');
 
 var COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', 'neutral-3', 'neutral-3-t', 'neutral-4',
   'accent-1', 'accent-1-t', 'accent-2', 'accent-2-t',
@@ -10,6 +11,9 @@ var COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', '
   'critical', 'warning', 'ok', 'unknown'];
 
 var BoxDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Box');
+  },
 
   render: function() {
     var inline = "<Box>\n  ...\n</Box>";

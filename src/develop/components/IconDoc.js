@@ -10,6 +10,7 @@ var Button = require('grommet/components/Button');
 var SVGIcon = require('grommet/components/SVGIcon');
 var iconsMap = require('./iconsMap');
 var iconNames = Object.keys(iconsMap);
+var A11y = require('../../utils/a11y');
 import Example from '../Example';
 
 //hjjs configuration
@@ -32,6 +33,7 @@ var IconDoc = React.createClass({
 
   componentDidMount: function () {
     this._highlightCode();
+    A11y.updatePageTitle('Icon');
   },
 
   componentDidUpdate: function () {

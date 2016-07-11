@@ -6,6 +6,7 @@ var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Quote = require('grommet/components/Quote');
 var Paragraph = require('grommet/components/Paragraph');
+var A11y = require('../../utils/a11y');
 
 Quote.displayName = 'Quote';
 
@@ -18,6 +19,10 @@ var QuoteDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Quote');
   },
 
   _renderCode(name, jsx) {

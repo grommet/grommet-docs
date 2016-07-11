@@ -6,11 +6,16 @@ var DocsArticle = require('../../DocsArticle');
 var Article = require('grommet/components/Article');
 var Header = require('grommet/components/Header');
 var Section = require('grommet/components/Section');
+var A11y = require('../../utils/a11y');
 
 var ArticleDoc = React.createClass({
 
   contextTypes: {
     routePrefix: React.PropTypes.string.isRequired
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Article');
   },
 
   render: function() {

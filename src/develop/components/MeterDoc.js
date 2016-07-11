@@ -8,6 +8,7 @@ import Meter from 'grommet/components/Meter';
 import FormField from 'grommet/components/FormField';
 import RadioButton from 'grommet/components/RadioButton';
 import CheckBox from 'grommet/components/CheckBox';
+import { updatePageTitle } from '../../utils/a11y';
 
 Meter.displayName = 'Meter';
 FormField.displayName = 'FormField';
@@ -98,6 +99,10 @@ export default class MeterDoc extends Component {
     };
   }
 
+  componentDidMount () {
+    updatePageTitle('Meter');
+  }
+
   _onChangeValueType (valueType) {
     this.setState({ valueType: valueType });
   }
@@ -178,7 +183,7 @@ export default class MeterDoc extends Component {
             <dd>Whether to show a legend. If showing, whether to include a total,
               and where to place it. If placement is not specified, it will be
               placed to match the aspect ratio of the window. <code>inline</code> is
-              only supported with horizontal bar. If placement is set to <code>inline</code> and 
+              only supported with horizontal bar. If placement is set to <code>inline</code> and
               total is set to <code>false</code>, the active value is hidden.</dd>
             <dt><code>max         {"{value: , label: }|{number}"}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>

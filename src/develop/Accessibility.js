@@ -1,11 +1,16 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 var React = require('react');
+var Box = require('grommet/components/Box');
 var DocsArticle = require('../DocsArticle');
 var Table = require('grommet/components/Table');
 var Status = require('grommet/components/icons/Status');
+var A11y = require('../utils/a11y');
 
 var Accessibility = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Accessibility');
+  },
 
   _onClick: function () {
     // no-op
@@ -14,7 +19,7 @@ var Accessibility = React.createClass({
   render: function() {
     return (
       <DocsArticle title="Accessibility" colorIndex="neutral-5">
-        <section>
+        <Box>
           <p>This section describes the Grommet guidelines for developing accessible applications.</p>
 
           <h3>Icons</h3>
@@ -72,7 +77,7 @@ var Accessibility = React.createClass({
             "  </Article>\n" +
             "</App>"}
           </code></pre>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

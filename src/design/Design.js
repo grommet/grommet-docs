@@ -5,7 +5,7 @@ var Router = require('react-router');
 var Route = Router.Route;
 var Link = Router.Link;
 
-var Section = require('grommet/components/Section');
+var Box = require('grommet/components/Box');
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
 var Menu = require('grommet/components/Menu');
@@ -26,6 +26,7 @@ var DateTime = require('./DateTime');
 var Capitalization = require('./Capitalization');
 var Icons = require('./Icons');
 var Resources = require('./Resources');
+var A11y = require('../utils/a11y');
 
 var CONTENTS = [
   {label: 'Philosophy',
@@ -66,13 +67,16 @@ var Design = React.createClass({
     };
   },
 
+  componentDidMount: function () {
+    A11y.updatePageTitle('Design');
+  },
+
   render: function () {
     var title = <Link to={this.context.routePrefix + "design"}>Design</Link>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Design" colorIndex="neutral-2">
-
-          <Section>
+          <Box>
             <p>This application style guide was created by the designers at Hewlett
             Packard Enterprise. The guide covers the general design principles as well
             as specific design guidelines. You'll also find downloadable assets for the
@@ -85,7 +89,7 @@ var Design = React.createClass({
                 <Anchor id="resources-button" tag="span" primary={true}>Resources</Anchor>
               </Link>
             </Menu>
-          </Section>
+          </Box>
         </DocsArticle>
       </DocsSplit>
     );

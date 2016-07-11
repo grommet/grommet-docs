@@ -1,13 +1,19 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Capitalization extends Component {
+  componentDidMount () {
+    updatePageTitle('Capitalization');
+  }
+
   render () {
     return (
       <DocsArticle title="Capitalization" colorIndex="neutral-2">
-        <section>
+        <Box>
           <p>For the English language, we recommend using English title capitalization
           rules for titles (i.e. generally, capitalize the first letter of each word). Titles
           include the following user interface elements:</p>
@@ -78,7 +84,7 @@ export default class Capitalization extends Component {
           <ul>
             <li>Schema attribute names</li>
           </ul>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }

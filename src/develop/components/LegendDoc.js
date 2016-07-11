@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Legend from 'grommet/components/Legend';
+import { updatePageTitle } from '../../utils/a11y';
 
 Legend.displayName = 'Legend';
 
@@ -35,6 +36,10 @@ const series = [
 ];
 
 export default class LegendDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Legend');
+  }
 
   render () {
 

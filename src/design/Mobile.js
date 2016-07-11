@@ -1,13 +1,19 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Mobile extends Component {
+  componentDidMount () {
+    updatePageTitle('Mobile');
+  }
+
   render () {
     return (
       <DocsArticle title="Mobile" colorIndex="neutral-1">
-        <section>
+        <Box>
           <p>Mobile is not just different screen sizes. Mobile devices actually
           change the fundamental user user experience of common tasks. Embrace
           the devices and their native capabilities.</p>
@@ -65,7 +71,7 @@ export default class Mobile extends Component {
             list than it is to input a value into a field using a (virtual)
             keyboard.</dd>
           </dl>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }
