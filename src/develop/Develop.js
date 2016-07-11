@@ -19,6 +19,7 @@ var BrowserSupport = require('./BrowserSupport');
 
 var ActionsDoc = require('./patterns/ActionsDoc');
 var AnchorDoc = require('./components/AnchorDoc');
+var AnimateDoc = require('./components/AnimateDoc');
 var AppDoc = require('./components/AppDoc');
 var ArticleDoc = require('./components/ArticleDoc');
 var BoxDoc = require('./components/BoxDoc');
@@ -103,6 +104,7 @@ var CONTENTS = [
   {label: 'Components',
     contents: [
       {route: 'develop_anchor', label: 'Anchor', component: AnchorDoc},
+      {route: 'develop_animate', label: 'Animate', component: AnimateDoc},
       {route: 'develop_app', label: 'App', component: AppDoc},
       {route: 'develop_article', label: 'Article', component: ArticleDoc},
       {route: 'develop_box', label: 'Box', component: BoxDoc},
