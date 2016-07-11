@@ -7,6 +7,7 @@ var Link = Router.Link;
 
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
+var Box = require('grommet/components/Box');
 var Menu = require('grommet/components/Menu');
 var Anchor = require('grommet/components/Anchor');
 
@@ -200,7 +201,7 @@ var Develop = React.createClass({
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Develop" colorIndex="neutral-1">
-          <section>
+          <Box>
             <p>Grommet was created to give developers and designers alike access to tools
             that otherwise are out of reach of most product teams. Grommet’s goal is to
             assist in creating experiences that work accross the many different interaction
@@ -213,7 +214,7 @@ var Develop = React.createClass({
                 <Anchor tag="span" primary={true}>Get Started</Anchor>
               </Link>
             </Menu>
-          </section>
+          </Box>
         </DocsArticle>
       </DocsSplit>
     );

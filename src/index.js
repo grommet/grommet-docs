@@ -13,7 +13,7 @@ if (! Modernizr.flexbox ||
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
-var createHistory = require('history').createHistory;
+var history = require('./RouteHistory');
 
 var themeGroups = /docs\/([^\/]+)\/?/.exec(window.location.pathname);
 
@@ -44,6 +44,6 @@ var onRouteUpdate = function () {
 };
 
 ReactDOM.render(<Router onUpdate={onRouteUpdate}
-  routes={routes} history={createHistory()} />, element);
+  routes={routes} history={history} />, element);
 
 document.body.classList.remove('loading');

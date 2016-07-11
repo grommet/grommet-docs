@@ -7,6 +7,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 
 var Anchor = require('grommet/components/Anchor');
+var Box = require('grommet/components/Box');
 
 var A11y = require('../utils/a11y');
 
@@ -22,7 +23,7 @@ var HelloWorld = React.createClass({
   render: function () {
     return (
       <DocsArticle title="Hello World" colorIndex="neutral-1">
-        <section>
+        <Box>
           <p>
             The easiest way to learn a framework is by writing a simple application.
             In this section you will access the Grommet source from our server and
@@ -47,7 +48,7 @@ var HelloWorld = React.createClass({
             Also, there is a Github <a href="https://gist.github.com/grommetux/fb257dcd546a58070db9"
             target="_blank">Gist</a> that you can use to load this same Hello World app in your local computer.
           </p>
-        </section>
+        </Box>
         <section>
           <h2>Next Steps</h2>
           <p>

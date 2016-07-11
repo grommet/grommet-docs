@@ -54,8 +54,8 @@ module.exports =
 
 	var Docs = __webpack_require__(3);
 	var Home = __webpack_require__(105);
-	var Design = __webpack_require__(127);
-	var Develop = __webpack_require__(176);
+	var Design = __webpack_require__(131);
+	var Develop = __webpack_require__(180);
 
 	module.exports = function (rootPath) {
 	  var DocsRouter = React.createClass({
@@ -3770,8 +3770,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'close' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,21L21,3 M3,3l18,18' })
 	        )
 	      );
@@ -4444,7 +4444,8 @@ module.exports =
 	          'span',
 	          { key: 'label', className: CLASS_ROOT + '__control-label' },
 	          this.props.label
-	        ), _react2.default.createElement(_Down2.default, { key: 'caret' })];
+	        ), _react2.default.createElement(_Down2.default, { key: 'caret', a11yTitle: 'menu-down',
+	          a11yTitleId: 'menu-down-id' })];
 	      }
 	      if (!icon && !label) {
 	        icon = _react2.default.createElement(_More2.default, { key: 'icon' });
@@ -4976,8 +4977,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'down' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_260_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '23,6.5 12,17.5 1,6.5 \t' })
 	        )
 	      );
@@ -5099,8 +5100,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'more' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_3_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '0', y: '10', width: '4', height: '4' }),
 	          _react2.default.createElement('rect', { x: '10', y: '10', width: '4', height: '4' }),
 	          _react2.default.createElement('rect', { x: '20', y: '10', width: '4', height: '4' })
@@ -5165,14 +5166,14 @@ module.exports =
 	var Footer = __webpack_require__(116);
 	var Section = __webpack_require__(117);
 	var Headline = __webpack_require__(118);
-	var Tiles = __webpack_require__(119);
-	var Tile = __webpack_require__(125);
+	var Heading = __webpack_require__(119);
+	var Tiles = __webpack_require__(120);
+	var Tile = __webpack_require__(126);
 	var Menu = __webpack_require__(97);
-	var Button = __webpack_require__(96);
+	var NavButton = __webpack_require__(127);
 	var Anchor = __webpack_require__(115);
-	var Link = __webpack_require__(2).Link;
 	var GrommetLogo = __webpack_require__(114);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var HomeSection = React.createClass({
 	  displayName: 'HomeSection',
@@ -5182,7 +5183,7 @@ module.exports =
 	      Section,
 	      _extends({}, this.props, {
 	        appCentered: true, justify: 'center', align: 'center', full: true,
-	        textCentered: true, pad: { vertical: "large" } }),
+	        pad: { vertical: "large" } }),
 	      this.props.children
 	    );
 	  }
@@ -5198,10 +5199,6 @@ module.exports =
 
 	  componentDidMount: function componentDidMount() {
 	    A11y.updatePageTitle();
-	  },
-
-	  _onClick: function _onClick() {
-	    // no-op
 	  },
 
 	  _onRequestForBlog: function _onRequestForBlog() {
@@ -5232,7 +5229,7 @@ module.exports =
 	        HomeSection,
 	        { colorIndex: 'neutral-1' },
 	        React.createElement(
-	          Headline,
+	          Heading,
 	          null,
 	          'Create once and deliver everywhere.'
 	        ),
@@ -5243,17 +5240,12 @@ module.exports =
 	        ),
 	        React.createElement(
 	          Menu,
-	          { direction: 'row', justify: 'center', full: 'horizontal', responsive: false },
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "design" },
-	            React.createElement(Button, { label: 'See more examples', onClick: this._onClick, large: true, primary: true })
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "develop/get-started" },
-	            React.createElement(Button, { label: 'Test our demo app', onClick: this._onClick, large: true })
-	          )
+	          { direction: 'row', justify: 'center', pad: { between: 'small' },
+	            full: 'horizontal', responsive: false },
+	          React.createElement(NavButton, { label: 'See more examples', large: true, primary: true,
+	            href: this.context.routePrefix + "design" }),
+	          React.createElement(NavButton, { label: 'Test our demo app', large: true,
+	            href: this.context.routePrefix + "develop/get-started" })
 	        ),
 	        React.createElement('p', null),
 	        React.createElement('img', { src: 'img/home_scale.png', alt: 'Tablet and Phone' })
@@ -5262,7 +5254,7 @@ module.exports =
 	        HomeSection,
 	        { colorIndex: 'neutral-2', texture: 'url(img/home_features.png)' },
 	        React.createElement(
-	          Headline,
+	          Heading,
 	          null,
 	          'So little gets you sooooooo much!'
 	        ),
@@ -5273,24 +5265,19 @@ module.exports =
 	        ),
 	        React.createElement(
 	          Menu,
-	          { direction: 'row', justify: 'center', full: 'horizontal', responsive: false },
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "develop/architecture" },
-	            React.createElement(Button, { label: 'Our architecture', onClick: this._onClick, large: true, primary: true })
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "develop/get-started" },
-	            React.createElement(Button, { label: 'How to use', onClick: this._onClick, large: true })
-	          )
+	          { direction: 'row', justify: 'center', pad: { between: 'small' },
+	            full: 'horizontal', responsive: false },
+	          React.createElement(NavButton, { label: 'Our architecture', large: true, primary: true,
+	            href: this.context.routePrefix + "develop/architecture" }),
+	          React.createElement(NavButton, { label: 'How to use', large: true,
+	            href: this.context.routePrefix + "develop/get-started" })
 	        )
 	      ),
 	      React.createElement(
 	        HomeSection,
 	        { texture: 'url(img/home_design.png)' },
 	        React.createElement(
-	          Headline,
+	          Heading,
 	          null,
 	          'Ready for your Design Workflow.'
 	        ),
@@ -5301,17 +5288,12 @@ module.exports =
 	        ),
 	        React.createElement(
 	          Menu,
-	          { direction: 'row', justify: 'center', full: 'horizontal', responsive: false },
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "design" },
-	            React.createElement(Button, { label: 'Start designing', onClick: this._onClick, large: true, primary: true })
-	          ),
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "design/resources" },
-	            React.createElement(Button, { label: 'All resources', onClick: this._onClick, large: true })
-	          )
+	          { direction: 'row', justify: 'center', pad: { between: 'small' },
+	            full: 'horizontal', responsive: false },
+	          React.createElement(NavButton, { label: 'Start designing', large: true, primary: true,
+	            href: this.context.routePrefix + "design" }),
+	          React.createElement(NavButton, { label: 'All resources', large: true,
+	            href: this.context.routePrefix + "design/resources" })
 	        ),
 	        React.createElement(
 	          'p',
@@ -5377,7 +5359,7 @@ module.exports =
 	        HomeSection,
 	        { colorIndex: 'neutral-3' },
 	        React.createElement(
-	          Headline,
+	          Heading,
 	          null,
 	          'Develop your next project with Grommet.'
 	        ),
@@ -5389,11 +5371,8 @@ module.exports =
 	        React.createElement(
 	          Menu,
 	          { direction: 'row', justify: 'center', full: 'horizontal', responsive: false },
-	          React.createElement(
-	            Link,
-	            { to: this.context.routePrefix + "develop/get-started" },
-	            React.createElement(Button, { label: 'Start project', onClick: this._onClick, large: true, primary: true })
-	          )
+	          React.createElement(NavButton, { label: 'Start project', large: true, primary: true,
+	            href: this.context.routePrefix + "develop/get-started" })
 	        ),
 	        React.createElement(
 	          'p',
@@ -5442,7 +5421,7 @@ module.exports =
 	        HomeSection,
 	        null,
 	        React.createElement(
-	          Headline,
+	          Heading,
 	          null,
 	          'Built with the best stuff.'
 	        ),
@@ -5454,11 +5433,8 @@ module.exports =
 	        React.createElement(
 	          Menu,
 	          { direction: 'row', justify: 'center', full: 'horizontal', responsive: false },
-	          React.createElement(
-	            'a',
-	            { href: 'https://github.com/grommet/grommet' },
-	            React.createElement(Button, { label: 'View project on Github', onClick: this._onClick, large: true, primary: true })
-	          )
+	          React.createElement(NavButton, { label: 'View project on Github', large: true, primary: true,
+	            href: 'https://github.com/grommet/grommet', target: '_blank' })
 	        ),
 	        React.createElement(
 	          'p',
@@ -5537,7 +5513,7 @@ module.exports =
 	        HomeSection,
 	        { colorIndex: 'neutral-2' },
 	        React.createElement(
-	          Headline,
+	          Heading,
 	          null,
 	          'Let’s keep in touch!'
 	        ),
@@ -5549,7 +5525,8 @@ module.exports =
 	        React.createElement(
 	          Menu,
 	          { direction: 'row', justify: 'center', full: 'horizontal', responsive: false },
-	          React.createElement(Button, { label: 'Grommet blog', onClick: this._onRequestForBlog, large: true, primary: true })
+	          React.createElement(NavButton, { label: 'Grommet blog', large: true, primary: true,
+	            href: 'https://blog.grommet.io', target: '_blank' })
 	        ),
 	        React.createElement(
 	          'p',
@@ -6271,13 +6248,18 @@ module.exports =
 	            controls.push(_react2.default.createElement(_Button2.default, { key: 'previous', ref: 'previous',
 	              plain: true, a11yTitle: a11yTitle.previous,
 	              className: CONTROL_CLASS_PREFIX + '-left',
-	              onClick: this._onPrevious, icon: _react2.default.createElement(_LinkPrevious2.default, { size: 'large' }) }));
+	              onClick: this._onPrevious, icon: _react2.default.createElement(_LinkPrevious2.default, {
+	                a11yTitle: 'article-previous-title',
+	                a11yTitleId: 'article-previous-title-id',
+	                size: 'large' }) }));
 	          }
 	          if (this.state.selectedIndex < childCount - 1) {
 	            controls.push(_react2.default.createElement(_Button2.default, { key: 'next', ref: 'next',
 	              plain: true, a11yTitle: a11yTitle.next,
 	              className: CONTROL_CLASS_PREFIX + '-right',
-	              onClick: this._onNext, icon: _react2.default.createElement(_LinkNext2.default, { size: 'large' }) }));
+	              onClick: this._onNext, icon: _react2.default.createElement(_LinkNext2.default, { size: 'large',
+	                a11yTitle: 'article-next-title',
+	                a11yTitleId: 'article-next-title-id' }) }));
 	          }
 	        }
 	      } else {
@@ -6297,7 +6279,8 @@ module.exports =
 	            { key: 'next', ref: 'next', plain: true, a11yTitle: a11yTitle.next,
 	              className: CONTROL_CLASS_PREFIX + '-down',
 	              onClick: this._onNext },
-	            _react2.default.createElement(_Down2.default, null)
+	            _react2.default.createElement(_Down2.default, { a11yTitle: 'article-down',
+	              a11yTitleId: 'article-down-id' })
 	          ));
 	        }
 	      }
@@ -6553,8 +6536,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link-next' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_16_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M13,3.9448l8,8l-8,8 M2,11.9448h19' })
 	        )
 	      );
@@ -6677,7 +6660,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'link-previous' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_250_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.1397,20l-8-8l8-8 M3.1397,12h19' })
 	        )
 	      );
@@ -6799,8 +6782,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'up' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_261_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '23,14.5 12,3.5 1,14.5 \t' })
 	        )
 	      );
@@ -7308,6 +7291,7 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 	      var title = void 0;
+	      var a11yTitleId = this.props.a11yTitleId;
 	      if (this.props.a11yTitle) {
 	        title = _react2.default.createElement(
 	          'title',
@@ -7315,11 +7299,13 @@ module.exports =
 	          _react2.default.createElement(_FormattedMessage2.default, { id: this.props.a11yTitle,
 	            defaultMessage: this.props.a11yTitle })
 	        );
+	      } else {
+	        a11yTitleId = undefined;
 	      }
 	      return _react2.default.createElement(
 	        'svg',
 	        { className: classes.join(' '), viewBox: '0 0 182 182', width: '182', height: '182',
-	          version: '1.1', role: 'img', 'aria-labelledby': this.props.a11yTitleId },
+	          version: '1.1', role: 'img', 'aria-labelledby': a11yTitleId },
 	        title,
 	        _react2.default.createElement('path', { role: 'presentation',
 	          d: 'M 91,91 m 0,-82 a 82,82 0 1,1 0,164 a 82,82 0 1,1 0,-164',
@@ -7420,7 +7406,8 @@ module.exports =
 	      if (this.props.icon) {
 	        icon = this.props.icon;
 	      } else if (this.props.primary) {
-	        icon = _react2.default.createElement(_LinkNext2.default, null);
+	        icon = _react2.default.createElement(_LinkNext2.default, { a11yTitle: 'anchor-next-title',
+	          a11yTitleId: 'anchor-next-title-id' });
 	      }
 
 	      if (icon && !this.props.primary && !this.props.label) {
@@ -7885,6 +7872,111 @@ module.exports =
 	  value: true
 	});
 
+	var _getPrototypeOf = __webpack_require__(9);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(21);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(22);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(23);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(60);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _CSSClassnames = __webpack_require__(93);
+
+	var _CSSClassnames2 = _interopRequireDefault(_CSSClassnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	var CLASS_ROOT = _CSSClassnames2.default.HEADING;
+
+	var Heading = function (_Component) {
+	  (0, _inherits3.default)(Heading, _Component);
+
+	  function Heading() {
+	    (0, _classCallCheck3.default)(this, Heading);
+	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Heading).apply(this, arguments));
+	  }
+
+	  (0, _createClass3.default)(Heading, [{
+	    key: 'render',
+	    value: function render() {
+	      var classes = [CLASS_ROOT];
+	      if (this.props.size) {
+	        classes.push(CLASS_ROOT + '--' + this.props.size);
+	      }
+	      if (this.props.strong) {
+	        classes.push(CLASS_ROOT + '--strong');
+	      }
+	      if (this.props.align) {
+	        classes.push(CLASS_ROOT + '--align-' + this.props.align);
+	      }
+	      if (this.props.margin) {
+	        classes.push(CLASS_ROOT + '--margin-' + this.props.margin);
+	      }
+	      if (this.props.uppercase) {
+	        classes.push(CLASS_ROOT + '--uppercase');
+	      }
+	      if (this.props.className) {
+	        classes.push(this.props.className);
+	      }
+
+	      // we handle dangerouslySetInnerHTML to allow using Heading with Markdown.
+	      return _react2.default.createElement(
+	        this.props.tag,
+	        { id: this.props.id, className: classes.join(' '),
+	          dangerouslySetInnerHTML: this.props.dangerouslySetInnerHTML },
+	        this.props.children
+	      );
+	    }
+	  }]);
+	  return Heading;
+	}(_react.Component);
+
+	Heading.displayName = 'Heading';
+	exports.default = Heading;
+
+
+	Heading.propTypes = {
+	  align: _react.PropTypes.oneOf(['start', 'center', 'end']),
+	  margin: _react.PropTypes.oneOf(['none', 'small', 'medium', 'large']),
+	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
+	  strong: _react.PropTypes.bool,
+	  tag: _react.PropTypes.string,
+	  uppercase: _react.PropTypes.bool
+	};
+
+	Heading.defaultProps = {
+	  tag: 'h1'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 120 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	var _extends2 = __webpack_require__(69);
 
 	var _extends3 = _interopRequireDefault(_extends2);
@@ -7893,7 +7985,7 @@ module.exports =
 
 	var _keys2 = _interopRequireDefault(_keys);
 
-	var _stringify = __webpack_require__(120);
+	var _stringify = __webpack_require__(121);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -7935,7 +8027,7 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Spinning = __webpack_require__(122);
+	var _Spinning = __webpack_require__(123);
 
 	var _Spinning2 = _interopRequireDefault(_Spinning);
 
@@ -7943,11 +8035,11 @@ module.exports =
 
 	var _Scroll2 = _interopRequireDefault(_Scroll);
 
-	var _InfiniteScroll = __webpack_require__(123);
+	var _InfiniteScroll = __webpack_require__(124);
 
 	var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
 
-	var _Selection = __webpack_require__(124);
+	var _Selection = __webpack_require__(125);
 
 	var _Selection2 = _interopRequireDefault(_Selection);
 
@@ -8270,13 +8362,13 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(121), __esModule: true };
+	module.exports = { "default": __webpack_require__(122), __esModule: true };
 
 /***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core = __webpack_require__(17);
@@ -8285,7 +8377,7 @@ module.exports =
 	};
 
 /***/ },
-/* 122 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8368,7 +8460,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -8454,7 +8546,7 @@ module.exports =
 	module.exports = exports["default"];
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -8611,7 +8703,7 @@ module.exports =
 	module.exports = exports["default"];
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8753,7 +8845,99 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 126 */
+/* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Button = __webpack_require__(96);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _RouteHistory = __webpack_require__(128);
+
+	var _RouteHistory2 = _interopRequireDefault(_RouteHistory);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+
+	/**
+	* This component is used to augment Grommet button
+	* with routing/history capabilities
+	*/
+
+	var NavButton = function (_Component) {
+	  _inherits(NavButton, _Component);
+
+	  function NavButton() {
+	    _classCallCheck(this, NavButton);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(NavButton).call(this));
+
+	    _this._onClick = _this._onClick.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(NavButton, [{
+	    key: '_onClick',
+	    value: function _onClick(event) {
+	      event.preventDefault();
+	      _RouteHistory2.default.push(this.props.href);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_Button2.default, _extends({}, this.props, { onClick: this._onClick }));
+	    }
+	  }]);
+
+	  return NavButton;
+	}(_react.Component);
+
+	exports.default = NavButton;
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _history = __webpack_require__(129);
+
+	exports.default = (0, _history.createHistory)();
+	module.exports = exports['default'];
+
+/***/ },
+/* 129 */
+/***/ function(module, exports) {
+
+	module.exports = require("history");
+
+/***/ },
+/* 130 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -8777,7 +8961,7 @@ module.exports =
 	exports.default = { updatePageTitle: updatePageTitle };
 
 /***/ },
-/* 127 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8789,28 +8973,28 @@ module.exports =
 	var Route = Router.Route;
 	var Link = Router.Link;
 
-	var Section = __webpack_require__(117);
-	var DocsSplit = __webpack_require__(128);
-	var DocsArticle = __webpack_require__(132);
+	var Box = __webpack_require__(83);
+	var DocsSplit = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Menu = __webpack_require__(97);
 	var Anchor = __webpack_require__(115);
 
 	// var Philosophy = require('./Philosophy');
-	var BestPractices = __webpack_require__(139);
-	var Usability = __webpack_require__(140);
-	var Interactions = __webpack_require__(141);
-	var Mobile = __webpack_require__(142);
-	var Accessibility = __webpack_require__(143);
-	var Color = __webpack_require__(144);
-	var Padding = __webpack_require__(145);
-	var Text = __webpack_require__(146);
-	var Typography = __webpack_require__(147);
-	var WritingStyle = __webpack_require__(148);
-	var DateTime = __webpack_require__(149);
-	var Capitalization = __webpack_require__(150);
-	var Icons = __webpack_require__(151);
-	var Resources = __webpack_require__(175);
-	var A11y = __webpack_require__(126);
+	var BestPractices = __webpack_require__(143);
+	var Usability = __webpack_require__(144);
+	var Interactions = __webpack_require__(145);
+	var Mobile = __webpack_require__(146);
+	var Accessibility = __webpack_require__(147);
+	var Color = __webpack_require__(148);
+	var Padding = __webpack_require__(149);
+	var Text = __webpack_require__(150);
+	var Typography = __webpack_require__(151);
+	var WritingStyle = __webpack_require__(152);
+	var DateTime = __webpack_require__(153);
+	var Capitalization = __webpack_require__(154);
+	var Icons = __webpack_require__(155);
+	var Resources = __webpack_require__(179);
+	var A11y = __webpack_require__(130);
 
 	var CONTENTS = [{ label: 'Philosophy',
 	  contents: [{ route: "design_best_practices", label: 'Best Practices', component: BestPractices }, { route: "design_usability", label: 'Usability', component: Usability }, { route: "design_interactions", label: 'Interactions', component: Interactions }, { route: "design_mobile", label: 'Mobile', component: Mobile }, { route: "design_accessibility", label: 'Accessibility', component: Accessibility }] }, { label: 'Basics',
@@ -8851,7 +9035,7 @@ module.exports =
 	        DocsArticle,
 	        { title: 'Design', colorIndex: 'neutral-2' },
 	        React.createElement(
-	          Section,
+	          Box,
 	          null,
 	          React.createElement(
 	            'p',
@@ -8945,7 +9129,7 @@ module.exports =
 	module.exports = Design;
 
 /***/ },
-/* 128 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8954,8 +9138,8 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var Split = __webpack_require__(129);
-	var Sidebar = __webpack_require__(130);
+	var Split = __webpack_require__(133);
+	var Sidebar = __webpack_require__(134);
 	var Header = __webpack_require__(112);
 	var Title = __webpack_require__(113);
 	var Box = __webpack_require__(83);
@@ -8963,7 +9147,7 @@ module.exports =
 	var Button = __webpack_require__(96);
 	var CloseIcon = __webpack_require__(95);
 	var GrommetLogo = __webpack_require__(114);
-	var DocsMenu = __webpack_require__(131);
+	var DocsMenu = __webpack_require__(135);
 	var DOM = __webpack_require__(89);
 
 	var DocsSplit = React.createClass({
@@ -9123,7 +9307,7 @@ module.exports =
 	module.exports = DocsSplit;
 
 /***/ },
-/* 129 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9333,7 +9517,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 130 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9442,7 +9626,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 131 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9540,7 +9724,7 @@ module.exports =
 	module.exports = DocsMenu;
 
 /***/ },
-/* 132 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9551,14 +9735,14 @@ module.exports =
 	var Article = __webpack_require__(106);
 	var Header = __webpack_require__(112);
 	var Box = __webpack_require__(83);
-	var DocsFooter = __webpack_require__(133);
+	var DocsFooter = __webpack_require__(137);
 
 	//hjjs configuration
-	var hljs = __webpack_require__(134);
-	hljs.registerLanguage('bash', __webpack_require__(135));
-	hljs.registerLanguage('xml', __webpack_require__(136));
-	hljs.registerLanguage('javascript', __webpack_require__(137));
-	hljs.registerLanguage('scss', __webpack_require__(138));
+	var hljs = __webpack_require__(138);
+	hljs.registerLanguage('bash', __webpack_require__(139));
+	hljs.registerLanguage('xml', __webpack_require__(140));
+	hljs.registerLanguage('javascript', __webpack_require__(141));
+	hljs.registerLanguage('scss', __webpack_require__(142));
 
 	var DocsArticle = React.createClass({
 	  displayName: 'DocsArticle',
@@ -9615,7 +9799,7 @@ module.exports =
 	module.exports = DocsArticle;
 
 /***/ },
-/* 133 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9662,7 +9846,7 @@ module.exports =
 	module.exports = DocsFooter;
 
 /***/ },
-/* 134 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -10484,7 +10668,7 @@ module.exports =
 
 
 /***/ },
-/* 135 */
+/* 139 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10563,7 +10747,7 @@ module.exports =
 	};
 
 /***/ },
-/* 136 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10670,7 +10854,7 @@ module.exports =
 	};
 
 /***/ },
-/* 137 */
+/* 141 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10788,7 +10972,7 @@ module.exports =
 	};
 
 /***/ },
-/* 138 */
+/* 142 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10890,7 +11074,7 @@ module.exports =
 	};
 
 /***/ },
-/* 139 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10905,11 +11089,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10940,7 +11128,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Best Practices', colorIndex: 'neutral-1' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'dl',
@@ -11069,7 +11257,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 140 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11084,11 +11272,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11119,7 +11311,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Usability', colorIndex: 'neutral-1' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'dl',
@@ -11168,7 +11360,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 141 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11183,11 +11375,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11218,7 +11414,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Interactions', colorIndex: 'neutral-1' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'dl',
@@ -11257,7 +11453,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 142 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11272,11 +11468,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11307,7 +11507,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Mobile', colorIndex: 'neutral-1' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -11421,7 +11621,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 143 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11436,11 +11636,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11471,7 +11675,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Accessibility', colorIndex: 'neutral-1' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -11502,7 +11706,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 144 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11517,11 +11721,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11552,7 +11760,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Color', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'div',
@@ -11649,7 +11857,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 145 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11664,11 +11872,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11699,7 +11911,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Padding', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -12219,7 +12431,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 146 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12234,11 +12446,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12269,7 +12485,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Text', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -12289,7 +12505,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 147 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12304,11 +12520,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12342,7 +12562,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Typography', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -12393,7 +12613,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 148 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12408,11 +12628,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12443,7 +12667,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Writing Style', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -12561,7 +12785,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 149 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12576,11 +12800,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12611,7 +12839,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Date and Time', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -12672,7 +12900,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 150 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12687,11 +12915,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12722,7 +12954,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Capitalization', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -12942,7 +13174,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 151 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12957,11 +13189,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _Box = __webpack_require__(83);
+
+	var _Box2 = _interopRequireDefault(_Box);
+
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12971,10 +13207,10 @@ module.exports =
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-	var CONTROL_ICONS = [{ component: __webpack_require__(152), labels: ['Add'] }, { component: __webpack_require__(95), labels: ['Clear', 'Close', 'Remove'] }, { component: __webpack_require__(153), labels: ['Edit', 'Settings', 'Actions'] }, { component: __webpack_require__(101), labels: ['More'] }, { component: __webpack_require__(154), labels: ['Drag handle'] }, { component: __webpack_require__(100), labels: ['Drop caret'] }, { component: __webpack_require__(155), labels: ['Filter'] }, { component: __webpack_require__(156), labels: ['Search'] }, { component: __webpack_require__(157), labels: ['Calendar'] }, { component: __webpack_require__(158), labels: ['Help'] }, { component: __webpack_require__(109), labels: ['Left', 'Previous'] }, { component: __webpack_require__(108), labels: ['Right', 'Next'] }, { component: __webpack_require__(159), labels: ['Up'] }, { component: __webpack_require__(160), labels: ['Top'] }, { component: __webpack_require__(161), labels: ['User'] }, { component: __webpack_require__(162), labels: ['Language'] }, { component: __webpack_require__(163), labels: ['Mail'] }, { component: __webpack_require__(164), labels: ['Twitter'] }, { component: __webpack_require__(165), labels: ['LinkedIn'] }, { component: __webpack_require__(166), labels: ['Facebook'] }];
+	var CONTROL_ICONS = [{ component: __webpack_require__(156), labels: ['Add'] }, { component: __webpack_require__(95), labels: ['Clear', 'Close', 'Remove'] }, { component: __webpack_require__(157), labels: ['Edit', 'Settings', 'Actions'] }, { component: __webpack_require__(101), labels: ['More'] }, { component: __webpack_require__(158), labels: ['Drag handle'] }, { component: __webpack_require__(100), labels: ['Drop caret'] }, { component: __webpack_require__(159), labels: ['Filter'] }, { component: __webpack_require__(160), labels: ['Search'] }, { component: __webpack_require__(161), labels: ['Calendar'] }, { component: __webpack_require__(162), labels: ['Help'] }, { component: __webpack_require__(109), labels: ['Left', 'Previous'] }, { component: __webpack_require__(108), labels: ['Right', 'Next'] }, { component: __webpack_require__(163), labels: ['Up'] }, { component: __webpack_require__(164), labels: ['Top'] }, { component: __webpack_require__(165), labels: ['User'] }, { component: __webpack_require__(166), labels: ['Language'] }, { component: __webpack_require__(167), labels: ['Mail'] }, { component: __webpack_require__(168), labels: ['Twitter'] }, { component: __webpack_require__(169), labels: ['LinkedIn'] }, { component: __webpack_require__(170), labels: ['Facebook'] }];
 
-	var Spinning = __webpack_require__(122);
-	var Status = __webpack_require__(167);
+	var Spinning = __webpack_require__(123);
+	var Status = __webpack_require__(171);
 
 	var STATUS_ICONS = [{ component: Status, value: 'Critical', labels: ['Critical'] }, { component: Status, value: 'warning', labels: ['Warning'] }, { component: Status, value: 'ok', labels: ['OK', 'Normal'] }, { component: Status, value: 'unknown', labels: ['Unknown'] }, { component: Status, value: 'disabled', labels: ['Disabled'] }, { component: Status, value: 'label', labels: ['Label', 'Table header'] }];
 
@@ -13041,7 +13277,7 @@ module.exports =
 	        _DocsArticle2.default,
 	        { title: 'Icons', colorIndex: 'neutral-2' },
 	        _react2.default.createElement(
-	          'section',
+	          _Box2.default,
 	          null,
 	          _react2.default.createElement(
 	            'p',
@@ -13128,7 +13364,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 152 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13220,8 +13456,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'add' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_1_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M0,12h24 M12,24V0' })
 	        )
 	      );
@@ -13251,7 +13487,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 153 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13343,8 +13579,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'edit' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_33_', y: '0.2111', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.2111', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17.5047,1.4142l5.0891,5.0891L6.0891,23.008H1\r v-5.0891L17.5047,1.4142z M14.5621,4.9027l4.8677,4.8677' })
 	        )
 	      );
@@ -13374,7 +13610,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 154 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13466,8 +13702,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'drag' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_6_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z' })
 	        )
 	      );
@@ -13497,7 +13733,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 155 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13589,9 +13825,9 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'filter_1_' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_8_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('polygon', { id: 'filter', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1.5,2 1.5,2.5 9.5,12.5 \r 9.5,22.5 14.5,20.5 14.5,12.5 22.5,2.5 22.5,2 \t' })
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1.5,2 1.5,2.5 9.5,12.5 \r 9.5,22.5 14.5,20.5 14.5,12.5 22.5,2.5 22.5,2 \t' })
 	        )
 	      );
 	    }
@@ -13620,7 +13856,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 156 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13712,8 +13948,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'search' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_9_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,9.5c0,4.6944-3.8056,8.5-8.5,8.5\r S1,14.1944,1,9.5S4.8056,1,9.5,1S18,4.8056,18,9.5z M16,16l7,7' })
 	        )
 	      );
@@ -13743,7 +13979,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 157 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13835,8 +14071,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'calendar' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_34_', y: '0.2031', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.2031', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,23H1V4h22V23z M2,10h20 M6,4V0 M18,4V0' })
 	        )
 	      );
@@ -13866,7 +14102,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 158 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13958,8 +14194,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'help' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_18_', x: '0', y: '0.1518', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.1518', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5.9638,6.9408\r c0-3.3312,2.7795-5.9866,6.1213-5.9401c3.176,0.0442,5.9069,2.9082,5.9511,6.0841c0.0381,2.7402-1.8236,4.9472-4.3113,5.6954\r C12.679,13.0947,12,14.1324,12,15.2247v2.8719' }),
 	          _react2.default.createElement('circle', { cx: '12', cy: '22.0966', r: '2' })
 	        )
@@ -13990,7 +14226,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 159 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14083,7 +14319,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'link-up' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_15_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,10.9448l8-8l8,8 M12,21.9448v-19' })
 	        )
 	      );
@@ -14113,7 +14349,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 160 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14206,7 +14442,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'link-top' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_14_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,12.9448l7-7l7,7 M12,22.9448v-17 M2,1.9448h20' })
 	        )
 	      );
@@ -14236,7 +14472,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 161 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14328,8 +14564,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_32_', x: '0', y: '0.2031', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.2031', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,6c0,2.7614-2.2386,5-5,5S7,8.7614,7,6\r s2.2386-5,5-5S17,3.2386,17,6z M21,24v-5c0-4.4183-3.5817-8-8-8h-2c-4.4183,0-8,3.5817-8,8v5 M8,24v-5 M16,24v-5' })
 	        )
 	      );
@@ -14359,7 +14595,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 162 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14451,8 +14687,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'language' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_30_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12c0,6.0751-4.9249,11-11,11S1,18.0751,1,12\r S5.9249,1,12,1S23,5.9249,23,12z M12,1C9.7909,1,8,5.9249,8,12s1.7909,11,4,11s4-4.9249,4-11S14.2091,1,12,1z M2,8h20 M2,16h20' })
 	        )
 	      );
@@ -14482,7 +14718,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 163 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14574,8 +14810,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'mail' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_78_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,20H1V4h22V20z M1,6l11,9l11-9' })
 	        )
 	      );
@@ -14605,7 +14841,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 164 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14727,7 +14963,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 165 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14849,7 +15085,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 166 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14971,7 +15207,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 167 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15004,31 +15240,31 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _OK = __webpack_require__(168);
+	var _OK = __webpack_require__(172);
 
 	var _OK2 = _interopRequireDefault(_OK);
 
-	var _CriticalStatus = __webpack_require__(169);
+	var _CriticalStatus = __webpack_require__(173);
 
 	var _CriticalStatus2 = _interopRequireDefault(_CriticalStatus);
 
-	var _Warning = __webpack_require__(170);
+	var _Warning = __webpack_require__(174);
 
 	var _Warning2 = _interopRequireDefault(_Warning);
 
-	var _Disabled = __webpack_require__(171);
+	var _Disabled = __webpack_require__(175);
 
 	var _Disabled2 = _interopRequireDefault(_Disabled);
 
-	var _Unknown = __webpack_require__(172);
+	var _Unknown = __webpack_require__(176);
 
 	var _Unknown2 = _interopRequireDefault(_Unknown);
 
-	var _Blank = __webpack_require__(173);
+	var _Blank = __webpack_require__(177);
 
 	var _Blank2 = _interopRequireDefault(_Blank);
 
-	var _Label = __webpack_require__(174);
+	var _Label = __webpack_require__(178);
 
 	var _Label2 = _interopRequireDefault(_Label);
 
@@ -15113,7 +15349,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 168 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15214,7 +15450,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 169 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15317,7 +15553,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 170 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15419,7 +15655,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 171 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15520,7 +15756,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 172 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15617,7 +15853,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 173 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15703,7 +15939,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 174 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15780,7 +16016,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 175 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15788,8 +16024,8 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var A11y = __webpack_require__(130);
 
 	var Resources = React.createClass({
 	  displayName: 'Resources',
@@ -16099,7 +16335,7 @@ module.exports =
 	module.exports = Resources;
 
 /***/ },
-/* 176 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16111,84 +16347,85 @@ module.exports =
 	var Route = Router.Route;
 	var Link = Router.Link;
 
-	var DocsSplit = __webpack_require__(128);
-	var DocsArticle = __webpack_require__(132);
+	var DocsSplit = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
+	var Box = __webpack_require__(83);
 	var Menu = __webpack_require__(97);
 	var Anchor = __webpack_require__(115);
 
-	var HelloWorld = __webpack_require__(177);
-	var GetStarted = __webpack_require__(178);
-	var Architecture = __webpack_require__(179);
-	var Integration = __webpack_require__(180);
-	var Accessibility = __webpack_require__(181);
-	var BrowserSupport = __webpack_require__(183);
+	var HelloWorld = __webpack_require__(181);
+	var GetStarted = __webpack_require__(182);
+	var Architecture = __webpack_require__(183);
+	var Integration = __webpack_require__(184);
+	var Accessibility = __webpack_require__(185);
+	var BrowserSupport = __webpack_require__(187);
 
-	var ActionsDoc = __webpack_require__(189);
-	var AnchorDoc = __webpack_require__(190);
-	var AppDoc = __webpack_require__(194);
-	var ArticleDoc = __webpack_require__(195);
-	var BoxDoc = __webpack_require__(196);
-	var BrickDoc = __webpack_require__(197);
-	var ButtonDoc = __webpack_require__(200);
-	var CalendarDoc = __webpack_require__(201);
-	var CarouselDoc = __webpack_require__(204);
-	var ChartDoc = __webpack_require__(208);
-	var CheckBoxDoc = __webpack_require__(211);
-	var ColumnsDoc = __webpack_require__(213);
-	var DashboardDoc = __webpack_require__(215);
-	var DateTimeDoc = __webpack_require__(225);
-	var DistributionDoc = __webpack_require__(230);
-	var FooterDoc = __webpack_require__(232);
-	var FormDoc = __webpack_require__(233);
-	var FormFieldDoc = __webpack_require__(244);
-	var HeaderDoc = __webpack_require__(245);
-	var HeadingDoc = __webpack_require__(250);
-	var HeadlineDoc = __webpack_require__(252);
-	var IconDoc = __webpack_require__(253);
-	var ImageDoc = __webpack_require__(538);
-	var LabelDoc = __webpack_require__(541);
-	var LayerDoc = __webpack_require__(542);
-	var LegendDoc = __webpack_require__(545);
-	var ListDoc = __webpack_require__(546);
-	var LoginFormDoc = __webpack_require__(549);
-	var MapDoc = __webpack_require__(551);
-	var MarkdownDoc = __webpack_require__(553);
-	var MenuDoc = __webpack_require__(557);
-	var MeterDoc = __webpack_require__(558);
-	var NavigationDoc = __webpack_require__(560);
-	var NotificationDoc = __webpack_require__(561);
-	var NumberInputDoc = __webpack_require__(563);
-	var ParagraphDoc = __webpack_require__(564);
-	var QuoteDoc = __webpack_require__(565);
-	var RadioButtonDoc = __webpack_require__(567);
-	var RestDoc = __webpack_require__(568);
-	var RestWatchDoc = __webpack_require__(569);
-	var SearchDoc = __webpack_require__(570);
-	var SearchInputDoc = __webpack_require__(571);
-	var SectionDoc = __webpack_require__(572);
-	var SidebarDoc = __webpack_require__(573);
-	var SocialShareDoc = __webpack_require__(574);
-	var SpinningDoc = __webpack_require__(576);
-	var SplitDoc = __webpack_require__(577);
-	var StatusDoc = __webpack_require__(578);
-	var TabsDoc = __webpack_require__(579);
-	var TableDoc = __webpack_require__(582);
-	var TagsDoc = __webpack_require__(584);
-	var TilesDoc = __webpack_require__(587);
-	var TitleDoc = __webpack_require__(588);
-	var TopologyDoc = __webpack_require__(589);
-	var ValueDoc = __webpack_require__(591);
-	var VideoDoc = __webpack_require__(593);
-	var WorldMapDoc = __webpack_require__(595);
+	var ActionsDoc = __webpack_require__(193);
+	var AnchorDoc = __webpack_require__(194);
+	var AppDoc = __webpack_require__(198);
+	var ArticleDoc = __webpack_require__(199);
+	var BoxDoc = __webpack_require__(200);
+	var BrickDoc = __webpack_require__(201);
+	var ButtonDoc = __webpack_require__(204);
+	var CalendarDoc = __webpack_require__(205);
+	var CarouselDoc = __webpack_require__(208);
+	var ChartDoc = __webpack_require__(212);
+	var CheckBoxDoc = __webpack_require__(215);
+	var ColumnsDoc = __webpack_require__(217);
+	var DashboardDoc = __webpack_require__(219);
+	var DateTimeDoc = __webpack_require__(229);
+	var DistributionDoc = __webpack_require__(234);
+	var FooterDoc = __webpack_require__(236);
+	var FormDoc = __webpack_require__(237);
+	var FormFieldDoc = __webpack_require__(248);
+	var HeaderDoc = __webpack_require__(249);
+	var HeadingDoc = __webpack_require__(254);
+	var HeadlineDoc = __webpack_require__(255);
+	var IconDoc = __webpack_require__(256);
+	var ImageDoc = __webpack_require__(541);
+	var LabelDoc = __webpack_require__(544);
+	var LayerDoc = __webpack_require__(545);
+	var LegendDoc = __webpack_require__(548);
+	var ListDoc = __webpack_require__(549);
+	var LoginFormDoc = __webpack_require__(552);
+	var MapDoc = __webpack_require__(554);
+	var MarkdownDoc = __webpack_require__(556);
+	var MenuDoc = __webpack_require__(560);
+	var MeterDoc = __webpack_require__(561);
+	var NavigationDoc = __webpack_require__(563);
+	var NotificationDoc = __webpack_require__(564);
+	var NumberInputDoc = __webpack_require__(566);
+	var ParagraphDoc = __webpack_require__(567);
+	var QuoteDoc = __webpack_require__(568);
+	var RadioButtonDoc = __webpack_require__(570);
+	var RestDoc = __webpack_require__(571);
+	var RestWatchDoc = __webpack_require__(572);
+	var SearchDoc = __webpack_require__(573);
+	var SearchInputDoc = __webpack_require__(574);
+	var SectionDoc = __webpack_require__(575);
+	var SidebarDoc = __webpack_require__(576);
+	var SocialShareDoc = __webpack_require__(577);
+	var SpinningDoc = __webpack_require__(579);
+	var SplitDoc = __webpack_require__(580);
+	var StatusDoc = __webpack_require__(581);
+	var TabsDoc = __webpack_require__(582);
+	var TableDoc = __webpack_require__(585);
+	var TagsDoc = __webpack_require__(587);
+	var TilesDoc = __webpack_require__(590);
+	var TitleDoc = __webpack_require__(591);
+	var TopologyDoc = __webpack_require__(592);
+	var ValueDoc = __webpack_require__(594);
+	var VideoDoc = __webpack_require__(596);
+	var WorldMapDoc = __webpack_require__(598);
 
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	//hjjs configuration
-	var hljs = __webpack_require__(134);
-	hljs.registerLanguage('bash', __webpack_require__(135));
-	hljs.registerLanguage('xml', __webpack_require__(136));
-	hljs.registerLanguage('javascript', __webpack_require__(137));
-	hljs.registerLanguage('scss', __webpack_require__(138));
+	var hljs = __webpack_require__(138);
+	hljs.registerLanguage('bash', __webpack_require__(139));
+	hljs.registerLanguage('xml', __webpack_require__(140));
+	hljs.registerLanguage('javascript', __webpack_require__(141));
+	hljs.registerLanguage('scss', __webpack_require__(142));
 
 	var CONTENTS = [{ label: 'Guides',
 	  contents: [{ route: 'develop_helloworld', label: 'Hello World',
@@ -16242,7 +16479,7 @@ module.exports =
 	        DocsArticle,
 	        { title: 'Develop', colorIndex: 'neutral-1' },
 	        React.createElement(
-	          'section',
+	          Box,
 	          null,
 	          React.createElement(
 	            'p',
@@ -16349,7 +16586,7 @@ module.exports =
 	module.exports = Develop;
 
 /***/ },
-/* 177 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16357,14 +16594,15 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 
 	var Router = __webpack_require__(2);
 	var Link = Router.Link;
 
 	var Anchor = __webpack_require__(115);
+	var Box = __webpack_require__(83);
 
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var HelloWorld = React.createClass({
 	  displayName: 'HelloWorld',
@@ -16382,7 +16620,7 @@ module.exports =
 	      DocsArticle,
 	      { title: 'Hello World', colorIndex: 'neutral-1' },
 	      React.createElement(
-	        'section',
+	        Box,
 	        null,
 	        React.createElement(
 	          'p',
@@ -16470,7 +16708,7 @@ module.exports =
 	module.exports = HelloWorld;
 
 /***/ },
-/* 178 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16483,11 +16721,11 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16923,7 +17161,7 @@ module.exports =
 	module.exports = GetStarted;
 
 /***/ },
-/* 179 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16931,8 +17169,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var A11y = __webpack_require__(126);
+	var Box = __webpack_require__(83);
+	var DocsArticle = __webpack_require__(136);
+	var A11y = __webpack_require__(130);
 
 	var Architecture = React.createClass({
 	  displayName: 'Architecture',
@@ -16946,7 +17185,7 @@ module.exports =
 	      DocsArticle,
 	      { title: 'Architecture', colorIndex: 'neutral-4' },
 	      React.createElement(
-	        'section',
+	        Box,
 	        null,
 	        React.createElement(
 	          'a',
@@ -17006,7 +17245,7 @@ module.exports =
 	module.exports = Architecture;
 
 /***/ },
-/* 180 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17014,8 +17253,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var A11y = __webpack_require__(126);
+	var Box = __webpack_require__(83);
+	var DocsArticle = __webpack_require__(136);
+	var A11y = __webpack_require__(130);
 
 	var Integration = React.createClass({
 	  displayName: 'Integration',
@@ -17029,7 +17269,7 @@ module.exports =
 	      DocsArticle,
 	      { title: 'Integration', colorIndex: 'neutral-4' },
 	      React.createElement(
-	        'section',
+	        Box,
 	        { id: 'integration' },
 	        React.createElement(
 	          'p',
@@ -17127,7 +17367,7 @@ module.exports =
 	module.exports = Integration;
 
 /***/ },
-/* 181 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17135,10 +17375,11 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Table = __webpack_require__(182);
-	var Status = __webpack_require__(167);
-	var A11y = __webpack_require__(126);
+	var Box = __webpack_require__(83);
+	var DocsArticle = __webpack_require__(136);
+	var Table = __webpack_require__(186);
+	var Status = __webpack_require__(171);
+	var A11y = __webpack_require__(130);
 
 	var Accessibility = React.createClass({
 	  displayName: 'Accessibility',
@@ -17156,7 +17397,7 @@ module.exports =
 	      DocsArticle,
 	      { title: 'Accessibility', colorIndex: 'neutral-5' },
 	      React.createElement(
-	        'section',
+	        Box,
 	        null,
 	        React.createElement(
 	          'p',
@@ -17319,7 +17560,7 @@ module.exports =
 	module.exports = Accessibility;
 
 /***/ },
-/* 182 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17332,7 +17573,7 @@ module.exports =
 
 	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
-	var _stringify = __webpack_require__(120);
+	var _stringify = __webpack_require__(121);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -17364,15 +17605,15 @@ module.exports =
 
 	var _classnames3 = _interopRequireDefault(_classnames2);
 
-	var _Spinning = __webpack_require__(122);
+	var _Spinning = __webpack_require__(123);
 
 	var _Spinning2 = _interopRequireDefault(_Spinning);
 
-	var _InfiniteScroll = __webpack_require__(123);
+	var _InfiniteScroll = __webpack_require__(124);
 
 	var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
 
-	var _Selection = __webpack_require__(124);
+	var _Selection = __webpack_require__(125);
 
 	var _Selection2 = _interopRequireDefault(_Selection);
 
@@ -17649,7 +17890,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 183 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17657,14 +17898,15 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
 	var Box = __webpack_require__(83);
-	var FirefoxIcon = __webpack_require__(184);
-	var IEIcon = __webpack_require__(185);
-	var EdgeIcon = __webpack_require__(186);
-	var ChromeIcon = __webpack_require__(187);
-	var AppleIcon = __webpack_require__(188);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Box = __webpack_require__(83);
+	var FirefoxIcon = __webpack_require__(188);
+	var IEIcon = __webpack_require__(189);
+	var EdgeIcon = __webpack_require__(190);
+	var ChromeIcon = __webpack_require__(191);
+	var AppleIcon = __webpack_require__(192);
+	var A11y = __webpack_require__(130);
 
 	var Browser = React.createClass({
 	  displayName: 'Browser',
@@ -17696,7 +17938,7 @@ module.exports =
 	      DocsArticle,
 	      { title: 'Browser Support', colorIndex: 'neutral-4' },
 	      React.createElement(
-	        'section',
+	        Box,
 	        null,
 	        React.createElement(
 	          'h2',
@@ -17774,7 +18016,7 @@ module.exports =
 	module.exports = BrowserSupport;
 
 /***/ },
-/* 184 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17867,7 +18109,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-firefox' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_301_', x: '0.5814', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.5814', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M23.9654,9.7423l-0.278,1.7831c0,0-0.3974-3.3013-0.8843-4.5355c-0.7464-1.8911-1.0785-1.8759-1.0807-1.8732\r c0.4999,1.2704,0.4093,1.9529,0.4093,1.9529s-0.8857-2.414-3.2276-3.1821c-2.5942-0.8504-3.9977-0.6179-4.1599-0.5739\r c-0.0246-0.0002-0.0484-0.0002-0.071-0.0002c0.0192,0.0015,0.0378,0.0034,0.0569,0.005c-0.0008,0.0005-0.0021,0.001-0.0021,0.001\r c0.0107,0.0131,2.8667,0.4995,3.3732,1.1955c0,0-1.2131,0-2.4204,0.3479c-0.0546,0.0156,4.442,0.5617,5.3612,5.0549\r c0,0-0.4929-1.0283-1.1025-1.203c0.4009,1.2196,0.298,3.5338-0.0838,4.684c-0.0491,0.1479-0.0994-0.6394-0.8514-0.9785\r c0.2409,1.7261-0.0144,4.4638-1.2119,5.2179c-0.0933,0.0587,0.7507-2.7026,0.1697-1.635c-3.3447,5.1282-7.2985,2.3665-9.0761,1.151\r c0.9109,0.1983,2.6403-0.0309,3.4058-0.6003c0.001-0.0007,0.0018-0.0013,0.0028-0.002c0.8313-0.5684,1.3236-0.9835,1.7656-0.8853\r c0.4424,0.0988,0.7368-0.3451,0.3933-0.739c-0.344-0.3946-1.1792-0.937-2.3092-0.6414c-0.7969,0.2087-1.7844,1.0904-3.2917,0.1976\r c-1.157-0.6855-1.2659-1.255-1.2762-1.6494c0.0285-0.1398,0.0645-0.2704,0.1072-0.3896c0.1332-0.372,0.537-0.4842,0.7616-0.5728\r c0.381,0.0654,0.7093,0.1843,1.0539,0.3611c0.0045-0.1147,0.0059-0.267-0.0004-0.4397c0.033-0.0657,0.0126-0.2637-0.0404-0.5058\r c-0.0305-0.2416-0.0802-0.4916-0.1582-0.7193c0.0003,0,0.0005-0.0002,0.0005-0.0002c0.0015-0.0005,0.0028-0.001,0.0039-0.0017\r c0.0018-0.001,0.0034-0.0026,0.0049-0.0045C9.3096,10.5612,9.31,10.5609,9.31,10.5609c0.0023-0.0033,0.0039-0.0068,0.005-0.0113\r c0.0239-0.1082,0.2818-0.317,0.6028-0.5414C10.2054,9.807,10.5436,9.5934,10.81,9.428c0.2358-0.1464,0.4153-0.255,0.4534-0.2835\r c0.0145-0.0109,0.0318-0.0237,0.0507-0.0383c0.0035-0.0027,0.007-0.0054,0.0106-0.0083c0.0022-0.0017,0.0045-0.0035,0.0067-0.0053\r c0.1268-0.101,0.316-0.2917,0.3557-0.6932c0.0001-0.001,0.0002-0.0019,0.0003-0.0029c0.0012-0.0118,0.0022-0.0238,0.003-0.036\r c0.0007-0.0085,0.0012-0.017,0.0017-0.0257c0.0003-0.0067,0.0007-0.0133,0.001-0.0201c0.0007-0.0158,0.0012-0.032,0.0014-0.0484\r c0-0.0009,0-0.0018,0.0001-0.0027c0.0005-0.0389-0.0001-0.0794-0.0024-0.1219c-0.0013-0.0238-0.003-0.0452-0.007-0.0647\r c-0.0002-0.001-0.0004-0.0022-0.0007-0.0032c-0.0004-0.0019-0.0008-0.0038-0.0014-0.0057\r c-0.0008-0.0034-0.0018-0.0068-0.0029-0.0101c0,0-0.0002-0.0008-0.0004-0.0011c-0.0012-0.0037-0.0026-0.0074-0.0041-0.0109\r l-0.0001-0.0004c-0.0411-0.0963-0.195-0.1326-0.8307-0.1434c0,0-0.0012,0-0.0018,0l0,0c-0.2594-0.0044-0.5985-0.0045-1.043-0.0028\r c-0.7793,0.0031-1.21-0.7618-1.3475-1.0578c0.1884-1.042,0.733-1.7846,1.6277-2.2881c0.0169-0.0095,0.0136-0.0174-0.0064-0.0229\r c0.1749-0.1058-2.1151-0.0029-3.1684,1.3368C5.9709,5.6351,5.1561,5.6507,4.4538,5.8155C4.319,5.8117,4.1509,5.7949,3.9515,5.7534\r C3.4845,5.3302,2.816,4.5486,2.7802,3.6157c0,0-0.0022,0.0017-0.0059,0.0048c-0.0005-0.009-0.0013-0.0178-0.0017-0.0268\r c0,0-1.423,1.0937-1.21,4.0754C1.562,7.7168,1.561,7.7625,1.5597,7.8067C1.1746,8.3291,0.9835,8.7681,0.9693,8.8651\r C0.628,9.5599,0.2818,10.6054,0,12.1927c0,0,0.1971-0.625,0.5926-1.3328c-0.2909,0.8911-0.5195,2.2771-0.3852,4.356\r c0,0,0.0355-0.4609,0.1611-1.1249c0.0981,1.2893,0.5278,2.881,1.6139,4.7528c2.0847,3.5934,5.2891,5.408,8.8311,5.6863\r c0.629,0.0518,1.2668,0.0531,1.9084,0.0044c0.059-0.0042,0.1179-0.0085,0.177-0.0135c0.7257-0.051,1.4563-0.1606,2.1853-0.3367\r C25.0489,21.7751,23.9654,9.7423,23.9654,9.7423z' })
 	        )
 	      );
@@ -17897,7 +18139,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 185 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17990,8 +18232,8 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-internet-explorer', transform: 'translate(-314.39464,-274.3971)' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_298_', x: '316.1202', y: '274.3971', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { id: 'svg', d: 'M338.3947,287.3958c0-1.8973-0.4905-3.6797-1.3507-5.2286\r c3.6665-8.2982-3.9287-7.0827-4.3516-7c-1.6092,0.3148-3.0979,0.8204-4.4711,1.4612c-0.2025-0.0114-0.4062-0.0177-0.6115-0.0177\r c-5.1248,0-9.4146,3.5745-10.5126,8.3664c2.7011-3.0303,4.5915-4.253,5.7235-4.7423c-0.1807,0.1615-0.3576,0.3247-0.5316,0.4892\r c-0.0579,0.0547-0.1137,0.1101-0.1709,0.1652c-0.1147,0.1104-0.2292,0.2208-0.341,0.3323\r c-0.0665,0.0663-0.1313,0.1332-0.1968,0.1999c-0.0992,0.101-0.1981,0.2018-0.295,0.3034\r c-0.0688,0.0721-0.1359,0.1445-0.2034,0.2167c-0.0905,0.0968-0.1804,0.1938-0.2686,0.2911\r c-0.0685,0.0756-0.136,0.1512-0.2033,0.227c-0.0836,0.0941-0.1665,0.1883-0.2482,0.2827\r c-0.0677,0.0783-0.1349,0.1566-0.2014,0.2349c-0.0775,0.0915-0.154,0.1829-0.2297,0.2744\r c-0.067,0.0809-0.1337,0.1618-0.1992,0.2426c-0.0709,0.0874-0.1402,0.1747-0.2094,0.262\r c-0.0671,0.0845-0.1342,0.1689-0.1997,0.2534c-0.0624,0.0804-0.123,0.1604-0.1841,0.2406\r c-0.0689,0.0905-0.1383,0.1811-0.2054,0.2712c-0.048,0.0645-0.094,0.1284-0.1411,0.1927\r c-0.4261,0.5815-0.8155,1.1517-1.1671,1.6995c-0.0009,0.0013-0.0018,0.0027-0.0026,0.004\r c-0.0926,0.1443-0.1819,0.2863-0.2695,0.4272c-0.0047,0.0076-0.0096,0.0153-0.0143,0.023\r c-0.0876,0.1414-0.1723,0.2804-0.2548,0.418c-0.0029,0.0048-0.0059,0.0097-0.0088,0.0145\r c-0.2219,0.3702-0.4276,0.7271-0.6129,1.0629c-0.9713,1.7603-1.4442,2.9902-1.4647,3.0632\r c-3.0673,10.966,6.5059,6.3351,7.8417,5.6439c1.4384,0.7106,3.0577,1.1106,4.7707,1.1106c4.6895,0,8.6794-2.9934,10.1646-7.1736\r h-5.6668c-0.8385,1.4166-2.4528,2.3761-4.3073,2.3761c-2.7172,0-4.9199-2.0587-4.9199-4.5984h15.4256\r C338.3643,288.33,338.3947,287.8665,338.3947,287.3958L338.3947,287.3958z M336.3799,276.7827\r c0.9287,0.6268,1.6737,1.6112,0.3944,4.9265c-1.227-1.9732-3.0729-3.5211-5.267-4.3719\r C332.5054,276.8553,334.9771,275.8358,336.3799,276.7827z M316.6427,297.0483c-0.7564-0.7758-0.8902-2.6652,0.779-6.1082\r c0.8424,2.422,2.5234,4.4515,4.6963,5.7395C321.0374,297.2743,318.1687,298.6134,316.6427,297.0483z M322.8564,285.8357\r c0.0862-2.4684,2.2344-4.4447,4.8738-4.4447c2.6393,0,4.7876,1.9763,4.8738,4.4447H322.8564L322.8564,285.8357z' })
+	          _react2.default.createElement('rect', { x: '316.1202', y: '274.3971', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('path', { d: 'M338.3947,287.3958c0-1.8973-0.4905-3.6797-1.3507-5.2286\r c3.6665-8.2982-3.9287-7.0827-4.3516-7c-1.6092,0.3148-3.0979,0.8204-4.4711,1.4612c-0.2025-0.0114-0.4062-0.0177-0.6115-0.0177\r c-5.1248,0-9.4146,3.5745-10.5126,8.3664c2.7011-3.0303,4.5915-4.253,5.7235-4.7423c-0.1807,0.1615-0.3576,0.3247-0.5316,0.4892\r c-0.0579,0.0547-0.1137,0.1101-0.1709,0.1652c-0.1147,0.1104-0.2292,0.2208-0.341,0.3323\r c-0.0665,0.0663-0.1313,0.1332-0.1968,0.1999c-0.0992,0.101-0.1981,0.2018-0.295,0.3034\r c-0.0688,0.0721-0.1359,0.1445-0.2034,0.2167c-0.0905,0.0968-0.1804,0.1938-0.2686,0.2911\r c-0.0685,0.0756-0.136,0.1512-0.2033,0.227c-0.0836,0.0941-0.1665,0.1883-0.2482,0.2827\r c-0.0677,0.0783-0.1349,0.1566-0.2014,0.2349c-0.0775,0.0915-0.154,0.1829-0.2297,0.2744\r c-0.067,0.0809-0.1337,0.1618-0.1992,0.2426c-0.0709,0.0874-0.1402,0.1747-0.2094,0.262\r c-0.0671,0.0845-0.1342,0.1689-0.1997,0.2534c-0.0624,0.0804-0.123,0.1604-0.1841,0.2406\r c-0.0689,0.0905-0.1383,0.1811-0.2054,0.2712c-0.048,0.0645-0.094,0.1284-0.1411,0.1927\r c-0.4261,0.5815-0.8155,1.1517-1.1671,1.6995c-0.0009,0.0013-0.0018,0.0027-0.0026,0.004\r c-0.0926,0.1443-0.1819,0.2863-0.2695,0.4272c-0.0047,0.0076-0.0096,0.0153-0.0143,0.023\r c-0.0876,0.1414-0.1723,0.2804-0.2548,0.418c-0.0029,0.0048-0.0059,0.0097-0.0088,0.0145\r c-0.2219,0.3702-0.4276,0.7271-0.6129,1.0629c-0.9713,1.7603-1.4442,2.9902-1.4647,3.0632\r c-3.0673,10.966,6.5059,6.3351,7.8417,5.6439c1.4384,0.7106,3.0577,1.1106,4.7707,1.1106c4.6895,0,8.6794-2.9934,10.1646-7.1736\r h-5.6668c-0.8385,1.4166-2.4528,2.3761-4.3073,2.3761c-2.7172,0-4.9199-2.0587-4.9199-4.5984h15.4256\r C338.3643,288.33,338.3947,287.8665,338.3947,287.3958L338.3947,287.3958z M336.3799,276.7827\r c0.9287,0.6268,1.6737,1.6112,0.3944,4.9265c-1.227-1.9732-3.0729-3.5211-5.267-4.3719\r C332.5054,276.8553,334.9771,275.8358,336.3799,276.7827z M316.6427,297.0483c-0.7564-0.7758-0.8902-2.6652,0.779-6.1082\r c0.8424,2.422,2.5234,4.4515,4.6963,5.7395C321.0374,297.2743,318.1687,298.6134,316.6427,297.0483z M322.8564,285.8357\r c0.0862-2.4684,2.2344-4.4447,4.8738-4.4447c2.6393,0,4.7876,1.9763,4.8738,4.4447H322.8564L322.8564,285.8357z' })
 	        )
 	      );
 	    }
@@ -18020,7 +18262,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 186 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18113,7 +18355,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-edge' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_297_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { id: 'Microsoft-Edge-logo', d: 'M5.41,6.8032c-2.8552,1.7773-4.487,4.3029-4.487,4.3029\r S1.3459,5.8103,5.41,2.7115c1.6164-1.2324,3.8262-2.265,6.7984-2.265c1.1166,0,3.4581,0.1943,5.5671,1.4946\r s2.9612,2.3895,3.9114,3.9842c0.41,0.6881,0.7439,1.5721,0.9523,2.4248c0.3903,1.5977,0.4378,3.5084,0.4378,3.5084v2.517H8.0038\r c0,0-0.3681,5.0642,6.5639,5.0642c2.4109,0,3.2551-0.3787,4.048-0.6136c1.2413-0.3676,2.44-1.187,2.44-1.187l0.0023,5.0597\r c0,0-2.837,1.7475-7.123,1.7475c-1.207,0-2.4789-0.1012-3.7056-0.4992C9.1574,23.5996,6.9125,22.6615,5.41,20.463\r c-0.5315-0.7777-1.1074-1.8126-1.3927-2.8236c-0.3084-1.0931-0.3046-2.155-0.3046-2.74c0-2.1881,0.7475-4.2771,2.0447-5.7874\r c1.6803-1.9562,3.804-2.8174,3.804-2.8174S8.8697,7.1011,8.4442,8.1052s-0.5419,2.0143-0.5419,2.0143h8.5112\r c0,0,0.4978-5.0859-4.816-5.0859C9.5953,5.0336,7.1362,5.7286,5.41,6.8032z' })
 	        )
 	      );
@@ -18143,7 +18385,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 187 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18236,7 +18478,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-chrome' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_302_', x: '0.1371', y: '0.0009', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.1371', y: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M6.0538,10.4666L2.6192,4.5177C4.8183,1.7644,8.2032,0,12.0009,0c4.3933,0,8.2344,2.3612,10.3257,5.8832h-9.7922\r c-0.1759-0.0152-0.3537-0.0234-0.5335-0.0234C9.1442,5.8598,6.7369,7.8203,6.0538,10.4666z M16.2974,7.6177h6.8785\r c0.533,1.3578,0.8259,2.8362,0.8259,4.3831c0,6.5823-5.2996,11.926-11.8646,11.9991l4.908-8.5009\r c0.691-0.9933,1.0968-2.1992,1.0968-3.4983C18.1419,10.2858,17.4349,8.733,16.2974,7.6177z M7.6412,12.0009\r c0-2.4039,1.9558-4.3597,4.3597-4.3597s4.3597,1.9558,4.3597,4.3597s-1.9558,4.3597-4.3597,4.3597S7.6412,14.4048,7.6412,12.0009z\r M13.6459,17.9179l-3.4357,5.9507C4.4317,23.0041,0,18.0201,0,12.0009c0-2.1381,0.5598-4.1451,1.5399-5.8838l4.8995,8.4863\r c0.9814,2.0887,3.1051,3.5386,5.5615,3.5386C12.5704,18.1419,13.1221,18.0636,13.6459,17.9179z' })
 	        )
 	      );
@@ -18266,7 +18508,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 188 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18359,7 +18601,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-apple' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_303_', x: '0', y: '0.0009', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M18.5499,12.7504c0.0337,3.632,3.1862,4.8406,3.2211,4.856c-0.0267,0.0852-0.5037,1.7224-1.6609,3.4135\r c-1.0003,1.462-2.0385,2.9187-3.674,2.9489c-1.607,0.0296-2.1237-0.953-3.961-0.953c-1.8367,0-2.4108,0.9228-3.932,0.9826\r c-1.5786,0.0597-2.7807-1.581-3.7894-3.0377c-2.061-2.9797-3.636-8.4198-1.5212-12.092c1.0506-1.8236,2.9282-2.9784,4.9661-3.008\r c1.5502-0.0296,3.0134,1.0429,3.961,1.0429c0.947,0,2.7251-1.2897,4.5943-1.1003c0.7825,0.0326,2.9791,0.3161,4.3895,2.3807\r C21.0299,8.2544,18.5226,9.714,18.5499,12.7504 M15.5297,3.832C16.3678,2.8175,16.9319,1.4052,16.778,0\r c-1.2081,0.0486-2.6689,0.805-3.5354,1.819c-0.7766,0.8979-1.4567,2.335-1.2732,3.7124C13.316,5.6355,14.6916,4.8471,15.5297,3.832\r ' })
 	        )
 	      );
@@ -18389,7 +18631,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 189 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18397,8 +18639,8 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var A11y = __webpack_require__(130);
 
 	var ActionsDoc = React.createClass({
 	  displayName: 'ActionsDoc',
@@ -18447,7 +18689,7 @@ module.exports =
 	module.exports = ActionsDoc;
 
 /***/ },
-/* 190 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18464,11 +18706,11 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
@@ -18480,15 +18722,15 @@ module.exports =
 
 	var _Anchor2 = _interopRequireDefault(_Anchor);
 
-	var _Next = __webpack_require__(193);
+	var _Next = __webpack_require__(197);
 
 	var _Next2 = _interopRequireDefault(_Next);
 
-	var _Edit = __webpack_require__(153);
+	var _Edit = __webpack_require__(157);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18754,7 +18996,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 191 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18769,7 +19011,7 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsxToString = __webpack_require__(192);
+	var _jsxToString = __webpack_require__(196);
 
 	var _jsxToString2 = _interopRequireDefault(_jsxToString);
 
@@ -18856,13 +19098,13 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 192 */
+/* 196 */
 /***/ function(module, exports) {
 
 	module.exports = require("jsx-to-string");
 
 /***/ },
-/* 193 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18954,8 +19196,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'next' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_27_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '8,1.2101 19,12.2101 8,23.2101 \t' })
 	        )
 	      );
@@ -18985,7 +19227,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 194 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18993,12 +19235,12 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
 	var App = __webpack_require__(4);
 	var Header = __webpack_require__(112);
 	var Title = __webpack_require__(113);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	App.displayName = 'App';
 	Header.displayName = 'Header';
@@ -19122,7 +19364,7 @@ module.exports =
 	module.exports = AppDoc;
 
 /***/ },
-/* 195 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19131,11 +19373,11 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Article = __webpack_require__(106);
 	var Header = __webpack_require__(112);
 	var Section = __webpack_require__(117);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var ArticleDoc = React.createClass({
 	  displayName: 'ArticleDoc',
@@ -19283,7 +19525,7 @@ module.exports =
 	module.exports = ArticleDoc;
 
 /***/ },
-/* 196 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19291,9 +19533,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Box = __webpack_require__(83);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', 'neutral-3', 'neutral-3-t', 'neutral-4', 'accent-1', 'accent-1-t', 'accent-2', 'accent-2-t', 'grey-1', 'grey-2', 'grey-3', 'grey-4', 'light-2', 'light-1', 'critical', 'warning', 'ok', 'unknown'];
 
@@ -19835,7 +20077,7 @@ module.exports =
 	module.exports = BoxDoc;
 
 /***/ },
-/* 197 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19843,13 +20085,13 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
-	var Bricks = __webpack_require__(198);
-	var Brick = __webpack_require__(199);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
+	var Bricks = __webpack_require__(202);
+	var Brick = __webpack_require__(203);
 	var Box = __webpack_require__(83);
 	var GrommetLogo = __webpack_require__(114);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	Brick.displayName = 'Brick';
 	Bricks.displayName = 'Bricks';
@@ -20071,7 +20313,7 @@ module.exports =
 	module.exports = BrickDoc;
 
 /***/ },
-/* 198 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20147,7 +20389,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 199 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20326,7 +20568,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 200 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20343,11 +20585,11 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
@@ -20359,11 +20601,11 @@ module.exports =
 
 	var _Section2 = _interopRequireDefault(_Section);
 
-	var _Tiles = __webpack_require__(119);
+	var _Tiles = __webpack_require__(120);
 
 	var _Tiles2 = _interopRequireDefault(_Tiles);
 
-	var _Tile = __webpack_require__(125);
+	var _Tile = __webpack_require__(126);
 
 	var _Tile2 = _interopRequireDefault(_Tile);
 
@@ -20371,11 +20613,11 @@ module.exports =
 
 	var _Close2 = _interopRequireDefault(_Close);
 
-	var _Edit = __webpack_require__(153);
+	var _Edit = __webpack_require__(157);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20676,7 +20918,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 201 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20684,9 +20926,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Calendar = __webpack_require__(202);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Calendar = __webpack_require__(206);
+	var A11y = __webpack_require__(130);
 
 	var CalendarDoc = React.createClass({
 	  displayName: 'CalendarDoc',
@@ -20854,7 +21096,7 @@ module.exports =
 	module.exports = CalendarDoc;
 
 /***/ },
-/* 202 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20887,7 +21129,7 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _moment = __webpack_require__(203);
+	var _moment = __webpack_require__(207);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -20913,7 +21155,7 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Calendar = __webpack_require__(157);
+	var _Calendar = __webpack_require__(161);
 
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 
@@ -21208,14 +21450,16 @@ module.exports =
 	        _react2.default.createElement(
 	          _Header2.default,
 	          { justify: 'between' },
-	          _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + "__previous", icon: _react2.default.createElement(_LinkPrevious2.default, null),
+	          _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + "__previous", icon: _react2.default.createElement(_LinkPrevious2.default, { a11yTitle: 'calendar-previous-title',
+	              a11yTitleId: 'calendar-previous-title-id' }),
 	            onClick: this._onPrevious }),
 	          _react2.default.createElement(
 	            _Title2.default,
 	            { className: CLASS_ROOT + "__title", responsive: false },
 	            this.state.reference.format('MMMM YYYY')
 	          ),
-	          _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + "__next", icon: _react2.default.createElement(_LinkNext2.default, null),
+	          _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + "__next", icon: _react2.default.createElement(_LinkNext2.default, { a11yTitle: 'calendar-next-title',
+	              a11yTitleId: 'calendar-next-title-id' }),
 	            onClick: this._onNext })
 	        ),
 	        _react2.default.createElement(
@@ -21260,7 +21504,9 @@ module.exports =
 	          id: this.props.id, ref: 'calendarInput', name: this.props.name,
 	          value: this.props.value,
 	          onChange: this._onInputChange }),
-	        _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + "__control", icon: _react2.default.createElement(_Calendar2.default, null),
+	        _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + "__control", icon: _react2.default.createElement(_Calendar2.default, {
+	            a11yTitle: 'calendar-icon-title',
+	            a11yTitleId: 'calendar-icon-title-id' }),
 	          onClick: this._onOpen })
 	      );
 	    }
@@ -21285,13 +21531,13 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 203 */
+/* 207 */
 /***/ function(module, exports) {
 
 	module.exports = require("moment");
 
 /***/ },
-/* 204 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21299,10 +21545,10 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Carousel = __webpack_require__(205);
+	var DocsArticle = __webpack_require__(136);
+	var Carousel = __webpack_require__(209);
 	var Box = __webpack_require__(83);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var TileDoc = React.createClass({
 	  displayName: 'TileDoc',
@@ -21469,7 +21715,7 @@ module.exports =
 	module.exports = TileDoc;
 
 /***/ },
-/* 205 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21506,11 +21752,11 @@ module.exports =
 
 	var _Box2 = _interopRequireDefault(_Box);
 
-	var _Tiles = __webpack_require__(119);
+	var _Tiles = __webpack_require__(120);
 
 	var _Tiles2 = _interopRequireDefault(_Tiles);
 
-	var _Tile = __webpack_require__(125);
+	var _Tile = __webpack_require__(126);
 
 	var _Tile2 = _interopRequireDefault(_Tile);
 
@@ -21518,11 +21764,11 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Previous = __webpack_require__(206);
+	var _Previous = __webpack_require__(210);
 
 	var _Previous2 = _interopRequireDefault(_Previous);
 
-	var _Next = __webpack_require__(193);
+	var _Next = __webpack_require__(197);
 
 	var _Next2 = _interopRequireDefault(_Next);
 
@@ -21540,7 +21786,7 @@ module.exports =
 	var Hammer = function Hammer() {}; // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	if (typeof window !== 'undefined') {
-	  Hammer = __webpack_require__(207);
+	  Hammer = __webpack_require__(211);
 	}
 
 	var CLASS_ROOT = _CSSClassnames2.default.CAROUSEL;
@@ -21858,7 +22104,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 206 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21950,8 +22196,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'previous' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_262_', y: '1.2071', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '1.2071', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.1397,0.7071 5.1397,11.7071 \r 16.1397,22.7071 \t' })
 	        )
 	      );
@@ -21981,13 +22227,13 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 207 */
+/* 211 */
 /***/ function(module, exports) {
 
 	module.exports = require("hammerjs");
 
 /***/ },
-/* 208 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22002,27 +22248,27 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Chart = __webpack_require__(209);
+	var _Chart = __webpack_require__(213);
 
 	var _Chart2 = _interopRequireDefault(_Chart);
 
-	var _Tiles = __webpack_require__(119);
+	var _Tiles = __webpack_require__(120);
 
 	var _Tiles2 = _interopRequireDefault(_Tiles);
 
-	var _Tile = __webpack_require__(125);
+	var _Tile = __webpack_require__(126);
 
 	var _Tile2 = _interopRequireDefault(_Tile);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22487,7 +22733,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 209 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22524,7 +22770,7 @@ module.exports =
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Legend = __webpack_require__(210);
+	var _Legend = __webpack_require__(214);
 
 	var _Legend2 = _interopRequireDefault(_Legend);
 
@@ -23667,7 +23913,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 210 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23879,7 +24125,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 211 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23887,10 +24133,10 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
-	var CheckBox = __webpack_require__(212);
-	var A11y = __webpack_require__(126);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
+	var CheckBox = __webpack_require__(216);
+	var A11y = __webpack_require__(130);
 
 	CheckBox.displayName = 'CheckBox';
 
@@ -24157,7 +24403,7 @@ module.exports =
 	module.exports = CheckBoxDoc;
 
 /***/ },
-/* 212 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24313,7 +24559,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 213 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24328,19 +24574,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Columns = __webpack_require__(214);
+	var _Columns = __webpack_require__(218);
 
 	var _Columns2 = _interopRequireDefault(_Columns);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24456,7 +24702,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 214 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24600,7 +24846,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 215 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24608,16 +24854,16 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Title = __webpack_require__(113);
 	var Header = __webpack_require__(112);
-	var Search = __webpack_require__(216);
-	var Gravatar = __webpack_require__(217);
-	var Tiles = __webpack_require__(119);
-	var Tile = __webpack_require__(125);
-	var Chart = __webpack_require__(209);
-	var Meter = __webpack_require__(218);
-	var A11y = __webpack_require__(126);
+	var Search = __webpack_require__(220);
+	var Gravatar = __webpack_require__(221);
+	var Tiles = __webpack_require__(120);
+	var Tile = __webpack_require__(126);
+	var Chart = __webpack_require__(213);
+	var Meter = __webpack_require__(222);
+	var A11y = __webpack_require__(130);
 
 	var dateSeries = [{ label: 'first', values: [[new Date(Date.parse("2015-05-22")), 4], [new Date(Date.parse("2015-05-21")), 2], [new Date(Date.parse("2015-05-20")), 3], [new Date(Date.parse("2015-05-19")), 3], [new Date(Date.parse("2015-05-18")), 2]], colorIndex: "graph-4" }];
 	var dateSeriesXAxis = [{ label: 'May 22', value: dateSeries[0].values[0][0] }, { label: 'May 21', value: dateSeries[0].values[1][0] }, { label: 'May 20', value: dateSeries[0].values[2][0] }, { label: 'May 19', value: dateSeries[0].values[3][0] }, { label: 'May 18', value: dateSeries[0].values[4][0] }];
@@ -24735,7 +24981,7 @@ module.exports =
 	module.exports = DashboardDoc;
 
 /***/ },
-/* 216 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24796,7 +25042,7 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Search = __webpack_require__(156);
+	var _Search = __webpack_require__(160);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -25215,13 +25461,13 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 217 */
+/* 221 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-gravatar");
 
 /***/ },
-/* 218 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25266,23 +25512,23 @@ module.exports =
 
 	var _Responsive2 = _interopRequireDefault(_Responsive);
 
-	var _Legend = __webpack_require__(210);
+	var _Legend = __webpack_require__(214);
 
 	var _Legend2 = _interopRequireDefault(_Legend);
 
-	var _Bar = __webpack_require__(219);
+	var _Bar = __webpack_require__(223);
 
 	var _Bar2 = _interopRequireDefault(_Bar);
 
-	var _Spiral = __webpack_require__(222);
+	var _Spiral = __webpack_require__(226);
 
 	var _Spiral2 = _interopRequireDefault(_Spiral);
 
-	var _Circle = __webpack_require__(223);
+	var _Circle = __webpack_require__(227);
 
 	var _Circle2 = _interopRequireDefault(_Circle);
 
-	var _Arc = __webpack_require__(224);
+	var _Arc = __webpack_require__(228);
 
 	var _Arc2 = _interopRequireDefault(_Arc);
 
@@ -25848,7 +26094,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 219 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25881,9 +26127,9 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(220);
+	var _utils = __webpack_require__(224);
 
-	var _Graphic2 = __webpack_require__(221);
+	var _Graphic2 = __webpack_require__(225);
 
 	var _Graphic3 = _interopRequireDefault(_Graphic2);
 
@@ -26022,7 +26268,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 220 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26147,7 +26393,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 221 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26188,7 +26434,7 @@ module.exports =
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(220);
+	var _utils = __webpack_require__(224);
 
 	var _Intl = __webpack_require__(90);
 
@@ -26588,7 +26834,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 222 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26621,9 +26867,9 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(220);
+	var _utils = __webpack_require__(224);
 
-	var _Graphic2 = __webpack_require__(221);
+	var _Graphic2 = __webpack_require__(225);
 
 	var _Graphic3 = _interopRequireDefault(_Graphic2);
 
@@ -26731,7 +26977,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 223 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26760,9 +27006,9 @@ module.exports =
 
 	var _inherits3 = _interopRequireDefault(_inherits2);
 
-	var _utils = __webpack_require__(220);
+	var _utils = __webpack_require__(224);
 
-	var _Graphic2 = __webpack_require__(221);
+	var _Graphic2 = __webpack_require__(225);
 
 	var _Graphic3 = _interopRequireDefault(_Graphic2);
 
@@ -26834,7 +27080,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 224 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26867,9 +27113,9 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(220);
+	var _utils = __webpack_require__(224);
 
-	var _Graphic2 = __webpack_require__(221);
+	var _Graphic2 = __webpack_require__(225);
 
 	var _Graphic3 = _interopRequireDefault(_Graphic2);
 
@@ -26980,7 +27226,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 225 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26995,19 +27241,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _DateTime = __webpack_require__(226);
+	var _DateTime = __webpack_require__(230);
 
 	var _DateTime2 = _interopRequireDefault(_DateTime);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27217,7 +27463,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 226 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27254,7 +27500,7 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _moment = __webpack_require__(203);
+	var _moment = __webpack_require__(207);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -27272,15 +27518,15 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Clock = __webpack_require__(227);
+	var _Clock = __webpack_require__(231);
 
 	var _Clock2 = _interopRequireDefault(_Clock);
 
-	var _Calendar = __webpack_require__(157);
+	var _Calendar = __webpack_require__(161);
 
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 
-	var _DateTimeDrop = __webpack_require__(228);
+	var _DateTimeDrop = __webpack_require__(232);
 
 	var _DateTimeDrop2 = _interopRequireDefault(_DateTimeDrop);
 
@@ -27579,7 +27825,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 227 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27671,8 +27917,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'history' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_171_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', d: 'M17,18 L12,13 L12,4\r M12,23 C18.0751,23 23,18.0751 23,12 C23,5.9249 18.0751,1 12,1\r C7.5627,1 1,4 1,12 C1,18.0751 5.9249,23 12,23 Z' })
 	        )
 	      );
@@ -27702,7 +27948,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 228 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27735,7 +27981,7 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _moment = __webpack_require__(203);
+	var _moment = __webpack_require__(207);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -27763,11 +28009,11 @@ module.exports =
 
 	var _LinkNext2 = _interopRequireDefault(_LinkNext);
 
-	var _Add = __webpack_require__(152);
+	var _Add = __webpack_require__(156);
 
 	var _Add2 = _interopRequireDefault(_Add);
 
-	var _Subtract = __webpack_require__(229);
+	var _Subtract = __webpack_require__(233);
 
 	var _Subtract2 = _interopRequireDefault(_Subtract);
 
@@ -28059,7 +28305,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 229 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28151,9 +28397,9 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'subtract_1_' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_10_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('line', { id: 'subtract', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '0', y1: '12', x2: '24', y2: '12' })
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '0', y1: '12', x2: '24', y2: '12' })
 	        )
 	      );
 	    }
@@ -28182,7 +28428,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 230 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28197,23 +28443,23 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Distribution = __webpack_require__(231);
+	var _Distribution = __webpack_require__(235);
 
 	var _Distribution2 = _interopRequireDefault(_Distribution);
 
-	var _Legend = __webpack_require__(210);
+	var _Legend = __webpack_require__(214);
 
 	var _Legend2 = _interopRequireDefault(_Legend);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28519,7 +28765,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 231 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28560,7 +28806,7 @@ module.exports =
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Legend = __webpack_require__(210);
+	var _Legend = __webpack_require__(214);
 
 	var _Legend2 = _interopRequireDefault(_Legend);
 
@@ -29230,7 +29476,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 232 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29238,13 +29484,13 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
+	var jsxToString = __webpack_require__(196);
 	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Footer = __webpack_require__(116);
 	var Menu = __webpack_require__(97);
 	var Button = __webpack_require__(96);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	Footer.displayName = 'Footer';
 	Menu.displayName = 'Menu';
@@ -29409,7 +29655,7 @@ module.exports =
 	module.exports = FooterDoc;
 
 /***/ },
-/* 233 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29418,11 +29664,11 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Box = __webpack_require__(83);
-	var DocsArticle = __webpack_require__(132);
-	var FullForm = __webpack_require__(234);
-	var AddUserForm = __webpack_require__(241);
-	var ConfirmationForm = __webpack_require__(243);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var FullForm = __webpack_require__(238);
+	var AddUserForm = __webpack_require__(245);
+	var ConfirmationForm = __webpack_require__(247);
+	var A11y = __webpack_require__(130);
 
 	var FormDoc = React.createClass({
 	  displayName: 'FormDoc',
@@ -29639,7 +29885,7 @@ module.exports =
 	module.exports = FormDoc;
 
 /***/ },
-/* 234 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29654,15 +29900,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Form = __webpack_require__(235);
+	var _Form = __webpack_require__(239);
 
 	var _Form2 = _interopRequireDefault(_Form);
 
-	var _FormFields = __webpack_require__(236);
+	var _FormFields = __webpack_require__(240);
 
 	var _FormFields2 = _interopRequireDefault(_FormFields);
 
-	var _FormField = __webpack_require__(237);
+	var _FormField = __webpack_require__(241);
 
 	var _FormField2 = _interopRequireDefault(_FormField);
 
@@ -29670,23 +29916,23 @@ module.exports =
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _CheckBox = __webpack_require__(212);
+	var _CheckBox = __webpack_require__(216);
 
 	var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
-	var _RadioButton = __webpack_require__(238);
+	var _RadioButton = __webpack_require__(242);
 
 	var _RadioButton2 = _interopRequireDefault(_RadioButton);
 
-	var _SearchInput = __webpack_require__(239);
+	var _SearchInput = __webpack_require__(243);
 
 	var _SearchInput2 = _interopRequireDefault(_SearchInput);
 
-	var _NumberInput = __webpack_require__(240);
+	var _NumberInput = __webpack_require__(244);
 
 	var _NumberInput2 = _interopRequireDefault(_NumberInput);
 
-	var _Table = __webpack_require__(182);
+	var _Table = __webpack_require__(186);
 
 	var _Table2 = _interopRequireDefault(_Table);
 
@@ -29698,11 +29944,11 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Calendar = __webpack_require__(202);
+	var _Calendar = __webpack_require__(206);
 
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 
-	var _DateTime = __webpack_require__(226);
+	var _DateTime = __webpack_require__(230);
 
 	var _DateTime2 = _interopRequireDefault(_DateTime);
 
@@ -30009,7 +30255,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 235 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30115,7 +30361,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 236 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30189,7 +30435,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 237 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30377,7 +30623,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 238 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30478,7 +30724,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 239 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30537,7 +30783,7 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Search = __webpack_require__(156);
+	var _Search = __webpack_require__(160);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -30817,7 +31063,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 240 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30854,11 +31100,11 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Add = __webpack_require__(152);
+	var _Add = __webpack_require__(156);
 
 	var _Add2 = _interopRequireDefault(_Add);
 
-	var _Subtract = __webpack_require__(229);
+	var _Subtract = __webpack_require__(233);
 
 	var _Subtract2 = _interopRequireDefault(_Subtract);
 
@@ -30991,7 +31237,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 241 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30999,15 +31245,15 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var Form = __webpack_require__(235);
-	var FormFields = __webpack_require__(236);
-	var FormField = __webpack_require__(237);
+	var Form = __webpack_require__(239);
+	var FormFields = __webpack_require__(240);
+	var FormField = __webpack_require__(241);
 	var Header = __webpack_require__(112);
-	var CheckBox = __webpack_require__(212);
-	var RadioButton = __webpack_require__(238);
+	var CheckBox = __webpack_require__(216);
+	var RadioButton = __webpack_require__(242);
 	var Footer = __webpack_require__(116);
 	var Button = __webpack_require__(96);
-	var Validator = __webpack_require__(242);
+	var Validator = __webpack_require__(246);
 
 	var AddUserForm = React.createClass({
 	  displayName: 'AddUserForm',
@@ -31220,7 +31466,7 @@ module.exports =
 	module.exports = AddUserForm;
 
 /***/ },
-/* 242 */
+/* 246 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31264,7 +31510,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 243 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31273,11 +31519,11 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Box = __webpack_require__(83);
-	var Form = __webpack_require__(235);
-	var FormFields = __webpack_require__(236);
-	var FormField = __webpack_require__(237);
+	var Form = __webpack_require__(239);
+	var FormFields = __webpack_require__(240);
+	var FormField = __webpack_require__(241);
 	var Header = __webpack_require__(112);
-	var CheckBox = __webpack_require__(212);
+	var CheckBox = __webpack_require__(216);
 	var Footer = __webpack_require__(116);
 	var Button = __webpack_require__(96);
 
@@ -31369,7 +31615,7 @@ module.exports =
 	module.exports = ConfirmationForm;
 
 /***/ },
-/* 244 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31377,12 +31623,12 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var FormField = __webpack_require__(237);
-	var CheckBox = __webpack_require__(212);
-	var RadioButton = __webpack_require__(238);
-	var NumberInput = __webpack_require__(240);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var FormField = __webpack_require__(241);
+	var CheckBox = __webpack_require__(216);
+	var RadioButton = __webpack_require__(242);
+	var NumberInput = __webpack_require__(244);
+	var A11y = __webpack_require__(130);
 
 	var FormFieldDoc = React.createClass({
 	  displayName: 'FormFieldDoc',
@@ -31615,7 +31861,7 @@ module.exports =
 	module.exports = FormFieldDoc;
 
 /***/ },
-/* 245 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31632,11 +31878,11 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
@@ -31656,7 +31902,7 @@ module.exports =
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Search = __webpack_require__(216);
+	var _Search = __webpack_require__(220);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -31664,23 +31910,23 @@ module.exports =
 
 	var _Title2 = _interopRequireDefault(_Title);
 
-	var _Actions = __webpack_require__(246);
+	var _Actions = __webpack_require__(250);
 
 	var _Actions2 = _interopRequireDefault(_Actions);
 
-	var _Notification = __webpack_require__(247);
+	var _Notification = __webpack_require__(251);
 
 	var _Notification2 = _interopRequireDefault(_Notification);
 
-	var _UserSettings = __webpack_require__(248);
+	var _UserSettings = __webpack_require__(252);
 
 	var _UserSettings2 = _interopRequireDefault(_UserSettings);
 
-	var _Logo = __webpack_require__(249);
+	var _Logo = __webpack_require__(253);
 
 	var _Logo2 = _interopRequireDefault(_Logo);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32122,7 +32368,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 246 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32214,8 +32460,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'actions' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_2_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,12c0,4.4183-3.5817,8-8,8s-8-3.5817-8-8\r s3.5817-8,8-8S20,7.5817,20,12z M15,12c0-1.6542-1.3455-3-3-3s-3,1.3458-3,3s1.3455,3,3,3S15,13.6542,15,12z M12,0v4 M20,12h4\r M12,24v-4 M0,12h4 M20.4853,3.5147l-2.8284,2.8284 M17.6569,17.6569l2.8284,2.8284 M6.3431,17.6569l-2.8284,2.8284 M3.5147,3.5147\r l2.8284,2.8284' })
 	        )
 	      );
@@ -32245,7 +32491,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 247 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32337,8 +32583,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'notification' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_48_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,19H4V9c0-4.4183,3.5817-8,8-8s8,3.5817,8,8v10\r H12z M0,19h24 M9,20c0,1.6569,1.3431,3,3,3s3-1.3431,3-3' })
 	        )
 	      );
@@ -32368,7 +32614,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 248 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32461,7 +32707,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-settings' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_129_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,21c-1.6545,0-3-1.3458-3-3s1.3455-3,3-3\r s3,1.3458,3,3S21.6545,21,20,21z M26,18l-3,0.0001 M22.1212,20.1214l2.1214,2.1212 M20,24l-0.0001-3 M15.7574,22.2426\r l2.1212-2.1214 M14,18h3 M17.8787,15.8787l-2.1213-2.1213 M20,15v-3 M22.1213,15.8787l2.1213-2.1213 M9,1C6.2386,1,4,3.2386,4,6\r s2.2386,5,5,5s5-2.2386,5-5S11.7614,1,9,1z M14.0002,12.7548C12.6306,11.6568,10.892,11,9,11h0c-4.4183,0-8,3.5817-8,8v4h12.4' })
 	        )
 	      );
@@ -32491,7 +32737,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 249 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32534,7 +32780,7 @@ module.exports =
 	module.exports = Logo;
 
 /***/ },
-/* 250 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32549,19 +32795,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Heading = __webpack_require__(251);
+	var _Heading = __webpack_require__(119);
 
 	var _Heading2 = _interopRequireDefault(_Heading);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32864,112 +33110,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _getPrototypeOf = __webpack_require__(9);
-
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-	var _classCallCheck2 = __webpack_require__(21);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _createClass2 = __webpack_require__(22);
-
-	var _createClass3 = _interopRequireDefault(_createClass2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(23);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(60);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _CSSClassnames = __webpack_require__(93);
-
-	var _CSSClassnames2 = _interopRequireDefault(_CSSClassnames);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-	var CLASS_ROOT = _CSSClassnames2.default.HEADING;
-
-	var Heading = function (_Component) {
-	  (0, _inherits3.default)(Heading, _Component);
-
-	  function Heading() {
-	    (0, _classCallCheck3.default)(this, Heading);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Heading).apply(this, arguments));
-	  }
-
-	  (0, _createClass3.default)(Heading, [{
-	    key: 'render',
-	    value: function render() {
-	      var classes = [CLASS_ROOT];
-	      if (this.props.size) {
-	        classes.push(CLASS_ROOT + '--' + this.props.size);
-	      }
-	      if (this.props.strong) {
-	        classes.push(CLASS_ROOT + '--strong');
-	      }
-	      if (this.props.align) {
-	        classes.push(CLASS_ROOT + '--align-' + this.props.align);
-	      }
-	      if (this.props.margin) {
-	        classes.push(CLASS_ROOT + '--margin-' + this.props.margin);
-	      }
-	      if (this.props.uppercase) {
-	        classes.push(CLASS_ROOT + '--uppercase');
-	      }
-	      if (this.props.className) {
-	        classes.push(this.props.className);
-	      }
-
-	      // we handle dangerouslySetInnerHTML to allow using Heading with Markdown.
-	      return _react2.default.createElement(
-	        this.props.tag,
-	        { id: this.props.id, className: classes.join(' '),
-	          dangerouslySetInnerHTML: this.props.dangerouslySetInnerHTML },
-	        this.props.children
-	      );
-	    }
-	  }]);
-	  return Heading;
-	}(_react.Component);
-
-	Heading.displayName = 'Heading';
-	exports.default = Heading;
-
-
-	Heading.propTypes = {
-	  align: _react.PropTypes.oneOf(['start', 'center', 'end']),
-	  margin: _react.PropTypes.oneOf(['none', 'small', 'medium', 'large']),
-	  size: _react.PropTypes.oneOf(['small', 'medium', 'large']),
-	  strong: _react.PropTypes.bool,
-	  tag: _react.PropTypes.string,
-	  uppercase: _react.PropTypes.bool
-	};
-
-	Heading.defaultProps = {
-	  tag: 'h1'
-	};
-	module.exports = exports['default'];
-
-/***/ },
-/* 252 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32977,10 +33118,10 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
 	var Headline = __webpack_require__(118);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	// function convertHeadingToString(headingJSX) {
 	//   return jsxToString(headingJSX);
@@ -33178,12 +33319,12 @@ module.exports =
 	module.exports = HeadlineDoc;
 
 /***/ },
-/* 253 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
@@ -33192,24 +33333,24 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Header = __webpack_require__(112);
-	var SearchInput = __webpack_require__(239);
-	var Tiles = __webpack_require__(119);
-	var Tile = __webpack_require__(125);
+	var SearchInput = __webpack_require__(243);
+	var Tiles = __webpack_require__(120);
+	var Tile = __webpack_require__(126);
 	var Button = __webpack_require__(96);
-	var SVGIcon = __webpack_require__(254);
-	var iconsMap = __webpack_require__(255);
+	var SVGIcon = __webpack_require__(257);
+	var iconsMap = __webpack_require__(258);
 	var iconNames = Object.keys(iconsMap);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 
 	//hjjs configuration
-	var hljs = __webpack_require__(134);
-	hljs.registerLanguage('bash', __webpack_require__(135));
-	hljs.registerLanguage('xml', __webpack_require__(136));
-	hljs.registerLanguage('javascript', __webpack_require__(137));
-	hljs.registerLanguage('scss', __webpack_require__(138));
+	var hljs = __webpack_require__(138);
+	hljs.registerLanguage('bash', __webpack_require__(139));
+	hljs.registerLanguage('xml', __webpack_require__(140));
+	hljs.registerLanguage('javascript', __webpack_require__(141));
+	hljs.registerLanguage('scss', __webpack_require__(142));
 
 	var IconDoc = React.createClass({
 	  displayName: 'IconDoc',
@@ -33286,7 +33427,7 @@ module.exports =
 	        return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
 	      });
 
-	      var Icon = __webpack_require__(537)("./" + name);
+	      var Icon = __webpack_require__(540)("./" + name);
 
 	      return React.createElement(
 	        Tile,
@@ -33530,7 +33671,7 @@ module.exports =
 	module.exports = IconDoc;
 
 /***/ },
-/* 254 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33670,15 +33811,15 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 255 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = { "3d": __webpack_require__(256), "achievement": __webpack_require__(257), "action": __webpack_require__(258), "actions": __webpack_require__(246), "add": __webpack_require__(152), "advanced-search": __webpack_require__(259), "aggregate": __webpack_require__(260), "alarm": __webpack_require__(261), "alert": __webpack_require__(262), "analytics": __webpack_require__(263), "announcement": __webpack_require__(264), "app": __webpack_require__(265), "archive": __webpack_require__(266), "article": __webpack_require__(267), "ascend": __webpack_require__(268), "assistant": __webpack_require__(269), "attachment": __webpack_require__(270), "bar-chart": __webpack_require__(271), "blog": __webpack_require__(272), "book": __webpack_require__(273), "bookmark": __webpack_require__(274), "bundle": __webpack_require__(275), "calculator": __webpack_require__(276), "calendar": __webpack_require__(157), "camera": __webpack_require__(277), "capacity": __webpack_require__(278), "caret-down": __webpack_require__(279), "caret-next": __webpack_require__(280), "caret-previous": __webpack_require__(281), "caret-up": __webpack_require__(282), "catalog": __webpack_require__(283), "chapter-add": __webpack_require__(284), "chapter-next": __webpack_require__(285), "chapter-previous": __webpack_require__(286), "chat": __webpack_require__(287), "checkbox-selected": __webpack_require__(288), "checkbox": __webpack_require__(289), "checkmark": __webpack_require__(290), "circular-view": __webpack_require__(291), "clipboard": __webpack_require__(292), "clock": __webpack_require__(227), "clone": __webpack_require__(293), "close": __webpack_require__(95), "cloud-computer": __webpack_require__(294), "cloud-download": __webpack_require__(295), "cloud-software": __webpack_require__(296), "cloud-upload": __webpack_require__(297), "cloud": __webpack_require__(298), "cluster": __webpack_require__(299), "code": __webpack_require__(300), "command-line": __webpack_require__(301), "compare": __webpack_require__(302), "compasss": __webpack_require__(303), "compliance": __webpack_require__(304), "computer-personal": __webpack_require__(305), "configuration": __webpack_require__(306), "connect": __webpack_require__(307), "contact-card": __webpack_require__(308), "contact-us": __webpack_require__(309), "contract": __webpack_require__(310), "copy": __webpack_require__(311), "cube": __webpack_require__(312), "cubes": __webpack_require__(313), "cursor": __webpack_require__(314), "cut": __webpack_require__(315), "cycle": __webpack_require__(316), "dashboard": __webpack_require__(317), "database": __webpack_require__(318), "defect": __webpack_require__(319), "deliver": __webpack_require__(320), "deployment": __webpack_require__(321), "descend": __webpack_require__(322), "desktop": __webpack_require__(323), "detach": __webpack_require__(324), "directions": __webpack_require__(325), "dislike": __webpack_require__(326), "divide-four": __webpack_require__(327), "divide-right": __webpack_require__(328), "divide-three": __webpack_require__(329), "divide": __webpack_require__(330), "document-cloud": __webpack_require__(331), "document-compress": __webpack_require__(332), "document-conig": __webpack_require__(333), "document-csv": __webpack_require__(334), "document-data": __webpack_require__(335), "document-download": __webpack_require__(336), "document-excel": __webpack_require__(337), "document-executable": __webpack_require__(338), "document-image": __webpack_require__(339), "document-locked": __webpack_require__(340), "document-missing": __webpack_require__(341), "document-notes": __webpack_require__(342), "document-outlook": __webpack_require__(343), "document-pdf": __webpack_require__(344), "document-performance": __webpack_require__(345), "document-powerpoint": __webpack_require__(346), "document-rtf": __webpack_require__(347), "document-sound": __webpack_require__(348), "document-test": __webpack_require__(349), "document-text": __webpack_require__(350), "document-threat": __webpack_require__(351), "document-time": __webpack_require__(352), "document-transfer": __webpack_require__(353), "document-txt": __webpack_require__(354), "document-update": __webpack_require__(355), "document-upload": __webpack_require__(356), "document-user": __webpack_require__(357), "document-verified": __webpack_require__(358), "document-video": __webpack_require__(359), "document-word": __webpack_require__(360), "document": __webpack_require__(361), "domain": __webpack_require__(362), "down": __webpack_require__(100), "download": __webpack_require__(363), "drag": __webpack_require__(154), "drive-cage": __webpack_require__(364), "duplicate": __webpack_require__(365), "edit": __webpack_require__(153), "eject": __webpack_require__(366), "expand": __webpack_require__(367), "fan": __webpack_require__(368), "fast-forward": __webpack_require__(369), "favorite": __webpack_require__(370), "filter": __webpack_require__(155), "first-aid": __webpack_require__(371), "flag": __webpack_require__(372), "folder-cycle": __webpack_require__(373), "folder-open": __webpack_require__(374), "folder": __webpack_require__(375), "gallery": __webpack_require__(376), "globe": __webpack_require__(377), "grid": __webpack_require__(378), "group": __webpack_require__(379), "grow": __webpack_require__(380), "halt": __webpack_require__(381), "help": __webpack_require__(158), "history": __webpack_require__(382), "home": __webpack_require__(383), "host-maintenance": __webpack_require__(384), "host": __webpack_require__(385), "image": __webpack_require__(386), "impact": __webpack_require__(387), "in-progress": __webpack_require__(388), "inbox": __webpack_require__(389), "indicator": __webpack_require__(390), "information": __webpack_require__(391), "inherit": __webpack_require__(392), "install": __webpack_require__(393), "integration": __webpack_require__(394), "iteration": __webpack_require__(395), "java": __webpack_require__(396), "language": __webpack_require__(162), "launch": __webpack_require__(397), "license": __webpack_require__(398), "like": __webpack_require__(399), "line-chart": __webpack_require__(400), "link-bottom": __webpack_require__(401), "link-down": __webpack_require__(402), "link-next": __webpack_require__(108), "link-previous": __webpack_require__(109), "link-top": __webpack_require__(160), "link-up": __webpack_require__(159), "link": __webpack_require__(403), "location-pin": __webpack_require__(404), "location": __webpack_require__(405), "lock": __webpack_require__(406), "login": __webpack_require__(407), "logout": __webpack_require__(408), "mail": __webpack_require__(163), "manual": __webpack_require__(409), "map-location": __webpack_require__(410), "map": __webpack_require__(411), "menu": __webpack_require__(412), "microphone": __webpack_require__(413), "monitor": __webpack_require__(414), "more": __webpack_require__(101), "multiple": __webpack_require__(415), "navigate": __webpack_require__(416), "new-window": __webpack_require__(417), "new": __webpack_require__(418), "next": __webpack_require__(193), "notes": __webpack_require__(419), "notification": __webpack_require__(247), "optimization": __webpack_require__(420), "organization": __webpack_require__(421), "overlay": __webpack_require__(422), "overview": __webpack_require__(423), "pan": __webpack_require__(424), "pause": __webpack_require__(425), "payment-google-wallet": __webpack_require__(426), "payment-mastercard": __webpack_require__(427), "payment-paypal": __webpack_require__(428), "payment-square": __webpack_require__(429), "payment-visa": __webpack_require__(430), "pin": __webpack_require__(431), "plan": __webpack_require__(432), "platform-apple": __webpack_require__(188), "platform-chrome": __webpack_require__(187), "platform-dropbox": __webpack_require__(433), "platform-edge": __webpack_require__(186), "platform-firefox": __webpack_require__(184), "platform-internet-explorer": __webpack_require__(185), "platform-skype": __webpack_require__(434), "platform-windows": __webpack_require__(435), "play": __webpack_require__(436), "power": __webpack_require__(437), "previous": __webpack_require__(206), "print": __webpack_require__(438), "quick-view": __webpack_require__(439), "radial-selected": __webpack_require__(440), "radial": __webpack_require__(441), "refresh": __webpack_require__(442), "resources": __webpack_require__(443), "rewind": __webpack_require__(444), "risk": __webpack_require__(445), "rss": __webpack_require__(446), "satellite": __webpack_require__(447), "schedule-clone": __webpack_require__(448), "schedule-new": __webpack_require__(449), "schedule-play": __webpack_require__(450), "schedule": __webpack_require__(451), "scorecard": __webpack_require__(452), "search": __webpack_require__(156), "secure": __webpack_require__(453), "select-left": __webpack_require__(454), "select": __webpack_require__(455), "server-cluster": __webpack_require__(456), "server": __webpack_require__(457), "servers": __webpack_require__(458), "service-business": __webpack_require__(459), "service-start": __webpack_require__(460), "share": __webpack_require__(461), "sheild-configure": __webpack_require__(462), "shield": __webpack_require__(463), "shift": __webpack_require__(464), "shop-basket": __webpack_require__(465), "shop-cart": __webpack_require__(466), "soa": __webpack_require__(467), "social-email": __webpack_require__(468), "social-facebook": __webpack_require__(166), "social-github": __webpack_require__(469), "social-google": __webpack_require__(470), "social-instagram": __webpack_require__(471), "social-linkedin": __webpack_require__(165), "social-medium": __webpack_require__(472), "social-pinterest": __webpack_require__(473), "social-reddit": __webpack_require__(474), "social-slack": __webpack_require__(475), "social-tumblr": __webpack_require__(476), "social-twitter": __webpack_require__(164), "social-vimeo": __webpack_require__(477), "social-youtube": __webpack_require__(478), "sort": __webpack_require__(479), "stakeholder": __webpack_require__(480), "star-half": __webpack_require__(481), "star": __webpack_require__(482), "steps": __webpack_require__(483), "storage": __webpack_require__(484), "street-view": __webpack_require__(485), "subtract": __webpack_require__(229), "support": __webpack_require__(486), "svg": __webpack_require__(487), "sync": __webpack_require__(488), "system": __webpack_require__(489), "tab-next": __webpack_require__(490), "tab-previous": __webpack_require__(491), "tab-up": __webpack_require__(492), "table-add": __webpack_require__(493), "table": __webpack_require__(494), "tag": __webpack_require__(495), "target": __webpack_require__(496), "task": __webpack_require__(497), "template": __webpack_require__(498), "test-desktop": __webpack_require__(499), "test": __webpack_require__(500), "tesxt-wrap": __webpack_require__(501), "threats": __webpack_require__(502), "three-d": __webpack_require__(503), "ticket": __webpack_require__(504), "tools": __webpack_require__(505), "tooltip": __webpack_require__(506), "transaction": __webpack_require__(507), "trash": __webpack_require__(508), "tree": __webpack_require__(509), "trigger": __webpack_require__(510), "trophy": __webpack_require__(511), "troubleshooting": __webpack_require__(512), "unlock": __webpack_require__(513), "up": __webpack_require__(110), "update": __webpack_require__(514), "upgrade": __webpack_require__(515), "upload": __webpack_require__(516), "user-add": __webpack_require__(517), "user-admin": __webpack_require__(518), "user-expert": __webpack_require__(519), "user-female": __webpack_require__(520), "user-manager": __webpack_require__(521), "user-new": __webpack_require__(522), "user-police": __webpack_require__(523), "user-settings": __webpack_require__(248), "user-worker": __webpack_require__(524), "user": __webpack_require__(161), "validation": __webpack_require__(525), "video": __webpack_require__(526), "view": __webpack_require__(527), "virtual-machine": __webpack_require__(528), "vm-maintenance": __webpack_require__(529), "volume-low": __webpack_require__(530), "volume-mute": __webpack_require__(531), "volume": __webpack_require__(532), "vulnerability": __webpack_require__(533), "waypoint": __webpack_require__(534), "workshop": __webpack_require__(535), "zoom-in": __webpack_require__(536) };
+	module.exports = { "3d": __webpack_require__(259), "achievement": __webpack_require__(260), "action": __webpack_require__(261), "actions": __webpack_require__(250), "add": __webpack_require__(156), "advanced-search": __webpack_require__(262), "aggregate": __webpack_require__(263), "alarm": __webpack_require__(264), "alert": __webpack_require__(265), "analytics": __webpack_require__(266), "announcement": __webpack_require__(267), "app": __webpack_require__(268), "archive": __webpack_require__(269), "article": __webpack_require__(270), "ascend": __webpack_require__(271), "assistant": __webpack_require__(272), "attachment": __webpack_require__(273), "bar-chart": __webpack_require__(274), "blog": __webpack_require__(275), "book": __webpack_require__(276), "bookmark": __webpack_require__(277), "bundle": __webpack_require__(278), "calculator": __webpack_require__(279), "calendar": __webpack_require__(161), "camera": __webpack_require__(280), "capacity": __webpack_require__(281), "caret-down": __webpack_require__(282), "caret-next": __webpack_require__(283), "caret-previous": __webpack_require__(284), "caret-up": __webpack_require__(285), "catalog": __webpack_require__(286), "chapter-add": __webpack_require__(287), "chapter-next": __webpack_require__(288), "chapter-previous": __webpack_require__(289), "chat": __webpack_require__(290), "checkbox-selected": __webpack_require__(291), "checkbox": __webpack_require__(292), "checkmark": __webpack_require__(293), "circular-view": __webpack_require__(294), "clipboard": __webpack_require__(295), "clock": __webpack_require__(231), "clone": __webpack_require__(296), "close": __webpack_require__(95), "cloud-computer": __webpack_require__(297), "cloud-download": __webpack_require__(298), "cloud-software": __webpack_require__(299), "cloud-upload": __webpack_require__(300), "cloud": __webpack_require__(301), "cluster": __webpack_require__(302), "code": __webpack_require__(303), "command-line": __webpack_require__(304), "compare": __webpack_require__(305), "compasss": __webpack_require__(306), "compliance": __webpack_require__(307), "computer-personal": __webpack_require__(308), "configuration": __webpack_require__(309), "connect": __webpack_require__(310), "contact-card": __webpack_require__(311), "contact-us": __webpack_require__(312), "contract": __webpack_require__(313), "copy": __webpack_require__(314), "cube": __webpack_require__(315), "cubes": __webpack_require__(316), "cursor": __webpack_require__(317), "cut": __webpack_require__(318), "cycle": __webpack_require__(319), "dashboard": __webpack_require__(320), "database": __webpack_require__(321), "defect": __webpack_require__(322), "deliver": __webpack_require__(323), "deployment": __webpack_require__(324), "descend": __webpack_require__(325), "desktop": __webpack_require__(326), "detach": __webpack_require__(327), "directions": __webpack_require__(328), "dislike": __webpack_require__(329), "divide-four": __webpack_require__(330), "divide-right": __webpack_require__(331), "divide-three": __webpack_require__(332), "divide": __webpack_require__(333), "document-cloud": __webpack_require__(334), "document-compress": __webpack_require__(335), "document-conig": __webpack_require__(336), "document-csv": __webpack_require__(337), "document-data": __webpack_require__(338), "document-download": __webpack_require__(339), "document-excel": __webpack_require__(340), "document-executable": __webpack_require__(341), "document-image": __webpack_require__(342), "document-locked": __webpack_require__(343), "document-missing": __webpack_require__(344), "document-notes": __webpack_require__(345), "document-outlook": __webpack_require__(346), "document-pdf": __webpack_require__(347), "document-performance": __webpack_require__(348), "document-powerpoint": __webpack_require__(349), "document-rtf": __webpack_require__(350), "document-sound": __webpack_require__(351), "document-test": __webpack_require__(352), "document-text": __webpack_require__(353), "document-threat": __webpack_require__(354), "document-time": __webpack_require__(355), "document-transfer": __webpack_require__(356), "document-txt": __webpack_require__(357), "document-update": __webpack_require__(358), "document-upload": __webpack_require__(359), "document-user": __webpack_require__(360), "document-verified": __webpack_require__(361), "document-video": __webpack_require__(362), "document-word": __webpack_require__(363), "document": __webpack_require__(364), "domain": __webpack_require__(365), "down": __webpack_require__(100), "download": __webpack_require__(366), "drag": __webpack_require__(158), "drive-cage": __webpack_require__(367), "duplicate": __webpack_require__(368), "edit": __webpack_require__(157), "eject": __webpack_require__(369), "expand": __webpack_require__(370), "fan": __webpack_require__(371), "fast-forward": __webpack_require__(372), "favorite": __webpack_require__(373), "filter": __webpack_require__(159), "first-aid": __webpack_require__(374), "flag": __webpack_require__(375), "folder-cycle": __webpack_require__(376), "folder-open": __webpack_require__(377), "folder": __webpack_require__(378), "gallery": __webpack_require__(379), "globe": __webpack_require__(380), "grid": __webpack_require__(381), "group": __webpack_require__(382), "grow": __webpack_require__(383), "halt": __webpack_require__(384), "help": __webpack_require__(162), "history": __webpack_require__(385), "home": __webpack_require__(386), "host-maintenance": __webpack_require__(387), "host": __webpack_require__(388), "image": __webpack_require__(389), "impact": __webpack_require__(390), "in-progress": __webpack_require__(391), "inbox": __webpack_require__(392), "indicator": __webpack_require__(393), "information": __webpack_require__(394), "inherit": __webpack_require__(395), "install": __webpack_require__(396), "integration": __webpack_require__(397), "iteration": __webpack_require__(398), "java": __webpack_require__(399), "language": __webpack_require__(166), "launch": __webpack_require__(400), "license": __webpack_require__(401), "like": __webpack_require__(402), "line-chart": __webpack_require__(403), "link-bottom": __webpack_require__(404), "link-down": __webpack_require__(405), "link-next": __webpack_require__(108), "link-previous": __webpack_require__(109), "link-top": __webpack_require__(164), "link-up": __webpack_require__(163), "link": __webpack_require__(406), "location-pin": __webpack_require__(407), "location": __webpack_require__(408), "lock": __webpack_require__(409), "login": __webpack_require__(410), "logout": __webpack_require__(411), "mail": __webpack_require__(167), "manual": __webpack_require__(412), "map-location": __webpack_require__(413), "map": __webpack_require__(414), "menu": __webpack_require__(415), "microphone": __webpack_require__(416), "monitor": __webpack_require__(417), "more": __webpack_require__(101), "multiple": __webpack_require__(418), "navigate": __webpack_require__(419), "new-window": __webpack_require__(420), "new": __webpack_require__(421), "next": __webpack_require__(197), "notes": __webpack_require__(422), "notification": __webpack_require__(251), "optimization": __webpack_require__(423), "organization": __webpack_require__(424), "overlay": __webpack_require__(425), "overview": __webpack_require__(426), "pan": __webpack_require__(427), "pause": __webpack_require__(428), "payment-google-wallet": __webpack_require__(429), "payment-mastercard": __webpack_require__(430), "payment-paypal": __webpack_require__(431), "payment-square": __webpack_require__(432), "payment-visa": __webpack_require__(433), "pin": __webpack_require__(434), "plan": __webpack_require__(435), "platform-apple": __webpack_require__(192), "platform-chrome": __webpack_require__(191), "platform-dropbox": __webpack_require__(436), "platform-edge": __webpack_require__(190), "platform-firefox": __webpack_require__(188), "platform-internet-explorer": __webpack_require__(189), "platform-skype": __webpack_require__(437), "platform-windows": __webpack_require__(438), "play": __webpack_require__(439), "power": __webpack_require__(440), "previous": __webpack_require__(210), "print": __webpack_require__(441), "quick-view": __webpack_require__(442), "radial-selected": __webpack_require__(443), "radial": __webpack_require__(444), "refresh": __webpack_require__(445), "resources": __webpack_require__(446), "rewind": __webpack_require__(447), "risk": __webpack_require__(448), "rss": __webpack_require__(449), "satellite": __webpack_require__(450), "schedule-clone": __webpack_require__(451), "schedule-new": __webpack_require__(452), "schedule-play": __webpack_require__(453), "schedule": __webpack_require__(454), "scorecard": __webpack_require__(455), "search": __webpack_require__(160), "secure": __webpack_require__(456), "select-left": __webpack_require__(457), "select": __webpack_require__(458), "server-cluster": __webpack_require__(459), "server": __webpack_require__(460), "servers": __webpack_require__(461), "service-business": __webpack_require__(462), "service-start": __webpack_require__(463), "share": __webpack_require__(464), "sheild-configure": __webpack_require__(465), "shield": __webpack_require__(466), "shift": __webpack_require__(467), "shop-basket": __webpack_require__(468), "shop-cart": __webpack_require__(469), "soa": __webpack_require__(470), "social-email": __webpack_require__(471), "social-facebook": __webpack_require__(170), "social-github": __webpack_require__(472), "social-google": __webpack_require__(473), "social-instagram": __webpack_require__(474), "social-linkedin": __webpack_require__(169), "social-medium": __webpack_require__(475), "social-pinterest": __webpack_require__(476), "social-reddit": __webpack_require__(477), "social-slack": __webpack_require__(478), "social-tumblr": __webpack_require__(479), "social-twitter": __webpack_require__(168), "social-vimeo": __webpack_require__(480), "social-youtube": __webpack_require__(481), "sort": __webpack_require__(482), "stakeholder": __webpack_require__(483), "star-half": __webpack_require__(484), "star": __webpack_require__(485), "steps": __webpack_require__(486), "storage": __webpack_require__(487), "street-view": __webpack_require__(488), "subtract": __webpack_require__(233), "support": __webpack_require__(489), "svg": __webpack_require__(490), "sync": __webpack_require__(491), "system": __webpack_require__(492), "tab-next": __webpack_require__(493), "tab-previous": __webpack_require__(494), "tab-up": __webpack_require__(495), "table-add": __webpack_require__(496), "table": __webpack_require__(497), "tag": __webpack_require__(498), "target": __webpack_require__(499), "task": __webpack_require__(500), "template": __webpack_require__(501), "test-desktop": __webpack_require__(502), "test": __webpack_require__(503), "tesxt-wrap": __webpack_require__(504), "threats": __webpack_require__(505), "three-d": __webpack_require__(506), "ticket": __webpack_require__(507), "tools": __webpack_require__(508), "tooltip": __webpack_require__(509), "transaction": __webpack_require__(510), "trash": __webpack_require__(511), "tree": __webpack_require__(512), "trigger": __webpack_require__(513), "trophy": __webpack_require__(514), "troubleshooting": __webpack_require__(515), "unlock": __webpack_require__(516), "up": __webpack_require__(110), "update": __webpack_require__(517), "upgrade": __webpack_require__(518), "upload": __webpack_require__(519), "user-add": __webpack_require__(520), "user-admin": __webpack_require__(521), "user-expert": __webpack_require__(522), "user-female": __webpack_require__(523), "user-manager": __webpack_require__(524), "user-new": __webpack_require__(525), "user-police": __webpack_require__(526), "user-settings": __webpack_require__(252), "user-worker": __webpack_require__(527), "user": __webpack_require__(165), "validation": __webpack_require__(528), "video": __webpack_require__(529), "view": __webpack_require__(530), "virtual-machine": __webpack_require__(531), "vm-maintenance": __webpack_require__(532), "volume-low": __webpack_require__(533), "volume-mute": __webpack_require__(534), "volume": __webpack_require__(535), "vulnerability": __webpack_require__(536), "waypoint": __webpack_require__(537), "workshop": __webpack_require__(538), "zoom-in": __webpack_require__(539) };
 
 /***/ },
-/* 256 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33770,8 +33911,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: '_x33_d' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_197_', x: '0', y: '0.1808', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.1808', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22.4,12.1808v7l-10,4.1l-10-4.1v-7 M22.4,12.1808\r v-7l-10-4.1l-10,4.1v7 M2.4,5.1808l10,4.1l10-4.1 M18.4,17.1808v-5h-5 M6.4,14.1808c5.7812,4.9375,11.2-1,11.2-1' })
 	        )
 	      );
@@ -33801,7 +33942,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 257 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33893,8 +34034,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'achievement' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_178_', x: '2', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '2', y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.6196,13.4113L19.031,18l-2.7238-2.7238\r M17.98,9.29C18,9.2,18,9.1,18,9c0-0.08,0-3.66,0-6c0-1.15,0-2,0-2H6v8c0,3.31,2.69,6,6,6c0.38,0,0.74-0.04,1.1-0.11 M6,3H1v4.3\r C1,9.5091,2.7909,11,5,11h1 M22.34,9.41C22.76,8.83,23,8.11,23,7.3V3h-5 M9.73,14.55C8.11,15.39,7,17.08,7,19.03 M13,19H5v4h14\r M20,9c-3.866,0-7,3.134-7,7s3.134,7,7,7s7-3.134,7-7S23.866,9,20,9z' })
 	        )
 	      );
@@ -33924,7 +34065,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 258 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34016,8 +34157,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'action' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_82_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.3088,20.1644l-0.5364-0.5391\r c-2.3631-2.3748-2.3631-6.2608,0-8.6356L4.7573,10L14,19.2883l-0.8719,0.8762C10.6927,22.6119,6.7442,22.6119,4.3088,20.1644z\r M10.8719,3.8356L10,4.7117L19.2427,14l0.9849-0.9898c2.3631-2.3748,2.3631-6.2608,0-8.6356l-0.5364-0.5391\r C17.2558,1.3881,13.3073,1.3881,10.8719,3.8356z M13.71,14.54l3.04-3.04 M9.46,10.29l3.05-3.05 M19.9279,4.0722L23,1 M1,23\r l3.0722-3.0722' })
 	        )
 	      );
@@ -34047,7 +34188,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 259 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34140,7 +34281,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'advanced-search' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_19_', x: '0', y: '0.0552', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0.0552', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,10.5c0,4.1421-3.3579,7.5-7.5,7.5\r S2,14.6421,2,10.5S5.3579,3,9.5,3S17,6.3579,17,10.5z M21,0v6 M18,3h6 M15,16l6,6' })
 	        )
 	      );
@@ -34170,7 +34311,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 260 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34262,8 +34403,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'aggregate' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_83_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M8.5,16C4.3563,16,1,12.6438,1,8.5\r C1,4.3563,4.3563,1,8.5,1C12.6438,1,16,4.3563,16,8.5 M16,8H8v8h8V8z M8,15.5c0,4.1437,3.3562,7.5,7.5,7.5s7.5-3.3563,7.5-7.5\r S19.6438,8,15.5,8 M16,8H8v8h8V8z M16,8H8v8h8V8z' })
 	        )
 	      );
@@ -34293,7 +34434,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 261 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34385,8 +34526,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'alarm' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_151_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,12c0,4.9706-4.0294,9-9,9s-9-4.0294-9-9\r s4.0294-9,9-9S21,7.0294,21,12z M6,18l-4,4 M18,18l4,4 M9.46,3.37C8.71,1.96,7.22,1,5.5,1C3.01,1,1,3.01,1,5.5\r c0,1.72,0.96,3.21,2.37,3.96 M20.63,9.46C22.04,8.71,23,7.22,23,5.5C23,3.01,20.99,1,18.5,1c-1.72,0-3.21,0.96-3.96,2.37 M12,7v5\r l3,3' })
 	        )
 	      );
@@ -34416,7 +34557,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 262 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34508,8 +34649,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'alert' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_11_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
 	            null,
@@ -34545,7 +34686,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 263 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34637,8 +34778,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'analytics' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_84_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19.5,7c1.25,1.67,2,3.75,2,6c0,5.52-4.48,10-10,10\r s-10-4.48-10-10s4.48-10,10-10 M11.5,1v12l9.6-7.2C18.91,2.89,15.42,1,11.5,1z' })
 	        )
 	      );
@@ -34668,7 +34809,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 264 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34760,8 +34901,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'announcement' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_59_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,16c-2.7614,0-5-2.2386-5-5s2.2386-5,5-5h5v10H7z\r M20,11V2.3c0,0-4,3.7-8,3.7 M12,16c4,0,8,3.6,8,3.6V11 M21,14c1.6569,0,3-1.3431,3-3s-1.3431-3-3-3 M12,16H8v7h4V16z' })
 	        )
 	      );
@@ -34791,7 +34932,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 265 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34883,8 +35024,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'app' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_4_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M6,6H2V2h4V6z M14,2h-4v4h4V2z M22,2h-4v4h4V2z M6,10H2v4h4V10z M14,10h-4v4h4V10z M22,10h-4v4h4V10z M6,18H2v4h4V18z\r M14,18h-4v4h4V18z M22,18h-4v4h4V18z' })
 	        )
 	      );
@@ -34914,7 +35055,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 266 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35006,8 +35147,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'archive' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_86_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,6H1V1h22V6z M21,6H3v17h18V6z M15,10H9v4h6V10z\r ' })
 	        )
 	      );
@@ -35037,7 +35178,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 267 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35129,8 +35270,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'article' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_242_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M6,17.5C6,18.8807,4.8807,20,3.5,20\r S1,18.8807,1,17.5V6h5C6,6,6,17.4062,6,17.5z M4,20h16.5c1.3807,0,2.5-1.1193,2.5-2.5V2H6v4' }),
 	          _react2.default.createElement('rect', { x: '15', y: '5', width: '5', height: '6' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '9', y1: '6', x2: '13', y2: '6' }),
@@ -35164,7 +35305,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 268 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35256,8 +35397,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'ascend' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_87_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M2,7l6-5l6,5 M8,24V2 M12,11h7 M12,15h9 M12,19h11\r M12,23h13' })
 	        )
 	      );
@@ -35287,7 +35428,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 269 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35379,8 +35520,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'assistant' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_246_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M9.1397,13.5h-1c-0.5523,0-1-0.4477-1-1v-1c0-0.5523,0.4477-1,1-1h1c0.5523,0,1,0.4477,1,1v1\r C10.1397,13.0523,9.692,13.5,9.1397,13.5z' }),
 	          _react2.default.createElement('path', { d: 'M16.1397,13.5h-1c-0.5523,0-1-0.4477-1-1v-1c0-0.5523,0.4477-1,1-1h1c0.5523,0,1,0.4477,1,1v1\r C17.1397,13.0523,16.692,13.5,16.1397,13.5z' }),
 	          _react2.default.createElement('circle', { cx: '12.0981', cy: '2.5417', r: '2.0417' }),
@@ -35413,7 +35554,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 270 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35505,8 +35646,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'attachment' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_29_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21.8566,12.0113l-9.488,9.488\r c-2.3197,2.3197-6.0807,2.3197-8.4004,0l-0.0849-0.0849c-2.3197-2.3197-2.3197-6.0807,0-8.4004L14.5564,2.3409\r c1.5465-1.5465,4.0538-1.5465,5.6003,0l0.0566,0.0566c1.5465,1.5465,1.5465,4.0538,0,5.6003L9.5684,18.6427\r c-0.7732,0.7732-2.0269,0.7732-2.8001,0l-0.0283-0.0283c-0.7732-0.7732-0.7732-2.0269,0-2.8001l9.4598-9.4598' })
 	        )
 	      );
@@ -35536,7 +35677,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 271 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35629,7 +35770,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'bar-chart' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_56_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,18h-4v-8h4V18z M6,6H2v12h4V6z M22,2h-4v16h4V2\r z M0,22h24' })
 	        )
 	      );
@@ -35659,7 +35800,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 272 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35751,8 +35892,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'blog' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_89_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M6,1c9.9253,0,18,8.0747,18,18 M19,19\r c0-7.1685-5.8315-13-13-13 M14,19c0-4.4111-3.5889-8-8-8 M6,16c-1.6569,0-3,1.3431-3,3s1.3431,3,3,3s3-1.3431,3-3S7.6569,16,6,16z\r M3,19v-8' })
 	        )
 	      );
@@ -35782,7 +35923,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 273 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35874,8 +36015,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'book' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_240_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H4.5C3.1193,23,2,21.8807,2,20.5v0\r C2,19.1193,3.1193,18,4.5,18H20V1H4.5C3.1193,1,2,2.1193,2,3.5V4v17 M19.5,18c-1.3807,0-2.5,1.1193-2.5,2.5v0\r c0,1.3807,1.1193,2.5,2.5,2.5 M9,1v10l3-2l3,2V2' })
 	        )
 	      );
@@ -35905,7 +36046,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 274 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35997,8 +36138,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'bookmark' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_71_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '19,22 12,17 5,22 5,1 19,1 \t' })
 	        )
 	      );
@@ -36028,7 +36169,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 275 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36120,8 +36261,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'bundle' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_141_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,3h6v10h-5h-1H7H1V3h6 M1,13v4h6 M17,17h6v-4\r M1,17v4h6 M23,17v4h-6 M17,2H7v20h10V2z' })
 	        )
 	      );
@@ -36151,7 +36292,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 276 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36243,8 +36384,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'calculator' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_58_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '2.5', y: '1', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '19', height: '22' }),
 	          _react2.default.createElement('rect', { x: '5.5', y: '12', width: '3', height: '3' }),
 	          _react2.default.createElement('rect', { x: '10.5', y: '12', width: '3', height: '3' }),
@@ -36281,7 +36422,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 277 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36373,8 +36514,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'camera' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_57_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22H1V6h4.9997L8,2h8l2,4h5V22z M12,18\r c2.7614,0,5-2.2386,5-5s-2.2386-5-5-5s-5,2.2386-5,5S9.2386,18,12,18z' })
 	        )
 	      );
@@ -36404,7 +36545,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 278 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36496,8 +36637,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'capacity' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_140_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M25,19H1V5h24V19z M8,8H4v8h4V8z M15,8h-4v8h4V8z' })
 	        )
 	      );
@@ -36527,7 +36668,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 279 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36620,7 +36761,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'carrot-down' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_7_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { id: 'drop-carrot', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.8571,8 19.1429,8 \r 12,18 \t' })
 	        )
 	      );
@@ -36650,7 +36791,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 280 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36743,7 +36884,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'carrot-next' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_254_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '7,4.8571 7,19.1429 17,12 \t' })
 	        )
 	      );
@@ -36773,7 +36914,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 281 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36866,7 +37007,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'carrot-previous' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_255_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '15,4.8571 15,19.1429 5,12 \t' })
 	        )
 	      );
@@ -36896,7 +37037,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 282 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36989,7 +37130,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'carrot-up' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_253_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.8571,17 19.1429,17 12,7 \t' })
 	        )
 	      );
@@ -37019,7 +37160,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 283 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37111,8 +37252,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'catalog' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_72_', x: '0.0208', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.0208', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,16V2l7,2l7-2v14l-7,2L5,16z M5,5L1,4v15l11,3\r l11-3V4l-4,1 M12,17V4' })
 	        )
 	      );
@@ -37142,7 +37283,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 284 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37235,7 +37376,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'chapter-add' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_150_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,14.5v-9h14v15h-8 M18,16.5h4v-15H8v4 M4,16.5v8\r M8,20.5H0' })
 	        )
 	      );
@@ -37265,7 +37406,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 285 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37358,7 +37499,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'chapter-next' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_266_', y: '0.0293', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '23.0162,12.0293 10,2.0293 10,7.7436 \r 2,2.0293 2,22.0293 10,16.3151 10,22.0293 \t' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '24', y1: '2.0293', x2: '24', y2: '22.0293' })
 	        )
@@ -37389,7 +37530,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 286 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37482,7 +37623,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'chapter-previous' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_265_', x: '1', y: '0.0293', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1.9838,12.0293 15,2.0293 15,7.7436 \r 23,2.0293 23,22.0293 15,16.3151 15,22.0293 \t' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '1', y1: '2.0293', x2: '1', y2: '22.0293' })
 	        )
@@ -37513,7 +37654,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 287 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37605,8 +37746,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'chat' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_44_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,19H7.4667L3,22v-3H1V8h14V19z M15,12h1.53\r L21,15v-3h2V1H9v7' })
 	        )
 	      );
@@ -37636,7 +37777,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 288 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37729,7 +37870,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'checkbox-selected' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_37_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '8', y: '8', width: '8', height: '8' }),
 	          _react2.default.createElement('rect', { x: '2', y: '2', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '20', height: '20' })
 	        )
@@ -37760,7 +37901,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 289 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37852,8 +37993,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'checkbox' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_38_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '2', y: '2', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '20', height: '20' })
 	        )
 	      );
@@ -37883,7 +38024,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 290 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37975,8 +38116,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'checkmark' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_20_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1.5,12.0018 8.6375,19.2101 22.5,5.2101 \t\r ' })
 	        )
 	      );
@@ -38006,7 +38147,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 291 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38099,7 +38240,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'circular-view' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_168_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14.7574,3.5c0,1.3807-1.1193,2.5-2.5,2.5\r s-2.5-1.1193-2.5-2.5s1.1193-2.5,2.5-2.5S14.7574,2.1193,14.7574,3.5z M20.2574,5c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5\r s2.5-1.1193,2.5-2.5S21.6381,5,20.2574,5z M20.2574,14c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5\r S21.6381,14,20.2574,14z M4.2574,5c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S5.6381,5,4.2574,5z\r M4.2574,14c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S5.6381,14,4.2574,14z M12.2574,18\r c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S13.6381,18,12.2574,18z' })
 	        )
 	      );
@@ -38129,7 +38270,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 292 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38221,8 +38362,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'clipboard' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_247_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,3.5h5v20H3v-20h5 M16,1.5H8v5h8V1.5z' })
 	        )
 	      );
@@ -38252,7 +38393,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 293 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38344,8 +38485,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'clone' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_156_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.0833,7.0455H23v15.9167H7.0833V7.0455z\r M17,4.0455v-3h-3 M1,14.0455v3h3 M1,12.0455v-6 M4,1.0455H1v3 M6,1.0455h6' })
 	        )
 	      );
@@ -38375,7 +38516,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 294 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38468,7 +38609,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'cloud-computer' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_157_', x: '0.9', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.9', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.9,7V5.9c0-2.2091,1.7909-3.9,4-3.9h4\r c2.2091,0,4,1.6909,4,3.9v1c2.7729,0,5,2.2469,5,5.0198s-2.2271,5.1302-5,5.1302 M13.9,7H5.9208C3.1479,7,1,9.2125,1,11.9854\r S3.1271,17,5.9,17 M16.9,13h-8v7h8V13z M12.9,20v4 M9.9,24h6' })
 	        )
 	      );
@@ -38498,7 +38639,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 295 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38591,7 +38732,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'cloud-download' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_65_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,12v8 M8,17l4,4l4-4 M18,19h0.0792\r c2.7729,0,4.9708-2.2323,4.9708-5.0052S21,9,18,9V8c0-2.2091-1.6909-4-3.9-4h-3C8.8909,4,7,5.7909,7,8v1 M12,9H6.1208\r C3.3479,9,1.1,11.2375,1.1,14.0104S3.3271,19,6.1,19H6' })
 	        )
 	      );
@@ -38621,7 +38762,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 296 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38714,7 +38855,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'cloud-software' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_158_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M8,7V5.9C8,3.6909,9.7909,2,12,2h4\r c2.2091,0,4,1.6909,4,3.9v1c2.7729,0,5,2.2469,5,5.0198S22.7729,17.05,20,17.05 M14,7H6.0208C3.2479,7,1,9.2271,1,12s2.2271,5,5,5\r M17,13H9v11h8V13z M10,17h6 M13,13v3' })
 	        )
 	      );
@@ -38744,7 +38885,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 297 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38837,7 +38978,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'cloud-upload' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_64_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,22v-8 M16,17l-4-4l-4,4 M16,19h2.0792\r c2.7729,0,4.9708-2.2323,4.9708-5.0052S21,9,18,9V8c0-2.2091-1.6909-4-3.9-4h-3C8.8909,4,7,5.7909,7,8v1 M12,9H6.1208\r C3.3479,9,1.1,11.2375,1.1,14.0104S3.3271,19,6.1,19H6' })
 	        )
 	      );
@@ -38867,7 +39008,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 298 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38959,8 +39100,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cloud' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_63_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.1,8V7c0-2.2091,1.7909-4,4-4h3\r c2.2091,0,4,1.7909,4,4v1c2.7729,0,5,2.2219,5,4.9948S20.8521,18,18.0792,18H11.4 M12.7,8H6.1208C3.3479,8,1.1,10.2375,1.1,13.0104\r S3.3271,18,6.1,18v1.1c0,2.2091,1.7909,4,4,4h3c2.2091,0,4-1.7909,4-4V19' })
 	        )
 	      );
@@ -38990,7 +39131,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 299 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39082,8 +39223,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cluster' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_159_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,10H8V2h8V10z M9,16H1v8h8V16z M23,16h-8v8h8V16\r z M4,16l6-6 M10,20h4 M14,10l6,6' })
 	        )
 	      );
@@ -39113,7 +39254,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 300 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39205,8 +39346,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'code' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_76_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,18l-5.5-6L7,6 M17,18l5.5-6L17,6 M9,22l6-20' })
 	        )
 	      );
@@ -39236,7 +39377,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 301 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39329,7 +39470,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'command-line' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_229_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,23H1V1h22V23z M5,15l3-3L5,9 M10,15h6 M22,5H2\r l0,0H22L22,5z M5,5L5,5V1l0,0V5z' })
 	        )
 	      );
@@ -39359,7 +39500,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 302 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39451,8 +39592,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'compare' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_161_', x: '1.0312', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1.0312', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,19H1V9h6V19z M25,9h-6v10h6V9z' }),
 	          _react2.default.createElement(
 	            'g',
@@ -39494,7 +39635,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 303 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39586,8 +39727,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'compasss' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_128_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '12.0208', cy: '12', r: '11' }),
 	          _react2.default.createElement('path', { d: 'M8.4853,8.4645L6.0208,18l9.5355-2.4645L18.0208,6L8.4853,8.4645z M12.0208,14c-1.1046,0-2-0.8954-2-2s0.8954-2,2-2\r s2,0.8954,2,2S13.1254,14,12.0208,14z' })
 	        )
@@ -39618,7 +39759,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 304 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39710,8 +39851,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'compliance' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_173_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,3h5v20H3V3h5 M16,1H8v5h8V1z M8,14l3,3l6-6' })
 	        )
 	      );
@@ -39741,7 +39882,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 305 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39834,7 +39975,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'computer-personal' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_142_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,18.9467H3v-16h20V18.9467z M25,18.9467H1v4h24\r V18.9467z M20,5.9467H6v10h14V5.9467z' })
 	        )
 	      );
@@ -39864,7 +40005,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 306 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39956,8 +40097,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'configuration' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_54_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14.5387,13.7l-8.42,8.42\r c-0.58,0.59-1.35,0.88-2.12,0.88s-1.54-0.29-2.12-0.88c-1.17-1.17-1.17-3.07,0-4.24l8.42-8.42c-0.2-0.62-0.3-1.28-0.3-1.96\r c0-3.59,2.91-6.5,6.5-6.5c0.8,0,1.56,0.14,2.26,0.41l-4.2,4.2l3.83,3.83l4.2-4.2c0.27,0.7,0.41,1.46,0.41,2.26\r c0,3.59-2.91,6.5-6.5,6.5C15.8187,14,15.1587,13.9,14.5387,13.7z' })
 	        )
 	      );
@@ -39987,7 +40128,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 307 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40079,8 +40220,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'connect' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_187_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9.4336,21.5355\r c-1.9245,1.9245-5.0447,1.9245-6.9692,0s-1.9245-5.0447,0-6.9692l3.0509-3.0509l6.9538,6.9538L9.4336,21.5355z M11.5519,5.5097\r l6.9538,6.9538l3.0509-3.0509c1.9245-1.9245,1.9245-5.0447,0-6.9692s-5.0447-1.9245-6.9692,0L11.5519,5.5097z M11,10l-3.5,3.5\r M14,13l-3.5,3.5' })
 	        )
 	      );
@@ -40110,7 +40251,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 308 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40203,7 +40344,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'contact-card' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_114_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9,9c0,1.6569-1.3431,3-3,3s-3-1.3431-3-3\r s1.3431-3,3-3S9,7.3431,9,9z M11,17.4545C11,14.6429,8.7662,12,5.9546,12h0.0682C3.2111,12,1,14.6429,1,17.4545V20h10V17.4545z\r M14,9h10 M14,13h7 M14,17h10' })
 	        )
 	      );
@@ -40233,7 +40374,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 309 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40326,7 +40467,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'contact-us' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_31_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '22.5,18.5 14.0001,18.5 5.5,22.5 5.5,18.5 \r 1.5,18.5 1.5,1.5 22.5,1.5 \t' }),
 	          _react2.default.createElement('rect', { x: '5.5', y: '8.5', width: '3', height: '3' }),
 	          _react2.default.createElement('rect', { x: '10.5', y: '8.5', width: '3', height: '3' }),
@@ -40359,7 +40500,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 310 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40451,8 +40592,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'contract' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_125_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22.0002,10h-8V2 M23.0002,1l-9,9 M2.0002,14h8v8\r M1.0002,23l9-9' })
 	        )
 	      );
@@ -40482,7 +40623,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 311 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40574,8 +40715,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'copy' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_160_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,21H5V3h11.0002L21,7.9999V21z M5,7H1v18h16v-4\r M15,3v6h6 M8,9h4 M8,13h10 M8,17h8' })
 	        )
 	      );
@@ -40605,7 +40746,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 312 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40697,8 +40838,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cube' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_152_', y: '0.118', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.118', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M2,6.118l10-5l10,5v12l-10,5l-10-5V6.118z M2,6.118\r l10,5l10-5 M12,11.118v12' })
 	        )
 	      );
@@ -40728,7 +40869,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 313 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40820,8 +40961,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cubes' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_153_', x: '1', y: '2.1147', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1', y: '2.1147', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,14.0692l6-2.9545l6,2.9545v7.0909l-6,2.9545\r l-6-2.9545V14.0692z M1,14.0692l6,2.9545l6-2.9545 M7,17.1147v7 M13,21.1601l6,2.9545l6-2.9545v-7.0909l-6-2.9545l-6,2.9545\r V21.1601z M13,14.0692l6,2.9545l6-2.9545 M19,17.1147v7 M7,11.1601l6,2.9545l6-2.9545V4.0692l-6-2.9545L7,4.0692V11.1601z\r M7,4.0692l6,2.9545l6-2.9545 M13,7.1147v7' })
 	        )
 	      );
@@ -40851,7 +40992,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 314 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40943,8 +41084,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cusror' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_193_', x: '0', y: '1.2932', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '1.2932', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '20,15.2932 6,2.2932 6,21.2932 \r 10.3967,17.6293 13.1616,24.0808 16.8384,22.5056 14.0653,16.035 \t' })
 	        )
 	      );
@@ -40974,7 +41115,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 315 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41066,8 +41207,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cut' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_53_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M8,4.5C8,6.433,6.433,8,4.5,8S1,6.433,1,4.5\r S2.567,1,4.5,1S8,2.567,8,4.5z M23,20L7.14,6.78 M8,19.5C8,17.567,6.433,16,4.5,16S1,17.567,1,19.5S2.567,23,4.5,23\r S8,21.433,8,19.5z M23,4L7.14,17.22' })
 	        )
 	      );
@@ -41097,7 +41238,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 316 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41189,8 +41330,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cycle' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_52_', x: '1.027', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1.027', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.9778,17.7125l-2.2097,3.9209l3.8266,2.2642\r M6.5449,11.4374L4.3362,7.5158L0.509,9.779' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16.6404,6.4261l4.4187,0.0263l0.0257-4.5277' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.0408,21.5\r c4.4091-0.9351,7.7172-4.8501,7.7172-9.5378c0-0.729-0.08-1.4393-0.2317-2.1226' }),
@@ -41224,7 +41365,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 317 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41316,8 +41457,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'dashboard' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_51_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12.5c0,6.0751-4.9249,11-11,11\r s-11-4.9249-11-11s4.9249-11,11-11S23,6.4249,23,12.5z M2,16.5h20 M15,15.5c0-1.6569-1.3431-3-3-3s-3,1.3431-3,3 M12,12.5v-6\r M12,4.5v-2 M17.6569,6.8431l1.4142-1.4142 M20,12.5h2 M6,6.8431L4.5858,5.4289 M4,12.5H2' })
 	        )
 	      );
@@ -41347,7 +41488,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 318 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41439,8 +41580,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'database' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_50_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '1', y: '1.5', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '22', height: '7' }),
 	          _react2.default.createElement('rect', { x: '1', y: '8.5', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '22', height: '7' }),
 	          _react2.default.createElement('rect', { x: '1', y: '15.5', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '22', height: '7' }),
@@ -41475,7 +41616,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 319 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41567,8 +41708,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'defect' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_196_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19.0004,16.0796c0,3.822-3.178,6.9204-7,6.9204\r s-7-3.0984-7-6.9204V9.3529c1-0.5968,3.3059-2.3646,7.0368-2.3529c3.6859,0.0115,5.9632,1.7527,6.9632,2.3529\r C19.0004,13.7128,19.0004,11.7197,19.0004,16.0796z M12.0004,24V12 M0.8575,6c2.3571,3.25,5.1429,3,5.1429,3 M5.0804,17.08\r c-1.01,0.19-2.7,0.83-4.22,2.92 M0.0004,13h6 M18.0004,9c0,0,2.7857,0.25,5.1429-3 M23.1404,20c-1.52-2.09-3.21-2.73-4.22-2.92\r M18.0004,13h6 M16.5904,7.98c0.27-0.61,0.41-1.28,0.41-1.98c0-2.76-2.24-5-5-5s-5,2.24-5,5c0,0.71,0.15,1.38,0.41,1.99' })
 	        )
 	      );
@@ -41598,7 +41739,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 320 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41690,8 +41831,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'deliver' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_85_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3.6875,17h-2V3h14v4v10h-7 M15.6875,17L15.6875,17\r M20.6875,17h3v-6l-4-4h-4 M6.1875,15c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S7.5682,15,6.1875,15z\r M18.1875,15c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5c1.3807,0,2.5-1.1193,2.5-2.5S19.5682,15,18.1875,15z' })
 	        )
 	      );
@@ -41721,7 +41862,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 321 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41813,8 +41954,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'deployment' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_162_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16.6159,19.7646\r c0,0.8825-0.3506,1.7289-0.9746,2.3529l-2.6321,2.6321c-0.4698,0.4698-1.2737,0.2264-1.404-0.4251l-0.674-3.3702\r c-0.1288-0.6442-0.4455-1.2358-0.91-1.7004l-1.6405-1.6405L6.74,15.973c-0.4645-0.4645-1.0562-0.7812-1.7004-0.91l-3.3702-0.674\r c-0.6515-0.1303-0.8949-0.9342-0.4251-1.404l2.6321-2.6321c0.624-0.624,1.4704-0.9746,2.3529-0.9746h3.5777\r c0.7522-0.9043,1.6371-1.8872,2.6911-2.9412c5.239-5.239,10-2.9412,10-2.9412s2.2978,4.761-2.9412,10\r c-1.054,1.054-2.0369,1.9389-2.9412,2.6911V19.7646z M6.1661,19.8339c-1.1119-1.1119-2.9147-1.1119-4.0266,0\r s-1.3212,4.7187-1.0067,5.0333c0.2936,0.2936,3.9213,0.1053,5.0333-1.0067S7.278,20.9459,6.1661,19.8339z' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '17', cy: '9', r: '2' })
 	        )
@@ -41845,7 +41986,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 322 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41937,8 +42078,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'descend' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_88_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,17l-6,5l-6-5 M8,22V0 M12,13h7 M12,9h9 M12,5\r h11 M12,1h13' })
 	        )
 	      );
@@ -41968,7 +42109,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 323 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42060,8 +42201,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'desktop' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_230_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,19H1V1h22V19z M5,23h14' })
 	        )
 	      );
@@ -42091,7 +42232,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 324 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42183,8 +42324,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'detach' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_172_', y: '0.1725', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.1725', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,6.1725l-5,5 M13.83,14.0025l6.18-6.19\r c1.55-1.54,1.55-4.05,0-5.6l-0.05-0.05c-1.55-1.55-4.06-1.55-5.6,0l-6.19,6.18 M9,13.1725l-2.46,2.46c-0.77,0.77-0.77,2.03,0,2.8\r l0.03,0.03c0.77,0.77,2.03,0.77,2.8,0l2.46-2.46 M16.66,16.8325l5-5 M6.17,10.3425l-2.49,2.49c-2.32,2.32-2.32,6.08,0,8.4\r l0.09,0.08c2.32,2.32,6.08,2.32,8.4,0l2.49-2.48 M4,4.1725l4.17,4.17l2.83,2.83l2.83,2.83l2.83,2.83l3.34,3.34' })
 	        )
 	      );
@@ -42214,7 +42355,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 325 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42306,8 +42447,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'directions' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_147_', x: '0.4142', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.4142', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M2.4142,11h4c3.3137,0,6,2.6863,6,6v7 M6.4142,6\r l-5,5l5,5 M22.4142,6h-4c-3.3137,0-6,2.6863-6,6v12 M18.4142,11l5-5l-5-5' })
 	        )
 	      );
@@ -42337,7 +42478,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 326 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42429,9 +42570,9 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'dislike' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_269_', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { id: 'thumb', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,1h6v12h-6V1z M17,1H4\r C2.3431,1,1,2.3431,1,4v10h7v6c0,1.6569,1.2431,3,2.9,3H13v-7.1c0-1.6569,1.3431-2.9,3-2.9h1' })
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,1h6v12h-6V1z M17,1H4\r C2.3431,1,1,2.3431,1,4v10h7v6c0,1.6569,1.2431,3,2.9,3H13v-7.1c0-1.6569,1.3431-2.9,3-2.9h1' })
 	        )
 	      );
 	    }
@@ -42460,7 +42601,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 327 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42553,7 +42694,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'divide-four' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_166_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22,22H2V2h20V22z M7,2v21 M12,2v21 M17,2v21' })
 	        )
 	      );
@@ -42583,7 +42724,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 328 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42676,7 +42817,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'divide-right' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_164_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22H1V2h22V22z M16,2v21' })
 	        )
 	      );
@@ -42706,7 +42847,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 329 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42799,7 +42940,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'divide-three' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_165_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22.5,22h-21V2h21V22z M8.5,2v21 M15.5,2v21' })
 	        )
 	      );
@@ -42829,7 +42970,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 330 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42921,8 +43062,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'divide' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_163_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22H1V2h22V22z M12,2v21' })
 	        )
 	      );
@@ -42952,7 +43093,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 331 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43045,7 +43186,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-cloud' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_271_', x: '2', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '2', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '6,6 6,1 19.0002,1 24,5.9999 24,23 17,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '18,2 18,7 24,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5.375,12.8537v-1c0-1.6569,1.3431-3,3-3h4\r c1.6569,0,3,1.3431,3,3v1l1,0c1.6569,0,3,1.3431,3,3v0c0,1.6569-1.3431,3-3,3H9.9996' }),
@@ -43078,7 +43219,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 332 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43171,7 +43312,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-compress' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_199_', x: '0.5', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,9V1h13.0002L22,5.9999V23H3 M16,1v6h6 M15,7\r M0,12h5v1l-4,4v1h5 M9,11v8 M13,12v7 M16,16c1.1046,0,2-0.8954,2-2s-0.8954-2-2-2h-3v4H16z' })
 	        )
 	      );
@@ -43201,7 +43342,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 333 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43294,7 +43435,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-conig' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_198_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,11V1h13.0002L21,5.9999V23h-8 M15,1v6h6 M14,7\r M9,18c0-1.6542-1.3455-3-3-3s-3,1.3458-3,3s1.3455,3,3,3S9,19.6542,9,18z M9,18.0001L12,18 M8.1212,20.1214l2.1214,2.1212 M6,24\r l-0.0001-3 M3.8786,20.1212l-2.1212,2.1214 M0,18h3 M3.8787,15.8787l-2.1213-2.1213 M6,15v-3 M10.2426,13.7574l-2.1213,2.1213' })
 	        )
 	      );
@@ -43324,7 +43465,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 334 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43417,7 +43558,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-csv' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_207_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 4,23 \t\r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,12 1,12 1,18 5,18 \t' }),
@@ -43451,7 +43592,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 335 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43544,7 +43685,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-data' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_232_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,7V1h13.0002L21,5.9999V23h-5 M15,2v5h6 M7,10\r c-3.3137,0-6,1.1193-6,2.5S3.6863,15,7,15s6-1.1193,6-2.5S10.3137,10,7,10z M1,13v3.5C1,17.8807,3.6863,19,7,19s6-1.1193,6-2.5V13\r M1,17v3.5C1,21.8807,3.6863,23,7,23s6-1.1193,6-2.5V17' })
 	        )
 	      );
@@ -43574,7 +43715,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 336 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43667,7 +43808,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-download' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_237_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,1h13.0002L21,5.9999V23H3V1z M15,2v5h6 M12,10v8\r M8,15l4,4l4-4' })
 	        )
 	      );
@@ -43697,7 +43838,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 337 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43790,7 +43931,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-excel' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_279_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.5,9 4.5,1 17.5002,1 22.5,5.9999 \r 22.5,23 3.5,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,2 16.5,7 22.5,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.5,7' }),
@@ -43823,7 +43964,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 338 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43916,7 +44057,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-executable' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_284_', x: '0.5814', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.5814', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '6', y1: '13', x2: '0', y2: '13' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '6', y1: '19', x2: '0', y2: '19' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '5', y1: '16.0001', x2: '0', y2: '16.0001' }),
@@ -43957,7 +44098,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 339 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44050,7 +44191,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-image' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_231_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,8V1h13.0002L22,5.9999V23h-5 M16,2v5h6 M14,10.9\r H1V23h13V10.9z' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '2.25,22 5.0192,18 8.25,22.5 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '6.5833,21.8889 9.9679,17 13.9167,22.5 \t\r ' }),
@@ -44083,7 +44224,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 340 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44176,7 +44317,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-locked' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_286_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4,8 4,1 17.0002,1 22,5.9999 22,23 15,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16,2 16,7 22,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,23H2v-8h10V23z M7,20v-2' }),
@@ -44209,7 +44350,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 341 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44302,7 +44443,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-missing' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_206_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,9V1h13.0002L21,5.9999V23H3V9z M15,2v5h6 M9,12\r l6,6 M15,12l-6,6' })
 	        )
 	      );
@@ -44332,7 +44473,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 342 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44425,7 +44566,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-notes' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_278_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.5,9 4.5,1 17.5002,1 22.5,5.9999 \r 22.5,23 3.5,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,2 16.5,7 22.5,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.5,7' }),
@@ -44458,7 +44599,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 343 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44551,7 +44692,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-outlook' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_276_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.4186,9 4.4186,1 17.4188,1 \r 22.4186,5.9999 22.4186,23 3.4186,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.4186,2 16.4186,7 22.4186,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.4186,7' }),
@@ -44584,7 +44725,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 344 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44677,7 +44818,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-pdf' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_273_', x: '0.5', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.5', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,13v7 M3,17c1.1046,0,2-0.8954,2-2s-0.8954-2-2-2\r H1v4H3z M8,19h3c1.1046,0,2-1.0945,2-2.2213V16v-0.7787C13,14.1158,12.1046,13,11,13H8V19z' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '21', y1: '13', x2: '15', y2: '13' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '16', y1: '12', x2: '16', y2: '20' }),
@@ -44713,7 +44854,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 345 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44806,7 +44947,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-performance' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_218_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,9V1h13.0002L23,5.9999V23H4 M17,2v5h6' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '2,19 7,14 11,18 16,13 \t' }),
 	          _react2.default.createElement('polygon', { points: '13,11 18,16 19,10 \t' })
@@ -44838,7 +44979,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 346 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44931,7 +45072,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-powerpoint' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_277_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.5,9 4.5,1 17.5002,1 22.5,5.9999 \r 22.5,23 3.5,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,2 16.5,7 22.5,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.5,7' }),
@@ -44968,7 +45109,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 347 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45061,7 +45202,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-rtf' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_280_', x: '0.4999', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.4999', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.9999,9 4.9999,1 18.0001,1 \r 22.9999,5.9999 22.9999,23 3.9999,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.9999,2 16.9999,7 22.9999,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.9999,7' }),
@@ -45101,7 +45242,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 348 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45194,7 +45335,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-sound' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_287_', x: '1', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,8 5,1 18.0002,1 23,5.9999 23,23 19,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.5,13L11.5,13c1.6569,0,3,1.3431,3,3v0\r c0,1.6569-1.3431,3-3,3h0' }),
@@ -45228,7 +45369,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 349 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45321,7 +45462,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-test' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_272_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,6 5,1 18.0002,1 23,5.9999 23,23 18,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '4', y1: '9', x2: '12', y2: '9' }),
@@ -45356,7 +45497,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 350 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45449,7 +45590,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-text' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_61_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H3V1h12.0002L18,4l3,2.9999V23z M14,1v7h7\r M6,8h5 M6,12h12 M6,16h10' })
 	        )
 	      );
@@ -45479,7 +45620,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 351 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45572,7 +45713,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-threat' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_234_', x: '0.2083', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.2083', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.2083,4V1h13.0002l4.9998,4.9999V23h-9\r M16.2083,2v5h6 M4.2083,12.72C2.2083,13.5133,1,15.4267,1,17.6667C1,20.6133,3.5117,23,6.4583,23s5.25-2.3867,5.25-5.3333\r c0-2.24-1.5-4.1533-3.5-4.9467v-0.3867V11h-4v1.3333V12.72z M13.2083,7.6c0,0.8284-0.6716,1.5-1.5,1.5H11.375\r c-0.8284,0-1.5-0.6716-1.5-1.5v0c0-0.8284-0.6716-1.5-1.5-1.5H7.7083c-0.8284,0-1.5,0.6716-1.5,1.5v2.5' })
 	        )
 	      );
@@ -45602,7 +45743,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 352 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45695,7 +45836,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-time' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_233_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,6V1h13.0002L23,5.9999V23h-7 M17,2v5h6 M8,9\r c-3.866,0-7,3.134-7,7s3.134,7,7,7s7-3.134,7-7S11.866,9,8,9z M8,12v4l3,3' })
 	        )
 	      );
@@ -45725,7 +45866,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 353 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45818,7 +45959,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-transfer' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_236_', x: '0.9142', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.9142', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.4142,16h-10 M5.4142,12l-4,4l4,4 M3.4142,23h19\r V10V5.9999L17.4144,1H4.4142v9 M16.4142,2v5h6' })
 	        )
 	      );
@@ -45848,7 +45989,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 354 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45941,7 +46082,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-txt' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_274_', x: '0.5814', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.5814', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 4,23 \t\r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,7' }),
@@ -45979,7 +46120,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 355 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46072,7 +46213,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-update' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_285_', x: '0.0872', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.0872', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.0872,8 4.0872,1 17.0874,1 \r 22.0872,5.9999 22.0872,23 15.0872,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.0872,2 16.0872,7 22.0872,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,16c0,3.866-3.134,7-7,7s-7-3.134-7-7\r s3.134-7,7-7S15,12.134,15,16z M8,20v-6 M11,16l-3-3l-3,3' })
@@ -46104,7 +46245,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 356 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46197,7 +46338,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-upload' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_238_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,1h13.0002L21,5.9999V23H3V1z M15,2v5h6 M12,20\r v-8 M16,15l-4-4l-4,4' })
 	        )
 	      );
@@ -46227,7 +46368,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 357 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46320,7 +46461,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-user' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_235_', x: '2', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '2', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M6,7V1h13.0002L24,5.9999V23H14 M18,2v5h6 M6,10\r c-1.6318,0-2.9545,1.3228-2.9545,2.9545S4.3682,15.9091,6,15.9091s2.9545-1.3228,2.9545-2.9545S7.6318,10,6,10z M11,20.6364\r C11,18.0256,8.679,16,6.0682,16H5.8636C3.2528,16,1,18.0256,1,20.6364V23h10V20.6364z' })
 	        )
 	      );
@@ -46350,7 +46491,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 358 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46443,7 +46584,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-verified' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_275_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,9V1h13.0002L21,5.9999V23H3V9z M15,2v5h6 M17,12\r l-6,6l-3-3' })
 	        )
 	      );
@@ -46473,7 +46614,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 359 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46566,7 +46707,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-video' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_270_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 19,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11,22H1V12h10V22z M11,19l5,3V12l-5,3' })
@@ -46598,7 +46739,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 360 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46691,7 +46832,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'document-word' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_219_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 4,23 \t\r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
 	          _react2.default.createElement('path', { fill: 'none', d: 'M16,7' }),
@@ -46724,7 +46865,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 361 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46816,8 +46957,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_60_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H3V1h12.0002L18,4l3,2.9999V23z M14,1v7h7' })
 	        )
 	      );
@@ -46847,7 +46988,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 362 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46939,8 +47080,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'domain' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_188_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,21H1V3h22V21z M1,7h21 M5,3v3 M9,3v3 M13,3v3' })
 	        )
 	      );
@@ -46970,7 +47111,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 363 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47062,8 +47203,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'download' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_26_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,10.2101l-7,7l-7-7 M12,0.2101v17 M1,16.2101v7\r h22v-7' })
 	        )
 	      );
@@ -47093,7 +47234,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 364 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47186,7 +47327,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'srive-cage' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_205_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '18', y: '4', width: '2', height: '2' }),
 	          _react2.default.createElement('rect', { x: '18', y: '10', width: '2', height: '2' }),
 	          _react2.default.createElement('rect', { x: '18', y: '16', width: '2', height: '2' }),
@@ -47219,7 +47360,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 365 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47311,8 +47452,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'duplicate' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_204_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,7h16v16H7V7z M17,7V1H1v16h5 M15,11v8 M19,15h-8\r ' })
 	        )
 	      );
@@ -47342,7 +47483,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 366 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47434,8 +47575,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'eject' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_103_', x: '0', y: '0.1267', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.1267', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,18.1267h22v5H1V18.1267z M2.2571,14.1267\r h19.4857L12,1.6267L2.2571,14.1267z' })
 	        )
 	      );
@@ -47465,7 +47606,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 367 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47557,8 +47698,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'expand' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_126_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,1h8v8 M22,2l-8,8 M1,15v8h8 M10,14l-8,8' })
 	        )
 	      );
@@ -47588,7 +47729,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 368 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47680,8 +47821,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'fan' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_203_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.0004,17c-2.2061,0-4-1.7944-4-4s1.7939-4,4-4\r s4,1.7944,4,4S14.2064,17,12.0004,17z M14.7404,10.09c0.5-1.82,1.01-3.64,1.51-5.46c0.32-1.15-0.46-2.31-1.73-2.6\r c-0.7-0.17-1.51-0.28-2.42-0.29c-1.03-0.01-1.96,0.12-2.73,0.32c-1.22,0.29-1.93,1.45-1.62,2.57l1.51,5.46 M13.1304,16.84\r c1.33,1.35,2.68,2.72,4.02,4.08c0.84,0.85,2.24,0.76,3.13-0.2c0.49-0.52,1-1.17,1.46-1.95c0.52-0.89,0.86-1.76,1.09-2.52\r c0.35-1.21-0.31-2.4-1.43-2.69l-5.5-1.43 M8.1004,12.13c-1.83,0.47-3.66,0.95-5.5,1.42c-1.16,0.31-1.78,1.56-1.4,2.82\r c0.21,0.68,0.52,1.44,0.96,2.23c0.51,0.9,1.09,1.63,1.64,2.2c0.88,0.92,2.23,0.95,3.04,0.12l4.03-4.08' })
 	        )
 	      );
@@ -47711,7 +47852,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 369 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47804,7 +47945,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'fast-forward' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_102_', x: '0', y: '0.0293', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '24.5081,12.0293 11.4919,2.0293 \r 11.4919,7.7436 3.4919,2.0293 3.4919,22.0293 11.4919,16.3151 11.4919,22.0293 \t' })
 	        )
 	      );
@@ -47834,7 +47975,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 370 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47926,9 +48067,9 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'favorite_1_' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_13_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { id: 'favorite', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.001,21.9448\r C9.6279,20.1148,1,13.0635,1,7.2505c0-2.9256,2.4678-5.3057,5.5-5.3057c1.9014,0,3.6406,0.9275,4.6533,2.4814L12,5.7253\r l0.8467-1.2991c1.0127-1.5539,2.752-2.4814,4.6533-2.4814c3.0322,0,5.5,2.3801,5.5,5.3057C23,13.096,14.376,20.1214,12.001,21.9448\r z' })
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.001,21.9448\r C9.6279,20.1148,1,13.0635,1,7.2505c0-2.9256,2.4678-5.3057,5.5-5.3057c1.9014,0,3.6406,0.9275,4.6533,2.4814L12,5.7253\r l0.8467-1.2991c1.0127-1.5539,2.752-2.4814,4.6533-2.4814c3.0322,0,5.5,2.3801,5.5,5.3057C23,13.096,14.376,20.1214,12.001,21.9448\r z' })
 	        )
 	      );
 	    }
@@ -47957,7 +48098,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 371 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48050,7 +48191,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'first-aid' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_92_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22.5H1v-16h22V22.5z M16,2.5H8v4h8V2.5z\r M12,18.5v-8 M8,14.5h8' })
 	        )
 	      );
@@ -48080,7 +48221,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 372 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48172,8 +48313,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'flag' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_47_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M2,24V2c6.3636-4,11.8181,5.9998,19.9998,0.0001\r L22,2v12c-8.1818,6-13.6364-4-20,0' })
 	        )
 	      );
@@ -48203,7 +48344,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 373 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48296,7 +48437,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'folder-cycle' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_202_', x: '0.0001', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.0001', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.0001,23h-3V5l0-4h8l3,4h11v18h-4 M1.0001,9h22' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.0001,18c0-2.7614,2.2386-5,5-5\r c1.9848,0,3.6994,1.1565,4.5069,2.8323' }),
 	          _react2.default.createElement('polygon', { points: '13.0001,17 18.0001,17 18.0001,12 \t' }),
@@ -48330,7 +48471,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 374 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48423,7 +48564,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'folder-open' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_42_', x: '0.2808', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.2808', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20.2808,10h-16V7l0-5h6l2,4h8V10z M13.2808,10h-12\r l3,12h16l3-12H13.2808z' })
 	        )
 	      );
@@ -48453,7 +48594,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 375 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48545,8 +48686,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'folder' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_41_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.0001,22h-22V6l0-4h8l3,4h11V22z M1.0001,10h22' })
 	        )
 	      );
@@ -48576,7 +48717,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 376 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48668,8 +48809,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'gallery' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_243_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { cx: '6', cy: '6', r: '2' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,18H1V1h18V18z M19,15l-5.01-6L10,14l-3-3l-6,7\r M5,19v3h18V5h-4' })
 	        )
@@ -48700,7 +48841,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 377 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48792,8 +48933,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'globe' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_146_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12c0,6.0751-4.9249,11-11,11S1,18.0751,1,12\r S5.9249,1,12,1S23,5.9249,23,12z M2,9c0,0,4.125-0.25,5.4344,1.2308C8.4973,11.4327,8,12.7448,9,13l0,0\r c0,0,1.7237,0.3779,1.3,1.5804c-1.425,4.0446,2.6809,2.248,2.6809,5.3569c0,3.1144,3.2905,3.3569,3.2905,0.8664\r s2.2024-3.7329,2.2024-5.5993s-1.6845-2.1022-2.7988-2.7262C14.5606,11.8597,14.1589,11,12,11l0,0l0,0c-1.1199-1-1.5349-1.8913-1-3\r c0.546-1.1199,2.4332-1.0625,2.4332-3.8015c0-1.6714-1.4238-3.1434-2.5381-3.1434' })
 	        )
 	      );
@@ -48823,7 +48964,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 378 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48915,8 +49056,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'grid' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_201_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M8.5,8.5h-7v-7h7V8.5z M15.5,1.5h-7v7h7V1.5z\r M22.5,1.5h-7v7h7V1.5z M8.5,8.5h-7v7h7V8.5z M15.5,8.5h-7v7h7V8.5z M22.5,8.5h-7v7h7V8.5z M8.5,15.5h-7v7h7V15.5z M15.5,15.5h-7v7\r h7V15.5z M22.5,15.5h-7v7h7V15.5z' })
 	        )
 	      );
@@ -48946,7 +49087,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 379 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49038,8 +49179,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'group' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_119_', x: '1', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,8.5c0,2.2091-1.7909,4-4,4s-4-1.7909-4-4\r s1.7909-4,4-4S17,6.2909,17,8.5z M19,18.4091C19,14.995,16.3687,12.5,12.9546,12.5h0.1364C9.6768,12.5,7,14.995,7,18.4091V21.5h12\r V18.4091z M16.96,8.93c0.01,0,0.01,0.01,0.02,0.01c0.58,0.35,1.26,0.55,1.97,0.56c0.02,0,0.03,0,0.05,0c2.21,0,4-1.79,4-4\r s-1.79-4-4-4c-2.06,0-3.76,1.56-3.97,3.56 M19,18.5h6v-3.0909C25,11.995,22.3687,9.5,18.9546,9.5H19 M10.97,5.06\r C10.76,3.06,9.06,1.5,7,1.5c-2.21,0-4,1.79-4,4s1.79,4,4,4c0.02,0,0.03,0,0.05,0c0.71-0.01,1.39-0.21,1.97-0.56\r c0.01,0,0.01-0.01,0.02-0.01 M7,9.5h0.0454C3.6313,9.5,1,11.995,1,15.4091V18.5h6' })
 	        )
 	      );
@@ -49069,7 +49210,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 380 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49161,8 +49302,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'grow' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_189_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,6v10 M13.4287,2.2246\r c-1.4154,1.2132-1.7745,2.9887-1.0978,4.4919c1.7537,0.58,3.8251,0.2722,5.2405-0.941c1.4154-1.2132,1.7745-2.9887,1.0978-4.4919\r C16.9154,0.7036,14.8441,1.0113,13.4287,2.2246z M5.3308,5.2836C4.6542,6.7868,5.0132,8.5622,6.4287,9.7754\r s3.4868,1.521,5.2405,0.941c0.6766-1.5032,0.3176-3.2787-1.0978-4.4919S7.0846,4.7036,5.3308,5.2836z M17,16H7l1,7h8L17,16z M4,16\r h16' })
 	        )
 	      );
@@ -49192,7 +49333,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 381 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49284,8 +49425,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'halt' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_245_', y: '1', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '1', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,15V9c0-1.1046,0.8954-2,2-2h0\r c1.1046,0,2,0.8954,2,2v8v1c0,3.866-3.134,7-7,7H9c-3.866,0-7-3.134-7-7v-6h1c1.6569,0,3,1.3431,3,3v4 M18,14V6\r c0-1.1046-0.8954-2-2-2h0c-1.1046,0-2,0.8954-2,2v8 M14,11V3c0-1.1046-0.8954-2-2-2h0c-1.1046,0-2,0.8954-2,2v8 M10,14V6\r c0-1.1046-0.8954-2-2-2h0C6.8954,4,6,4.8954,6,6v8.9' })
 	        )
 	      );
@@ -49315,7 +49456,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 382 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49407,8 +49548,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'history' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_171_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.9812,17.0812L12,13V6 M1,1v7h7 M1,12\r c0,6.0751,4.9249,11,11,11s11-4.9249,11-11S18.0751,1,12,1C7.5627,1,3.739,3.6274,1.9999,7.4113' })
 	        )
 	      );
@@ -49438,7 +49579,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 383 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49530,8 +49671,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'home' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_49_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M0.6888,10.5833L12,1.3211l11.3113,9.2622 M4,8v1\r v7.42V23h16V9V8 M15,15H9v8h6V15z' })
 	        )
 	      );
@@ -49561,7 +49702,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 384 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49654,7 +49795,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'host-maintenance' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_217_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.1,23H2V1h16v10 M3,8h14 M3,13h13.1 M3,18h11' }),
 	          _react2.default.createElement('rect', { x: '13', y: '3', width: '3', height: '3' }),
 	          _react2.default.createElement('path', { d: 'M23.3397,14.7645l-1.9941,1.9941l-1.4142-1.4142l1.994-1.994c-1.1101-0.5445-2.4819-0.3465-3.4083,0.5798\r c-0.9244,0.9244-1.1092,2.2919-0.5776,3.4064l-5.0793,5.079l1.4141,1.4141l5.0795-5.079c1.1144,0.5314,2.4817,0.3466,3.4061-0.5778\r C23.6861,17.2465,23.8842,15.8746,23.3397,14.7645z' })
@@ -49686,7 +49827,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 385 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49778,8 +49919,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'host' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_200_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H3V1h18V23z M4,8h16 M4,13h16 M4,18h16' }),
 	          _react2.default.createElement('rect', { x: '16', y: '3', width: '3', height: '3' })
 	        )
@@ -49810,7 +49951,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 386 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49902,8 +50043,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'image' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_39_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,21H1V3h22V21z M23,17l-6-6l-5,5l-3-3l-8,8' }),
 	          _react2.default.createElement('circle', { cx: '7', cy: '8', r: '2' })
 	        )
@@ -49934,7 +50075,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 387 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50026,8 +50167,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'impact' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_154_', x: '0', y: '1.5726', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '1.5726', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M13.025,11.618v12v-22l10,5v12l-10,5V11.618z\r M23.025,6.618l-10,5 M9.025,23.618v-22 M9.025,12.618l-7-7 M9.025,12.618h-8 M9.025,12.618l-7,7' })
 	        )
 	      );
@@ -50057,7 +50198,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 388 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50150,7 +50291,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'in-progress' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_216_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.0002,24h-6.17h-9.75h-6.08h3.8896\r c-3.625-8.125,5.1104-8.0208,5.1104-11c0-3-8.625-2.875-5-11h-4h22h-3.8896c3.625,8.125-5.1104,8.0208-5.1104,11\r c0,3,8.625,2.875,5,11' }),
 	          _react2.default.createElement('path', { d: 'M16.8302,24h-9.75c-0.31-1.54,0.23-2.4399,2.27-4.3201c0.78-0.72,1.79-1.53,2.7-2.76c0.91,1.23,1.9,2.0701,2.68,2.8\r C16.8402,21.6899,17.3102,21.97,16.8302,24z' }),
 	          _react2.default.createElement('path', { d: 'M9.4466,7c-0.714,1.2603-0.6832,1.2753,0.9183,2.0747C10.8318,9.3075,11.4252,9.6038,11.9676,10\r c0.5494-0.3968,1.1516-0.6931,1.6247-0.9265C15.2657,8.2499,15.2525,8.2268,14.5575,7' })
@@ -50182,7 +50323,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 389 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50274,8 +50415,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'inbox' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_122_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22.1H1v-10l4-10h14l4,10\r C23,12.2667,23,22.1,23,22.1z M2,12.1h6v4h8v-4h7' })
 	        )
 	      );
@@ -50305,7 +50446,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 390 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50397,8 +50538,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'indicator' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_239_', y: '0.0117', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0117', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M10,23.0117v-3\r c0-3.0938-1.5745-5.6785-2.8975-7.0015C5.8184,11.7261,5,9.9653,5,8.0058c0-4.313,3.9007-7.7223,8.3667-6.8762\r c2.7529,0.5216,4.9634,2.7423,5.4984,5.4927c0.4874,2.5056-0.3875,4.8077-1.9677,6.3878C15.5745,14.3332,14,16.918,14,20.0117v3h-2\r H10z M12,5.0117c-1.6569,0-3,1.3431-3,3s1.3431,3,3,3s3-1.3431,3-3S13.6569,5.0117,12,5.0117z' })
 	        )
 	      );
@@ -50428,7 +50569,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 391 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50520,8 +50661,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'information' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_80_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9,17.3705c0-1.6316-0.6658-3.1916-1.8455-4.3188\r C5.825,11.7815,5,9.992,5,8c0-3.922,3.2147-7.084,7.1565-6.9983c3.6551,0.0795,6.7296,3.125,6.8402,6.7793\r c0.0618,2.0431-0.744,3.8882-2.079,5.2009C15.7288,14.1508,15,15.7063,15,17.3736V18H9V17.3705z M15,20v-2H9v2\r c0,1.6569,1.3431,3,3,3h0C13.6569,23,15,21.6569,15,20z' })
 	        )
 	      );
@@ -50551,7 +50692,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 392 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50643,8 +50784,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'inherit' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_170_', y: '0.1667', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.1667', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,6c0,2.7614-2.2386,5-5,5S7,8.7614,7,6\r s2.2386-5,5-5S17,3.2386,17,6z M4,17c-1.6569,0-3,1.3431-3,3s1.3431,3,3,3s3-1.3431,3-3S5.6569,17,4,17z M17,20\r c0,1.6569,1.3431,3,3,3s3-1.3431,3-3s-1.3431-3-3-3S17,18.3431,17,20z M6.4,18.2L12,15v-4 M17.6,18.2L12,15' })
 	        )
 	      );
@@ -50674,7 +50815,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 393 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50766,8 +50907,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'install' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_121_', x: '2.535', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '2.535', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14.535,10.1v13 M6.535,13.1v5.125l8,4.875l8-4.875\r V13.1 M6.535,5.225l8,4.9375l8-5.0625 M6.535,5.2172l-4.9375,4.9297L9.535,15.1l5-5h0.0625l4.9375,5l8-4.9375l-5-5.0625\r l-7.9375-3.9167L6.535,5.2172z' })
 	        )
 	      );
@@ -50797,7 +50938,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 394 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50889,8 +51030,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'integration' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_208_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,16H1V4h18 M5,22h18V10H5' })
 	        )
 	      );
@@ -50920,7 +51061,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 395 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51012,8 +51153,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'iteration' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_180_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,15.0417H9V1h14V15.0417z M5,5v14.0417h14 M1,9\r v14h14' })
 	        )
 	      );
@@ -51043,7 +51184,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 396 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51135,8 +51276,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'java' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_113_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M10,23L10,23c-4.4183,0-8-3.5817-8-8V9h16v6\r C18,19.4183,14.4183,23,10,23z M21,11c-1.6569,0-3,1.3431-3,3s1.3431,3,3,3s3-1.3431,3-3S22.6568,11,21,11z M7,6V2 M10,6V0 M13,6V2\r ' })
 	        )
 	      );
@@ -51166,7 +51307,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 397 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51258,8 +51399,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'launch' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_209_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { cx: '12', cy: '9', r: '2' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19.1848,17.4137\r C19.8089,18.0219,20,18.8468,20,19.707v3.6281c0,0.6476-0.581,0.8821-1.1339,0.5229l-2.7003-2.0099\r C15.6193,21.493,14.977,21,14.3201,21H12H9.6799c-0.6569,0-1.2195,0.493-1.7661,0.8481l-2.78,2.1616\r C4.581,24.369,4,23.9827,4,23.3351V19.707c0-0.8602,0.1911-1.6851,0.8152-2.2933l2.3703-2.4657\r c-0.1076-1.1416-0.1768-2.4289-0.1768-3.8817C7.0086,3.8449,12,2.1473,12,2.1473s4.9914,1.6976,4.9914,8.919\r c0,1.4528-0.0693,2.7401-0.1768,3.8817L19.1848,17.4137z M8,21l2,3h4l2-3' })
 	        )
@@ -51290,7 +51431,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 398 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51382,8 +51523,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'license' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_99_', x: '0', y: '0.0101', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.0101', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '6', cy: '6', r: '2' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9.47,12.47L10,13v3h3v3h3v2l2,2h5v-4L12.74,8.74\r C12.91,8.19,13,7.6,13,7c0-3.31-2.69-6-6-6S1,3.69,1,7s2.69,6,6,6C7.88,13,8.72,12.81,9.47,12.47z' })
 	        )
@@ -51414,7 +51555,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 399 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51506,8 +51647,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'like' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_77_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,23H1V11h6V23z M7,23h13c1.6569,0,3-1.3431,3-3\r V10h-7V4c0-1.6569-1.2431-3-2.9-3H11v7.1C11,9.7569,9.6569,11,8,11H7' })
 	        )
 	      );
@@ -51537,7 +51678,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 400 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51630,7 +51771,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'line-chart' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_55_', x: '0.0196', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.0196', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16.0196,4h7v7 M0.0196,22h24 M0.7071,16.3125\r L8.0196,9l5,5l9-9' })
 	        )
 	      );
@@ -51660,7 +51801,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 401 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51753,7 +51894,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'link-bottom' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_252_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,11l-7,7l-7-7 M12,1v17 M22,22H2' })
 	        )
 	      );
@@ -51783,7 +51924,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 402 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51876,7 +52017,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'link-down' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_251_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,13l-8,8l-8-8 M12,21V2' })
 	        )
 	      );
@@ -51906,7 +52047,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 403 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51998,8 +52139,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_23_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.4792,22.6702l-2.9392-2.9392\r c-0.7199-0.7199-0.7199-1.8871,0-2.6071l4.5839-4.5839c0.7199-0.7199,1.8871-0.7199,2.6071,0l2.9392,2.9392\r c0.7199,0.7199,0.7199,1.8871,0,2.6071l-4.5839,4.5839C6.3663,23.3901,5.1991,23.3901,4.4792,22.6702z M17.8761,11.8803\r l4.5839-4.5839c0.7199-0.7199,0.7199-1.8871,0-2.6071L19.5208,1.75c-0.7199-0.7199-1.8871-0.7199-2.6071,0L12.3298,6.334\r c-0.7199,0.7199-0.7199,1.8871,0,2.6071l2.9392,2.9392C15.989,12.6002,17.1562,12.6002,17.8761,11.8803z M17,7.2101l-10,10' })
 	        )
 	      );
@@ -52029,7 +52170,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 404 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52122,7 +52263,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'location-pin' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_186_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,10c0,6.75-9,13-9,13s-9-6.25-9-13\r c0-4.9706,4.0294-9,9-9S21,5.0294,21,10z M12,7c-1.6569,0-3,1.3431-3,3s1.3431,3,3,3s3-1.3431,3-3S13.6569,7,12,7z' })
 	        )
 	      );
@@ -52152,7 +52293,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 405 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52244,8 +52385,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'location' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_73_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20.3754,9c0,7.0833-8,14-8,14s-8-6.9167-8-14\r c0-4.4183,3.5817-8,8-8S20.3754,4.5817,20.3754,9z M12.3754,12c1.6569,0,3-1.3431,3-3s-1.3431-3-3-3s-3,1.3431-3,3\r S10.7185,12,12.3754,12z' })
 	        )
 	      );
@@ -52275,7 +52416,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 406 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52367,8 +52508,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'lock' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_66_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H3V11h18V23z M18,7c0-3.3137-2.6863-6-6-6\r S6,3.6863,6,7v4h12V7z M12,19v-4' })
 	        )
 	      );
@@ -52398,7 +52539,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 407 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52490,8 +52631,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'login' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_149_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M13.536,7l5,5l-5,5 M18.536,12h-18 M9.536,15v7h13\r V2h-13v7' })
 	        )
 	      );
@@ -52521,7 +52662,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 408 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52613,8 +52754,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'logout' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_148_', x: '0.0312', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.0312', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,7l5,5l-5,5 M23,12H5 M14,9V2H1v20h13v-7' })
 	        )
 	      );
@@ -52644,7 +52785,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 409 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52736,8 +52877,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'manual' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_181_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,20H7v-3h10V20z M20,20H4v3h16V20z M12,1\r C9.7909,1,8,2.7909,8,5s1.7909,4,4,4s4-1.7909,4-4S14.2091,1,12,1z M10,9v8 M14,9v8' })
 	        )
 	      );
@@ -52767,7 +52908,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 410 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52860,7 +53001,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'map-location' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_145_', x: '0', y: '1.0533', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '1.0533', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '8.025', y1: '8', x2: '8.025', y2: '8' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17.705,5.82l5.32,2.28v15l-7-3l-8,3l-7-3v-15\r l5.27,2.26 M8.025,23V12 M16.025,20v-8 M12.025,1C8.8389,1,6.256,3.5829,6.256,6.769c0,4.3989,5.769,9.2304,5.769,9.2304\r c2.2529-2.2529,5.769-4.7594,5.769-9.2304C17.794,3.5829,15.2111,1,12.025,1z' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '12.025', cy: '7', r: '2' })
@@ -52892,7 +53033,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 411 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52984,8 +53125,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'map' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_75_', y: '0.5165', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.5165', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,1.5165l7,3v18l-7-3l-7,3l-7-3v-18l7,3\r L15,1.5165z M8,22.5165v-18 M15,19.5165v-17' })
 	        )
 	      );
@@ -53015,7 +53156,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 412 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53107,8 +53248,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'menu' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_5_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M0,4h24 M0,20h24 M0,12h24' })
 	        )
 	      );
@@ -53138,7 +53279,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 413 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53230,8 +53371,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'microphone' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_21_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19.9997,9.2101v2.04\r c0,4.3892-3.5708,7.96-7.96,7.96h-0.0801c-4.3892,0-7.96-3.5708-7.96-7.96v-2.04 M15.9997,11.2501v-6.08\r c0-2.187-1.773-3.96-3.96-3.96h-0.08c-2.187,0-3.96,1.773-3.96,3.96v6.08c0,2.187,1.773,3.96,3.96,3.96h0.08\r C14.2267,15.2101,15.9997,13.4372,15.9997,11.2501z M11.9997,19.2101v5' })
 	        )
 	      );
@@ -53261,7 +53402,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 414 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53353,8 +53494,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'monitor' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_112_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,16H1V2h22V16z M15,16H9v6h6V16z M5,22h14' })
 	        )
 	      );
@@ -53384,7 +53525,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 415 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53476,8 +53617,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'multiple' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_62_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,23H1V9h14V23z M15,19h4V5H5v4 M19,15h4V1H9v4' })
 	        )
 	      );
@@ -53507,7 +53648,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 416 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53599,8 +53740,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'navigate' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_144_', x: '1.4142', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1.4142', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.4142,23.9467h-4v-20l2-2l2,2V23.9467z\r M11.4142,4.9467h-7l-3,2.9996l3,3.0004h7V4.9467z M15.4142,13.9467l7,0l3-2.9996l-3-3.0004h-7V13.9467z' })
 	        )
 	      );
@@ -53630,7 +53771,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 417 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53723,7 +53864,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'new-window' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_22_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,17.2101H7v-16h16V17.2101z M6,7.2101H1v16h16\r v-5 M15,13.2101v-8 M11,9.2101h8' })
 	        )
 	      );
@@ -53753,7 +53894,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 418 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53845,8 +53986,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'new' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_111_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,1v22 M21.5267,6.5008L2.4732,17.4992\r M21.5253,17.5016L2.4747,6.4984' })
 	        )
 	      );
@@ -53876,7 +54017,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 419 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53968,8 +54109,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'notes' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_110_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,18.0001L18,21l-1.9998,2H3V1h18V18.0001z\r M21,17h-6v6 M6,17h5 M6,13h12 M6,9h10 M4,5h16' })
 	        )
 	      );
@@ -53999,7 +54140,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 420 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54091,8 +54232,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'optimization' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_98_', x: '0', y: '0.0917', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.0917', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18.5834,2.1232\r C15.0001,11.3732,9.2542,15.0816,1,15.0816l0,0 M21.5621,7.6903l-2.5944-6.3875l-6.5513,2.661 M6,19.0816H2v4h4V19.0816z\r M14,17.0816h-4v6h4V17.0816z M22,12.0816l-4,0.1v11l4-0.1V12.0816z' })
 	        )
 	      );
@@ -54122,7 +54263,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 421 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54214,8 +54355,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'organization' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_138_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,4v19H5V4 M19,1H5 M21,1H2.9583v3H21V1z' }),
 	          _react2.default.createElement('rect', { x: '8', y: '7', width: '3', height: '4' }),
 	          _react2.default.createElement('rect', { x: '13', y: '7', width: '3', height: '4' }),
@@ -54250,7 +54391,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 422 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54347,7 +54488,7 @@ module.exports =
 	          _react2.default.createElement(
 	            'g',
 	            { id: 'new-window-24', stroke: '#000000', strokeWidth: '2' },
-	            _react2.default.createElement('path', { d: 'M1,1 L17,1 L17,17 L1,17 L1,1 Z M20,7 L23,7 L23,23 L7,23 L7,20 L7,20', id: 'Ontop' })
+	            _react2.default.createElement('path', { d: 'M1,1 L17,1 L17,17 L1,17 L1,1 Z M20,7 L23,7 L23,23 L7,23 L7,20 L7,20' })
 	          )
 	        )
 	      );
@@ -54377,7 +54518,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 423 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54469,8 +54610,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'overview' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_120_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '18.5', cy: '16.5', r: '4.5' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '10', y1: '7.1', x2: '14', y2: '7.1' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '10', y1: '16.5', x2: '14', y2: '16.5' }),
@@ -54505,7 +54646,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 424 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54597,8 +54738,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'pan' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_127_', x: '0.4142', y: '0.4142', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.4142', y: '0.4142', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M8.4142,5.4142l4-4l4,4 M8.4142,19.4142l4,4l4-4\r M12.4142,23.4142v-22 M19.4142,16.4142l4-4l-4-4 M5.4142,8.4142l-4,4l4,4 M23.4142,12.4142h-22' })
 	        )
 	      );
@@ -54628,7 +54769,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 425 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54720,8 +54861,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'pause' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_100_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,22V2h5v20H15z M9,22V2H4v20H9z' })
 	        )
 	      );
@@ -54751,7 +54892,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 426 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54844,11 +54985,11 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'payment-google-wallet' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_293_', x: '1.5848', y: '0.1155', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { id: 'path34', d: 'M8.7588,10.7742C7.3911,8.8903,5.4943,7.2387,3.3395,6.0903c-0.3226-0.1806-0.6968-0.271-1.071-0.271\r c-0.8387,0-1.6,0.4516-2,1.2c-0.5935,1.0968-0.1677,2.4774,0.929,3.0581c3.3161,1.7806,5.4581,5.1613,5.7161,9.0839v-0.0129\r c-0.0387-0.4387,0.0387-0.8645,0.2323-1.2645c0.0258-0.0516,0.0645-0.1161,0.1032-0.1806C8.2814,16,8.8363,14.0387,8.8363,12.0258\r C8.8363,11.6,8.7976,11.1871,8.7588,10.7742' }),
-	          _react2.default.createElement('path', { id: 'path36', d: 'M21.8943,6.5161c-0.4-1.7548-0.9935-3.4581-1.7677-5.0839C19.7137,0.5677,18.8234,0,17.8685,0\r c-0.3742,0-0.7355,0.0774-1.071,0.2452c-1.2516,0.5935-1.7806,2.0903-1.1871,3.329c1.2645,2.6839,1.8968,5.5097,1.8968,8.4516\r s-0.6323,5.7677-1.871,8.4c-0.0129,0.0387-0.2323,0.5032-0.2323,1.0452c0,0.1548,0.0129,0.3742,0.0645,0.5806\r c0.1677,0.7097,0.6194,1.3548,1.3677,1.7032C17.1717,23.9097,17.533,24,17.9072,24c0.9161,0,1.7548-0.5032,2.1936-1.3032\r c0.5032-0.9419,1.0065-2.1677,1.4452-3.7548c0.1419-0.4774,0.2581-0.929,0.3613-1.4065c0.4-1.7935,0.6194-3.6258,0.6194-5.5097\r C22.5137,10.1677,22.2943,8.2968,21.8943,6.5161' }),
-	          _react2.default.createElement('path', { id: 'path38', d: 'M11.3266,3.8968c-0.0387-0.0774-0.0903-0.1419-0.1419-0.2065c-0.1677-0.2194-0.3613-0.4-0.5935-0.5419\r c-0.3742-0.2452-0.8258-0.3871-1.2903-0.3871c-0.3871,0-0.5806,0.0516-0.8516,0.1548C8.1653,3.0323,7.8685,3.1871,7.5976,3.471\r S7.1717,4.0387,7.0556,4.3484C6.8234,4.9548,6.8621,5.7419,7.2492,6.3871C8.075,7.7161,8.5653,9.2387,8.7459,10.8\r c0.0516,0.4129,0.0774,0.8387,0.0774,1.2516c0,2.0129-0.5419,3.9742-1.5871,5.6774c-0.0387,0.0645-0.0645,0.1161-0.1032,0.1806\r c-0.2065,0.4-0.271,0.8516-0.2323,1.2774c0.0645,0.7226,0.4645,1.4065,1.1355,1.8194c0.1677,0.1032,0.3613,0.1806,0.5419,0.2452\r c0.2194,0.0645,0.4516,0.1032,0.6839,0.1032c0.8387,0,1.6-0.4258,2.0387-1.1484c1.3161-2.1548,2.0774-4.6065,2.2452-7.1226\r c0.0258-0.3355,0.0387-0.6839,0.0387-1.0194C13.5976,9.1484,12.8105,6.3355,11.3266,3.8968' }),
-	          _react2.default.createElement('path', { id: 'path40', d: 'M15.6234,20.4258c1.2516-2.6323,1.8839-5.4581,1.8839-8.4c0-1.0065-0.0645-1.7419-0.1161-2.2194\r c-1.6387-2.6194-4.0129-4.9677-6.8-6.671c0,0,0.0645,0.0387,0.0645,0.0516c0.1935,0.1419,0.3484,0.2839,0.529,0.5032\r c0.0387,0.0516,0.1032,0.129,0.1419,0.2065c1.4839,2.4516,2.2581,5.2516,2.2581,8.129c0,0.3484-0.0129,0.6839-0.0387,1.0194\r c1.1871,2.2581,1.8323,4.8258,1.8323,7.5226c0,0.2194,0,0.5548,0,0.8129c0.0129-0.2839,0.0774-0.5806,0.1806-0.8387\r C15.5976,20.5032,15.6105,20.4645,15.6234,20.4258' })
+	          _react2.default.createElement('rect', { x: '1.5848', y: '0.1155', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('path', { d: 'M8.7588,10.7742C7.3911,8.8903,5.4943,7.2387,3.3395,6.0903c-0.3226-0.1806-0.6968-0.271-1.071-0.271\r c-0.8387,0-1.6,0.4516-2,1.2c-0.5935,1.0968-0.1677,2.4774,0.929,3.0581c3.3161,1.7806,5.4581,5.1613,5.7161,9.0839v-0.0129\r c-0.0387-0.4387,0.0387-0.8645,0.2323-1.2645c0.0258-0.0516,0.0645-0.1161,0.1032-0.1806C8.2814,16,8.8363,14.0387,8.8363,12.0258\r C8.8363,11.6,8.7976,11.1871,8.7588,10.7742' }),
+	          _react2.default.createElement('path', { d: 'M21.8943,6.5161c-0.4-1.7548-0.9935-3.4581-1.7677-5.0839C19.7137,0.5677,18.8234,0,17.8685,0\r c-0.3742,0-0.7355,0.0774-1.071,0.2452c-1.2516,0.5935-1.7806,2.0903-1.1871,3.329c1.2645,2.6839,1.8968,5.5097,1.8968,8.4516\r s-0.6323,5.7677-1.871,8.4c-0.0129,0.0387-0.2323,0.5032-0.2323,1.0452c0,0.1548,0.0129,0.3742,0.0645,0.5806\r c0.1677,0.7097,0.6194,1.3548,1.3677,1.7032C17.1717,23.9097,17.533,24,17.9072,24c0.9161,0,1.7548-0.5032,2.1936-1.3032\r c0.5032-0.9419,1.0065-2.1677,1.4452-3.7548c0.1419-0.4774,0.2581-0.929,0.3613-1.4065c0.4-1.7935,0.6194-3.6258,0.6194-5.5097\r C22.5137,10.1677,22.2943,8.2968,21.8943,6.5161' }),
+	          _react2.default.createElement('path', { d: 'M11.3266,3.8968c-0.0387-0.0774-0.0903-0.1419-0.1419-0.2065c-0.1677-0.2194-0.3613-0.4-0.5935-0.5419\r c-0.3742-0.2452-0.8258-0.3871-1.2903-0.3871c-0.3871,0-0.5806,0.0516-0.8516,0.1548C8.1653,3.0323,7.8685,3.1871,7.5976,3.471\r S7.1717,4.0387,7.0556,4.3484C6.8234,4.9548,6.8621,5.7419,7.2492,6.3871C8.075,7.7161,8.5653,9.2387,8.7459,10.8\r c0.0516,0.4129,0.0774,0.8387,0.0774,1.2516c0,2.0129-0.5419,3.9742-1.5871,5.6774c-0.0387,0.0645-0.0645,0.1161-0.1032,0.1806\r c-0.2065,0.4-0.271,0.8516-0.2323,1.2774c0.0645,0.7226,0.4645,1.4065,1.1355,1.8194c0.1677,0.1032,0.3613,0.1806,0.5419,0.2452\r c0.2194,0.0645,0.4516,0.1032,0.6839,0.1032c0.8387,0,1.6-0.4258,2.0387-1.1484c1.3161-2.1548,2.0774-4.6065,2.2452-7.1226\r c0.0258-0.3355,0.0387-0.6839,0.0387-1.0194C13.5976,9.1484,12.8105,6.3355,11.3266,3.8968' }),
+	          _react2.default.createElement('path', { d: 'M15.6234,20.4258c1.2516-2.6323,1.8839-5.4581,1.8839-8.4c0-1.0065-0.0645-1.7419-0.1161-2.2194\r c-1.6387-2.6194-4.0129-4.9677-6.8-6.671c0,0,0.0645,0.0387,0.0645,0.0516c0.1935,0.1419,0.3484,0.2839,0.529,0.5032\r c0.0387,0.0516,0.1032,0.129,0.1419,0.2065c1.4839,2.4516,2.2581,5.2516,2.2581,8.129c0,0.3484-0.0129,0.6839-0.0387,1.0194\r c1.1871,2.2581,1.8323,4.8258,1.8323,7.5226c0,0.2194,0,0.5548,0,0.8129c0.0129-0.2839,0.0774-0.5806,0.1806-0.8387\r C15.5976,20.5032,15.6105,20.4645,15.6234,20.4258' })
 	        )
 	      );
 	    }
@@ -54877,7 +55018,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 427 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54970,10 +55111,10 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'payment-mastercard' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_291_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
-	            { id: 'path2268' },
+	            null,
 	            _react2.default.createElement(
 	              'g',
 	              null,
@@ -55009,7 +55150,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 428 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55102,7 +55243,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'payment-paypal' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_294_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M18.2812,2.477c-0.978-1.1147-2.7457-1.5925-5.0072-1.5925H6.7105c-0.4627,0-0.8559,0.3365-0.9283,0.7928L3.0494,19.0098\r c-0.0543,0.3418,0.2103,0.6514,0.5567,0.6514h4.052l1.0177-6.4548l-0.0315,0.2021c0.0724-0.4563,0.4627-0.7928,0.9248-0.7928\r h1.9255c3.7827,0,6.7446-1.5364,7.6098-5.981c0.0257-0.1314,0.0479-0.2594,0.0672-0.3844\r C19.4292,4.6076,19.1698,3.4894,18.2812,2.477 M20.0516,7.1303L20.0516,7.1303c-0.0199,0.1256-0.0415,0.253-0.0672,0.3844\r c-0.8652,4.444-3.8271,5.981-7.6098,5.981h-1.9261c-0.4621,0-0.8523,0.3365-0.9242,0.7928l-0.9861,6.2521l-0.2798,1.7736\r c-0.0473,0.2991,0.184,0.5702,0.4866,0.5702h3.4158c0.4043,0,0.7484-0.2944,0.8115-0.6934l0.0333-0.1741l0.6438-4.0801\r l0.0415-0.2255c0.0631-0.399,0.4072-0.6934,0.8115-0.6934h0.5112c3.3089,0,5.8998-1.3442,6.657-5.2321\r c0.3161-1.6247,0.1525-2.9812-0.6835-3.934C20.7334,7.5632,20.4185,7.3249,20.0516,7.1303' })
 	        )
 	      );
@@ -55132,7 +55273,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 429 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55225,7 +55366,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'payment-square' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_292_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,20.8844H7c-2.2091,0-4-1.7909-4-4v-10\r c0-2.2091,1.7909-4,4-4h10c2.2091,0,4,1.7909,4,4v10C21,19.0936,19.2091,20.8844,17,20.8844z' }),
 	          _react2.default.createElement('path', { d: 'M14,8.8844h-4c-0.5523,0-1,0.4477-1,1v4c0,0.5523,0.4477,1,1,1h4c0.5523,0,1-0.4477,1-1v-4\r C15,9.3322,14.5523,8.8844,14,8.8844z' })
 	        )
@@ -55256,7 +55397,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 430 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55349,7 +55490,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'payment-visa' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_290_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M16.475,3.8444l-4.3012,10.9967l-0.4746-2.1981c0-0.0002,0,0.0126,0,0.0126L10.1836,5.24\r C9.9188,4.2237,9.169,3.8444,8.2188,3.8444H1.1647L1.1089,4.2255c1.716,0.4154,3.2504,1.0384,4.5952,1.784l3.8893,13.9514\r l4.6285-0.0514l6.8871-16.065H16.475z' })
 	        )
 	      );
@@ -55379,7 +55520,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 431 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55471,8 +55612,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'pin' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_97_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.678,20.9559\r c1.3143-1.3143,1.9749-3.0209,1.9887-4.7412l0.0757-0.0757l6.1932-6.1932l-6.8813-6.8813L7.8611,9.2576L7.7854,9.3333\r c-1.7203,0.0138-3.4269,0.6744-4.7412,1.9887L12.678,20.9559z' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '11.9899', y1: '1', x2: '23', y2: '12.0101' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,23l6.8122-6.8122L1,23z' })
@@ -55504,7 +55645,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 432 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55596,8 +55737,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'plan' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_190_', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,23H1V4h22V23z M2,9h20 M6,4V0 M19,14H9 M7,14H5\r M19,18H9 M7,18H5 M18,4V0' })
 	        )
 	      );
@@ -55627,7 +55768,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 433 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55720,7 +55861,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-dropbox' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_295_', x: '0.003', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.003', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { points: '15.9985,1.8917 12.003,3.8961 20.009,7.8976 24,5.8961 \t' }),
 	          _react2.default.createElement('polygon', { points: '15.9985,15.5735 15.3293,15.2404 11.994,13.5675 8.6781,15.23 8.009,15.5646 7.3413,15.2315 3.997,13.5601 \r 3.997,18.997 12.003,23.0014 12.003,22.9865 20.009,18.9865 20.009,13.569 16.6677,15.2404 \t' }),
 	          _react2.default.createElement('polygon', { points: '8.009,13.8947 12.003,11.8917 4.0179,7.8976 12.003,3.9066 8.009,1.9036 0,5.9051 3.9776,7.8976 0,9.8902 \t' }),
@@ -55753,7 +55894,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 434 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55846,7 +55987,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-skype' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_300_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M21.9582,14.0392c0.0821-0.5194,0.1254-1.0509,0.1254-1.5933c0-5.6373-4.5696-10.2069-10.2072-10.2069\r c-0.5409,0-1.0738,0.0445-1.5928,0.1256C9.3435,1.7832,8.234,1.4466,7.0451,1.4466c-3.4065,0-6.168,2.7612-6.168,6.168\r c0,1.1887,0.3368,2.2973,0.9181,3.2393c-0.0804,0.5202-0.1247,1.0499-0.1247,1.5923c0,5.6376,4.5696,10.2059,10.2057,10.2059\r c0.5414,0,1.0743-0.0418,1.5933-0.1237c0.9411,0.5806,2.0496,0.9181,3.2386,0.9181c3.4073,0,6.1685-2.7619,6.1685-6.1687\r C22.8768,16.0889,22.5402,14.9803,21.9582,14.0392L21.9582,14.0392z M16.7225,17.0881c-0.4319,0.6216-1.066,1.1073-1.8949,1.4566\r c-0.8306,0.35-1.8121,0.5243-2.9455,0.5243c-1.3586,0-2.4835-0.2376-3.3713-0.7177c-0.6294-0.3437-1.1413-0.805-1.5349-1.3801\r c-0.3943-0.5754-0.5942-1.1389-0.5942-1.6884c0-0.3241,0.1237-0.6062,0.3642-0.836c0.2432-0.2315,0.5563-0.3476,0.9259-0.3476\r c0.3029,0,0.563,0.0912,0.7746,0.2718c0.2102,0.1806,0.3865,0.4432,0.5307,0.7898c0.1728,0.4016,0.3606,0.7372,0.5603,1.0049\r c0.1985,0.2645,0.4779,0.4855,0.8397,0.6583c0.3579,0.1733,0.834,0.2598,1.43,0.2598c0.8155,0,1.4747-0.1762,1.979-0.5243\r c0.507-0.351,0.7507-0.7783,0.7507-1.2948c0-0.4116-0.1315-0.7389-0.4006-0.9939c-0.2716-0.2581-0.6226-0.4549-1.0579-0.592\r c-0.4371-0.1386-1.024-0.2858-1.7595-0.4407c-0.9875-0.2154-1.8135-0.4664-2.4823-0.7544\r c-0.6698-0.2894-1.2031-0.6847-1.5984-1.1841c-0.3962-0.5043-0.5937-1.131-0.5937-1.8734c0-0.7079,0.2085-1.341,0.626-1.892\r c0.4173-0.5524,1.021-0.9753,1.8081-1.2699c0.7844-0.2946,1.7079-0.4417,2.7659-0.4417c0.846,0,1.5779,0.0978,2.1973,0.2926\r c0.618,0.1963,1.1328,0.4552,1.5444,0.78c0.4094,0.3241,0.7104,0.6661,0.901,1.0249c0.1904,0.3598,0.2865,0.7113,0.2865,1.0543\r c0,0.319-0.1237,0.6082-0.3645,0.8617c-0.241,0.254-0.549,0.3833-0.9088,0.3821c-0.3244,0-0.5788-0.0748-0.7553-0.2332\r c-0.1718-0.1533-0.3522-0.3972-0.5476-0.7372c-0.2466-0.4745-0.5422-0.8441-0.8861-1.1085\r c-0.3346-0.2594-0.8868-0.3945-1.6551-0.3928c-0.7108,0-1.2797,0.1452-1.7089,0.4292C9.5151,8.4645,9.3086,8.7994,9.3076,9.1917\r C9.3083,9.4376,9.379,9.6449,9.5212,9.8221c0.1445,0.1789,0.3454,0.3339,0.6038,0.4647c0.2584,0.1327,0.5212,0.2354,0.7854,0.3092\r c0.2672,0.0758,0.7106,0.1853,1.3268,0.3302c0.7729,0.1667,1.4742,0.3527,2.1041,0.5556c0.6287,0.2039,1.1653,0.4498,1.6087,0.7426\r c0.4468,0.2921,0.7961,0.6644,1.0455,1.1142c0.2508,0.4505,0.3759,1.0007,0.3759,1.648\r C17.3725,15.7664,17.1552,16.4675,16.7225,17.0881L16.7225,17.0881z' })
 	        )
 	      );
@@ -55876,7 +56017,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 435 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55969,8 +56110,8 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'platform-windows' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_299_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { id: 'path13_1_', d: 'M0.0755,3.8445l9.778-1.3317\r l0.0043,9.4315L0.0846,12L0.0755,3.8445z M9.8488,13.0311l0.0076,9.4398l-9.7732-1.3437L0.0826,12.968L9.8488,13.0311z\r M11.0341,2.3387l12.9647-1.8922v11.378l-12.9647,0.1029L11.0341,2.3387z M24.0018,13.1199l-0.003,11.3267l-12.9647-1.8298\r l-0.0182-9.518L24.0018,13.1199z' })
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('path', { d: 'M0.0755,3.8445l9.778-1.3317\r l0.0043,9.4315L0.0846,12L0.0755,3.8445z M9.8488,13.0311l0.0076,9.4398l-9.7732-1.3437L0.0826,12.968L9.8488,13.0311z\r M11.0341,2.3387l12.9647-1.8922v11.378l-12.9647,0.1029L11.0341,2.3387z M24.0018,13.1199l-0.003,11.3267l-12.9647-1.8298\r l-0.0182-9.518L24.0018,13.1199z' })
 	        )
 	      );
 	    }
@@ -55999,7 +56140,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 436 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56091,8 +56232,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'play' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_101_', y: '0.1658', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.1658', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '6,1.9658 6,22.3658 20,12.1658 \t' })
 	        )
 	      );
@@ -56122,7 +56263,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 437 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56214,8 +56355,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'power' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_104_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.6235,3.75\r c3.7141,1.4494,6.3412,5.0548,6.3412,9.2853C21.9647,18.5431,17.5078,23,12,23s-9.9647-4.4569-9.9647-9.9647\r c0-4.2305,2.6271-7.8359,6.3412-9.2853 M12,0v10' })
 	        )
 	      );
@@ -56245,7 +56386,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 438 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56337,8 +56478,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'print' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_74_', x: '0.0013', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.0013', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,19H1V7h22v12h-6 M18,1H6v6h12V1z M18,15H6v8h12\r V15z M4,15h16' }),
 	          _react2.default.createElement('rect', { x: '18', y: '10', width: '2', height: '2' })
 	        )
@@ -56369,7 +56510,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 439 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56462,7 +56603,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'quick-view' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_244_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M10,16.5c0,2.4853-2.0147,4.5-4.5,4.5\r S1,18.9853,1,16.5S3.0147,12,5.5,12S10,14.0147,10,16.5z M18.5,12c-2.4853,0-4.5,2.0147-4.5,4.5s2.0147,4.5,4.5,4.5\r s4.5-2.0147,4.5-4.5S20.9853,12,18.5,12z M14,16c0-1.1046-0.8954-2-2-2s-2,0.8954-2,2 M6,3L6,3C3.2386,3,1,5.2386,1,8v8 M23,16V8\r c0-2.7614-2.2386-5-5-5h0' })
 	        )
 	      );
@@ -56492,7 +56633,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 440 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56585,7 +56726,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'radial-selected' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_35_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '12', cy: '12', r: '11' }),
 	          _react2.default.createElement('path', { d: 'M12,16c-2.2055,0-4-1.7945-4-4s1.7945-4,4-4s4,1.7945,4,4S14.2055,16,12,16z' })
 	        )
@@ -56616,7 +56757,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 441 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56708,8 +56849,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'radial' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_36_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '12', cy: '12', r: '11' })
 	        )
 	      );
@@ -56739,7 +56880,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 442 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56831,8 +56972,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'refresh' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_17_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,1v7h-7 M22.0006,7.4123\r C20.2616,3.6278,16.4377,1,12,1C5.9249,1,1,5.9249,1,12s4.9249,11,11,11s11-4.9249,11-11' })
 	        )
 	      );
@@ -56862,7 +57003,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 443 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56954,8 +57095,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'resources' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_210_', x: '0.2361', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.2361', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.2361,13l-10-5l10-5l10,5L12.2361,13z\r M7.2361,10.5l-5,2.5l5,2.5l5,2.5l5-2.5l5-2.5l-5-2.5 M7.2361,15.5l-5,2.5l10,5l10-5l-5-2.5' })
 	        )
 	      );
@@ -56985,7 +57126,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 444 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57077,8 +57218,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'rewind' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_264_', x: '0.6576', y: '0.0293', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.6576', y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1.6414,12.0293 14.6576,2.0293 \r 14.6576,7.7436 22.6576,2.0293 22.6576,22.0293 14.6576,16.3151 14.6576,22.0293 \t' })
 	        )
 	      );
@@ -57108,7 +57249,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 445 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57200,8 +57341,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'risk' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_182_', x: '0.5', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.5', y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '12', y: '9', width: '3', height: '3' }),
 	          _react2.default.createElement('rect', { x: '18', y: '9', width: '3', height: '3' }),
 	          _react2.default.createElement('rect', { x: '18', y: '3', width: '3', height: '3' }),
@@ -57237,7 +57378,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 446 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57329,8 +57470,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'rss' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_24_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,1.2101c9.9253,0,18,8.0747,18,18 M18,19.2101\r c0-7.1685-5.8315-13-13-13 M13,19.2101c0-4.4111-3.5889-8-8-8 M5,16.2101c-1.6569,0-3,1.3431-3,3c0,1.6569,1.3431,3,3,3\r s3-1.3431,3-3C8,17.5533,6.6568,16.2101,5,16.2101z' })
 	        )
 	      );
@@ -57360,7 +57501,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 447 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57452,8 +57593,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'satellite' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_143_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22,17.9467c-4.1421,4.1421-10.8579,4.1421-15,0\r s-4.1421-10.8579,0-15L22,17.9467z M7.015,18.0467c-3.31,0-6.015,2.9-6.015,5.9h12c0-1.12-0.37-2-1.02-3H12 M15,9.9467l4-4\r M20.5,1.9467c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S21.8807,1.9467,20.5,1.9467z' })
 	        )
 	      );
@@ -57483,7 +57624,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 448 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57576,7 +57717,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'schedule-clone' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_212_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17.0004,20h-16V4h16V20z M7.0004,20v4h16V8h-5\r M2.0004,8h14 M5.0004,4V1 M14.0004,12h-6 M6.0003,12h-2 M14.0004,16h-6 M6.0003,16h-2 M13.0004,4V1 M17.0004,12h6' })
 	        )
 	      );
@@ -57606,7 +57747,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 449 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57699,7 +57840,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'schedule-new' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_213_', x: '0.2465', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.2465', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M13,20H1V4h16v11 M2,8h14 M5,4V1 M14,12H8 M6,12H4\r M14,16H8 M6,16H4 M13,4V1 M20,16v9 M23.8973,18.2503l-7.7946,4.4993 M23.8967,22.7507l-7.7935-4.5013' })
 	        )
 	      );
@@ -57729,7 +57870,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 450 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57822,7 +57963,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'schedule-play' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_214_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.5,20h-11V4h16v9 M2.5,8h14 M5.5,4V1 M14.5,12\r h-6 M6.5,12h-2 M12.5,16h-4 M6.5,16h-2 M13.5,4V1 M18,13c-3.0376,0-5.5,2.4624-5.5,5.5S14.9624,24,18,24s5.5-2.4624,5.5-5.5\r S21.0376,13,18,13z' }),
 	          _react2.default.createElement('path', { d: 'M16.5,15.5c0.0521,0.0469,0,6,0,6l5-3L16.5,15.5z' })
 	        )
@@ -57853,7 +57994,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 451 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57945,8 +58086,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'schedule' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_105_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,23H1V4h22V23z M2,9h20 M6,4V0 M18,4V0 M8,14h12\r M4,14h2 M8,18h12 M4,18h2' })
 	        )
 	      );
@@ -57976,7 +58117,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 452 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58068,8 +58209,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'scorecard' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_211_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16.5,4h5v20h-19V4h5 M16.5,2h-9v5h9V2z M7.5,19v-4\r M10.5,19v-6 M13.5,19v-5 M16.5,19v-8' })
 	        )
 	      );
@@ -58099,7 +58240,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 453 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58191,8 +58332,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'secure' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_68_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M14,15c0-1.1046-0.8954-2-2-2s-2,0.8954-2,2c0,0.7384,0.4047,1.3761,1,1.7226V19h2v-2.2774\r C13.5953,16.3761,14,15.7384,14,15z' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '12', cy: '16', r: '7' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7,11V6c0-2.7614,2.2386-5,5-5h0\r c2.7614,0,5,2.2386,5,5v5' })
@@ -58224,7 +58365,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 454 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58317,7 +58458,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'select-left' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_167_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22H1V2h22V22z M12,2v21' }),
 	          _react2.default.createElement('rect', { x: '4', y: '5', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '5', height: '14' })
 	        )
@@ -58348,7 +58489,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 455 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58440,8 +58581,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'select' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_194_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '8', y1: '3', x2: '14', y2: '3' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16.7411,17.9075l3.4465,4.5649L16.9853,25\r l-3.4363-4.5514l-2.5946,3.3408L9.1,11l12.0055,5.3882L16.7411,17.9075z M19,6V3h-3 M6,3H3v3 M3,16v3h3 M19,8v4 M3,14V8' })
 	        )
@@ -58472,7 +58613,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 456 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58565,7 +58706,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'server-cluster' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_174_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,8.34H1v-7h22V8.34z M23,8.34H1v7h22V8.34z\r M23,15.34H1v7h22V15.34z' }),
 	          _react2.default.createElement('rect', { x: '13', y: '3.34', width: '2', height: '3' }),
 	          _react2.default.createElement('rect', { x: '16', y: '3.34', width: '2', height: '3' }),
@@ -58604,7 +58745,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 457 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58696,8 +58837,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'server' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_183_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,23H5V1h14V23z M8,5h8 M8,9h8 M8,13h8' }),
 	          _react2.default.createElement('rect', { x: '14', y: '18', width: '2', height: '2' })
 	        )
@@ -58728,7 +58869,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 458 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58820,8 +58961,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'servers' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_184_', y: '0.0208', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '7', y: '18', width: '2', height: '2' }),
 	          _react2.default.createElement('rect', { x: '18', y: '18', width: '2', height: '2' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,23H1V1h11V23z M4,5h5 M4,9h5 M4,13h5 M23,1H12\r v22h11V1z M15,5h5 M15,9h5 M15,13h5' })
@@ -58853,7 +58994,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 459 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58946,7 +59087,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'service-business' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_222_', x: '0', y: '0.85', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0.85', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.1397,23h-3V5h22v18h-5 M16.1397,5V1h-8v4\r M7.7507,16.49c-0.665,0.686-1.071,1.624-1.071,2.66c0,2.128,1.722,3.85,3.85,3.85s3.85-1.638,3.85-3.766\r c0-0.8423-0.196-1.302-0.196-1.302c-0.399-1.281-1.33-1.981-2.415-2.338c-0.014-0.007-0.035-0.021-0.049-0.035\r c-0.021-0.014-0.042-0.035-0.063-0.042c-0.007-0.007-0.014-0.007-0.021-0.007 M12.5948,11.506C12.0558,10.043,10.6417,9,8.9897,9\r c-2.128,0-3.85,1.722-3.85,3.85c0,1.694,1.092,3.129,2.611,3.64c0.385,0.14,0.805,0.21,1.239,0.21c1.05,0,2.002-0.42,2.695-1.106\r c0.014-0.007,0.028-0.021,0.035-0.035c0.693-0.693,1.12-1.652,1.12-2.709C12.8397,12.374,12.7558,11.919,12.5948,11.506z\r M11.6357,15.468c0.007,0.014,0.014,0.035,0.021,0.049c0.007,0.028,0.014,0.049,0.028,0.077 M14.3796,17.9883\r c0.2915,0.0745,0.5962,0.1117,0.9101,0.1117c2.128,0,3.85-1.722,3.85-3.85s-1.722-3.85-3.85-3.85c-1.05,0-2.002,0.42-2.695,1.106' })
 	        )
 	      );
@@ -58976,7 +59117,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 460 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59069,7 +59210,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'service-start' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_215_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M6,5.5c0.0521,0.0469,0,6,0,6l5-3L6,5.5z' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.28,12.3c0.01,0,0.02,0,0.03,0.01\r c0.03,0.01,0.06,0.04,0.09,0.06c0.02,0.02,0.05,0.04,0.07,0.05c1.55,0.51,2.79,1.48,3.36,3.31c0.03,0.08,0.05,0.18,0.08,0.27h0.01\r c0.18,0,0.28,1.01,0.28,1.62c0,3.04-2.46,5.38-5.5,5.38s-5.5-2.46-5.5-5.5c0-1.48,0.58-2.82,1.53-3.8 M12.65,6.5799\r C11.88,4.49,9.86,3,7.5,3C4.46,3,2,5.46,2,8.5c0,2.42,1.56,4.47,3.73,5.2C6.28,13.9,6.88,14,7.5,14c1.5,0,2.86-0.6,3.85-1.58\r c0.02-0.01,0.04-0.03,0.05-0.05c0.99-0.99,1.6-2.36,1.6-3.87C13,7.82,12.88,7.17,12.65,6.5799z M11.28,12.24\r c0.01,0.02,0.02,0.05,0.03,0.07c0.01,0.04,0.02,0.07,0.04,0.11 M14.83,15.73c0.03,0.01,0.06,0.02,0.09,0.03\r c0.5,0.16,1.03,0.24,1.58,0.24c3.04,0,5.5-2.46,5.5-5.5S19.54,5,16.5,5c-1.5,0-2.86,0.6-3.85,1.58' })
 	        )
@@ -59100,7 +59241,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 461 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59192,8 +59333,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'share' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_40_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,13v10H1V5h10 M12,12L23,1 M23,10V1h-9' })
 	        )
 	      );
@@ -59223,7 +59364,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 462 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59316,7 +59457,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'sheild-configure' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_221_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.0002,14.15c-1.6545,0-3-1.3458-3-3\r s1.3455-3,3-3s3,1.3458,3,3S13.6547,14.15,12.0002,14.15z M18.0002,11.15l-3,0.0001 M16.2428,15.3926l-2.1214-2.1212 M12,14.15\r l0.0001,3 M9.8787,13.2712l-2.1212,2.1214 M6.0002,11.15h3 M9.8788,9.0287L7.7575,6.9074 M12.0002,8.15v-3 M14.1215,9.0287\r l2.1213-2.1213 M12.0002,1.15l-9,4.4v2.864c0,4.2846,1.8322,8.3646,5.0345,11.2111l3.9655,3.2249l3.9655-3.2249\r c3.2023-2.8465,5.0345-6.9266,5.0345-11.2111V5.55L12.0002,1.15z' })
 	        )
 	      );
@@ -59346,7 +59487,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 463 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59438,8 +59579,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'shield' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_96_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,6.4v2.864\r c0,4.2846-1.8322,8.3646-5.0345,11.2111L12,23.7l-3.9655-3.2249C4.8322,17.6286,3,13.5486,3,9.264V6.4L12,2L21,6.4z M12,23V3 M3,12\r h18' })
 	        )
 	      );
@@ -59469,7 +59610,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 464 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59561,8 +59702,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'shift' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_220_', x: '0.4142', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.4142', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.4142,24.15v-24 M2.4142,12.15h20 M6.4142,7.15\r l-5,5l5,5 M18.4142,17.15l5-5l-5-5' })
 	        )
 	      );
@@ -59592,7 +59733,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 465 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59685,7 +59826,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'shop-basket' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_46_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11,12h10l-1,11h-9 M13,12H3l1,11h9 M23,8H1v4h22V8\r z M5,8l5-7.4 M14,0.6L19,8' })
 	        )
 	      );
@@ -59715,7 +59856,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 466 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59808,7 +59949,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'shop-cart' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_45_', x: '0.0013', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.0013', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { cx: '9', cy: '21', r: '2' }),
 	          _react2.default.createElement('circle', { cx: '19', cy: '21', r: '2' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,4h17.625L20,13H7L4,1H0 M7,13l1,4h13' })
@@ -59840,7 +59981,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 467 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59932,8 +60073,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'soa' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_223_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M6,9.15c-1.6545,0-3-1.3458-3-3s1.3455-3,3-3\r s3,1.3458,3,3S7.6545,9.15,6,9.15z M9,6.1501L12,6.15 M10.2426,10.3926L8.1212,8.2714 M6,12.15l-0.0001-3 M3.8786,8.2712\r l-2.1212,2.1214 M0,6.15h3 M1.7574,1.9074l2.1213,2.1213 M6,3.15v-3 M8.1213,4.0287l2.1213-2.1213 M22,11.15c0-1.6542-1.3455-3-3-3\r s-3,1.3458-3,3s1.3455,3,3,3S22,12.8042,22,11.15z M22,11.1501l3-0.0001 M21.1212,13.2714l2.1214,2.1212 M18.9999,14.15l0.0001,3\r M16.8786,13.2712l-2.1212,2.1214 M13,11.15h3 M11,19.15c0-1.6542-1.3455-3-3-3s-3,1.3458-3,3s1.3455,3,3,3S11,20.8042,11,19.15z\r M14,19.15l-3,0.0001 M10.1212,21.2714l2.1214,2.1212 M8,25.15l-0.0001-3 M3.7574,23.3926l2.1212-2.1214 M2,19.15h3\r M5.8787,17.0287l-2.1213-2.1213 M8,16.15v-3 M10.1213,17.0287l2.1213-2.1213 M16.8787,9.0287l-2.1213-2.1213 M19,8.15v-3\r M21.1213,9.0287l2.1213-2.1213' })
 	        )
 	      );
@@ -59963,7 +60104,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 468 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60085,7 +60226,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 469 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60178,7 +60319,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-github' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_282_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M23.0014,13.7188c0,4.5554-2.75,8.25-11,8.25s-11-3.696-11-8.25c0-1.9635,0.451-3.7647,1.6486-5.1824\r c-0.3493-0.9446-1.0422-3.6135,0.7576-6.743c3.2739,0.8223,4.8661,2.8875,5.4615,3.8734c0.9405-0.1265,1.9759-0.198,3.1322-0.198\r c1.1495,0,2.1808,0.0784,3.1226,0.2145c0.5871-0.9804,2.178-3.0621,5.4711-3.8899c1.8631,3.2409,1.056,5.9868,0.7219,6.8365\r C22.5036,10.0324,23.0014,11.7965,23.0014,13.7188z M19.2187,13.0312C17.4807,12.1623,15.4375,12,12,12\r s-5.4807,0.1623-7.2187,1.0312c-2.0625,1.0312-2.0625,4.4688,0,5.8438C6.3226,19.9021,8.2916,20.5938,12,20.5938\r c3.707,0,5.676-0.6916,7.2188-1.7188C21.2812,17.5,21.2812,14.0625,19.2187,13.0312z M15.4389,13.375\r c-1.4355,0-2.0625,1.2306-2.0625,2.75c0,1.518,0.5775,2.75,2.0625,2.75s2.0625-1.232,2.0625-2.75\r C17.5014,14.6056,16.8757,13.375,15.4389,13.375z M8.5639,13.375c-1.4355,0-2.0625,1.2306-2.0625,2.75\r c0,1.518,0.5775,2.75,2.0625,2.75s2.0625-1.232,2.0625-2.75C10.6264,14.6056,10.0007,13.375,8.5639,13.375z' })
 	        )
 	      );
@@ -60208,7 +60349,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 470 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60301,7 +60442,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-google' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_304_', x: '0', y: '0.0009', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M12.6393,13.7016l-1.1254-0.874c-0.3427-0.2843-0.8115-0.6595-0.8115-1.3464c0-0.6897,0.4688-1.1283,0.8756-1.5343\r c1.3111-1.0319,2.621-2.1302,2.621-4.4447c0-2.38-1.4976-3.632-2.2153-4.226h1.9352L15.9503,0H9.7964\r c-1.6886,0-4.122,0.3995-5.9035,1.8703C2.5502,3.0288,1.8952,4.6261,1.8952,6.064c0,2.441,1.8742,4.9154,5.1838,4.9154\r c0.3125,0,0.6544-0.0308,0.9986-0.0627c-0.1546,0.3761-0.3108,0.6892-0.3108,1.2207c0,0.9695,0.4982,1.564,0.9372,2.1271\r c-1.4063,0.0966-4.0316,0.2523-5.9668,1.4419c-1.8431,1.096-2.404,2.6914-2.404,3.8174C0.3333,21.8412,2.5177,24,7.0474,24\r c5.3714,0,8.2151-2.9722,8.2151-5.9145C15.2628,15.9236,14.0139,14.8595,12.6393,13.7016z M8.5481,10.1023\r c-2.6871,0-3.9044-3.4738-3.9044-5.5698c0-0.816,0.1546-1.6586,0.6861-2.3167c0.501-0.6267,1.3735-1.0333,2.1881-1.0333\r c2.5905,0,3.9341,3.5049,3.9341,5.7591c0,0.564-0.0622,1.5634-0.7804,2.2859C10.1691,9.7288,9.3285,10.1023,8.5481,10.1023z\r M8.5789,22.6884c-3.3415,0-5.4963-1.5984-5.4963-3.821c0-2.222,1.998-2.9737,2.6854-3.2226\r c1.3111-0.4411,2.9982-0.5027,3.2797-0.5027c0.3122,0,0.4685,0,0.7171,0.0314c2.3755,1.6906,3.4065,2.5331,3.4065,4.1336\r C13.1713,21.245,11.578,22.6884,8.5789,22.6884z' }),
 	          _react2.default.createElement('polygon', { points: '20.5266,10.0546 20.5266,6.9252 18.981,6.9252 18.981,10.0546 15.8568,10.0546 15.8568,11.6174 18.981,11.6174 \r 18.981,14.766 20.5266,14.766 20.5266,11.6174 23.6667,11.6174 23.6667,10.0546 \t' })
 	        )
@@ -60332,7 +60473,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 471 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60425,7 +60566,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-instagram' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_305_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,22H4\r c-1.1046,0-2-0.8954-2-2V4c0-1.1046,0.8954-2,2-2h16c1.1046,0,2,0.8954,2,2v16C22,21.1046,21.1046,22,20,22z' }),
 	          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M22,10H2V4c0-1.1046,0.8954-2,2-2h16c1.1046,0,2,0.8954,2,2V10z' }),
 	          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', fill: '#FFFFFF', d: 'M19.5,7.399h-2c-0.5523,0-1-0.4477-1-1v-2c0-0.5523,0.4477-1,1-1\r h2c0.5523,0,1,0.4477,1,1v2C20.5,6.9513,20.0523,7.399,19.5,7.399z' }),
@@ -60458,7 +60599,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 472 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60551,11 +60692,11 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-medium', transform: 'matrix(1.3333333,0,0,-1.3333333,0,126.66667)' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_296_', x: '-3', y: '74', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '-3', y: '74', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
-	            { id: 'g12', transform: 'scale(0.1)' },
-	            _react2.default.createElement('path', { id: 'path14', d: 'M180,906.9011h-7.119c-2.643,0-6.381-3.8127-6.381-6.2537v-88.4714c0-2.444,3.738-5.775,6.381-5.775H180v-21\r h-64.5v21H129v93.0001h-0.6615L96.8133,785.4011H72.4061L41.2875,899.4011H40.5v-93.0001H54v-21H0v21h6.9147\r c2.8476,0,6.5853,3.3311,6.5853,5.775v88.4714c0,2.4409-3.7377,6.2537-6.5853,6.2537H0v21h67.5246l22.1696-82.5h0.6099\r l22.3746,82.5H180V906.9011' })
+	            { transform: 'scale(0.1)' },
+	            _react2.default.createElement('path', { d: 'M180,906.9011h-7.119c-2.643,0-6.381-3.8127-6.381-6.2537v-88.4714c0-2.444,3.738-5.775,6.381-5.775H180v-21\r h-64.5v21H129v93.0001h-0.6615L96.8133,785.4011H72.4061L41.2875,899.4011H40.5v-93.0001H54v-21H0v21h6.9147\r c2.8476,0,6.5853,3.3311,6.5853,5.775v88.4714c0,2.4409-3.7377,6.2537-6.5853,6.2537H0v21h67.5246l22.1696-82.5h0.6099\r l22.3746,82.5H180V906.9011' })
 	          )
 	        )
 	      );
@@ -60585,7 +60726,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 473 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60678,7 +60819,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-pinterest' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_283_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M3.5749,9.7809c0-0.9238,0.1943-1.8403,0.5829-2.7495c0.3886-0.9092,0.9458-1.7523,1.6717-2.5295\r s1.679-1.4077,2.8594-1.8916s2.4892-0.7259,3.9262-0.7259c2.3315,0,4.2452,0.7185,5.7409,2.1556s2.2436,3.1307,2.2436,5.081\r c0,2.5075-0.6342,4.5788-1.9026,6.2138s-2.9071,2.4525-4.916,2.4525c-0.6599,0-1.2794-0.154-1.8586-0.4619\r c-0.5792-0.3079-0.9861-0.6819-1.2208-1.1218l-0.8798,3.4753c-0.0733,0.2786-0.1686,0.5609-0.2859,0.8468\r c-0.1173,0.2859-0.2456,0.5609-0.3849,0.8248c-0.1393,0.2639-0.2786,0.5132-0.4179,0.7479\r c-0.1393,0.2346-0.2786,0.4546-0.4179,0.6599c-0.1393,0.2053-0.2603,0.3776-0.3629,0.5169\r c-0.1026,0.1393-0.198,0.2603-0.2859,0.3629l-0.132,0.176c-0.044,0.0587-0.1026,0.0807-0.176,0.066\r c-0.0733-0.0147-0.1173-0.0587-0.132-0.132c0-0.0147-0.011-0.1173-0.033-0.3079c-0.022-0.1906-0.044-0.3923-0.066-0.6049\r c-0.022-0.2126-0.044-0.4876-0.066-0.8248c-0.022-0.3373-0.0293-0.6635-0.022-0.9788c0.0073-0.3153,0.0293-0.6635,0.066-1.0448\r c0.0367-0.3813,0.0916-0.7332,0.165-1.0558c0.1613-0.6892,0.7039-2.9841,1.6277-6.8846c-0.1173-0.2346-0.2126-0.5169-0.2859-0.8468\r c-0.0733-0.3299-0.11-0.5975-0.11-0.8028l-0.022-0.3299c0-0.9385,0.2383-1.7193,0.7149-2.3425s1.0521-0.9348,1.7267-0.9348\r c0.5426,0,0.9641,0.1796,1.2647,0.5389c0.3006,0.3593,0.4509,0.8102,0.4509,1.3527c0,0.3373-0.0623,0.7515-0.187,1.2428\r c-0.1246,0.4912-0.2896,1.0558-0.4949,1.6937c-0.2053,0.6379-0.3519,1.1548-0.4399,1.5507\r c-0.1466,0.6599-0.0183,1.2318,0.3849,1.7157c0.4033,0.4839,0.9421,0.7259,1.6167,0.7259c1.1584,0,2.1152-0.6562,2.8704-1.9686\r c0.7552-1.3124,1.1328-2.8998,1.1328-4.762c0-1.4224-0.4619-2.5845-1.3857-3.4863C15.2105,4.4909,13.9201,4.04,12.2631,4.04\r c-1.8476,0-3.347,0.5939-4.4981,1.7816s-1.7267,2.6101-1.7267,4.2671c0,0.9825,0.2786,1.811,0.8358,2.4855\r c0.1906,0.22,0.2493,0.4546,0.176,0.7039c-0.0293,0.0733-0.0733,0.242-0.132,0.5059c-0.0587,0.2639-0.1026,0.4326-0.132,0.5059\r c-0.0293,0.1613-0.1026,0.2676-0.22,0.3189s-0.2493,0.0477-0.3959-0.011c-0.8652-0.3519-1.514-0.9568-1.9466-1.8146\r C3.7912,11.9254,3.5749,10.9246,3.5749,9.7809z' })
 	        )
 	      );
@@ -60708,7 +60849,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 474 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60801,7 +60942,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-reddit' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_289_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M24.0027,11.6172c0-1.4806-1.1866-2.6833-2.6459-2.6833c-0.6949,0-1.3203,0.2673-1.796,0.7109\r c-1.7318-1.2187-4.0677-2.0205-6.6762-2.1702l1.1706-3.9127l3.5866,0.7216c0.1229,1.2134,1.1332,2.1595,2.3679,2.1595\r c0.0053,0,0.0053,0,0.0107,0c0.0053,0,0.0053,0,0.0107,0c1.3149,0,2.3786-1.0797,2.3786-2.4107s-1.069-2.4107-2.384-2.4107\r c-0.0053,0-0.0053,0-0.0107,0h-0.0053c-0.9194,0-1.7105,0.5238-2.1114,1.2989l-4.7947-0.9621L11.4575,7.464l-0.1336,0.0053\r C8.6352,7.5869,6.2191,8.3994,4.4445,9.6448c-0.4704-0.4437-1.1011-0.7109-1.796-0.7109c-1.4592,0-2.6459,1.2027-2.6459,2.6833\r c0,1.0477,0.588,1.951,1.4486,2.3947c-0.0428,0.2619-0.0641,0.5238-0.0641,0.7911c0.0053,4.0517,4.7572,7.3443,10.6156,7.3443\r s10.6102-3.2927,10.6102-7.3497c0-0.2673-0.0214-0.5292-0.0588-0.7911C23.4147,13.5628,24.0027,12.6595,24.0027,11.6172z\r M1.8361,12.6916c-0.3528-0.2405-0.5826-0.6468-0.5826-1.1118c0-0.7376,0.5933-1.3416,1.3203-1.3416\r c0.2993,0,0.5773,0.1016,0.8018,0.2726C2.6539,11.1468,2.1194,11.8844,1.8361,12.6916z M19.1278,4.0323\r c0-0.4918,0.3955-0.898,0.882-0.898c0.4864,0,0.882,0.4009,0.882,0.898c0,0.4918-0.3955,0.898-0.882,0.898\r C19.5234,4.9303,19.1278,4.5294,19.1278,4.0323z M6.7911,13.6163c0-0.9408,0.759-1.6998,1.6998-1.6998s1.6998,0.759,1.6998,1.6998\r c0,0.9408-0.759,1.6998-1.6998,1.6998S6.7911,14.557,6.7911,13.6163z M12.003,19.7064c-2.8266-0.0119-4.5131-1.6924-4.5843-1.7637\r l0.7482-0.7363c0.0119,0.0119,1.4074,1.4371,3.8361,1.4489c2.3931-0.0119,3.8124-1.4371,3.8302-1.4489l0.7482,0.7363\r C16.5101,18.014,14.8296,19.6945,12.003,19.7064z M15.5465,15.3161c-0.9408,0-1.6998-0.759-1.6998-1.6998\r c0-0.9408,0.759-1.6998,1.6998-1.6998s1.6998,0.759,1.6998,1.6998S16.482,15.3161,15.5465,15.3161z M22.18,12.713\r c-0.2886-0.8178-0.8339-1.5715-1.5661-2.2129c0.2245-0.1764,0.5078-0.278,0.8125-0.278c0.743,0,1.3416,0.6094,1.3416,1.363\r C22.7733,12.0555,22.5381,12.4671,22.18,12.713z' })
 	        )
 	      );
@@ -60831,7 +60972,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 475 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60924,7 +61065,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-slack' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_281_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M21.1667,14.6344h-2.75v-5.5h2.75C22.1792,9.1344,23,8.3136,23,7.3011s-0.8208-1.8333-1.8333-1.8333h-2.75v-2.75\r c0-1.0125-0.8208-1.8333-1.8333-1.8333c-1.0125,0-1.8333,0.8209-1.8333,1.8333v2.75h-5.5v-2.75\r c0-1.0125-0.8208-1.8333-1.8333-1.8333c-1.0125,0-1.8333,0.8209-1.8333,1.8333v2.75h-2.75C1.8208,5.4678,1,6.2887,1,7.3011\r s0.8208,1.8333,1.8333,1.8333h2.75v5.5h-2.75C1.8208,14.6344,1,15.4553,1,16.4678s0.8208,1.8333,1.8333,1.8333h2.75v2.75\r c0,1.0125,0.8208,1.8333,1.8333,1.8333c1.0126,0,1.8333-0.8209,1.8333-1.8333v-2.75h5.5v2.75c0,1.0125,0.8208,1.8333,1.8333,1.8333\r c1.0126,0,1.8333-0.8209,1.8333-1.8333v-2.75h2.75c1.0126,0,1.8333-0.8209,1.8333-1.8333S22.1792,14.6344,21.1667,14.6344z\r M9.25,14.6344v-5.5h5.5v5.5H9.25z' })
 	        )
 	      );
@@ -60954,7 +61095,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 476 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61047,7 +61188,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-tumblr' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_288_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M16.6827,18.4573c-0.4091,0.1951-1.1914,0.3649-1.7748,0.3795c-1.7613,0.0471-2.1032-1.2372-2.1174-2.1682V9.8198h4.4181\r V6.4887h-4.4029V0.8844c0,0-3.1702,0-3.2219,0c-0.053,0-0.1456,0.0464-0.1587,0.1642c-0.1885,1.7152-0.991,4.7256-4.3287,5.9293\r v2.8417h2.2266v7.1879c0,2.4613,1.8155,5.9579,6.6081,5.8754c1.6171-0.0277,3.413-0.7045,3.8095-1.2889L16.6827,18.4573' })
 	        )
 	      );
@@ -61077,7 +61218,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 477 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61170,7 +61311,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-vimeo' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_311_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M20.1611,6.6903c-0.48,2.8577-1.7372,5.528-3.7716,8.0108c-2.0115,2.4595-3.8402,4.2631-5.486,5.4108\r c-0.96,0.4919-1.8058,0.5036-2.5373,0.0351c-0.7086-0.445-1.2686-1.0892-1.6801-1.9324c-0.2286-0.445-0.7943-2.2545-1.6972-5.4284\r S3.5432,7.9083,3.3603,7.6741C3.2003,7.3696,2.8289,7.3579,2.246,7.639C1.6631,7.92,1.2688,8.166,1.0631,8.3768L0.2745,7.3227\r l0.8915-1.0892c0.7086-0.773,1.5429-1.5401,2.503-2.3014s1.8172-1.2239,2.5715-1.3878c1.0058-0.2108,1.7487,0.2928,2.2287,1.5108\r C8.7663,4.7579,9.052,6.0227,9.3263,7.8498C9.372,8.2011,9.4978,8.7984,9.7035,9.6417c0.6629,2.8342,1.1886,4.2514,1.5772,4.2514\r c0.5715,0,1.5086-1.2649,2.8116-3.7946c0.5943-1.1478,0.6286-2.0964,0.1029-2.846c-0.5257-0.7496-1.3486-0.7613-2.4687-0.0351\r c0.1829-1.1712,0.6743-2.1667,1.4744-2.9865c1.4858-1.6162,3.0973-2.2135,4.8345-1.7919\r C19.864,2.7903,20.5726,4.2074,20.1611,6.6903L20.1611,6.6903z' })
 	        )
 	      );
@@ -61200,7 +61341,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 478 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61293,10 +61434,10 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'social-youtube' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_310_', x: '2.0013', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '2.0013', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
-	            { id: 'Lozenge' },
+	            null,
 	            _react2.default.createElement(
 	              'g',
 	              null,
@@ -61331,7 +61472,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 479 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61423,8 +61564,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'sort' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_248_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '6', y1: '3.5', x2: '22', y2: '3.5' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '6', y1: '9.5', x2: '20', y2: '9.5' }),
 	          _react2.default.createElement('rect', { y: '1.5', width: '4', height: '4' }),
@@ -61461,7 +61602,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 480 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61553,8 +61694,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'stakeholder' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_155_', x: '0.5', y: '0.0692', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.5', y: '0.0692', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,4.0692l6-2.9545l6,2.9545v7.0909l-6,2.9545\r l-6-2.9545V4.0692z M15,4.0692l6,2.9545l6-2.9545 M21,7.1147v7 M7,12.1147c0,0,0.04,0,0.02,0c-3.23,0.03-6.02,2.66-6.02,5.89v2.11\r h3 M3,20.1147h10v-2.11c0-3.23-2.76-5.86-5.98-5.89c-0.02,0-0.02,0-0.02,0 M7,4.1147c-2.2091,0-4,1.7909-4,4s1.7909,4,4,4\r s4-1.7909,4-4S9.2091,4.1147,7,4.1147z' })
 	        )
 	      );
@@ -61584,7 +61725,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 481 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61677,7 +61818,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'star-half' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_263_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
 	            null,
@@ -61712,7 +61853,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 482 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61804,11 +61945,11 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'star_1_' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_12_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
-	            { id: 'star' },
+	            null,
 	            _react2.default.createElement('path', { d: 'M12,4.4722l2.2111,4.4222L14.7639,10H16h3.3419l-2.792,2.9393l-0.7562,0.7963l0.2659,1.0654l1.2408,4.9724l-4.2639-2.5836\r L12,16.5618l-1.0364,0.6281l-4.2639,2.5836l1.2408-4.9724l0.2659-1.0654l-0.7563-0.7963L4.6581,10H8h1.2361l0.5528-1.1056\r L12,4.4722 M12,0L8,8H0l6,6.3168L3.5836,24L12,18.9003L20.4164,24L18,14.3168L24,8h-8L12,0L12,0z' })
 	          )
 	        )
@@ -61839,7 +61980,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 483 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61931,8 +62072,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'steps' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_124_', x: '0.5', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.5', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16,1.1 16,6.1 11,6.1 11,11.1 6,11.1 \r 6,16.1 1,16.1 1,23.1 6,23.1 11,23.1 16,23.1 23,23.1 23,1.1 \t' })
 	        )
 	      );
@@ -61962,7 +62103,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 484 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62054,8 +62195,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'storage' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_224_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,21.15H3v-20h18V21.15z M20,11.15H3 M9,16.15h6\r M9,6.15h6 M3,22.15v2 M21,22.15v2' })
 	        )
 	      );
@@ -62085,7 +62226,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 485 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62178,7 +62319,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'street-view' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_136_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,5c0,2.2091-1.7909,4-4,4S8,7.2091,8,5\r s1.7909-4,4-4S16,2.7909,16,5z M12,9c0,0,0.04,0,0.02,0C8.79,9.03,6,11.66,6,14.89V17h3v6h6v-6h3v-2.11c0-3.23-2.76-5.86-5.98-5.89\r C12,9,12,9,12,9 M4,23h16' })
 	        )
 	      );
@@ -62208,7 +62349,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 486 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62300,8 +62441,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'support' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_95_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12.15c0,6.0751-4.9249,11-11,11\r s-11-4.9249-11-11s4.9249-11,11-11S23,6.0749,23,12.15z M17,12.15c0-2.7568-2.2432-5-5-5s-5,2.2432-5,5s2.2432,5,5,5\r S17,14.9068,17,12.15z M9,8.15v-6 M15,8.15v-6 M16,9.15h6 M16,15.15h6 M15,16.15v6 M9,16.15v6 M8,15.15H2 M8,9.15H2' })
 	        )
 	      );
@@ -62331,7 +62472,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 487 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62449,7 +62590,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 488 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62541,8 +62682,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'sync' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_191_', x: '0.0004', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.0004', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,1l4,4l-4,4 M19,5H8c-3.866,0-7,3.134-7,7v3\r M8,15l-4,4l4,4 M5,19h11c3.866,0,7-3.134,7-7V9' })
 	        )
 	      );
@@ -62572,7 +62713,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 489 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62664,8 +62805,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'system' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_106_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,19H1V1h22V19z M12,7c-1.6569,0-3,1.3431-3,3\r s1.3431,3,3,3s3-1.3431,3-3S13.6569,7,12,7z M12,7V4 M16.2426,5.7574l-2.1213,2.1213 M18,10h-3 M14.1213,12.1213l2.1213,2.1213\r M12,13v3 M9.8787,12.1213l-2.1213,2.1213 M9,10H6 M7.7574,5.7574l2.1213,2.1213 M16,10 M14.8284,12.8284 M12,16 M12,14\r M9.1716,12.8284 M6,10 M8,10 M16,19H8v4h8V19z M5,23h14' })
 	        )
 	      );
@@ -62695,7 +62836,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 490 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62788,7 +62929,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'tab-next' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_28_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '7.5,21.3768 7.5,3.0434 20.5,12.2101 \t' })
 	        )
 	      );
@@ -62818,7 +62959,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 491 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62911,7 +63052,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'tab-previous' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_257_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,21.1667 17,2.8333 4,12 \t' })
 	        )
 	      );
@@ -62941,7 +63082,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 492 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63034,7 +63175,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'tab-up' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_256_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '2.8333,17 21.1667,17 12,4 \t' })
 	        )
 	      );
@@ -63064,7 +63205,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 493 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63157,7 +63298,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'table-add' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_227_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M26,17c0,3.866-3.134,7-7,7s-7-3.134-7-7\r s3.134-7,7-7S26,13.134,26,17z M22,1H1v4h21V1z M22,11V5H8H1v18h7h7 M8,5v18 M15,6v5l0,0 M15,24v-1v-0.26 M15,11L15,11H2 M2,17h10\r M22,15 M22,15 M23,17h-8 M19,21v-8' })
 	        )
 	      );
@@ -63187,7 +63328,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 494 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63279,8 +63420,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'table' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_226_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22.5,5h-21V1h21V5z M22.5,5h-21v18h21V5z M8.5,5\r v18 M15.5,23V6 M2.5,11h19 M2.5,17h20' })
 	        )
 	      );
@@ -63310,7 +63451,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 495 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63402,8 +63543,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tag' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_79_', x: '0.4142', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.4142', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.4142,11l-12,12l-10-10l12-12h10V11z\r M12.4142,17l-5-5 M15.4142,14l-5-5' }),
 	          _react2.default.createElement('circle', { cx: '17.4142', cy: '7', r: '2' })
 	        )
@@ -63434,7 +63575,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 496 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63526,8 +63667,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'target' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_137_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12c0,6.0751-4.9249,11-11,11S1,18.0751,1,12\r S5.9249,1,12,1S23,5.9249,23,12z M18,12c0-3.3086-2.6914-6-6-6s-6,2.6914-6,6s2.6914,6,6,6S18,15.3086,18,12z M13,12\r c0-0.5518-0.4482-1-1-1s-1,0.4482-1,1s0.4482,1,1,1S13,12.5518,13,12z' })
 	        )
 	      );
@@ -63557,7 +63698,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 497 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63649,8 +63790,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'task' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_185_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9,0.9792l-5,5l-3-3 M1,10.9792l3,3l5-5 M1,18.9792\r l3,3l5-5 M12,3.9792h12 M12,11.9792h12 M12,19.9792h12' })
 	        )
 	      );
@@ -63680,7 +63821,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 498 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63772,8 +63913,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'template' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_225_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,7.1188H1V3.15h22V7.1188z M7,7.1188H1v14.0625\r h6V7.1188z M23,7.1188H7V21.15h16V7.1188z' })
 	        )
 	      );
@@ -63803,7 +63944,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 499 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63896,7 +64037,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'test-desktop' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_108_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18.2174,1H23v18H1V1h5 M16,19H8v4h8V19z M5,23h14\r M8,1h8 M10,2v3.7727l-5,8.1818V15h7 M12,15h7v-1.0455l-5-8.1818V2 M16.4527,9.5795c-4.2577-2.3437-4.7917,1.946-8.5436-0.3977' })
 	        )
 	      );
@@ -63926,7 +64067,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 500 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64018,8 +64159,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'test' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_107_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M6,1h12 M9,2v6L2,20v3h10 M12,23h10v-3L15,8V2\r M18.0417,13.5833C12.0406,10.1458,11.288,16.4375,6,13' }),
 	          _react2.default.createElement('circle', { cx: '14.5', cy: '17.5', r: '1.5' }),
 	          _react2.default.createElement('circle', { cx: '9.5', cy: '18.5', r: '1.5' })
@@ -64051,7 +64192,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 501 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64144,7 +64285,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'tesxt-wrap' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_195_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,11h7 M17,7h7 M17,3h7 M17,15h7 M0,19h24 M0,23\r h24' }),
 	          _react2.default.createElement('rect', { x: '1', y: '2.9', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '13', height: '12.1' }),
 	          _react2.default.createElement('polyline', { points: '2.25,14 5.0192,10 8.25,14.5 \t' }),
@@ -64178,7 +64319,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 502 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64270,8 +64411,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'threats' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_94_', x: '0', y: '1', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '1', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9,9V7h6v2v0.58c2.93,1.19,5,4.06,5,7.42\r c0,4.42-3.58,8-8,8s-8-3.58-8-8c0-3.36,2.07-6.23,5-7.42V9z M22,2v1c0,1.1046-0.8954,2-2,2h-1c-1.1046,0-2-0.8954-2-2v0\r c0-1.1046-0.8954-2-2-2h-1c-1.1046,0-2,0.8954-2,2v4 M15,20l-6-6 M9,20l6-6' })
 	        )
 	      );
@@ -64301,7 +64442,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 503 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64393,8 +64534,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: '_x33_d' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_197_', x: '0', fill: 'none', width: '48', height: '48' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '48', height: '48' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#231F20', strokeWidth: '2', strokeMiterlimit: '10', d: 'M34.4,24v7l-10,4.1l-10-4.1v-7 M34.4,24v-7l-10-4.1 l-10,4.1v7 M14.4,17l10,4.1l10-4.1 M30.4,29v-5h-5 M18.4,26c5.7812,4.9375,11.2-1,11.2-1' })
 	        )
 	      );
@@ -64424,7 +64565,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 504 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64516,8 +64657,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'ticket' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_69_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,9c-1.66,0-3,1.34-3,3s1.34,3,3,3v5H1v-5\r c1.66,0,3-1.34,3-3S2.66,9,1,9V4h22V9z M17,8H7v8h10V8z' })
 	        )
 	      );
@@ -64547,7 +64688,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 505 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64639,8 +64780,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tools' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_123_', x: '0.4077', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.4077', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.3168,22.1l-2.9091-2.9363L12.3168,8.1524\r l2.9091,2.9363L4.3168,22.1z M11.5668,7.3954l5.1136,5.1615l-0.7273,2.2022l2.9091,2.9363l6.5455-6.6067l-2.9091-2.9363\r l-2.1818,0.7341L15.9531,4.482c0,0-4.9455-5.2854-10.0727-0.1101C5.8804,4.3719,9.3849,5.1932,11.5668,7.3954z' })
 	        )
 	      );
@@ -64670,7 +64811,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 506 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64762,8 +64903,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tooltip' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_139_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '22.5,18 15.5001,18 11.4998,22.5 \r 7.4997,18 1.5,18 1.5,1 22.5,1 \t' }),
 	          _react2.default.createElement('rect', { x: '5.5', y: '8', width: '3', height: '3' }),
 	          _react2.default.createElement('rect', { x: '10.5', y: '8', width: '3', height: '3' }),
@@ -64796,7 +64937,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 507 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64888,8 +65029,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'transaction' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_228_', x: '0', y: '0.9432', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0.9432', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,11.9432v-3H1v-4h13v-3l7,5L14,11.9432z\r M3,18.9432l7,5v-3h13v-4H10v-3L3,18.9432z' })
 	        )
 	      );
@@ -64919,7 +65060,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 508 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65011,8 +65152,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'trash' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_43_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19.7899,23h-16V5h16V23z M0.7899,5h22 M14.7899,1\r h-6v4h6V1z M8.7899,18v-8 M14.7899,18v-8' })
 	        )
 	      );
@@ -65042,7 +65183,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 509 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65134,8 +65275,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tree' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_249_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M10.65,7h-6V1h6V7z M20.65,11h-4v4h4V11z M20.65,19\r h-4v4h4V19z M7.65,7v14h8 M7.65,13h8' })
 	        )
 	      );
@@ -65165,7 +65306,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 510 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65257,8 +65398,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'trigger' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_169_', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '9,1 4,14 10,14 7,23 8.75,23 20,9 14,9 \r 18,1 \t' })
 	        )
 	      );
@@ -65288,7 +65429,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 511 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65380,8 +65521,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'trophy' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_179_', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,9c0,3.3137-2.6863,6-6,6s-6-2.6863-6-6V1h12\r C18,1,18,8.875,18,9z M6,3H1v4.3C1,9.5091,2.7909,11,5,11h1 M18,11h1c2.2091,0,4-1.4909,4-3.7V3h-5 M17.06,19.03\r c0-1.96-1.12-3.65-2.75-4.49 M9.73,14.55C8.11,15.39,7,17.08,7,19.03 M19,19H5v4h14V19z' })
 	        )
 	      );
@@ -65411,7 +65552,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 512 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65503,8 +65644,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'troubleshooting' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_109_', x: '0.5', y: '0.127', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.5', y: '0.127', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,10.717c-1.76-0.78-3-2.54-3-4.59\r s1.24-3.81,3-4.59v0.59v4h4v-4v-0.59c1.76,0.78,3,2.54,3,4.59s-1.24,3.81-3,4.59v0.41v10c0,1.1-0.9,2-2,2\r c-0.55,0-1.05-0.22-1.41-0.59C4.22,22.177,4,21.677,4,21.127v-10V10.717z M21,3.127c0-1.1046-0.8954-2-2-2l0,0\r c-1.1046,0-2,0.8954-2,2v9h4V3.127z M14,12.127h10 M19,12.127v6h-2.5l1.5,5h2l1.5-5H20' })
 	        )
 	      );
@@ -65534,7 +65675,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 513 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65626,8 +65767,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'unlock' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_67_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H3V11h18V23z M18,7c0-3.3137-2.6863-6-6-6\r S6,3.6863,6,7v4 M14,17h-4' })
 	        )
 	      );
@@ -65657,7 +65798,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 514 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65749,8 +65890,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'update' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_93_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,0v8h-8 M9,16H1v8 M22.2493,7.9978\r C20.6486,3.9016,16.6631,1,12,1C5.9249,1,1,5.9249,1,12 M1.7507,16.0022C3.3514,20.0984,7.3369,23,12,23c6.0751,0,11-4.9249,11-11' })
 	        )
 	      );
@@ -65780,7 +65921,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 515 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65872,8 +66013,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'upgrade' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_192_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12c0,6.0751-4.9249,11-11,11S1,18.0751,1,12\r S5.9249,1,12,1S23,5.9249,23,12z M12,18V8 M17,12l-5-5l-5,5' })
 	        )
 	      );
@@ -65903,7 +66044,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 516 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65995,8 +66136,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'upload' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_25_', y: '0.2041', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.2041', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,8.4142l7-7l7,7 M12,18.4142v-17 M1,16.4142v7h22\r v-7' })
 	        )
 	      );
@@ -66026,7 +66167,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 517 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66119,7 +66260,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-add' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_118_', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,6c0,2.7614-2.2386,5-5,5S5,8.7614,5,6\r s2.2386-5,5-5S15,3.2386,15,6z M18,23v-4c0-4.4183-3.5817-8-8-8h0c-4.4183,0-8,3.5817-8,8v4 M21,6v8 M25,10h-8 M6,23v-4 M14,23v-4' })
 	        )
 	      );
@@ -66149,7 +66290,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 518 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66242,7 +66383,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-admin' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_132_', x: '0.0009', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,6c0,2.7614-2.2386,5-5,5S4,8.7614,4,6\r s2.2386-5,5-5S14,3.2386,14,6z M12,20.5c0,1.3807,1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S15.8807,18,14.5,18S12,19.1193,12,20.5z\r M25,16l-3-3l-5.5312,5.5312 M19.5,15.5l3,3 M9,11L9,11c-4.4183,0-8,3.5817-8,8v4h8 M15.0018,13.7104\r C13.5359,12.0484,11.3904,11,9,11h0' })
 	        )
 	      );
@@ -66272,7 +66413,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 519 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66365,7 +66506,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-expert' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_130_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,6c0,2.7614-2.2386,5-5,5S4,8.7614,4,6\r s2.2386-5,5-5S14,3.2386,14,6z M9,11L9,11c-4.4183,0-8,3.5817-8,8v4h12 M15.928,14.997C14.5444,12.6075,11.9599,11,9,11h0 M13,18\r l4,4l6.875-6.875' })
 	        )
 	      );
@@ -66395,7 +66536,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 520 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66488,7 +66629,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-female' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_117_', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.9941,24v-4 M15.9941,20v4 M19.9941,24v-5\r c0-2.7614-2.1386-5-4.9-5h-0.1l0,0l0,0c3.375,0,5.1-2.1,5.1-2.1s-3.1-1.8687-3.1-5.9c0-2.7583-2.2917-5-5.05-5h0.0969\r C9.2827,1,7.0176,3.2417,7.0176,6c0,3.9688-3.1117,5.9-3.1117,5.9S4.6191,14,7.9941,14h1c-2.7614,0-5,2.2386-5,5v5' })
 	        )
 	      );
@@ -66518,7 +66659,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 521 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66611,7 +66752,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-manager' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_134_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.575,11.83c0.79,0.39,1.5,0.9,2.11,1.51\r c1.44,1.45,2.34,3.45,2.34,5.66v4h-16v-4c0-3.14,1.81-5.86,4.45-7.17 M12.025,1c-3.3137,0-6,2.6863-6,6s2.6863,6,6,6s6-2.6863,6-6\r S15.3387,1,12.025,1z M17.935,8c-2.05-0.03-3.86-1.09-4.91-2.69c-1.07,1.62-2.91,2.69-5,2.69c-0.69,0-1.35-0.11-1.96-0.33\r M7.025,13l5,6v4l0,0v-4l5-6' })
 	        )
 	      );
@@ -66641,7 +66782,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 522 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66734,7 +66875,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-new' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_131_', x: '0.0312', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.0312', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,6c0,2.7614-2.2386,5-5,5S4,8.7614,4,6\r s2.2386-5,5-5S14,3.2386,14,6z M14.0002,12.7548C12.6306,11.6568,10.892,11,9,11h0c-4.4183,0-8,3.5817-8,8v4h12 M20,12v12\r M25.1964,15.0004l-10.3928,5.9991 M25.1956,21.0009l-10.3913-6.0018' })
 	        )
 	      );
@@ -66764,7 +66905,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 523 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66857,7 +66998,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-police' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_135_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,9v0.5714C18,13.1218,15.5504,16,12,16\r s-6-2.8782-6-6.4286V9 M8.45,14.83C5.81,16.14,4,18.86,4,22v1h16v-1c0-2.21-0.9-4.21-2.34-5.66c-0.61-0.61-1.32-1.12-2.11-1.51\r M21,5.3322C19.2226,2.7422,15.8652,1,12,1S4.7774,2.7422,3,5.3322L5.4169,8H12h6.5831L21,5.3322z' }),
 	          _react2.default.createElement('path', { d: 'M12,3h-2c0,0-0.0625,3,2,3c2,0,1.9998-3,1.9998-3H12z' })
 	        )
@@ -66888,7 +67029,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 524 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66981,7 +67122,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'user-worker' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_133_', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,7v1.5714C18,12.1218,15.5504,15,12,15\r s-6-2.8782-6-6.4286V7 M8.45,13.83C5.81,15.14,4,17.86,4,21v2h16v-2c0-2.21-0.9-4.21-2.34-5.66c-0.61-0.61-1.32-1.12-2.11-1.51\r M19,8c0-3.866-3.134-7-7-7S5,4.134,5,8H19z M10,4V2 M14,4V2 M3,8h18' })
 	        )
 	      );
@@ -67011,7 +67152,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 525 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67103,8 +67244,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'validation' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_90_', x: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,12c0,1.3559-2.1936,2.2658-2.6825,3.4448\r c-0.5068,1.2222,0.3817,3.4123-0.5394,4.3334c-0.9211,0.921-3.1111,0.0324-4.3333,0.5392C14.2657,20.8064,13.3559,23,12,23\r c-1.3559,0-2.2658-2.1936-3.4448-2.6825c-1.2222-0.5068-3.4123,0.3817-4.3334-0.5394c-0.921-0.9211-0.0324-3.1111-0.5392-4.3333\r C3.1936,14.2657,1,13.3559,1,12c0-1.3559,2.1936-2.2658,2.6825-3.4448c0.5068-1.2222-0.3817-3.4123,0.5394-4.3334\r C5.143,3.3007,7.333,4.1893,8.5552,3.6825C9.7343,3.1936,10.6441,1,12,1c1.3559,0,2.2658,2.1936,3.4448,2.6825\r c1.2222,0.5068,3.4123-0.3817,4.3334,0.5394c0.921,0.9211,0.0324,3.1111,0.5392,4.3333C20.8064,9.7343,23,10.6441,23,12z M8,12l3,3\r l6-6' })
 	        )
 	      );
@@ -67134,7 +67275,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 526 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67226,8 +67367,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'video' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_70_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,19H1V5h15V19z M16,15l7,4V5l-7.0208,4' })
 	        )
 	      );
@@ -67257,7 +67398,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 527 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67349,8 +67490,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'view' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_116_', x: '0.1277', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0.1277', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.1277,12c-2.5079,4.8114-5.9464,8-11,8\r s-8.4921-3.1886-11-8c2.5079-4.8114,5.9464-8,11-8S20.6198,7.1886,23.1277,12z M12.1277,8c-2.2091,0-4,1.7909-4,4s1.7909,4,4,4\r s4-1.7909,4-4S14.3368,8,12.1277,8z' })
 	        )
 	      );
@@ -67380,7 +67521,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 528 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67473,7 +67614,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'virtual-machine' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_177_', x: '1.5', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1.5', y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,14H6V1h13V14z M23,6H10v13h13V6z M14,10H1v13\r h13V10z' })
 	        )
 	      );
@@ -67503,7 +67644,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 529 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67596,7 +67737,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'vm-maintenance' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_176_', x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.6937,14.2495l-2.0349,2.0349l-1.4431-1.4432\r l2.0348-2.0348c-1.1328-0.5556-2.5327-0.3536-3.478,0.5917c-0.9433,0.9433-1.1319,2.3387-0.5894,3.476L13,22.0569l1.443,1.443\r l5.1833-5.1829c1.1372,0.5422,2.5324,0.3536,3.4757-0.5896C24.0472,16.7822,24.2493,15.3824,23.6937,14.2495z' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,13.5H5v-10h10V13.5z M18,11.5v-4H8v10h6\r M11,10.5H1v10h10V10.5z' })
 	        )
@@ -67627,7 +67768,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 530 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67720,7 +67861,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'volume-low' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_267_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,12V8h5l6-5v18l-6-5H1V12 M15,16\r c2.2091,0,4-1.7909,4-4s-1.7909-4-4-4' })
 	        )
 	      );
@@ -67750,7 +67891,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 531 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67843,7 +67984,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'volume-mute' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_268_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,12V8h5l6-5v18l-6-5H1V12' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '16', y1: '15.5', x2: '23', y2: '8.5' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '16', y1: '8.5', x2: '23', y2: '15.5' })
@@ -67875,7 +68016,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 532 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67967,8 +68108,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'volume' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_81_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,12V8h5l6-5v18l-6-5H1V12 M15,20\r c4.4111,0,8-3.5889,8-8s-3.5889-8-8-8 M15,16c2.2091,0,4-1.7909,4-4s-1.7909-4-4-4' })
 	        )
 	      );
@@ -67998,7 +68139,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 533 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68090,8 +68231,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'vulnerability' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_175_', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,21c-4.9624,0-9-4.0371-9-9s4.0376-9,9-9\r s9,4.0371,9,9S16.9624,21,12,21z M17,12c0-2.7568-2.2432-5-5-5s-5,2.2432-5,5s2.2432,5,5,5S17,14.7568,17,12z M0,12h24 M12,0v24' })
 	        )
 	      );
@@ -68121,7 +68262,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 534 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68213,8 +68354,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'waypoint' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_91_', x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '21.5,2.5 2.5,11.5 9.5,14.5 12.5,21.5 \t' })
 	        )
 	      );
@@ -68244,7 +68385,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 535 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68336,8 +68477,8 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'worksop' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_241_', y: '0', fill: 'none', width: '24', height: '24' }),
+	          null,
+	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '20,16 23,16 23,2 3,2 3,5 \t' }),
 	          _react2.default.createElement('rect', { x: '10', y: '0', width: '6', height: '4' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M10,10.5c0,1.933-1.567,3.5-3.5,3.5\r S3,12.433,3,10.5S4.567,7,6.5,7S10,8.567,10,10.5z M8,14H6c-2.7614,0-5,2.2386-5,5v4h11v-3.9515\r c0-0.6033,0.3584-1.1483,0.9169-1.3766C16.8134,16.0792,19,11,19,11l-2-2C11.7917,14.2083,8,14,8,14 M17,9l2-2' })
@@ -68369,7 +68510,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 536 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68462,7 +68603,7 @@ module.exports =
 	        _react2.default.createElement(
 	          'g',
 	          { id: 'zoom-in' },
-	          _react2.default.createElement('rect', { id: '_x2E_svg_115_', x: '0.5', y: '0.5', fill: 'none', width: '24', height: '24' }),
+	          _react2.default.createElement('rect', { x: '0.5', y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '10', y1: '5', x2: '10', y2: '15' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '15', y1: '10', x2: '5', y2: '10' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '10', cy: '10', r: '9' }),
@@ -68495,638 +68636,638 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 537 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./3d": 256,
-		"./3d.js": 256,
-		"./Achievement": 257,
-		"./Achievement.js": 257,
-		"./Action": 258,
-		"./Action.js": 258,
-		"./Actions": 246,
-		"./Actions.js": 246,
-		"./Add": 152,
-		"./Add.js": 152,
-		"./AdvancedSearch": 259,
-		"./AdvancedSearch.js": 259,
-		"./Aggregate": 260,
-		"./Aggregate.js": 260,
-		"./Alarm": 261,
-		"./Alarm.js": 261,
-		"./Alert": 262,
-		"./Alert.js": 262,
-		"./Analytics": 263,
-		"./Analytics.js": 263,
-		"./Announcement": 264,
-		"./Announcement.js": 264,
-		"./App": 265,
-		"./App.js": 265,
-		"./Archive": 266,
-		"./Archive.js": 266,
-		"./Article": 267,
-		"./Article.js": 267,
-		"./Ascend": 268,
-		"./Ascend.js": 268,
-		"./Assistant": 269,
-		"./Assistant.js": 269,
-		"./Attachment": 270,
-		"./Attachment.js": 270,
-		"./BarChart": 271,
-		"./BarChart.js": 271,
-		"./Blog": 272,
-		"./Blog.js": 272,
-		"./Book": 273,
-		"./Book.js": 273,
-		"./Bookmark": 274,
-		"./Bookmark.js": 274,
-		"./Bundle": 275,
-		"./Bundle.js": 275,
-		"./Calculator": 276,
-		"./Calculator.js": 276,
-		"./Calendar": 157,
-		"./Calendar.js": 157,
-		"./Camera": 277,
-		"./Camera.js": 277,
-		"./Capacity": 278,
-		"./Capacity.js": 278,
-		"./CaretDown": 279,
-		"./CaretDown.js": 279,
-		"./CaretNext": 280,
-		"./CaretNext.js": 280,
-		"./CaretPrevious": 281,
-		"./CaretPrevious.js": 281,
-		"./CaretUp": 282,
-		"./CaretUp.js": 282,
-		"./Catalog": 283,
-		"./Catalog.js": 283,
-		"./ChapterAdd": 284,
-		"./ChapterAdd.js": 284,
-		"./ChapterNext": 285,
-		"./ChapterNext.js": 285,
-		"./ChapterPrevious": 286,
-		"./ChapterPrevious.js": 286,
-		"./Chat": 287,
-		"./Chat.js": 287,
-		"./Checkbox": 289,
-		"./Checkbox.js": 289,
-		"./CheckboxSelected": 288,
-		"./CheckboxSelected.js": 288,
-		"./Checkmark": 290,
-		"./Checkmark.js": 290,
-		"./CircularView": 291,
-		"./CircularView.js": 291,
-		"./Clipboard": 292,
-		"./Clipboard.js": 292,
-		"./Clock": 227,
-		"./Clock.js": 227,
-		"./Clone": 293,
-		"./Clone.js": 293,
+		"./3d": 259,
+		"./3d.js": 259,
+		"./Achievement": 260,
+		"./Achievement.js": 260,
+		"./Action": 261,
+		"./Action.js": 261,
+		"./Actions": 250,
+		"./Actions.js": 250,
+		"./Add": 156,
+		"./Add.js": 156,
+		"./AdvancedSearch": 262,
+		"./AdvancedSearch.js": 262,
+		"./Aggregate": 263,
+		"./Aggregate.js": 263,
+		"./Alarm": 264,
+		"./Alarm.js": 264,
+		"./Alert": 265,
+		"./Alert.js": 265,
+		"./Analytics": 266,
+		"./Analytics.js": 266,
+		"./Announcement": 267,
+		"./Announcement.js": 267,
+		"./App": 268,
+		"./App.js": 268,
+		"./Archive": 269,
+		"./Archive.js": 269,
+		"./Article": 270,
+		"./Article.js": 270,
+		"./Ascend": 271,
+		"./Ascend.js": 271,
+		"./Assistant": 272,
+		"./Assistant.js": 272,
+		"./Attachment": 273,
+		"./Attachment.js": 273,
+		"./BarChart": 274,
+		"./BarChart.js": 274,
+		"./Blog": 275,
+		"./Blog.js": 275,
+		"./Book": 276,
+		"./Book.js": 276,
+		"./Bookmark": 277,
+		"./Bookmark.js": 277,
+		"./Bundle": 278,
+		"./Bundle.js": 278,
+		"./Calculator": 279,
+		"./Calculator.js": 279,
+		"./Calendar": 161,
+		"./Calendar.js": 161,
+		"./Camera": 280,
+		"./Camera.js": 280,
+		"./Capacity": 281,
+		"./Capacity.js": 281,
+		"./CaretDown": 282,
+		"./CaretDown.js": 282,
+		"./CaretNext": 283,
+		"./CaretNext.js": 283,
+		"./CaretPrevious": 284,
+		"./CaretPrevious.js": 284,
+		"./CaretUp": 285,
+		"./CaretUp.js": 285,
+		"./Catalog": 286,
+		"./Catalog.js": 286,
+		"./ChapterAdd": 287,
+		"./ChapterAdd.js": 287,
+		"./ChapterNext": 288,
+		"./ChapterNext.js": 288,
+		"./ChapterPrevious": 289,
+		"./ChapterPrevious.js": 289,
+		"./Chat": 290,
+		"./Chat.js": 290,
+		"./Checkbox": 292,
+		"./Checkbox.js": 292,
+		"./CheckboxSelected": 291,
+		"./CheckboxSelected.js": 291,
+		"./Checkmark": 293,
+		"./Checkmark.js": 293,
+		"./CircularView": 294,
+		"./CircularView.js": 294,
+		"./Clipboard": 295,
+		"./Clipboard.js": 295,
+		"./Clock": 231,
+		"./Clock.js": 231,
+		"./Clone": 296,
+		"./Clone.js": 296,
 		"./Close": 95,
 		"./Close.js": 95,
-		"./Cloud": 298,
-		"./Cloud.js": 298,
-		"./CloudComputer": 294,
-		"./CloudComputer.js": 294,
-		"./CloudDownload": 295,
-		"./CloudDownload.js": 295,
-		"./CloudSoftware": 296,
-		"./CloudSoftware.js": 296,
-		"./CloudUpload": 297,
-		"./CloudUpload.js": 297,
-		"./Cluster": 299,
-		"./Cluster.js": 299,
-		"./Code": 300,
-		"./Code.js": 300,
-		"./CommandLine": 301,
-		"./CommandLine.js": 301,
-		"./Compare": 302,
-		"./Compare.js": 302,
-		"./Compasss": 303,
-		"./Compasss.js": 303,
-		"./Compliance": 304,
-		"./Compliance.js": 304,
-		"./ComputerPersonal": 305,
-		"./ComputerPersonal.js": 305,
-		"./Configuration": 306,
-		"./Configuration.js": 306,
-		"./Connect": 307,
-		"./Connect.js": 307,
-		"./ContactCard": 308,
-		"./ContactCard.js": 308,
-		"./ContactUs": 309,
-		"./ContactUs.js": 309,
-		"./Contract": 310,
-		"./Contract.js": 310,
-		"./Copy": 311,
-		"./Copy.js": 311,
-		"./Cube": 312,
-		"./Cube.js": 312,
-		"./Cubes": 313,
-		"./Cubes.js": 313,
-		"./Cursor": 314,
-		"./Cursor.js": 314,
-		"./Cut": 315,
-		"./Cut.js": 315,
-		"./Cycle": 316,
-		"./Cycle.js": 316,
-		"./Dashboard": 317,
-		"./Dashboard.js": 317,
-		"./Database": 318,
-		"./Database.js": 318,
-		"./Defect": 319,
-		"./Defect.js": 319,
-		"./Deliver": 320,
-		"./Deliver.js": 320,
-		"./Deployment": 321,
-		"./Deployment.js": 321,
-		"./Descend": 322,
-		"./Descend.js": 322,
-		"./Desktop": 323,
-		"./Desktop.js": 323,
-		"./Detach": 324,
-		"./Detach.js": 324,
-		"./Directions": 325,
-		"./Directions.js": 325,
-		"./Dislike": 326,
-		"./Dislike.js": 326,
-		"./Divide": 330,
-		"./Divide.js": 330,
-		"./DivideFour": 327,
-		"./DivideFour.js": 327,
-		"./DivideRight": 328,
-		"./DivideRight.js": 328,
-		"./DivideThree": 329,
-		"./DivideThree.js": 329,
-		"./Document": 361,
-		"./Document.js": 361,
-		"./DocumentCloud": 331,
-		"./DocumentCloud.js": 331,
-		"./DocumentCompress": 332,
-		"./DocumentCompress.js": 332,
-		"./DocumentConig": 333,
-		"./DocumentConig.js": 333,
-		"./DocumentCsv": 334,
-		"./DocumentCsv.js": 334,
-		"./DocumentData": 335,
-		"./DocumentData.js": 335,
-		"./DocumentDownload": 336,
-		"./DocumentDownload.js": 336,
-		"./DocumentExcel": 337,
-		"./DocumentExcel.js": 337,
-		"./DocumentExecutable": 338,
-		"./DocumentExecutable.js": 338,
-		"./DocumentImage": 339,
-		"./DocumentImage.js": 339,
-		"./DocumentLocked": 340,
-		"./DocumentLocked.js": 340,
-		"./DocumentMissing": 341,
-		"./DocumentMissing.js": 341,
-		"./DocumentNotes": 342,
-		"./DocumentNotes.js": 342,
-		"./DocumentOutlook": 343,
-		"./DocumentOutlook.js": 343,
-		"./DocumentPdf": 344,
-		"./DocumentPdf.js": 344,
-		"./DocumentPerformance": 345,
-		"./DocumentPerformance.js": 345,
-		"./DocumentPowerpoint": 346,
-		"./DocumentPowerpoint.js": 346,
-		"./DocumentRtf": 347,
-		"./DocumentRtf.js": 347,
-		"./DocumentSound": 348,
-		"./DocumentSound.js": 348,
-		"./DocumentTest": 349,
-		"./DocumentTest.js": 349,
-		"./DocumentText": 350,
-		"./DocumentText.js": 350,
-		"./DocumentThreat": 351,
-		"./DocumentThreat.js": 351,
-		"./DocumentTime": 352,
-		"./DocumentTime.js": 352,
-		"./DocumentTransfer": 353,
-		"./DocumentTransfer.js": 353,
-		"./DocumentTxt": 354,
-		"./DocumentTxt.js": 354,
-		"./DocumentUpdate": 355,
-		"./DocumentUpdate.js": 355,
-		"./DocumentUpload": 356,
-		"./DocumentUpload.js": 356,
-		"./DocumentUser": 357,
-		"./DocumentUser.js": 357,
-		"./DocumentVerified": 358,
-		"./DocumentVerified.js": 358,
-		"./DocumentVideo": 359,
-		"./DocumentVideo.js": 359,
-		"./DocumentWord": 360,
-		"./DocumentWord.js": 360,
-		"./Domain": 362,
-		"./Domain.js": 362,
+		"./Cloud": 301,
+		"./Cloud.js": 301,
+		"./CloudComputer": 297,
+		"./CloudComputer.js": 297,
+		"./CloudDownload": 298,
+		"./CloudDownload.js": 298,
+		"./CloudSoftware": 299,
+		"./CloudSoftware.js": 299,
+		"./CloudUpload": 300,
+		"./CloudUpload.js": 300,
+		"./Cluster": 302,
+		"./Cluster.js": 302,
+		"./Code": 303,
+		"./Code.js": 303,
+		"./CommandLine": 304,
+		"./CommandLine.js": 304,
+		"./Compare": 305,
+		"./Compare.js": 305,
+		"./Compasss": 306,
+		"./Compasss.js": 306,
+		"./Compliance": 307,
+		"./Compliance.js": 307,
+		"./ComputerPersonal": 308,
+		"./ComputerPersonal.js": 308,
+		"./Configuration": 309,
+		"./Configuration.js": 309,
+		"./Connect": 310,
+		"./Connect.js": 310,
+		"./ContactCard": 311,
+		"./ContactCard.js": 311,
+		"./ContactUs": 312,
+		"./ContactUs.js": 312,
+		"./Contract": 313,
+		"./Contract.js": 313,
+		"./Copy": 314,
+		"./Copy.js": 314,
+		"./Cube": 315,
+		"./Cube.js": 315,
+		"./Cubes": 316,
+		"./Cubes.js": 316,
+		"./Cursor": 317,
+		"./Cursor.js": 317,
+		"./Cut": 318,
+		"./Cut.js": 318,
+		"./Cycle": 319,
+		"./Cycle.js": 319,
+		"./Dashboard": 320,
+		"./Dashboard.js": 320,
+		"./Database": 321,
+		"./Database.js": 321,
+		"./Defect": 322,
+		"./Defect.js": 322,
+		"./Deliver": 323,
+		"./Deliver.js": 323,
+		"./Deployment": 324,
+		"./Deployment.js": 324,
+		"./Descend": 325,
+		"./Descend.js": 325,
+		"./Desktop": 326,
+		"./Desktop.js": 326,
+		"./Detach": 327,
+		"./Detach.js": 327,
+		"./Directions": 328,
+		"./Directions.js": 328,
+		"./Dislike": 329,
+		"./Dislike.js": 329,
+		"./Divide": 333,
+		"./Divide.js": 333,
+		"./DivideFour": 330,
+		"./DivideFour.js": 330,
+		"./DivideRight": 331,
+		"./DivideRight.js": 331,
+		"./DivideThree": 332,
+		"./DivideThree.js": 332,
+		"./Document": 364,
+		"./Document.js": 364,
+		"./DocumentCloud": 334,
+		"./DocumentCloud.js": 334,
+		"./DocumentCompress": 335,
+		"./DocumentCompress.js": 335,
+		"./DocumentConig": 336,
+		"./DocumentConig.js": 336,
+		"./DocumentCsv": 337,
+		"./DocumentCsv.js": 337,
+		"./DocumentData": 338,
+		"./DocumentData.js": 338,
+		"./DocumentDownload": 339,
+		"./DocumentDownload.js": 339,
+		"./DocumentExcel": 340,
+		"./DocumentExcel.js": 340,
+		"./DocumentExecutable": 341,
+		"./DocumentExecutable.js": 341,
+		"./DocumentImage": 342,
+		"./DocumentImage.js": 342,
+		"./DocumentLocked": 343,
+		"./DocumentLocked.js": 343,
+		"./DocumentMissing": 344,
+		"./DocumentMissing.js": 344,
+		"./DocumentNotes": 345,
+		"./DocumentNotes.js": 345,
+		"./DocumentOutlook": 346,
+		"./DocumentOutlook.js": 346,
+		"./DocumentPdf": 347,
+		"./DocumentPdf.js": 347,
+		"./DocumentPerformance": 348,
+		"./DocumentPerformance.js": 348,
+		"./DocumentPowerpoint": 349,
+		"./DocumentPowerpoint.js": 349,
+		"./DocumentRtf": 350,
+		"./DocumentRtf.js": 350,
+		"./DocumentSound": 351,
+		"./DocumentSound.js": 351,
+		"./DocumentTest": 352,
+		"./DocumentTest.js": 352,
+		"./DocumentText": 353,
+		"./DocumentText.js": 353,
+		"./DocumentThreat": 354,
+		"./DocumentThreat.js": 354,
+		"./DocumentTime": 355,
+		"./DocumentTime.js": 355,
+		"./DocumentTransfer": 356,
+		"./DocumentTransfer.js": 356,
+		"./DocumentTxt": 357,
+		"./DocumentTxt.js": 357,
+		"./DocumentUpdate": 358,
+		"./DocumentUpdate.js": 358,
+		"./DocumentUpload": 359,
+		"./DocumentUpload.js": 359,
+		"./DocumentUser": 360,
+		"./DocumentUser.js": 360,
+		"./DocumentVerified": 361,
+		"./DocumentVerified.js": 361,
+		"./DocumentVideo": 362,
+		"./DocumentVideo.js": 362,
+		"./DocumentWord": 363,
+		"./DocumentWord.js": 363,
+		"./Domain": 365,
+		"./Domain.js": 365,
 		"./Down": 100,
 		"./Down.js": 100,
-		"./Download": 363,
-		"./Download.js": 363,
-		"./Drag": 154,
-		"./Drag.js": 154,
-		"./DriveCage": 364,
-		"./DriveCage.js": 364,
-		"./Duplicate": 365,
-		"./Duplicate.js": 365,
-		"./Edit": 153,
-		"./Edit.js": 153,
-		"./Eject": 366,
-		"./Eject.js": 366,
-		"./Expand": 367,
-		"./Expand.js": 367,
-		"./Fan": 368,
-		"./Fan.js": 368,
-		"./FastForward": 369,
-		"./FastForward.js": 369,
-		"./Favorite": 370,
-		"./Favorite.js": 370,
-		"./Filter": 155,
-		"./Filter.js": 155,
-		"./FirstAid": 371,
-		"./FirstAid.js": 371,
-		"./Flag": 372,
-		"./Flag.js": 372,
-		"./Folder": 375,
-		"./Folder.js": 375,
-		"./FolderCycle": 373,
-		"./FolderCycle.js": 373,
-		"./FolderOpen": 374,
-		"./FolderOpen.js": 374,
-		"./Gallery": 376,
-		"./Gallery.js": 376,
-		"./Globe": 377,
-		"./Globe.js": 377,
-		"./Grid": 378,
-		"./Grid.js": 378,
-		"./Group": 379,
-		"./Group.js": 379,
-		"./Grow": 380,
-		"./Grow.js": 380,
-		"./Halt": 381,
-		"./Halt.js": 381,
-		"./Help": 158,
-		"./Help.js": 158,
-		"./History": 382,
-		"./History.js": 382,
-		"./Home": 383,
-		"./Home.js": 383,
-		"./Host": 385,
-		"./Host.js": 385,
-		"./HostMaintenance": 384,
-		"./HostMaintenance.js": 384,
-		"./Image": 386,
-		"./Image.js": 386,
-		"./Impact": 387,
-		"./Impact.js": 387,
-		"./InProgress": 388,
-		"./InProgress.js": 388,
-		"./Inbox": 389,
-		"./Inbox.js": 389,
-		"./Indicator": 390,
-		"./Indicator.js": 390,
-		"./Information": 391,
-		"./Information.js": 391,
-		"./Inherit": 392,
-		"./Inherit.js": 392,
-		"./Install": 393,
-		"./Install.js": 393,
-		"./Integration": 394,
-		"./Integration.js": 394,
-		"./Iteration": 395,
-		"./Iteration.js": 395,
-		"./Java": 396,
-		"./Java.js": 396,
-		"./Language": 162,
-		"./Language.js": 162,
-		"./Launch": 397,
-		"./Launch.js": 397,
-		"./License": 398,
-		"./License.js": 398,
-		"./Like": 399,
-		"./Like.js": 399,
-		"./LineChart": 400,
-		"./LineChart.js": 400,
-		"./Link": 403,
-		"./Link.js": 403,
-		"./LinkBottom": 401,
-		"./LinkBottom.js": 401,
-		"./LinkDown": 402,
-		"./LinkDown.js": 402,
+		"./Download": 366,
+		"./Download.js": 366,
+		"./Drag": 158,
+		"./Drag.js": 158,
+		"./DriveCage": 367,
+		"./DriveCage.js": 367,
+		"./Duplicate": 368,
+		"./Duplicate.js": 368,
+		"./Edit": 157,
+		"./Edit.js": 157,
+		"./Eject": 369,
+		"./Eject.js": 369,
+		"./Expand": 370,
+		"./Expand.js": 370,
+		"./Fan": 371,
+		"./Fan.js": 371,
+		"./FastForward": 372,
+		"./FastForward.js": 372,
+		"./Favorite": 373,
+		"./Favorite.js": 373,
+		"./Filter": 159,
+		"./Filter.js": 159,
+		"./FirstAid": 374,
+		"./FirstAid.js": 374,
+		"./Flag": 375,
+		"./Flag.js": 375,
+		"./Folder": 378,
+		"./Folder.js": 378,
+		"./FolderCycle": 376,
+		"./FolderCycle.js": 376,
+		"./FolderOpen": 377,
+		"./FolderOpen.js": 377,
+		"./Gallery": 379,
+		"./Gallery.js": 379,
+		"./Globe": 380,
+		"./Globe.js": 380,
+		"./Grid": 381,
+		"./Grid.js": 381,
+		"./Group": 382,
+		"./Group.js": 382,
+		"./Grow": 383,
+		"./Grow.js": 383,
+		"./Halt": 384,
+		"./Halt.js": 384,
+		"./Help": 162,
+		"./Help.js": 162,
+		"./History": 385,
+		"./History.js": 385,
+		"./Home": 386,
+		"./Home.js": 386,
+		"./Host": 388,
+		"./Host.js": 388,
+		"./HostMaintenance": 387,
+		"./HostMaintenance.js": 387,
+		"./Image": 389,
+		"./Image.js": 389,
+		"./Impact": 390,
+		"./Impact.js": 390,
+		"./InProgress": 391,
+		"./InProgress.js": 391,
+		"./Inbox": 392,
+		"./Inbox.js": 392,
+		"./Indicator": 393,
+		"./Indicator.js": 393,
+		"./Information": 394,
+		"./Information.js": 394,
+		"./Inherit": 395,
+		"./Inherit.js": 395,
+		"./Install": 396,
+		"./Install.js": 396,
+		"./Integration": 397,
+		"./Integration.js": 397,
+		"./Iteration": 398,
+		"./Iteration.js": 398,
+		"./Java": 399,
+		"./Java.js": 399,
+		"./Language": 166,
+		"./Language.js": 166,
+		"./Launch": 400,
+		"./Launch.js": 400,
+		"./License": 401,
+		"./License.js": 401,
+		"./Like": 402,
+		"./Like.js": 402,
+		"./LineChart": 403,
+		"./LineChart.js": 403,
+		"./Link": 406,
+		"./Link.js": 406,
+		"./LinkBottom": 404,
+		"./LinkBottom.js": 404,
+		"./LinkDown": 405,
+		"./LinkDown.js": 405,
 		"./LinkNext": 108,
 		"./LinkNext.js": 108,
 		"./LinkPrevious": 109,
 		"./LinkPrevious.js": 109,
-		"./LinkTop": 160,
-		"./LinkTop.js": 160,
-		"./LinkUp": 159,
-		"./LinkUp.js": 159,
-		"./Location": 405,
-		"./Location.js": 405,
-		"./LocationPin": 404,
-		"./LocationPin.js": 404,
-		"./Lock": 406,
-		"./Lock.js": 406,
-		"./Login": 407,
-		"./Login.js": 407,
-		"./Logout": 408,
-		"./Logout.js": 408,
-		"./Mail": 163,
-		"./Mail.js": 163,
-		"./Manual": 409,
-		"./Manual.js": 409,
-		"./Map": 411,
-		"./Map.js": 411,
-		"./MapLocation": 410,
-		"./MapLocation.js": 410,
-		"./Menu": 412,
-		"./Menu.js": 412,
-		"./Microphone": 413,
-		"./Microphone.js": 413,
-		"./Monitor": 414,
-		"./Monitor.js": 414,
+		"./LinkTop": 164,
+		"./LinkTop.js": 164,
+		"./LinkUp": 163,
+		"./LinkUp.js": 163,
+		"./Location": 408,
+		"./Location.js": 408,
+		"./LocationPin": 407,
+		"./LocationPin.js": 407,
+		"./Lock": 409,
+		"./Lock.js": 409,
+		"./Login": 410,
+		"./Login.js": 410,
+		"./Logout": 411,
+		"./Logout.js": 411,
+		"./Mail": 167,
+		"./Mail.js": 167,
+		"./Manual": 412,
+		"./Manual.js": 412,
+		"./Map": 414,
+		"./Map.js": 414,
+		"./MapLocation": 413,
+		"./MapLocation.js": 413,
+		"./Menu": 415,
+		"./Menu.js": 415,
+		"./Microphone": 416,
+		"./Microphone.js": 416,
+		"./Monitor": 417,
+		"./Monitor.js": 417,
 		"./More": 101,
 		"./More.js": 101,
-		"./Multiple": 415,
-		"./Multiple.js": 415,
-		"./Navigate": 416,
-		"./Navigate.js": 416,
-		"./New": 418,
-		"./New.js": 418,
-		"./NewWindow": 417,
-		"./NewWindow.js": 417,
-		"./Next": 193,
-		"./Next.js": 193,
-		"./Notes": 419,
-		"./Notes.js": 419,
-		"./Notification": 247,
-		"./Notification.js": 247,
-		"./Optimization": 420,
-		"./Optimization.js": 420,
-		"./Organization": 421,
-		"./Organization.js": 421,
-		"./Overlay": 422,
-		"./Overlay.js": 422,
-		"./Overview": 423,
-		"./Overview.js": 423,
-		"./Pan": 424,
-		"./Pan.js": 424,
-		"./Pause": 425,
-		"./Pause.js": 425,
-		"./PaymentGoogleWallet": 426,
-		"./PaymentGoogleWallet.js": 426,
-		"./PaymentMastercard": 427,
-		"./PaymentMastercard.js": 427,
-		"./PaymentPaypal": 428,
-		"./PaymentPaypal.js": 428,
-		"./PaymentSquare": 429,
-		"./PaymentSquare.js": 429,
-		"./PaymentVisa": 430,
-		"./PaymentVisa.js": 430,
-		"./Pin": 431,
-		"./Pin.js": 431,
-		"./Plan": 432,
-		"./Plan.js": 432,
-		"./PlatformApple": 188,
-		"./PlatformApple.js": 188,
-		"./PlatformChrome": 187,
-		"./PlatformChrome.js": 187,
-		"./PlatformDropbox": 433,
-		"./PlatformDropbox.js": 433,
-		"./PlatformEdge": 186,
-		"./PlatformEdge.js": 186,
-		"./PlatformFirefox": 184,
-		"./PlatformFirefox.js": 184,
-		"./PlatformInternetExplorer": 185,
-		"./PlatformInternetExplorer.js": 185,
-		"./PlatformSkype": 434,
-		"./PlatformSkype.js": 434,
-		"./PlatformWindows": 435,
-		"./PlatformWindows.js": 435,
-		"./Play": 436,
-		"./Play.js": 436,
-		"./Power": 437,
-		"./Power.js": 437,
-		"./Previous": 206,
-		"./Previous.js": 206,
-		"./Print": 438,
-		"./Print.js": 438,
-		"./QuickView": 439,
-		"./QuickView.js": 439,
-		"./Radial": 441,
-		"./Radial.js": 441,
-		"./RadialSelected": 440,
-		"./RadialSelected.js": 440,
-		"./Refresh": 442,
-		"./Refresh.js": 442,
-		"./Resources": 443,
-		"./Resources.js": 443,
-		"./Rewind": 444,
-		"./Rewind.js": 444,
-		"./Risk": 445,
-		"./Risk.js": 445,
-		"./Rss": 446,
-		"./Rss.js": 446,
-		"./Satellite": 447,
-		"./Satellite.js": 447,
-		"./Schedule": 451,
-		"./Schedule.js": 451,
-		"./ScheduleClone": 448,
-		"./ScheduleClone.js": 448,
-		"./ScheduleNew": 449,
-		"./ScheduleNew.js": 449,
-		"./SchedulePlay": 450,
-		"./SchedulePlay.js": 450,
-		"./Scorecard": 452,
-		"./Scorecard.js": 452,
-		"./Search": 156,
-		"./Search.js": 156,
-		"./Secure": 453,
-		"./Secure.js": 453,
-		"./Select": 455,
-		"./Select.js": 455,
-		"./SelectLeft": 454,
-		"./SelectLeft.js": 454,
-		"./Server": 457,
-		"./Server.js": 457,
-		"./ServerCluster": 456,
-		"./ServerCluster.js": 456,
-		"./Servers": 458,
-		"./Servers.js": 458,
-		"./ServiceBusiness": 459,
-		"./ServiceBusiness.js": 459,
-		"./ServiceStart": 460,
-		"./ServiceStart.js": 460,
-		"./Share": 461,
-		"./Share.js": 461,
-		"./SheildConfigure": 462,
-		"./SheildConfigure.js": 462,
-		"./Shield": 463,
-		"./Shield.js": 463,
-		"./Shift": 464,
-		"./Shift.js": 464,
-		"./ShopBasket": 465,
-		"./ShopBasket.js": 465,
-		"./ShopCart": 466,
-		"./ShopCart.js": 466,
-		"./Soa": 467,
-		"./Soa.js": 467,
-		"./SocialEmail": 468,
-		"./SocialEmail.js": 468,
-		"./SocialFacebook": 166,
-		"./SocialFacebook.js": 166,
-		"./SocialGithub": 469,
-		"./SocialGithub.js": 469,
-		"./SocialGoogle": 470,
-		"./SocialGoogle.js": 470,
-		"./SocialInstagram": 471,
-		"./SocialInstagram.js": 471,
-		"./SocialLinkedin": 165,
-		"./SocialLinkedin.js": 165,
-		"./SocialMedium": 472,
-		"./SocialMedium.js": 472,
-		"./SocialPinterest": 473,
-		"./SocialPinterest.js": 473,
-		"./SocialReddit": 474,
-		"./SocialReddit.js": 474,
-		"./SocialSlack": 475,
-		"./SocialSlack.js": 475,
-		"./SocialTumblr": 476,
-		"./SocialTumblr.js": 476,
-		"./SocialTwitter": 164,
-		"./SocialTwitter.js": 164,
-		"./SocialVimeo": 477,
-		"./SocialVimeo.js": 477,
-		"./SocialYoutube": 478,
-		"./SocialYoutube.js": 478,
-		"./Sort": 479,
-		"./Sort.js": 479,
-		"./Stakeholder": 480,
-		"./Stakeholder.js": 480,
-		"./Star": 482,
-		"./Star.js": 482,
-		"./StarHalf": 481,
-		"./StarHalf.js": 481,
-		"./Steps": 483,
-		"./Steps.js": 483,
-		"./Storage": 484,
-		"./Storage.js": 484,
-		"./StreetView": 485,
-		"./StreetView.js": 485,
-		"./Subtract": 229,
-		"./Subtract.js": 229,
-		"./Support": 486,
-		"./Support.js": 486,
-		"./Svg": 487,
-		"./Svg.js": 487,
-		"./Sync": 488,
-		"./Sync.js": 488,
-		"./System": 489,
-		"./System.js": 489,
-		"./TabNext": 490,
-		"./TabNext.js": 490,
-		"./TabPrevious": 491,
-		"./TabPrevious.js": 491,
-		"./TabUp": 492,
-		"./TabUp.js": 492,
-		"./Table": 494,
-		"./Table.js": 494,
-		"./TableAdd": 493,
-		"./TableAdd.js": 493,
-		"./Tag": 495,
-		"./Tag.js": 495,
-		"./Target": 496,
-		"./Target.js": 496,
-		"./Task": 497,
-		"./Task.js": 497,
-		"./Template": 498,
-		"./Template.js": 498,
-		"./Test": 500,
-		"./Test.js": 500,
-		"./TestDesktop": 499,
-		"./TestDesktop.js": 499,
-		"./TesxtWrap": 501,
-		"./TesxtWrap.js": 501,
-		"./Threats": 502,
-		"./Threats.js": 502,
-		"./ThreeD": 503,
-		"./ThreeD.js": 503,
-		"./Ticket": 504,
-		"./Ticket.js": 504,
-		"./Tools": 505,
-		"./Tools.js": 505,
-		"./Tooltip": 506,
-		"./Tooltip.js": 506,
-		"./Transaction": 507,
-		"./Transaction.js": 507,
-		"./Trash": 508,
-		"./Trash.js": 508,
-		"./Tree": 509,
-		"./Tree.js": 509,
-		"./Trigger": 510,
-		"./Trigger.js": 510,
-		"./Trophy": 511,
-		"./Trophy.js": 511,
-		"./Troubleshooting": 512,
-		"./Troubleshooting.js": 512,
-		"./Unlock": 513,
-		"./Unlock.js": 513,
+		"./Multiple": 418,
+		"./Multiple.js": 418,
+		"./Navigate": 419,
+		"./Navigate.js": 419,
+		"./New": 421,
+		"./New.js": 421,
+		"./NewWindow": 420,
+		"./NewWindow.js": 420,
+		"./Next": 197,
+		"./Next.js": 197,
+		"./Notes": 422,
+		"./Notes.js": 422,
+		"./Notification": 251,
+		"./Notification.js": 251,
+		"./Optimization": 423,
+		"./Optimization.js": 423,
+		"./Organization": 424,
+		"./Organization.js": 424,
+		"./Overlay": 425,
+		"./Overlay.js": 425,
+		"./Overview": 426,
+		"./Overview.js": 426,
+		"./Pan": 427,
+		"./Pan.js": 427,
+		"./Pause": 428,
+		"./Pause.js": 428,
+		"./PaymentGoogleWallet": 429,
+		"./PaymentGoogleWallet.js": 429,
+		"./PaymentMastercard": 430,
+		"./PaymentMastercard.js": 430,
+		"./PaymentPaypal": 431,
+		"./PaymentPaypal.js": 431,
+		"./PaymentSquare": 432,
+		"./PaymentSquare.js": 432,
+		"./PaymentVisa": 433,
+		"./PaymentVisa.js": 433,
+		"./Pin": 434,
+		"./Pin.js": 434,
+		"./Plan": 435,
+		"./Plan.js": 435,
+		"./PlatformApple": 192,
+		"./PlatformApple.js": 192,
+		"./PlatformChrome": 191,
+		"./PlatformChrome.js": 191,
+		"./PlatformDropbox": 436,
+		"./PlatformDropbox.js": 436,
+		"./PlatformEdge": 190,
+		"./PlatformEdge.js": 190,
+		"./PlatformFirefox": 188,
+		"./PlatformFirefox.js": 188,
+		"./PlatformInternetExplorer": 189,
+		"./PlatformInternetExplorer.js": 189,
+		"./PlatformSkype": 437,
+		"./PlatformSkype.js": 437,
+		"./PlatformWindows": 438,
+		"./PlatformWindows.js": 438,
+		"./Play": 439,
+		"./Play.js": 439,
+		"./Power": 440,
+		"./Power.js": 440,
+		"./Previous": 210,
+		"./Previous.js": 210,
+		"./Print": 441,
+		"./Print.js": 441,
+		"./QuickView": 442,
+		"./QuickView.js": 442,
+		"./Radial": 444,
+		"./Radial.js": 444,
+		"./RadialSelected": 443,
+		"./RadialSelected.js": 443,
+		"./Refresh": 445,
+		"./Refresh.js": 445,
+		"./Resources": 446,
+		"./Resources.js": 446,
+		"./Rewind": 447,
+		"./Rewind.js": 447,
+		"./Risk": 448,
+		"./Risk.js": 448,
+		"./Rss": 449,
+		"./Rss.js": 449,
+		"./Satellite": 450,
+		"./Satellite.js": 450,
+		"./Schedule": 454,
+		"./Schedule.js": 454,
+		"./ScheduleClone": 451,
+		"./ScheduleClone.js": 451,
+		"./ScheduleNew": 452,
+		"./ScheduleNew.js": 452,
+		"./SchedulePlay": 453,
+		"./SchedulePlay.js": 453,
+		"./Scorecard": 455,
+		"./Scorecard.js": 455,
+		"./Search": 160,
+		"./Search.js": 160,
+		"./Secure": 456,
+		"./Secure.js": 456,
+		"./Select": 458,
+		"./Select.js": 458,
+		"./SelectLeft": 457,
+		"./SelectLeft.js": 457,
+		"./Server": 460,
+		"./Server.js": 460,
+		"./ServerCluster": 459,
+		"./ServerCluster.js": 459,
+		"./Servers": 461,
+		"./Servers.js": 461,
+		"./ServiceBusiness": 462,
+		"./ServiceBusiness.js": 462,
+		"./ServiceStart": 463,
+		"./ServiceStart.js": 463,
+		"./Share": 464,
+		"./Share.js": 464,
+		"./SheildConfigure": 465,
+		"./SheildConfigure.js": 465,
+		"./Shield": 466,
+		"./Shield.js": 466,
+		"./Shift": 467,
+		"./Shift.js": 467,
+		"./ShopBasket": 468,
+		"./ShopBasket.js": 468,
+		"./ShopCart": 469,
+		"./ShopCart.js": 469,
+		"./Soa": 470,
+		"./Soa.js": 470,
+		"./SocialEmail": 471,
+		"./SocialEmail.js": 471,
+		"./SocialFacebook": 170,
+		"./SocialFacebook.js": 170,
+		"./SocialGithub": 472,
+		"./SocialGithub.js": 472,
+		"./SocialGoogle": 473,
+		"./SocialGoogle.js": 473,
+		"./SocialInstagram": 474,
+		"./SocialInstagram.js": 474,
+		"./SocialLinkedin": 169,
+		"./SocialLinkedin.js": 169,
+		"./SocialMedium": 475,
+		"./SocialMedium.js": 475,
+		"./SocialPinterest": 476,
+		"./SocialPinterest.js": 476,
+		"./SocialReddit": 477,
+		"./SocialReddit.js": 477,
+		"./SocialSlack": 478,
+		"./SocialSlack.js": 478,
+		"./SocialTumblr": 479,
+		"./SocialTumblr.js": 479,
+		"./SocialTwitter": 168,
+		"./SocialTwitter.js": 168,
+		"./SocialVimeo": 480,
+		"./SocialVimeo.js": 480,
+		"./SocialYoutube": 481,
+		"./SocialYoutube.js": 481,
+		"./Sort": 482,
+		"./Sort.js": 482,
+		"./Stakeholder": 483,
+		"./Stakeholder.js": 483,
+		"./Star": 485,
+		"./Star.js": 485,
+		"./StarHalf": 484,
+		"./StarHalf.js": 484,
+		"./Steps": 486,
+		"./Steps.js": 486,
+		"./Storage": 487,
+		"./Storage.js": 487,
+		"./StreetView": 488,
+		"./StreetView.js": 488,
+		"./Subtract": 233,
+		"./Subtract.js": 233,
+		"./Support": 489,
+		"./Support.js": 489,
+		"./Svg": 490,
+		"./Svg.js": 490,
+		"./Sync": 491,
+		"./Sync.js": 491,
+		"./System": 492,
+		"./System.js": 492,
+		"./TabNext": 493,
+		"./TabNext.js": 493,
+		"./TabPrevious": 494,
+		"./TabPrevious.js": 494,
+		"./TabUp": 495,
+		"./TabUp.js": 495,
+		"./Table": 497,
+		"./Table.js": 497,
+		"./TableAdd": 496,
+		"./TableAdd.js": 496,
+		"./Tag": 498,
+		"./Tag.js": 498,
+		"./Target": 499,
+		"./Target.js": 499,
+		"./Task": 500,
+		"./Task.js": 500,
+		"./Template": 501,
+		"./Template.js": 501,
+		"./Test": 503,
+		"./Test.js": 503,
+		"./TestDesktop": 502,
+		"./TestDesktop.js": 502,
+		"./TesxtWrap": 504,
+		"./TesxtWrap.js": 504,
+		"./Threats": 505,
+		"./Threats.js": 505,
+		"./ThreeD": 506,
+		"./ThreeD.js": 506,
+		"./Ticket": 507,
+		"./Ticket.js": 507,
+		"./Tools": 508,
+		"./Tools.js": 508,
+		"./Tooltip": 509,
+		"./Tooltip.js": 509,
+		"./Transaction": 510,
+		"./Transaction.js": 510,
+		"./Trash": 511,
+		"./Trash.js": 511,
+		"./Tree": 512,
+		"./Tree.js": 512,
+		"./Trigger": 513,
+		"./Trigger.js": 513,
+		"./Trophy": 514,
+		"./Trophy.js": 514,
+		"./Troubleshooting": 515,
+		"./Troubleshooting.js": 515,
+		"./Unlock": 516,
+		"./Unlock.js": 516,
 		"./Up": 110,
 		"./Up.js": 110,
-		"./Update": 514,
-		"./Update.js": 514,
-		"./Upgrade": 515,
-		"./Upgrade.js": 515,
-		"./Upload": 516,
-		"./Upload.js": 516,
-		"./User": 161,
-		"./User.js": 161,
-		"./UserAdd": 517,
-		"./UserAdd.js": 517,
-		"./UserAdmin": 518,
-		"./UserAdmin.js": 518,
-		"./UserExpert": 519,
-		"./UserExpert.js": 519,
-		"./UserFemale": 520,
-		"./UserFemale.js": 520,
-		"./UserManager": 521,
-		"./UserManager.js": 521,
-		"./UserNew": 522,
-		"./UserNew.js": 522,
-		"./UserPolice": 523,
-		"./UserPolice.js": 523,
-		"./UserSettings": 248,
-		"./UserSettings.js": 248,
-		"./UserWorker": 524,
-		"./UserWorker.js": 524,
-		"./Validation": 525,
-		"./Validation.js": 525,
-		"./Video": 526,
-		"./Video.js": 526,
-		"./View": 527,
-		"./View.js": 527,
-		"./VirtualMachine": 528,
-		"./VirtualMachine.js": 528,
-		"./VmMaintenance": 529,
-		"./VmMaintenance.js": 529,
-		"./Volume": 532,
-		"./Volume.js": 532,
-		"./VolumeLow": 530,
-		"./VolumeLow.js": 530,
-		"./VolumeMute": 531,
-		"./VolumeMute.js": 531,
-		"./Vulnerability": 533,
-		"./Vulnerability.js": 533,
-		"./Waypoint": 534,
-		"./Waypoint.js": 534,
-		"./Workshop": 535,
-		"./Workshop.js": 535,
-		"./ZoomIn": 536,
-		"./ZoomIn.js": 536
+		"./Update": 517,
+		"./Update.js": 517,
+		"./Upgrade": 518,
+		"./Upgrade.js": 518,
+		"./Upload": 519,
+		"./Upload.js": 519,
+		"./User": 165,
+		"./User.js": 165,
+		"./UserAdd": 520,
+		"./UserAdd.js": 520,
+		"./UserAdmin": 521,
+		"./UserAdmin.js": 521,
+		"./UserExpert": 522,
+		"./UserExpert.js": 522,
+		"./UserFemale": 523,
+		"./UserFemale.js": 523,
+		"./UserManager": 524,
+		"./UserManager.js": 524,
+		"./UserNew": 525,
+		"./UserNew.js": 525,
+		"./UserPolice": 526,
+		"./UserPolice.js": 526,
+		"./UserSettings": 252,
+		"./UserSettings.js": 252,
+		"./UserWorker": 527,
+		"./UserWorker.js": 527,
+		"./Validation": 528,
+		"./Validation.js": 528,
+		"./Video": 529,
+		"./Video.js": 529,
+		"./View": 530,
+		"./View.js": 530,
+		"./VirtualMachine": 531,
+		"./VirtualMachine.js": 531,
+		"./VmMaintenance": 532,
+		"./VmMaintenance.js": 532,
+		"./Volume": 535,
+		"./Volume.js": 535,
+		"./VolumeLow": 533,
+		"./VolumeLow.js": 533,
+		"./VolumeMute": 534,
+		"./VolumeMute.js": 534,
+		"./Vulnerability": 536,
+		"./Vulnerability.js": 536,
+		"./Waypoint": 537,
+		"./Waypoint.js": 537,
+		"./Workshop": 538,
+		"./Workshop.js": 538,
+		"./ZoomIn": 539,
+		"./ZoomIn.js": 539
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -69139,11 +69280,11 @@ module.exports =
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 537;
+	webpackContext.id = 540;
 
 
 /***/ },
-/* 538 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69158,19 +69299,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Image = __webpack_require__(539);
+	var _Image = __webpack_require__(542);
 
 	var _Image2 = _interopRequireDefault(_Image);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69320,7 +69461,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 539 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69361,7 +69502,7 @@ module.exports =
 
 	var _classnames4 = _interopRequireDefault(_classnames3);
 
-	var _Label = __webpack_require__(540);
+	var _Label = __webpack_require__(543);
 
 	var _Label2 = _interopRequireDefault(_Label);
 
@@ -69443,7 +69584,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 540 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69533,7 +69674,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 541 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69541,10 +69682,10 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
-	var Label = __webpack_require__(540);
-	var A11y = __webpack_require__(126);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
+	var Label = __webpack_require__(543);
+	var A11y = __webpack_require__(130);
 
 	Label.displayName = 'Label';
 
@@ -69683,7 +69824,7 @@ module.exports =
 	module.exports = LabelDoc;
 
 /***/ },
-/* 542 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69691,17 +69832,17 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
 	var Box = __webpack_require__(83);
 	var Layer = __webpack_require__(94);
 	var Header = __webpack_require__(112);
-	var Form = __webpack_require__(235);
-	var FormFields = __webpack_require__(236);
-	var FullForm = __webpack_require__(234);
-	var ConfirmationForm = __webpack_require__(243);
-	var SampleArticle = __webpack_require__(543);
-	var A11y = __webpack_require__(126);
+	var Form = __webpack_require__(239);
+	var FormFields = __webpack_require__(240);
+	var FullForm = __webpack_require__(238);
+	var ConfirmationForm = __webpack_require__(247);
+	var SampleArticle = __webpack_require__(546);
+	var A11y = __webpack_require__(130);
 
 	Box.displayName = 'Box';
 	Layer.displayName = 'Layer';
@@ -69986,7 +70127,7 @@ module.exports =
 	module.exports = LayerDoc;
 
 /***/ },
-/* 543 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69997,8 +70138,8 @@ module.exports =
 	var Article = __webpack_require__(106);
 	var Header = __webpack_require__(112);
 	var Section = __webpack_require__(117);
-	var Paragraph = __webpack_require__(544);
-	var Image = __webpack_require__(539);
+	var Paragraph = __webpack_require__(547);
+	var Image = __webpack_require__(542);
 	var Footer = __webpack_require__(116);
 
 	var SampleArticle = React.createClass({
@@ -70023,8 +70164,8 @@ module.exports =
 	        Section,
 	        { pad: 'large' },
 	        React.createElement(
-	          Paragraph,
-	          { size: 'large' },
+	          'h3',
+	          null,
 	          loremIpsum
 	        ),
 	        React.createElement(Image, { src: 'img/carousel-1.png', full: 'horizontal' })
@@ -70055,7 +70196,7 @@ module.exports =
 	module.exports = SampleArticle;
 
 /***/ },
-/* 544 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70145,7 +70286,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 545 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70160,19 +70301,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Legend = __webpack_require__(210);
+	var _Legend = __webpack_require__(214);
 
 	var _Legend2 = _interopRequireDefault(_Legend);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -70361,7 +70502,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 546 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70378,19 +70519,19 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _List = __webpack_require__(547);
+	var _List = __webpack_require__(550);
 
 	var _List2 = _interopRequireDefault(_List);
 
-	var _ListItem = __webpack_require__(548);
+	var _ListItem = __webpack_require__(551);
 
 	var _ListItem2 = _interopRequireDefault(_ListItem);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -70679,7 +70820,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 547 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70688,7 +70829,7 @@ module.exports =
 	  value: true
 	});
 
-	var _stringify = __webpack_require__(120);
+	var _stringify = __webpack_require__(121);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -70716,15 +70857,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Spinning = __webpack_require__(122);
+	var _Spinning = __webpack_require__(123);
 
 	var _Spinning2 = _interopRequireDefault(_Spinning);
 
-	var _InfiniteScroll = __webpack_require__(123);
+	var _InfiniteScroll = __webpack_require__(124);
 
 	var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
 
-	var _Selection = __webpack_require__(124);
+	var _Selection = __webpack_require__(125);
 
 	var _Selection2 = _interopRequireDefault(_Selection);
 
@@ -70886,7 +71027,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 548 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71006,7 +71147,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 549 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71014,10 +71155,10 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var LoginForm = __webpack_require__(550);
-	var Logo = __webpack_require__(249);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var LoginForm = __webpack_require__(553);
+	var Logo = __webpack_require__(253);
+	var A11y = __webpack_require__(130);
 
 	var LoginFormDoc = React.createClass({
 	  displayName: 'LoginFormDoc',
@@ -71308,7 +71449,7 @@ module.exports =
 	module.exports = LoginFormDoc;
 
 /***/ },
-/* 550 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71345,15 +71486,15 @@ module.exports =
 
 	var _FormattedMessage2 = _interopRequireDefault(_FormattedMessage);
 
-	var _Form = __webpack_require__(235);
+	var _Form = __webpack_require__(239);
 
 	var _Form2 = _interopRequireDefault(_Form);
 
-	var _FormField = __webpack_require__(237);
+	var _FormField = __webpack_require__(241);
 
 	var _FormField2 = _interopRequireDefault(_FormField);
 
-	var _CheckBox = __webpack_require__(212);
+	var _CheckBox = __webpack_require__(216);
 
 	var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
@@ -71559,7 +71700,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 551 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71567,9 +71708,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var GrommetMap = __webpack_require__(552);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var GrommetMap = __webpack_require__(555);
+	var A11y = __webpack_require__(130);
 
 	var MapDoc = React.createClass({
 	  displayName: 'MapDoc',
@@ -71666,7 +71807,7 @@ module.exports =
 	module.exports = MapDoc;
 
 /***/ },
-/* 552 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71916,7 +72057,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 553 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71931,19 +72072,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Markdown = __webpack_require__(554);
+	var _Markdown = __webpack_require__(557);
 
 	var _Markdown2 = _interopRequireDefault(_Markdown);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72086,7 +72227,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 554 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72097,23 +72238,23 @@ module.exports =
 
 	var _react = __webpack_require__(1);
 
-	var _markdownToJsx = __webpack_require__(555);
+	var _markdownToJsx = __webpack_require__(558);
 
 	var _markdownToJsx2 = _interopRequireDefault(_markdownToJsx);
 
-	var _deepAssign = __webpack_require__(556);
+	var _deepAssign = __webpack_require__(559);
 
 	var _deepAssign2 = _interopRequireDefault(_deepAssign);
 
-	var _Paragraph = __webpack_require__(544);
+	var _Paragraph = __webpack_require__(547);
 
 	var _Paragraph2 = _interopRequireDefault(_Paragraph);
 
-	var _Table = __webpack_require__(182);
+	var _Table = __webpack_require__(186);
 
 	var _Table2 = _interopRequireDefault(_Table);
 
-	var _Heading = __webpack_require__(251);
+	var _Heading = __webpack_require__(119);
 
 	var _Heading2 = _interopRequireDefault(_Heading);
 
@@ -72121,7 +72262,7 @@ module.exports =
 
 	var _Anchor2 = _interopRequireDefault(_Anchor);
 
-	var _Image = __webpack_require__(539);
+	var _Image = __webpack_require__(542);
 
 	var _Image2 = _interopRequireDefault(_Image);
 
@@ -72185,19 +72326,19 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 555 */
+/* 558 */
 /***/ function(module, exports) {
 
 	module.exports = require("markdown-to-jsx");
 
 /***/ },
-/* 556 */
+/* 559 */
 /***/ function(module, exports) {
 
 	module.exports = require("deep-assign");
 
 /***/ },
-/* 557 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72206,15 +72347,15 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
 	var Menu = __webpack_require__(97);
-	var ConfigIcon = __webpack_require__(306);
-	var FilterIcon = __webpack_require__(155);
-	var CheckBox = __webpack_require__(212);
+	var ConfigIcon = __webpack_require__(309);
+	var FilterIcon = __webpack_require__(159);
+	var CheckBox = __webpack_require__(216);
 	var Anchor = __webpack_require__(115);
 	var Button = __webpack_require__(96);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	Menu.displayName = 'Menu';
 	CheckBox.displayName = 'CheckBox';
@@ -72667,7 +72808,7 @@ module.exports =
 	module.exports = MenuDoc;
 
 /***/ },
-/* 558 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72682,35 +72823,35 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsonStringifyPrettyCompact = __webpack_require__(559);
+	var _jsonStringifyPrettyCompact = __webpack_require__(562);
 
 	var _jsonStringifyPrettyCompact2 = _interopRequireDefault(_jsonStringifyPrettyCompact);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Meter = __webpack_require__(218);
+	var _Meter = __webpack_require__(222);
 
 	var _Meter2 = _interopRequireDefault(_Meter);
 
-	var _FormField = __webpack_require__(237);
+	var _FormField = __webpack_require__(241);
 
 	var _FormField2 = _interopRequireDefault(_FormField);
 
-	var _RadioButton = __webpack_require__(238);
+	var _RadioButton = __webpack_require__(242);
 
 	var _RadioButton2 = _interopRequireDefault(_RadioButton);
 
-	var _CheckBox = __webpack_require__(212);
+	var _CheckBox = __webpack_require__(216);
 
 	var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -73365,13 +73506,13 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 559 */
+/* 562 */
 /***/ function(module, exports) {
 
 	module.exports = require("json-stringify-pretty-compact");
 
 /***/ },
-/* 560 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73379,16 +73520,16 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Sidebar = __webpack_require__(130);
+	var DocsArticle = __webpack_require__(136);
+	var Sidebar = __webpack_require__(134);
 	var Header = __webpack_require__(112);
 	var Footer = __webpack_require__(116);
 	var Title = __webpack_require__(113);
 	var Menu = __webpack_require__(97);
 	var CloseIcon = __webpack_require__(95);
-	var Gravatar = __webpack_require__(217);
-	var Search = __webpack_require__(216);
-	var A11y = __webpack_require__(126);
+	var Gravatar = __webpack_require__(221);
+	var Search = __webpack_require__(220);
+	var A11y = __webpack_require__(130);
 
 	var NavigationDoc = React.createClass({
 	  displayName: 'NavigationDoc',
@@ -73521,7 +73662,7 @@ module.exports =
 	module.exports = NavigationDoc;
 
 /***/ },
-/* 561 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73536,21 +73677,21 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jsxToString = __webpack_require__(192);
+	var _jsxToString = __webpack_require__(196);
 
 	var _jsxToString2 = _interopRequireDefault(_jsxToString);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Notification = __webpack_require__(562);
+	var _Notification = __webpack_require__(565);
 
 	var _Notification2 = _interopRequireDefault(_Notification);
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -73794,7 +73935,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 562 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73849,11 +73990,11 @@ module.exports =
 
 	var _Box2 = _interopRequireDefault(_Box);
 
-	var _Meter = __webpack_require__(218);
+	var _Meter = __webpack_require__(222);
 
 	var _Meter2 = _interopRequireDefault(_Meter);
 
-	var _Status = __webpack_require__(167);
+	var _Status = __webpack_require__(171);
 
 	var _Status2 = _interopRequireDefault(_Status);
 
@@ -73984,7 +74125,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 563 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73992,9 +74133,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var NumberInput = __webpack_require__(240);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var NumberInput = __webpack_require__(244);
+	var A11y = __webpack_require__(130);
 
 	var NumberInputDoc = React.createClass({
 	  displayName: 'NumberInputDoc',
@@ -74243,7 +74384,7 @@ module.exports =
 	module.exports = NumberInputDoc;
 
 /***/ },
-/* 564 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74258,19 +74399,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Paragraph = __webpack_require__(544);
+	var _Paragraph = __webpack_require__(547);
 
 	var _Paragraph2 = _interopRequireDefault(_Paragraph);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74418,7 +74559,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 565 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74427,11 +74568,11 @@ module.exports =
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
-	var Quote = __webpack_require__(566);
-	var Paragraph = __webpack_require__(544);
-	var A11y = __webpack_require__(126);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
+	var Quote = __webpack_require__(569);
+	var Paragraph = __webpack_require__(547);
+	var A11y = __webpack_require__(130);
 
 	Quote.displayName = 'Quote';
 
@@ -74646,7 +74787,7 @@ module.exports =
 	module.exports = QuoteDoc;
 
 /***/ },
-/* 566 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74699,7 +74840,7 @@ module.exports =
 
 	var _Box2 = _interopRequireDefault(_Box);
 
-	var _Paragraph = __webpack_require__(544);
+	var _Paragraph = __webpack_require__(547);
 
 	var _Paragraph2 = _interopRequireDefault(_Paragraph);
 
@@ -74773,7 +74914,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 567 */
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74781,9 +74922,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var RadioButton = __webpack_require__(238);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var RadioButton = __webpack_require__(242);
+	var A11y = __webpack_require__(130);
 
 	var RadioButtonDoc = React.createClass({
 	  displayName: 'RadioButtonDoc',
@@ -75011,7 +75152,7 @@ module.exports =
 	module.exports = RadioButtonDoc;
 
 /***/ },
-/* 568 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75026,11 +75167,11 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -75403,7 +75544,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 569 */
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75411,8 +75552,8 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var A11y = __webpack_require__(130);
 
 	var RestWatchDoc = React.createClass({
 	  displayName: 'RestWatchDoc',
@@ -75594,7 +75735,7 @@ module.exports =
 	module.exports = RestWatchDoc;
 
 /***/ },
-/* 570 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75609,19 +75750,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Search = __webpack_require__(216);
+	var _Search = __webpack_require__(220);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -75966,7 +76107,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 571 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75981,15 +76122,15 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _SearchInput = __webpack_require__(239);
+	var _SearchInput = __webpack_require__(243);
 
 	var _SearchInput2 = _interopRequireDefault(_SearchInput);
 
@@ -75997,7 +76138,7 @@ module.exports =
 
 	var _Box2 = _interopRequireDefault(_Box);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -76279,18 +76420,18 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 572 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Section = __webpack_require__(117);
 	var Header = __webpack_require__(112);
 	var Menu = __webpack_require__(97);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var inline = "<Section>\n" + "  ...\n" + "</Section>";
 
@@ -76400,22 +76541,22 @@ module.exports =
 	module.exports = SectionDoc;
 
 /***/ },
-/* 573 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(132);
-	var Sidebar = __webpack_require__(130);
+	var DocsArticle = __webpack_require__(136);
+	var Sidebar = __webpack_require__(134);
 	var Header = __webpack_require__(112);
 	var Title = __webpack_require__(113);
 	var Menu = __webpack_require__(97);
 	var Anchor = __webpack_require__(115);
 	var Button = __webpack_require__(96);
 	var CloseIcon = __webpack_require__(95);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var inline = "<Sidebar>\n" + "  ...\n" + "</Sidebar>";
 
@@ -76617,7 +76758,7 @@ module.exports =
 	module.exports = SidebarDoc;
 
 /***/ },
-/* 574 */
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76625,10 +76766,10 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
-	var DocsArticle = __webpack_require__(132);
-	var SocialShare = __webpack_require__(575);
-	var A11y = __webpack_require__(126);
+	var jsxToString = __webpack_require__(196);
+	var DocsArticle = __webpack_require__(136);
+	var SocialShare = __webpack_require__(578);
+	var A11y = __webpack_require__(130);
 
 	function convertSocialShareToString(jsx) {
 	  return jsxToString(jsx);
@@ -76822,7 +76963,7 @@ module.exports =
 	module.exports = SocialShareDoc;
 
 /***/ },
-/* 575 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76859,23 +77000,23 @@ module.exports =
 
 	var _Anchor2 = _interopRequireDefault(_Anchor);
 
-	var _SocialTwitter = __webpack_require__(164);
+	var _SocialTwitter = __webpack_require__(168);
 
 	var _SocialTwitter2 = _interopRequireDefault(_SocialTwitter);
 
-	var _SocialFacebook = __webpack_require__(166);
+	var _SocialFacebook = __webpack_require__(170);
 
 	var _SocialFacebook2 = _interopRequireDefault(_SocialFacebook);
 
-	var _SocialGoogle = __webpack_require__(470);
+	var _SocialGoogle = __webpack_require__(473);
 
 	var _SocialGoogle2 = _interopRequireDefault(_SocialGoogle);
 
-	var _SocialLinkedin = __webpack_require__(165);
+	var _SocialLinkedin = __webpack_require__(169);
 
 	var _SocialLinkedin2 = _interopRequireDefault(_SocialLinkedin);
 
-	var _SocialEmail = __webpack_require__(468);
+	var _SocialEmail = __webpack_require__(471);
 
 	var _SocialEmail2 = _interopRequireDefault(_SocialEmail);
 
@@ -76949,15 +77090,15 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 576 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Spinning = __webpack_require__(122);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Spinning = __webpack_require__(123);
+	var A11y = __webpack_require__(130);
 
 	var inline = 'var Spinning = require(\'grommet/components/icons/Spinning\');\n//or var Spinning = Grommet.Icons.Spinning\n';
 
@@ -77016,22 +77157,22 @@ module.exports =
 	module.exports = SpinningDoc;
 
 /***/ },
-/* 577 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(132);
-	var Split = __webpack_require__(129);
-	var Sidebar = __webpack_require__(130);
+	var DocsArticle = __webpack_require__(136);
+	var Split = __webpack_require__(133);
+	var Sidebar = __webpack_require__(134);
 	var Article = __webpack_require__(106);
 	var Header = __webpack_require__(112);
 	var Menu = __webpack_require__(97);
 	var Anchor = __webpack_require__(115);
 	var Section = __webpack_require__(117);
-	var A11y = __webpack_require__(126);
+	var A11y = __webpack_require__(130);
 
 	var inline = "<Split>\n" + "  ...\n" + "</Split>";
 
@@ -77245,15 +77386,15 @@ module.exports =
 	module.exports = SplitDoc;
 
 /***/ },
-/* 578 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Status = __webpack_require__(167);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Status = __webpack_require__(171);
+	var A11y = __webpack_require__(130);
 
 	var inline = "<Status value=\"...\" />";
 
@@ -77533,7 +77674,7 @@ module.exports =
 	module.exports = StatusDoc;
 
 /***/ },
-/* 579 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77541,13 +77682,13 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Tabs = __webpack_require__(580);
-	var Tab = __webpack_require__(581);
-	var FormFields = __webpack_require__(236);
-	var FormField = __webpack_require__(237);
-	var Form = __webpack_require__(235);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Tabs = __webpack_require__(583);
+	var Tab = __webpack_require__(584);
+	var FormFields = __webpack_require__(240);
+	var FormField = __webpack_require__(241);
+	var Form = __webpack_require__(239);
+	var A11y = __webpack_require__(130);
 
 	var TabsDoc = React.createClass({
 	  displayName: 'TabsDoc',
@@ -77813,7 +77954,7 @@ module.exports =
 	module.exports = TabsDoc;
 
 /***/ },
-/* 580 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77971,7 +78112,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 581 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78097,7 +78238,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 582 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78112,23 +78253,23 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Table = __webpack_require__(182);
+	var _Table = __webpack_require__(186);
 
 	var _Table2 = _interopRequireDefault(_Table);
 
-	var _TableRow = __webpack_require__(583);
+	var _TableRow = __webpack_require__(586);
 
 	var _TableRow2 = _interopRequireDefault(_TableRow);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -78498,7 +78639,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 583 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78595,7 +78736,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 584 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78603,12 +78744,12 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var jsxToString = __webpack_require__(192);
+	var jsxToString = __webpack_require__(196);
 	var Link = __webpack_require__(2).Link;
-	var DocsArticle = __webpack_require__(132);
-	var Tags = __webpack_require__(585);
-	var Tag = __webpack_require__(586);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Tags = __webpack_require__(588);
+	var Tag = __webpack_require__(589);
+	var A11y = __webpack_require__(130);
 
 	Tags.displayName = 'Tags';
 	Tag.displayName = 'Tag';
@@ -78802,7 +78943,7 @@ module.exports =
 	module.exports = TagsDoc;
 
 /***/ },
-/* 585 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78907,7 +79048,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 586 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79014,7 +79155,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 587 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79031,15 +79172,15 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Tiles = __webpack_require__(119);
+	var _Tiles = __webpack_require__(120);
 
 	var _Tiles2 = _interopRequireDefault(_Tiles);
 
-	var _Tile = __webpack_require__(125);
+	var _Tile = __webpack_require__(126);
 
 	var _Tile2 = _interopRequireDefault(_Tile);
 
@@ -79063,7 +79204,7 @@ module.exports =
 
 	var _Box2 = _interopRequireDefault(_Box);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -79622,16 +79763,16 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 588 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
+	var DocsArticle = __webpack_require__(136);
 	var Title = __webpack_require__(113);
-	var Logo = __webpack_require__(249);
-	var A11y = __webpack_require__(126);
+	var Logo = __webpack_require__(253);
+	var A11y = __webpack_require__(130);
 
 	var inline = "<Title>\n" + "  ...\n" + "</Title>";
 
@@ -79780,7 +79921,7 @@ module.exports =
 	module.exports = TitleDoc;
 
 /***/ },
-/* 589 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79788,9 +79929,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Topology = __webpack_require__(590);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Topology = __webpack_require__(593);
+	var A11y = __webpack_require__(130);
 
 	var TopologyDoc = React.createClass({
 	  displayName: 'TopologyDoc',
@@ -80266,7 +80407,7 @@ module.exports =
 	module.exports = TopologyDoc;
 
 /***/ },
-/* 590 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80301,7 +80442,7 @@ module.exports =
 
 	var _reactDom = __webpack_require__(88);
 
-	var _Status = __webpack_require__(167);
+	var _Status = __webpack_require__(171);
 
 	var _Status2 = _interopRequireDefault(_Status);
 
@@ -80755,7 +80896,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 591 */
+/* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80772,27 +80913,27 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(2);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _Value = __webpack_require__(592);
+	var _Value = __webpack_require__(595);
 
 	var _Value2 = _interopRequireDefault(_Value);
 
-	var _Globe = __webpack_require__(377);
+	var _Globe = __webpack_require__(380);
 
 	var _Globe2 = _interopRequireDefault(_Globe);
 
-	var _LinkUp = __webpack_require__(159);
+	var _LinkUp = __webpack_require__(163);
 
 	var _LinkUp2 = _interopRequireDefault(_LinkUp);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -81061,7 +81202,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 592 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81195,7 +81336,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 593 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81203,9 +81344,9 @@ module.exports =
 	// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 	var React = __webpack_require__(1);
-	var DocsArticle = __webpack_require__(132);
-	var Video = __webpack_require__(594);
-	var A11y = __webpack_require__(126);
+	var DocsArticle = __webpack_require__(136);
+	var Video = __webpack_require__(597);
+	var A11y = __webpack_require__(130);
 
 	var VideoDoc = React.createClass({
 	  displayName: 'VideoDoc',
@@ -81537,7 +81678,7 @@ module.exports =
 	module.exports = VideoDoc;
 
 /***/ },
-/* 594 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81594,19 +81735,19 @@ module.exports =
 
 	var _Box2 = _interopRequireDefault(_Box);
 
-	var _Expand = __webpack_require__(367);
+	var _Expand = __webpack_require__(370);
 
 	var _Expand2 = _interopRequireDefault(_Expand);
 
-	var _Play = __webpack_require__(436);
+	var _Play = __webpack_require__(439);
 
 	var _Play2 = _interopRequireDefault(_Play);
 
-	var _Pause = __webpack_require__(425);
+	var _Pause = __webpack_require__(428);
 
 	var _Pause2 = _interopRequireDefault(_Pause);
 
-	var _Refresh = __webpack_require__(442);
+	var _Refresh = __webpack_require__(445);
 
 	var _Refresh2 = _interopRequireDefault(_Refresh);
 
@@ -81938,7 +82079,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 595 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81953,19 +82094,19 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DocsArticle = __webpack_require__(132);
+	var _DocsArticle = __webpack_require__(136);
 
 	var _DocsArticle2 = _interopRequireDefault(_DocsArticle);
 
-	var _Example = __webpack_require__(191);
+	var _Example = __webpack_require__(195);
 
 	var _Example2 = _interopRequireDefault(_Example);
 
-	var _WorldMap = __webpack_require__(596);
+	var _WorldMap = __webpack_require__(599);
 
 	var _WorldMap2 = _interopRequireDefault(_WorldMap);
 
-	var _a11y = __webpack_require__(126);
+	var _a11y = __webpack_require__(130);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -82142,7 +82283,7 @@ module.exports =
 	module.exports = exports['default'];
 
 /***/ },
-/* 596 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

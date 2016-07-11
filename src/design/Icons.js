@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../DocsArticle';
 import { updatePageTitle } from '../utils/a11y';
 
@@ -73,7 +74,7 @@ export default class Icons extends Component {
 
     return (
       <DocsArticle title="Icons" colorIndex="neutral-2">
-        <section>
+        <Box>
           <p>Icons are used for inline controls. Users should be able to identify
             an icon’s function without any supporting text decoration. This is why
             we have a fairly small icon set. Text is used for non-iconifiable controls.</p>
@@ -106,7 +107,7 @@ export default class Icons extends Component {
               </label>
             </div>
           </div>
-        </section>
+        </Box>
       </DocsArticle>
     );
   }
