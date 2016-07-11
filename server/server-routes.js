@@ -3894,10 +3894,13 @@ module.exports =
 	      }
 
 	      var Tag = this.props.href ? 'a' : 'button';
-
+	      var type = void 0;
+	      if (!this.props.href) {
+	        type = this.props.type;
+	      }
 	      return _react2.default.createElement(
 	        Tag,
-	        { href: this.props.href, id: this.props.id, type: this.props.type,
+	        { href: this.props.href, id: this.props.id, type: type,
 	          className: classes, 'aria-label': this.props.a11yTitle,
 	          onClick: this.props.onClick,
 	          disabled: !this.props.onClick && !this.props.href },
@@ -5215,8 +5218,8 @@ module.exports =
 	        React.createElement(DocsHeader, { float: true }),
 	        React.createElement(GrommetLogo, { large: true, a11yTitle: '' }),
 	        React.createElement(
-	          Headline,
-	          { size: 'large' },
+	          Heading,
+	          null,
 	          'Grommet'
 	        ),
 	        React.createElement(
@@ -5230,7 +5233,7 @@ module.exports =
 	        { colorIndex: 'neutral-1' },
 	        React.createElement(
 	          Heading,
-	          null,
+	          { tag: 'h2', strong: true },
 	          'Create once and deliver everywhere.'
 	        ),
 	        React.createElement(
@@ -5255,7 +5258,7 @@ module.exports =
 	        { colorIndex: 'neutral-2', texture: 'url(img/home_features.png)' },
 	        React.createElement(
 	          Heading,
-	          null,
+	          { tag: 'h2', strong: true },
 	          'So little gets you sooooooo much!'
 	        ),
 	        React.createElement(
@@ -5278,7 +5281,7 @@ module.exports =
 	        { texture: 'url(img/home_design.png)' },
 	        React.createElement(
 	          Heading,
-	          null,
+	          { tag: 'h2', strong: true },
 	          'Ready for your Design Workflow.'
 	        ),
 	        React.createElement(
@@ -5360,7 +5363,7 @@ module.exports =
 	        { colorIndex: 'neutral-3' },
 	        React.createElement(
 	          Heading,
-	          null,
+	          { tag: 'h2', strong: true },
 	          'Develop your next project with Grommet.'
 	        ),
 	        React.createElement(
@@ -5422,7 +5425,7 @@ module.exports =
 	        null,
 	        React.createElement(
 	          Heading,
-	          null,
+	          { tag: 'h2', strong: true },
 	          'Built with the best stuff.'
 	        ),
 	        React.createElement(
@@ -5514,7 +5517,7 @@ module.exports =
 	        { colorIndex: 'neutral-2' },
 	        React.createElement(
 	          Heading,
-	          null,
+	          { tag: 'h2', strong: true },
 	          'Let’s keep in touch!'
 	        ),
 	        React.createElement(
