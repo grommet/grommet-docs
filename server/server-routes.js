@@ -5311,7 +5311,7 @@ module.exports =
 	            { align: 'center' },
 	            React.createElement('img', { src: 'img/Adobe_Illustrator.png', alt: 'Adobe Illustrator' }),
 	            React.createElement(
-	              'label',
+	              'span',
 	              null,
 	              'Adobe Illustrator'
 	            )
@@ -5321,7 +5321,7 @@ module.exports =
 	            { align: 'center' },
 	            React.createElement('img', { src: 'img/Adobe_Photoshop.png', alt: 'Adobe Photoshop' }),
 	            React.createElement(
-	              'label',
+	              'span',
 	              null,
 	              'Adobe Photoshop'
 	            )
@@ -5331,7 +5331,7 @@ module.exports =
 	            { align: 'center' },
 	            React.createElement('img', { src: 'img/Sketch.png', alt: 'Sketch' }),
 	            React.createElement(
-	              'label',
+	              'span',
 	              null,
 	              'Sketch'
 	            )
@@ -5341,7 +5341,7 @@ module.exports =
 	            { align: 'center' },
 	            React.createElement('img', { src: 'img/Axure.png', alt: 'Axure' }),
 	            React.createElement(
-	              'label',
+	              'span',
 	              null,
 	              'Axure'
 	            )
@@ -5351,7 +5351,7 @@ module.exports =
 	            { align: 'center' },
 	            React.createElement('img', { src: 'img/Balsamiq.png', alt: 'Balsamiq' }),
 	            React.createElement(
-	              'label',
+	              'span',
 	              null,
 	              'Balsamiq'
 	            )
