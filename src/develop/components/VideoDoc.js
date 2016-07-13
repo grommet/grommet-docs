@@ -48,7 +48,7 @@ var VideoDoc = React.createClass({
             <dt><code>allowFullScreen   true|false</code></dt>
             <dd>Enables fullscreen/expand control button on player.</dd>
             <dt><code>autoPlay   true|false</code></dt>
-            <dd>Enables automatically playback of the video as soon as it is loaded. Defaults to <code>false</code>.</dd>
+            <dd>Enables automatic playback of the video as soon as it is loaded. Defaults to <code>false</code>.</dd>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code>. This is visible when a
@@ -59,7 +59,7 @@ var VideoDoc = React.createClass({
             <dt><code>onClick      {"{func}"}</code></dt>
             <dd>Click handler to override the default click handler to play video and pass in a different function instead.</dd>
             <dt><code>loop       true|false</code></dt>
-            <dd>Enables video looping continuously. Defaults to <code>false</code>.</dd>
+            <dd>Enables continuous video looping. Defaults to <code>false</code>.</dd>
             <dt><code>muted       true|false</code></dt>
             <dd>Enables video muting. This option is best used with the <code>autoPlay</code> flag. Defaults to <code>false</code>.</dd>
             <dt><code>poster       {"{url}"}</code></dt>
