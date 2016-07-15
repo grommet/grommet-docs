@@ -44,7 +44,7 @@ export default class AccordionDoc extends Component {
         <section>
           <h2>AccordionPanel Options</h2>
           <dl>
-            <dt><code>panelTitle          {'{string}'}</code></dt>
+            <dt><code>title               {'{string}'}</code></dt>
             <dd>Title of panel, displayed when panel is collapsed. Required.</dd>
           </dl>
         </section>
@@ -54,21 +54,21 @@ export default class AccordionDoc extends Component {
 
           <Example name="Default" code={
             <Accordion>
-              <AccordionPanel panelTitle="First Title">
+              <AccordionPanel title="First Title">
                 <h3>First Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel panelTitle="Second Title">
+              <AccordionPanel title="Second Title">
                 <h3>Second Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel panelTitle="Thrid Title">
+              <AccordionPanel title="Thrid Title">
                 <h3>Thrid Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -80,24 +80,25 @@ export default class AccordionDoc extends Component {
 
           <Example name="Headline, Sub headline, No animation" code={
             <Accordion
+              animate={false}
               headline="Accordion Heading"
               subHeadline="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             >
-              <AccordionPanel panelTitle="First Title">
+              <AccordionPanel title="First Title">
                 <h3>First Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel panelTitle="Second Title">
+              <AccordionPanel title="Second Title">
                 <h3>Second Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel panelTitle="Thrid Title">
+              <AccordionPanel title="Thrid Title">
                 <h3>Thrid Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
