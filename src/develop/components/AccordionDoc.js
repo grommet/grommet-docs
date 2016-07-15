@@ -77,6 +77,35 @@ export default class AccordionDoc extends Component {
               </AccordionPanel>
             </Accordion>
           } />
+
+          <Example name="Headline, Sub headline, No animation" code={
+            <Accordion
+              headline="Accordion Heading"
+              subHeadline="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            >
+              <AccordionPanel panelTitle="First Title">
+                <h3>First Accordion</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </AccordionPanel>
+              <AccordionPanel panelTitle="Second Title">
+                <h3>Second Accordion</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </AccordionPanel>
+              <AccordionPanel panelTitle="Thrid Title">
+                <h3>Thrid Accordion</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </AccordionPanel>
+            </Accordion>
+          } />
         </section>
       </DocsArticle>
     );
