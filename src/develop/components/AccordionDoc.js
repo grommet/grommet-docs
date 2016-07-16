@@ -35,6 +35,10 @@ export default class AccordionDoc extends Component {
             <dd>Headline of the section.</dd>
             <dt><code>subHeadline         {'{string}'}</code></dt>
             <dd>Content for the subheadline.</dd>
+            <dt><code>animate             {'{bool}'}</code></dt>
+            <dd>Slide down animation </dd>
+            <dt><code>openMulti           {'{bool}'}</code></dt>
+            <dd>Allow multiple panels or a single panel to be opened at once. Defaults to false. </dd>
             <dt><code>colorIndex          {'{category}-{index}'}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code></dd>
@@ -78,9 +82,10 @@ export default class AccordionDoc extends Component {
             </Accordion>
           } />
 
-          <Example name="Headline, Sub headline, No animation" code={
+          <Example name="Headline, Sub headline, No animation, Open multiple" code={
             <Accordion
               animate={false}
+              openMulti={true}
               headline="Accordion Heading"
               subHeadline="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             >
