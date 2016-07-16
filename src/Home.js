@@ -38,12 +38,14 @@ export default class Home extends Component {
   constructor () {
     super();
     this._onScroll = this._onScroll.bind(this);
-    this.state = { mobileOffset: 0 };
+    this.state = { mobileOffset: 0, showCodePen: false };
   }
 
   componentDidMount () {
-    this._app = document.querySelector('.app');
+    this._app = document.querySelector('.grommetux-app');
     this._app.addEventListener('scroll', this._onScroll);
+    // delay showing the codepen to avoid interfering with logo animation
+    setTimeout(() => this.setState({ showCodePen: true }), 2000);
   }
 
   componentWillUnmount () {
@@ -62,6 +64,22 @@ export default class Home extends Component {
     const mobileStyle = {
       backgroundPosition: `50% ${50 - this.state.mobileOffset}%`
     };
+
+    let codePen;
+    if (this.state.showCodePen) {
+      codePen = (
+        <iframe height='268' scrolling='no'
+          src='//codepen.io/grommet/embed/gaEGPY/?height=268&theme-id=0&default-tab=js'
+          frameBorder='no' allowTransparency='true' allowFullScreen='true'
+          style={{width: '100%'}}>See the Pen
+          <a href='http://codepen.io/grommet/pen/gaEGPY/'>Grommet Hello World</a>
+          by Grommet UX (<a href='http://codepen.io/grommet'>@grommet</a>) on
+          <a href='http://codepen.io'>CodePen</a>.
+        </iframe>
+      );
+    } else {
+      codePen = <div style={{ height: 268 }} />;
+    }
 
     return (
       <Article className="home">
@@ -106,14 +124,7 @@ export default class Home extends Component {
           <Heading tag="h2">Start making now</Heading>
           <Paragraph align="center">The easiest way to learn a new tool is to have it done
             for you and then make it yours!</Paragraph>
-          <iframe height='268' scrolling='no'
-            src='//codepen.io/grommet/embed/gaEGPY/?height=268&theme-id=0&default-tab=js'
-            frameBorder='no' allowTransparency='true' allowFullScreen='true'
-            style={{width: '100%'}}>See the Pen
-            <a href='http://codepen.io/grommet/pen/gaEGPY/'>Grommet Hello World</a>
-            by Grommet UX (<a href='http://codepen.io/grommet'>@grommet</a>) on
-            <a href='http://codepen.io'>CodePen</a>.
-          </iframe>
+          {codePen}
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
           <NavButton path="/docs" label="Docs" />
         </HomeSection>
