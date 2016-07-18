@@ -48,32 +48,46 @@ var HeroDoc = React.createClass({
     return (
       <DocsArticle title="Hero" colorIndex="neutral-3">
 
-        <p>A Hero image overlaid with text.</p>
+        <p>A Hero image or video, overlaid with text.</p>
         <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>borderColorIndex            string</code></dt>
-            <dd>ColorIndex of the border.</dd>
-            <dt><code>size                        small|medium|large|full</code></dt>
-            <dd>Width of the box containing the Hero.  Defaults to <code>large</code>.</dd>
-            <dt><code>credit                      string</code></dt>
-            <dd>The name of the entity that the Hero is credited to.</dd>
-            <dt><code>emphasizeCredit             true|false</code></dt>
-            <dd>Whether the Hero credit should be bolded for emphasis.  Defaults to <code>true</code>.</dd>
+            <dt><code>backgroundType                  image|video</code></dt>
+            <dd>Type of media used for the background of the Hero.</dd>
+            <dt><code>backgroundImage                 string</code></dt>
+            <dd>Source of the image to be used for the background.  Required if <code>backgroundType</code> is <code>image</code>.</dd>
+            <dt><code>backgroundVideoSource           string</code></dt>
+            <dd>Source of the video to be used for the background.  Required if <code>backgroundType</code> is <code>video</code>.</dd>
+            <dt><code>backgroundVideoLoop             true|false</code></dt>
+            <dd>Whether the background video should loop.  Defaults to <code>false</code>.</dd>
+            <dt><code>backgroundVideoMuted            true|false</code></dt>
+            <dd>Whether the background video should be muted.  Defaults to <code>true</code>.</dd>
+            <dt><code>backgroundVideoPoster           string</code></dt>
+            <dd>Source of the image that shows before the video begins.</dd>
+            <dt><code>darkTheme                       true|false</code></dt>
+            <dd>Refers to the color theme of the background being used.  If set to <code>true</code>, the Hero will have light-colored text.  If <code>false</code>, the Hero will have dark-colored text.  Defaults to <code>true</code>.</dd>
+            <dt><code>flush                           true|false</code></dt>
+            <dd>Whether the Hero should be flush with the edges of the window.  Defaults to <code>true</code>.</dd>
+            <dt><code>image                           string</code></dt>
+            <dd>Source of an image that can be be shown opposite the text.  Optional.</dd>
+            <dt><code>justify                         start|center|end</code></dt>
+            <dd>Position of the text that overlays the Hero.  Defaults to <code>end</code>.</dd>
+            <dt><code>responsiveBackgroundPosition    left|center|right</code></dt>
+            <dd>Position of the background image for small mobile sizes.  Defaults to <code>center</code>.</dd>
+            <dt><code>separator                       true|false</code></dt>
+            <dd>Whether there should be a gray line separator after the Hero text on mobile.  Defaults to <code>false</code>.</dd>
+            <dt><code>size                            small|large</code></dt>
+            <dd>Size of the Hero.  Defaults to <code>large</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <p>Options for <Link to={`${this.context.routePrefix}box`}>Box</Link> are available.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
           {this._renderCode('Default', simpleHero)}
-          {this._renderCode('Small Hero', smallHero)}
+          {this._renderCode('Small Hero with Video Background', smallHero)}
         </section>
 
       </DocsArticle>
