@@ -81605,6 +81605,26 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
+	              'autoPlay   true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Enables automatic playback of the video as soon as it is loaded. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'false'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
 	              'colorIndex   ',
 	              "{category}-{index}"
 	            )
@@ -81669,6 +81689,52 @@ module.exports =
 	            React.createElement(
 	              'code',
 	              null,
+	              'loop       true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Enables continuous video looping. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'false'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'muted       true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Enables video muting. This option is best used with the ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'autoPlay'
+	            ),
+	            ' flag. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'false'
+	            ),
+	            '.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
 	              'poster       ',
 	              "{url}"
 	            )
@@ -81703,6 +81769,26 @@ module.exports =
 	              'full'
 	            ),
 	            ' option is specified. The height will adapt to the aspect ratio of the video.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'showControls         true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Show controls such as play button, progress bar, etc. on top of video. Defaults to ',
+	            React.createElement(
+	              'code',
+	              null,
+	              'true'
+	            ),
+	            '.'
 	          ),
 	          React.createElement(
 	            'dt',
@@ -82058,65 +82144,8 @@ module.exports =
 	      }
 	    }
 	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var classes = [CLASS_ROOT];
-	      if (this.props.size) {
-	        classes.push(CLASS_ROOT + '--' + this.props.size);
-	      }
-	      if (this.props.full) {
-	        classes.push(CLASS_ROOT + '--full');
-	      }
-	      if (this.state.playing) {
-	        classes.push(CLASS_ROOT + '--playing');
-	      }
-	      if (this.state.interacting) {
-	        classes.push(CLASS_ROOT + '--interacting');
-	      }
-	      if (this.props.videoHeader) {
-	        classes.push(CLASS_ROOT + '--video-header');
-	      }
-	      if (this.props.colorIndex) {
-	        classes.push(BACKGROUND_COLOR_INDEX + '-' + this.props.colorIndex);
-	      }
-	      if (this.props.className) {
-	        classes.push(this.props.className);
-	      }
-
-	      var controlIconSize = this.state.iconSize;
-	      var controlIcon = this.state.playing ? _react2.default.createElement(_Pause2.default, { size: controlIconSize }) : this.state.ended ? _react2.default.createElement(_Refresh2.default, { size: controlIconSize }) : _react2.default.createElement(_Play2.default, { size: controlIconSize });
-	      var a11yControlButtonMessage = this.state.playing ? 'Pause Video' : this.state.ended ? 'Restart Video' : 'Play Video';
-	      var a11yControlButtonTitle = _Intl2.default.getMessage(this.context.intl, a11yControlButtonMessage);
-
-	      var videoHeader = void 0;
-	      var videoSummaryJustify = 'between';
-	      if (this.props.videoHeader) {
-	        videoHeader = this.props.videoHeader;
-	      } else if (this.props.allowFullScreen) {
-	        var a11yExpandButtonTitle = _Intl2.default.getMessage(this.context.intl, 'Toggle Fullscreen');
-	        // fallback to only displaying full screen icon in header
-	        // if allowing fullscreen
-
-	        videoHeader = _react2.default.createElement(
-	          _Box2.default,
-	          { align: 'end', full: 'horizontal' },
-	          _react2.default.createElement(_Button2.default, { plain: true, onClick: this._onFullScreen,
-	            icon: _react2.default.createElement(_Expand2.default, null), a11yTitle: a11yExpandButtonTitle })
-	        );
-	      } else {
-	        videoSummaryJustify = 'center';
-	      }
-
-	      var title = void 0;
-	      if (this.props.title) {
-	        classes.push(CLASS_ROOT + '--titled');
-	        title = _react2.default.createElement(
-	          _Box2.default,
-	          { align: 'center', justify: 'center', className: CLASS_ROOT + '__title' },
-	          this.props.title
-	        );
-	      }
-
+	    key: '_renderTimeline',
+	    value: function _renderTimeline() {
 	      var timeline = void 0;
 	      if (this.props.timeline && this.props.duration) {
 
@@ -82156,10 +82185,73 @@ module.exports =
 	        );
 	      }
 
+	      return timeline;
+	    }
+	  }, {
+	    key: '_renderControls',
+	    value: function _renderControls() {
+	      var controlIconSize = this.state.iconSize;
+	      var controlIcon = this.state.playing ? _react2.default.createElement(_Pause2.default, { size: controlIconSize }) : this.state.ended ? _react2.default.createElement(_Refresh2.default, { size: controlIconSize }) : _react2.default.createElement(_Play2.default, { size: controlIconSize });
+	      var a11yControlButtonMessage = this.state.playing ? 'Pause Video' : this.state.ended ? 'Restart Video' : 'Play Video';
+	      var a11yControlButtonTitle = _Intl2.default.getMessage(this.context.intl, a11yControlButtonMessage);
+
+	      var videoHeader = void 0;
+	      var videoSummaryJustify = 'between';
+	      if (this.props.videoHeader) {
+	        videoHeader = this.props.videoHeader;
+	      } else if (this.props.allowFullScreen) {
+	        var a11yExpandButtonTitle = _Intl2.default.getMessage(this.context.intl, 'Toggle Fullscreen');
+	        // fallback to only displaying full screen icon in header
+	        // if allowing fullscreen
+
+	        videoHeader = _react2.default.createElement(
+	          _Box2.default,
+	          { align: 'end', full: 'horizontal' },
+	          _react2.default.createElement(_Button2.default, { plain: true, onClick: this._onFullScreen,
+	            icon: _react2.default.createElement(_Expand2.default, null), a11yTitle: a11yExpandButtonTitle })
+	        );
+	      } else {
+	        videoSummaryJustify = 'center';
+	      }
+
+	      var title = void 0;
+	      if (this.props.title) {
+	        title = _react2.default.createElement(
+	          _Box2.default,
+	          { align: 'center', justify: 'center', className: CLASS_ROOT + '__title' },
+	          this.props.title
+	        );
+	      }
+
+	      var onClickControl = this.props.onClick || this._onClickControl;
+	      // when iconSize is small (mobile screen sizes), remove the extra padding
+	      // so that the play control is centered
+	      var emptyBox = this.state.iconSize === 'small' ? null : _react2.default.createElement(_Box2.default, null);
+
+	      var controlsContent = _react2.default.createElement(
+	        _Box2.default,
+	        { pad: 'none', align: 'center', justify: videoSummaryJustify, className: CLASS_ROOT + '__summary' },
+	        videoHeader,
+	        _react2.default.createElement(
+	          _Box2.default,
+	          { pad: 'medium', align: 'center', justify: 'center' },
+	          _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + '__control', plain: true,
+	            primary: true, onClick: onClickControl,
+	            icon: controlIcon, a11yTitle: a11yControlButtonTitle }),
+	          title
+	        ),
+	        emptyBox
+	      );
+
+	      return controlsContent;
+	    }
+	  }, {
+	    key: '_renderProgress',
+	    value: function _renderProgress() {
 	      var progressTicks = void 0;
 	      if (this.props.timeline && this.props.duration) {
 
-	        var _chapters = this.props.timeline.map(function (chapter, index, chapters) {
+	        var chapters = this.props.timeline.map(function (chapter, index, chapters) {
 	          var percent = Math.round(chapter.time / this.props.duration * 100);
 	          var currentProgress = this.state.progress;
 	          var nextChapter = chapters[Math.min(chapters.length - 1, index + 1)];
@@ -82174,7 +82266,7 @@ module.exports =
 	        progressTicks = _react2.default.createElement(
 	          'div',
 	          { className: CLASS_ROOT + '__progress-ticks' },
-	          _chapters
+	          chapters
 	        );
 	      }
 
@@ -82192,35 +82284,52 @@ module.exports =
 	        );
 	      }
 
-	      var onClickControl = this.props.onClick || this._onClickControl;
-	      // when iconSize is small (mobile screen sizes), remove the extra padding
-	      // so that the play control is centered
-	      var emptyBox = this.state.iconSize === 'small' ? null : _react2.default.createElement(_Box2.default, null);
+	      return progress;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var classes = [CLASS_ROOT];
+	      if (this.props.size) {
+	        classes.push(CLASS_ROOT + '--' + this.props.size);
+	      }
+	      if (this.props.full) {
+	        classes.push(CLASS_ROOT + '--full');
+	      }
+	      if (this.state.playing) {
+	        classes.push(CLASS_ROOT + '--playing');
+	      }
+	      if (this.state.interacting) {
+	        classes.push(CLASS_ROOT + '--interacting');
+	      }
+	      if (this.props.videoHeader) {
+	        classes.push(CLASS_ROOT + '--video-header');
+	      }
+	      if (this.props.colorIndex) {
+	        classes.push(BACKGROUND_COLOR_INDEX + '-' + this.props.colorIndex);
+	      }
+	      if (this.props.className) {
+	        classes.push(this.props.className);
+	      }
+	      if (this.props.title) {
+	        classes.push(CLASS_ROOT + '--titled');
+	      }
 
 	      return _react2.default.createElement(
 	        'div',
 	        { className: classes.join(' '), onMouseMove: this._onMouseMove },
 	        _react2.default.createElement(
 	          'video',
-	          { ref: 'video', poster: this.props.poster },
+	          { ref: 'video',
+	            poster: this.props.poster,
+	            autoPlay: this.props.autoPlay ? 'autoplay' : false,
+	            loop: this.props.loop ? 'loop' : false,
+	            muted: this.props.muted ? 'muted' : false },
 	          this.props.children
 	        ),
-	        _react2.default.createElement(
-	          _Box2.default,
-	          { pad: 'none', align: 'center', justify: videoSummaryJustify, className: CLASS_ROOT + '__summary' },
-	          videoHeader,
-	          _react2.default.createElement(
-	            _Box2.default,
-	            { pad: 'medium', align: 'center', justify: 'center' },
-	            _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + '__control', plain: true,
-	              primary: true, onClick: onClickControl,
-	              icon: controlIcon, a11yTitle: a11yControlButtonTitle }),
-	            title
-	          ),
-	          emptyBox
-	        ),
-	        timeline,
-	        progress
+	        this.props.showControls ? this._renderControls() : undefined,
+	        this.props.showControls ? this._renderTimeline() : undefined,
+	        this.props.showControls ? this._renderProgress() : undefined
 	      );
 	    }
 	  }]);
@@ -82244,7 +82353,18 @@ module.exports =
 	  title: _react.PropTypes.node,
 	  videoHeader: _react.PropTypes.node,
 	  onClick: _react.PropTypes.func,
-	  allowFullScreen: _react.PropTypes.bool
+	  allowFullScreen: _react.PropTypes.bool,
+	  autoPlay: _react.PropTypes.bool,
+	  showControls: _react.PropTypes.bool,
+	  muted: _react.PropTypes.bool,
+	  loop: _react.PropTypes.bool
+	};
+
+	Video.defaultProps = {
+	  autoPlay: false,
+	  showControls: true,
+	  muted: false,
+	  loop: false
 	};
 	module.exports = exports['default'];
 
