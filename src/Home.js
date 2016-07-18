@@ -88,7 +88,9 @@ export default class Home extends Component {
           <Header fixed={false} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
               <NavAnchor path="/docs/get-started">Start</NavAnchor>
+              {/*}
               <NavAnchor path="/docs/learn">Learn</NavAnchor>
+              {*/}
               <NavAnchor path="/docs">Docs</NavAnchor>
             </Menu>
           </Header>
@@ -116,7 +118,9 @@ export default class Home extends Component {
             <Heading tag="h2">Mobile-first ready for business</Heading>
             <Paragraph align="center">Think small. Starting with mobile-first
               design allows for easy app scalability to larger devices.</Paragraph>
+            {/*}
             <NavButton path="/docs/learn" label="Learn" />
+            {*/}
           </Box>
         </HomeSection>
 
@@ -153,7 +157,9 @@ export default class Home extends Component {
             <Box direction="row" pad={{ between: 'large' }}>
               <Box direction="column">
                 <NavAnchor path="/docs/get-started">Start</NavAnchor>
+                {/*}
                 <NavAnchor path="/docs/learn">Learn</NavAnchor>
+                {*/}
                 <NavAnchor path="/docs">Docs</NavAnchor>
               </Box>
               <Box direction="column">

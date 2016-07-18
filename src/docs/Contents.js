@@ -14,7 +14,7 @@ import WritingStyle from './design/WritingStyle';
 import DateTime from './design/DateTime';
 import Capitalization from './design/Capitalization';
 import Resources from './design/Resources';
-import Learn from './design/Learn';
+// import Learn from './design/Learn';
 
 import Architecture from './reference/Architecture';
 import Integration from './reference/Integration';
@@ -22,7 +22,7 @@ import Accessibility from './reference/Accessibility';
 import BrowserSupport from './reference/BrowserSupport';
 import About from './reference/About';
 
-import ActionsDoc from './patterns/ActionsDoc';
+// import ActionsDoc from './patterns/ActionsDoc';
 import AnchorDoc from './components/AnchorDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
@@ -34,7 +34,7 @@ import CarouselDoc from './components/CarouselDoc';
 import ChartDoc from './components/ChartDoc';
 import CheckBoxDoc from './components/CheckBoxDoc';
 import ColumnsDoc from './components/ColumnsDoc';
-import DashboardDoc from './patterns/DashboardDoc';
+// import DashboardDoc from './patterns/DashboardDoc';
 import DateTimeDoc from './components/DateTimeDoc';
 import DistributionDoc from './components/DistributionDoc';
 import FooterDoc from './components/FooterDoc';
@@ -91,7 +91,7 @@ export default [
   },
   {label: 'Design',
     contents: [
-      {path: 'learn', label: 'Learn', component: Learn},
+      // {path: 'learn', label: 'Learn', component: Learn},
       {path: 'resources', label: 'Resources', component: Resources},
       {path: 'best-practices', label: 'Best Practices', component: BestPractices},
       {path: 'usability', label: 'Usability', component: Usability},
@@ -106,9 +106,9 @@ export default [
     ]},
   {label: 'Patterns',
     contents: [
-      {path: 'dashboard', label: 'Dashboard', component: DashboardDoc},
-      {path: 'navigation', label: 'Navigation', component: NavigationDoc},
-      {path: 'actions', label: 'Actions', component: ActionsDoc}
+      // {path: 'dashboard', label: 'Dashboard', component: DashboardDoc},
+      {path: 'navigation', label: 'Navigation', component: NavigationDoc}
+      // {path: 'actions', label: 'Actions', component: ActionsDoc}
     ]
   },
   {label: 'Components',
