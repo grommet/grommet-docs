@@ -3,13 +3,12 @@
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
-var Link = Router.Link;
 
 var DocsSplit = require('../DocsSplit');
 var DocsArticle = require('../DocsArticle');
+var NavAnchor = require('../NavAnchor');
 var Box = require('grommet/components/Box');
 var Menu = require('grommet/components/Menu');
-var Anchor = require('grommet/components/Anchor');
 
 var HelloWorld = require('./HelloWorld');
 var GetStarted = require('./GetStarted');
@@ -199,7 +198,7 @@ var Develop = React.createClass({
   },
 
   render: function () {
-    var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
+    var title = <NavAnchor href={this.context.routePrefix + "develop"}>Develop</NavAnchor>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         <DocsArticle title="Develop" colorIndex="neutral-1">
@@ -209,12 +208,14 @@ var Develop = React.createClass({
             assist in creating experiences that work accross the many different interaction
             methods and screen sizes.</p>
             <Menu direction="column">
-              <Link to={this.context.routePrefix + "develop/hello-world"}>
-                <Anchor tag="span" primary={true}>Hello Grommet!</Anchor>
-              </Link>
-              <Link to={this.context.routePrefix + "develop/get-started"}>
-                <Anchor tag="span" primary={true}>Get Started</Anchor>
-              </Link>
+              <NavAnchor id='hello-world' primary={true}
+                href={this.context.routePrefix + "develop/hello-world"}>
+                Hello Grommet!
+              </NavAnchor>
+              <NavAnchor id='get-started' primary={true}
+                href={this.context.routePrefix + "develop/get-started"}>
+                Get Started
+              </NavAnchor>
             </Menu>
           </Box>
         </DocsArticle>
@@ -255,7 +256,7 @@ var DevelopDocument = React.createClass({
   },
 
   render: function () {
-    var title = <Link to={this.context.routePrefix + "develop"}>Develop</Link>;
+    var title = <NavAnchor to={this.context.routePrefix + "develop"}>Develop</NavAnchor>;
     return (
       <DocsSplit title={title} contents={CONTENTS} onChange={this._highlightCode}>
         {this.props.children}
