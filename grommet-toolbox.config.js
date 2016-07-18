@@ -4,7 +4,6 @@ import path from 'path';
 export default {
   dist: path.resolve(__dirname, 'dist/'),
   copyAssets: [
-    'src/index.html',
     'src/robots.txt',
     {
       asset: 'src/docs/img/**',

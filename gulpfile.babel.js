@@ -22,7 +22,6 @@ gulp.task('set-webpack-alias', () => {
 
 gulp.task('generate-static-site', ['generate-icons-map'], () => {
   var staticSiteConfig = require('./site-generator.webpack.config');
-  delete options.copyAssets[0];
   return gulp.src(options.mainJs)
       .pipe(gulpWebpack(staticSiteConfig))
       .pipe(gulp.dest(options.dist));
