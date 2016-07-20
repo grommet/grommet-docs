@@ -17,6 +17,9 @@ export default class NavAnchor extends Component {
   _onClick (event) {
     event.preventDefault();
     this.context.router.push(this.props.path);
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
   }
 
   render () {
@@ -34,6 +37,7 @@ export default class NavAnchor extends Component {
 };
 
 NavAnchor.propTypes = {
+  onClick: PropTypes.func,
   path: PropTypes.string.isRequired
 };
 

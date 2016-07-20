@@ -137,21 +137,13 @@ export default class DocsSplit extends Component {
   }
 
   render () {
-    let left;
-    let right;
-    if (this.state.showMenu) {
-      left = this._renderMenu();
-      if ('multiple' === this.state.responsive) {
-        right = this._renderDoc();
-      }
-    } else {
-      left = this._renderDoc();
-    }
-
+    let priority = ('single' === this.state.responsive && this.state.showMenu ?
+      'left' : 'right');
     return (
-      <Split flex="right" fixed={true} onResponsive={this._onResponsive}>
-        {left}
-        {right}
+      <Split flex="right" priority={priority} fixed={true}
+        onResponsive={this._onResponsive}>
+        {this._renderMenu()}
+        {this._renderDoc()}
       </Split>
     );
   }
