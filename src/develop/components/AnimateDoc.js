@@ -9,6 +9,7 @@ import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 import Button from 'grommet/components/Button';
 import Animate from 'grommet/components/Animate';
+import ScrollAnimation from './samples/ScrollAnimation';
 import { updatePageTitle } from '../../utils/a11y';
 
 Section.displayName = 'Section';
@@ -119,6 +120,8 @@ export default class AnimateDoc extends Component {
               }
             </Animate>
           } />
+
+          <ScrollAnimation />
         </section>
       </DocsArticle>
     );
