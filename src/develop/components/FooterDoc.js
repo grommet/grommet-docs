@@ -72,10 +72,15 @@ var FooterDoc = React.createClass({
           <h2>Options</h2>
           <dl>
             <dt><code>size        small|medium|large</code></dt>
-            <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
+            <dd>The size of the Footer. Defaults to <code>medium</code>.</dd>
             <dt><code>primary     true|false</code></dt>
             <dd>Whether it should be treated as main footer or not.
               Used for Accessibility.</dd>
+            <dt><code>fixed       true|false</code></dt>
+            <dd>Whether the footer is fixed on the page, typically 
+              so content above it will scroll under it.</dd>
+            <dt><code>float       true|false</code></dt>
+            <dd>Whether the footer floats above content underneath it.</dd>              
           </dl>
           <p>Options for <Link to={this.context.routePrefix + "box"}>Box</Link> are
           also available.</p>

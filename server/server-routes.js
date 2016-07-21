@@ -8887,7 +8887,6 @@ module.exports =
 	* This component is used to augment Grommet button
 	* with routing/history capabilities
 	*/
-
 	var NavButton = function (_Component) {
 	  _inherits(NavButton, _Component);
 
@@ -9464,9 +9463,12 @@ module.exports =
 	        classes.push(this.props.className);
 	      }
 
-	      var children = _react.Children.map(this.props.children, function (element, index) {
+	      var elements = _react.Children.toArray(this.props.children).filter(function (element) {
+	        return element;
+	      });
+	      var children = elements.map(function (element, index) {
 	        // When we only have room to show one child, hide the appropriate one
-	        if ('single' === responsive && ('left' === priority && index > 0 || 'right' === priority && index === 0)) {
+	        if ('single' === responsive && ('left' === priority && index > 0 || 'right' === priority && index === 0 && elements.length > 1)) {
 	          element = _react2.default.cloneElement(element, { style: { display: 'none' } });
 	        }
 	        return element;
@@ -9584,10 +9586,11 @@ module.exports =
 	      var classes = (0, _classnames3.default)(CLASS_ROOT, this.props.className, (_classnames = {}, (0, _defineProperty3.default)(_classnames, CLASS_ROOT + '--fixed', this.props.fixed), (0, _defineProperty3.default)(_classnames, CLASS_ROOT + '--full', this.props.full), (0, _defineProperty3.default)(_classnames, CLASS_ROOT + '--' + this.props.size, this.props.size), _classnames));
 
 	      var boxProps = _Props2.default.pick(this.props, (0, _keys2.default)(_Box2.default.propTypes));
+	      var restProps = _Props2.default.omit(this.props, (0, _keys2.default)(Sidebar.propTypes));
 
 	      return _react2.default.createElement(
 	        _Box2.default,
-	        (0, _extends3.default)({}, boxProps, { className: classes }),
+	        (0, _extends3.default)({}, restProps, boxProps, { className: classes }),
 	        this.props.children
 	      );
 	    }
@@ -11097,7 +11100,6 @@ module.exports =
 	* This component is used to augment Grommet button
 	* with routing/history capabilities
 	*/
-
 	var NavAnchor = function (_Component) {
 	  _inherits(NavAnchor, _Component);
 
@@ -29652,7 +29654,7 @@ module.exports =
 	          React.createElement(
 	            'dd',
 	            null,
-	            'The size of the Header. Defaults to ',
+	            'The size of the Footer. Defaults to ',
 	            React.createElement(
 	              'code',
 	              null,
@@ -29673,6 +29675,34 @@ module.exports =
 	            'dd',
 	            null,
 	            'Whether it should be treated as main footer or not. Used for Accessibility.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'fixed       true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the footer is fixed on the page, typically so content above it will scroll under it.'
+	          ),
+	          React.createElement(
+	            'dt',
+	            null,
+	            React.createElement(
+	              'code',
+	              null,
+	              'float       true|false'
+	            )
+	          ),
+	          React.createElement(
+	            'dd',
+	            null,
+	            'Whether the footer floats above content underneath it.'
 	          )
 	        ),
 	        React.createElement(
@@ -74245,6 +74275,7 @@ module.exports =
 	      }
 
 	      var boxProps = _Props2.default.pick(this.props, (0, _keys2.default)(_Box2.default.propTypes));
+	      var fullBox = boxProps.hasOwnProperty('full') ? boxProps.full : 'horizontal';
 
 	      return _react2.default.createElement(
 	        _Box2.default,
@@ -74252,7 +74283,7 @@ module.exports =
 	        status,
 	        _react2.default.createElement(
 	          _Box2.default,
-	          { full: 'horizontal' },
+	          { full: fullBox },
 	          _react2.default.createElement(
 	            'span',
 	            { className: CLASS_ROOT + '__message' },
