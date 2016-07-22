@@ -32,12 +32,9 @@ export default class AccordionDoc extends Component {
           <h2>Accordion Options</h2>
           <dl>
             <dt><code>animate             {'{bool}'}</code></dt>
-            <dd>Transition content in & out with a slide down animation. Default is true.</dd>
+            <dd>Transition content in &amp; out with a slide down animation. Default is true.</dd>
             <dt><code>openMulti           {'{bool}'}</code></dt>
             <dd>Allow multiple panels to be opened at once. Default is false.</dd>
-            <dt><code>colorIndex          {'{category}-{index}'}</code></dt>
-            <dd>The color identifier to use for the background color.
-              For example: <code>"neutral-1"</code></dd>
           </dl>
         </section>
 
