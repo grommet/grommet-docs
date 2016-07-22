@@ -16,16 +16,18 @@ export default class BoxesAnimation extends Component {
   }
 
   render () {
+    const { boxCount } = this.state;
+
     return (
       <div>
         <Button
           label="Add"
           primary={true}
-          onClick={() => this.setState({boxCount: this.state.boxCount + 1})}
+          onClick={() => this.setState({boxCount: boxCount + 1})}
         />
         <Button
           label="Remove"
-          onClick={() => this.setState({boxCount: this.state.boxCount - 1})}
+          onClick={() => this.setState({boxCount: boxCount ? boxCount - 1 : 0})}
         />
 
         <Example name="Boxes" code={
