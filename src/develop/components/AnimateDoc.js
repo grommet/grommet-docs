@@ -51,8 +51,6 @@ export default class AnimateDoc extends Component {
             <dd>Toggle visibility.</dd>
             <dt><code>component          {"{string}|{Component}"}</code></dt>
             <dd>Wrapping component. Defaults to <code>div</code>.</dd>
-            <dt><code>childComponent     {"{string}|{Component}"}</code></dt>
-            <dd>Wrapping child component. Defaults to <code>div</code>.</dd>
           </dl>
         </section>
 
@@ -68,6 +66,7 @@ export default class AnimateDoc extends Component {
             <Animate
               enter={{ animation: 'fade', duration: 1000 }}
               visible={this.state.toggleFade}
+              keep={true}
             >
               <Paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -111,7 +110,6 @@ export default class AnimateDoc extends Component {
             <Animate
               enter={{ animation: 'slide-up', duration: 1000 }}
               component={Tiles}
-              childComponent={Box}
             >
               {(this.state.boxCount > 0) &&
                 new Array(this.state.boxCount).fill().map((c, i) => {

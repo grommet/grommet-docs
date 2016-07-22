@@ -39,9 +39,10 @@ export default class ScrollAnimation extends Component {
     return new Array(amount).fill().map((c, i) => {
       return (
         <Animate
-          enter={{ animation: 'slide-up', duration: 1000 }}
+          enter={{ animation: 'slide-up', duration: 500, delay: (i + 1) * 150 }}
+          leave={{ animation: 'slide-down', duration: 500, delay: (i + 1) * 150 }}
           component={Box}
-          visible={scrollProgress >= Math.round((height * index) / scrollableHeight * 50)}
+          visible={scrollProgress > Math.round((height * index) / scrollableHeight * 50)}
           keep={true}
           colorIndex="brand" justify="center" align="center" key={i}
           style={{ flex: `0 0 ${columnWidth}%`, height }}
@@ -65,6 +66,7 @@ export default class ScrollAnimation extends Component {
     return (
       <Box
         onScroll={this._onScroll}
+        pad="medium"
         style={{ height: 500, overflow: 'auto' }}
       >
         {sections}
