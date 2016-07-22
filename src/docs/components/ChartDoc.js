@@ -237,38 +237,6 @@ export default () => {
             xAxis={dateSeriesXAxis} a11yTitleId="dateSmoothChartTitle"
             a11yDescId="dateSmoothChartDesc" />
         } />
-        <Example name="Tiles" code={
-          <Tiles>
-            <Tile pad="small">
-              <Chart type="bar" min={0} max={6} threshold={3}
-                xAxis={seriesXAxis} units="TB"
-                series={singleSeries}
-                legend={{position: 'after'}} a11yTitleId="tileChart1Title"
-                a11yDescId="tileChart1Desc" />
-            </Tile>
-            <Tile pad="small">
-              <Chart type="bar" min={0} max={6} threshold={3}
-                xAxis={seriesXAxis} units="TB"
-                series={series}
-                legend={{position: 'after'}} a11yTitleId="tileChart2Title"
-                a11yDescId="tileChart2Desc" />
-            </Tile>
-            <Tile pad="small">
-              <Chart type="area" min={0} max={6} threshold={3}
-                xAxis={seriesXAxis} units="TB"
-                series={series}
-                legend={{position: 'after'}} a11yTitleId="tileChart3Title"
-                a11yDescId="tileChart3Desc" />
-            </Tile>
-            <Tile pad="small">
-              <Chart type="line" min={0} max={6} threshold={3}
-                xAxis={seriesXAxis} units="TB"
-                series={series}
-                legend={{position: 'after'}} a11yTitleId="tileChart4Title"
-                a11yDescId="tileChart4Desc" />
-            </Tile>
-          </Tiles>
-        } />
         <Example name="Small, loading" code={
           <Chart series={[]} min={0} threshold={3} type="bar" legend={{}}
             xAxis={[]} units="TB" size="small" a11yTitleId="loadingChartTitle"

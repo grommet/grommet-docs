@@ -37,6 +37,7 @@ export default class NavAnchor extends Component {
 };
 
 NavAnchor.propTypes = {
+  ...Anchor.propTypes,
   onClick: PropTypes.func,
   path: PropTypes.string.isRequired
 };
