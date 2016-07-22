@@ -4,12 +4,11 @@ import React, { Component } from 'react';
 import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Section from 'grommet/components/Section';
-import Tiles from 'grommet/components/Tiles';
-import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 import Button from 'grommet/components/Button';
 import Animate from 'grommet/components/Animate';
 import ScrollAnimation from './samples/ScrollAnimation';
+import BoxesAnimation from './samples/BoxesAnimation';
 import { updatePageTitle } from '../../utils/a11y';
 
 Section.displayName = 'Section';
@@ -19,7 +18,6 @@ export default class AnimateDoc extends Component {
   constructor () {
     super();
     this.state = {
-      boxCount: 3,
       toggleFade: true,
       toggleSlide: true
     };
@@ -97,27 +95,7 @@ export default class AnimateDoc extends Component {
             </Animate>
           } />
 
-          <Button
-            label="Add"
-            primary={true}
-            onClick={() => this.setState({boxCount: this.state.boxCount + 1})}
-          />
-          <Button
-            label="Remove"
-            onClick={() => this.setState({boxCount: this.state.boxCount - 1})}
-          />
-          <Example name="Boxes" code={
-            <Animate
-              enter={{ animation: 'slide-up', duration: 1000 }}
-              component={Tiles}
-            >
-              {(this.state.boxCount > 0) &&
-                new Array(this.state.boxCount).fill().map((c, i) => {
-                  return <Box key={`box-${i}`} style={{ width: 50, height: 50 }} colorIndex="brand" />;
-                })
-              }
-            </Animate>
-          } />
+          <BoxesAnimation />
 
           <ScrollAnimation />
         </section>
