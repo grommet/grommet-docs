@@ -17,6 +17,7 @@ var Integration = require('./Integration');
 var Accessibility = require('./Accessibility');
 var BrowserSupport = require('./BrowserSupport');
 
+var AccordionDoc = require('./components/AccordionDoc');
 var ActionsDoc = require('./patterns/ActionsDoc');
 var AnchorDoc = require('./components/AnchorDoc');
 var AppDoc = require('./components/AppDoc');
@@ -102,6 +103,7 @@ var CONTENTS = [
   },
   {label: 'Components',
     contents: [
+      {route: 'develop_accordion', label: 'Accordion', component: AccordionDoc},
       {route: 'develop_anchor', label: 'Anchor', component: AnchorDoc},
       {route: 'develop_app', label: 'App', component: AppDoc},
       {route: 'develop_article', label: 'Article', component: ArticleDoc},
