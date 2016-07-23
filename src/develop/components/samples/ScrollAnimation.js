@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Tiles from 'grommet/components/Tiles';
+import Tile from 'grommet/components/Tile';
 import Box from 'grommet/components/Box';
 import Animate from 'grommet/components/Animate';
 import Example from '../../Example';
@@ -42,89 +43,89 @@ export default class ScrollAnimation extends Component {
           pad="medium" colorIndex="light-2"
           style={{ height: 500, overflow: 'auto' }}
         >
-          <Tiles flex={false}>
+          <Tiles flex={false} fill={true}>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 150 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 150 }}
-              component={Box} visible={scrollProgress > 0} keep={true}
+              component={Tile} visible={scrollProgress > 0} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>1</h3>
             </Animate>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 300 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 300 }}
-              component={Box} visible={scrollProgress > 0} keep={true}
+              component={Tile} visible={scrollProgress > 0} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>2</h3>
             </Animate>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 450 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 450 }}
-              component={Box} visible={scrollProgress > 0} keep={true}
+              component={Tile} visible={scrollProgress > 0} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>3</h3>
             </Animate>
           </Tiles>
-          <Tiles flex={false}>
+          <Tiles flex={false} fill={true}>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 150 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 150 }}
-              component={Box} visible={scrollProgress > 16} keep={true}
+              component={Tile} visible={scrollProgress > 16} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>1</h3>
             </Animate>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 300 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 300 }}
-              component={Box} visible={scrollProgress > 16} keep={true}
+              component={Tile} visible={scrollProgress > 16} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>2</h3>
             </Animate>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 450 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 450 }}
-              component={Box} visible={scrollProgress > 16} keep={true}
+              component={Tile} visible={scrollProgress > 16} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>3</h3>
             </Animate>
           </Tiles>
-          <Tiles flex={false}>
+          <Tiles flex={false} fill={true}>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 150 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 150 }}
-              component={Box} visible={scrollProgress > 32} keep={true}
+              component={Tile} visible={scrollProgress > 32} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>1</h3>
             </Animate>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 300 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 300 }}
-              component={Box} visible={scrollProgress > 32} keep={true}
+              component={Tile} visible={scrollProgress > 32} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>2</h3>
             </Animate>
             <Animate
               enter={{ animation: 'slide-up', duration: 500, delay: 450 }}
               leave={{ animation: 'slide-down', duration: 500, delay: 450 }}
-              component={Box} visible={scrollProgress > 32} keep={true}
+              component={Tile} visible={scrollProgress > 32} keep={true}
               colorIndex="brand" justify="center" align="center"
-              style={{ flex: `0 0 33.333%`, height: 250 }}
+              style={{ height: 250 }}
             >
               <h3>3</h3>
             </Animate>
