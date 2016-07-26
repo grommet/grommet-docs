@@ -11,23 +11,23 @@ export default class BoxesAnimation extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      boxCount: 3
+      boxes: [0,1,2]
     };
   }
 
   render () {
-    const { boxCount } = this.state;
+    const { boxes } = this.state;
 
     return (
       <div>
         <Button
           label="Add"
           primary={true}
-          onClick={() => this.setState({boxCount: boxCount + 1})}
+          onClick={() => this.setState({boxes: [...boxes, boxes.length]})}
         />
         <Button
           label="Remove"
-          onClick={() => this.setState({boxCount: boxCount ? boxCount - 1 : 0})}
+          onClick={() => this.setState({boxes: boxes.slice(0, -1)})}
         />
 
         <Example name="Boxes" code={
@@ -35,9 +35,15 @@ export default class BoxesAnimation extends Component {
             enter={{ animation: 'slide-up', duration: 1000 }}
             component={Tiles}
           >
-            {(this.state.boxCount > 0) &&
-              new Array(this.state.boxCount).fill().map((c, i) => {
-                return <Box key={`box-${i}`} style={{ width: 50, height: 50 }} colorIndex="brand" />;
+            {
+              boxes.map((c, i) => {
+                return (
+                  <Box
+                    key={`box-${i}`}
+                    style={{ width: 50, height: 50 }}
+                    colorIndex="brand"
+                  />
+                );
               })
             }
           </Animate>
