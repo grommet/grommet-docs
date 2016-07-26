@@ -41,7 +41,7 @@ export default class ScrollAnimation extends Component {
         <Box
           onScroll={this._onScroll}
           pad="medium" colorIndex="light-2"
-          style={{ height: 500, overflow: 'auto' }}
+          style={{ maxHeight: 500, overflow: 'auto' }}
         >
           <Tiles flex={false} fill={true}>
             <Animate
