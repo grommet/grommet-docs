@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import Search from 'grommet/components/Search';
+import { updatePageTitle } from '../utils/a11y';
 
 const SIMPLE_SUGGESTIONS = ['item 1', 'item 2', 'item 3'];
 const RICH_SUGGESTIONS = [
@@ -23,6 +24,10 @@ export default class SearchDoc extends Component {
       simpleSuggestions: [],
       richSuggestions: []
     };
+  }
+
+  componentDidMount () {
+    updatePageTitle('Search');
   }
 
   _onDOMChange (event) {

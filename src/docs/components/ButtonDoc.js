@@ -10,6 +10,7 @@ import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import EditIcon from 'grommet/components/icons/base/Edit';
+import { updatePageTitle } from '../utils/a11y';
 
 Button.displayName = 'Button';
 Tiles.displayName = 'Tiles';
@@ -17,6 +18,10 @@ Tile.displayName = 'Tile';
 Section.displayName = 'Section';
 
 export default class ButtonDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Button');
+  }
 
   _onClick () {
     // no-op, just to ensure buttons aren't disabled

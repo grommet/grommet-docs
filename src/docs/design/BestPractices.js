@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class BestPractices extends Component {
+  componentDidMount () {
+    updatePageTitle('Best Practices');
+  }
+
   render () {
     return (
       <DocsArticle title="Best Practices" colorIndex="neutral-1">

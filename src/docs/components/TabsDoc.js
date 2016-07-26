@@ -7,8 +7,12 @@ var Tab = require('grommet/components/Tab');
 var FormFields = require('grommet/components/FormFields');
 var FormField = require('grommet/components/FormField');
 var Form = require('grommet/components/Form');
+var A11y = require('../utils/a11y');
 
 var TabsDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Tabs');
+  },
 
   render: function() {
 

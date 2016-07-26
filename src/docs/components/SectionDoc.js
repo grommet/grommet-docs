@@ -1,44 +1,51 @@
-var React = require('react');
-var DocsArticle = require('../../components/DocsArticle');
+import React, { Component } from 'react';
+import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
-var Section = require('grommet/components/Section');
-var Header = require('grommet/components/Header');
-var Menu = require('grommet/components/Menu');
-var Anchor = require('grommet/components/Anchor');
-var Paragraph = require('grommet/components/Paragraph');
+import Section from 'grommet/components/Section';
+import Header from 'grommet/components/Header';
+import Menu from 'grommet/components/Menu';
+import Anchor from 'grommet/components/Anchor';
+import Paragraph from 'grommet/components/Paragraph';
+import { updatePageTitle } from '../utils/a11y';
 
 var inline =
       "<Section>\n" +
       "  ...\n" +
       "</Section>";
 
-export default () => {
-  return (
-    <DocsArticle title="Section" colorIndex="neutral-3">
+export default class SectionDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Section');
+  }
 
-      <p>Responsively grouping related contents inside a page.</p>
-      <pre><code className="html hljs xml">{inline}</code></pre>
+  render () {
+    return (
+      <DocsArticle title="Section" colorIndex="neutral-3">
 
-      <section>
-        <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are available.</p>
-      </section>
+        <p>Responsively grouping related contents inside a page.</p>
+        <pre><code className="html hljs xml">{inline}</code></pre>
 
-      <section>
-        <Example name="Example" code={
-          <Section>
-            <Header align="center" justify="between">
-              <h3>Sample Content</h3>
-              <Menu direction="row">
-                <Anchor href="">Link 1</Anchor>
-                <Anchor href="">Link 2</Anchor>
-              </Menu>
-            </Header>
-            <Paragraph>Lorem ipsum ...</Paragraph>
-          </Section>
-        } />
-      </section>
+        <section>
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are available.</p>
+        </section>
 
-    </DocsArticle>
-  );
+        <section>
+          <Example name="Example" code={
+            <Section>
+              <Header align="center" justify="between">
+                <h3>Sample Content</h3>
+                <Menu direction="row">
+                  <Anchor href="">Link 1</Anchor>
+                  <Anchor href="">Link 2</Anchor>
+                </Menu>
+              </Header>
+              <Paragraph>Lorem ipsum ...</Paragraph>
+            </Section>
+          } />
+        </section>
+
+      </DocsArticle>
+    );
+  }
 };

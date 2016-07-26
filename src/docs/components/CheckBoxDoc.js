@@ -4,6 +4,7 @@ var React = require('react');
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../components/DocsArticle');
 var CheckBox = require('grommet/components/CheckBox');
+var A11y = require('../utils/a11y');
 
 CheckBox.displayName = 'CheckBox';
 
@@ -17,6 +18,10 @@ var CheckBoxDoc = React.createClass({
 
   getInitialState: function () {
     return {checked: false};
+  },
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('CheckBox');
   },
 
   _onChange: function () {

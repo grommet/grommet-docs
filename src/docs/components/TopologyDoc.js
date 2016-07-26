@@ -3,8 +3,12 @@
 var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var Topology = require('grommet/components/Topology');
+var A11y = require('../utils/a11y');
 
 var TopologyDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Topology');
+  },
 
   render: function() {
     var inline =

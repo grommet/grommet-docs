@@ -11,6 +11,7 @@ const onRouteUpdate = () => {
   if (docElements.length > 0) {
     docElements[0].scrollTop = 0;
   }
+  document.getElementById('content').focus();
 };
 
 const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];

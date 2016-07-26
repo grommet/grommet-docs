@@ -4,6 +4,7 @@ import React from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import Video from 'grommet/components/Video';
+import { updatePageTitle } from '../utils/a11y';
 
 var VideoDoc = React.createClass({
 
@@ -11,6 +12,10 @@ var VideoDoc = React.createClass({
     return {
       singleSelection: [0]
     };
+  },
+
+  componentDidMount: function () {
+    updatePageTitle('Video');
   },
 
   // single selection is managed by the caller via state.singleSelection

@@ -4,8 +4,12 @@ var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var Carousel = require('grommet/components/Carousel');
 var Box = require('grommet/components/Box');
+var A11y = require('../utils/a11y');
 
 var TileDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Carousel');
+  },
 
   render: function() {
     var inline =

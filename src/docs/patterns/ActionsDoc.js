@@ -2,8 +2,13 @@
 
 var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
+var A11y = require('./utils/a11y');
 
 var ActionsDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Actions');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Actions" colorIndex="neutral-2">

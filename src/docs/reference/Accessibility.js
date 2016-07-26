@@ -4,8 +4,13 @@ var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var Table = require('grommet/components/Table');
 var Status = require('grommet/components/icons/Status');
+var A11y = require('../utils/a11y');
 
 var Accessibility = React.createClass({
+
+  componentDidMount: function () {
+    A11y.updatePageTitle('Accessibility');
+  },
 
   _onClick: function () {
     // no-op
@@ -42,12 +47,12 @@ var Accessibility = React.createClass({
             </thead>
             <tbody>
               <tr>
-                <td><Status value="error"/></td>
-                <td><pre><code className="html hljs xml">{"<Status value=\"error\">"}</code></pre></td>
+                <td><Status value="critical"/></td>
+                <td><pre><code className="html hljs xml">{"<Status value=\"critical\">"}</code></pre></td>
               </tr>
               <tr>
-                <td><Status value="error" a11yTitle="critical"/></td>
-                <td><pre><code className="html hljs xml">{"<Status value=\"error\" a11yTitle=\"critical\">"}</code></pre></td>
+                <td><Status value="critical" a11yTitle="Server Down"/></td>
+                <td><pre><code className="html hljs xml">{"<Status value=\"critical\" a11yTitle=\"Server Down\">"}</code></pre></td>
               </tr>
             </tbody>
           </Table>

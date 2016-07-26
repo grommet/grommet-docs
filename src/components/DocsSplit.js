@@ -28,6 +28,7 @@ export default class DocsSplit extends Component {
     this._onResponsive = this._onResponsive.bind(this);
     this._onMenuOpen = this._onMenuOpen.bind(this);
     this._onMenuClick = this._onMenuClick.bind(this);
+    this._scrollToAnchor = this._scrollToAnchor.bind(this);
     this.state = {showMenu: true, responsive: 'multiple'};
   }
 
@@ -105,7 +106,7 @@ export default class DocsSplit extends Component {
       );
     }
     return (
-      <Sidebar size="small" primary={true} separator="right">
+      <Sidebar size="small" separator="right">
         <Header justify="between" size="large" pad={{horizontal: 'medium'}}>
           {title}
           {closer}

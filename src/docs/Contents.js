@@ -101,7 +101,7 @@ export default [
       {path: 'padding', label: 'Padding', component: Padding},
       {path: 'typography', label: 'Typography', component: Typography},
       {path: 'writing-style', label: 'Writing Style', component: WritingStyle},
-      {path: 'date-time', label: 'Date and Time', component: DateTime},
+      {path: 'date-and-time', label: 'Date and Time', component: DateTime},
       {path: 'capitalization', label: 'Capitalization', component: Capitalization}
     ]},
   {label: 'Patterns',

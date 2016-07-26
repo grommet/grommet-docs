@@ -4,6 +4,7 @@ var React = require('react');
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../components/DocsArticle');
 var Headline = require('grommet/components/Headline');
+var A11y = require('../utils/a11y');
 
 // function convertHeadingToString(headingJSX) {
 //   return jsxToString(headingJSX);
@@ -16,6 +17,10 @@ var inline =
       "</Headline>";
 
 var HeadlineDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Headline');
+  },
+
   _renderCode(name, jsx) {
     return (
       <div>

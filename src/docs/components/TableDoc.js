@@ -5,6 +5,7 @@ import DocsArticle from '../../components/DocsArticle';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
 import Example from '../Example';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class TableDoc extends Component {
 
@@ -14,6 +15,10 @@ export default class TableDoc extends Component {
     this._onMultipleSelect = this._onMultipleSelect.bind(this);
 
     this.state = { singleSelected: [0] };
+  }
+
+  componentDidMount () {
+    updatePageTitle('Table');
   }
 
   // single selection is managed by the caller via state.singleSelection

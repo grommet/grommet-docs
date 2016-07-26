@@ -10,6 +10,7 @@ import Footer from 'grommet/components/Footer';
 import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class TileDoc extends Component {
 
@@ -20,6 +21,10 @@ export default class TileDoc extends Component {
     this._onMultipleSelect = this._onMultipleSelect.bind(this);
 
     this.state = { singleSelected: [0] };
+  }
+
+  componentDidMount () {
+    updatePageTitle('Tiles');
   }
 
   _onClick () {

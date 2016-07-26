@@ -8,11 +8,16 @@ import Section from 'grommet/components/Section';
 import Anchor from 'grommet/components/Anchor';
 import NextIcon from 'grommet/components/icons/base/Next';
 import EditIcon from 'grommet/components/icons/base/Edit';
+import { updatePageTitle } from '../utils/a11y';
 
 Section.displayName = 'Section';
 Anchor.displayName = 'Anchor';
 
 export default class AnchorDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Anchor');
+  }
 
   _onClick () {
     // no-op

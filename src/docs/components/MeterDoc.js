@@ -8,6 +8,7 @@ import Meter from 'grommet/components/Meter';
 import FormField from 'grommet/components/FormField';
 import RadioButton from 'grommet/components/RadioButton';
 import CheckBox from 'grommet/components/CheckBox';
+import { updatePageTitle } from '../utils/a11y';
 
 Meter.displayName = 'Meter';
 FormField.displayName = 'FormField';
@@ -96,6 +97,10 @@ export default class MeterDoc extends Component {
       type: 'bar',
       valueType: 'single'
     };
+  }
+
+  componentDidMount () {
+    updatePageTitle('Meter');
   }
 
   _onChangeValueType (valueType) {

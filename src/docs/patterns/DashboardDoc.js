@@ -10,6 +10,7 @@ var Tiles = require('grommet/components/Tiles');
 var Tile = require('grommet/components/Tile');
 var Chart = require('grommet/components/Chart');
 var Meter = require('grommet/components/Meter');
+var A11y = require('./utils/a11y');
 
 var dateSeries = [
   {label: 'first', values: [
@@ -29,6 +30,10 @@ var dateSeriesXAxis = [
 ];
 
 var DashboardDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Dashboard');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Dashboard" colorIndex="neutral-2">

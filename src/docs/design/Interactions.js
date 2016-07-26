@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Interactions extends Component {
+  componentDidMount () {
+    updatePageTitle('Interactions');
+  }
+
   render () {
     return (
       <DocsArticle title="Interactions" colorIndex="neutral-1">

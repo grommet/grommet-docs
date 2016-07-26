@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Padding extends Component {
+  componentDidMount () {
+    updatePageTitle('Padding');
+  }
+
   render () {
     return (
       <DocsArticle title="Padding" colorIndex="neutral-2">

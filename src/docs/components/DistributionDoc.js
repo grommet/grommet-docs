@@ -1,9 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import Distribution from 'grommet/components/Distribution';
+import { updatePageTitle } from '../utils/a11y';
 
 Distribution.displayName = 'Distribution';
 
@@ -54,80 +55,85 @@ const iconSeries = [
   }
 ];
 
-export default () => {
+export default class DistributionDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Distribution');
+  }
 
-  return (
-    <DocsArticle title="Distribution" colorIndex="neutral-3">
+  render () {
+    return (
+      <DocsArticle title="Distribution" colorIndex="neutral-3">
 
-      <p>Shows a graphic of relatively sized items.
-        If colorIndex properties are not specified per series item, they
-        will be automatically asigned.
-        One way to use a Distribution is to compare items across
-        two attributes. One attribute determining the area and another
-        determining the color.
-        The guidance for coloring items is to use colorIndex 'unset'
-        for less important items, neutral or graph colors for normal
-        items and accent colors for items to call attention to. Status
-        colorIndex values can be used as well.</p>
-      <pre><code className="html hljs xml">
-        {"<Distribution series={[...]} />"}
-      </code></pre>
+        <p>Shows a graphic of relatively sized items.
+          If colorIndex properties are not specified per series item, they
+          will be automatically asigned.
+          One way to use a Distribution is to compare items across
+          two attributes. One attribute determining the area and another
+          determining the color.
+          The guidance for coloring items is to use colorIndex 'unset'
+          for less important items, neutral or graph colors for normal
+          items and accent colors for items to call attention to. Status
+          colorIndex values can be used as well.</p>
+        <pre><code className="html hljs xml">
+          {"<Distribution series={[...]} />"}
+        </code></pre>
 
-      <section>
-        <h2>Options</h2>
-        <dl>
-          <dt><code>full        true|false</code></dt>
-          <dd>Whether the height should fill its container.</dd>
-          <dt><code>legend      true|false</code></dt>
-          <dd>Whether to show a legend.</dd>
-          <dt><code>legendTotal true|false</code></dt>
-          <dd>Whether to show a total in the legend.</dd>
-          <dt><code>series      {"[{value: , label: , labelValue: , colorIndex: , onClick: , icon: }, ...]"}</code></dt>
-          <dd>An array of objects describing the
-            data. All properties except <code>value</code> are
-            optional. <code>labelValue</code> is used as the
-            visible value. If <code>labelValue</code> is not
-            set, the <code>value</code> is displayed instead.</dd>
-          <dt><code>size         small|medium|large</code></dt>
-          <dd>The height of the Distribution. Defaults to <code>medium</code>.</dd>
-          <dt><code>units       {"{string}"}</code></dt>
-          <dd>Optional units to display next to the value label.</dd>
-        </dl>
-      </section>
+        <section>
+          <h2>Options</h2>
+          <dl>
+            <dt><code>full        true|false</code></dt>
+            <dd>Whether the height should fill its container.</dd>
+            <dt><code>legend      true|false</code></dt>
+            <dd>Whether to show a legend.</dd>
+            <dt><code>legendTotal true|false</code></dt>
+            <dd>Whether to show a total in the legend.</dd>
+            <dt><code>series      {"[{value: , label: , labelValue: , colorIndex: , onClick: , icon: }, ...]"}</code></dt>
+            <dd>An array of objects describing the
+              data. All properties except <code>value</code> are
+              optional. <code>labelValue</code> is used as the
+              visible value. If <code>labelValue</code> is not
+              set, the <code>value</code> is displayed instead.</dd>
+            <dt><code>size         small|medium|large</code></dt>
+            <dd>The height of the Distribution. Defaults to <code>medium</code>.</dd>
+            <dt><code>units       {"{string}"}</code></dt>
+            <dd>Optional units to display next to the value label.</dd>
+          </dl>
+        </section>
 
-      <section>
-        <h2>Examples</h2>
+        <section>
+          <h2>Examples</h2>
 
-        <Example name="Basic" code={
-          <Distribution series={series} a11yTitleId='distribution-title-1'
-            a11yDescId='distribution-desc-1' />
-        } />
-        <Example name="Legend" code={
-          <Distribution legend={true} series={series}
-            a11yTitleId='distribution-title-2' a11yDescId='distribution-desc-2' />
-        } />
-        <Example name="Small" code={
-          <Distribution size="small" series={series}
-            a11yTitleId='distribution-title-3' a11yDescId='distribution-desc-3' />
-        } />
-        <Example name="Large" code={
-          <Distribution size="large" series={series}
-            a11yTitleId='distribution-title-4' a11yDescId='distribution-desc-4' />
-        } />
-        <Example name="onClick" code={
-          <Distribution series={clickableSeries}
-            a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
-        } />
-        <Example name="Icon" code={
-          <Distribution series={iconSeries} units="%"
-            a11yTitleId='distribution-title-7' a11yDescId='distribution-desc-7' />
-        } overrides={['svgElement']}/>
-        <Example name="Loading" code={
-          <Distribution a11yTitleId='distribution-title-5'
-            a11yDescId='distribution-desc-5' />
-        } />
-      </section>
+          <Example name="Basic" code={
+            <Distribution series={series} a11yTitleId='distribution-title-1'
+              a11yDescId='distribution-desc-1' />
+          } />
+          <Example name="Legend" code={
+            <Distribution legend={true} series={series}
+              a11yTitleId='distribution-title-2' a11yDescId='distribution-desc-2' />
+          } />
+          <Example name="Small" code={
+            <Distribution size="small" series={series}
+              a11yTitleId='distribution-title-3' a11yDescId='distribution-desc-3' />
+          } />
+          <Example name="Large" code={
+            <Distribution size="large" series={series}
+              a11yTitleId='distribution-title-4' a11yDescId='distribution-desc-4' />
+          } />
+          <Example name="onClick" code={
+            <Distribution series={clickableSeries}
+              a11yTitleId='distribution-title-6' a11yDescId='distribution-desc-6' />
+          } />
+          <Example name="Icon" code={
+            <Distribution series={iconSeries} units="%"
+              a11yTitleId='distribution-title-7' a11yDescId='distribution-desc-7' />
+          } overrides={['svgElement']}/>
+          <Example name="Loading" code={
+            <Distribution a11yTitleId='distribution-title-5'
+              a11yDescId='distribution-desc-5' />
+          } />
+        </section>
 
-    </DocsArticle>
-  );
+      </DocsArticle>
+    );
+  }
 };

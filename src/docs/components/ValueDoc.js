@@ -7,10 +7,15 @@ import Example from '../Example';
 import Value from 'grommet/components/Value';
 import GlobeIcon from 'grommet/components/icons/base/Globe';
 import UpIcon from 'grommet/components/icons/base/LinkUp';
+import { updatePageTitle } from '../utils/a11y';
 
 Value.displayName = 'Value';
 
 export default class ValueDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Value');
+  }
+
   render () {
     return (
       <DocsArticle title="Value" colorIndex="neutral-3">

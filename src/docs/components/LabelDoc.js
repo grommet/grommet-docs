@@ -4,6 +4,7 @@ var React = require('react');
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../components/DocsArticle');
 var Label = require('grommet/components/Label');
+var A11y = require('../utils/a11y');
 
 Label.displayName = 'Label';
 
@@ -17,6 +18,10 @@ var inline =
       "</Label>";
 
 var LabelDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Label');
+  },
+
   _renderLabelCode(Label, LabelJSX) {
     return (
       <div>

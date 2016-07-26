@@ -3,8 +3,12 @@
 var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var GrommetMap = require('grommet/components/Map');
+var A11y = require('../utils/a11y');
 
 var MapDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Map');
+  },
 
   render: function() {
     var inline =

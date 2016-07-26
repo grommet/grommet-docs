@@ -4,8 +4,12 @@ var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var LoginForm = require('grommet/components/LoginForm');
 var Logo = require('../../img/Logo');
+var A11y = require('../utils/a11y');
 
 var LoginFormDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Login Form');
+  },
 
   _onSubmit: function (fields) {
     // no-op

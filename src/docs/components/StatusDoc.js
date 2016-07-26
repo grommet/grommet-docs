@@ -1,11 +1,16 @@
 var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var Status = require('grommet/components/icons/Status');
+var A11y = require('../utils/a11y');
 
 var inline =
       "<Status value=\"...\" />";
 
 var StatusDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Status');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Status" colorIndex="neutral-3">

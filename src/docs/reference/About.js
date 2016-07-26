@@ -3,8 +3,12 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import TBD from 'grommet/components/TBD';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class About extends Component {
+  componentDidMount () {
+    updatePageTitle('About');
+  }
 
   render () {
     return (

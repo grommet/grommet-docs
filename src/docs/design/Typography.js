@@ -2,13 +2,15 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Typography extends Component {
-  
+
   componentDidMount () {
     var fontNameElement = this.refs.fontName;
     var fontFamily = window.getComputedStyle(fontNameElement).fontFamily;
     fontNameElement.innerHTML = fontFamily.split(',')[0];
+    updatePageTitle('Typography');
   }
 
   render () {

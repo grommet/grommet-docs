@@ -11,6 +11,7 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
+import { updatePageTitle } from '../utils/a11y';
 
 var inline =
       "<Sidebar>\n" +
@@ -18,6 +19,10 @@ var inline =
       "</Sidebar>";
 
 export default class SidebarDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Sidebar');
+  }
 
   _onClose () {
     // no-op

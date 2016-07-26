@@ -10,6 +10,7 @@ import FilterIcon from 'grommet/components/icons/base/Filter';
 import CheckBox from 'grommet/components/CheckBox';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
+import { updatePageTitle } from '../utils/a11y';
 
 Menu.displayName = 'Menu';
 CheckBox.displayName = 'CheckBox';
@@ -17,6 +18,10 @@ Anchor.displayName = 'Anchor';
 Button.displayName = 'Button';
 
 export default class MenuDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Menu');
+  }
 
   _onClick () {
     // no-op

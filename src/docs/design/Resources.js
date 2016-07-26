@@ -2,8 +2,13 @@
 
 var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
+var A11y = require('../utils/a11y');
 
 var Resources = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Resources');
+  },
+
   render: function () {
     return (
       <DocsArticle title="Resources" colorIndex="neutral-4">
@@ -41,7 +46,7 @@ var Resources = React.createClass({
             <li>
               <a id="hpe-ai-general"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general-0-9-4.ai"
-                target="_blank">General Sticker Sheet for Applications v0.9.4</a> (<a id="hpe-ai-general-pdf" 
+                target="_blank">General Sticker Sheet for Applications v0.9.4</a> (<a id="hpe-ai-general-pdf"
                 href="https://github.com/grommet/grommet-design/raw/master/hpe/hpe-sticker-sheet-apps-general-0-9-4.pdf"
                 target="_blank">pdf</a>)
             </li>

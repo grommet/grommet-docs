@@ -3,8 +3,12 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class HelloWorld extends Component {
+  componentDidMount () {
+    updatePageTitle('Hello World');
+  }
 
   render () {
     return (

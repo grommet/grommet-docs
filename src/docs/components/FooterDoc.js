@@ -7,12 +7,17 @@ import Example from '../Example';
 import Footer from 'grommet/components/Footer';
 import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
+import { updatePageTitle } from '../utils/a11y';
 
 Footer.displayName = 'Footer';
 Menu.displayName = 'Menu';
 Button.displayName = 'Button';
 
 export default class FooterDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Footer');
+  }
 
   _onClick () {
     // no-op

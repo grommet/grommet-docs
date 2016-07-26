@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import WorldMap from 'grommet/components/WorldMap';
+import { updatePageTitle } from '../utils/a11y';
 
 WorldMap.displayName = 'WorldMap';
 
@@ -35,6 +36,10 @@ const series = [
 ];
 
 export default class WorldMapDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('World Map');
+  }
 
   render () {
 

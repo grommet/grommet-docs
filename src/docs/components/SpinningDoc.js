@@ -1,12 +1,17 @@
 var React = require('react');
 var DocsArticle = require('../../components/DocsArticle');
 var Spinning = require('grommet/components/icons/Spinning');
+var A11y = require('../utils/a11y');
 
 const inline = `var Spinning = require('grommet/components/icons/Spinning');
 //or var Spinning = Grommet.Icons.Spinning
 `;
 
 var SpinningDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Spinning');
+  },
+
   render: function() {
     return (
       <DocsArticle title="Spinning" colorIndex="neutral-3">

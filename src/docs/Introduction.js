@@ -4,8 +4,12 @@ import React, { Component } from 'react';
 import DocsArticle from '../components/DocsArticle';
 import NavAnchor from '../components/NavAnchor';
 import Menu from 'grommet/components/Menu';
+import { updatePageTitle } from './utils/a11y';
 
 export default class Introduction extends Component {
+  componentDidMount () {
+    updatePageTitle('Docs');
+  }
 
   render () {
     return (

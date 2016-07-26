@@ -7,7 +7,6 @@ import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
-import Headline from 'grommet/components/Headline';
 import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
@@ -20,13 +19,14 @@ import Hands from './img/Hands.js';
 import NavAnchor from './components/NavAnchor';
 import NavButton from './components/NavButton';
 import ThemeMenu from './components/ThemeMenu';
+import { updatePageTitle } from './docs/utils/a11y';
 
 class HomeSection extends Component {
   render () {
     return (
       <Section
         appCentered={true} justify="center" align="center"
-        textCentered={true} pad={{vertical: "large"}} {...this.props}>
+        pad={{vertical: "large"}} {...this.props}>
         {this.props.children}
       </Section>
     );
@@ -46,6 +46,7 @@ export default class Home extends Component {
     this._app.addEventListener('scroll', this._onScroll);
     // delay showing the codepen to avoid interfering with logo animation
     setTimeout(() => this.setState({ showCodePen: true }), 2000);
+    updatePageTitle();
   }
 
   componentWillUnmount () {
@@ -83,8 +84,7 @@ export default class Home extends Component {
 
     return (
       <Article className="home">
-
-        <HomeSection primary={true} pad="none">
+        <HomeSection pad="none">
           <Header fixed={false} appCentered={true} justify="center">
             <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
               <NavAnchor path="/docs/get-started">Start</NavAnchor>
@@ -94,19 +94,20 @@ export default class Home extends Component {
               <NavAnchor path="/docs">Docs</NavAnchor>
             </Menu>
           </Header>
-          <Box pad={{vertical: 'large'}} direction="column" align="center"
-            flex={false}>
-            <GrommetLogo size="xlarge" a11yTitle=""/>
-            <Heading tag="h1" margin="medium">grommet</Heading>
-            <Headline size="small" align="center">
+          <Box primary={true} pad={{vertical: 'large'}} direction="column"
+            align="center" flex={false}>
+            <GrommetLogo size="xlarge" a11yTitle="Grommet Logo"
+              a11yTitleId='hero_logo' />
+            <Heading tag="h2" margin="medium">grommet</Heading>
+            <Paragraph size="large" align="center">
               focus on the essential experience
-            </Headline>
+            </Paragraph>
           </Box>
           <Footer appCentered={true} justify="center">
             <Menu inline={true} responsive={false} direction="row">
-              <Anchor href="http://slackin.grommet.io" icon={<SlackIcon />}/>
-              <Anchor href="https://github.com/grommet/grommet" icon={<GithubIcon />}/>
-              <Anchor href="https://twitter.com/grommetux" icon={<TwitterIcon />}/>
+              <Anchor href="http://slackin.grommet.io" icon={<SlackIcon a11yTitle='Grommet Slack' />}/>
+              <Anchor href="https://github.com/grommet/grommet" icon={<GithubIcon a11yTitle='Grommet Github' />}/>
+              <Anchor href="https://twitter.com/grommetux" icon={<TwitterIcon a11yTitle='Grommet Twitter' />}/>
             </Menu>
           </Footer>
         </HomeSection>

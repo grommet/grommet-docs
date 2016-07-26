@@ -8,8 +8,13 @@ var IEIcon = require('grommet/components/icons/base/PlatformInternetExplorer');
 var EdgeIcon = require('grommet/components/icons/base/PlatformEdge');
 var ChromeIcon = require('grommet/components/icons/base/PlatformChrome');
 var AppleIcon = require('grommet/components/icons/base/PlatformApple');
+var A11y = require('../utils/a11y');
 
 var Browser = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Browser Support');
+  },
+
   render: function () {
     return (
       <Box direction="row" align="center"

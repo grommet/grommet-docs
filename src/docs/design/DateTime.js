@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class DateTime extends Component {
+  componentDidMount () {
+    updatePageTitle('Date and Time');
+  }
+
   render () {
     return (
       <DocsArticle title="Date and Time" colorIndex="neutral-2">

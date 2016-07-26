@@ -9,6 +9,7 @@ var Tile = require('grommet/components/Tile');
 var Button = require('grommet/components/Button');
 var iconsMap = require('./iconsMap');
 var iconNames = Object.keys(iconsMap);
+var A11y = require('../utils/a11y');
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -30,6 +31,7 @@ var IconDoc = React.createClass({
 
   componentDidMount: function () {
     this._highlightCode();
+    A11y.updatePageTitle('Icon');
   },
 
   componentDidUpdate: function () {

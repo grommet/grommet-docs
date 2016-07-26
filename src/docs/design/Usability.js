@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import { updatePageTitle } from '../utils/a11y';
 
 export default class Usability extends Component {
+  componentDidMount () {
+    updatePageTitle('Usability');
+  }
+
   render () {
     return (
       <DocsArticle title="Usability" colorIndex="neutral-1">

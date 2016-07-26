@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
+import { updatePageTitle } from './a11y';
 
 import Markdown from 'grommet/components/Markdown';
 
@@ -42,6 +43,9 @@ const components = {
 };
 
 export default class MarkdownDoc extends Component {
+  componentDidMount () {
+    updatePageTitle('Markdown');
+  }
 
   render () {
     return (

@@ -6,11 +6,16 @@ import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 import Tags from 'grommet/components/Tags';
 import Tag from 'grommet/components/Tag';
+import { updatePageTitle } from '../utils/a11y';
 
 Tags.displayName = 'Tags';
 Tag.displayName = 'Tag';
 
 export default class TagsDoc extends Component {
+
+  componentDidMount () {
+    updatePageTitle('Tags');
+  }
 
   _onClick () {
     // No-op

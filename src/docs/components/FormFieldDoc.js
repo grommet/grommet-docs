@@ -6,8 +6,12 @@ var FormField = require('grommet/components/FormField');
 var CheckBox = require('grommet/components/CheckBox');
 var RadioButton = require('grommet/components/RadioButton');
 var NumberInput = require('grommet/components/NumberInput');
+var A11y = require('../utils/a11y');
 
 var FormFieldDoc = React.createClass({
+  componentDidMount: function () {
+    A11y.updatePageTitle('Form Field');
+  },
 
   render: function() {
     var inline = [
