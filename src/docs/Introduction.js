@@ -20,13 +20,16 @@ export default class Introduction extends Component {
           assist in creating experiences that work accross the many different interaction
           methods and screen sizes.</p>
           <Menu direction="column">
-            <NavAnchor path="/docs/hello-world" primary={true}>
+            <NavAnchor path="/docs/hello-world" primary={true}
+              id='hello-world-anchor'>
               Hello World
             </NavAnchor>
-            <NavAnchor path="/docs/get-started" primary={true}>
+            <NavAnchor path="/docs/get-started" primary={true}
+              id='get-started-anchor'>
               Get Started
             </NavAnchor>
-            <NavAnchor path="/docs/resources" primary={true}>
+            <NavAnchor path="/docs/resources" primary={true}
+              id='resources-anchor'>
               Design Resources
             </NavAnchor>
           </Menu>

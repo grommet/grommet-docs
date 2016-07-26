@@ -12,7 +12,7 @@ export default class ThemeMenu extends Component {
 
   constructor () {
     super();
-    this._onChangeTheme = this._onChangeTheme.bind(this);
+    this._getThemeUrl = this._getThemeUrl.bind(this);
     this._onOpen = this._onOpen.bind(this);
     this._onClose = this._onClose.bind(this);
     this.state = { theme: 'grommet', active: false };
@@ -23,10 +23,30 @@ export default class ThemeMenu extends Component {
     if (THEMES.indexOf(theme) === -1) {
       theme = 'grommet';
     }
-    this.setState({ theme: theme });
+
+    const themeUrls = {};
+    THEMES.forEach((currentTheme) => {
+      themeUrls[currentTheme] = this._getThemeUrl(currentTheme);
+    });
+
+    const location = window.location.pathname;
+    this.setState({ theme, themeUrls, location });
   }
 
-  _onChangeTheme (theme) {
+  componentDidUpdate() {
+    const location = window.location.pathname;
+
+    if (location !== this.state.location) {
+      const themeUrls = {};
+      THEMES.forEach((currentTheme) => {
+        themeUrls[currentTheme] = this._getThemeUrl(currentTheme);
+      });
+
+      this.setState({ location, themeUrls });
+    }
+  }
+
+  _getThemeUrl (theme) {
     let prefix;
     if ('grommet' === theme) {
       prefix = '';
@@ -43,7 +63,7 @@ export default class ThemeMenu extends Component {
       path = window.location.pathname;
     }
 
-    window.location = `${prefix}${path}`;
+    return `${prefix}${path}`;
   }
 
   _onOpen (event) {
@@ -62,14 +82,10 @@ export default class ThemeMenu extends Component {
     let layer = <span></span>;
     if (active) {
       const links = THEMES.map(theme => (
-        <Anchor key={theme} href=""
-          onClick={(event) => {
-            event.preventDefault();
-            this._onChangeTheme(theme);
-          }}>
+        <Anchor key={theme} href={this.state.themeUrls[theme]}>
           {theme}
         </Anchor>
-      ));
+      ), this);
       layer = (
         <Layer onClose={this._onClose} closer={true} align={align}>
           <Box pad="medium" justify="end" full="vertical">

@@ -44,6 +44,7 @@ const DEVELOP = [
   'checkbox',
   'columns',
   'datetime',
+  'date-and-time',
   'distribution',
   'footer',
   'form',

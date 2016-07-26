@@ -45,12 +45,13 @@ export default class Home extends Component {
     this._app = document.querySelector('.grommetux-app');
     this._app.addEventListener('scroll', this._onScroll);
     // delay showing the codepen to avoid interfering with logo animation
-    setTimeout(() => this.setState({ showCodePen: true }), 2000);
+    this.timeout = setTimeout(() => this.setState({ showCodePen: true }), 2000);
     updatePageTitle();
   }
 
   componentWillUnmount () {
     this._app.removeEventListener('scroll', this._onScroll);
+    clearTimeout(this.timeout);
   }
 
   _onScroll (event) {

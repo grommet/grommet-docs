@@ -78,7 +78,7 @@ export default class AnchorDoc extends Component {
               onClick={this._onClick} />
           } />
           <Example name="Icon, Label" code={
-            <Anchor href="" icon={<EditIcon />} label="Edit"
+            <Anchor href="" icon={<EditIcon id='edit-icon-1' />} label="Edit"
               onClick={this._onClick} />
           } />
           <Example name="Icon, Label, Reverse" code={
@@ -86,7 +86,8 @@ export default class AnchorDoc extends Component {
               onClick={this._onClick} />
           } />
           <Example name="Icon" code={
-            <Anchor href="" icon={<EditIcon />} onClick={this._onClick} />
+            <Anchor href="" icon={<EditIcon id='edit-icon-2' />}
+              onClick={this._onClick} />
           } />
           <Example name="Target" code={
             <Anchor href="" target="_blank" label="Label" onClick={this._onClick} />
@@ -104,8 +105,8 @@ export default class AnchorDoc extends Component {
               pad={{horizontal: 'medium', vertical: 'medium', between: 'medium'}}>
               <Anchor href="" onClick={this._onClick}>Text</Anchor>
               <Anchor href="" primary={true} label="Label" onClick={this._onClick} />
-              <Anchor href="" icon={<EditIcon />} onClick={this._onClick} />
-              <Anchor href="" icon={<EditIcon />} label="Edit" onClick={this._onClick} />
+              <Anchor href="" icon={<EditIcon id='edit-icon-3' />} onClick={this._onClick} />
+              <Anchor href="" icon={<EditIcon id='edit-icon-4' />} label="Edit" onClick={this._onClick} />
             </Section>
           } />
         </section>
