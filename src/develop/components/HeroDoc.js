@@ -4,6 +4,7 @@ var React = require('react');
 var jsxToString = require('jsx-to-string');
 var DocsArticle = require('../../DocsArticle');
 var Hero = require('grommet/components/Hero');
+var Video = require('grommet/components/Video');
 
 Hero.displayName = 'Hero';
 
@@ -38,8 +39,14 @@ var HeroDoc = React.createClass({
         <h1>This is a Hero</h1>
       </Hero>
     );
+
+    var backgroundVideo = (
+      <Video autoPlay={true} showControls={false} loop={true} muted={true}>
+        <source src="video/test.mp4" type="video/mp4"/>
+      </Video>
+    );
     var smallHero = (
-      <Hero size="small" backgroundType="video" backgroundVideoSource="video/test.mp4">
+      <Hero size="small" backgroundVideo={backgroundVideo}>
         <h1>This is a Hero with video</h1>
       </Hero>
     );
@@ -53,20 +60,12 @@ var HeroDoc = React.createClass({
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>backgroundType                  image|video</code></dt>
-            <dd>Type of media used for the background of the Hero.</dd>
             <dt><code>backgroundImage                 string</code></dt>
-            <dd>Source of the image to be used for the background.  Required if <code>backgroundType</code> is <code>image</code>.</dd>
-            <dt><code>backgroundVideoSource           string</code></dt>
-            <dd>Source of the video to be used for the background.  Required if <code>backgroundType</code> is <code>video</code>.</dd>
-            <dt><code>backgroundVideoLoop             true|false</code></dt>
-            <dd>Whether the background video should loop.  Defaults to <code>false</code>.</dd>
-            <dt><code>backgroundVideoMuted            true|false</code></dt>
-            <dd>Whether the background video should be muted.  Defaults to <code>true</code>.</dd>
-            <dt><code>backgroundVideoPoster           string</code></dt>
-            <dd>Source of the image that shows before the video begins.</dd>
-            <dt><code>darkTheme                       true|false</code></dt>
-            <dd>Refers to the color theme of the background being used.  If set to <code>true</code>, the Hero will have light-colored text.  If <code>false</code>, the Hero will have dark-colored text.  Defaults to <code>true</code>.</dd>
+            <dd>Source of the image to be used for the background.  Either backgroundImage or backgroundVideo can be used, but not both.</dd>
+            <dt><code>backgroundVideo                 object</code></dt>
+            <dd>Video to be used for the background.  Either backgroundImage or backgroundVideo can be used, but not both.</dd>
+            <dt><code>colorIndex                      string</code></dt>
+            <dd>ColorIndex to be used for the background.  Can be used in conjunction with backgroundImage or backgroundVideo to control the font color.</dd>
             <dt><code>flush                           true|false</code></dt>
             <dd>Whether the Hero should be flush with the edges of the window.  Defaults to <code>true</code>.</dd>
             <dt><code>image                           string</code></dt>
