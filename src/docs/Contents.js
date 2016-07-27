@@ -32,6 +32,18 @@ import ButtonDoc from './components/ButtonDoc';
 import CalendarDoc from './components/CalendarDoc';
 import CarouselDoc from './components/CarouselDoc';
 import ChartDoc from './components/ChartDoc';
+import ChartAreaDoc from './components/chart/AreaDoc';
+import ChartAxisDoc from './components/chart/AxisDoc';
+import ChartBarDoc from './components/chart/BarDoc';
+import ChartBaseDoc from './components/chart/BaseDoc';
+import ChartGridDoc from './components/chart/GridDoc';
+import ChartHotSpotsDoc from './components/chart/HotSpotsDoc';
+import ChartLayersDoc from './components/chart/LayersDoc';
+import ChartLineDoc from './components/chart/LineDoc';
+import ChartMarkerDoc from './components/chart/MarkerDoc';
+import ChartMarkerLabelDoc from './components/chart/MarkerLabelDoc';
+import ChartRangeDoc from './components/chart/RangeDoc';
+import ChartV1Doc from './components/ChartV1Doc';
 import CheckBoxDoc from './components/CheckBoxDoc';
 import ColumnsDoc from './components/ColumnsDoc';
 // import DashboardDoc from './patterns/DashboardDoc';
@@ -121,7 +133,20 @@ export default [
       {path: 'button', label: 'Button', component: ButtonDoc},
       {path: 'calendar', label: 'Calendar', component: CalendarDoc},
       {path: 'carousel', label: 'Carousel', component: CarouselDoc},
-      {path: 'chart', label: 'Chart', component: ChartDoc},
+      {path: 'chart', label: 'Chart', component: ChartDoc, contents: [
+        {path: 'chart-area', component: ChartAreaDoc},
+        {path: 'chart-axis', component: ChartAxisDoc},
+        {path: 'chart-bar', component: ChartBarDoc},
+        {path: 'chart-base', component: ChartBaseDoc},
+        {path: 'chart-grid', component: ChartGridDoc},
+        {path: 'chart-hot-spots', component: ChartHotSpotsDoc},
+        {path: 'chart-layers', component: ChartLayersDoc},
+        {path: 'chart-line', component: ChartLineDoc},
+        {path: 'chart-marker', component: ChartMarkerDoc},
+        {path: 'chart-marker-label', component: ChartMarkerLabelDoc},
+        {path: 'chart-range', component: ChartRangeDoc}
+      ]},
+      {path: 'chart-v1', component: ChartV1Doc},      
       {path: 'check-box', label: 'CheckBox', component: CheckBoxDoc},
       {path: 'columns', label: 'Columns', component: ColumnsDoc},
       {path: 'date-time', label: 'DateTime', component: DateTimeDoc},

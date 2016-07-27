@@ -12,7 +12,7 @@ import ThemeMenu from './ThemeMenu';
 export default class DocsMenu extends Component {
 
   _renderMenuItems (contents, context) {
-    return contents.map((content, index) => {
+    return contents.filter(content => content.label).map((content, index) => {
       let item;
 
       if (content.path) {
