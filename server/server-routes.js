@@ -2380,7 +2380,7 @@ module.exports =
 	            onFocus: this._onFocus,
 	            onClick: this._onClick(anchor.id),
 	            id: 'skipLayer_' + anchor.id,
-	            key: anchor.id,
+	            key: 'skipLayerItem_' + index,
 	            'aria-label': a11yLabel },
 	          anchor.label
 	        );
@@ -2452,7 +2452,7 @@ module.exports =
 	var GrommetFormattedMessage = function GrommetFormattedMessage(props, context) {
 	  return context.intl ? _react2.default.createElement(_reactIntl.FormattedMessage, props) : _react2.default.createElement(
 	    'span',
-	    { id: props.id },
+	    { id: props.id.replace(' ', '_') },
 	    props.defaultMessage || props.id
 	  );
 	};
@@ -3255,9 +3255,9 @@ module.exports =
 	  CHART_GRID: namespace + 'chart-grid',
 	  CHART_HOT_SPOTS: namespace + 'chart-hot-spots',
 	  CHART_LAYERS: namespace + 'chart-layers',
+	  CHART_MARKER: namespace + 'chart-marker',
+	  CHART_MARKER_LABEL: namespace + 'chart-marker-label',
 	  CHART_RANGE: namespace + 'chart-range',
-	  CHART_STACK: namespace + 'chart-stack',
-	  CHART_THRESHOLD: namespace + 'chart-threshold',
 	  CHECK_BOX: namespace + 'check-box',
 	  COLLAPSIBLE: namespace + 'collapsible',
 	  COLOR_INDEX: namespace + 'color-index',
@@ -3274,6 +3274,7 @@ module.exports =
 	  HEADER: namespace + 'header',
 	  HEADING: namespace + 'heading',
 	  HEADLINE: namespace + 'headline',
+	  HERO: namespace + 'hero',
 	  IMAGE: namespace + 'image',
 	  IMAGE_FIELD: namespace + 'image-field',
 	  LABEL: namespace + 'label',
@@ -4843,15 +4844,6 @@ module.exports =
 
 	var SMALL_WIDTH_EM = 44.9375; // align with _settings.responsive.scss
 
-	function _smallSize() {
-	  var fontSize = '16px';
-	  // unit tests don't have getComputedStyle
-	  if (window.getComputedStyle) {
-	    fontSize = window.getComputedStyle(document.documentElement).fontSize;
-	  }
-	  return SMALL_WIDTH_EM * parseFloat(fontSize);
-	}
-
 	exports.default = {
 
 	  // Track responsive sizing.
@@ -4867,7 +4859,7 @@ module.exports =
 	      func: func,
 	      timer: null,
 	      small: null,
-	      smallSize: _smallSize()
+	      smallSize: this.smallSize()
 	    };
 	    responsive.onResize = this._onResize.bind(this, responsive);
 	    responsive.layout = this._check.bind(this, responsive);
@@ -4897,6 +4889,14 @@ module.exports =
 	        responsive.func(false);
 	      }
 	    }
+	  },
+	  smallSize: function smallSize() {
+	    var fontSize = '16px';
+	    // unit tests don't have getComputedStyle
+	    if (window.getComputedStyle) {
+	      fontSize = window.getComputedStyle(document.documentElement).fontSize;
+	    }
+	    return SMALL_WIDTH_EM * parseFloat(fontSize);
 	  }
 	};
 	module.exports = exports['default'];
@@ -6677,7 +6677,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link-previous' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.1397,20l-8-8l8-8 M3.1397,12h19' })
 	        )
@@ -7424,8 +7424,8 @@ module.exports =
 	      if (this.props.icon) {
 	        icon = this.props.icon;
 	      } else if (this.props.primary) {
-	        icon = _react2.default.createElement(_LinkNext2.default, { a11yTitle: this.props.id + 'anchor-next-title',
-	          a11yTitleId: this.props.id + 'anchor-next-title-id' });
+	        icon = _react2.default.createElement(_LinkNext2.default, { a11yTitle: this.props.id + '-icon' || 'primary icon',
+	          a11yTitleId: this.props.id + '-icon' || 'anchor-next-title-id' });
 	      }
 
 	      if (icon && !this.props.primary && !this.props.label) {
@@ -14391,7 +14391,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link-up' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,10.9448l8-8l8,8 M12,21.9448v-19' })
 	        )
@@ -14514,7 +14514,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link-top' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,12.9448l7-7l7,7 M12,22.9448v-17 M2,1.9448h20' })
 	        )
@@ -15006,7 +15006,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-twitter' },
+	          null,
 	          _react2.default.createElement('path', { stroke: 'none', fill: '#000000', d: 'M22,5 C23,4 23,3 23,2 C22,3 21,4 20,4 C20,4 19,2 17,2 C13,2 12,4 12,8 C6,8 4.099,5.97949244 2,3 C0,5.97949243 2,9 3,10 C3,10 2,10 1,9 C1,11 2.661,13.5836965 5,14 C5,14 4,15 2,14 C2,16 5,18 7,18 C7,18 6,21 0,21 C2,22 5,22 8,22 C16.605,22 22,15 22,8 L22,7 C23,6 23.34,5.38067162 24,4 C23,5 22,5 22,5 Z' })
 	        )
 	      );
@@ -15128,7 +15128,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-linkedin' },
+	          null,
 	          _react2.default.createElement('path', { stroke: 'none', fill: '#000000', d: 'M22,23 L18,23 L18,17 C18,15 17.5,13 15,13 C12.5,13 12,15 12,17 L12,23 L8,23 L8,9 L12,9 L12,12 C12,12 13.5,9 17,9 C19.5,9 22,11 22,15.5 L22,23 Z M6,23 L2,23 L2,9 L6,9 L6,23 Z M4,7 C5,7 6.5,6 6.5,4.5 C6.5,3 5,2 4,2 C2.5,2 1.5,3 1.5,4.5 C1.5,6 2.5,7 4,7 Z' })
 	        )
 	      );
@@ -15250,7 +15250,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-facebook' },
+	          null,
 	          _react2.default.createElement('path', { stroke: 'none', fill: '#000000', d: 'M14,23 L14,13 L17,13 L18,9 L14,9 L14,7 C14,5.5 15,5 16,5 L18,5 L18,1 C17.5,1 16.5,1 15,1 C12,1 10,3 10,6 L10,9 L7,9 L7,13 L10,13 L10,23 L14,23 Z' })
 	        )
 	      );
@@ -18175,7 +18175,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-firefox' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.5814', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M23.9654,9.7423l-0.278,1.7831c0,0-0.3974-3.3013-0.8843-4.5355c-0.7464-1.8911-1.0785-1.8759-1.0807-1.8732\r c0.4999,1.2704,0.4093,1.9529,0.4093,1.9529s-0.8857-2.414-3.2276-3.1821c-2.5942-0.8504-3.9977-0.6179-4.1599-0.5739\r c-0.0246-0.0002-0.0484-0.0002-0.071-0.0002c0.0192,0.0015,0.0378,0.0034,0.0569,0.005c-0.0008,0.0005-0.0021,0.001-0.0021,0.001\r c0.0107,0.0131,2.8667,0.4995,3.3732,1.1955c0,0-1.2131,0-2.4204,0.3479c-0.0546,0.0156,4.442,0.5617,5.3612,5.0549\r c0,0-0.4929-1.0283-1.1025-1.203c0.4009,1.2196,0.298,3.5338-0.0838,4.684c-0.0491,0.1479-0.0994-0.6394-0.8514-0.9785\r c0.2409,1.7261-0.0144,4.4638-1.2119,5.2179c-0.0933,0.0587,0.7507-2.7026,0.1697-1.635c-3.3447,5.1282-7.2985,2.3665-9.0761,1.151\r c0.9109,0.1983,2.6403-0.0309,3.4058-0.6003c0.001-0.0007,0.0018-0.0013,0.0028-0.002c0.8313-0.5684,1.3236-0.9835,1.7656-0.8853\r c0.4424,0.0988,0.7368-0.3451,0.3933-0.739c-0.344-0.3946-1.1792-0.937-2.3092-0.6414c-0.7969,0.2087-1.7844,1.0904-3.2917,0.1976\r c-1.157-0.6855-1.2659-1.255-1.2762-1.6494c0.0285-0.1398,0.0645-0.2704,0.1072-0.3896c0.1332-0.372,0.537-0.4842,0.7616-0.5728\r c0.381,0.0654,0.7093,0.1843,1.0539,0.3611c0.0045-0.1147,0.0059-0.267-0.0004-0.4397c0.033-0.0657,0.0126-0.2637-0.0404-0.5058\r c-0.0305-0.2416-0.0802-0.4916-0.1582-0.7193c0.0003,0,0.0005-0.0002,0.0005-0.0002c0.0015-0.0005,0.0028-0.001,0.0039-0.0017\r c0.0018-0.001,0.0034-0.0026,0.0049-0.0045C9.3096,10.5612,9.31,10.5609,9.31,10.5609c0.0023-0.0033,0.0039-0.0068,0.005-0.0113\r c0.0239-0.1082,0.2818-0.317,0.6028-0.5414C10.2054,9.807,10.5436,9.5934,10.81,9.428c0.2358-0.1464,0.4153-0.255,0.4534-0.2835\r c0.0145-0.0109,0.0318-0.0237,0.0507-0.0383c0.0035-0.0027,0.007-0.0054,0.0106-0.0083c0.0022-0.0017,0.0045-0.0035,0.0067-0.0053\r c0.1268-0.101,0.316-0.2917,0.3557-0.6932c0.0001-0.001,0.0002-0.0019,0.0003-0.0029c0.0012-0.0118,0.0022-0.0238,0.003-0.036\r c0.0007-0.0085,0.0012-0.017,0.0017-0.0257c0.0003-0.0067,0.0007-0.0133,0.001-0.0201c0.0007-0.0158,0.0012-0.032,0.0014-0.0484\r c0-0.0009,0-0.0018,0.0001-0.0027c0.0005-0.0389-0.0001-0.0794-0.0024-0.1219c-0.0013-0.0238-0.003-0.0452-0.007-0.0647\r c-0.0002-0.001-0.0004-0.0022-0.0007-0.0032c-0.0004-0.0019-0.0008-0.0038-0.0014-0.0057\r c-0.0008-0.0034-0.0018-0.0068-0.0029-0.0101c0,0-0.0002-0.0008-0.0004-0.0011c-0.0012-0.0037-0.0026-0.0074-0.0041-0.0109\r l-0.0001-0.0004c-0.0411-0.0963-0.195-0.1326-0.8307-0.1434c0,0-0.0012,0-0.0018,0l0,0c-0.2594-0.0044-0.5985-0.0045-1.043-0.0028\r c-0.7793,0.0031-1.21-0.7618-1.3475-1.0578c0.1884-1.042,0.733-1.7846,1.6277-2.2881c0.0169-0.0095,0.0136-0.0174-0.0064-0.0229\r c0.1749-0.1058-2.1151-0.0029-3.1684,1.3368C5.9709,5.6351,5.1561,5.6507,4.4538,5.8155C4.319,5.8117,4.1509,5.7949,3.9515,5.7534\r C3.4845,5.3302,2.816,4.5486,2.7802,3.6157c0,0-0.0022,0.0017-0.0059,0.0048c-0.0005-0.009-0.0013-0.0178-0.0017-0.0268\r c0,0-1.423,1.0937-1.21,4.0754C1.562,7.7168,1.561,7.7625,1.5597,7.8067C1.1746,8.3291,0.9835,8.7681,0.9693,8.8651\r C0.628,9.5599,0.2818,10.6054,0,12.1927c0,0,0.1971-0.625,0.5926-1.3328c-0.2909,0.8911-0.5195,2.2771-0.3852,4.356\r c0,0,0.0355-0.4609,0.1611-1.1249c0.0981,1.2893,0.5278,2.881,1.6139,4.7528c2.0847,3.5934,5.2891,5.408,8.8311,5.6863\r c0.629,0.0518,1.2668,0.0531,1.9084,0.0044c0.059-0.0042,0.1179-0.0085,0.177-0.0135c0.7257-0.051,1.4563-0.1606,2.1853-0.3367\r C25.0489,21.7751,23.9654,9.7423,23.9654,9.7423z' })
 	        )
@@ -18298,7 +18298,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-internet-explorer', transform: 'translate(-314.39464,-274.3971)' },
+	          { transform: 'translate(-314.39464,-274.3971)' },
 	          _react2.default.createElement('rect', { x: '316.1202', y: '274.3971', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M338.3947,287.3958c0-1.8973-0.4905-3.6797-1.3507-5.2286\r c3.6665-8.2982-3.9287-7.0827-4.3516-7c-1.6092,0.3148-3.0979,0.8204-4.4711,1.4612c-0.2025-0.0114-0.4062-0.0177-0.6115-0.0177\r c-5.1248,0-9.4146,3.5745-10.5126,8.3664c2.7011-3.0303,4.5915-4.253,5.7235-4.7423c-0.1807,0.1615-0.3576,0.3247-0.5316,0.4892\r c-0.0579,0.0547-0.1137,0.1101-0.1709,0.1652c-0.1147,0.1104-0.2292,0.2208-0.341,0.3323\r c-0.0665,0.0663-0.1313,0.1332-0.1968,0.1999c-0.0992,0.101-0.1981,0.2018-0.295,0.3034\r c-0.0688,0.0721-0.1359,0.1445-0.2034,0.2167c-0.0905,0.0968-0.1804,0.1938-0.2686,0.2911\r c-0.0685,0.0756-0.136,0.1512-0.2033,0.227c-0.0836,0.0941-0.1665,0.1883-0.2482,0.2827\r c-0.0677,0.0783-0.1349,0.1566-0.2014,0.2349c-0.0775,0.0915-0.154,0.1829-0.2297,0.2744\r c-0.067,0.0809-0.1337,0.1618-0.1992,0.2426c-0.0709,0.0874-0.1402,0.1747-0.2094,0.262\r c-0.0671,0.0845-0.1342,0.1689-0.1997,0.2534c-0.0624,0.0804-0.123,0.1604-0.1841,0.2406\r c-0.0689,0.0905-0.1383,0.1811-0.2054,0.2712c-0.048,0.0645-0.094,0.1284-0.1411,0.1927\r c-0.4261,0.5815-0.8155,1.1517-1.1671,1.6995c-0.0009,0.0013-0.0018,0.0027-0.0026,0.004\r c-0.0926,0.1443-0.1819,0.2863-0.2695,0.4272c-0.0047,0.0076-0.0096,0.0153-0.0143,0.023\r c-0.0876,0.1414-0.1723,0.2804-0.2548,0.418c-0.0029,0.0048-0.0059,0.0097-0.0088,0.0145\r c-0.2219,0.3702-0.4276,0.7271-0.6129,1.0629c-0.9713,1.7603-1.4442,2.9902-1.4647,3.0632\r c-3.0673,10.966,6.5059,6.3351,7.8417,5.6439c1.4384,0.7106,3.0577,1.1106,4.7707,1.1106c4.6895,0,8.6794-2.9934,10.1646-7.1736\r h-5.6668c-0.8385,1.4166-2.4528,2.3761-4.3073,2.3761c-2.7172,0-4.9199-2.0587-4.9199-4.5984h15.4256\r C338.3643,288.33,338.3947,287.8665,338.3947,287.3958L338.3947,287.3958z M336.3799,276.7827\r c0.9287,0.6268,1.6737,1.6112,0.3944,4.9265c-1.227-1.9732-3.0729-3.5211-5.267-4.3719\r C332.5054,276.8553,334.9771,275.8358,336.3799,276.7827z M316.6427,297.0483c-0.7564-0.7758-0.8902-2.6652,0.779-6.1082\r c0.8424,2.422,2.5234,4.4515,4.6963,5.7395C321.0374,297.2743,318.1687,298.6134,316.6427,297.0483z M322.8564,285.8357\r c0.0862-2.4684,2.2344-4.4447,4.8738-4.4447c2.6393,0,4.7876,1.9763,4.8738,4.4447H322.8564L322.8564,285.8357z' })
 	        )
@@ -18421,7 +18421,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-edge' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { id: 'Microsoft-Edge-logo', d: 'M5.41,6.8032c-2.8552,1.7773-4.487,4.3029-4.487,4.3029\r S1.3459,5.8103,5.41,2.7115c1.6164-1.2324,3.8262-2.265,6.7984-2.265c1.1166,0,3.4581,0.1943,5.5671,1.4946\r s2.9612,2.3895,3.9114,3.9842c0.41,0.6881,0.7439,1.5721,0.9523,2.4248c0.3903,1.5977,0.4378,3.5084,0.4378,3.5084v2.517H8.0038\r c0,0-0.3681,5.0642,6.5639,5.0642c2.4109,0,3.2551-0.3787,4.048-0.6136c1.2413-0.3676,2.44-1.187,2.44-1.187l0.0023,5.0597\r c0,0-2.837,1.7475-7.123,1.7475c-1.207,0-2.4789-0.1012-3.7056-0.4992C9.1574,23.5996,6.9125,22.6615,5.41,20.463\r c-0.5315-0.7777-1.1074-1.8126-1.3927-2.8236c-0.3084-1.0931-0.3046-2.155-0.3046-2.74c0-2.1881,0.7475-4.2771,2.0447-5.7874\r c1.6803-1.9562,3.804-2.8174,3.804-2.8174S8.8697,7.1011,8.4442,8.1052s-0.5419,2.0143-0.5419,2.0143h8.5112\r c0,0,0.4978-5.0859-4.816-5.0859C9.5953,5.0336,7.1362,5.7286,5.41,6.8032z' })
 	        )
@@ -18544,7 +18544,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-chrome' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.1371', y: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M6.0538,10.4666L2.6192,4.5177C4.8183,1.7644,8.2032,0,12.0009,0c4.3933,0,8.2344,2.3612,10.3257,5.8832h-9.7922\r c-0.1759-0.0152-0.3537-0.0234-0.5335-0.0234C9.1442,5.8598,6.7369,7.8203,6.0538,10.4666z M16.2974,7.6177h6.8785\r c0.533,1.3578,0.8259,2.8362,0.8259,4.3831c0,6.5823-5.2996,11.926-11.8646,11.9991l4.908-8.5009\r c0.691-0.9933,1.0968-2.1992,1.0968-3.4983C18.1419,10.2858,17.4349,8.733,16.2974,7.6177z M7.6412,12.0009\r c0-2.4039,1.9558-4.3597,4.3597-4.3597s4.3597,1.9558,4.3597,4.3597s-1.9558,4.3597-4.3597,4.3597S7.6412,14.4048,7.6412,12.0009z\r M13.6459,17.9179l-3.4357,5.9507C4.4317,23.0041,0,18.0201,0,12.0009c0-2.1381,0.5598-4.1451,1.5399-5.8838l4.8995,8.4863\r c0.9814,2.0887,3.1051,3.5386,5.5615,3.5386C12.5704,18.1419,13.1221,18.0636,13.6459,17.9179z' })
 	        )
@@ -18667,7 +18667,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-apple' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M18.5499,12.7504c0.0337,3.632,3.1862,4.8406,3.2211,4.856c-0.0267,0.0852-0.5037,1.7224-1.6609,3.4135\r c-1.0003,1.462-2.0385,2.9187-3.674,2.9489c-1.607,0.0296-2.1237-0.953-3.961-0.953c-1.8367,0-2.4108,0.9228-3.932,0.9826\r c-1.5786,0.0597-2.7807-1.581-3.7894-3.0377c-2.061-2.9797-3.636-8.4198-1.5212-12.092c1.0506-1.8236,2.9282-2.9784,4.9661-3.008\r c1.5502-0.0296,3.0134,1.0429,3.961,1.0429c0.947,0,2.7251-1.2897,4.5943-1.1003c0.7825,0.0326,2.9791,0.3161,4.3895,2.3807\r C21.0299,8.2544,18.5226,9.714,18.5499,12.7504 M15.5297,3.832C16.3678,2.8175,16.9319,1.4052,16.778,0\r c-1.2081,0.0486-2.6689,0.805-3.5354,1.819c-0.7766,0.8979-1.4567,2.335-1.2732,3.7124C13.316,5.6355,14.6916,4.8471,15.5297,3.832\r ' })
 	        )
@@ -19564,7 +19564,7 @@ module.exports =
 	          _Header2.default,
 	          {
 	            role: 'tab',
-	            className: CLASS_ROOT + '-header',
+	            className: CLASS_ROOT + '__header',
 	            pad: { horizontal: 'medium', vertical: 'small' },
 	            full: 'horizontal',
 	            direction: 'row',
@@ -19574,7 +19574,7 @@ module.exports =
 	            responsive: false
 	          },
 	          heading,
-	          _react2.default.createElement(_TabNext2.default, null)
+	          _react2.default.createElement(_TabNext2.default, { className: CLASS_ROOT + '__control' })
 	        ),
 	        _react2.default.createElement(
 	          _Collapsible2.default,
@@ -19816,7 +19816,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tab-next' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '7.5,21.3768 7.5,3.0434 20.5,12.2101 \t' })
 	        )
@@ -19935,6 +19935,7 @@ module.exports =
 	    key: 'componentDidEnter',
 	    value: function componentDidEnter() {
 	      var node = _reactDom2.default.findDOMNode(this);
+	      node.classList.remove('animate');
 	      node.style.height = '';
 	    }
 	  }, {
@@ -19978,7 +19979,7 @@ module.exports =
 
 	      return _react2.default.createElement(
 	        Component,
-	        null,
+	        { className: CLASS_ROOT + '__wrapper' },
 	        this.props.active && _react2.default.createElement(Collapse, this.props)
 	      );
 	    }
@@ -25835,7 +25836,7 @@ module.exports =
 	  checked: _react.PropTypes.bool,
 	  defaultChecked: _react.PropTypes.bool,
 	  disabled: _react.PropTypes.bool,
-	  id: _react.PropTypes.string.isRequired,
+	  id: _react.PropTypes.string,
 	  label: _react.PropTypes.node,
 	  name: _react.PropTypes.string,
 	  onChange: _react.PropTypes.func,
@@ -28857,6 +28858,7 @@ module.exports =
 
 	var CLASS_ROOT = _CSSClassnames2.default.DATE_TIME;
 	var FORM_FIELD = _CSSClassnames2.default.FORM_FIELD;
+	var DATE_TIME_DROP = _CSSClassnames2.default.DATE_TIME_DROP;
 	var FORMATS = {
 	  M: 'months',
 	  D: 'days',
@@ -28878,6 +28880,7 @@ module.exports =
 
 	    _this._onInputChange = _this._onInputChange.bind(_this);
 	    _this._onOpen = _this._onOpen.bind(_this);
+	    _this._onControlClick = _this._onControlClick.bind(_this);
 	    _this._onClose = _this._onClose.bind(_this);
 	    _this._onNext = _this._onNext.bind(_this);
 	    _this._onPrevious = _this._onPrevious.bind(_this);
@@ -28965,10 +28968,8 @@ module.exports =
 	            onChange(value);
 	          }
 	        }
-	      } else {
-	        if (onChange) {
-	          onChange(value);
-	        }
+	      } else if (onChange) {
+	        onChange(value);
 	      }
 	    }
 	  }, {
@@ -28976,6 +28977,16 @@ module.exports =
 	    value: function _notify(date) {
 	      if (this.props.onChange) {
 	        this.props.onChange(date);
+	      }
+	    }
+	  }, {
+	    key: '_onControlClick',
+	    value: function _onControlClick(event) {
+	      event.preventDefault();
+	      if (this.state.dropActive) {
+	        this.setState({ dropActive: false, cursor: -1 });
+	      } else {
+	        this.setState({ dropActive: true });
 	      }
 	    }
 	  }, {
@@ -28987,8 +28998,9 @@ module.exports =
 	  }, {
 	    key: '_onClose',
 	    value: function _onClose(event) {
-	      var drop = document.getElementById('date-time-drop');
-	      if (!(0, _DOM.isDescendant)(this.refs.component, event.target) && !(0, _DOM.isDescendant)(drop, event.target)) {
+	      var drop = document.getElementById(DATE_TIME_DROP);
+	      var isCalendarOnly = !TIME_REGEXP.test(this.props.format);
+	      if (!(0, _DOM.isDescendant)(this.refs.component, event.target) && !(0, _DOM.isDescendant)(drop, event.target) || isCalendarOnly) {
 	        this.setState({ dropActive: false, cursor: -1 });
 	      }
 	    }
@@ -29086,6 +29098,8 @@ module.exports =
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var _props2 = this.props;
 	      var className = _props2.className;
 	      var format = _props2.format;
@@ -29110,12 +29124,15 @@ module.exports =
 
 	      return _react2.default.createElement(
 	        'div',
-	        { ref: 'component', className: classes.join(' ') },
+	        { ref: 'component', className: classes.join(' '),
+	          onBlur: function onBlur() {
+	            return _this2.setState({ dropActive: false, cursor: -1 });
+	          } },
 	        _react2.default.createElement('input', { ref: 'input', className: CLASS_ROOT + '__input',
-	          id: id, placeholder: format, name: name, value: value,
-	          onChange: this._onInputChange, onFocus: this._onOpen }),
+	          id: id, placeholder: format, name: name, value: value || '',
+	          onChange: this._onInputChange }),
 	        _react2.default.createElement(_Button2.default, { className: CLASS_ROOT + '__control', icon: _react2.default.createElement(Icon, null),
-	          onClick: this._onOpen })
+	          onClick: this._onControlClick })
 	      );
 	    }
 	  }]);
@@ -29399,30 +29416,46 @@ module.exports =
 	  }, {
 	    key: '_onDay',
 	    value: function _onDay(date) {
-	      this.props.onChange(date);
+	      var format = this.props.format;
+
+	      this.props.onChange(date.format(format));
 	    }
 	  }, {
 	    key: '_onToday',
 	    value: function _onToday() {
+	      var format = this.props.format;
+
 	      var today = (0, _moment2.default)().startOf('day').add(this.state.timeOfDay);
 	      this.setState({ value: today });
-	      this.props.onChange(today);
+	      this.props.onChange(today.format(format));
 	    }
 	  }, {
 	    key: '_onPrevious',
 	    value: function _onPrevious(scope) {
+	      var format = this.props.format;
+
 	      var delta = scope === this.state.stepScope ? this.props.step : 1;
+	      if (scope === 'ampm') {
+	        delta = 12;
+	        scope = 'hours';
+	      }
 	      var value = (0, _moment2.default)(this.state.value).subtract(delta, scope);
 	      this.setState({ value: value });
-	      this.props.onChange(value);
+	      this.props.onChange(value.format(format));
 	    }
 	  }, {
 	    key: '_onNext',
 	    value: function _onNext(scope) {
+	      var format = this.props.format;
+
 	      var delta = scope === this.state.stepScope ? this.props.step : 1;
+	      if (scope === 'ampm') {
+	        delta = 12;
+	        scope = 'hours';
+	      }
 	      var value = (0, _moment2.default)(this.state.value).add(delta, scope);
 	      this.setState({ value: value });
-	      this.props.onChange(value);
+	      this.props.onChange(value.format(format));
 	    }
 	  }, {
 	    key: '_renderDate',
@@ -34051,7 +34084,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-settings' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,21c-1.6545,0-3-1.3458-3-3s1.3455-3,3-3\r s3,1.3458,3,3S21.6545,21,20,21z M26,18l-3,0.0001 M22.1212,20.1214l2.1214,2.1212 M20,24l-0.0001-3 M15.7574,22.2426\r l2.1212-2.1214 M14,18h3 M17.8787,15.8787l-2.1213-2.1213 M20,15v-3 M22.1213,15.8787l2.1213-2.1213 M9,1C6.2386,1,4,3.2386,4,6\r s2.2386,5,5,5s5-2.2386,5-5S11.7614,1,9,1z M14.0002,12.7548C12.6306,11.6568,10.892,11,9,11h0c-4.4183,0-8,3.5817-8,8v4h12.4' })
 	        )
@@ -35625,7 +35658,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'advanced-search' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0.0552', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,10.5c0,4.1421-3.3579,7.5-7.5,7.5\r S2,14.6421,2,10.5S5.3579,3,9.5,3S17,6.3579,17,10.5z M21,0v6 M18,3h6 M15,16l6,6' })
 	        )
@@ -37114,7 +37147,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'bar-chart' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,18h-4v-8h4V18z M6,6H2v12h4V6z M22,2h-4v16h4V2\r z M0,22h24' })
 	        )
@@ -38105,7 +38138,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'carrot-down' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { id: 'drop-carrot', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.8571,8 19.1429,8 \r 12,18 \t' })
 	        )
@@ -38228,7 +38261,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'carrot-next' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '7,4.8571 7,19.1429 17,12 \t' })
 	        )
@@ -38351,7 +38384,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'carrot-previous' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '15,4.8571 15,19.1429 5,12 \t' })
 	        )
@@ -38474,7 +38507,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'carrot-up' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.8571,17 19.1429,17 12,7 \t' })
 	        )
@@ -38720,7 +38753,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'chapter-add' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,14.5v-9h14v15h-8 M18,16.5h4v-15H8v4 M4,16.5v8\r M8,20.5H0' })
 	        )
@@ -38843,7 +38876,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'chapter-next' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '23.0162,12.0293 10,2.0293 10,7.7436 \r 2,2.0293 2,22.0293 10,16.3151 10,22.0293 \t' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '24', y1: '2.0293', x2: '24', y2: '22.0293' })
@@ -38967,7 +39000,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'chapter-previous' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '1.9838,12.0293 15,2.0293 15,7.7436 \r 23,2.0293 23,22.0293 15,16.3151 15,22.0293 \t' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '1', y1: '2.0293', x2: '1', y2: '22.0293' })
@@ -39214,7 +39247,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'checkbox-selected' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '8', y: '8', width: '8', height: '8' }),
 	          _react2.default.createElement('rect', { x: '2', y: '2', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '20', height: '20' })
@@ -39584,7 +39617,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'circular-view' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14.7574,3.5c0,1.3807-1.1193,2.5-2.5,2.5\r s-2.5-1.1193-2.5-2.5s1.1193-2.5,2.5-2.5S14.7574,2.1193,14.7574,3.5z M20.2574,5c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5\r s2.5-1.1193,2.5-2.5S21.6381,5,20.2574,5z M20.2574,14c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5\r S21.6381,14,20.2574,14z M4.2574,5c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S5.6381,5,4.2574,5z\r M4.2574,14c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S5.6381,14,4.2574,14z M12.2574,18\r c-1.3807,0-2.5,1.1193-2.5,2.5s1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S13.6381,18,12.2574,18z' })
 	        )
@@ -39953,7 +39986,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cloud-computer' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.9', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.9,7V5.9c0-2.2091,1.7909-3.9,4-3.9h4\r c2.2091,0,4,1.6909,4,3.9v1c2.7729,0,5,2.2469,5,5.0198s-2.2271,5.1302-5,5.1302 M13.9,7H5.9208C3.1479,7,1,9.2125,1,11.9854\r S3.1271,17,5.9,17 M16.9,13h-8v7h8V13z M12.9,20v4 M9.9,24h6' })
 	        )
@@ -40076,7 +40109,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cloud-download' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,12v8 M8,17l4,4l4-4 M18,19h0.0792\r c2.7729,0,4.9708-2.2323,4.9708-5.0052S21,9,18,9V8c0-2.2091-1.6909-4-3.9-4h-3C8.8909,4,7,5.7909,7,8v1 M12,9H6.1208\r C3.3479,9,1.1,11.2375,1.1,14.0104S3.3271,19,6.1,19H6' })
 	        )
@@ -40199,7 +40232,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cloud-software' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M8,7V5.9C8,3.6909,9.7909,2,12,2h4\r c2.2091,0,4,1.6909,4,3.9v1c2.7729,0,5,2.2469,5,5.0198S22.7729,17.05,20,17.05 M14,7H6.0208C3.2479,7,1,9.2271,1,12s2.2271,5,5,5\r M17,13H9v11h8V13z M10,17h6 M13,13v3' })
 	        )
@@ -40322,7 +40355,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'cloud-upload' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12,22v-8 M16,17l-4-4l-4,4 M16,19h2.0792\r c2.7729,0,4.9708-2.2323,4.9708-5.0052S21,9,18,9V8c0-2.2091-1.6909-4-3.9-4h-3C8.8909,4,7,5.7909,7,8v1 M12,9H6.1208\r C3.3479,9,1.1,11.2375,1.1,14.0104S3.3271,19,6.1,19H6' })
 	        )
@@ -40814,7 +40847,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'command-line' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,23H1V1h22V23z M5,15l3-3L5,9 M10,15h6 M22,5H2\r l0,0H22L22,5z M5,5L5,5V1l0,0V5z' })
 	        )
@@ -41319,7 +41352,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'computer-personal' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,18.9467H3v-16h20V18.9467z M25,18.9467H1v4h24\r V18.9467z M20,5.9467H6v10h14V5.9467z' })
 	        )
@@ -41688,7 +41721,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'contact-card' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M9,9c0,1.6569-1.3431,3-3,3s-3-1.3431-3-3\r s1.3431-3,3-3S9,7.3431,9,9z M11,17.4545C11,14.6429,8.7662,12,5.9546,12h0.0682C3.2111,12,1,14.6429,1,17.4545V20h10V17.4545z\r M14,9h10 M14,13h7 M14,17h10' })
 	        )
@@ -41811,7 +41844,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'contact-us' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '22.5,18.5 14.0001,18.5 5.5,22.5 5.5,18.5 \r 1.5,18.5 1.5,1.5 22.5,1.5 \t' }),
 	          _react2.default.createElement('rect', { x: '5.5', y: '8.5', width: '3', height: '3' }),
@@ -44038,7 +44071,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'divide-four' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22,22H2V2h20V22z M7,2v21 M12,2v21 M17,2v21' })
 	        )
@@ -44161,7 +44194,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'divide-right' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22H1V2h22V22z M16,2v21' })
 	        )
@@ -44284,7 +44317,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'divide-three' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M22.5,22h-21V2h21V22z M8.5,2v21 M15.5,2v21' })
 	        )
@@ -44530,7 +44563,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-cloud' },
+	          null,
 	          _react2.default.createElement('rect', { x: '2', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '6,6 6,1 19.0002,1 24,5.9999 24,23 17,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '18,2 18,7 24,7 \t' }),
@@ -44656,7 +44689,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-compress' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,9V1h13.0002L22,5.9999V23H3 M16,1v6h6 M15,7\r M0,12h5v1l-4,4v1h5 M9,11v8 M13,12v7 M16,16c1.1046,0,2-0.8954,2-2s-0.8954-2-2-2h-3v4H16z' })
 	        )
@@ -44779,7 +44812,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-conig' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,11V1h13.0002L21,5.9999V23h-8 M15,1v6h6 M14,7\r M9,18c0-1.6542-1.3455-3-3-3s-3,1.3458-3,3s1.3455,3,3,3S9,19.6542,9,18z M9,18.0001L12,18 M8.1212,20.1214l2.1214,2.1212 M6,24\r l-0.0001-3 M3.8786,20.1212l-2.1212,2.1214 M0,18h3 M3.8787,15.8787l-2.1213-2.1213 M6,15v-3 M10.2426,13.7574l-2.1213,2.1213' })
 	        )
@@ -44902,7 +44935,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-csv' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 4,23 \t\r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
@@ -45029,7 +45062,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-data' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,7V1h13.0002L21,5.9999V23h-5 M15,2v5h6 M7,10\r c-3.3137,0-6,1.1193-6,2.5S3.6863,15,7,15s6-1.1193,6-2.5S10.3137,10,7,10z M1,13v3.5C1,17.8807,3.6863,19,7,19s6-1.1193,6-2.5V13\r M1,17v3.5C1,21.8807,3.6863,23,7,23s6-1.1193,6-2.5V17' })
 	        )
@@ -45152,7 +45185,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-download' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,1h13.0002L21,5.9999V23H3V1z M15,2v5h6 M12,10v8\r M8,15l4,4l4-4' })
 	        )
@@ -45275,7 +45308,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-excel' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.5,9 4.5,1 17.5002,1 22.5,5.9999 \r 22.5,23 3.5,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,2 16.5,7 22.5,7 \t' }),
@@ -45401,7 +45434,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-executable' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.5814', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '6', y1: '13', x2: '0', y2: '13' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '6', y1: '19', x2: '0', y2: '19' }),
@@ -45535,7 +45568,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-image' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4,8V1h13.0002L22,5.9999V23h-5 M16,2v5h6 M14,10.9\r H1V23h13V10.9z' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '2.25,22 5.0192,18 8.25,22.5 \t' }),
@@ -45661,7 +45694,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-locked' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4,8 4,1 17.0002,1 22,5.9999 22,23 15,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16,2 16,7 22,7 \t' }),
@@ -45787,7 +45820,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-missing' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,9V1h13.0002L21,5.9999V23H3V9z M15,2v5h6 M9,12\r l6,6 M15,12l-6,6' })
 	        )
@@ -45910,7 +45943,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-notes' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.5,9 4.5,1 17.5002,1 22.5,5.9999 \r 22.5,23 3.5,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,2 16.5,7 22.5,7 \t' }),
@@ -46036,7 +46069,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-outlook' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.4186,9 4.4186,1 17.4188,1 \r 22.4186,5.9999 22.4186,23 3.4186,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.4186,2 16.4186,7 22.4186,7 \t' }),
@@ -46162,7 +46195,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-pdf' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.5', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,13v7 M3,17c1.1046,0,2-0.8954,2-2s-0.8954-2-2-2\r H1v4H3z M8,19h3c1.1046,0,2-1.0945,2-2.2213V16v-0.7787C13,14.1158,12.1046,13,11,13H8V19z' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '21', y1: '13', x2: '15', y2: '13' }),
@@ -46291,7 +46324,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-performance' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,9V1h13.0002L23,5.9999V23H4 M17,2v5h6' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '2,19 7,14 11,18 16,13 \t' }),
@@ -46416,7 +46449,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-powerpoint' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.5,9 4.5,1 17.5002,1 22.5,5.9999 \r 22.5,23 3.5,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.5,2 16.5,7 22.5,7 \t' }),
@@ -46546,7 +46579,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-rtf' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.4999', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.9999,9 4.9999,1 18.0001,1 \r 22.9999,5.9999 22.9999,23 3.9999,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.9999,2 16.9999,7 22.9999,7 \t' }),
@@ -46679,7 +46712,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-sound' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,8 5,1 18.0002,1 23,5.9999 23,23 19,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
@@ -46806,7 +46839,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-test' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,6 5,1 18.0002,1 23,5.9999 23,23 18,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
@@ -46934,7 +46967,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-text' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,23H3V1h12.0002L18,4l3,2.9999V23z M14,1v7h7\r M6,8h5 M6,12h12 M6,16h10' })
 	        )
@@ -47057,7 +47090,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-threat' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.2083', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.2083,4V1h13.0002l4.9998,4.9999V23h-9\r M16.2083,2v5h6 M4.2083,12.72C2.2083,13.5133,1,15.4267,1,17.6667C1,20.6133,3.5117,23,6.4583,23s5.25-2.3867,5.25-5.3333\r c0-2.24-1.5-4.1533-3.5-4.9467v-0.3867V11h-4v1.3333V12.72z M13.2083,7.6c0,0.8284-0.6716,1.5-1.5,1.5H11.375\r c-0.8284,0-1.5-0.6716-1.5-1.5v0c0-0.8284-0.6716-1.5-1.5-1.5H7.7083c-0.8284,0-1.5,0.6716-1.5,1.5v2.5' })
 	        )
@@ -47180,7 +47213,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-time' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M5,6V1h13.0002L23,5.9999V23h-7 M17,2v5h6 M8,9\r c-3.866,0-7,3.134-7,7s3.134,7,7,7s7-3.134,7-7S11.866,9,8,9z M8,12v4l3,3' })
 	        )
@@ -47303,7 +47336,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-transfer' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.9142', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.4142,16h-10 M5.4142,12l-4,4l4,4 M3.4142,23h19\r V10V5.9999L17.4144,1H4.4142v9 M16.4142,2v5h6' })
 	        )
@@ -47426,7 +47459,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-txt' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.5814', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 4,23 \t\r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
@@ -47557,7 +47590,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-update' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.0872', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '4.0872,8 4.0872,1 17.0874,1 \r 22.0872,5.9999 22.0872,23 15.0872,23 \t' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '16.0872,2 16.0872,7 22.0872,7 \t' }),
@@ -47682,7 +47715,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-upload' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,1h13.0002L21,5.9999V23H3V1z M15,2v5h6 M12,20\r v-8 M16,15l-4-4l-4,4' })
 	        )
@@ -47805,7 +47838,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-user' },
+	          null,
 	          _react2.default.createElement('rect', { x: '2', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M6,7V1h13.0002L24,5.9999V23H14 M18,2v5h6 M6,10\r c-1.6318,0-2.9545,1.3228-2.9545,2.9545S4.3682,15.9091,6,15.9091s2.9545-1.3228,2.9545-2.9545S7.6318,10,6,10z M11,20.6364\r C11,18.0256,8.679,16,6.0682,16H5.8636C3.2528,16,1,18.0256,1,20.6364V23h10V20.6364z' })
 	        )
@@ -47928,7 +47961,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-verified' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M3,9V1h13.0002L21,5.9999V23H3V9z M15,2v5h6 M17,12\r l-6,6l-3-3' })
 	        )
@@ -48051,7 +48084,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-video' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 19,23 \r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
@@ -48176,7 +48209,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'document-word' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '5,9 5,1 18.0002,1 23,5.9999 23,23 4,23 \t\r ' }),
 	          _react2.default.createElement('polyline', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,2 17,7 23,7 \t' }),
@@ -48671,7 +48704,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'srive-cage' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('rect', { x: '18', y: '4', width: '2', height: '2' }),
 	          _react2.default.createElement('rect', { x: '18', y: '10', width: '2', height: '2' }),
@@ -49289,7 +49322,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'fast-forward' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0.0293', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '24.5081,12.0293 11.4919,2.0293 \r 11.4919,7.7436 3.4919,2.0293 3.4919,22.0293 11.4919,16.3151 11.4919,22.0293 \t' })
 	        )
@@ -49535,7 +49568,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'first-aid' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22.5H1v-16h22V22.5z M16,2.5H8v4h8V2.5z\r M12,18.5v-8 M8,14.5h8' })
 	        )
@@ -49781,7 +49814,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'folder-cycle' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.0001', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.0001,23h-3V5l0-4h8l3,4h11v18h-4 M1.0001,9h22' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.0001,18c0-2.7614,2.2386-5,5-5\r c1.9848,0,3.6994,1.1565,4.5069,2.8323' }),
@@ -49908,7 +49941,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'folder-open' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.2808', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20.2808,10h-16V7l0-5h6l2,4h8V10z M13.2808,10h-12\r l3,12h16l3-12H13.2808z' })
 	        )
@@ -51139,7 +51172,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'host-maintenance' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.1,23H2V1h16v10 M3,8h14 M3,13h13.1 M3,18h11' }),
 	          _react2.default.createElement('rect', { x: '13', y: '3', width: '3', height: '3' }),
@@ -51635,7 +51668,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'in-progress' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.0002,24h-6.17h-9.75h-6.08h3.8896\r c-3.625-8.125,5.1104-8.0208,5.1104-11c0-3-8.625-2.875-5-11h-4h22h-3.8896c3.625,8.125-5.1104,8.0208-5.1104,11\r c0,3,8.625,2.875,5,11' }),
 	          _react2.default.createElement('path', { d: 'M16.8302,24h-9.75c-0.31-1.54,0.23-2.4399,2.27-4.3201c0.78-0.72,1.79-1.53,2.7-2.76c0.91,1.23,1.9,2.0701,2.68,2.8\r C16.8402,21.6899,17.3102,21.97,16.8302,24z' }),
@@ -53115,7 +53148,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'line-chart' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.0196', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16.0196,4h7v7 M0.0196,22h24 M0.7071,16.3125\r L8.0196,9l5,5l9-9' })
 	        )
@@ -53238,7 +53271,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link-bottom' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,11l-7,7l-7-7 M12,1v17 M22,22H2' })
 	        )
@@ -53361,7 +53394,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'link-down' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,13l-8,8l-8-8 M12,21V2' })
 	        )
@@ -53607,7 +53640,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'location-pin' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0.0208', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M21,10c0,6.75-9,13-9,13s-9-6.25-9-13\r c0-4.9706,4.0294-9,9-9S21,5.0294,21,10z M12,7c-1.6569,0-3,1.3431-3,3s1.3431,3,3,3s3-1.3431,3-3S13.6569,7,12,7z' })
 	        )
@@ -54345,7 +54378,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'map-location' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '1.0533', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '8.025', y1: '8', x2: '8.025', y2: '8' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17.705,5.82l5.32,2.28v15l-7-3l-8,3l-7-3v-15\r l5.27,2.26 M8.025,23V12 M16.025,20v-8 M12.025,1C8.8389,1,6.256,3.5829,6.256,6.769c0,4.3989,5.769,9.2304,5.769,9.2304\r c2.2529-2.2529,5.769-4.7594,5.769-9.2304C17.794,3.5829,15.2111,1,12.025,1z' }),
@@ -55208,7 +55241,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'new-window' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,17.2101H7v-16h16V17.2101z M6,7.2101H1v16h16\r v-5 M15,13.2101v-8 M11,9.2101h8' })
 	        )
@@ -55829,10 +55862,10 @@ module.exports =
 	        _react2.default.createElement('defs', null),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'Page-1', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+	          { stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
 	          _react2.default.createElement(
 	            'g',
-	            { id: 'new-window-24', stroke: '#000000', strokeWidth: '2' },
+	            { stroke: '#000000', strokeWidth: '2' },
 	            _react2.default.createElement('path', { d: 'M1,1 L17,1 L17,17 L1,17 L1,1 Z M20,7 L23,7 L23,23 L7,23 L7,20 L7,20' })
 	          )
 	        )
@@ -56208,7 +56241,7 @@ module.exports =
 	          'g',
 	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,22V2h5v20H15z M9,22V2H4v20H9z' })
+	          _react2.default.createElement('path', { fill: '#000000', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,22V2h5v20H15z M9,22V2H4v20H9z' })
 	        )
 	      );
 	    }
@@ -56329,7 +56362,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'payment-google-wallet' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1.5848', y: '0.1155', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M8.7588,10.7742C7.3911,8.8903,5.4943,7.2387,3.3395,6.0903c-0.3226-0.1806-0.6968-0.271-1.071-0.271\r c-0.8387,0-1.6,0.4516-2,1.2c-0.5935,1.0968-0.1677,2.4774,0.929,3.0581c3.3161,1.7806,5.4581,5.1613,5.7161,9.0839v-0.0129\r c-0.0387-0.4387,0.0387-0.8645,0.2323-1.2645c0.0258-0.0516,0.0645-0.1161,0.1032-0.1806C8.2814,16,8.8363,14.0387,8.8363,12.0258\r C8.8363,11.6,8.7976,11.1871,8.7588,10.7742' }),
 	          _react2.default.createElement('path', { d: 'M21.8943,6.5161c-0.4-1.7548-0.9935-3.4581-1.7677-5.0839C19.7137,0.5677,18.8234,0,17.8685,0\r c-0.3742,0-0.7355,0.0774-1.071,0.2452c-1.2516,0.5935-1.7806,2.0903-1.1871,3.329c1.2645,2.6839,1.8968,5.5097,1.8968,8.4516\r s-0.6323,5.7677-1.871,8.4c-0.0129,0.0387-0.2323,0.5032-0.2323,1.0452c0,0.1548,0.0129,0.3742,0.0645,0.5806\r c0.1677,0.7097,0.6194,1.3548,1.3677,1.7032C17.1717,23.9097,17.533,24,17.9072,24c0.9161,0,1.7548-0.5032,2.1936-1.3032\r c0.5032-0.9419,1.0065-2.1677,1.4452-3.7548c0.1419-0.4774,0.2581-0.929,0.3613-1.4065c0.4-1.7935,0.6194-3.6258,0.6194-5.5097\r C22.5137,10.1677,22.2943,8.2968,21.8943,6.5161' }),
@@ -56455,7 +56488,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'payment-mastercard' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
@@ -56587,7 +56620,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'payment-paypal' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M18.2812,2.477c-0.978-1.1147-2.7457-1.5925-5.0072-1.5925H6.7105c-0.4627,0-0.8559,0.3365-0.9283,0.7928L3.0494,19.0098\r c-0.0543,0.3418,0.2103,0.6514,0.5567,0.6514h4.052l1.0177-6.4548l-0.0315,0.2021c0.0724-0.4563,0.4627-0.7928,0.9248-0.7928\r h1.9255c3.7827,0,6.7446-1.5364,7.6098-5.981c0.0257-0.1314,0.0479-0.2594,0.0672-0.3844\r C19.4292,4.6076,19.1698,3.4894,18.2812,2.477 M20.0516,7.1303L20.0516,7.1303c-0.0199,0.1256-0.0415,0.253-0.0672,0.3844\r c-0.8652,4.444-3.8271,5.981-7.6098,5.981h-1.9261c-0.4621,0-0.8523,0.3365-0.9242,0.7928l-0.9861,6.2521l-0.2798,1.7736\r c-0.0473,0.2991,0.184,0.5702,0.4866,0.5702h3.4158c0.4043,0,0.7484-0.2944,0.8115-0.6934l0.0333-0.1741l0.6438-4.0801\r l0.0415-0.2255c0.0631-0.399,0.4072-0.6934,0.8115-0.6934h0.5112c3.3089,0,5.8998-1.3442,6.657-5.2321\r c0.3161-1.6247,0.1525-2.9812-0.6835-3.934C20.7334,7.5632,20.4185,7.3249,20.0516,7.1303' })
 	        )
@@ -56710,7 +56743,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'payment-square' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,20.8844H7c-2.2091,0-4-1.7909-4-4v-10\r c0-2.2091,1.7909-4,4-4h10c2.2091,0,4,1.7909,4,4v10C21,19.0936,19.2091,20.8844,17,20.8844z' }),
 	          _react2.default.createElement('path', { d: 'M14,8.8844h-4c-0.5523,0-1,0.4477-1,1v4c0,0.5523,0.4477,1,1,1h4c0.5523,0,1-0.4477,1-1v-4\r C15,9.3322,14.5523,8.8844,14,8.8844z' })
@@ -56834,7 +56867,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'payment-visa' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M16.475,3.8444l-4.3012,10.9967l-0.4746-2.1981c0-0.0002,0,0.0126,0,0.0126L10.1836,5.24\r C9.9188,4.2237,9.169,3.8444,8.2188,3.8444H1.1647L1.1089,4.2255c1.716,0.4154,3.2504,1.0384,4.5952,1.784l3.8893,13.9514\r l4.6285-0.0514l6.8871-16.065H16.475z' })
 	        )
@@ -57205,7 +57238,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-dropbox' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.003', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { points: '15.9985,1.8917 12.003,3.8961 20.009,7.8976 24,5.8961 \t' }),
 	          _react2.default.createElement('polygon', { points: '15.9985,15.5735 15.3293,15.2404 11.994,13.5675 8.6781,15.23 8.009,15.5646 7.3413,15.2315 3.997,13.5601 \r 3.997,18.997 12.003,23.0014 12.003,22.9865 20.009,18.9865 20.009,13.569 16.6677,15.2404 \t' }),
@@ -57331,7 +57364,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-skype' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M21.9582,14.0392c0.0821-0.5194,0.1254-1.0509,0.1254-1.5933c0-5.6373-4.5696-10.2069-10.2072-10.2069\r c-0.5409,0-1.0738,0.0445-1.5928,0.1256C9.3435,1.7832,8.234,1.4466,7.0451,1.4466c-3.4065,0-6.168,2.7612-6.168,6.168\r c0,1.1887,0.3368,2.2973,0.9181,3.2393c-0.0804,0.5202-0.1247,1.0499-0.1247,1.5923c0,5.6376,4.5696,10.2059,10.2057,10.2059\r c0.5414,0,1.0743-0.0418,1.5933-0.1237c0.9411,0.5806,2.0496,0.9181,3.2386,0.9181c3.4073,0,6.1685-2.7619,6.1685-6.1687\r C22.8768,16.0889,22.5402,14.9803,21.9582,14.0392L21.9582,14.0392z M16.7225,17.0881c-0.4319,0.6216-1.066,1.1073-1.8949,1.4566\r c-0.8306,0.35-1.8121,0.5243-2.9455,0.5243c-1.3586,0-2.4835-0.2376-3.3713-0.7177c-0.6294-0.3437-1.1413-0.805-1.5349-1.3801\r c-0.3943-0.5754-0.5942-1.1389-0.5942-1.6884c0-0.3241,0.1237-0.6062,0.3642-0.836c0.2432-0.2315,0.5563-0.3476,0.9259-0.3476\r c0.3029,0,0.563,0.0912,0.7746,0.2718c0.2102,0.1806,0.3865,0.4432,0.5307,0.7898c0.1728,0.4016,0.3606,0.7372,0.5603,1.0049\r c0.1985,0.2645,0.4779,0.4855,0.8397,0.6583c0.3579,0.1733,0.834,0.2598,1.43,0.2598c0.8155,0,1.4747-0.1762,1.979-0.5243\r c0.507-0.351,0.7507-0.7783,0.7507-1.2948c0-0.4116-0.1315-0.7389-0.4006-0.9939c-0.2716-0.2581-0.6226-0.4549-1.0579-0.592\r c-0.4371-0.1386-1.024-0.2858-1.7595-0.4407c-0.9875-0.2154-1.8135-0.4664-2.4823-0.7544\r c-0.6698-0.2894-1.2031-0.6847-1.5984-1.1841c-0.3962-0.5043-0.5937-1.131-0.5937-1.8734c0-0.7079,0.2085-1.341,0.626-1.892\r c0.4173-0.5524,1.021-0.9753,1.8081-1.2699c0.7844-0.2946,1.7079-0.4417,2.7659-0.4417c0.846,0,1.5779,0.0978,2.1973,0.2926\r c0.618,0.1963,1.1328,0.4552,1.5444,0.78c0.4094,0.3241,0.7104,0.6661,0.901,1.0249c0.1904,0.3598,0.2865,0.7113,0.2865,1.0543\r c0,0.319-0.1237,0.6082-0.3645,0.8617c-0.241,0.254-0.549,0.3833-0.9088,0.3821c-0.3244,0-0.5788-0.0748-0.7553-0.2332\r c-0.1718-0.1533-0.3522-0.3972-0.5476-0.7372c-0.2466-0.4745-0.5422-0.8441-0.8861-1.1085\r c-0.3346-0.2594-0.8868-0.3945-1.6551-0.3928c-0.7108,0-1.2797,0.1452-1.7089,0.4292C9.5151,8.4645,9.3086,8.7994,9.3076,9.1917\r C9.3083,9.4376,9.379,9.6449,9.5212,9.8221c0.1445,0.1789,0.3454,0.3339,0.6038,0.4647c0.2584,0.1327,0.5212,0.2354,0.7854,0.3092\r c0.2672,0.0758,0.7106,0.1853,1.3268,0.3302c0.7729,0.1667,1.4742,0.3527,2.1041,0.5556c0.6287,0.2039,1.1653,0.4498,1.6087,0.7426\r c0.4468,0.2921,0.7961,0.6644,1.0455,1.1142c0.2508,0.4505,0.3759,1.0007,0.3759,1.648\r C17.3725,15.7664,17.1552,16.4675,16.7225,17.0881L16.7225,17.0881z' })
 	        )
@@ -57454,7 +57487,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'platform-windows' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M0.0755,3.8445l9.778-1.3317\r l0.0043,9.4315L0.0846,12L0.0755,3.8445z M9.8488,13.0311l0.0076,9.4398l-9.7732-1.3437L0.0826,12.968L9.8488,13.0311z\r M11.0341,2.3387l12.9647-1.8922v11.378l-12.9647,0.1029L11.0341,2.3387z M24.0018,13.1199l-0.003,11.3267l-12.9647-1.8298\r l-0.0182-9.518L24.0018,13.1199z' })
 	        )
@@ -57579,7 +57612,7 @@ module.exports =
 	          'g',
 	          null,
 	          _react2.default.createElement('rect', { y: '0.1658', fill: 'none', width: '24', height: '24' }),
-	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '6,1.9658 6,22.3658 20,12.1658 \t' })
+	          _react2.default.createElement('polygon', { fill: '#000000', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '6,1.9658 6,22.3658 20,12.1658 \t' })
 	        )
 	      );
 	    }
@@ -57947,7 +57980,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'quick-view' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M10,16.5c0,2.4853-2.0147,4.5-4.5,4.5\r S1,18.9853,1,16.5S3.0147,12,5.5,12S10,14.0147,10,16.5z M18.5,12c-2.4853,0-4.5,2.0147-4.5,4.5s2.0147,4.5,4.5,4.5\r s4.5-2.0147,4.5-4.5S20.9853,12,18.5,12z M14,16c0-1.1046-0.8954-2-2-2s-2,0.8954-2,2 M6,3L6,3C3.2386,3,1,5.2386,1,8v8 M23,16V8\r c0-2.7614-2.2386-5-5-5h0' })
 	        )
@@ -58070,7 +58103,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'radial-selected' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', cx: '12', cy: '12', r: '11' }),
 	          _react2.default.createElement('path', { d: 'M12,16c-2.2055,0-4-1.7945-4-4s1.7945-4,4-4s4,1.7945,4,4S14.2055,16,12,16z' })
@@ -59061,7 +59094,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'schedule-clone' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17.0004,20h-16V4h16V20z M7.0004,20v4h16V8h-5\r M2.0004,8h14 M5.0004,4V1 M14.0004,12h-6 M6.0003,12h-2 M14.0004,16h-6 M6.0003,16h-2 M13.0004,4V1 M17.0004,12h6' })
 	        )
@@ -59184,7 +59217,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'schedule-new' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.2465', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M13,20H1V4h16v11 M2,8h14 M5,4V1 M14,12H8 M6,12H4\r M14,16H8 M6,16H4 M13,4V1 M20,16v9 M23.8973,18.2503l-7.7946,4.4993 M23.8967,22.7507l-7.7935-4.5013' })
 	        )
@@ -59307,7 +59340,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'schedule-play' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.5,20h-11V4h16v9 M2.5,8h14 M5.5,4V1 M14.5,12\r h-6 M6.5,12h-2 M12.5,16h-4 M6.5,16h-2 M13.5,4V1 M18,13c-3.0376,0-5.5,2.4624-5.5,5.5S14.9624,24,18,24s5.5-2.4624,5.5-5.5\r S21.0376,13,18,13z' }),
 	          _react2.default.createElement('path', { d: 'M16.5,15.5c0.0521,0.0469,0,6,0,6l5-3L16.5,15.5z' })
@@ -59802,7 +59835,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'select-left' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,22H1V2h22V22z M12,2v21' }),
 	          _react2.default.createElement('rect', { x: '4', y: '5', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '5', height: '14' })
@@ -60050,7 +60083,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'server-cluster' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23,8.34H1v-7h22V8.34z M23,8.34H1v7h22V8.34z\r M23,15.34H1v7h22V15.34z' }),
 	          _react2.default.createElement('rect', { x: '13', y: '3.34', width: '2', height: '3' }),
@@ -60431,7 +60464,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'service-business' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0.85', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M4.1397,23h-3V5h22v18h-5 M16.1397,5V1h-8v4\r M7.7507,16.49c-0.665,0.686-1.071,1.624-1.071,2.66c0,2.128,1.722,3.85,3.85,3.85s3.85-1.638,3.85-3.766\r c0-0.8423-0.196-1.302-0.196-1.302c-0.399-1.281-1.33-1.981-2.415-2.338c-0.014-0.007-0.035-0.021-0.049-0.035\r c-0.021-0.014-0.042-0.035-0.063-0.042c-0.007-0.007-0.014-0.007-0.021-0.007 M12.5948,11.506C12.0558,10.043,10.6417,9,8.9897,9\r c-2.128,0-3.85,1.722-3.85,3.85c0,1.694,1.092,3.129,2.611,3.64c0.385,0.14,0.805,0.21,1.239,0.21c1.05,0,2.002-0.42,2.695-1.106\r c0.014-0.007,0.028-0.021,0.035-0.035c0.693-0.693,1.12-1.652,1.12-2.709C12.8397,12.374,12.7558,11.919,12.5948,11.506z\r M11.6357,15.468c0.007,0.014,0.014,0.035,0.021,0.049c0.007,0.028,0.014,0.049,0.028,0.077 M14.3796,17.9883\r c0.2915,0.0745,0.5962,0.1117,0.9101,0.1117c2.128,0,3.85-1.722,3.85-3.85s-1.722-3.85-3.85-3.85c-1.05,0-2.002,0.42-2.695,1.106' })
 	        )
@@ -60554,7 +60587,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'service-start' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M6,5.5c0.0521,0.0469,0,6,0,6l5-3L6,5.5z' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11.28,12.3c0.01,0,0.02,0,0.03,0.01\r c0.03,0.01,0.06,0.04,0.09,0.06c0.02,0.02,0.05,0.04,0.07,0.05c1.55,0.51,2.79,1.48,3.36,3.31c0.03,0.08,0.05,0.18,0.08,0.27h0.01\r c0.18,0,0.28,1.01,0.28,1.62c0,3.04-2.46,5.38-5.5,5.38s-5.5-2.46-5.5-5.5c0-1.48,0.58-2.82,1.53-3.8 M12.65,6.5799\r C11.88,4.49,9.86,3,7.5,3C4.46,3,2,5.46,2,8.5c0,2.42,1.56,4.47,3.73,5.2C6.28,13.9,6.88,14,7.5,14c1.5,0,2.86-0.6,3.85-1.58\r c0.02-0.01,0.04-0.03,0.05-0.05c0.99-0.99,1.6-2.36,1.6-3.87C13,7.82,12.88,7.17,12.65,6.5799z M11.28,12.24\r c0.01,0.02,0.02,0.05,0.03,0.07c0.01,0.04,0.02,0.07,0.04,0.11 M14.83,15.73c0.03,0.01,0.06,0.02,0.09,0.03\r c0.5,0.16,1.03,0.24,1.58,0.24c3.04,0,5.5-2.46,5.5-5.5S19.54,5,16.5,5c-1.5,0-2.86,0.6-3.85,1.58' })
@@ -60801,7 +60834,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'sheild-configure' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M12.0002,14.15c-1.6545,0-3-1.3458-3-3\r s1.3455-3,3-3s3,1.3458,3,3S13.6547,14.15,12.0002,14.15z M18.0002,11.15l-3,0.0001 M16.2428,15.3926l-2.1214-2.1212 M12,14.15\r l0.0001,3 M9.8787,13.2712l-2.1212,2.1214 M6.0002,11.15h3 M9.8788,9.0287L7.7575,6.9074 M12.0002,8.15v-3 M14.1215,9.0287\r l2.1213-2.1213 M12.0002,1.15l-9,4.4v2.864c0,4.2846,1.8322,8.3646,5.0345,11.2111l3.9655,3.2249l3.9655-3.2249\r c3.2023-2.8465,5.0345-6.9266,5.0345-11.2111V5.55L12.0002,1.15z' })
 	        )
@@ -61170,7 +61203,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'shop-basket' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M11,12h10l-1,11h-9 M13,12H3l1,11h9 M23,8H1v4h22V8\r z M5,8l5-7.4 M14,0.6L19,8' })
 	        )
@@ -61293,7 +61326,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'shop-cart' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.0013', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('circle', { cx: '9', cy: '21', r: '2' }),
 	          _react2.default.createElement('circle', { cx: '19', cy: '21', r: '2' }),
@@ -61541,7 +61574,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-email' },
+	          null,
 	          _react2.default.createElement('path', { stroke: 'none', fill: '#000000', d: 'M23,20 L23,6 L12,15 L1,6 L1,20 L23,20 Z M12,12 L22,4 L2,4 L12,12 Z' })
 	        )
 	      );
@@ -61663,7 +61696,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-github' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M23.0014,13.7188c0,4.5554-2.75,8.25-11,8.25s-11-3.696-11-8.25c0-1.9635,0.451-3.7647,1.6486-5.1824\r c-0.3493-0.9446-1.0422-3.6135,0.7576-6.743c3.2739,0.8223,4.8661,2.8875,5.4615,3.8734c0.9405-0.1265,1.9759-0.198,3.1322-0.198\r c1.1495,0,2.1808,0.0784,3.1226,0.2145c0.5871-0.9804,2.178-3.0621,5.4711-3.8899c1.8631,3.2409,1.056,5.9868,0.7219,6.8365\r C22.5036,10.0324,23.0014,11.7965,23.0014,13.7188z M19.2187,13.0312C17.4807,12.1623,15.4375,12,12,12\r s-5.4807,0.1623-7.2187,1.0312c-2.0625,1.0312-2.0625,4.4688,0,5.8438C6.3226,19.9021,8.2916,20.5938,12,20.5938\r c3.707,0,5.676-0.6916,7.2188-1.7188C21.2812,17.5,21.2812,14.0625,19.2187,13.0312z M15.4389,13.375\r c-1.4355,0-2.0625,1.2306-2.0625,2.75c0,1.518,0.5775,2.75,2.0625,2.75s2.0625-1.232,2.0625-2.75\r C17.5014,14.6056,16.8757,13.375,15.4389,13.375z M8.5639,13.375c-1.4355,0-2.0625,1.2306-2.0625,2.75\r c0,1.518,0.5775,2.75,2.0625,2.75s2.0625-1.232,2.0625-2.75C10.6264,14.6056,10.0007,13.375,8.5639,13.375z' })
 	        )
@@ -61786,7 +61819,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-google' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M12.6393,13.7016l-1.1254-0.874c-0.3427-0.2843-0.8115-0.6595-0.8115-1.3464c0-0.6897,0.4688-1.1283,0.8756-1.5343\r c1.3111-1.0319,2.621-2.1302,2.621-4.4447c0-2.38-1.4976-3.632-2.2153-4.226h1.9352L15.9503,0H9.7964\r c-1.6886,0-4.122,0.3995-5.9035,1.8703C2.5502,3.0288,1.8952,4.6261,1.8952,6.064c0,2.441,1.8742,4.9154,5.1838,4.9154\r c0.3125,0,0.6544-0.0308,0.9986-0.0627c-0.1546,0.3761-0.3108,0.6892-0.3108,1.2207c0,0.9695,0.4982,1.564,0.9372,2.1271\r c-1.4063,0.0966-4.0316,0.2523-5.9668,1.4419c-1.8431,1.096-2.404,2.6914-2.404,3.8174C0.3333,21.8412,2.5177,24,7.0474,24\r c5.3714,0,8.2151-2.9722,8.2151-5.9145C15.2628,15.9236,14.0139,14.8595,12.6393,13.7016z M8.5481,10.1023\r c-2.6871,0-3.9044-3.4738-3.9044-5.5698c0-0.816,0.1546-1.6586,0.6861-2.3167c0.501-0.6267,1.3735-1.0333,2.1881-1.0333\r c2.5905,0,3.9341,3.5049,3.9341,5.7591c0,0.564-0.0622,1.5634-0.7804,2.2859C10.1691,9.7288,9.3285,10.1023,8.5481,10.1023z\r M8.5789,22.6884c-3.3415,0-5.4963-1.5984-5.4963-3.821c0-2.222,1.998-2.9737,2.6854-3.2226\r c1.3111-0.4411,2.9982-0.5027,3.2797-0.5027c0.3122,0,0.4685,0,0.7171,0.0314c2.3755,1.6906,3.4065,2.5331,3.4065,4.1336\r C13.1713,21.245,11.578,22.6884,8.5789,22.6884z' }),
 	          _react2.default.createElement('polygon', { points: '20.5266,10.0546 20.5266,6.9252 18.981,6.9252 18.981,10.0546 15.8568,10.0546 15.8568,11.6174 18.981,11.6174 \r 18.981,14.766 20.5266,14.766 20.5266,11.6174 23.6667,11.6174 23.6667,10.0546 \t' })
@@ -61910,7 +61943,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-instagram' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M20,22H4\r c-1.1046,0-2-0.8954-2-2V4c0-1.1046,0.8954-2,2-2h16c1.1046,0,2,0.8954,2,2v16C22,21.1046,21.1046,22,20,22z' }),
 	          _react2.default.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M22,10H2V4c0-1.1046,0.8954-2,2-2h16c1.1046,0,2,0.8954,2,2V10z' }),
@@ -62036,7 +62069,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-medium', transform: 'matrix(1.3333333,0,0,-1.3333333,0,126.66667)' },
+	          { transform: 'matrix(1.3333333,0,0,-1.3333333,0,126.66667)' },
 	          _react2.default.createElement('rect', { x: '-3', y: '74', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
@@ -62163,7 +62196,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-pinterest' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M3.5749,9.7809c0-0.9238,0.1943-1.8403,0.5829-2.7495c0.3886-0.9092,0.9458-1.7523,1.6717-2.5295\r s1.679-1.4077,2.8594-1.8916s2.4892-0.7259,3.9262-0.7259c2.3315,0,4.2452,0.7185,5.7409,2.1556s2.2436,3.1307,2.2436,5.081\r c0,2.5075-0.6342,4.5788-1.9026,6.2138s-2.9071,2.4525-4.916,2.4525c-0.6599,0-1.2794-0.154-1.8586-0.4619\r c-0.5792-0.3079-0.9861-0.6819-1.2208-1.1218l-0.8798,3.4753c-0.0733,0.2786-0.1686,0.5609-0.2859,0.8468\r c-0.1173,0.2859-0.2456,0.5609-0.3849,0.8248c-0.1393,0.2639-0.2786,0.5132-0.4179,0.7479\r c-0.1393,0.2346-0.2786,0.4546-0.4179,0.6599c-0.1393,0.2053-0.2603,0.3776-0.3629,0.5169\r c-0.1026,0.1393-0.198,0.2603-0.2859,0.3629l-0.132,0.176c-0.044,0.0587-0.1026,0.0807-0.176,0.066\r c-0.0733-0.0147-0.1173-0.0587-0.132-0.132c0-0.0147-0.011-0.1173-0.033-0.3079c-0.022-0.1906-0.044-0.3923-0.066-0.6049\r c-0.022-0.2126-0.044-0.4876-0.066-0.8248c-0.022-0.3373-0.0293-0.6635-0.022-0.9788c0.0073-0.3153,0.0293-0.6635,0.066-1.0448\r c0.0367-0.3813,0.0916-0.7332,0.165-1.0558c0.1613-0.6892,0.7039-2.9841,1.6277-6.8846c-0.1173-0.2346-0.2126-0.5169-0.2859-0.8468\r c-0.0733-0.3299-0.11-0.5975-0.11-0.8028l-0.022-0.3299c0-0.9385,0.2383-1.7193,0.7149-2.3425s1.0521-0.9348,1.7267-0.9348\r c0.5426,0,0.9641,0.1796,1.2647,0.5389c0.3006,0.3593,0.4509,0.8102,0.4509,1.3527c0,0.3373-0.0623,0.7515-0.187,1.2428\r c-0.1246,0.4912-0.2896,1.0558-0.4949,1.6937c-0.2053,0.6379-0.3519,1.1548-0.4399,1.5507\r c-0.1466,0.6599-0.0183,1.2318,0.3849,1.7157c0.4033,0.4839,0.9421,0.7259,1.6167,0.7259c1.1584,0,2.1152-0.6562,2.8704-1.9686\r c0.7552-1.3124,1.1328-2.8998,1.1328-4.762c0-1.4224-0.4619-2.5845-1.3857-3.4863C15.2105,4.4909,13.9201,4.04,12.2631,4.04\r c-1.8476,0-3.347,0.5939-4.4981,1.7816s-1.7267,2.6101-1.7267,4.2671c0,0.9825,0.2786,1.811,0.8358,2.4855\r c0.1906,0.22,0.2493,0.4546,0.176,0.7039c-0.0293,0.0733-0.0733,0.242-0.132,0.5059c-0.0587,0.2639-0.1026,0.4326-0.132,0.5059\r c-0.0293,0.1613-0.1026,0.2676-0.22,0.3189s-0.2493,0.0477-0.3959-0.011c-0.8652-0.3519-1.514-0.9568-1.9466-1.8146\r C3.7912,11.9254,3.5749,10.9246,3.5749,9.7809z' })
 	        )
@@ -62286,7 +62319,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-reddit' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M24.0027,11.6172c0-1.4806-1.1866-2.6833-2.6459-2.6833c-0.6949,0-1.3203,0.2673-1.796,0.7109\r c-1.7318-1.2187-4.0677-2.0205-6.6762-2.1702l1.1706-3.9127l3.5866,0.7216c0.1229,1.2134,1.1332,2.1595,2.3679,2.1595\r c0.0053,0,0.0053,0,0.0107,0c0.0053,0,0.0053,0,0.0107,0c1.3149,0,2.3786-1.0797,2.3786-2.4107s-1.069-2.4107-2.384-2.4107\r c-0.0053,0-0.0053,0-0.0107,0h-0.0053c-0.9194,0-1.7105,0.5238-2.1114,1.2989l-4.7947-0.9621L11.4575,7.464l-0.1336,0.0053\r C8.6352,7.5869,6.2191,8.3994,4.4445,9.6448c-0.4704-0.4437-1.1011-0.7109-1.796-0.7109c-1.4592,0-2.6459,1.2027-2.6459,2.6833\r c0,1.0477,0.588,1.951,1.4486,2.3947c-0.0428,0.2619-0.0641,0.5238-0.0641,0.7911c0.0053,4.0517,4.7572,7.3443,10.6156,7.3443\r s10.6102-3.2927,10.6102-7.3497c0-0.2673-0.0214-0.5292-0.0588-0.7911C23.4147,13.5628,24.0027,12.6595,24.0027,11.6172z\r M1.8361,12.6916c-0.3528-0.2405-0.5826-0.6468-0.5826-1.1118c0-0.7376,0.5933-1.3416,1.3203-1.3416\r c0.2993,0,0.5773,0.1016,0.8018,0.2726C2.6539,11.1468,2.1194,11.8844,1.8361,12.6916z M19.1278,4.0323\r c0-0.4918,0.3955-0.898,0.882-0.898c0.4864,0,0.882,0.4009,0.882,0.898c0,0.4918-0.3955,0.898-0.882,0.898\r C19.5234,4.9303,19.1278,4.5294,19.1278,4.0323z M6.7911,13.6163c0-0.9408,0.759-1.6998,1.6998-1.6998s1.6998,0.759,1.6998,1.6998\r c0,0.9408-0.759,1.6998-1.6998,1.6998S6.7911,14.557,6.7911,13.6163z M12.003,19.7064c-2.8266-0.0119-4.5131-1.6924-4.5843-1.7637\r l0.7482-0.7363c0.0119,0.0119,1.4074,1.4371,3.8361,1.4489c2.3931-0.0119,3.8124-1.4371,3.8302-1.4489l0.7482,0.7363\r C16.5101,18.014,14.8296,19.6945,12.003,19.7064z M15.5465,15.3161c-0.9408,0-1.6998-0.759-1.6998-1.6998\r c0-0.9408,0.759-1.6998,1.6998-1.6998s1.6998,0.759,1.6998,1.6998S16.482,15.3161,15.5465,15.3161z M22.18,12.713\r c-0.2886-0.8178-0.8339-1.5715-1.5661-2.2129c0.2245-0.1764,0.5078-0.278,0.8125-0.278c0.743,0,1.3416,0.6094,1.3416,1.363\r C22.7733,12.0555,22.5381,12.4671,22.18,12.713z' })
 	        )
@@ -62409,7 +62442,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-slack' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M21.1667,14.6344h-2.75v-5.5h2.75C22.1792,9.1344,23,8.3136,23,7.3011s-0.8208-1.8333-1.8333-1.8333h-2.75v-2.75\r c0-1.0125-0.8208-1.8333-1.8333-1.8333c-1.0125,0-1.8333,0.8209-1.8333,1.8333v2.75h-5.5v-2.75\r c0-1.0125-0.8208-1.8333-1.8333-1.8333c-1.0125,0-1.8333,0.8209-1.8333,1.8333v2.75h-2.75C1.8208,5.4678,1,6.2887,1,7.3011\r s0.8208,1.8333,1.8333,1.8333h2.75v5.5h-2.75C1.8208,14.6344,1,15.4553,1,16.4678s0.8208,1.8333,1.8333,1.8333h2.75v2.75\r c0,1.0125,0.8208,1.8333,1.8333,1.8333c1.0126,0,1.8333-0.8209,1.8333-1.8333v-2.75h5.5v2.75c0,1.0125,0.8208,1.8333,1.8333,1.8333\r c1.0126,0,1.8333-0.8209,1.8333-1.8333v-2.75h2.75c1.0126,0,1.8333-0.8209,1.8333-1.8333S22.1792,14.6344,21.1667,14.6344z\r M9.25,14.6344v-5.5h5.5v5.5H9.25z' })
 	        )
@@ -62532,7 +62565,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-tumblr' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M16.6827,18.4573c-0.4091,0.1951-1.1914,0.3649-1.7748,0.3795c-1.7613,0.0471-2.1032-1.2372-2.1174-2.1682V9.8198h4.4181\r V6.4887h-4.4029V0.8844c0,0-3.1702,0-3.2219,0c-0.053,0-0.1456,0.0464-0.1587,0.1642c-0.1885,1.7152-0.991,4.7256-4.3287,5.9293\r v2.8417h2.2266v7.1879c0,2.4613,1.8155,5.9579,6.6081,5.8754c1.6171-0.0277,3.413-0.7045,3.8095-1.2889L16.6827,18.4573' })
 	        )
@@ -62655,7 +62688,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-vimeo' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { d: 'M20.1611,6.6903c-0.48,2.8577-1.7372,5.528-3.7716,8.0108c-2.0115,2.4595-3.8402,4.2631-5.486,5.4108\r c-0.96,0.4919-1.8058,0.5036-2.5373,0.0351c-0.7086-0.445-1.2686-1.0892-1.6801-1.9324c-0.2286-0.445-0.7943-2.2545-1.6972-5.4284\r S3.5432,7.9083,3.3603,7.6741C3.2003,7.3696,2.8289,7.3579,2.246,7.639C1.6631,7.92,1.2688,8.166,1.0631,8.3768L0.2745,7.3227\r l0.8915-1.0892c0.7086-0.773,1.5429-1.5401,2.503-2.3014s1.8172-1.2239,2.5715-1.3878c1.0058-0.2108,1.7487,0.2928,2.2287,1.5108\r C8.7663,4.7579,9.052,6.0227,9.3263,7.8498C9.372,8.2011,9.4978,8.7984,9.7035,9.6417c0.6629,2.8342,1.1886,4.2514,1.5772,4.2514\r c0.5715,0,1.5086-1.2649,2.8116-3.7946c0.5943-1.1478,0.6286-2.0964,0.1029-2.846c-0.5257-0.7496-1.3486-0.7613-2.4687-0.0351\r c0.1829-1.1712,0.6743-2.1667,1.4744-2.9865c1.4858-1.6162,3.0973-2.2135,4.8345-1.7919\r C19.864,2.7903,20.5726,4.2074,20.1611,6.6903L20.1611,6.6903z' })
 	        )
@@ -62778,7 +62811,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'social-youtube' },
+	          null,
 	          _react2.default.createElement('rect', { x: '2.0013', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
@@ -63162,7 +63195,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'star-half' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement(
 	            'g',
@@ -63781,7 +63814,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'street-view' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M16,5c0,2.2091-1.7909,4-4,4S8,7.2091,8,5\r s1.7909-4,4-4S16,2.7909,16,5z M12,9c0,0,0.04,0,0.02,0C8.79,9.03,6,11.66,6,14.89V17h3v6h6v-6h3v-2.11c0-3.23-2.76-5.86-5.98-5.89\r C12,9,12,9,12,9 M4,23h16' })
 	        )
@@ -64391,7 +64424,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tab-previous' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '17,21.1667 17,2.8333 4,12 \t' })
 	        )
@@ -64514,7 +64547,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tab-up' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('polygon', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', points: '2.8333,17 21.1667,17 12,4 \t' })
 	        )
@@ -64637,7 +64670,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'table-add' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M26,17c0,3.866-3.134,7-7,7s-7-3.134-7-7\r s3.134-7,7-7S26,13.134,26,17z M22,1H1v4h21V1z M22,11V5H8H1v18h7h7 M8,5v18 M15,6v5l0,0 M15,24v-1v-0.26 M15,11L15,11H2 M2,17h10\r M22,15 M22,15 M23,17h-8 M19,21v-8' })
 	        )
@@ -65376,7 +65409,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'test-desktop' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18.2174,1H23v18H1V1h5 M16,19H8v4h8V19z M5,23h14\r M8,1h8 M10,2v3.7727l-5,8.1818V15h7 M12,15h7v-1.0455l-5-8.1818V2 M16.4527,9.5795c-4.2577-2.3437-4.7917,1.946-8.5436-0.3977' })
 	        )
@@ -65624,7 +65657,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'tesxt-wrap' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M17,11h7 M17,7h7 M17,3h7 M17,15h7 M0,19h24 M0,23\r h24' }),
 	          _react2.default.createElement('rect', { x: '1', y: '2.9', fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', width: '13', height: '12.1' }),
@@ -67599,7 +67632,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-add' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,6c0,2.7614-2.2386,5-5,5S5,8.7614,5,6\r s2.2386-5,5-5S15,3.2386,15,6z M18,23v-4c0-4.4183-3.5817-8-8-8h0c-4.4183,0-8,3.5817-8,8v4 M21,6v8 M25,10h-8 M6,23v-4 M14,23v-4' })
 	        )
@@ -67722,7 +67755,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-admin' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.0009', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,6c0,2.7614-2.2386,5-5,5S4,8.7614,4,6\r s2.2386-5,5-5S14,3.2386,14,6z M12,20.5c0,1.3807,1.1193,2.5,2.5,2.5s2.5-1.1193,2.5-2.5S15.8807,18,14.5,18S12,19.1193,12,20.5z\r M25,16l-3-3l-5.5312,5.5312 M19.5,15.5l3,3 M9,11L9,11c-4.4183,0-8,3.5817-8,8v4h8 M15.0018,13.7104\r C13.5359,12.0484,11.3904,11,9,11h0' })
 	        )
@@ -67845,7 +67878,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-expert' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,6c0,2.7614-2.2386,5-5,5S4,8.7614,4,6\r s2.2386-5,5-5S14,3.2386,14,6z M9,11L9,11c-4.4183,0-8,3.5817-8,8v4h12 M15.928,14.997C14.5444,12.6075,11.9599,11,9,11h0 M13,18\r l4,4l6.875-6.875' })
 	        )
@@ -67968,7 +68001,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-female' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M7.9941,24v-4 M15.9941,20v4 M19.9941,24v-5\r c0-2.7614-2.1386-5-4.9-5h-0.1l0,0l0,0c3.375,0,5.1-2.1,5.1-2.1s-3.1-1.8687-3.1-5.9c0-2.7583-2.2917-5-5.05-5h0.0969\r C9.2827,1,7.0176,3.2417,7.0176,6c0,3.9688-3.1117,5.9-3.1117,5.9S4.6191,14,7.9941,14h1c-2.7614,0-5,2.2386-5,5v5' })
 	        )
@@ -68091,7 +68124,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-manager' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15.575,11.83c0.79,0.39,1.5,0.9,2.11,1.51\r c1.44,1.45,2.34,3.45,2.34,5.66v4h-16v-4c0-3.14,1.81-5.86,4.45-7.17 M12.025,1c-3.3137,0-6,2.6863-6,6s2.6863,6,6,6s6-2.6863,6-6\r S15.3387,1,12.025,1z M17.935,8c-2.05-0.03-3.86-1.09-4.91-2.69c-1.07,1.62-2.91,2.69-5,2.69c-0.69,0-1.35-0.11-1.96-0.33\r M7.025,13l5,6v4l0,0v-4l5-6' })
 	        )
@@ -68214,7 +68247,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-new' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.0312', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M14,6c0,2.7614-2.2386,5-5,5S4,8.7614,4,6\r s2.2386-5,5-5S14,3.2386,14,6z M14.0002,12.7548C12.6306,11.6568,10.892,11,9,11h0c-4.4183,0-8,3.5817-8,8v4h12 M20,12v12\r M25.1964,15.0004l-10.3928,5.9991 M25.1956,21.0009l-10.3913-6.0018' })
 	        )
@@ -68337,7 +68370,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-police' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,9v0.5714C18,13.1218,15.5504,16,12,16\r s-6-2.8782-6-6.4286V9 M8.45,14.83C5.81,16.14,4,18.86,4,22v1h16v-1c0-2.21-0.9-4.21-2.34-5.66c-0.61-0.61-1.32-1.12-2.11-1.51\r M21,5.3322C19.2226,2.7422,15.8652,1,12,1S4.7774,2.7422,3,5.3322L5.4169,8H12h6.5831L21,5.3322z' }),
 	          _react2.default.createElement('path', { d: 'M12,3h-2c0,0-0.0625,3,2,3c2,0,1.9998-3,1.9998-3H12z' })
@@ -68461,7 +68494,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'user-worker' },
+	          null,
 	          _react2.default.createElement('rect', { fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M18,7v1.5714C18,12.1218,15.5504,15,12,15\r s-6-2.8782-6-6.4286V7 M8.45,13.83C5.81,15.14,4,17.86,4,21v2h16v-2c0-2.21-0.9-4.21-2.34-5.66c-0.61-0.61-1.32-1.12-2.11-1.51\r M19,8c0-3.866-3.134-7-7-7S5,4.134,5,8H19z M10,4V2 M14,4V2 M3,8h18' })
 	        )
@@ -68953,7 +68986,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'virtual-machine' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1.5', y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M19,14H6V1h13V14z M23,6H10v13h13V6z M14,10H1v13\r h13V10z' })
 	        )
@@ -69076,7 +69109,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'vm-maintenance' },
+	          null,
 	          _react2.default.createElement('rect', { x: '1', y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M23.6937,14.2495l-2.0349,2.0349l-1.4431-1.4432\r l2.0348-2.0348c-1.1328-0.5556-2.5327-0.3536-3.478,0.5917c-0.9433,0.9433-1.1319,2.3387-0.5894,3.476L13,22.0569l1.443,1.443\r l5.1833-5.1829c1.1372,0.5422,2.5324,0.3536,3.4757-0.5896C24.0472,16.7822,24.2493,15.3824,23.6937,14.2495z' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M15,13.5H5v-10h10V13.5z M18,11.5v-4H8v10h6\r M11,10.5H1v10h10V10.5z' })
@@ -69200,7 +69233,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'volume-low' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,12V8h5l6-5v18l-6-5H1V12 M15,16\r c2.2091,0,4-1.7909,4-4s-1.7909-4-4-4' })
 	        )
@@ -69323,7 +69356,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'volume-mute' },
+	          null,
 	          _react2.default.createElement('rect', { y: '0', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('path', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', d: 'M1,12V8h5l6-5v18l-6-5H1V12' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '16', y1: '15.5', x2: '23', y2: '8.5' }),
@@ -69942,7 +69975,7 @@ module.exports =
 	        ),
 	        _react2.default.createElement(
 	          'g',
-	          { id: 'zoom-in' },
+	          null,
 	          _react2.default.createElement('rect', { x: '0.5', y: '0.5', fill: 'none', width: '24', height: '24' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '10', y1: '5', x2: '10', y2: '15' }),
 	          _react2.default.createElement('line', { fill: 'none', stroke: '#000000', strokeWidth: '2', strokeMiterlimit: '10', x1: '15', y1: '10', x2: '5', y2: '10' }),
