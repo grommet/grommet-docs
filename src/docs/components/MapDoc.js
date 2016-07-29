@@ -1,20 +1,20 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var DocsArticle = require('../../components/DocsArticle');
-var GrommetMap = require('grommet/components/Map');
-var A11y = require('../utils/a11y');
+import React, { Component } from 'react';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
+import GrommetMap from 'grommet/components/Map';
+import A11y from '../utils/a11y';
 
-var MapDoc = React.createClass({
-  componentDidMount: function () {
+export default class MapDoc extends Component {
+
+  componentDidMount () {
     A11y.updatePageTitle('Map');
-  },
+  }
 
-  render: function() {
-    var inline =
-      "<Map value={70} total={100} units=\"GB\" />";
+  render () {
 
-    var data = {
+    const data = {
       categories: [
         {id: "category-1", label: "First category", items: [
           {id: "item-1-1", node: "First item"},
@@ -42,33 +42,27 @@ var MapDoc = React.createClass({
     return (
       <DocsArticle title="Map" colorIndex="neutral-3">
 
-        <p>Shows a linear meter graphic.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <p>Shows a graph of nodes and links between them.</p>
 
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>data     {"{\n    categories: [{id: , label: , items: [id: , node: ]}, ...],\n    links: [{parentId: , childId: }, ...]\n}"}</code></dt>
+            <dt><code>data      {"{\n    categories: [{id: , label: , items: [id: , node: ]}, ...],\n    links: [{parentId: , childId: }, ...]\n}"}</code></dt>
             <dd>An array of objects describing the data.</dd>
+            <dt><code>vertical  true|false</code></dt>
+            <dd>Whether to orient the map vertically.</dd>
           </dl>
         </section>
 
         <section>
-          <h2>Examples</h2>
-
-          <h3>Simple</h3>
-          <div className="example">
+          <h2>Example</h2>
+          <Example code={
             <GrommetMap data={data} />
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Map data={...} />"}
-          </code></pre>
+          }/>
 
         </section>
 
       </DocsArticle>
     );
   }
-});
-
-module.exports = MapDoc;
+};
