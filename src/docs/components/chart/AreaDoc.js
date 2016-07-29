@@ -8,7 +8,7 @@ import Example from '../../Example';
 import { updatePageTitle } from '../../utils/a11y';
 
 export default class AreaDoc extends Component {
-  
+
   componentDidMount () {
     updatePageTitle('Chart Area');
   }
@@ -47,6 +47,8 @@ export default class AreaDoc extends Component {
             <dd>Whether to show individual data points for each value.</dd>
             <dt><code>reverse      true|false</code></dt>
             <dd>When true, the indexes count right to left or bottom to top.</dd>
+            <dt><code>smooth      true|false</code></dt>
+            <dd>When true, the edge of area is drawn smoothly.</dd>
             <dt><code>values       {"[{number}, ...]"}</code></dt>
             <dd>An array of number values.</dd>
             <dt><code>vertical     true|false</code></dt>
