@@ -4,15 +4,23 @@ import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import GrommetMap from 'grommet/components/Map';
+import Header from 'grommet/components/Header';
+import CheckBox from 'grommet/components/CheckBox';
 import A11y from '../utils/a11y';
 
 export default class MapDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { vertical: false };
+  }
 
   componentDidMount () {
     A11y.updatePageTitle('Map');
   }
 
   render () {
+    const { vertical } = this.state;
 
     const data = {
       categories: [
@@ -55,9 +63,13 @@ export default class MapDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
+          <Header justify="between">
+            <h2>Example</h2>
+            <CheckBox checked={this.state.vertical} toggle={true} label="vertical"
+              onChange={() => this.setState({ vertical: ! vertical })} />
+          </Header>
           <Example code={
-            <GrommetMap data={data} />
+            <GrommetMap vertical={vertical} data={data} />
           }/>
 
         </section>
