@@ -82,6 +82,7 @@ import SocialShareDoc from './components/SocialShareDoc';
 import SpinningDoc from './components/SpinningDoc';
 import SplitDoc from './components/SplitDoc';
 import StatusDoc from './components/StatusDoc';
+import SunBurstDoc from './components/SunBurstDoc';
 import TabsDoc from './components/TabsDoc';
 import TableDoc from './components/TableDoc';
 import TagsDoc from './components/TagsDoc';
@@ -146,7 +147,7 @@ export default [
         {path: 'chart-marker-label', component: ChartMarkerLabelDoc},
         {path: 'chart-range', component: ChartRangeDoc}
       ]},
-      {path: 'chart-v1', component: ChartV1Doc},      
+      {path: 'chart-v1', component: ChartV1Doc},
       {path: 'check-box', label: 'CheckBox', component: CheckBoxDoc},
       {path: 'columns', label: 'Columns', component: ColumnsDoc},
       {path: 'date-time', label: 'DateTime', component: DateTimeDoc},
@@ -180,6 +181,7 @@ export default [
       {path: 'spinning', label: 'Spinning', component: SpinningDoc},
       {path: 'split', label: 'Split', component: SplitDoc},
       {path: 'status', label: 'Status', component: StatusDoc},
+      {path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc},
       {path: 'tabs', label: 'Tabs', component: TabsDoc},
       {path: 'table', label: 'Table', component: TableDoc},
       {path: 'tags', label: 'Tags', component: TagsDoc},
