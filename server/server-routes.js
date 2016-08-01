@@ -26685,7 +26685,13 @@ module.exports =
 	  }, {
 	    key: '_onEnter',
 	    value: function _onEnter(event) {
-	      event.preventDefault(); // prevent submitting forms
+
+	      // for not inline search the enter should NOT submit the form
+	      // in this case double enter is required
+	      if (!this.props.inline) {
+	        event.preventDefault(); // prevent submitting forms
+	      }
+
 	      this._onRemoveDrop();
 	      var suggestion = void 0;
 	      if (this.state.activeSuggestionIndex >= 0) {
@@ -26696,13 +26702,6 @@ module.exports =
 	            target: this.refs.input || this.refs.control,
 	            suggestion: suggestion
 	          }, true);
-	        }
-	      } else {
-	        if (this.props.onSelect) {
-	          this.props.onSelect({
-	            target: this.refs.input || this.refs.control,
-	            suggestion: suggestion
-	          }, false);
 	        }
 	      }
 	    }
@@ -33208,6 +33207,8 @@ module.exports =
 	var CheckBox = __webpack_require__(226);
 	var RadioButton = __webpack_require__(253);
 	var NumberInput = __webpack_require__(255);
+	var SearchInput = __webpack_require__(254);
+	var Example = __webpack_require__(195);
 	var A11y = __webpack_require__(130);
 
 	var FormFieldDoc = React.createClass({
@@ -33317,122 +33318,42 @@ module.exports =
 	          null,
 	          'Example'
 	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Text input'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
+	        React.createElement(Example, { name: 'Text input', code: React.createElement(
 	            FormField,
 	            { label: 'Item 1', htmlFor: 'item1' },
 	            React.createElement('input', { id: 'item1', type: 'text' })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<FormField label=\"Item 1\" htmlFor=\"item1\">\n  <input id=\"\{id\}\" type=\"text\"/>\n</FormField>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Text input with errors'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
+	          ) }),
+	        React.createElement(Example, { name: 'Text input with errors', code: React.createElement(
 	            FormField,
 	            { label: 'Item 1', htmlFor: 'item1', error: 'error text' },
 	            React.createElement('input', { id: 'item1', type: 'text' })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<FormField label=\"Item 1\" htmlFor=\"item1\" error=\"error text\">\n  <input id=\"\{id\}\" type=\"text\"/>\n</FormField>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Checkbox'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
+	          ) }),
+	        React.createElement(Example, { name: 'Checkbox', code: React.createElement(
 	            FormField,
 	            { label: '' },
 	            React.createElement(CheckBox, { id: 'item2', label: 'Item 2' })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<FormField>\n  <CheckBox id=\"\{item2\}\" label=\"Item 2\"/>\n</FormField>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'RadioButton with help'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
+	          ) }),
+	        React.createElement(Example, { name: 'Range', code: React.createElement(
+	            FormField,
+	            { label: 'item 6', htmlFor: 'item6' },
+	            React.createElement('input', { id: 'item6', type: 'range', min: '0', max: '80', value: '40' })
+	          ) }),
+	        React.createElement(Example, { name: 'RadioButton with help', code: React.createElement(
 	            FormField,
 	            { label: 'item 3', help: 'help text' },
 	            React.createElement(RadioButton, { id: 'item3-1', label: 'choice 1', name: 'choice' }),
 	            React.createElement(RadioButton, { id: 'item3-2', label: 'choice 2', name: 'choice' })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<FormField help=\"help text\">\n  <RadioButton id=\"\{item3-1\}\" label=\"choice 1\" name=\"choice\"/>\n  <RadioButton id=\"\{item3-2\}\" label=\"choice 2\" name=\"choice\"/>\n</FormField>"
-	          )
-	        ),
-	        React.createElement(
-	          'h3',
-	          null,
-	          'NumberInput'
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'example' },
-	          React.createElement(
+	          ) }),
+	        React.createElement(Example, { name: 'NumberInput', code: React.createElement(
 	            FormField,
 	            { label: 'item 4', htmlFor: 'item4' },
 	            React.createElement(NumberInput, { id: 'item4', name: 'number' })
-	          )
-	        ),
-	        React.createElement(
-	          'pre',
-	          null,
-	          React.createElement(
-	            'code',
-	            { className: 'html hljs xml' },
-	            "<FormField help=\"help text\">\n  <RadioButton id=\"\{item3-1\}\" label=\"choice 1\" name=\"choice\"/>\n  <RadioButton id=\"\{item3-2\}\" label=\"choice 2\" name=\"choice\"/>\n</FormField>"
-	          )
-	        )
+	          ) }),
+	        React.createElement(Example, { name: 'SearchInput', code: React.createElement(
+	            FormField,
+	            { label: 'item 5', htmlFor: 'item5' },
+	            React.createElement(SearchInput, { id: 'item5', value: 'This is a really long search value that keeps going and going. Wow it is really long!' })
+	          ) })
 	      )
 	    );
 	  }

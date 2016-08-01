@@ -6,6 +6,8 @@ var FormField = require('grommet/components/FormField');
 var CheckBox = require('grommet/components/CheckBox');
 var RadioButton = require('grommet/components/RadioButton');
 var NumberInput = require('grommet/components/NumberInput');
+var SearchInput = require('grommet/components/SearchInput');
+var Example = require('../Example');
 var A11y = require('../../utils/a11y');
 
 var FormFieldDoc = React.createClass({
@@ -41,47 +43,48 @@ var FormFieldDoc = React.createClass({
         <section>
           <h2>Example</h2>
 
-          <h3>Text input</h3>
-          <div className="example">
+          <Example name="Text input" code={
             <FormField label="Item 1" htmlFor="item1">
               <input id="item1" type="text" />
             </FormField>
-          </div>
-          <pre><code className="html hljs xml">{"<FormField label=\"Item 1\" htmlFor=\"item1\">\n  <input id=\"\{id\}\" type=\"text\"/>\n</FormField>"}</code></pre>
+          } />
 
-          <h3>Text input with errors</h3>
-          <div className="example">
+          <Example name="Text input with errors" code={
             <FormField label="Item 1" htmlFor="item1" error="error text">
               <input id="item1" type="text" />
             </FormField>
-          </div>
-          <pre><code className="html hljs xml">{"<FormField label=\"Item 1\" htmlFor=\"item1\" error=\"error text\">\n  <input id=\"\{id\}\" type=\"text\"/>\n</FormField>"}</code></pre>
+          } />
 
-
-          <h3>Checkbox</h3>
-          <div className="example">
+          <Example name="Checkbox" code={
             <FormField label="">
               <CheckBox id="item2" label="Item 2" />
             </FormField>
-          </div>
-          <pre><code className="html hljs xml">{"<FormField>\n  <CheckBox id=\"\{item2\}\" label=\"Item 2\"/>\n</FormField>"}</code></pre>
+          } />
 
-          <h3>RadioButton with help</h3>
-          <div className="example">
+          <Example name="Range" code={
+            <FormField label="item 6" htmlFor="item6">
+              <input id="item6" type="range" min="0" max="80" value="40" />
+            </FormField>
+          } />
+
+          <Example name="RadioButton with help" code={
             <FormField label="item 3" help="help text">
               <RadioButton id="item3-1" label="choice 1" name="choice"/>
               <RadioButton id="item3-2" label="choice 2" name="choice"/>
             </FormField>
-          </div>
-          <pre><code className="html hljs xml">{"<FormField help=\"help text\">\n  <RadioButton id=\"\{item3-1\}\" label=\"choice 1\" name=\"choice\"/>\n  <RadioButton id=\"\{item3-2\}\" label=\"choice 2\" name=\"choice\"/>\n</FormField>"}</code></pre>
+          } />
 
-          <h3>NumberInput</h3>
-          <div className="example">
+          <Example name="NumberInput" code={
             <FormField label="item 4" htmlFor="item4">
               <NumberInput id="item4" name="number" />
             </FormField>
-          </div>
-          <pre><code className="html hljs xml">{"<FormField help=\"help text\">\n  <RadioButton id=\"\{item3-1\}\" label=\"choice 1\" name=\"choice\"/>\n  <RadioButton id=\"\{item3-2\}\" label=\"choice 2\" name=\"choice\"/>\n</FormField>"}</code></pre>
+          } />
+
+          <Example name="SearchInput" code={
+            <FormField label="item 5" htmlFor="item5">
+              <SearchInput id="item5" value="This is a really long search value that keeps going and going. Wow it is really long!"/>
+            </FormField>
+          } />
 
         </section>
 
