@@ -4564,7 +4564,7 @@ module.exports =
 	  dropColorIndex: _react.PropTypes.string,
 	  icon: _react.PropTypes.node,
 	  id: _react.PropTypes.string,
-	  inline: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.oneOf('expand')]),
+	  inline: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.oneOf(['expand'])]),
 	  label: _react.PropTypes.string,
 	  size: _react.PropTypes.oneOf(['small', 'medium', 'large'])
 	}, _Box2.default.propTypes);
@@ -25399,7 +25399,8 @@ module.exports =
 	        if (item.hasOwnProperty('colorIndex')) {
 	          swatch = _react2.default.createElement(
 	            'svg',
-	            { className: CLASS_ROOT + '__item-swatch ' + COLOR_INDEX + '-' + colorIndex,
+	            {
+	              className: CLASS_ROOT + '__item-swatch ' + COLOR_INDEX + '-' + colorIndex,
 	              viewBox: '0 0 12 12' },
 	            _react2.default.createElement('path', { className: item.className, d: 'M 5 0 l 0 12' })
 	          );
@@ -25475,14 +25476,14 @@ module.exports =
 	        var unitsPrefix;
 	        var unitsSuffix;
 
-	        if (this.props.units.prefix) {
+	        if (this.props.units && this.props.units.prefix) {
 	          unitsPrefix = _react2.default.createElement(
 	            'span',
 	            { className: CLASS_ROOT + "__total-units" },
 	            this.props.units.prefix
 	          );
 	        }
-	        if (this.props.units.suffix || typeof this.props.units === 'string' || this.props.units instanceof String) {
+	        if (this.props.units && (this.props.units.suffix || typeof this.props.units === 'string' || this.props.units instanceof String)) {
 	          unitsSuffix = _react2.default.createElement(
 	            'span',
 	            { className: CLASS_ROOT + "__total-units" },
