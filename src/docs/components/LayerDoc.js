@@ -1,13 +1,13 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import jsxToString from 'jsx-to-string';
-import DocsArticle from '../../components/DocsArticle';
 import Box from 'grommet/components/Box';
 import Layer from 'grommet/components/Layer';
 import Header from 'grommet/components/Header';
 import Form from 'grommet/components/Form';
 import FormFields from 'grommet/components/FormFields';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 import FullForm from './samples/FullForm';
 import ConfirmationForm from './samples/ConfirmationForm';
 import SampleArticle from './samples/SampleArticle';
@@ -17,16 +17,6 @@ Layer.displayName = 'Layer';
 Header.displayName = 'Header';
 Form.displayName = 'Form';
 FormFields.displayName = 'FormFields';
-
-function convertLayerToString(layerJSX) {
-  return jsxToString(layerJSX, {
-    keyValueOverride: {
-      onClose: 'this._onClose',
-      onCancel: 'this._onClose',
-      onSubmit: 'this._onClose'
-    }
-  });
-}
 
 export default class LayerDoc extends Component {
 
@@ -46,22 +36,6 @@ export default class LayerDoc extends Component {
       event.preventDefault();
     }
     this.setState({active: null});
-  }
-
-  _renderLayerCode (heading, id, layerJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <button onClick={this._onOpen.bind(this, id)}>
-          {id}
-        </button>
-        <Box pad={{vertical: "small"}}>
-          <pre><code className="html hljs xml">
-            {convertLayerToString(layerJSX)}
-          </code></pre>
-        </Box>
-      </div>
-    );
   }
 
   render () {
@@ -156,12 +130,20 @@ export default class LayerDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          {this._renderLayerCode('Simple, top', 'simple', simpleLayer)}
-          {this._renderLayerCode('Edit, left', 'edit', editLayer)}
-          {this._renderLayerCode(
-            'Confirmation, right', 'confirmation', confirmationLayer
-          )}
-          {this._renderLayerCode('Article, center', 'article', articleLayer)}
+          <Example name="Simple, top" control={
+            <button onClick={this._onOpen.bind(this, 'simple')}>simple</button>
+            } code={simpleLayer} />
+          <Example name="Edit, left" control={
+            <button onClick={this._onOpen.bind(this, 'edit')}>edit</button>
+            } code={editLayer} />
+          <Example name="Confirmation, right" control={
+            <button onClick={this._onOpen.bind(this, 'confirmation')}>
+              confirmation
+            </button>
+            } code={confirmationLayer} />
+          <Example name="Article, center" control={
+            <button onClick={this._onOpen.bind(this, 'edit')}>edit</button>
+            } code={articleLayer} />
         </section>
 
         {activeLayer}

@@ -1,31 +1,25 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Form = require('grommet/components/Form');
-var FormFields = require('grommet/components/FormFields');
-var FormField = require('grommet/components/FormField');
-var Header = require('grommet/components/Header');
-var CheckBox = require('grommet/components/CheckBox');
-var RadioButton = require('grommet/components/RadioButton');
-var Footer = require('grommet/components/Footer');
-var Button = require('grommet/components/Button');
-var Validator = require('grommet/utils/Validator');
+import React, { Component, PropTypes } from 'react';
+import Form from 'grommet/components/Form';
+import FormFields from 'grommet/components/FormFields';
+import FormField from 'grommet/components/FormField';
+import Header from 'grommet/components/Header';
+import CheckBox from 'grommet/components/CheckBox';
+import RadioButton from 'grommet/components/RadioButton';
+import Footer from 'grommet/components/Footer';
+import Button from 'grommet/components/Button';
+import Validator from 'grommet/utils/Validator';
 
-var AddUserForm = React.createClass({
+export default class AddUserForm extends Component {
 
-  propTypes: {
-    compact: React.PropTypes.bool,
-    onCancel: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    prefix: React.PropTypes.string
-  },
-
-  getDefaultProps: function () {
-    return {prefix: 'auf'};
-  },
-
-  getInitialState: function () {
-    return {
+  constructor () {
+    super();
+    this._validate = this._validate.bind(this);
+    this._onSubmit = this._onSubmit.bind(this);
+    this._onChange = this._onChange.bind(this);
+    this._onChangeCheckBox = this._onChangeCheckBox.bind(this);
+    this.state = {
       user: {
         login: '',
         name: '',
@@ -42,22 +36,22 @@ var AddUserForm = React.createClass({
       validation: {errors: {}},
       submitting: false
     };
-  },
+  }
 
-  componentDidUpdate: function () {
-    var errors = document.querySelectorAll('.form-field--error');
+  componentDidUpdate () {
+    const errors = document.querySelectorAll('.form-field--error');
     if (errors.length > 0) {
-      var input = errors[0].querySelectorAll('input')[0];
+      const input = errors[0].querySelectorAll('input')[0];
       if (input) {
         input.focus();
       }
     }
-  },
+  }
 
-  _validate: function (submitting) {
-    var user = this.state.user;
+  _validate (submitting) {
+    const user = this.state.user;
 
-    var rules = [
+    const rules = [
       {field: 'login', test: (! user.login), message: 'required'},
       {field: 'password', tests: [
         {test: (! user.password), message: 'required'},
@@ -65,43 +59,41 @@ var AddUserForm = React.createClass({
       ]}
     ];
 
-    var validation = Validator.validate(rules);
+    const validation = Validator.validate(rules);
 
     if (submitting) {
       this.setState({validation: validation});
     }
 
     return validation.valid;
-  },
+  }
 
-  _onSubmit: function (event) {
+  _onSubmit (event) {
     event.preventDefault();
-    var valid = this._validate(true);
+    const valid = this._validate(true);
     if (valid) {
       this.props.onSubmit();
     }
-  },
+  }
 
-  _onChange: function (event) {
-    console.log('!!! AddUserForm changed', event.target, 'to', event.target.value);
-    var user = this.state.user;
+  _onChange (event) {
+    let user = this.state.user;
     user[event.target.getAttribute('name')] = event.target.value;
     this.setState({user: user});
     this._validate(false);
-  },
+  }
 
-  _onChangeCheckBox: function (event) {
-    console.log('!!! AddUserForm checkbox changed', event.target, 'to', event.target.checked);
-    var user = this.state.user;
+  _onChangeCheckBox (event) {
+    let user = this.state.user;
     user[event.target.getAttribute('name')] = event.target.checked;
     this.setState({user: user});
     this._validate(false);
-  },
+  }
 
-  render: function() {
-    var p = this.props.prefix;
-    var user = this.state.user;
-    var errors = this.state.validation.errors;
+  render () {
+    const p = this.props.prefix;
+    const user = this.state.user;
+    const errors = this.state.validation.errors;
 
     return (
       <Form onSubmit={this._onSubmit} compact={this.props.compact}>
@@ -179,6 +171,15 @@ var AddUserForm = React.createClass({
       </Form>
     );
   }
-});
+};
 
-module.exports = AddUserForm;
+AddUserForm.propTypes = {
+  compact: PropTypes.bool,
+  onCancel: PropTypes.func,
+  onSubmit: PropTypes.func,
+  prefix: PropTypes.string
+};
+
+AddUserForm.defaultProps = {
+  prefix: 'auf'
+};

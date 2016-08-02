@@ -1,51 +1,43 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var React = require('react');
-var Box = require('grommet/components/Box');
-var Form = require('grommet/components/Form');
-var FormFields = require('grommet/components/FormFields');
-var FormField = require('grommet/components/FormField');
-var Header = require('grommet/components/Header');
-var CheckBox = require('grommet/components/CheckBox');
-var Footer = require('grommet/components/Footer');
-var Button = require('grommet/components/Button');
+import React, { Component, PropTypes } from 'react';
+import Box from 'grommet/components/Box';
+import Form from 'grommet/components/Form';
+import FormFields from 'grommet/components/FormFields';
+import FormField from 'grommet/components/FormField';
+import Header from 'grommet/components/Header';
+import CheckBox from 'grommet/components/CheckBox';
+import Footer from 'grommet/components/Footer';
+import Button from 'grommet/components/Button';
 
-var ConfirmationForm = React.createClass({
+export default class ConfirmationForm extends Component {
 
-  propTypes: {
-    compact: React.PropTypes.bool,
-    onCancel: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    prefix: React.PropTypes.string
-  },
+  constructor () {
+    super();
+    this._onSubmit = this._onSubmit.bind(this);
+    this._onChangeCheckBox = this._onChangeCheckBox.bind(this);
+    this.state = {acknowledged: false, error: null};
+  }
 
-  getDefaultProps: function () {
-    return {prefix: 'cf'};
-  },
-
-  getInitialState: function () {
-    return {acknowledged: false, error: null};
-  },
-
-  _onSubmit: function (event) {
+  _onSubmit (event) {
     event.preventDefault();
     if (this.state.acknowledged) {
       this.props.onSubmit();
     } else {
       this.setState({error: 'required'});
     }
-  },
+  }
 
-  _onChangeCheckBox: function (event) {
+  _onChangeCheckBox (event) {
     var acknowledged = event.target.checked;
     this.setState({acknowledged: acknowledged});
     if (acknowledged) {
       this.setState({error: null});
     }
-  },
+  }
 
-  render: function() {
-    var p = this.props.prefix;
+  render () {
+    const p = this.props.prefix;
 
     return (
       <Box full="vertical" justify="center">
@@ -71,6 +63,15 @@ var ConfirmationForm = React.createClass({
       </Box>
     );
   }
-});
+};
 
-module.exports = ConfirmationForm;
+ConfirmationForm.propTypes = {
+  compact: PropTypes.bool,
+  onCancel: PropTypes.func,
+  onSubmit: PropTypes.func,
+  prefix: PropTypes.string
+};
+
+ConfirmationForm.defaultProps = {
+  prefix: 'cf'
+};

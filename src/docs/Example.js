@@ -17,7 +17,7 @@ export default class Example extends Component {
   }
 
   render () {
-    const { code, name } = this.props;
+    const { code, control, name } = this.props;
     let heading;
     if (name) {
       heading = <h3>{name}</h3>;
@@ -26,7 +26,7 @@ export default class Example extends Component {
       <div>
         {heading}
         <div className="example">
-          {code}
+          {control || code}
         </div>
         <pre><code className="html hljs xml">
           {this._renderCode()}
@@ -38,6 +38,7 @@ export default class Example extends Component {
 
 Example.propTypes = {
   code: PropTypes.node.isRequired,
+  control: PropTypes.node, // for LayerDoc
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string)
 };
