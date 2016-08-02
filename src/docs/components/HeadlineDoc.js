@@ -1,13 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import jsxToString from 'jsx-to-string';
-import DocsArticle from '../../components/DocsArticle';
 import Headline from 'grommet/components/Headline';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
-// function convertHeadingToString(headingJSX) {
-//   return jsxToString(headingJSX);
-// }
 Headline.displayName = 'Headline';
 
 const inline =
@@ -17,45 +14,7 @@ const inline =
 
 export default class HeadlineDoc extends Component {
 
-  _renderCode (name, jsx) {
-    return (
-      <div>
-        <h3>{name}</h3>
-        <div className="example">
-          {jsx}
-        </div>
-        <pre><code className="html hljs xml">
-          {jsxToString(jsx)}
-        </code></pre>
-      </div>
-    );
-  }
-
   render () {
-    var simpleHeadline = (
-      <Headline>
-        Sample Headline
-      </Headline>
-    );
-
-    var strongHeadline = (
-      <Headline strong={true}>
-        Sample Headline
-      </Headline>
-    );
-
-    var smallHeadline = (
-      <Headline size="small">
-        Sample Headline
-      </Headline>
-    );
-
-    var largeHeadline = (
-      <Headline size="large">
-        Sample Headline
-      </Headline>
-    );
-
     return (
       <DocsArticle title="Headline" colorIndex="neutral-3">
 
@@ -82,10 +41,18 @@ export default class HeadlineDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          {this._renderCode('Default', simpleHeadline)}
-          {this._renderCode('Strong', strongHeadline)}
-          {this._renderCode('Small', smallHeadline)}
-          {this._renderCode('Large', largeHeadline)}
+          <Example name="Default" code={
+            <Headline>Sample Headline</Headline>
+          } />
+          <Example name="Strong" code={
+            <Headline strong={true}>Sample Headline</Headline>
+          } />
+          <Example name="Small" code={
+            <Headline size="small">Sample Headline</Headline>
+          } />
+          <Example name="Large" code={
+            <Headline size="large">Sample Headline</Headline>
+          } />
         </section>
 
       </DocsArticle>

@@ -1,11 +1,11 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import jsxToString from 'jsx-to-string';
-import DocsArticle from '../../components/DocsArticle';
 import App from 'grommet/components/App';
 import Header from 'grommet/components/Header';
 import Title from 'grommet/components/Title';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 App.displayName = 'App';
 Header.displayName = 'Header';
@@ -19,14 +19,6 @@ const inline =
 export default class AppDoc extends Component {
 
   render () {
-
-    const appCode = (
-      <App inline={true}>
-        <Header>
-          <Title>My App</Title>
-        </Header>
-      </App>
-    );
 
     return (
       <DocsArticle title="App" colorIndex="neutral-3">
@@ -53,13 +45,13 @@ export default class AppDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <h3>App, header with title</h3>
-          <div className="example">
-            {appCode}
-          </div>
-          <pre><code className="html hljs xml">
-            {jsxToString(appCode)}
-          </code></pre>
+          <Example name="App, header with title" code={
+            <App inline={true}>
+              <Header>
+                <Title>My App</Title>
+              </Header>
+            </App>
+          } />
         </section>
 
       </DocsArticle>

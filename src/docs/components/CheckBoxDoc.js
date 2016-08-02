@@ -1,17 +1,11 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import jsxToString from 'jsx-to-string';
-import DocsArticle from '../../components/DocsArticle';
 import CheckBox from 'grommet/components/CheckBox';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 CheckBox.displayName = 'CheckBox';
-
-function convertCheckBoxToString(checkBoxJSX) {
-  return jsxToString(checkBoxJSX, {
-    ignoreProps: ['onChange']
-  });
-}
 
 export default class CheckBoxDoc extends Component {
 
@@ -25,52 +19,7 @@ export default class CheckBoxDoc extends Component {
     this.setState({checked: ! this.state.checked});
   }
 
-  _renderCheckBoxCode (heading, checkBoxJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <div className="example">
-          {checkBoxJSX}
-        </div>
-        <pre><code className="html hljs xml">
-          {convertCheckBoxToString(checkBoxJSX)}
-        </code></pre>
-      </div>
-    );
-  }
-
   render () {
-
-    var basicCheckBox = (
-      <CheckBox id="item1" name="item1" label="Item 1"
-        checked={this.state.checked} onChange={this._onChange} />
-    );
-
-    var toggleCheckBox = (
-      <CheckBox id="item2" name="item2" label="Item 2"
-        checked={this.state.checked} toggle={true} onChange={this._onChange} />
-    );
-
-    var disabledCheckBox = (
-      <CheckBox id="item3" name="item3" label="Item 3"
-        checked={this.state.checked} disabled={true}  />
-    );
-
-    var disabledToggleCheckBox = (
-      <CheckBox id="item4" name="item4" label="Item 4"
-        checked={this.state.checked} toggle={true} disabled={true}  />
-    );
-
-    var reverseCheckBox = (
-      <CheckBox id="item5" name="item5" label="Item 5"
-        checked={this.state.checked} reverse={true} onChange={this._onChange} />
-    );
-
-    var noLabelCheckBox = (
-      <CheckBox id="item6" name="item6"
-        checked={this.state.checked} onChange={this._onChange} />
-    );
-
     return (
       <DocsArticle title="CheckBox" colorIndex="neutral-3">
 
@@ -114,12 +63,30 @@ export default class CheckBoxDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          {this._renderCheckBoxCode('Basic', basicCheckBox)}
-          {this._renderCheckBoxCode('Toggle', toggleCheckBox)}
-          {this._renderCheckBoxCode('Disabled', disabledCheckBox)}
-          {this._renderCheckBoxCode('Disabled Toggle', disabledToggleCheckBox)}
-          {this._renderCheckBoxCode('Reverse', reverseCheckBox)}
-          {this._renderCheckBoxCode('No Label', noLabelCheckBox)}
+          <Example name="Basic" code={
+            <CheckBox id="item1" name="item1" label="Item 1"
+              checked={this.state.checked} onChange={this._onChange} />
+          } />
+          <Example name="Toggle" code={
+            <CheckBox id="item2" name="item2" label="Item 2"
+              checked={this.state.checked} toggle={true} onChange={this._onChange} />
+          } />
+          <Example name="Disabled" code={
+            <CheckBox id="item3" name="item3" label="Item 3"
+              checked={this.state.checked} disabled={true}  />
+          } />
+          <Example name="Disabled Toggle" code={
+            <CheckBox id="item4" name="item4" label="Item 4"
+              checked={this.state.checked} toggle={true} disabled={true}  />
+          } />
+          <Example name="Reverse" code={
+            <CheckBox id="item5" name="item5" label="Item 5"
+              checked={this.state.checked} reverse={true} onChange={this._onChange} />
+          } />
+          <Example name="No Label" code={
+            <CheckBox id="item6" name="item6"
+              checked={this.state.checked} onChange={this._onChange} />
+          } />
         </section>
 
       </DocsArticle>

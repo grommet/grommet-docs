@@ -1,10 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../DocsArticle';
-import Example from '../Example';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 Accordion.displayName = 'Accordion';
 

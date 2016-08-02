@@ -1,15 +1,11 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import jsxToString from 'jsx-to-string';
-import DocsArticle from '../../components/DocsArticle';
 import Label from 'grommet/components/Label';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 Label.displayName = 'Label';
-
-function convertLabelToString(LabelJSX) {
-  return jsxToString(LabelJSX);
-}
 
 const inline =
       "<Label>\n" +
@@ -18,33 +14,7 @@ const inline =
 
 export default class LabelDoc extends Component {
 
-  _renderLabelCode (Label, LabelJSX) {
-    return (
-      <div>
-        <h3>{Label}</h3>
-        <div className="example">
-          {LabelJSX}
-        </div>
-        <pre><code className="html hljs xml">
-          {convertLabelToString(LabelJSX)}
-        </code></pre>
-      </div>
-    );
-  }
-
   render () {
-    var defaultLabel = (
-      <Label>
-        Sample Label
-      </Label>
-    );
-
-    var uppercaseLabel = (
-      <Label uppercase={true}>
-        Sample Label
-      </Label>
-    );
-
     return (
       <DocsArticle title=" Label" colorIndex="neutral-3">
 
@@ -64,8 +34,12 @@ export default class LabelDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          {this._renderLabelCode('Default', defaultLabel)}
-          {this._renderLabelCode('Uppercase', uppercaseLabel)}
+          <Example name="Default" code={
+            <Label>Sample Label</Label>
+          } />
+          <Example name="Uppercase" code={
+            <Label uppercase={true}>Sample Label</Label>
+          } />
         </section>
 
       </DocsArticle>

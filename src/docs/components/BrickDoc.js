@@ -1,21 +1,17 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import jsxToString from 'jsx-to-string';
-import DocsArticle from '../../components/DocsArticle';
 import Bricks from 'grommet/components/Bricks';
 import Brick from 'grommet/components/Brick';
 import Box from 'grommet/components/Box';
 import GrommetLogo from 'grommet/components/icons/Grommet';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 Brick.displayName = 'Brick';
 Bricks.displayName = 'Bricks';
 Box.displayName = 'Box';
 GrommetLogo.displayName = 'GrommetLogo';
-
-function convertBrickToString(brickJSX) {
-  return jsxToString(brickJSX);
-}
 
 export default class BrickDoc extends Component {
 
@@ -23,48 +19,15 @@ export default class BrickDoc extends Component {
     // No-op
   }
 
-  _renderBrickCode (heading, brickJSX) {
-    return (
-      <div>
-        <h3>{heading}</h3>
-        <Box className="example">
-          {brickJSX}
-        </Box>
-        <pre><code className="html hljs xml">
-          {convertBrickToString(brickJSX)}
-        </code></pre>
-      </div>
-    );
-  }
-
   render () {
 
-    var inline =
+    const inline =
       "<Bricks>\n" +
       "  <Brick>\n" +
       "    ...\n" +
       "  </Brick>\n" +
       "  ...\n" +
       "</Bricks>";
-
-    var simpleBrick = (
-      <Bricks>
-        <Brick label="First" />
-        <Brick label="Second" />
-        <Brick label="Third" />
-      </Bricks>
-    );
-
-    var varyingBrick = (
-      <Bricks>
-        <Brick colorIndex="neutral-1" type="large" href="http://www.grommet.io/" texture="/img/carousel-1.png" />
-        <Brick label="Second" colorIndex="neutral-2" type="tall" />
-        <Brick label="Third" colorIndex="neutral-3">
-          <GrommetLogo size="large" />
-        </Brick>
-        <Brick label="Fourth" colorIndex="neutral-4" />
-      </Bricks>
-    );
 
     return (
       <DocsArticle title="Brick(s)" colorIndex="neutral-3">
@@ -88,7 +51,8 @@ export default class BrickDoc extends Component {
           </dl>
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
-            <dd>The color identifier to use for the background color of the Brick.  For example: <code>"neutral-1"</code></dd>
+            <dd>The color identifier to use for the background color of the
+              Brick.  For example: <code>"neutral-1"</code></dd>
           </dl>
           <dl>
             <dt><code>texture      {"{url}"}</code></dt>
@@ -99,8 +63,25 @@ export default class BrickDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          {this._renderBrickCode('Simple', simpleBrick)}
-          {this._renderBrickCode('Varying Colors, Sizes, and Content', varyingBrick)}
+          <Example name="Simple" code={
+            <Bricks>
+              <Brick label="First" />
+              <Brick label="Second" />
+              <Brick label="Third" />
+            </Bricks>
+          } />
+
+          <Example name="Varying Colors, Sizes, and Content" code={
+            <Bricks>
+              <Brick colorIndex="neutral-1" type="large"
+                href="http://www.grommet.io/" texture="/img/carousel-1.png" />
+              <Brick label="Second" colorIndex="neutral-2" type="tall" />
+              <Brick label="Third" colorIndex="neutral-3">
+                <GrommetLogo size="large" />
+              </Brick>
+              <Brick label="Fourth" colorIndex="neutral-4" />
+            </Bricks>
+          } />
         </section>
 
       </DocsArticle>

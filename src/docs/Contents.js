@@ -23,6 +23,7 @@ import BrowserSupport from './reference/BrowserSupport';
 import About from './reference/About';
 
 // import ActionsDoc from './patterns/ActionsDoc';
+import AccordionDoc from './components/AccordionDoc';
 import AnchorDoc from './components/AnchorDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
@@ -55,6 +56,7 @@ import FormFieldDoc from './components/FormFieldDoc';
 import HeaderDoc from './components/HeaderDoc';
 import HeadingDoc from './components/HeadingDoc';
 import HeadlineDoc from './components/HeadlineDoc';
+import HeroDoc from './components/HeroDoc';
 import IconDoc from './components/IconDoc';
 import ImageDoc from './components/ImageDoc';
 import LabelDoc from './components/LabelDoc';
@@ -126,6 +128,7 @@ export default [
   },
   {label: 'Components',
     contents: [
+      {path: 'accordion', label: 'Accordion', component: AccordionDoc},
       {path: 'anchor', label: 'Anchor', component: AnchorDoc},
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
@@ -158,6 +161,7 @@ export default [
       {path: 'header', label: 'Header', component: HeaderDoc},
       {path: 'heading', label: 'Heading', component: HeadingDoc},
       {path: 'headline', label: 'Headline', component: HeadlineDoc},
+      {path: 'hreo', label: 'Hero', component: HeroDoc},
       {path: 'icon', label: 'Icon', component: IconDoc},
       {path: 'image', label: 'Image', component: ImageDoc},
       {path: 'label', label: 'Label', component: LabelDoc},
