@@ -2,12 +2,12 @@
 
 import React, { Component } from 'react';
 import stringify from "json-stringify-pretty-compact";
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import Meter from 'grommet/components/Meter';
 import FormField from 'grommet/components/FormField';
 import RadioButton from 'grommet/components/RadioButton';
-import CheckBox from 'grommet/components/CheckBox';
+import CheckBox from 'grommet/components/CheckBox';import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 Meter.displayName = 'Meter';
 FormField.displayName = 'FormField';
@@ -169,29 +169,44 @@ export default class MeterDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
+            <dt><code>activeIndex {'{number}'}</code></dt>
+            <dd>The currently active series value index, if any.</dd>
+            <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
+            <dd>The color identifier to use for the graphic color.
+              For example: <code>"graph-1"</code></dd>
             <dt><code>important   {"{number}"}</code></dt>
-            <dd>The index of the series data that the active label should
-              correspond to, if any.</dd>
-            <dt><code>large       true|false</code></dt>
-            <dd>Larger sized version. Deprecated, use <code>size</code>.</dd>
+            <dd>The index of the series data that the label should
+              correspond to, if any. This property is deprecated in
+              favor of `activeIndex`.</dd>
+            <dt><code>label       {"true|false|{node}"}</code></dt>
+            <dd>If `false`, no label is shown. If a `node` is specified, it is
+              used as the value label. The default is `true`, which causes
+              this component to build the label. `true` is deprecated.
+              Callers are encouraged to use <NavAnchor path="/docs/value">
+              Value</NavAnchor> to construct the appropriate label.</dd>
             <dt><code>legend      {"{placement: right|bottom|inline, total: true|false}"}</code></dt>
             <dd>Whether to show a legend. If showing, whether to include a total,
               and where to place it. If placement is not specified, it will be
               placed to match the aspect ratio of the window. <code>inline</code> is
               only supported with horizontal bar. If placement is set to <code>inline</code> and
-              total is set to <code>false</code>, the active value is hidden.</dd>
+              total is set to <code>false</code>, the active value is hidden.
+              This property is deprecated. Callers are encouraged to use
+              <NavAnchor path="/docs/legend">Legend</NavAnchor> and place it
+              around the meter as needed.</dd>
             <dt><code>max         {"{value: , label: }|{number}"}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
+            <dt><code>onActive     {"{func (index)}"}</code></dt>
+            <dd>Hover handler. The hovered series index is passed as an argument.
+              When the user is ceases to hover over the
+              component, <code>undefined</code> is passed as an argument.</dd>
             <dt><code>series      {"[{value: , label: , colorIndex: , important: , onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.
               Either this or the <code>value</code> property must be provided.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The size of the Meter. Defaults to <code>medium</code>.
               Currently, the <code>spiral</code> type Meter does not respond to this property.</dd>
-            <dt><code>small       true|false</code></dt>
-            <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
             <dt><code>stacked     true|false</code></dt>
             <dd>Whether slices for multiple series values should be stacked
               together in the same slot or shown in separate slots.
@@ -203,7 +218,10 @@ export default class MeterDoc extends Component {
             <dt><code>type        bar|arc|circle|spiral</code></dt>
             <dd>Whether to draw a bar, an arc, a circle, or a spiral.</dd>
             <dt><code>units       {"{string}"}</code></dt>
-            <dd>Optional units to display next to the value label.</dd>
+            <dd>Optional units to display next to the value label. This
+              property is deprecated. Callers are encouraged to use
+              <NavAnchor path="/docs/value">Value</NavAnchor> to construct
+              a label.</dd>
             <dt><code>value       {"{number}"}</code></dt>
             <dd>The current value.</dd>
             <dt><code>vertical    true|false</code></dt>
