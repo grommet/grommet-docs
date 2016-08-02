@@ -1,39 +1,36 @@
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
-var IndexRoute = Router.IndexRoute;
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-var Docs = require('./Docs');
-var Home = require('./Home');
-var Design = require('./design/Design');
-var Develop = require('./develop/Develop');
+import Docs from './components/Docs';
+import Home from './Home';
+import DocsSplit from './components/DocsSplit';
+import Introduction from './docs/Introduction';
+import Contents from './docs/Contents';
 
-module.exports = function (rootPath) {
-  var DocsRouter = React.createClass({
-
-    childContextTypes: {
-      rootPath: React.PropTypes.string.isRequired,
-      routePrefix: React.PropTypes.string.isRequired
-    },
-
-    getChildContext: function() {
-      return {
-        rootPath: rootPath,
-        routePrefix: rootPath
-      };
-    },
-
-    render: function() {
-      return (
-        <Docs {...this.props} />
-      );
+function createContentRoutes (contents) {
+  let result = [];
+  contents.forEach(content => {
+    if (content.path) {
+      result.push({ path: content.path, component: content.component });
+    }
+    if (content.contents) {
+      result = result.concat(createContentRoutes(content.contents));
     }
   });
-  return (
-    <Route path={rootPath} component={DocsRouter}>
-      <IndexRoute component={Home} />
-      {Design.routes()}
-      {Develop.routes()}
-    </Route>
-  );
+  return result;
+}
+
+const routes = createContentRoutes(Contents);
+
+export default {
+  path: '/',
+  component: Docs,
+  indexRoute: { component: Home },
+  childRoutes: [
+    {
+      path: 'docs',
+      component: DocsSplit,
+      indexRoute: { component: Introduction },
+      childRoutes: routes
+    }
+  ]
 };

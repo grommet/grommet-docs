@@ -5,14 +5,10 @@ import DocsArticle from '../../DocsArticle';
 import Example from '../Example';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
-import { updatePageTitle } from '../../utils/a11y';
 
 Accordion.displayName = 'Accordion';
 
 export default class AccordionDoc extends Component {
-  componentDidMount () {
-    updatePageTitle('Accordion');
-  }
 
   render () {
     return (
