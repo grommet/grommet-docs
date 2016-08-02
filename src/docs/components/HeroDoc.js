@@ -1,6 +1,6 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Hero from 'grommet/components/Hero';
 import Video from 'grommet/components/Video';
 import DocsArticle from '../../components/DocsArticle';
