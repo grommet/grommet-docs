@@ -8,7 +8,7 @@ export default class Meter13 extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Meter type="circle" series={[
           {label: 'Gen 7', value: 50},
           {label: 'Gen 8', value: 20},

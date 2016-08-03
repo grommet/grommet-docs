@@ -34,7 +34,7 @@ export default class Meter16a extends Component {
     }
 
     return (
-      <Example code={
+      <Example align="center" code={
         <Box direction="row" align="start" pad={{ between: 'small' }}>
           <Meter type="spiral" series={SERIES} label={false}
             max={100} threshold={90}

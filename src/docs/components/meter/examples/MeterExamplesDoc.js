@@ -17,29 +17,29 @@ import Meter2 from './Meter2';
 import Meter3 from './Meter3';
 import Meter4 from './Meter4';
 import Meter5 from './Meter5';
-import Meter6 from './Meter6';
+// import Meter6 from './Meter6';
 import Meter6a from './Meter6a';
-import Meter7 from './Meter7';
+// import Meter7 from './Meter7';
 import Meter7a from './Meter7a';
-import Meter8 from './Meter8';
+// import Meter8 from './Meter8';
 import Meter8a from './Meter8a';
-import Meter9 from './Meter9';
+// import Meter9 from './Meter9';
 import Meter9a from './Meter9a';
-import Meter10 from './Meter10';
+// import Meter10 from './Meter10';
 import Meter10a from './Meter10a';
-import Meter11 from './Meter11';
+// import Meter11 from './Meter11';
 import Meter11a from './Meter11a';
-import Meter11Labels from './Meter11Labels';
+// import Meter11Labels from './Meter11Labels';
 import Meter11LabelsA from './Meter11LabelsA';
-import Meter12 from './Meter12';
+// import Meter12 from './Meter12';
 import Meter12a from './Meter12a';
-import Meter13 from './Meter13';
+// import Meter13 from './Meter13';
 import Meter13a from './Meter13a';
-import Meter14 from './Meter14';
+// import Meter14 from './Meter14';
 import Meter14a from './Meter14a';
-import Meter15 from './Meter15';
+// import Meter15 from './Meter15';
 import Meter15a from './Meter15a';
-import Meter16 from './Meter16';
+// import Meter16 from './Meter16';
 import Meter16a from './Meter16a';
 import Meter17 from './Meter17';
 import Meter18 from './Meter18';
@@ -53,30 +53,18 @@ const METERS = [
   { label: 'Circle', meter: Meter3 },
   { label: 'Horizontal Arc', meter: Meter4 },
   { label: 'Vertical Arc', meter: Meter5 },
-  { label: 'Annotated Horizontal Bar', meter: Meter6 },
-  { label: 'Annotated Horizontal Bar Alt', meter: Meter6a },
-  { label: 'Annotated Vertical Bar', meter: Meter7 },
-  { label: 'Annotated Vertical Bar Alt', meter: Meter7a },
-  { label: 'Annotated Circle', meter: Meter8 },
-  { label: 'Annotated Circle Alt', meter: Meter8a },
-  { label: 'Annotated Horizontal Arc', meter: Meter9 },
-  { label: 'Annotated Horizontal Arc Alt', meter: Meter9a },
-  { label: 'Annotated Vertical Arc', meter: Meter10 },
-  { label: 'Annotated Vertical Arc Alt', meter: Meter10a },
-  { label: 'Annotated Horizontal Bar Series', meter: Meter11 },
-  { label: 'Annotated Horizontal Bar Series Alt', meter: Meter11a },
-  { label: 'Annotated Horizontal Bar Series Inline Labels', meter: Meter11Labels },
-  { label: 'Annotated Horizontal Bar Series Inline Labels Alt', meter: Meter11LabelsA },
-  { label: 'Annotated Vertical Bar Series', meter: Meter12 },
-  { label: 'Annotated Vertical Bar Series Alt', meter: Meter12a },
-  { label: 'Annotated Circle Series', meter: Meter13 },
-  { label: 'Annotated Circle Series Alt', meter: Meter13a },
-  { label: 'Annotated Horizontal Arc Series', meter: Meter14 },
-  { label: 'Annotated Horizontal Arc Series Alt', meter: Meter14a },
-  { label: 'Annotated Vertical Arc Series', meter: Meter15 },
-  { label: 'Annotated Vertical Arc Series Alt', meter: Meter15a },
-  { label: 'Spiral Series', meter: Meter16 },
-  { label: 'Spiral Series Alt', meter: Meter16a },
+  { label: 'Annotated Horizontal Bar', meter: Meter6a },
+  { label: 'Annotated Vertical Bar', meter: Meter7a },
+  { label: 'Annotated Circle', meter: Meter8a },
+  { label: 'Annotated Horizontal Arc', meter: Meter9a },
+  { label: 'Annotated Vertical Arc', meter: Meter10a },
+  { label: 'Annotated Horizontal Bar Series', meter: Meter11a },
+  { label: 'Annotated Horizontal Bar Series Inline Labels', meter: Meter11LabelsA },
+  { label: 'Annotated Vertical Bar Series', meter: Meter12a },
+  { label: 'Annotated Circle Series', meter: Meter13a },
+  { label: 'Annotated Horizontal Arc Series', meter: Meter14a },
+  { label: 'Annotated Vertical Arc Series', meter: Meter15a },
+  { label: 'Spiral Series', meter: Meter16a },
   { label: 'Annotated Horizontal Bar Series Stacked', meter: Meter17 },
   { label: 'Annotated Vertical Bar Series Stacked', meter: Meter18 },
   { label: 'Annotated Circle Series Stacked', meter: Meter19 },

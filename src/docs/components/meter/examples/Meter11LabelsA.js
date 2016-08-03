@@ -35,7 +35,7 @@ export default class Meter11LabelsA extends Component {
     );
 
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           {items}
         </Box>

@@ -8,7 +8,7 @@ export default class Meter6 extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Meter value={40} units="GB"
           min={{value: 0, label: '0 GB'}} max={{value: 100, label: '100 GB'}}
           threshold={90}

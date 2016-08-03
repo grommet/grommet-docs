@@ -35,7 +35,7 @@ export default class Meter15a extends Component {
     }
 
     return (
-      <Example code={
+      <Example align="center" code={
         <Box direction="row" pad={{ between: 'small' }}>
           <Meter type="arc" vertical={true} series={SERIES} label={false}
             max={100} threshold={90}

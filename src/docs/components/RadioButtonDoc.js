@@ -1,8 +1,9 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import RadioButton from 'grommet/components/RadioButton';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class RadioButtonDoc extends Component {
 
@@ -52,28 +53,27 @@ export default class RadioButtonDoc extends Component {
         <section>
           <h2>Example</h2>
 
-          <h3>Basic</h3>
-          <div className="example">
-            <RadioButton id="choice1-1" name="choice1" label="Choice 1"
-              checked={this.state.choice === 'choice-1'}
-              onChange={this._onChange.bind(this, 'choice-1')} />
-            <RadioButton id="choice1-2" name="choice1" label="Choice 2"
-              checked={this.state.choice === 'choice-2'}
-              onChange={this._onChange.bind(this, 'choice-2')} />
-          </div>
-          <pre><code className="html hljs xml">{"<RadioButton id=\"\{choice1-1\}\" name=\"choice\" label=\"Choice 1\"/>"}</code></pre>
+          <Example name="Basic" code={
+            <div>
+              <RadioButton id="choice1-1" name="choice1" label="Choice 1"
+                checked={this.state.choice === 'choice-1'}
+                onChange={this._onChange.bind(this, 'choice-1')} />
+              <RadioButton id="choice1-2" name="choice1" label="Choice 2"
+                checked={this.state.choice === 'choice-2'}
+                onChange={this._onChange.bind(this, 'choice-2')} />
+            </div>
+          } />
 
-          <h3>Disabled</h3>
-          <div className="example">
-            <RadioButton id="choice2-1" name="choice2" label="Choice 1"
-              checked={this.state.choice === 'choice-1'} disabled={true}
-              onChange={this._onChange.bind(this, 'choice-1')} />
-            <RadioButton id="choice2-2" name="choice2" label="Choice 2"
-              checked={this.state.choice === 'choice-2'} disabled={true}
-              onChange={this._onChange.bind(this, 'choice-2')} />
-          </div>
-          <pre><code className="html hljs xml">{"<RadioButton id=\"\{choice1-1\}\" name=\"choice\" label=\"Choice 1\" disabled={true}/>"}</code></pre>
-
+          <Example name="Disabled" code={
+            <div>
+              <RadioButton id="choice2-1" name="choice2" label="Choice 1"
+                checked={this.state.choice === 'choice-1'} disabled={true}
+                onChange={this._onChange.bind(this, 'choice-1')} />
+              <RadioButton id="choice2-2" name="choice2" label="Choice 2"
+                checked={this.state.choice === 'choice-2'} disabled={true}
+                onChange={this._onChange.bind(this, 'choice-2')} />
+            </div>
+          } />
         </section>
 
       </DocsArticle>

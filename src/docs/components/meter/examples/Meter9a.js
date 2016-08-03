@@ -11,7 +11,7 @@ export default class Meter9a extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           <Meter type="arc" value={40} label={false} threshold={90} />
           <Box direction="row" justify="between" align="center">

@@ -1,6 +1,6 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-@import 'grommet/scss/hpinc/index';
+@import '~grommet/scss/hpinc/index';
 @import 'objects.home';
 @import 'objects.swatch';
 
@@ -17,18 +17,18 @@ a.reference {
   padding-top: 0;
 }
 
-article .example {
-  margin-bottom: $inuit-base-spacing-unit;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: inherit;
-  }
-}
+// article .example {
+//   margin-bottom: $inuit-base-spacing-unit;
+//
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6 {
+//     color: inherit;
+//   }
+// }
 
 .generic-branding {
   display: none;

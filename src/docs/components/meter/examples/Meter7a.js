@@ -11,7 +11,7 @@ export default class Meter7a extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Box direction="row">
           <Meter value={40} vertical={true} label={false} threshold={90} />
           <Box justify="between">

@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
@@ -12,7 +13,6 @@ import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import GrommetLogo from 'grommet/components/icons/Grommet';
 import DocsMenu from './DocsMenu';
-import DOM from 'grommet/utils/DOM';
 
 //hjjs configuration
 import hljs from 'highlight.js/lib/highlight';
@@ -28,17 +28,15 @@ export default class DocsSplit extends Component {
     this._onResponsive = this._onResponsive.bind(this);
     this._onMenuOpen = this._onMenuOpen.bind(this);
     this._onMenuClick = this._onMenuClick.bind(this);
-    this._scrollToAnchor = this._scrollToAnchor.bind(this);
     this.state = {showMenu: true, responsive: 'multiple'};
   }
 
   componentDidMount () {
-    this._scrollToAnchor();
+    this._scrollMenu();
     this._highlightCode();
   }
 
   componentDidUpdate () {
-    this._scrollToAnchor();
     this._highlightCode();
   }
 
@@ -49,16 +47,17 @@ export default class DocsSplit extends Component {
     }
   }
 
-  _scrollToAnchor () {
+  _scrollMenu () {
     if (this.refs.doc) {
-      const doc = this.refs.doc;
-      const hash = window.location.hash.slice(1);
-      if (hash) {
-        const anchor = document.querySelectorAll('[id=' + hash + ']')[0];
-        const scrollParent = DOM.findScrollParents(anchor)[0];
-        scrollParent.scrollTop = anchor.offsetTop;
-      } else {
-        doc.scrollTop = 0;
+      const path = window.location.pathname;
+      const anchor = document.querySelector(`[href="${path}"]`);
+      if (anchor) {
+        const sidebar = findDOMNode(this.refs.sidebar);
+        const anchorRect = anchor.getBoundingClientRect();
+        const sidebarRect = sidebar.getBoundingClientRect();
+        // Divide by 3 to put it towards the top but still in the middle
+        sidebar.scrollTop =
+          (anchorRect.top - sidebarRect.top) - (window.innerHeight / 3);
       }
     }
   }
@@ -81,8 +80,7 @@ export default class DocsSplit extends Component {
     if ('single' === this.state.responsive) {
       this.setState({showMenu: false});
     }
-    // allow time for hash to change
-    setTimeout(this._scrollToAnchor, 1);
+    this.refs.doc.scrollTop = 0;
   }
 
   _renderTitle () {
@@ -106,7 +104,7 @@ export default class DocsSplit extends Component {
       );
     }
     return (
-      <Sidebar size="small" separator="right">
+      <Sidebar ref="sidebar" size="small" separator="right">
         <Header justify="between" size="large" pad={{horizontal: 'medium'}}>
           {title}
           {closer}

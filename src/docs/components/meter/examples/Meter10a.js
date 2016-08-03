@@ -11,7 +11,7 @@ export default class Meter10a extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Box direction="row" pad={{ between: 'small' }}>
           <Meter type="arc" vertical={true} value={40} label={false} threshold={90} />
           <Box justify="between" align="start">

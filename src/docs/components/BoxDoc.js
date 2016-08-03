@@ -1,8 +1,9 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Box from 'grommet/components/Box';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 const COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', 'neutral-3', 'neutral-3-t', 'neutral-4',
   'accent-1', 'accent-1-t', 'accent-2', 'accent-2-t',
@@ -91,41 +92,33 @@ export default class BoxDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <h3>Default</h3>
-          <div className="example">
+          <Example name="Default" code={
             <Box>
               <div>first</div>
               <div>second</div>
             </Box>
-          </div>
-          <pre><code className="html hljs xml">{"<Box> ..."}</code></pre>
+          } />
 
-          <h3>Row</h3>
-          <div className="example">
+          <Example name="Row" code={
             <Box direction="row">
               <div>first</div>
               <div>second</div>
             </Box>
-          </div>
-          <pre><code className="html hljs xml">{"<Box direction=\"row\"> ..."}</code></pre>
+          } />
 
-          <h3>Kitchen sink</h3>
-          <div className="example">
-            <Box direction="row" align="center" colorIndex="neutral-1" justify="between"
-              pad="large" reverse={true} tag="aside">
+          <Example name="Kitchen sink" code={
+            <Box direction="row" align="center" colorIndex="neutral-1"
+              justify="between" pad="large" reverse={true} tag="aside">
               <div>first</div>
               <div>second</div>
             </Box>
-          </div>
-          <pre><code className="html hljs xml">{"<Box direction=\"row\" align=\"center\" colorIndex=\"neutral-1\"\n  justify=\"between\" reverse={true} tag=\"aside\"> ..."}</code></pre>
+          } />
 
-            <h3>Color indexes</h3>
-            <div className="example">
-              <Box direction="row" wrap={true}>
-                {coloredBoxes}
-              </Box>
-            </div>
-            <pre><code className="html hljs xml">{"<Box colorIndex=\"...\" pad=\"small\"> ..."}</code></pre>
+          <Example name="Color indexes" code={
+            <Box direction="row" wrap={true}>
+              {coloredBoxes}
+            </Box>
+          } />
 
         </section>
 

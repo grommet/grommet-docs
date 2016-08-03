@@ -11,7 +11,7 @@ export default class Meter6a extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           <Value value={40} units="GB" align="start" />
           <Meter value={40} label={false} threshold={90} />

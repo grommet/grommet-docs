@@ -35,7 +35,7 @@ export default class Meter14a extends Component {
     }
 
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           <Meter type="arc" series={SERIES} label={false} max={100} threshold={90}
             onActive={(index) => this.setState({ index: index })} />

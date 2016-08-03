@@ -2,6 +2,7 @@
 
 import React, { Component,  PropTypes } from 'react';
 import jsxToString from 'jsx-to-string';
+import Box from 'grommet/components/Box';
 
 export default class Example extends Component {
 
@@ -17,28 +18,35 @@ export default class Example extends Component {
   }
 
   render () {
-    const { code, control, name } = this.props;
+    const { align, code, control, name } = this.props;
     let heading;
     if (name) {
       heading = <h3>{name}</h3>;
     }
     return (
-      <div>
+      <Box flex={true}>
         {heading}
-        <div className="example">
-          {control || code}
-        </div>
-        <pre><code className="html hljs xml">
-          {this._renderCode()}
-        </code></pre>
-      </div>
+        <Box pad={{ between: 'medium' }} align={align}>
+          <div className="example">
+            {control || code}
+          </div>
+          <pre><code className="html hljs xml">
+            {this._renderCode()}
+          </code></pre>
+        </Box>
+      </Box>
     );
   }
 }
 
 Example.propTypes = {
+  align: PropTypes.oneOf(['start', 'center', 'end']),
   code: PropTypes.node.isRequired,
   control: PropTypes.node, // for LayerDoc
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string)
+};
+
+Example.defaultProps = {
+  align: 'start'
 };

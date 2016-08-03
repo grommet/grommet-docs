@@ -35,7 +35,7 @@ export default class Meter11a extends Component {
     }
 
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           <Box direction="row" justify="between" align="center"
             pad={{ between: 'small' }}>

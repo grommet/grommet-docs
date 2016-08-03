@@ -11,7 +11,7 @@ export default class Meter8a extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           <Meter type="circle" value={40} threshold={90}
             label={<Value value={40} units="GB" />} />

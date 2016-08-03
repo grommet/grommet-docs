@@ -8,7 +8,7 @@ export default class Meter11 extends Component {
 
   render () {
     return (
-      <Example code={
+      <Example align="center" code={
         <Meter series={[
           {label: 'Gen 7', value: 50},
           {label: 'Gen 8', value: 20},

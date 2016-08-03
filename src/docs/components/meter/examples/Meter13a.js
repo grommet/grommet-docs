@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
 import Meter from 'grommet/components/Meter';
+import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
 import Label from 'grommet/components/Label';
 import Example from '../../../Example';
@@ -35,7 +35,7 @@ export default class Meter13a extends Component {
     }
 
     return (
-      <Example code={
+      <Example align="center" code={
         <Box>
           <Meter type="circle" series={SERIES} label={false} max={100} threshold={90}
             onActive={(index) => this.setState({ index: index })} />
