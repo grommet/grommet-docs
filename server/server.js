@@ -131,6 +131,10 @@ BASENAMES.forEach(function (basename) {
   });
 });
 
+app.get('/assets/*', function (req, res) {
+  res.redirect(301, 'http://grommet.github.io' + req.path);
+});
+
 app.get('/', function (req, res) {
   res.redirect(301, 'http://grommet.github.io');
 });
