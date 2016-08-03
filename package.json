@@ -36,7 +36,7 @@
     "babel-preset-react": "^6.3.13",
     "del": "^2.0.2",
     "ejs-compiled-loader": "^2.1.1",
-    "file-loader": "^0.8.5",
+    "file-loader": "^0.9.0",
     "grommet-toolbox": "^0.2.2",
     "gulp": "^3.9.0",
     "gulp-git": "^1.2.3",
