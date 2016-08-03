@@ -111,7 +111,8 @@ DESIGN.forEach(function (pathname) {
   BASENAMES.forEach(function (basename) {
     app.get('/docs' + basename + '/design/' + pathname, function (req, res) {
       const newPathname = REMAP[pathname] || pathname;
-      res.redirect(301, 'http://grommet.github.io' + basename + '/docs/' + newPathname);
+      res.redirect(301, req.protocol + '://grommet.github.io' + basename +
+        '/docs/' + newPathname);
     });
   });
 });
@@ -120,23 +121,24 @@ DEVELOP.forEach(function (pathname) {
   BASENAMES.forEach(function (basename) {
     app.get('/docs' + basename + '/develop/' + pathname, function (req, res) {
       const newPathname = REMAP[pathname] || pathname;
-      res.redirect(301, 'http://grommet.github.io' + basename + '/docs/' + newPathname);
+      res.redirect(301, req.protocol + '://grommet.github.io' + basename +
+        '/docs/' + newPathname);
     });
   });
 });
 
 BASENAMES.forEach(function (basename) {
   app.get('/docs' + basename, function (req, res) {
-    res.redirect(301, 'http://grommet.github.io' + basename);
+    res.redirect(301, req.protocol + '://grommet.github.io' + basename);
   });
 });
 
 app.get('/assets/*', function (req, res) {
-  res.redirect(301, 'http://grommet.github.io' + req.path);
+  res.redirect(301, req.protocol + '://grommet.github.io' + req.path);
 });
 
 app.get('/', function (req, res) {
-  res.redirect(301, 'http://grommet.github.io');
+  res.redirect(301, req.protocol + '://grommet.github.io');
 });
 
 var server = http.createServer(app);
