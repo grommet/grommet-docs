@@ -39,6 +39,8 @@ export default class AccordionDoc extends Component {
         <section>
           <h2>AccordionPanel Options</h2>
           <dl>
+            <dt><code>active             {'{bool}'}</code></dt>
+            <dd>Optional flag to set the panel active (open). Default is false.</dd>
             <dt><code>heading             {'{string}|{node}'}</code></dt>
             <dd>heading of panel, displayed when panel is collapsed. Required.</dd>
           </dl>
@@ -74,10 +76,7 @@ export default class AccordionDoc extends Component {
           } />
 
           <Example name="Open multiple, No animation" code={
-            <Accordion
-              animate={false}
-              openMulti={true}
-            >
+            <Accordion animate={false} openMulti={true}>
               <AccordionPanel heading="First Title">
                 <h3>First Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -101,12 +100,34 @@ export default class AccordionDoc extends Component {
               </AccordionPanel>
             </Accordion>
           } />
+
+          <Example name="Open multiple, Active" code={
+            <Accordion animate={false} openMulti={true}>
+              <AccordionPanel heading="First Title" active={true}>
+                <h3>First Accordion</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </AccordionPanel>
+              <AccordionPanel heading="Second Title">
+                <h3>Second Accordion</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </AccordionPanel>
+              <AccordionPanel heading="Thrid Title" active={true}>
+                <h3>Thrid Accordion</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </AccordionPanel>
+            </Accordion>
+          } />
         </section>
       </DocsArticle>
     );
   }
-};
-
-AccordionDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
 };
