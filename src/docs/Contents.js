@@ -69,6 +69,7 @@ import MapDoc from './components/MapDoc';
 import MarkdownDoc from './utils/MarkdownDoc';
 import MenuDoc from './components/MenuDoc';
 import MeterDoc from './components/MeterDoc';
+import MeterExamplesDoc from './components/meter/examples/MeterExamplesDoc';
 import NavigationDoc from './patterns/NavigationDoc';
 import NotificationDoc from './components/NotificationDoc';
 import NumberInputDoc from './components/NumberInputDoc';
@@ -173,7 +174,9 @@ export default [
       {path: 'login-form', label: 'LoginForm', component: LoginFormDoc},
       {path: 'map', label: 'Map', component: MapDoc},
       {path: 'menu', label: 'Menu', component: MenuDoc},
-      {path: 'meter', label: 'Meter', component: MeterDoc},
+      {path: 'meter', label: 'Meter', component: MeterDoc, contents: [
+        {path: 'meter-examples', component: MeterExamplesDoc}
+      ]},
       {path: 'notification', label: 'Notification', component: NotificationDoc},
       {path: 'number-input', label: 'NumberInput', component: NumberInputDoc},
       {path: 'paragraph', label: 'Paragraph', component: ParagraphDoc},

@@ -1,177 +1,195 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import stringify from "json-stringify-pretty-compact";
+// import stringify from "json-stringify-pretty-compact";
 import Meter from 'grommet/components/Meter';
-import FormField from 'grommet/components/FormField';
-import RadioButton from 'grommet/components/RadioButton';
-import CheckBox from 'grommet/components/CheckBox';import DocsArticle from '../../components/DocsArticle';
+import Value from 'grommet/components/Value';
+import Box from 'grommet/components/Box';
+// import FormField from 'grommet/components/FormField';
+// import RadioButton from 'grommet/components/RadioButton';
+// import CheckBox from 'grommet/components/CheckBox';\
+import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
+// import Example from '../Example';
 
 Meter.displayName = 'Meter';
-FormField.displayName = 'FormField';
-RadioButton.displayName = 'RadioButton';
-CheckBox.displayName = 'CheckBox';
-
-const inline =
-  "<Meter value={70} total={100} units=\"GB\" />";
-
-let simpleValue = 40;
-let simpleMin = {value: 0, label: '0 GB'};
-let simpleMax = {value: 80, label: '80 GB'};
-let simpleThreshold = 75;
-let simpleUnits = 'GB';
-
-let thresholds = [
-  // {label: 'OK', value: 0, colorIndex: 'ok'},
-  {label: 'Warning', value: 60, colorIndex: 'warning'},
-  {label: 'Error', value: 70, colorIndex: 'error'}
-];
-
-let series = [
-  {label: 'Gen 7', value: 50},
-  {label: 'Gen 8', value: 200},
-  {label: 'Gen 9', value: 100},
-  {label: 'Gen 10', value: 300} //,
-  // {label: 'Gen 11', value: 100}
-];
-
-let clickableSeries = [
-  {label: 'Gen 7', value: 50, onClick: function () {
-    alert('You\'ve clicked Gen 7');
-  }},
-  {label: 'Gen 8', value: 200, onClick: function () {
-    alert('You\'ve clicked Gen 8');
-  }},
-  {label: 'Gen 9', value: 100, onClick: function () {
-    alert('You\'ve clicked Gen 9');
-  }},
-  {label: 'Gen 10', value: 300, onClick: function () {
-    alert('You\'ve clicked Gen 10');
-  }}
-];
-let clickableSeriesDoc = clickableSeries.map(function (item) {
-  return {
-    label: item.label,
-    value: item.value,
-    onClick: '...'
-  };
-});
-
-let statusSeries = [
-  {label: 'OK', value: 70, colorIndex: 'ok'},
-  {label: 'Warning', value: 15, colorIndex: 'warning'},
-  {label: 'Error', value: 5, colorIndex: 'error'}
-];
-let statusSeriesMax = 90;
-
-let storageSeries = [
-  {label: 'Physical', value: 700},
-  {label: 'Subscribed', value: 1200},
-  {label: 'Allocated', value: 500}
-];
+// FormField.displayName = 'FormField';
+// RadioButton.displayName = 'RadioButton';
+// CheckBox.displayName = 'CheckBox';
+//
+// let simpleValue = 40;
+// let simpleMin = {value: 0, label: '0 GB'};
+// let simpleMax = {value: 80, label: '80 GB'};
+// let simpleThreshold = 75;
+// let simpleUnits = 'GB';
+//
+// let thresholds = [
+//   // {label: 'OK', value: 0, colorIndex: 'ok'},
+//   {label: 'Warning', value: 60, colorIndex: 'warning'},
+//   {label: 'Error', value: 70, colorIndex: 'error'}
+// ];
+//
+// let series = [
+//   {label: 'Gen 7', value: 50},
+//   {label: 'Gen 8', value: 200},
+//   {label: 'Gen 9', value: 100},
+//   {label: 'Gen 10', value: 300} //,
+//   // {label: 'Gen 11', value: 100}
+// ];
+//
+// let clickableSeries = [
+//   {label: 'Gen 7', value: 50, onClick: function () {
+//     alert('You\'ve clicked Gen 7');
+//   }},
+//   {label: 'Gen 8', value: 200, onClick: function () {
+//     alert('You\'ve clicked Gen 8');
+//   }},
+//   {label: 'Gen 9', value: 100, onClick: function () {
+//     alert('You\'ve clicked Gen 9');
+//   }},
+//   {label: 'Gen 10', value: 300, onClick: function () {
+//     alert('You\'ve clicked Gen 10');
+//   }}
+// ];
+// let clickableSeriesDoc = clickableSeries.map(function (item) {
+//   return {
+//     label: item.label,
+//     value: item.value,
+//     onClick: '...'
+//   };
+// });
+//
+// let statusSeries = [
+//   {label: 'OK', value: 70, colorIndex: 'ok'},
+//   {label: 'Warning', value: 15, colorIndex: 'warning'},
+//   {label: 'Error', value: 5, colorIndex: 'error'}
+// ];
+// let statusSeriesMax = 90;
+//
+// let storageSeries = [
+//   {label: 'Physical', value: 700},
+//   {label: 'Subscribed', value: 1200},
+//   {label: 'Allocated', value: 500}
+// ];
 
 export default class MeterDoc extends Component {
 
-  constructor () {
-    super();
-    this._onChangeValueType = this._onChangeValueType.bind(this);
-    this._onChangeSimpleValue = this._onChangeSimpleValue.bind(this);
-    this._onChangeSeriesValue = this._onChangeSeriesValue.bind(this);
-    this._onChangeSize = this._onChangeSize.bind(this);
-    this._onChangeType = this._onChangeType.bind(this);
-    this._onChangeVertical = this._onChangeVertical.bind(this);
-    this._onChangeStacked = this._onChangeStacked.bind(this);
-    this._onChangeLegend = this._onChangeLegend.bind(this);
-    this._onChangeThreshold = this._onChangeThreshold.bind(this);
-    this.state = {
-      simpleValue: simpleValue,
-      seriesValue: [
-        {label: 'Gen 7', value: 50},
-        {label: 'Gen 8', value: 200},
-        {label: 'Gen 9', value: 100},
-        {label: 'Gen 10', value: 300}
-      ],
-      type: 'bar',
-      valueType: 'single'
-    };
-  }
-
-  _onChangeValueType (valueType) {
-    this.setState({ valueType: valueType });
-  }
-
-  _onChangeSimpleValue (event) {
-    this.setState({ simpleValue: parseInt(event.target.value, 10) });
-  }
-
-  _onChangeSeriesValue (event) {
-    const { seriesValue } = this.state;
-    // extract index from name
-    const index = parseInt(event.target.getAttribute('name').split('-')[1], 10);
-    let nextSeriesValue = seriesValue.slice(0);
-    nextSeriesValue[index] = {
-      label: seriesValue[index].label,
-      value: parseInt(event.target.value, 10)
-    };
-    console.log("!!! _onChangeSeriesValue", index, nextSeriesValue);
-    this.setState({ seriesValue: nextSeriesValue });
-  }
-
-  _onChangeSize (size) {
-    this.setState({ size: size });
-  }
-
-  _onChangeType (type) {
-    this.setState({ type: type });
-  }
-
-  _onChangeVertical () {
-    this.setState({ vertical: ! this.state.vertical });
-  }
-
-  _onChangeStacked () {
-    this.setState({ stacked: ! this.state.stacked });
-  }
-
-  _onChangeLegend () {
-    this.setState({ legend: ! this.state.legend });
-  }
-
-  _onChangeThreshold () {
-    this.setState({ threshold: ! this.state.threshold });
-  }
+  // constructor () {
+  //   super();
+  //   this._onChangeValueType = this._onChangeValueType.bind(this);
+  //   this._onChangeSimpleValue = this._onChangeSimpleValue.bind(this);
+  //   this._onChangeSeriesValue = this._onChangeSeriesValue.bind(this);
+  //   this._onChangeSize = this._onChangeSize.bind(this);
+  //   this._onChangeType = this._onChangeType.bind(this);
+  //   this._onChangeVertical = this._onChangeVertical.bind(this);
+  //   this._onChangeStacked = this._onChangeStacked.bind(this);
+  //   this._onChangeLegend = this._onChangeLegend.bind(this);
+  //   this._onChangeThreshold = this._onChangeThreshold.bind(this);
+  //   this.state = {
+  //     simpleValue: simpleValue,
+  //     seriesValue: [
+  //       {label: 'Gen 7', value: 50},
+  //       {label: 'Gen 8', value: 200},
+  //       {label: 'Gen 9', value: 100},
+  //       {label: 'Gen 10', value: 300}
+  //     ],
+  //     type: 'bar',
+  //     valueType: 'single'
+  //   };
+  // }
+  //
+  // _onChangeValueType (valueType) {
+  //   this.setState({ valueType: valueType });
+  // }
+  //
+  // _onChangeSimpleValue (event) {
+  //   this.setState({ simpleValue: parseInt(event.target.value, 10) });
+  // }
+  //
+  // _onChangeSeriesValue (event) {
+  //   const { seriesValue } = this.state;
+  //   // extract index from name
+  //   const index = parseInt(event.target.getAttribute('name').split('-')[1], 10);
+  //   let nextSeriesValue = seriesValue.slice(0);
+  //   nextSeriesValue[index] = {
+  //     label: seriesValue[index].label,
+  //     value: parseInt(event.target.value, 10)
+  //   };
+  //   console.log("!!! _onChangeSeriesValue", index, nextSeriesValue);
+  //   this.setState({ seriesValue: nextSeriesValue });
+  // }
+  //
+  // _onChangeSize (size) {
+  //   this.setState({ size: size });
+  // }
+  //
+  // _onChangeType (type) {
+  //   this.setState({ type: type });
+  // }
+  //
+  // _onChangeVertical () {
+  //   this.setState({ vertical: ! this.state.vertical });
+  // }
+  //
+  // _onChangeStacked () {
+  //   this.setState({ stacked: ! this.state.stacked });
+  // }
+  //
+  // _onChangeLegend () {
+  //   this.setState({ legend: ! this.state.legend });
+  // }
+  //
+  // _onChangeThreshold () {
+  //   this.setState({ threshold: ! this.state.threshold });
+  // }
 
   render () {
-    let simpleValueInput, seriesValueInputs;
-    if ('single' === this.state.valueType) {
-      simpleValueInput = (
-        <input id="value" name="value" type="range"
-          min="0" max="80" value={this.state.simpleValue}
-          onChange={this._onChangeSimpleValue}/>
-      );
-    } else if ('multiple' === this.state.valueType) {
-      seriesValueInputs = Array.apply(null, Array(4)).map((_, index) => (
-        <input key={index} id={`value-${index}`} name={`value-${index}`}
-          type="range" min="0" max="400"
-          value={this.state.seriesValue[index].value}
-          onChange={this._onChangeSeriesValue}/>
-      ));
-    }
+    // let simpleValueInput, seriesValueInputs;
+    // if ('single' === this.state.valueType) {
+    //   simpleValueInput = (
+    //     <input id="value" name="value" type="range"
+    //       min="0" max="80" value={this.state.simpleValue}
+    //       onChange={this._onChangeSimpleValue}/>
+    //   );
+    // } else if ('multiple' === this.state.valueType) {
+    //   seriesValueInputs = Array.apply(null, Array(4)).map((_, index) => (
+    //     <input key={index} id={`value-${index}`} name={`value-${index}`}
+    //       type="range" min="0" max="400"
+    //       value={this.state.seriesValue[index].value}
+    //       onChange={this._onChangeSeriesValue}/>
+    //   ));
+    // }
 
     return (
       <DocsArticle title="Meter" colorIndex="neutral-3">
 
-        <p>Shows a bar, arc, or circular meter graphic.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>Shows a bar, arc, or circular meter graphic.</p>
+          <Box direction="row" align="center" pad={{ between: 'medium' }}>
+            <Meter value="40" type="circle" label={
+                <Value value={40} />
+              }/>
+            <Box align="end" direction="row">
+              <Meter value="40" vertical={true} label={false} />
+              <Value value={40} />
+            </Box>
+            <Box align="start" direction="column">
+              <Value value={40} />
+              <Meter value="40" label={false} />
+            </Box>
+            <Box align="center">
+              <Meter value="40" type="arc" label={false} />
+              <Value value={40} />
+            </Box>
+          </Box>
+        </section>
 
         <section>
           <h2>Options</h2>
           <dl>
             <dt><code>activeIndex {'{number}'}</code></dt>
             <dd>The currently active series value index, if any.</dd>
-            <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
+            <dt><code>colorIndex  {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the graphic color.
               For example: <code>"graph-1"</code></dd>
             <dt><code>important   {"{number}"}</code></dt>
@@ -197,7 +215,7 @@ export default class MeterDoc extends Component {
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
-            <dt><code>onActive     {"{func (index)}"}</code></dt>
+            <dt><code>onActive    {"{func (index)}"}</code></dt>
             <dd>Hover handler. The hovered series index is passed as an argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>
@@ -232,6 +250,11 @@ export default class MeterDoc extends Component {
         <section>
           <h2>Examples</h2>
 
+          <NavAnchor primary={true} path={`/docs/meter-examples`}>
+            Grommet Meter Examples
+          </NavAnchor>
+
+          {/*}
           <Example name="Bar" code={
             <Meter value={this.state.simpleValue} a11yTitleId='meter-title-1'
               a11yDescId='meter-desc-1' />
@@ -444,6 +467,7 @@ export default class MeterDoc extends Component {
               checked={'large' === this.state.size}
               onChange={this._onChangeSize.bind(this, 'large')} />
           </FormField>
+          {*/}
         </section>
 
       </DocsArticle>

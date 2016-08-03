@@ -19,24 +19,6 @@ export default class ChartDoc extends Component {
         <section>
           <p>The Grommet Chart components provide the building blocks
             to construct a variety of Chart visualizations.</p>
-
-          <Menu inline={true}>
-            <NavAnchor path={`/docs/chart-area`}>Area</NavAnchor>
-            <NavAnchor path={`/docs/chart-axis`}>Axis</NavAnchor>
-            <NavAnchor path={`/docs/chart-bar`}>Bar</NavAnchor>
-            <NavAnchor path={`/docs/chart-base`}>Base</NavAnchor>
-            <NavAnchor path={`/docs/chart-hot-spots`}>HotSpots</NavAnchor>
-            <NavAnchor path={`/docs/chart-grid`}>Grid</NavAnchor>
-            <NavAnchor path={`/docs/chart-layers`}>Layers</NavAnchor>
-            <NavAnchor path={`/docs/chart-line`}>Line</NavAnchor>
-            <NavAnchor path={`/docs/chart-marker`}>Marker</NavAnchor>
-            <NavAnchor path={`/docs/chart-marker-label`}>MarkerLabel</NavAnchor>
-            <NavAnchor path={`/docs/chart-range`}>Range</NavAnchor>
-          </Menu>
-
-          <p>See the older <NavAnchor path={`/docs/chart-v1`}>
-            Chart version 1</NavAnchor> documentation for the prior Chart
-            interface.</p>
         </section>
 
         <section>
@@ -87,6 +69,28 @@ export default class ChartDoc extends Component {
             the chart. Note that you can use Legend and Value within MarkerLegend
             to have them positioned relative to the appropriate part of the
             chart graphic.</p>
+        </section>
+
+        <section>
+          <h2>Components</h2>
+
+          <Menu inline={true}>
+            <NavAnchor path={`/docs/chart-area`}>Area</NavAnchor>
+            <NavAnchor path={`/docs/chart-axis`}>Axis</NavAnchor>
+            <NavAnchor path={`/docs/chart-bar`}>Bar</NavAnchor>
+            <NavAnchor path={`/docs/chart-base`}>Base</NavAnchor>
+            <NavAnchor path={`/docs/chart-hot-spots`}>HotSpots</NavAnchor>
+            <NavAnchor path={`/docs/chart-grid`}>Grid</NavAnchor>
+            <NavAnchor path={`/docs/chart-layers`}>Layers</NavAnchor>
+            <NavAnchor path={`/docs/chart-line`}>Line</NavAnchor>
+            <NavAnchor path={`/docs/chart-marker`}>Marker</NavAnchor>
+            <NavAnchor path={`/docs/chart-marker-label`}>MarkerLabel</NavAnchor>
+            <NavAnchor path={`/docs/chart-range`}>Range</NavAnchor>
+          </Menu>
+
+          <p>See the older <NavAnchor path={`/docs/chart-v1`}>
+            Chart version 1</NavAnchor> documentation for the prior Chart
+            interface.</p>
         </section>
 
         <section>
