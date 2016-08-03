@@ -44,6 +44,7 @@ import ChartLineDoc from './components/chart/LineDoc';
 import ChartMarkerDoc from './components/chart/MarkerDoc';
 import ChartMarkerLabelDoc from './components/chart/MarkerLabelDoc';
 import ChartRangeDoc from './components/chart/RangeDoc';
+import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
 import ChartV1Doc from './components/ChartV1Doc';
 import CheckBoxDoc from './components/CheckBoxDoc';
 import ColumnsDoc from './components/ColumnsDoc';
@@ -142,6 +143,7 @@ export default [
         {path: 'chart-axis', component: ChartAxisDoc},
         {path: 'chart-bar', component: ChartBarDoc},
         {path: 'chart-base', component: ChartBaseDoc},
+        {path: 'chart-examples', component: ChartExamplesDoc},
         {path: 'chart-grid', component: ChartGridDoc},
         {path: 'chart-hot-spots', component: ChartHotSpotsDoc},
         {path: 'chart-layers', component: ChartLayersDoc},

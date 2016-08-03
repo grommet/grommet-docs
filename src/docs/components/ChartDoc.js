@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Chart, { Base, Line, Layers, Axis } from 'grommet/components/chart/Chart';
 import Meter from 'grommet/components/Meter';
 import Menu from 'grommet/components/Menu';
-import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
@@ -93,10 +92,9 @@ export default class ChartDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <p>Coming soon ...</p>
-          <Anchor primary={true} href="http://grommet.us.rdlabs.hpecorp.net/charts/">
+          <NavAnchor primary={true} path={`/docs/chart-examples`}>
             Grommet Chart Examples
-          </Anchor>
+          </NavAnchor>
         </section>
 
       </DocsArticle>
