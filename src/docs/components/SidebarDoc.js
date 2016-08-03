@@ -12,11 +12,6 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
 
-var inline =
-      "<Sidebar>\n" +
-      "  ...\n" +
-      "</Sidebar>";
-
 export default class SidebarDoc extends Component {
 
   _onClose () {
@@ -36,7 +31,6 @@ export default class SidebarDoc extends Component {
         controlled via a <NavAnchor path="/docs/title">Title</NavAnchor> component
         inside a <NavAnchor path="/docs/header">Header</NavAnchor> component
         residing in the other side of the Split.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

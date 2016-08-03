@@ -1,27 +1,18 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Topology from 'grommet/components/Topology';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class TopologyDoc extends Component {
 
   render () {
-    const inline =
-      "<Topology links={[...]}>\n" +
-      "  <Topology.Parts>\n" +
-      "    <Topology.Part>\n" +
-      "      ...\n" +
-      "    </Topology.Part>\n" +
-      "    ...\n" +
-      "  </Topology.Parts>\n" +
-      "</Topology>";
 
     return (
       <DocsArticle title="Topology" colorIndex="neutral-3">
 
         <p>Visualize structure and connectivity.</p>
-        <pre><code className="htm hljs xmll">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>
@@ -74,9 +65,9 @@ export default class TopologyDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
+          <h2>Example</h2>
 
-          <div className="example">
+          <Example code={
             <Topology links={[
               {colorIndex: "graph-1", ids: ["s1p1", "s2p1"]},
               {colorIndex: "graph-1", ids: ["s1p2", "s2p2"]},
@@ -233,7 +224,7 @@ export default class TopologyDoc extends Component {
 
               </Topology.Parts>
             </Topology>
-          </div>
+          } />
 
         </section>
 

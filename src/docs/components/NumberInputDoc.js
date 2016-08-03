@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import NumberInput from 'grommet/components/NumberInput';
+import Form from 'grommet/components/Form';
+import FormField from 'grommet/components/FormField';
 
 export default class NumberInputDoc extends Component {
 
@@ -17,15 +19,19 @@ export default class NumberInputDoc extends Component {
   }
 
   render () {
-    const inline = [
-      "<NumberInput id=\"item1\" >"
-    ].join("\n");
     return (
       <DocsArticle title="NumberInput" colorIndex="neutral-3">
 
-        <p>A number input in a web form. We have a separate component from the
-          browser base so we can style it.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A number input in a web form. We have a separate component from the
+            browser base so we can style it.</p>
+          <Form>
+            <FormField>
+              <NumberInput id="item2" name="item2" label="Item 2"
+                value={this.state.value} onChange={this._onChange} />
+            </FormField>
+          </Form>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -60,15 +66,23 @@ export default class NumberInputDoc extends Component {
 
           <h3>Basic</h3>
           <div className="example">
-            <NumberInput id="item2" name="item2" label="Item 2"
-              value={this.state.value} onChange={this._onChange} />
+            <Form>
+              <FormField>
+                <NumberInput id="item2" name="item2" label="Item 2"
+                  value={this.state.value} onChange={this._onChange} />
+              </FormField>
+            </Form>
           </div>
           <pre><code className="html hljs xml">{"<NumberInput id=\"item2\" name=\"item2\" label=\"Item 2\" />"}</code></pre>
 
           <h3>Disabled</h3>
           <div className="example">
-            <NumberInput id="item4" name="item4" label="Item 4" disabled={true}
-              value={this.state.value} />
+            <Form>
+              <FormField>
+                <NumberInput id="item4" name="item4" label="Item 4" disabled={true}
+                  value={this.state.value} />
+            </FormField>
+          </Form>
           </div>
           <pre><code className="html hljs xml">{"<NumberInput id=\"item4\" name=\"item4\" label=\"Item 4\" disabled=\{true\} />"}</code></pre>
 

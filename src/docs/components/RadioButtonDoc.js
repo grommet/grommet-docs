@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import RadioButton from 'grommet/components/RadioButton';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
@@ -18,15 +19,22 @@ export default class RadioButtonDoc extends Component {
   }
 
   render () {
-    const inline = [
-      "<RadioButton id=\"item2\" label=\"Item 1\">"
-    ].join("\n");
     return (
       <DocsArticle title="RadioButton" colorIndex="neutral-3">
 
-        <p>A radio button in a web form. We have a separate component from the
-          browser base so we can style it.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A radio button in a web form. We have a separate component from the
+            browser base so we can style it.</p>
+          <Box direction="row" wrap={true} align="center"
+            pad={{ between: 'medium' }}>
+            <RadioButton id="choice1-1" name="choice1" label="Choice 1"
+              checked={this.state.choice === 'choice-1'}
+              onChange={this._onChange.bind(this, 'choice-1')} />
+            <RadioButton id="choice1-2" name="choice1" label="Choice 2"
+              checked={this.state.choice === 'choice-2'}
+              onChange={this._onChange.bind(this, 'choice-2')} />
+          </Box>
+        </section>
 
         <section>
           <h2>Options</h2>

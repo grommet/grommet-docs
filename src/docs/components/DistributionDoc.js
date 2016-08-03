@@ -1,9 +1,9 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Distribution from 'grommet/components/Distribution';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
-import Distribution from 'grommet/components/Distribution';
 
 Distribution.displayName = 'Distribution';
 
@@ -60,19 +60,20 @@ export default class DistributionDoc extends Component {
     return (
       <DocsArticle title="Distribution" colorIndex="neutral-3">
 
-        <p>Shows a graphic of relatively sized items.
-          If colorIndex properties are not specified per series item, they
-          will be automatically asigned.
-          One way to use a Distribution is to compare items across
-          two attributes. One attribute determining the area and another
-          determining the color.
-          The guidance for coloring items is to use colorIndex 'unset'
-          for less important items, neutral or graph colors for normal
-          items and accent colors for items to call attention to. Status
-          colorIndex values can be used as well.</p>
-        <pre><code className="html hljs xml">
-          {"<Distribution series={[...]} />"}
-        </code></pre>
+        <section>
+          <p>Shows a graphic of relatively sized items.
+            If colorIndex properties are not specified per series item, they
+            will be automatically asigned.
+            One way to use a Distribution is to compare items across
+            two attributes. One attribute determining the area and another
+            determining the color.
+            The guidance for coloring items is to use colorIndex 'unset'
+            for less important items, neutral or graph colors for normal
+            items and accent colors for items to call attention to. Status
+            colorIndex values can be used as well.</p>
+          <Distribution series={series} a11yTitleId='distribution-title-1'
+            a11yDescId='distribution-desc-1' />
+        </section>
 
         <section>
           <h2>Options</h2>

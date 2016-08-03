@@ -1,11 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Status from 'grommet/components/icons/Status';
-
-const inline =
-      "<Status value=\"...\" />";
+import Box from 'grommet/components/Box';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class StatusDoc extends Component {
 
@@ -13,8 +12,17 @@ export default class StatusDoc extends Component {
     return (
       <DocsArticle title="Status" colorIndex="neutral-3">
 
-        <p>A status icon.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A status icon.</p>
+          <Box direction="row" wrap={true} align="center"
+            pad={{ between: 'medium' }}>
+            <Status value="ok"/>
+            <Status value="critical" a11yTitle="critical"/>
+            <Status value="warning"/>
+            <Status value="disabled"/>
+            <Status value="unknown"/>
+          </Box>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -33,63 +41,14 @@ export default class StatusDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Examples</h2>
 
-          <h3>OK</h3>
-          <div className="example">
-            <Status value="ok"/>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Status value=\"ok\">"}
-          </code></pre>
-
-          <h3>Error</h3>
-          <div className="example">
-            <Status value="critical" a11yTitle="critical"/>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Status value=\"critical\" a11yTitle=\"critical\">"}
-          </code></pre>
-
-          <h3>Warning</h3>
-          <div className="example">
-            <Status value="warning"/>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Status value=\"warning\">"}
-          </code></pre>
-
-          <h3>Disabled</h3>
-          <div className="example">
-            <Status value="disabled"/>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Status value=\"disabled\">"}
-          </code></pre>
-
-          <h3>Unknown</h3>
-          <div className="example">
-            <Status value="unknown"/>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Status value=\"unknown\">"}
-          </code></pre>
-
-          <h3>Small</h3>
-          <div className="example">
+          <Example name="Small" code={
             <Status value="ok" size="small"/>
-          </div>
-          <pre><code className="html">
-            {"<Status value=\"ok\" size=\"small\">"}
-          </code></pre>
-
-          <h3>Large</h3>
-          <div className="example">
+          } />
+          <Example name="Large" code={
             <Status value="ok" size="large"/>
-          </div>
-          <pre><code className="html">
-            {"<Status value=\"ok\" size=\"large\">"}
-          </code></pre>
+          } />
 
         </section>
 

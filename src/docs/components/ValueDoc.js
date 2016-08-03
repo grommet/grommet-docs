@@ -1,12 +1,12 @@
 // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
 import Value from 'grommet/components/Value';
 import GlobeIcon from 'grommet/components/icons/base/Globe';
 import UpIcon from 'grommet/components/icons/base/LinkUp';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 Value.displayName = 'Value';
 
@@ -16,8 +16,10 @@ export default class ValueDoc extends Component {
     return (
       <DocsArticle title="Value" colorIndex="neutral-3">
 
-        <p>Value component, focusing on a single number.</p>
-        <pre><code className="html hljs xml">{'<Value value={75} />'}</code></pre>
+        <section>
+          <p>Value component, focusing on a single number.</p>
+          <Value value={75} />
+        </section>
 
         <section>
           <h2>Options</h2>

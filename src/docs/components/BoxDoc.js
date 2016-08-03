@@ -13,7 +13,6 @@ const COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t',
 export default class BoxDoc extends Component {
 
   render () {
-    var inline = "<Box>\n  ...\n</Box>";
 
     var coloredBoxes = COLORS.map(function (color) {
       return <Box key={color} colorIndex={color} pad="small">{color}</Box>;
@@ -24,7 +23,6 @@ export default class BoxDoc extends Component {
 
         <p>General purpose flexible box layout. This does not support all of the
           <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"> flexbox capabilities</a>.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

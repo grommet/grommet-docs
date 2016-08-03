@@ -57,13 +57,13 @@ export default class SearchDoc extends Component {
   }
 
   render () {
-    const inline =
-    "<Search onDOMChange={...} onSelect={...} />";
     return (
       <DocsArticle title="Search" colorIndex="neutral-3">
 
-        <p>A responsive search control.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A responsive search control.</p>
+          <Search inline={true}/>
+        </section>
 
         <section>
           <h2>Options</h2>

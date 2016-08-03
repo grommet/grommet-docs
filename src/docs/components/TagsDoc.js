@@ -1,11 +1,11 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Tags from 'grommet/components/Tags';
+import Tag from 'grommet/components/Tag';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
-import Tags from 'grommet/components/Tags';
-import Tag from 'grommet/components/Tag';
 
 Tags.displayName = 'Tags';
 Tag.displayName = 'Tag';
@@ -17,17 +17,18 @@ export default class TagsDoc extends Component {
   }
 
   render () {
-    var inline =
-      "<Tags>\n" +
-      "  <Tag />\n" +
-      "  ...\n" +
-      "</Tags>";
 
     return (
       <DocsArticle title="Tag(s)" colorIndex="neutral-3">
 
-        <p>A list of tags. The preferred method of populating Tags is to use Tag children.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A list of tags. The preferred method of populating Tags is to use Tag children.</p>
+          <Tags>
+            <Tag label="First" />
+            <Tag label="Second" />
+            <Tag label="Third" />
+          </Tags>
+        </section>
 
         <section>
           <h2>Tags Options</h2>
@@ -52,7 +53,6 @@ export default class TagsDoc extends Component {
 
         <section>
           <h2>Examples</h2>
-          <p>These examples show a variety of different options for the Tags.</p>
           <Example name="Default" code={
             <Tags>
               <Tag label="First" />

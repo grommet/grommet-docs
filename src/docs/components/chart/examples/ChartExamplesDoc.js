@@ -29,21 +29,21 @@ import Chart13 from './Chart13';
 import Chart14 from './Chart14';
 
 const CHARTS = [
-  { label: 'Area with Value', chart: Chart9 },
-  { label: 'Line with Value', chart: Chart10 },
-  { label: 'Bar with Value', chart: Chart11 },
-  { label: 'Area and Line with Value', chart: Chart6 },
-  { label: 'Smooth Area and Line with Value', chart: Chart6s },
-  { label: 'Vertical Area and Line with Value and updating', chart: Chart7 },
-  { label: 'Area and Line scaled to width and Legend', chart: Chart8 },
-  { label: 'Range selector', chart: Chart13 },
-  { label: 'Vertical Range selector', chart: Chart14 },
-  { label: 'Vertical Meters with Values, Axis, and Threshold', chart: Chart1 },
-  { label: 'Horizontal Meters with Values, Axis, and Threshold', chart: Chart2 },
-  { label: 'Horizontal Meters with inline labels and Values', chart: Chart3 },
-  { label: 'Vertical Meters with multiple segments and Legend', chart: Chart4 },
-  { label: 'Vertical Meters with stacked segments and Legend', chart: Chart5 }
-  // // { label: 'Stacked Meters scaled to width', chart: Chart12 }
+  { label: 'Area with Value', component: Chart9 },
+  { label: 'Line with Value', component: Chart10 },
+  { label: 'Bar with Value', component: Chart11 },
+  { label: 'Area and Line with Value', component: Chart6 },
+  { label: 'Smooth Area and Line with Value', component: Chart6s },
+  { label: 'Vertical Area and Line with Value and updating', component: Chart7 },
+  { label: 'Area and Line scaled to width and Legend', component: Chart8 },
+  { label: 'Range selector', component: Chart13 },
+  { label: 'Vertical Range selector', component: Chart14 },
+  { label: 'Vertical Meters with Values, Axis, and Threshold', component: Chart1 },
+  { label: 'Horizontal Meters with Values, Axis, and Threshold', component: Chart2 },
+  { label: 'Horizontal Meters with inline labels and Values', component: Chart3 },
+  { label: 'Vertical Meters with multiple segments and Legend', component: Chart4 },
+  { label: 'Vertical Meters with stacked segments and Legend', component: Chart5 }
+  // // { label: 'Stacked Meters scaled to width', component: Chart12 }
 ];
 
 export default class ChartExamplesDoc extends Component {
@@ -88,7 +88,7 @@ export default class ChartExamplesDoc extends Component {
     const items = CHARTS.map((item, index) => (
       <Anchor key={index} label={item.label} onClick={() => this._select(index)} />
     ));
-    const Chart = CHARTS[this.state.index].chart;
+    const Chart = CHARTS[this.state.index].component;
 
     return (
       <DocsArticle title="Chart Examples" colorIndex="neutral-3" full={true}>

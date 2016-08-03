@@ -27,9 +27,7 @@ export default class Example extends Component {
       <Box flex={true}>
         {heading}
         <Box pad={{ between: 'medium' }} align={align}>
-          <div className="example">
-            {control || code}
-          </div>
+          {control || code}
           <pre><code className="html hljs xml">
             {this._renderCode()}
           </code></pre>
@@ -45,8 +43,4 @@ Example.propTypes = {
   control: PropTypes.node, // for LayerDoc
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string)
-};
-
-Example.defaultProps = {
-  align: 'start'
 };

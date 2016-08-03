@@ -1,9 +1,9 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
+import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
 export default class TableDoc extends Component {
@@ -27,22 +27,6 @@ export default class TableDoc extends Component {
   }
 
   render () {
-    const inline = [
-      "<Table>",
-      "  <thead>",
-      "    <tr>",
-      "      <th>...</th>",
-      "      <th>...</th>",
-      "    </tr>",
-      "  </thead>",
-      "  <tbody>",
-      "    <TableRow>",
-      "      <td>...</td>",
-      "      <td>...</td>",
-      "    </TableRow>",
-      "  </tbody>",
-      "</Table>"
-    ].join('\n');
 
     const tableHeader = (
       <thead>
@@ -91,11 +75,13 @@ export default class TableDoc extends Component {
     return (
       <DocsArticle title="Table" colorIndex="neutral-3">
 
-        <p>Table of items. The preferred method of
-          populating rows in the Table is to use TableRows inside
-          a child <code>&lt;tbody&gt;</code> element. Callers should also specify
-          a child <code>&lt;thead%gt;</code> element if a header is needed.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>Table of items. The preferred method of
+            populating rows in the Table is to use TableRows inside
+            a child <code>&lt;tbody&gt;</code> element. Callers should also specify
+            a child <code>&lt;thead%gt;</code> element if a header is needed.</p>
+          <Table>{tableBody}</Table>
+        </section>
 
         <section>
           <h2>Table Options</h2>

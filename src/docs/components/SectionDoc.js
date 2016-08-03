@@ -8,11 +8,6 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Paragraph from 'grommet/components/Paragraph';
 
-var inline =
-      "<Section>\n" +
-      "  ...\n" +
-      "</Section>";
-
 export default class SectionDoc extends Component {
 
   render () {
@@ -20,7 +15,6 @@ export default class SectionDoc extends Component {
       <DocsArticle title="Section" colorIndex="neutral-3">
 
         <p>Responsively grouping related contents inside a page.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are available.</p>

@@ -87,10 +87,11 @@ import SpinningDoc from './components/SpinningDoc';
 import SplitDoc from './components/SplitDoc';
 import StatusDoc from './components/StatusDoc';
 import SunBurstDoc from './components/SunBurstDoc';
-import TabsDoc from './components/TabsDoc';
 import TableDoc from './components/TableDoc';
+import TabsDoc from './components/TabsDoc';
 import TagsDoc from './components/TagsDoc';
 import TilesDoc from './components/TilesDoc';
+import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
 import TitleDoc from './components/TitleDoc';
 import TopologyDoc from './components/TopologyDoc';
 import ValueDoc from './components/ValueDoc';
@@ -191,10 +192,12 @@ export default [
       {path: 'split', label: 'Split', component: SplitDoc},
       {path: 'status', label: 'Status', component: StatusDoc},
       {path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc},
-      {path: 'tabs', label: 'Tabs', component: TabsDoc},
       {path: 'table', label: 'Table', component: TableDoc},
+      {path: 'tabs', label: 'Tabs', component: TabsDoc},
       {path: 'tags', label: 'Tags', component: TagsDoc},
-      {path: 'tiles', label: 'Tiles', component: TilesDoc},
+      {path: 'tiles', label: 'Tiles', component: TilesDoc, contents: [
+        {path: 'tiles-examples', component: TilesExamplesDoc}
+      ]},
       {path: 'title', label: 'Title', component: TitleDoc},
       {path: 'topology', label: 'Topology', component: TopologyDoc},
       {path: 'value', label: 'Value', component: ValueDoc},

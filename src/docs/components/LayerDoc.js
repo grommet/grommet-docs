@@ -97,9 +97,6 @@ export default class LayerDoc extends Component {
       <DocsArticle title="Layer" colorIndex="neutral-3">
 
         <p>A modal overlay, often containing a <a>Form</a>.</p>
-        <pre><code className="html hljs xml">
-          {"<Layer>\n  ...\n</Layer>"}
-        </code></pre>
 
         <section>
           <h2>Options</h2>

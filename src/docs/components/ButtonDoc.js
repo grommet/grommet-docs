@@ -1,15 +1,16 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
+import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import Section from 'grommet/components/Section';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import EditIcon from 'grommet/components/icons/base/Edit';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 Button.displayName = 'Button';
 Tiles.displayName = 'Tiles';
@@ -26,11 +27,19 @@ export default class ButtonDoc extends Component {
     return (
       <DocsArticle title="Button" colorIndex="neutral-3">
 
-        <p>A button. We have a separate component from the
-        browser base so we can style it.</p>
-        <pre><code className="html hljs xml">
-          {`<Button label="Item 1">`}
-        </code></pre>
+        <section>
+          <p>A button. We have a separate component from the
+          browser base so we can style it.</p>
+          <Box direction="row" wrap={true} align="center"
+            pad={{ between: 'medium' }}>
+            <Button label="Action" onClick={this._onClick} />
+            <Button label="Action" primary={true} onClick={this._onClick} />
+            <Button label="Action" secondary={true} onClick={this._onClick} />
+            <Button label="Action" accent={true} onClick={this._onClick} />
+            <Button icon={<CloseIcon />} onClick={this._onClick} />
+            <Button icon={<EditIcon />} label="Edit" onClick={this._onClick} />
+          </Box>
+        </section>
 
         <section>
           <h2>Options</h2>

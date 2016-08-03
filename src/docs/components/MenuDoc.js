@@ -26,10 +26,14 @@ export default class MenuDoc extends Component {
     return (
       <DocsArticle title="Menu" colorIndex="neutral-3">
 
-        <p>Presents a list of choices responsively.</p>
-        <pre><code className="html hljs xml">
-          {"<Menu>\n  <Anchor href=\"#\">Link 1</Anchor>\n  ...\n</Menu>"}
-        </code></pre>
+        <section>
+          <p>Presents a list of choices responsively.</p>
+          <Menu label="Label">
+            <Anchor href="#" className="active">First</Anchor>
+            <Anchor href="#">Second</Anchor>
+            <Anchor href="#">Third</Anchor>
+          </Menu>
+        </section>
 
         <section>
           <h2>Options</h2>

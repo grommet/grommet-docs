@@ -12,11 +12,6 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Section from 'grommet/components/Section';
 
-var inline =
-      "<Split>\n" +
-      "  ...\n" +
-      "</Split>";
-
 export default class SplitDoc extends Component {
 
   render () {
@@ -32,7 +27,6 @@ export default class SplitDoc extends Component {
         a direct child of
         the <NavAnchor path="/docs/app">App</NavAnchor> component
         as this will provide the best responsive behavior across devices.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

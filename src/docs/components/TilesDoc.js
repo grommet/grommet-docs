@@ -3,112 +3,18 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
-import Tiles from 'grommet/components/Tiles';
-import Tile from 'grommet/components/Tile';
-import Header from 'grommet/components/Header';
-import Footer from 'grommet/components/Footer';
-import Menu from 'grommet/components/Menu';
-import Button from 'grommet/components/Button';
-import Box from 'grommet/components/Box';
 
 export default class TileDoc extends Component {
 
-  constructor () {
-    super();
-    this._onClick = this._onClick.bind(this);
-    this._onSingleSelect = this._onSingleSelect.bind(this);
-    this._onMultipleSelect = this._onMultipleSelect.bind(this);
-
-    this.state = { singleSelected: [0] };
-  }
-
-  _onClick () {
-    // No-op
-  }
-
-  // single selection is managed by the caller via state.singleSelection
-  _onSingleSelect (selection) {
-    this.setState({singleSelected: selection});
-  }
-
-  // multiple selection is managed by the List
-  _onMultipleSelect (selection) {
-    // no-op
-  }
-
-  // options supports:
-  //   count: #
-  //   colorIndex: <color>
-  //   separator: true|false
-  //   bottom: button|menu
-  _renderRichTiles (options={}) {
-    var richTiles = [];
-    var index = 1;
-    while (index <= (options.count || 8)) {
-      var bottom;
-      if ('button' === options.bottom) {
-        bottom = <Button fill={true} label="Action" onClick={this._onClick} />;
-      } else if ('menu' === options.bottom) {
-        bottom = (
-          <Footer justify="between">
-            <span></span>
-            <Menu inline={false} dropAlign={{bottom: 'bottom', right: 'right'}}>
-              <a>action 1</a>
-              <a>action 2</a>
-              <a>action 3</a>
-            </Menu>
-          </Footer>
-        );
-      }
-
-      var colorIndex;
-      if (options.colorIndex) {
-        if ('random' === options.colorIndex) {
-          colorIndex = 'neutral-' + index;
-        } else {
-          colorIndex = options.colorIndex;
-        }
-      }
-
-      richTiles.push(
-        <Tile key={index} align="start"
-          separator={options.separator ? 'top' : null}
-          colorIndex={colorIndex}>
-          <Header tag="h4" size="small" pad={{horizontal: 'small'}}>
-            <strong>{"Tile " + index}</strong>
-          </Header>
-          <Box pad="small">
-            <p>Tile summary content. One or two lines.</p>
-          </Box>
-          {bottom}
-        </Tile>
-      );
-      index += 1;
-    }
-    return richTiles;
-  }
-
   render () {
-    var inline =
-      "<Tiles>\n" +
-      "  <Tile>\n" +
-      "    <Header>\n" +
-      "      ...\n" +
-      "    </Header>\n" +
-      "    ...\n" +
-      "    <Footer>\n" +
-      "      ...\n" +
-      "    </Footer>\n" +
-      "  </Tile>\n" +
-      "  ...\n" +
-      "</Tiles>";
 
     return (
       <DocsArticle title="Tile(s)" colorIndex="neutral-3">
 
-        <p>A grid of items. The preferred method of populating
-          Tiles is to use Tile children.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A grid of items. The preferred method of populating
+            Tiles is to use Tile children.</p>
+        </section>
 
         <section>
           <h2>Tiles Options</h2>
@@ -162,77 +68,9 @@ export default class TileDoc extends Component {
             Tiles. In practice, each Tile should have similar styling within
             the Tiles. Included here are Headers, Footer, Buttons, and Menus.</p>
 
-          <h3>Simple</h3>
-          <div className="example">
-            <Tiles>
-              <Tile>First</Tile>
-              <Tile>Second</Tile>
-              <Tile>Third</Tile>
-            </Tiles>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tiles>\n  <Tile>\n    ...\n  </Tile>\n  ...\n</Tiles>"}
-          </code></pre>
-
-          <h3>Not flush, centered</h3>
-          <div className="example">
-            <Tiles flush={false} justify="center" colorIndex="light-2" full="horizontal">
-              {this._renderRichTiles({
-                bottom: 'menu', colorIndex: 'light-1'})}
-            </Tiles>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tiles flush={false} justify=\"center\" colorIndex=\"light-2\" full=\"horizontal\">\n  <Tile colorIndex=\"light-1\">\n    ...\n  </Tile>\n  ...\n</Tiles>"}
-          </code></pre>
-
-          <h3>Fill, Not flush</h3>
-          <div className="example">
-            <Tiles fill={true} flush={false}>
-              {this._renderRichTiles({separator: true, bottom: 'button'})}
-            </Tiles>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tiles fill={true}>\n  ...\n</Tiles>"}
-          </code></pre>
-
-          <h3>Fill, flush</h3>
-          <div className="example">
-            <Tiles fill={true}>
-              {this._renderRichTiles({colorIndex: 'random'})}
-            </Tiles>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tiles fill={true}>\n  ...\n</Tiles>"}
-          </code></pre>
-
-          <h3>Row</h3>
-          <div className="example">
-            <Tiles fill={true} direction="row" full="horizontal">
-              {this._renderRichTiles()}
-            </Tiles>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tiles fill={true} direction=\"row\">\n  ...\n</Tiles>"}
-          </code></pre>
-
-          <h3>Selectable</h3>
-          <div className="example">
-            <Tiles fill={true}
-              selectable={true}
-              selected={this.state.singleSelected}
-              onSelect={this._onSingleSelect}>
-              {this._renderRichTiles()}
-            </Tiles>
-          </div>
-
-          <h3>Multi-select</h3>
-          <div className="example">
-            <Tiles fill={true}
-              selectable="multiple"
-              onSelect={this._onMultipleSelect}>
-              {this._renderRichTiles()}
-            </Tiles>
-          </div>
+          <NavAnchor primary={true} path={`/docs/tiles-examples`}>
+            Grommet Tiles Examples
+          </NavAnchor>
 
         </section>
 

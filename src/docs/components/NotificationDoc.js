@@ -14,11 +14,11 @@ export default class NotificationDoc extends Component {
     return (
       <DocsArticle title="Notification" colorIndex="neutral-3">
 
-        <p>A box to display Notification messages.</p>
-
-        <pre><code className="html hljs xml">
-          {"<Notification message=\"...\" />"}
-        </code></pre>
+        <section>
+          <p>A box to display Notification messages.</p>
+          <Notification status='warning'
+            message='Inconsistent configuration detected.' />
+        </section>
 
         <section>
           <h2>Options</h2>

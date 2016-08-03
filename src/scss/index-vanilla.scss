@@ -21,18 +21,9 @@ svg rect[fill="#00B388"] {
   padding-top: 0;
 }
 
-// article .example {
-//   margin-bottom: $inuit-base-spacing-unit;
-//
-//   h1,
-//   h2,
-//   h3,
-//   h4,
-//   h5,
-//   h6 {
-//     color: inherit;
-//   }
-// }
+pre {
+  max-width: 100%;
+}
 
 .font-sample {
   margin-left: double($inuit-base-spacing-unit);

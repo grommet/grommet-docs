@@ -7,19 +7,16 @@ import Example from '../Example';
 
 Headline.displayName = 'Headline';
 
-const inline =
-      "<Headline>\n" +
-      "  ...\n" +
-      "</Headline>";
-
 export default class HeadlineDoc extends Component {
 
   render () {
     return (
       <DocsArticle title="Headline" colorIndex="neutral-3">
 
-        <p>Headline text, usually used in marketing pages.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>Headline text, usually used in marketing pages.</p>
+          <Headline>Sample Headline</Headline>
+        </section>
 
         <section>
           <h2>Options</h2>

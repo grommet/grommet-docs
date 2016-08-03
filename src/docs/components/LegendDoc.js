@@ -1,9 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import Legend from 'grommet/components/Legend';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 Legend.displayName = 'Legend';
 
@@ -41,12 +42,15 @@ export default class LegendDoc extends Component {
     return (
       <DocsArticle title="Legend" colorIndex="neutral-3">
 
-        <p>A legend, typically associated with a data visualization such
-          as <code>Meter</code>, <code>Distribution</code>,
-          or <code>WorldMap</code>.</p>
-        <pre><code className="html hljs xml">
-          {"<Legend series={[...]} />"}
-        </code></pre>
+        <section>
+          <p>A legend, typically associated with a data visualization such
+            as <NavAnchor path="/docs/meter">
+            Meter</NavAnchor>, <NavAnchor path="/docs/distribution">
+            Distribution</NavAnchor>, <NavAnchor path="/docs/sun-burst">
+            SunBurst</NavAnchor>, or <NavAnchor path="/docs/world-map">
+            WorldMap</NavAnchor>.</p>
+          <Legend series={series} units="B"/>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -66,7 +70,8 @@ export default class LegendDoc extends Component {
         </section>
 
         <section>
-          <Example name="Example" code={
+          <h2>Example</h2>
+          <Example code={
             <Legend series={series} units="B"/>
           } />
         </section>

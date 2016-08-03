@@ -21,19 +21,10 @@ export default class BrickDoc extends Component {
 
   render () {
 
-    const inline =
-      "<Bricks>\n" +
-      "  <Brick>\n" +
-      "    ...\n" +
-      "  </Brick>\n" +
-      "  ...\n" +
-      "</Bricks>";
-
     return (
       <DocsArticle title="Brick(s)" colorIndex="neutral-3">
 
         <p>Lay out equivalently sized Bricks of content.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Brick Options</h2>

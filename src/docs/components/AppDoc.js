@@ -11,11 +11,6 @@ App.displayName = 'App';
 Header.displayName = 'Header';
 Title.displayName = 'Title';
 
-const inline =
-      "<App>\n" +
-      "  ...\n" +
-      "</App>";
-
 export default class AppDoc extends Component {
 
   render () {
@@ -24,7 +19,6 @@ export default class AppDoc extends Component {
       <DocsArticle title="App" colorIndex="neutral-3">
 
         <p>Grommet main container, usually containing Header and Footer.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

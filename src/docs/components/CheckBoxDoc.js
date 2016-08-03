@@ -1,9 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import CheckBox from 'grommet/components/CheckBox';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
+import CheckBox from 'grommet/components/CheckBox';
+import Box from 'grommet/components/Box';
 
 CheckBox.displayName = 'CheckBox';
 
@@ -23,11 +24,17 @@ export default class CheckBoxDoc extends Component {
     return (
       <DocsArticle title="CheckBox" colorIndex="neutral-3">
 
-        <p>A check box in a web form. We have a separate component from the
-          browser base so we can style it.</p>
-        <pre><code className="html hljs xml">
-          {"<CheckBox id=\"item1\" label=\"Item 1\">"}
-        </code></pre>
+        <section>
+          <p>A check box in a web form. We have a separate component from the
+            browser base so we can style it.</p>
+          <Box direction="row" wrap={true} align="center"
+            pad={{ between: 'medium' }}>
+            <CheckBox id="item1" name="item1" label="Item 1"
+              checked={this.state.checked} onChange={this._onChange} />
+            <CheckBox id="item2" name="item2" label="Item 2"
+              checked={this.state.checked} toggle={true} onChange={this._onChange} />
+          </Box>
+        </section>
 
         <section>
           <h2>Options</h2>

@@ -1,14 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Title from 'grommet/components/Title';
+import DocsArticle from '../../components/DocsArticle';
 import Logo from '../../img/Logo';
-
-const inline =
-      "<Title>\n" +
-      "  ...\n" +
-      "</Title>";
+import Example from '../Example';
 
 export default class TitleDoc extends Component {
 
@@ -16,8 +12,10 @@ export default class TitleDoc extends Component {
     return (
       <DocsArticle title="Title" colorIndex="neutral-3">
 
-        <p>Title component usually rendered inside a Header.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>Title component usually rendered inside a Header.</p>
+          <Title>Sample Title</Title>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -37,21 +35,12 @@ export default class TitleDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <h3>Simple</h3>
-          <div className="example">
+          <Example name="Simple" code={
             <Title>Sample Title</Title>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Title>\n  Sample Title\n</Title>"}
-          </code></pre>
-
-          <h3>Logo and text</h3>
-          <div className="example">
+          } />
+          <Example name="Logo and text" code={
             <Title><Logo /> Sample Title</Title>
-          </div>
-          <pre><code className="html">
-            {"<Title>\n  <Logo />\n  Sample Title\n</Title>"}
-          </code></pre>
+          } />
         </section>
 
       </DocsArticle>

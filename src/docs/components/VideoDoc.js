@@ -25,11 +25,6 @@ export default class VideoDoc extends Component {
   }
 
   render () {
-    const inline = [
-      "<Video>",
-      "  <source src=\"/video/file.mp4\" type='video/mp4'/>",
-      "</Video>"
-    ].join('\n');
 
     return (
       <DocsArticle title="Video" colorIndex="neutral-3">
@@ -37,7 +32,6 @@ export default class VideoDoc extends Component {
         <p>Video built on HTML5 video element. Callers must include
           child <code>&lt;source&gt;</code>elements according to the
           HTML5 <code>&lt;video&gt;</code> specification.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

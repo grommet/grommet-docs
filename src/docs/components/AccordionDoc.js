@@ -15,14 +15,6 @@ export default class AccordionDoc extends Component {
       <DocsArticle title="Accordion" colorIndex="neutral-3">
 
         <p>A collapsible accordion component.</p>
-        <pre><code className="html hljs xml">
-{`<Accordion>
-    <AccordionPanel>
-      ...
-    </AccordionPanel>
-    ...
-</Accordion>`}
-        </code></pre>
 
         <section>
           <h2>Accordion Options</h2>

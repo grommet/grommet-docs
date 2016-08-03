@@ -22,10 +22,15 @@ export default class FooterDoc extends Component {
     return (
       <DocsArticle title="Footer" colorIndex="neutral-3">
 
-        <p>Put things at the bottom.</p>
-        <pre><code className="html hljs xml">
-          {"<Footer>\n  ...\n</Footer>"}
-        </code></pre>
+        <section>
+          <p>Put things at the bottom.</p>
+          <Footer>
+            <Menu direction="row">
+              <Button label="OK" primary={true} onClick={this._onClick} />
+              <Button label="Cancel" onClick={this._onClick} />
+            </Menu>
+          </Footer>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -41,25 +46,16 @@ export default class FooterDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
+          <h2>Example</h2>
 
-            <Example name="Form Footer" code={
-              <Footer>
-                <Menu direction="row">
-                  <Button label="OK" primary={true} onClick={this._onClick} />
-                  <Button label="Cancel" onClick={this._onClick} />
-                </Menu>
-              </Footer>
-            } />
-
-            <Example name="Form Footer, right" code={
-              <Footer justify="end">
-                <Menu direction="row" justify="end">
-                  <Button label="Cancel" onClick={this._onClick} />
-                  <Button label="OK" primary={true} onClick={this._onClick} />
-                </Menu>
-              </Footer>
-            } />
+          <Example code={
+            <Footer>
+              <Menu direction="row">
+                <Button label="OK" primary={true} onClick={this._onClick} />
+                <Button label="Cancel" onClick={this._onClick} />
+              </Menu>
+            </Footer>
+          } />
         </section>
 
       </DocsArticle>

@@ -10,9 +10,6 @@ Columns.displayName = 'Columns';
 export default class ColumnsDoc extends Component {
 
   render () {
-    var inline =
-      "<Columns>...</Columns>";
-
     var labels = [];
     for (var i=1; i<=23; i++) {
       labels.push(`label ${i}`);
@@ -22,7 +19,6 @@ export default class ColumnsDoc extends Component {
       <DocsArticle title="Columns" colorIndex="neutral-3">
 
         <p>Organize children into multiple components based on available width.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

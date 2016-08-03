@@ -1,9 +1,11 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import DateTime from 'grommet/components/DateTime';
+import Form from 'grommet/components/Form';
+import FormField from 'grommet/components/FormField';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
-import DateTime from 'grommet/components/DateTime';
 
 export default class DateTimeDoc extends Component {
 
@@ -28,13 +30,21 @@ export default class DateTimeDoc extends Component {
   }
 
   render () {
-    const inline =
-      "<DateTime onChange={...} />";
     return (
       <DocsArticle title="DateTime" colorIndex="neutral-3">
 
-        <p>An input field for a date and time.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>An input field for a date and time.</p>
+
+          <Example code={
+            <Form>
+              <FormField>
+                <DateTime id="item1" name="item-1"
+                  onChange={this._onChange} value={this.state.value}  />
+              </FormField>
+            </Form>
+          } />
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -67,7 +77,7 @@ export default class DateTimeDoc extends Component {
               onChange={this._onChange} value={this.state.value}  />
           } />
 
-        <Example name="Time only, 24 hour time, seconds, step 10" code={
+          <Example name="Time only, 24 hour time, seconds, step 10" code={
             <DateTime id="item2" name="item-2" format="H:mm:ss" step={10}
               onChange={this._onChangeTime} value={this.state.time}  />
           } />

@@ -1,25 +1,19 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Carousel from 'grommet/components/Carousel';
 import Box from 'grommet/components/Box';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class TileDoc extends Component {
 
   render () {
-    const inline =
-      "<Carousel>\n" +
-      "  <img />\n" +
-      "  <img />\n" +
-      "  ...\n" +
-      "</Carousel>";
 
     return (
       <DocsArticle title="Carousel" colorIndex="neutral-3">
 
         <p>Image carousel.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>
@@ -38,7 +32,7 @@ export default class TileDoc extends Component {
         <section>
           <h2>Example</h2>
 
-          <div className="example">
+          <Example code={
             <Carousel>
               <img src="/img/carousel-1.png" />
               <img src="/img/carousel-2.png" />
@@ -48,10 +42,7 @@ export default class TileDoc extends Component {
                 </Box>
               </Box>
             </Carousel>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Carousel>\n  <img />\n    ...\n</Carousel>"}
-          </code></pre>
+          } />
 
         </section>
 

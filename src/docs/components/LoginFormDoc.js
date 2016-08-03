@@ -1,9 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import LoginForm from 'grommet/components/LoginForm';
+import DocsArticle from '../../components/DocsArticle';
 import Logo from '../../img/Logo';
+import Example from '../Example';
 
 export default class LoginFormDoc extends Component {
 
@@ -12,12 +13,13 @@ export default class LoginFormDoc extends Component {
   }
 
   render () {
-    const inline = "<LoginForm onSubmit={...} />";
     return (
       <DocsArticle title="LoginForm" colorIndex="neutral-3">
 
-        <p>The form used to log in.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>The form used to log in.</p>
+          <LoginForm onSubmit={this._onSubmit} />
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -48,14 +50,11 @@ export default class LoginFormDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <h3>Simple</h3>
-          <div className="example">
+          <Example name="Simple" code={
             <LoginForm onSubmit={this._onSubmit} />
-          </div>
-          <pre><code className="html hljs xml">{"<LoginForm onSubmit={...}/>"}</code></pre>
+          } />
 
-          <h3>Full</h3>
-          <div className="example">
+          <Example name="Full" code={
             <LoginForm logo={<Logo />} title="Product Name"
               secondaryText="Product Secondary Text"
               onSubmit={this._onSubmit}
@@ -66,11 +65,9 @@ export default class LoginFormDoc extends Component {
                 rememberMe: true
               }}
             />
-          </div>
-          <pre><code className="html hljs xml">{"<LoginForm\n  logo={<Logo />}\n  title=\"Product Name\"\n  secondaryText=\"Product Secondary Text\"\n  rememberMe={true}\n  forgotPassword={<a>...</a>}\n  onSubmit={...}\n  errors={[\"Invalid username or password.\"]}\n  defaultValues={{\n    username: 'username@grommet.io',\n    rememberMe: true\n  }}\n/>"}</code></pre>
+          } />
 
-          <h3>Full, Start</h3>
-          <div className="example">
+          <Example name="Full, Start" code={
             <LoginForm align="start" logo={<Logo />} title="Product Name"
               secondaryText="Product Secondary Text"
               onSubmit={this._onSubmit}
@@ -81,8 +78,7 @@ export default class LoginFormDoc extends Component {
                 rememberMe: true
               }}
             />
-          </div>
-          <pre><code className="html hljs xml">{"<LoginForm\n  align=\"start\" logo={<Logo />}\n  title=\"Product Name\"\n  secondaryText=\"Product Secondary Text\"\n  rememberMe={true}\n  forgotPassword={<a>...</a>}\n  onSubmit={...}\n  errors={[\"Invalid username or password.\"]}\n  defaultValues={{\n    username: 'username@grommet.io',\n    rememberMe: true\n  }}\n/>"}</code></pre>
+          } />
 
         </section>
 

@@ -8,11 +8,6 @@ import Example from '../Example';
 
 Hero.displayName = 'Hero';
 
-var inline =
-      "<Hero>\n" +
-      "  ...\n" +
-      "</Hero>";
-
 export default class HeroDoc extends Component {
 
   render () {
@@ -26,8 +21,12 @@ export default class HeroDoc extends Component {
     return (
       <DocsArticle title="Hero" colorIndex="neutral-3">
 
-        <p>A Hero image or video, overlaid with text.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A Hero image or video, overlaid with text.</p>
+          <Hero backgroundType="image" backgroundImage="img/carousel-1.png">
+            <h1>This is a Hero</h1>
+          </Hero>
+        </section>
 
         <section>
           <h2>Options</h2>

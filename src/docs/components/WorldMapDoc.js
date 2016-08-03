@@ -1,9 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import WorldMap from 'grommet/components/WorldMap';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 WorldMap.displayName = 'WorldMap';
 
@@ -41,13 +42,14 @@ export default class WorldMapDoc extends Component {
     return (
       <DocsArticle title="WorldMap" colorIndex="neutral-3">
 
-        <p>A world map of continents.</p>
-        <pre><code className="html hljs xml">
-          {"<WorldMap series={[...]} />"}
-        </code></pre>
-        <p>Note: It is a good idea to include a <code>Legend</code> along
-        with this visualization. You can use the same <code>series</code>
-        property for both <code>WorldMap</code> and <code>Legend</code>.</p>
+        <section>
+          <p>A world map of continents.</p>
+          <WorldMap series={series} legend={true} units="B"/>
+          <p>Note: It is a good idea to include a <NavAnchor path="/docs/legend">
+          Legend</NavAnchor> along
+          with this visualization. You can use the same <code>series</code>
+          property for both <code>WorldMap</code> and <code>Legend</code>.</p>
+        </section>
 
         <section>
           <h2>Options</h2>

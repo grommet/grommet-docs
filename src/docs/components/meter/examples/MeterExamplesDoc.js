@@ -48,28 +48,28 @@ import Meter20 from './Meter20';
 import Meter21 from './Meter21';
 
 const METERS = [
-  { label: 'Horizontal Bar', meter: Meter1 },
-  { label: 'Vertical Bar', meter: Meter2 },
-  { label: 'Circle', meter: Meter3 },
-  { label: 'Horizontal Arc', meter: Meter4 },
-  { label: 'Vertical Arc', meter: Meter5 },
-  { label: 'Annotated Horizontal Bar', meter: Meter6a },
-  { label: 'Annotated Vertical Bar', meter: Meter7a },
-  { label: 'Annotated Circle', meter: Meter8a },
-  { label: 'Annotated Horizontal Arc', meter: Meter9a },
-  { label: 'Annotated Vertical Arc', meter: Meter10a },
-  { label: 'Annotated Horizontal Bar Series', meter: Meter11a },
-  { label: 'Annotated Horizontal Bar Series Inline Labels', meter: Meter11LabelsA },
-  { label: 'Annotated Vertical Bar Series', meter: Meter12a },
-  { label: 'Annotated Circle Series', meter: Meter13a },
-  { label: 'Annotated Horizontal Arc Series', meter: Meter14a },
-  { label: 'Annotated Vertical Arc Series', meter: Meter15a },
-  { label: 'Spiral Series', meter: Meter16a },
-  { label: 'Annotated Horizontal Bar Series Stacked', meter: Meter17 },
-  { label: 'Annotated Vertical Bar Series Stacked', meter: Meter18 },
-  { label: 'Annotated Circle Series Stacked', meter: Meter19 },
-  { label: 'Annotated Horizontal Arc Series Stacked', meter: Meter20 },
-  { label: 'Annotated Vertical Arc Series Stacked', meter: Meter21 }
+  { label: 'Horizontal Bar', component: Meter1 },
+  { label: 'Vertical Bar', component: Meter2 },
+  { label: 'Circle', component: Meter3 },
+  { label: 'Horizontal Arc', component: Meter4 },
+  { label: 'Vertical Arc', component: Meter5 },
+  { label: 'Annotated Horizontal Bar', component: Meter6a },
+  { label: 'Annotated Vertical Bar', component: Meter7a },
+  { label: 'Annotated Circle', component: Meter8a },
+  { label: 'Annotated Horizontal Arc', component: Meter9a },
+  { label: 'Annotated Vertical Arc', component: Meter10a },
+  { label: 'Annotated Horizontal Bar Series', component: Meter11a },
+  { label: 'Annotated Horizontal Bar Series Inline Labels', component: Meter11LabelsA },
+  { label: 'Annotated Vertical Bar Series', component: Meter12a },
+  { label: 'Annotated Circle Series', component: Meter13a },
+  { label: 'Annotated Horizontal Arc Series', component: Meter14a },
+  { label: 'Annotated Vertical Arc Series', component: Meter15a },
+  { label: 'Spiral Series', component: Meter16a },
+  { label: 'Annotated Horizontal Bar Series Stacked', component: Meter17 },
+  { label: 'Annotated Vertical Bar Series Stacked', component: Meter18 },
+  { label: 'Annotated Circle Series Stacked', component: Meter19 },
+  { label: 'Annotated Horizontal Arc Series Stacked', component: Meter20 },
+  { label: 'Annotated Vertical Arc Series Stacked', component: Meter21 }
 ];
 
 export default class MeterExamplesDoc extends Component {
@@ -114,17 +114,16 @@ export default class MeterExamplesDoc extends Component {
     const items = METERS.map((item, index) => (
       <Anchor key={index} label={item.label} onClick={() => this._select(index)} />
     ));
-    const Meter = METERS[this.state.index].meter;
+    const Meter = METERS[this.state.index].component;
 
     return (
       <DocsArticle title="Meter Examples" colorIndex="neutral-3" full={true}>
         <Header justify="between" colorIndex="light-2"
           pad={{ horizontal: 'large' }}>
-          <span></span>
           <Menu label={METERS[index].label} inline={false} size="large">
             {items}
           </Menu>
-          <CheckBox checked={dark} toggle={true}
+          <CheckBox checked={dark} toggle={true} label="dark"
             onChange={() => this.setState({ dark: ! dark })} />
         </Header>
 

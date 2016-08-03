@@ -7,10 +7,6 @@ import Heading from 'grommet/components/Heading';
 
 Heading.displayName = 'Heading';
 
-const INLINE = `<Heading>
-  ...
-</Heading>`;
-
 const LONG_TEXT = 'A Long Heading That Will Probably Wrap Which Should Be Avoided';
 
 export default class HeadingDoc extends Component {
@@ -19,8 +15,10 @@ export default class HeadingDoc extends Component {
     return (
       <DocsArticle title="Heading" colorIndex="neutral-3">
 
-        <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.</p>
-        <pre><code className="html hljs xml">{INLINE}</code></pre>
+        <section>
+          <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.</p>
+          <Heading>Sample Heading</Heading>
+        </section>
 
         <section>
           <h2>Options</h2>

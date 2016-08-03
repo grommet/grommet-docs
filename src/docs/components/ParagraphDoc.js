@@ -7,10 +7,6 @@ import Paragraph from 'grommet/components/Paragraph';
 
 Paragraph.displayName = 'Paragraph';
 
-const INLINE = `<Paragraph>
-  ...
-</Paragraph>`;
-
 const TEXT = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -23,7 +19,6 @@ export default class ParagraphDoc extends Component {
       <DocsArticle title="Paragraph" colorIndex="neutral-3">
 
         <p>A paragraph of text.</p>
-        <pre><code className="html hljs xml">{INLINE}</code></pre>
 
         <section>
           <h2>Options</h2>

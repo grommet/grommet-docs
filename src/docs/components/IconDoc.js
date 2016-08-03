@@ -127,10 +127,10 @@ export default class IconDoc extends Component {
     return (
       <DocsArticle title="Icon" colorIndex="neutral-3">
 
-        <p>Load icons inside your Grommet application.</p>
-        <pre><code className="html hljs xml">
-          {"<SVGIcon type=\"...\" viewBox=\"...\"><path .../></SVGIcon>"}
-        </code></pre>
+        <section>
+          <p>Load icons inside your Grommet application.</p>
+          <Icon />
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -146,8 +146,24 @@ export default class IconDoc extends Component {
         </section>
 
         <section>
+          <h2>Built-in icons</h2>
+          <p>Most likely the icon you are looking is already available inside
+            Grommet iconography. This is how you import it:</p>
+          <pre><code className="html hljs xml">{inline}</code></pre>
+        </section>
+
+        <section>
           <h2>Examples</h2>
 
+          <Example name="Default" code={
+            <Icon />
+          } />
+          <Example name="Large, colored" code={
+            <Icon size="large" colorIndex="brand" />
+          } />
+          <Example name="Huge" code={
+            <Icon size="huge" colorIndex="brand" />
+          } />
           <Example name="Custom Logo" code={
             <SVGIcon viewBox='0 0 130 108' version='1.1'
               type='logo' a11yTitle='Locations Finder'>
@@ -159,38 +175,7 @@ export default class IconDoc extends Component {
         </section>
 
         <section>
-          <h2>Built-in icons</h2>
-          <p>Most likely the icon you are looking is already available inside
-            Grommet iconography. This is how you import it:</p>
-          <pre><code className="html hljs xml">{inline}</code></pre>
-
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <h3>Default</h3>
-          <div className="example">
-            <Icon />
-          </div>
-          <pre><code className="html hljs xml">{"<" + componentName + " /> ..."}</code></pre>
-
-          <h3>Large, colored</h3>
-          <div className="example">
-            <Icon size="large" colorIndex="brand" />
-          </div>
-          <pre><code className="html hljs xml">{"<" + componentName + " size=\"large\" colorIndex=\"brand\" /> ..."}</code></pre>
-
-          <h3>Huge</h3>
-          <div className="example">
-            <Icon size="huge" colorIndex="brand" />
-          </div>
-          <pre><code className="html hljs xml">{"<" + componentName + " size=\"huge\" /> ..."}</code></pre>
-
-        </section>
-
-        <section>
-          <Header tag="h2">
+          <Header tag="h2" justify="between">
             Icons
             <SearchInput id="iconSearchInput" name="iconSearchInput"
               onDOMChange={this._onChange} value={this.state.inputData} />

@@ -8,12 +8,9 @@ import Example from '../Example';
 export default class SocialShareDoc extends Component {
 
   render () {
-    const inline = `<SocialShare />`;
-
     return (
       <DocsArticle title="Social Share" colorIndex="neutral-3">
         <p>A social media share icon button.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

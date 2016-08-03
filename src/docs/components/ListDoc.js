@@ -34,9 +34,6 @@ export default class ListDoc extends Component {
   }
 
   render () {
-    const inline = [
-      "<List ... />"
-    ].join('\n');
 
     let items = DATA.map((datum) => {
       return (
@@ -50,9 +47,11 @@ export default class ListDoc extends Component {
     return (
       <DocsArticle title="List" colorIndex="neutral-3">
 
-        <p>A list of items. The preferred method of populating items in the
-        List is to use ListItem children.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A list of items. The preferred method of populating items in the
+          List is to use ListItem children.</p>
+          <List>{items}</List>
+        </section>
 
         <section>
           <h2>List Options</h2>

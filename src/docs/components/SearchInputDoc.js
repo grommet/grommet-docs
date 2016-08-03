@@ -1,10 +1,12 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component, PropTypes } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import SearchInput from 'grommet/components/SearchInput';
 import Box from 'grommet/components/Box';
+import Form from 'grommet/components/Form';
+import FormField from 'grommet/components/FormField';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 const SearchInputSuggestion = (props) => {
   return (
@@ -77,13 +79,20 @@ export default class SearchInputDoc extends Component {
   }
 
   render () {
-    const inline =
-      "<SearchInput onDOMChange={...} onSelect={...} />";
     return (
       <DocsArticle title="SearchInput" colorIndex="neutral-3">
 
-        <p>An input field with a search control.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>An input field with a search control.</p>
+          <Form>
+            <FormField>
+              <SearchInput id="item1" name="item-1"
+                value={this.state.value} onDOMChange={this._onDOMChange}
+                onSelect={this._onSelect}
+                suggestions={this.state.suggestions} />
+            </FormField>
+          </Form>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -117,16 +126,24 @@ export default class SearchInputDoc extends Component {
           <h2>Examples</h2>
 
           <Example name="Simple" code={
-            <SearchInput id="item1" name="item-1"
-              value={this.state.value} onDOMChange={this._onDOMChange}
-              onSelect={this._onSelect}
-              suggestions={this.state.suggestions} />
+            <Form>
+              <FormField>
+                <SearchInput id="item1" name="item-1"
+                  value={this.state.value} onDOMChange={this._onDOMChange}
+                  onSelect={this._onSelect}
+                  suggestions={this.state.suggestions} />
+              </FormField>
+            </Form>
           } />
           <Example name="Rich Suggestions" code={
-            <SearchInput id="item2" name="item-2"
-              value={this.state.richValue} onDOMChange={this._onDOMChange2}
-              onSelect={this._onSelect2}
-              suggestions={this.state.richSuggestions} />
+            <Form>
+              <FormField>
+                <SearchInput id="item2" name="item-2"
+                  value={this.state.richValue} onDOMChange={this._onDOMChange2}
+                  onSelect={this._onSelect2}
+                  suggestions={this.state.richSuggestions} />
+              </FormField>
+            </Form>
           } />
         </section>
 

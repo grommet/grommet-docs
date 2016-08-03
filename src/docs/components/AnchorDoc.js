@@ -1,13 +1,14 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
 import Section from 'grommet/components/Section';
+import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import NextIcon from 'grommet/components/icons/base/Next';
 import EditIcon from 'grommet/components/icons/base/Edit';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 Section.displayName = 'Section';
 Anchor.displayName = 'Anchor';
@@ -22,12 +23,21 @@ export default class AnchorDoc extends Component {
     return (
       <DocsArticle title="Anchor" colorIndex="neutral-3">
 
-        <p>A text link. We have a separate component from the
-        browser base so we can style it. You can either set the icon and/or
-        label properties or just use children.</p>
-        <pre><code className="html hljs xml">
-          {"<Anchor href=\"...\">label</Anchor>"}
-        </code></pre>
+        <section>
+          <p>A text link. We have a separate component from the
+          browser base so we can style it. You can either set the icon and/or
+          label properties or just use children.</p>
+          <Box direction="row" wrap={true} align="center"
+            pad={{ between: 'medium' }}>
+            <Anchor href="" onClick={this._onClick}>Child text</Anchor>
+            <Anchor href="" label="Label" primary={true}
+              onClick={this._onClick} />
+            <Anchor href="" icon={<EditIcon id='edit-icon-1' />} label="Edit"
+              onClick={this._onClick} />
+            <Anchor href="" icon={<EditIcon id='edit-icon-2' />}
+              onClick={this._onClick} />
+          </Box>
+        </section>
 
         <section>
           <h2>Options</h2>

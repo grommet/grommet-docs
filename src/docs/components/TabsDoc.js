@@ -1,30 +1,38 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Tabs from 'grommet/components/Tabs';
 import Tab from 'grommet/components/Tab';
 import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
 import Form from 'grommet/components/Form';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class TabsDoc extends Component {
 
   render () {
 
-    const inline =
-      "<Tabs>\n" +
-      "  <Tab>\n" +
-      "   ...\n" +
-      "  </Tab>\n" +
-      "  ...\n" +
-      "</Tabs>";
-
     return (
       <DocsArticle title="Tab(s)" colorIndex="neutral-3">
 
-        <p>A tabular view component.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
+        <section>
+          <p>A tabular view component.</p>
+          <Tabs>
+            <Tab title="First Title">
+              <h3>First Tab</h3>
+              <p>Contents of the first tab</p>
+            </Tab>
+            <Tab title="Second Title">
+              <h3>Second Tab</h3>
+              <p>Contents of the second tab</p>
+            </Tab>
+            <Tab title="Third Title">
+              <h3>Third Tab</h3>
+              <p>Contents of the third tab</p>
+            </Tab>
+          </Tabs>
+        </section>
 
         <section>
           <h2>Options</h2>
@@ -48,8 +56,7 @@ export default class TabsDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <h3>Simple</h3>
-          <div className="example">
+          <Example name="Simple" code={
             <Tabs>
               <Tab title="First Title">
                 <h3>First Tab</h3>
@@ -73,13 +80,9 @@ export default class TabsDoc extends Component {
                 <p>Contents of the third tab</p>
               </Tab>
             </Tabs>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tabs>\n  <Tab title=\"First Title\">\n    <h3>First Tab</h3>\n    <p>Contents of the first tab</p>\n  </Tab>\n  <Tab title=\"Second Title\">\n    <h3>Second Tab</h3>\n    <p>Contents of the second tab</p>\n  </Tab>\n  <Tab title=\"Third Title\">\n    <h3>Third Tab</h3>\n    <p>Contents of the third tab</p>\n  </Tab>\n</Tabs>"}
-          </code></pre>
+          } />
 
-          <h3>Initial Index, Justify Start</h3>
-          <div className="example">
+          <Example name="Initial Index, Justify Start" code={
             <Tabs initialIndex={1} justify="start">
               <Tab title="First Title">
                 <h3>First Tab</h3>
@@ -94,10 +97,7 @@ export default class TabsDoc extends Component {
                 <p>Contents of the third tab</p>
               </Tab>
             </Tabs>
-          </div>
-          <pre><code className="html hljs xml">
-            {"<Tabs initialIndex={1}>\n  <Tab title=\"First Title\">\n    <h3>First Tab</h3>\n    <p>Contents of the first tab</p>\n  </Tab>\n  <Tab title=\"Second Title\">\n    <h3>Second Tab</h3>\n    <p>Contents of the second tab</p>\n  </Tab>\n  <Tab title=\"Third Title\">\n    <h3>Third Tab</h3>\n    <p>Contents of the third tab</p>\n  </Tab>\n</Tabs>"}
-          </code></pre>
+          } />
 
         </section>
 

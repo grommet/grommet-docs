@@ -18,23 +18,10 @@ export default class FormDoc extends Component {
   }
 
   render () {
-    const inline = [
-      "<Form onSubmit={...}>",
-      "  <Header>...</Header>",
-      "  <fieldset>",
-      "    <FormField>",
-      "      <label htmlFor=\"item1\">Item 1</label>",
-      "      <input id=\"item1\" />",
-      "    </FormField>",
-      "    ...",
-      "  </fieldset>",
-      "  <Footer>...</Footer>",
-      "</Form>"].join("\n");
     return (
       <DocsArticle title="Form" colorIndex="neutral-3">
 
         <p>A web form.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

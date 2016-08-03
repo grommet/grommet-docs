@@ -14,9 +14,6 @@ export default class ImageDoc extends Component {
       <DocsArticle title="Image" colorIndex="neutral-3">
 
         <p>An image.</p>
-        <pre><code className="html hljs xml">
-          {`<Image src="..." />`}
-        </code></pre>
 
         <section>
           <h2>Options</h2>

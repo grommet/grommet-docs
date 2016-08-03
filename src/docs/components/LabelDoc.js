@@ -7,11 +7,6 @@ import Example from '../Example';
 
 Label.displayName = 'Label';
 
-const inline =
-      "<Label>\n" +
-      "  ...\n" +
-      "</Label>";
-
 export default class LabelDoc extends Component {
 
   render () {
@@ -19,7 +14,6 @@ export default class LabelDoc extends Component {
       <DocsArticle title=" Label" colorIndex="neutral-3">
 
         <p>Label component. Can be used with or without an associated input.</p>
-        <pre><code className="html hljs xml">{inline}</code></pre>
 
         <section>
           <h2>Options</h2>

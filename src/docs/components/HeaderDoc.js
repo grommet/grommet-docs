@@ -22,19 +22,24 @@ Menu.displayName = 'Menu';
 Anchor.displayName = 'Anchor';
 Button.displayName = 'Button';
 
-const INLINE = `<Header>
-  <Link to={route}>{label}</Link>
-  ...
-</Header>`;
-
 export default class HeaderDoc extends Component {
 
   render () {
     return (
       <DocsArticle title="Header" colorIndex="neutral-3">
 
-        <p>Combines Title and Menu elements responsively.</p>
-        <pre><code className="html hljs xml">{INLINE}</code></pre>
+        <section>
+          <p>Combines Title and Menu elements responsively.</p>
+          <Header justify="between">
+            <Title>Title</Title>
+            <Menu direction="row" align="center" responsive={false}>
+              <Anchor href="#" className="active">First</Anchor>
+              <Anchor href="#">Second</Anchor>
+              <Anchor href="#">Third</Anchor>
+              <Search dropAlign={{right: "right"}} />
+            </Menu>
+          </Header>
+        </section>
 
         <section>
           <h2>Options</h2>

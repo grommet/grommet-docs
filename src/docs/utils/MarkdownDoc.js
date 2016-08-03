@@ -48,9 +48,6 @@ export default class MarkdownDoc extends Component {
 
         <p>Render <a href="http://daringfireball.net/projects/markdown/">markdown</a> content
           using Grommet components.</p>
-        <pre><code className="javascript">
-          {'<Markdown content={markdown text} />'}
-        </code></pre>
 
         <section>
           <h2>Options</h2>
