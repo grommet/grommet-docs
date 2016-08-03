@@ -58,21 +58,15 @@ export default class GetStartedDoc extends Component {
             <h4>NPM</h4>
               <ol>
                 <li>
-                  <p>Install Gulp globally (make sure to run as an admin).</p>
+                  <p>Install grommet-cli globally (make sure to run as an admin).</p>
                   <pre><code className="hljs bash">
-                    npm install -g gulp
-                  </code></pre>
-                </li>
-              	<li>
-                  <p>Install Grommet globally (make sure to run as an admin).</p>
-                  <pre><code className="hljs bash">
-                    npm install -g grommet
+                    npm install -g grommet-cli
                   </code></pre>
                 </li>
                 <li>
                 	<p>Use the Grommet generator to bootstrap your new app.</p>
                 	<pre><code className="hljs bash">
-                    {"grommet init sample-app"}
+                    {"grommet new sample-app"}
                     <br />
                     {"cd sample-app"}
                     </code></pre>
