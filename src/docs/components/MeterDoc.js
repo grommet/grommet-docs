@@ -54,11 +54,15 @@ export default class MeterDoc extends Component {
               this component to build the label. `true` is deprecated.
               Callers are encouraged to use <NavAnchor path="/docs/value">
               Value</NavAnchor> to construct the appropriate label.</dd>
-            <dt><code>legend      {"{placement: right|bottom|inline, total: true|false}"}</code></dt>
-            <dd>Whether to show a legend. If showing, whether to include a total,
+            <dt><code>legend      {"{placement: right|bottom|inline, " +
+              "total: true|false}"}</code></dt>
+            <dd>Whether to show a legend. If showing, whether to include
+              a total,
               and where to place it. If placement is not specified, it will be
-              placed to match the aspect ratio of the window. <code>inline</code> is
-              only supported with horizontal bar. If placement is set to <code>inline</code> and
+              placed to match the aspect ratio of the window.
+              <code>inline</code> is
+              only supported with horizontal bar. If placement is set to
+              <code>inline</code> and
               total is set to <code>false</code>, the active value is hidden.
               This property is deprecated. Callers are encouraged to use
               <NavAnchor path="/docs/legend">Legend</NavAnchor> and place it
@@ -68,22 +72,27 @@ export default class MeterDoc extends Component {
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
             <dt><code>onActive    {"{function (index)}"}</code></dt>
-            <dd>Hover handler. The hovered series index is passed as an argument.
+            <dd>Hover handler. The hovered series index is passed as an
+              argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>
-            <dt><code>series      {"[{value: , label: , colorIndex: , important: , onClick: }, ...]"}</code></dt>
+            <dt><code>series      {"[{value: , label: , colorIndex: , " +
+              "important: , onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.
-              Either this or the <code>value</code> property must be provided.</dd>
+              Either this or the <code>value</code> property must be
+              provided.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The size of the Meter. Defaults to <code>medium</code>.
-              Currently, the <code>spiral</code> type Meter does not respond to this property.</dd>
+              Currently, the <code>spiral</code> type Meter does not respond
+              to this property.</dd>
             <dt><code>stacked     true|false</code></dt>
             <dd>Whether slices for multiple series values should be stacked
               together in the same slot or shown in separate slots.
               Defaults to <code>false</code>.</dd>
             <dt><code>threshold   {"{number}"}</code></dt>
             <dd>Optional threshold value.</dd>
-            <dt><code>thresholds  {"[{value: , label: , colorIndex: }, ...]"}</code></dt>
+            <dt><code>thresholds  {"[{value: , label: , colorIndex: }, ...]"}
+              </code></dt>
             <dd>An array of objects describing thresholds.</dd>
             <dt><code>type        bar|arc|circle|spiral</code></dt>
             <dd>Whether to draw a bar, an arc, a circle, or a spiral.</dd>

@@ -7,7 +7,8 @@ import Heading from 'grommet/components/Heading';
 
 Heading.displayName = 'Heading';
 
-const LONG_TEXT = 'A Long Heading That Will Probably Wrap Which Should Be Avoided';
+const LONG_TEXT = 'A Long Heading That Will Probably Wrap Which ' +
+  'Should Be Avoided';
 
 export default class HeadingDoc extends Component {
 
@@ -30,11 +31,14 @@ export default class HeadingDoc extends Component {
             <dd>The vertical margin below the Heading. Defaults
               to <code>medium</code>.</dd>
             <dt><code>strong      true|false</code></dt>
-            <dd>If the Heading should be bold.  Defaults to <code>false</code>.</dd>
+            <dd>If the Heading should be bold.
+              Defaults to <code>false</code>.</dd>
             <dt><code>tag         h1|h2|h3|h4|h5|h6</code></dt>
-            <dd>Which HTML heading level should be used.  Defaults to <code>h1</code>.</dd>
+            <dd>Which HTML heading level should be used.
+              Defaults to <code>h1</code>.</dd>
             <dt><code>uppercase   true|false</code></dt>
-            <dd>Convert the heading to uppercase.  Defaults to <code>false</code>.</dd>
+            <dd>Convert the heading to uppercase.
+              Defaults to <code>false</code>.</dd>
           </dl>
         </section>
 

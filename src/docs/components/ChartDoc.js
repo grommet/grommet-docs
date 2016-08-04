@@ -1,7 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Chart, { Base, Line, Layers, Axis } from 'grommet/components/chart/Chart';
+import Chart, { Base, Line, Layers, Axis }
+  from 'grommet/components/chart/Chart';
 import Meter from 'grommet/components/Meter';
 import Menu from 'grommet/components/Menu';
 import DocsArticle from '../../components/DocsArticle';
@@ -43,8 +44,8 @@ export default class ChartDoc extends Component {
             </Chart>
           }/>
 
-          <p>The Base can contain other non-Chart components, like Meter. A simple
-            Meter based chart could be built via:</p>
+          <p>The Base can contain other non-Chart components, like Meter.
+            A simple Meter based chart could be built via:</p>
 
             <Example code={
               <Chart>
@@ -66,9 +67,9 @@ export default class ChartDoc extends Component {
             you can use the HotSpots or Range components
             to handle user interaction with the chart. In either case,
             you can use these to update Value or Legend components surrounding
-            the chart. Note that you can use Legend and Value within MarkerLegend
-            to have them positioned relative to the appropriate part of the
-            chart graphic.</p>
+            the chart. Note that you can use Legend and Value within
+            MarkerLegend to have them positioned relative to the appropriate
+            part of the chart graphic.</p>
         </section>
 
         <section>

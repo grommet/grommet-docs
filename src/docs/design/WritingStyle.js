@@ -10,20 +10,25 @@ export default class WritingStyle extends Component {
     return (
       <DocsArticle title="Writing Style" colorIndex="neutral-2">
         <Box>
-          <p>Applications should use a conversational tone and should not include
+          <p>Applications should use a conversational tone and should
+            not include
           excessive technical jargon.</p>
 
-          <p>Here are some things we recommend you consider when writing for applications:</p>
+          <p>Here are some things we recommend you consider when writing for
+            applications:</p>
 
           <h3>Do’s</h3>
           <ul>
             <li>Use simple yet complete sentences.</li>
             <li>Use correct punctuation.</li>
             <li>Use the present tense to describe problem states.</li>
-            <li>Use past tense to describe events that occurred in the past.</li>
+            <li>Use past tense to describe events that occurred in the
+              past.</li>
             <li>Use an active voice whenever possible.</li>
-            <li>Passive voice is acceptable to describe some error conditions.</li>
-            <li>Use descriptors to clarify terminology. For example, “Specify InflD
+            <li>Passive voice is acceptable to describe some error
+              conditions.</li>
+            <li>Use descriptors to clarify terminology. For example,
+              “Specify InflD
             when Detect is set to NO.” We instead recommend something along the
             lines of “Specify the InflD parameter when the Detect option is set
             to NO”.</li>
@@ -33,7 +38,8 @@ export default class WritingStyle extends Component {
           <ul>
             <li>Do not use UPPERCASE in text or exclamation points!!!!</li>
             <li>Do not make the user feel at fault.</li>
-            <li>Do not anthropomorphize by implying that the programs or hardware
+            <li>Do not anthropomorphize by implying that the programs or
+              hardware
             can think or feel.</li>
             <li>Do not use colloquial words or phrases.</li>
             <li>Do not use terms that may be offensive in certain cultures.</li>

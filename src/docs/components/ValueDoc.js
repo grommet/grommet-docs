@@ -82,7 +82,8 @@ export default class ValueDoc extends Component {
             <Value value={75} units="%"
               icon={<GlobeIcon size="xlarge" colorIndex="neutral-1" />}
               trendIcon={<UpIcon size="xlarge" colorIndex="neutral-1" />}
-              label="World wide coverage" size="xlarge" colorIndex="neutral-1" />
+              label="World wide coverage" size="xlarge"
+              colorIndex="neutral-1" />
           } />
         </section>
 

@@ -47,7 +47,8 @@ export default class ConfirmationForm extends Component {
           </Header>
           <FormFields>
             <fieldset>
-              <p>You must acknowledge the destructive aspects of this action.</p>
+              <p>You must acknowledge the destructive aspects of this
+                action.</p>
               <FormField error={this.state.error}>
               <CheckBox id={p + "agree"} name="agree"
                 label="I acknowledge that I may lose data."

@@ -17,7 +17,8 @@ export default class Mobile extends Component {
           <dl>
             <dt>Think mobile first</dt>
             <dd>Designing for mobile first is very beneficial even if your
-            main focus is not on mobile. Doing so can help eliminate non-essential
+            main focus is not on mobile. Doing so can help eliminate
+            non-essential
             information while reinforcing the most important information.</dd>
 
             <dt>Consider new use cases</dt>
@@ -38,7 +39,8 @@ export default class Mobile extends Component {
             <dt>New device capabilities: GPS, camera, accelerometer, etc.</dt>
             <dd>You can use these new capabilities to implement features that
             require geopositioning and location. Use the device orientation
-            to provide a different view of the same screen or some related data.</dd>
+            to provide a different view of the same screen or some related
+            data.</dd>
 
             <dt>Gestures</dt>
             <dd>Users become accustomed to gesture support on their platform.

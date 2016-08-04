@@ -59,7 +59,8 @@ const METERS = [
   { label: 'Annotated Horizontal Arc', component: Meter9a },
   { label: 'Annotated Vertical Arc', component: Meter10a },
   { label: 'Annotated Horizontal Bar Series', component: Meter11a },
-  { label: 'Annotated Horizontal Bar Series Inline Labels', component: Meter11LabelsA },
+  { label: 'Annotated Horizontal Bar Series Inline Labels',
+    component: Meter11LabelsA },
   { label: 'Annotated Vertical Bar Series', component: Meter12a },
   { label: 'Annotated Circle Series', component: Meter13a },
   { label: 'Annotated Horizontal Arc Series', component: Meter14a },
@@ -112,7 +113,8 @@ export default class MeterExamplesDoc extends Component {
     const { index, dark } = this.state;
 
     const items = METERS.map((item, index) => (
-      <Anchor key={index} label={item.label} onClick={() => this._select(index)} />
+      <Anchor key={index} label={item.label}
+        onClick={() => this._select(index)} />
     ));
     const Meter = METERS[this.state.index].component;
 

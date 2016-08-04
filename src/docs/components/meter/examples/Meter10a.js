@@ -13,7 +13,8 @@ export default class Meter10a extends Component {
     return (
       <Example align="center" code={
         <Box direction="row" pad={{ between: 'small' }}>
-          <Meter type="arc" vertical={true} value={40} label={false} threshold={90} />
+          <Meter type="arc" vertical={true} value={40} label={false}
+            threshold={90} />
           <Box justify="between" align="start">
             <Label size="small">100 GB</Label>
             <Value value={40} units="GB" align="start" />

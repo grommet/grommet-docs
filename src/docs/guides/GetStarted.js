@@ -11,14 +11,16 @@ export default class GetStartedDoc extends Component {
     return (
       <DocsArticle title="Get Started" colorIndex="neutral-1">
         <p>
-          Welcome to the Grommet Get Started page. Here you will find instructions
+          Welcome to the Grommet Get Started page. Here you will find
+          instructions
           on how to install Grommet in your local environment.
         </p>
         <section>
           <h2>Get Dependencies</h2>
           <ol>
             <li>
-              Install <Anchor href="http://git-scm.com/" target="_blank">Git</Anchor>.
+              Install <Anchor href="http://git-scm.com/" target="_blank">
+              Git</Anchor>.
               For Windows, you may like <Anchor href="http://msysgit.github.io/"
               target="_blank">Git for Windows</Anchor>.
             </li>
@@ -33,9 +35,11 @@ export default class GetStartedDoc extends Component {
             </li>
             <li>
               For Windows, install <Anchor
-              href="http://www.microsoft.com/en-us/download/details.aspx?id=11310"
+              href={"http://www.microsoft.com/en-us/download/details.aspx?" +
+                "id=11310"}
               target="_blank">Windows SDK for Windows Server 2008 and .NET
-              Framework 3.5</Anchor> <i>(Ensure that a C compiler is installed)</i>.
+              Framework 3.5</Anchor> <i>(Ensure that a C compiler is
+                installed)</i>.
             </li>
             <li>
               <p>
@@ -46,8 +50,10 @@ export default class GetStartedDoc extends Component {
                 {"npm config set proxy http://{host}:{port}"}<br/>
                 {"npm config set https-proxy https://{host}:{port}"}
               </code></pre>
-              <p>If you encounter problems while downloading packages through an https proxy,
-              try using the http protocol in your https-proxy variable, as in:</p>
+              <p>If you encounter problems while downloading packages through
+                an https proxy,
+              try using the http protocol in your https-proxy variable, as
+              in:</p>
               <pre><code className="hljs bash">
                 {"npm config set https-proxy http://{host}:{port}"}
               </code></pre>
@@ -58,7 +64,8 @@ export default class GetStartedDoc extends Component {
             <h4>NPM</h4>
               <ol>
                 <li>
-                  <p>Install grommet-cli globally (make sure to run as an admin).</p>
+                  <p>Install grommet-cli globally (make sure to run as an
+                      admin).</p>
                   <pre><code className="hljs bash">
                     npm install -g grommet-cli
                   </code></pre>
@@ -84,9 +91,11 @@ export default class GetStartedDoc extends Component {
             <h4>Bower</h4>
               <ol>
               	<li>
-              		<p>Install <Anchor href="http://bower.io/" target="_blank">Bower</Anchor>
+              		<p>Install <Anchor href="http://bower.io/" target="_blank">
+                    Bower</Anchor>
                   <i>(at least 1.x required)</i>.</p>
-              		<pre><code className="hljs bash">npm install -g bower</code></pre>
+              		<pre><code className="hljs bash">npm install -g bower
+                    </code></pre>
               	</li>
                 <li>
                   <p>Create an environment variable with your proxy settings
@@ -102,7 +111,8 @@ export default class GetStartedDoc extends Component {
                 </li>
                 <li>
                   <p>Install Grommet.</p>
-                  <pre><code className="hljs bash">bower install grommet</code></pre>
+                  <pre><code className="hljs bash">bower install grommet
+                    </code></pre>
                   <p>At this point, a <i>bower_components</i> folder will be
                   created which contains Grommet and its dependencies.</p>
                 </li>
@@ -119,11 +129,13 @@ export default class GetStartedDoc extends Component {
           <h2>Next Steps</h2>
           <p>
             We recommend that you check out
-            the <NavAnchor path="/docs/architecture">Architecture</NavAnchor> page
+            the <NavAnchor path="/docs/architecture">
+            Architecture</NavAnchor> page
             and learn how Grommet works internally.
           </p>
           <p>We also have
-            a <Anchor href="http://vimeo.com/grommetux/videos">Grommet Vimeo channel</Anchor> with
+            a <Anchor href="http://vimeo.com/grommetux/videos">
+            Grommet Vimeo channel</Anchor> with
             additional training materials.</p>
         </section>
       </DocsArticle>

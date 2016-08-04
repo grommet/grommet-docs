@@ -32,8 +32,10 @@ export default class FormDoc extends Component {
           <dd>A function called when the user submits the form.</dd>
           <dt><code>pad       {"none|small|medium|large|{...}"}</code></dt>
           <dd>The amount of padding to put around the contents.
-            An object can be specified to distinguish horizontal and vertical padding: <code>
-            {"{horizontal: none|small|medium|large, vertical: none|small|medium|large}"}
+            An object can be specified to distinguish horizontal and
+            vertical padding: <code>
+            {"{horizontal: none|small|medium|large, " +
+              "vertical: none|small|medium|large}"}
             </code>. Defaults to <code>none</code>.
           </dd>
           </dl>
@@ -44,33 +46,48 @@ export default class FormDoc extends Component {
 
           <h3>Regular</h3>
           <div className="example">
-            <FullForm prefix="a-" onSubmit={this._onSubmit} onCancel={this._onCancel} />
+            <FullForm prefix="a-" onSubmit={this._onSubmit}
+              onCancel={this._onCancel} />
           </div>
-          <pre><code className="html hljs xml">{"<Form onSubmit={...}> ..."}</code></pre>
+          <pre><code className="html hljs xml">
+            {"<Form onSubmit={...}> ..."}
+          </code></pre>
 
           <h3>Compact</h3>
           <div className="example">
-            <FullForm prefix="b-" onSubmit={this._onSubmit} compact={true} onCancel={this._onCancel} />
+            <FullForm prefix="b-" onSubmit={this._onSubmit} compact={true}
+              onCancel={this._onCancel} />
           </div>
-          <pre><code className="html hljs xml">{"<Form onSubmit={...} compact={true}> ..."}</code></pre>
+          <pre><code className="html hljs xml">
+            {"<Form onSubmit={...} compact={true}> ..."}
+          </code></pre>
 
           <h3>Add User</h3>
           <div className="example">
-            <AddUserForm prefix="a-" onSubmit={this._onSubmit} onCancel={this._onCancel} />
+            <AddUserForm prefix="a-" onSubmit={this._onSubmit}
+              onCancel={this._onCancel} />
           </div>
-          <pre><code className="html hljs xml">{"<Form onSubmit={...}> ..."}</code></pre>
+          <pre><code className="html hljs xml">
+            {"<Form onSubmit={...}> ..."}
+          </code></pre>
 
           <h3>Confirmation</h3>
           <div className="example">
-            <ConfirmationForm prefix="a-" onSubmit={this._onSubmit} onCancel={this._onCancel} />
+            <ConfirmationForm prefix="a-" onSubmit={this._onSubmit}
+              onCancel={this._onCancel} />
           </div>
-          <pre><code className="html hljs xml">{"<Form onSubmit={...}> ..."}</code></pre>
+          <pre><code className="html hljs xml">
+            {"<Form onSubmit={...}> ..."}
+          </code></pre>
 
           <h3>Inverse</h3>
           <Box className="example" colorIndex="neutral-1" pad="large">
-            <FullForm prefix="a-" onSubmit={this._onSubmit} onCancel={this._onCancel} />
+            <FullForm prefix="a-" onSubmit={this._onSubmit}
+              onCancel={this._onCancel} />
           </Box>
-          <pre><code className="html hljs xml">{"<Form onSubmit={...}> ..."}</code></pre>
+          <pre><code className="html hljs xml">
+            {"<Form onSubmit={...}> ..."}
+          </code></pre>
 
         </section>
 

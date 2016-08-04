@@ -78,8 +78,10 @@ export default class TableDoc extends Component {
         <section>
           <p>Table of items. The preferred method of
             populating rows in the Table is to use TableRows inside
-            a child <code>&lt;tbody&gt;</code> element. Callers should also specify
-            a child <code>&lt;thead%gt;</code> element if a header is needed.</p>
+            a child <code>&lt;tbody&gt;</code> element.
+            Callers should also specify
+            a child <code>&lt;thead%gt;</code> element if a header is
+            needed.</p>
           <Table>{tableBody}</Table>
         </section>
 
@@ -89,11 +91,15 @@ export default class TableDoc extends Component {
             <dt><code>onMore        {"{function}"}</code></dt>
             <dd>Function that will be called when more data is needed. When this
               callback is provided, it is an indication that more data could be
-              added if the user scrolls to the bottom of the table. When present,
+              added if the user scrolls to the bottom of the table. When
+              present,
               Table will add a spinner to the bottom of the table and listen for
-              the user scrolling down such that it becomes visible. When the user
-              scrolls to the bottom, this callback will be called. The expectation
-              is that the the caller will add the next chunk of data into the table.</dd>
+              the user scrolling down such that it becomes visible. When the
+              user
+              scrolls to the bottom, this callback will be called. The
+              expectation
+              is that the the caller will add the next chunk of data into
+              the table.</dd>
             <dt><code>onSelect      {"{function (selected)}"}</code></dt>
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index
@@ -114,7 +120,8 @@ export default class TableDoc extends Component {
             <dt><code>onClick       {"{function}"}</code></dt>
             <dd>Called when the user clicks on the row. Callers should bind
               an identifier to the function to distinguish between multiple
-              rows. For example <code>{"onClick={this._onClick.bind(this, id)}"}</code></dd>
+              rows. For example <code>
+              {"onClick={this._onClick.bind(this, id)}"}</code></dd>
             <dt><code>selected      true|false</code></dt>
             <dd>Whether this row is currently selected.</dd>
           </dl>

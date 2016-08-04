@@ -34,15 +34,21 @@ const CHARTS = [
   { label: 'Bar with Value', component: Chart11 },
   { label: 'Area and Line with Value', component: Chart6 },
   { label: 'Smooth Area and Line with Value', component: Chart6s },
-  { label: 'Vertical Area and Line with Value and updating', component: Chart7 },
+  { label: 'Vertical Area and Line with Value and updating',
+    component: Chart7 },
   { label: 'Area and Line scaled to width and Legend', component: Chart8 },
   { label: 'Range selector', component: Chart13 },
   { label: 'Vertical Range selector', component: Chart14 },
-  { label: 'Vertical Meters with Values, Axis, and Threshold', component: Chart1 },
-  { label: 'Horizontal Meters with Values, Axis, and Threshold', component: Chart2 },
-  { label: 'Horizontal Meters with inline labels and Values', component: Chart3 },
-  { label: 'Vertical Meters with multiple segments and Legend', component: Chart4 },
-  { label: 'Vertical Meters with stacked segments and Legend', component: Chart5 }
+  { label: 'Vertical Meters with Values, Axis, and Threshold',
+    component: Chart1 },
+  { label: 'Horizontal Meters with Values, Axis, and Threshold',
+    component: Chart2 },
+  { label: 'Horizontal Meters with inline labels and Values',
+    component: Chart3 },
+  { label: 'Vertical Meters with multiple segments and Legend',
+    component: Chart4 },
+  { label: 'Vertical Meters with stacked segments and Legend',
+    component: Chart5 }
   // // { label: 'Stacked Meters scaled to width', component: Chart12 }
 ];
 
@@ -86,7 +92,8 @@ export default class ChartExamplesDoc extends Component {
     const { index, dark } = this.state;
 
     const items = CHARTS.map((item, index) => (
-      <Anchor key={index} label={item.label} onClick={() => this._select(index)} />
+      <Anchor key={index} label={item.label}
+        onClick={() => this._select(index)} />
     ));
     const Chart = CHARTS[this.state.index].component;
 

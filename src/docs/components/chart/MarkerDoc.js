@@ -49,7 +49,8 @@ export default class MarkerDoc extends Component {
             <dt><code>min          {"{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
             <dt><code>reverse      true|false</code></dt>
-            <dd>When true, the indexes count right to left or bottom to top.</dd>
+            <dd>When true, the indexes count right to left or bottom to
+              top.</dd>
             <dt><code>value        {"{number}"}</code></dt>
             <dd>The value selected. Use in conjunction
               with <code>min</code> and <code>max</code>.</dd>

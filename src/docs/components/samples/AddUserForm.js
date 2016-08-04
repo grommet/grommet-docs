@@ -55,7 +55,8 @@ export default class AddUserForm extends Component {
       {field: 'login', test: (! user.login), message: 'required'},
       {field: 'password', tests: [
         {test: (! user.password), message: 'required'},
-        {test: (user.password.length < 8), message: 'must be at least 8 characters'}
+        {test: (user.password.length < 8),
+          message: 'must be at least 8 characters'}
       ]}
     ];
 
@@ -102,15 +103,18 @@ export default class AddUserForm extends Component {
         </Header>
         <FormFields>
           <fieldset>
-            <FormField label="Login name" htmlFor={p + "login"} error={errors.login}>
+            <FormField label="Login name" htmlFor={p + "login"}
+              error={errors.login}>
               <input id={p + "login"} name="login" type="text"
                 value={user.login} onChange={this._onChange} />
             </FormField>
-            <FormField label="Full name" htmlFor={p + "name"} error={errors.name}>
+            <FormField label="Full name" htmlFor={p + "name"}
+              error={errors.name}>
               <input id={p + "name"} name="name" type="text"
                 value={user.name} onChange={this._onChange} />
             </FormField>
-            <FormField label="Password" htmlFor={p + "password"} error={errors.password}>
+            <FormField label="Password" htmlFor={p + "password"}
+              error={errors.password}>
               <input id={p + "password"} name="password" type="password"
                 value={user.password} onChange={this._onChange} />
             </FormField>
@@ -119,22 +123,27 @@ export default class AddUserForm extends Component {
           <fieldset>
             <legend>Role</legend>
             <FormField>
-              <RadioButton id={p + "role-specialized"} name="role" label="Specialized"
+              <RadioButton id={p + "role-specialized"} name="role"
+                label="Specialized"
                 value="specialized" checked={user.role === 'specialized'}
                 onChange={this._onChange} />
               <FormField hidden={user.role !== 'specialized'}>
                 <CheckBox id={p + "sub-role-backup"} name="backupAdmin"
                   label="Backup administrator"
-                  checked={user.backupAdmin} onChange={this._onChangeCheckBox} />
+                  checked={user.backupAdmin}
+                  onChange={this._onChangeCheckBox} />
                 <CheckBox id={p + "sub-role-network"} name="networkAdmin"
                   label="Network administrator"
-                  checked={user.networkAdmin} onChange={this._onChangeCheckBox} />
+                  checked={user.networkAdmin}
+                  onChange={this._onChangeCheckBox} />
                 <CheckBox id={p + "sub-role-server"} name="serverAdmin"
                   label="Server administrator"
-                  checked={user.serverAdmin} onChange={this._onChangeCheckBox} />
+                  checked={user.serverAdmin}
+                  onChange={this._onChangeCheckBox} />
                 <CheckBox id={p + "sub-role-storage"} name="storageAdmin"
                   label="Storage administrator"
-                  checked={user.storageAdmin} onChange={this._onChangeCheckBox} />
+                  checked={user.storageAdmin}
+                  onChange={this._onChangeCheckBox} />
               </FormField>
             </FormField>
             <FormField>
@@ -143,7 +152,8 @@ export default class AddUserForm extends Component {
                 onChange={this._onChange} />
             </FormField>
             <FormField>
-              <RadioButton id={p + "role-read-only"} name="role" label="Read only"
+              <RadioButton id={p + "role-read-only"} name="role"
+                label="Read only"
                 value="read-only" checked={user.role === 'read-only'}
                 onChange={this._onChange} />
             </FormField>
@@ -166,7 +176,8 @@ export default class AddUserForm extends Component {
           </fieldset>
         </FormFields>
         <Footer pad={{vertical: 'medium'}}>
-          <Button label="Add" primary={true} strong={true} onClick={this._onSubmit} />
+          <Button label="Add" primary={true} strong={true}
+            onClick={this._onSubmit} />
         </Footer>
       </Form>
     );

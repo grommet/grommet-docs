@@ -11,10 +11,12 @@ export default class DateTime extends Component {
       <DocsArticle title="Date and Time" colorIndex="neutral-2">
         <Box>
           <p>Date and time formats should generally be displayed in the user’s
-          local timezone.  Any exceptions to this should include the timezone being
+          local timezone.  Any exceptions to this should include the timezone
+          being
           used to display the time and date. Here are examples of recommended
           date and time
-          formats. The <a href="http://index.grommet.io/docs/grommet-index/timestamp">
+          formats. The
+          <a href="http://index.grommet.io/docs/grommet-index/timestamp">
           Timestamp</a> component
           in <code>grommet-index</code> provides an implementation of this.
           </p>

@@ -15,15 +15,20 @@ export default class Color extends Component {
               applications will define their own brand color scheme.</p>
           </div>
           <div className="hpe-branding">
-          <p>The Hewlett Packard Enterprise color palette is utilized in applications for the
-          most part. However there are variances in the palette that apply specifically
+          <p>The Hewlett Packard Enterprise color palette is utilized in
+            applications for the
+          most part. However there are variances in the palette that apply
+          specifically
           to applications.</p>
 
-          <p>For application design the Hewlett Packard Enterprise orange/salmon accent color
-          is modified to be more red so it can be used as a status indicator and it should
+          <p>For application design the Hewlett Packard Enterprise
+            orange/salmon accent color
+          is modified to be more red so it can be used as a status indicator
+          and it should
           not be used as an accent color in non-status contexts.</p>
 
-          <p>Also, dark yellow color is added for use as a warning status color.</p>
+          <p>Also, dark yellow color is added for use as a warning status
+            color.</p>
           </div>
 
           <h3>Primary</h3>

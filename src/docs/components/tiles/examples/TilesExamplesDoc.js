@@ -69,7 +69,8 @@ export default class TilesExamplesDoc extends Component {
     const { index } = this.state;
 
     const items = TILES.map((item, index) => (
-      <Anchor key={index} label={item.label} onClick={() => this._select(index)} />
+      <Anchor key={index} label={item.label}
+        onClick={() => this._select(index)} />
     ));
     const Tiles = TILES[this.state.index].component;
 

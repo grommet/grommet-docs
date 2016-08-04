@@ -52,7 +52,8 @@ export default class Chart4 extends Component {
           }
           onActive={(valueIndex) => {
             if (undefined !== valueIndex) {
-              this.setState({ slice: { index: index, valueIndex: valueIndex } });
+              this.setState({
+                slice: { index: index, valueIndex: valueIndex } });
             } else {
               this.setState({ slice: undefined });
             }

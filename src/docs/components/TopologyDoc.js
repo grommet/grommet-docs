@@ -35,15 +35,18 @@ export default class TopologyDoc extends Component {
             <dt><code>align        start|center|between|end|stretch</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
             <dt><code>demarcate    true|false</code></dt>
-            <dd>Whether or not to visually demarcate the boundaries of the Part.</dd>
+            <dd>Whether or not to visually demarcate the boundaries of the
+              Part.</dd>
             <dt><code>direction    row|column</code></dt>
             <dd>The orientation to layout any child components in.</dd>
             <dt><code>id           {"{string}"}</code></dt>
-            <dd>The id of this part. The id should at least be unique within the Topology.</dd>
+            <dd>The id of this part. The id should at least be unique within
+              the Topology.</dd>
             <dt><code>justify      start|center|between|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
             <dt><code>label        {"{string}"}</code></dt>
-            <dd>The label of this part. This could be a part name or number, for example.</dd>
+            <dd>The label of this part. This could be a part name or number,
+              for example.</dd>
             <dt><code>reverse      true|false</code></dt>
             <dd>Whether to reverse the order of the child components.</dd>
             <dt><code>status       error|warning|ok|disabled|unknown</code></dt>
@@ -51,7 +54,8 @@ export default class TopologyDoc extends Component {
           </dl>
 
           <h3>Toplogy.Parts</h3>
-          <p>A container for Part components. It is provided purely to assist with Part layout.</p>
+          <p>A container for Part components. It is provided purely to assist
+            with Part layout.</p>
           <h4>Options</h4>
           <dl>
             <dt><code>direction    row|column</code></dt>
@@ -61,7 +65,8 @@ export default class TopologyDoc extends Component {
           </dl>
 
           <h3>Toplogy.Label</h3>
-          <p>A label. It provides finer control over how Part labels are rendered.</p>
+          <p>A label. It provides finer control over how Part labels are
+            rendered.</p>
         </section>
 
         <section>
@@ -116,9 +121,11 @@ export default class TopologyDoc extends Component {
                             demarcate={false} align="center" />
                         </Topology.Parts>
                       </Topology.Part>
-                      <Topology.Part className="fan" status="ok" label="1" align="center" />
+                      <Topology.Part className="fan" status="ok" label="1"
+                        align="center" />
                       <Topology.Part className="fan" />
-                      <Topology.Part className="fan" status="ok" label="3" align="center" />
+                      <Topology.Part className="fan" status="ok" label="3"
+                        align="center" />
                     </Topology.Parts>
                     <Topology.Part className="em"
                       label="HP Virtual Connect FlexFabric-20/40 F8 Module" />
@@ -131,9 +138,12 @@ export default class TopologyDoc extends Component {
                             demarcate={false} align="center" />
                         </Topology.Parts>
                       </Topology.Part>
-                      <Topology.Part className="fan" status="ok" label="4" align="center" />
-                      <Topology.Part className="fan" status="ok" label="5" align="center" />
-                      <Topology.Part className="fan" status="ok" label="6" align="center" />
+                      <Topology.Part className="fan" status="ok" label="4"
+                        align="center" />
+                      <Topology.Part className="fan" status="ok" label="5"
+                        align="center" />
+                      <Topology.Part className="fan" status="ok" label="6"
+                        align="center" />
                     </Topology.Parts>
                   </Topology.Part>
 
@@ -199,9 +209,12 @@ export default class TopologyDoc extends Component {
                             demarcate={false} align="center" />
                         </Topology.Parts>
                       </Topology.Part>
-                      <Topology.Part className="fan" status="ok" label="1" align="center" />
-                      <Topology.Part className="fan" status="ok" label="2" align="center" />
-                      <Topology.Part className="fan" status="ok" label="3" align="center" />
+                      <Topology.Part className="fan" status="ok" label="1"
+                        align="center" />
+                      <Topology.Part className="fan" status="ok" label="2"
+                        align="center" />
+                      <Topology.Part className="fan" status="ok" label="3"
+                        align="center" />
                     </Topology.Parts>
                     <Topology.Part className="em"
                       label="HP Virtual Connect FlexFabric-20/40 F8 Module" />
@@ -214,9 +227,12 @@ export default class TopologyDoc extends Component {
                             demarcate={false} align="center" />
                         </Topology.Parts>
                       </Topology.Part>
-                      <Topology.Part className="fan" status="ok" label="4" align="center" />
-                      <Topology.Part className="fan" status="ok" label="5" align="center" />
-                      <Topology.Part className="fan" status="ok" label="6" align="center" />
+                      <Topology.Part className="fan" status="ok" label="4"
+                        align="center" />
+                      <Topology.Part className="fan" status="ok" label="5"
+                        align="center" />
+                      <Topology.Part className="fan" status="ok" label="6"
+                        align="center" />
                     </Topology.Parts>
                   </Topology.Part>
 

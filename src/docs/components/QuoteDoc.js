@@ -49,7 +49,8 @@ export default class QuoteDoc extends Component {
           <h2>Examples</h2>
           <Example name="Default" code={
             <Quote credit="A famous person">
-              <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              <Paragraph>Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna
                 aliqua.</Paragraph>
             </Quote>

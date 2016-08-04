@@ -52,7 +52,8 @@ export default class HeaderDoc extends Component {
             <dt><code>size        small|medium|large</code></dt>
             <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
             <dt><code>splash      true|false</code></dt>
-            <dd>Whether to render it in a style suitable for a splash screen.</dd>
+            <dd>Whether to render it in a style suitable for a splash
+              screen.</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available.</p>
@@ -142,7 +143,9 @@ export default class HeaderDoc extends Component {
           <Example name="Large, Title Menu and icon Menu, colored" code={
             <Header size="large" justify="between" colorIndex="neutral-1"
               pad={{horizontal: 'medium'}}>
-              <Title onClick={function () {}}><Logo inverse={true} /> Title</Title>
+              <Title onClick={function () {}}>
+                <Logo inverse={true} /> Title
+              </Title>
               <Menu label="Menu"
                 dropAlign={{right: "right"}}
                 dropColorIndex="neutral-1">

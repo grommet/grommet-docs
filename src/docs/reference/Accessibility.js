@@ -18,7 +18,8 @@ export default class Accessibility extends Component {
         <section>
           <p>Products that are accessible to all users are good for people,
           products, and business.  All users should be empowered with access
-          and the ability to have a pleasant experience with your application.</p>
+          and the ability to have a pleasant experience with your
+          application.</p>
 
           <p>We follow the <a href="http://www.w3.org/TR/WCAG20/">Web Content
           Accessibility Guidelines (WCAG)</a>.  By following this style guide
@@ -27,10 +28,14 @@ export default class Accessibility extends Component {
         </section>
 
         <section>
-          <p>This section describes the Grommet guidelines for developing accessible applications.</p>
+          <p>This section describes the Grommet guidelines for developing
+            accessible applications.</p>
 
           <h3>Icons</h3>
-          <p>The icon components can be read by screen readers. The default textual description for icons can be overridden by setting the a11yTitle. The default title or a11yTitle attribute use localization if it exist.</p>
+          <p>The icon components can be read by screen readers. The default
+            textual description for icons can be overridden by setting
+            the a11yTitle. The default title or a11yTitle attribute use
+            localization if it exist.</p>
           <h4>Example:</h4>
           <Table>
             <caption>Example of Icons with different values</caption>
@@ -43,11 +48,14 @@ export default class Accessibility extends Component {
             <tbody>
               <tr>
                 <td><Status value="critical"/></td>
-                <td><pre><code className="html hljs xml">{"<Status value=\"critical\">"}</code></pre></td>
+                <td><pre><code className="html hljs xml">
+                  {"<Status value=\"critical\">"}</code></pre></td>
               </tr>
               <tr>
                 <td><Status value="critical" a11yTitle="Server Down"/></td>
-                <td><pre><code className="html hljs xml">{"<Status value=\"critical\" a11yTitle=\"Server Down\">"}</code></pre></td>
+                <td><pre><code className="html hljs xml">
+                  {"<Status value=\"critical\" a11yTitle=\"Server Down\">"}
+                </code></pre></td>
               </tr>
             </tbody>
           </Table>
@@ -62,14 +70,22 @@ export default class Accessibility extends Component {
 
           <h3>Lang attribute</h3>
           <p>
-            If the lang attribute is not explicitly set in the html element, Grommet will specify the lang attribute according to the user browser’s locale. In addition to the html element, lang attribute can be set on other elements like App.
+            If the lang attribute is not explicitly set in the html
+            element, Grommet will specify the lang attribute according to
+            the user browser’s locale. In addition to the html element,
+            lang attribute can be set on other elements like App.
           </p>
           <h4>Example</h4>
           <pre><code className="html hljs xml">
             {"<App lang=\"en-US\">\n  ...\n</App>"}
           </code></pre>
           <h3>Skip Links</h3>
-          <p>Grommet has skip links that make it easy to skip repetitive content. Grommet skip links have two locations: Skip to Main Content and Skip to Footer. To set the "Skip to Main Content" link in Grommet, an attribute primary="true" needs to be added to the main content element. The "Skip to Footer" link is added by default with the Footer component. </p>
+          <p>Grommet has skip links that make it easy to skip repetitive
+            content. Grommet skip links have two locations: Skip to Main
+            Content and Skip to Footer. To set the "Skip to Main Content"
+            link in Grommet, an attribute primary="true" needs to be added
+            to the main content element. The "Skip to Footer" link is
+            added by default with the Footer component. </p>
           <h4>Example:</h4>
           <pre><code className="html hljs xml">
             {"<App>\n" +

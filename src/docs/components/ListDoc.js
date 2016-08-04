@@ -77,7 +77,8 @@ export default class ListDoc extends Component {
             <dt><code>onClick     {"function () {...}"}</code></dt>
             <dd>Called when the user clicks on the item. Callers should bind
               an identifier to the function to distinguish between multiple
-              items. For example <code>{"onClick={this._onClick.bind(this, id)}"}</code></dd>
+              items. For example
+              <code>{"onClick={this._onClick.bind(this, id)}"}</code></dd>
             <dt><code>selected    true|false</code></dt>
             <dd>Whether this item is currently selected.</dd>
           </dl>

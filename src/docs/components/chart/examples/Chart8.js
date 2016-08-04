@@ -67,7 +67,10 @@ export default class Chart8 extends Component {
     if (this.state.index || 0 === this.state.index) {
       const markerSeries = [
         { label: 'Orange', colorIndex: 'accent-1',
-          value: <Value size="large" value={this.state.valuesB[this.state.index]} /> },
+          value: (
+            <Value size="large"
+              value={this.state.valuesB[this.state.index]} />
+          ) },
         { label: 'Honeydew', colorIndex: 'graph-1',
           value: <Value value={this.state.valuesA[this.state.index]} /> }
       ];

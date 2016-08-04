@@ -39,7 +39,8 @@ export default class DocsMenu extends Component {
 
       if (!context || subItems) {
         return (
-          <Menu key={content.label} direction="column" align="start" primary={true}>
+          <Menu key={content.label} direction="column" align="start"
+            primary={true}>
             {item}
             {subItems}
           </Menu>
@@ -56,7 +57,8 @@ export default class DocsMenu extends Component {
     return (
       <Menu direction="column" align="start" justify="between" primary={true}>
         {menuItems}
-        <Footer primary={true} colorIndex="light-2" pad={{ horizontal: 'medium' }}>
+        <Footer primary={true} colorIndex="light-2"
+          pad={{ horizontal: 'medium' }}>
           <ThemeMenu align="left" />
         </Footer>
       </Menu>

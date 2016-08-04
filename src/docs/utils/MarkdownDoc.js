@@ -46,7 +46,8 @@ export default class MarkdownDoc extends Component {
     return (
       <DocsArticle title="Markdown" colorIndex="neutral-4">
 
-        <p>Render <a href="http://daringfireball.net/projects/markdown/">markdown</a> content
+        <p>Render <a href="http://daringfireball.net/projects/markdown/">
+          markdown</a> content
           using Grommet components.</p>
 
         <section>

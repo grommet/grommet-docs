@@ -52,7 +52,8 @@ export default class Chart6s extends Component {
               <Marker colorIndex="critical" value={THRESHOLD_AXIS.value} />
               <Marker vertical={true} colorIndex="graph-2"
                 count={VALUESb.length} index={this.state.index} />
-              <Area smooth={true} values={VALUESa} activeIndex={this.state.index} />
+              <Area smooth={true} values={VALUESa}
+                activeIndex={this.state.index} />
               <Line smooth={true} values={VALUESb} colorIndex="accent-1"
                 activeIndex={this.state.index} points={true} />
               <HotSpots count={VALUESb.length}

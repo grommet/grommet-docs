@@ -45,7 +45,8 @@ export default class WorldMapDoc extends Component {
         <section>
           <p>A world map of continents.</p>
           <WorldMap series={series} legend={true} units="B"/>
-          <p>Note: It is a good idea to include a <NavAnchor path="/docs/legend">
+          <p>Note: It is a good idea to include
+          a <NavAnchor path="/docs/legend">
           Legend</NavAnchor> along
           with this visualization. You can use the same <code>series</code>
           property for both <code>WorldMap</code> and <code>Legend</code>.</p>
@@ -54,8 +55,10 @@ export default class WorldMapDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>series      {"[{continent: , colorIndex: , onClick: }, ...]"}</code></dt>
-            <dd>An array of objects describing the data. The available continents
+            <dt><code>series      {"[{continent: , colorIndex: , " +
+              "onClick: }, ...]"}</code></dt>
+            <dd>An array of objects describing the data. The available
+              continents
               are: <code>NorthAmerica</code>, <code>
               SouthAmerica</code>, <code>Europe</code>, <code>Africa
               </code>, <code>Asia</code>, and <code>Australia</code>. You

@@ -11,9 +11,12 @@ export default class Introduction extends Component {
     return (
       <DocsArticle title="Docs" colorIndex="neutral-1">
         <section>
-          <p>Grommet was created to give developers and designers alike access to tools
-          that otherwise are out of reach of most product teams. Grommet’s goal is to
-          assist in creating experiences that work accross the many different interaction
+          <p>Grommet was created to give developers and designers alike access
+            to tools
+          that otherwise are out of reach of most product teams. Grommet’s
+          goal is to
+          assist in creating experiences that work accross the many different
+          interaction
           methods and screen sizes.</p>
           <Menu direction="column">
             <NavAnchor path="/docs/hello-world" primary={true}

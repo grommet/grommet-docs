@@ -111,7 +111,8 @@ export default [
     contents: [
       // {path: 'learn', label: 'Learn', component: Learn},
       {path: 'resources', label: 'Resources', component: Resources},
-      {path: 'best-practices', label: 'Best Practices', component: BestPractices},
+      {path: 'best-practices', label: 'Best Practices',
+        component: BestPractices},
       {path: 'usability', label: 'Usability', component: Usability},
       {path: 'interactions', label: 'Interactions', component: Interactions},
       {path: 'mobile', label: 'Mobile', component: Mobile},
@@ -120,7 +121,8 @@ export default [
       {path: 'typography', label: 'Typography', component: Typography},
       {path: 'writing-style', label: 'Writing Style', component: WritingStyle},
       {path: 'date-and-time', label: 'Date and Time', component: DateTime},
-      {path: 'capitalization', label: 'Capitalization', component: Capitalization}
+      {path: 'capitalization', label: 'Capitalization',
+        component: Capitalization}
     ]},
   {label: 'Patterns',
     contents: [

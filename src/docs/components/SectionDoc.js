@@ -17,7 +17,8 @@ export default class SectionDoc extends Component {
         <p>Responsively grouping related contents inside a page.</p>
 
         <section>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are available.</p>
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+            available.</p>
         </section>
 
         <section>

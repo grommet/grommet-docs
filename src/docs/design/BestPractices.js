@@ -11,8 +11,10 @@ export default class BestPractices extends Component {
         <section>
           <dl>
             <dt>Know your users</dt>
-            <dd>It is critically important that you know your users.  Get to know some of them
-            on a personal level such that you are able to generalize their behavior and the
+            <dd>It is critically important that you know your users.  Get to
+            know some of them
+            on a personal level such that you are able to generalize their
+            behavior and the
             rational for their work practices and decisions.</dd>
 
             <dt>Your users are not like you</dt>
@@ -21,8 +23,10 @@ export default class BestPractices extends Component {
             expectations of your users.</dd>
 
             <dt>All users are not the same</dt>
-            <dd>Different users have different background and goals.  Each user has a
-            set of previous experiences that influence their expectations of your
+            <dd>Different users have different background and goals.  Each
+            user has a
+            set of previous experiences that influence their expectations of
+            your
             application.</dd>
 
             <dt>Let the user take control</dt>
@@ -37,7 +41,8 @@ export default class BestPractices extends Component {
 
             <dt>Don’t drown the user in data</dt>
             <dd>Carefully choose what you present to your users. If there is
-            too much information available they may miss the relevant details.</dd>
+            too much information available they may miss the relevant
+            details.</dd>
 
             <dt>Innovate with intention</dt>
             <dd>Let your innovation shine through but remember that your product
@@ -46,7 +51,8 @@ export default class BestPractices extends Component {
             differently in the core areas of navigation and interaction.</dd>
 
             <dt>Consistency across the application</dt>
-            <dd>Use common elements described in this style guide throughout your
+            <dd>Use common elements described in this style guide throughout
+            your
             application. Users prefer repetition and are comfortable with
             familiar patterns.</dd>
 
@@ -57,7 +63,8 @@ export default class BestPractices extends Component {
 
             <dt>There are no user errors</dt>
             <dd>Humans are error prone.  It is our job to design interfaces that
-            expect human error and handle it robustly.  You should prevent errors
+            expect human error and handle it robustly.  You should prevent
+            errors
             wherever possible and clearly inform users of the consequences of a
             pending operation.  Use a friendly voice for system errors and take
             accountability for the interruption.</dd>

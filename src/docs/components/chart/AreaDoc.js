@@ -12,7 +12,8 @@ export default class AreaDoc extends Component {
     return (
       <DocsArticle title="Chart Area" colorIndex="neutral-3">
 
-        <p>An area graphic in a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>.
+        <p>An area graphic in a <NavAnchor path={`/docs/chart`}>
+          Chart</NavAnchor>.
           It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
           Layers</NavAnchor> component.
           There can be multiple Area components in the Chart.</p>
@@ -41,7 +42,8 @@ export default class AreaDoc extends Component {
             <dt><code>points       true|false</code></dt>
             <dd>Whether to show individual data points for each value.</dd>
             <dt><code>reverse      true|false</code></dt>
-            <dd>When true, the indexes count right to left or bottom to top.</dd>
+            <dd>When true, the indexes count right to left or bottom to
+              top.</dd>
             <dt><code>smooth       true|false</code></dt>
             <dd>When true, the edge of area is drawn smoothly.</dd>
             <dt><code>values       {"[{number}, ...]"}</code></dt>

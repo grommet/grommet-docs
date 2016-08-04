@@ -20,10 +20,13 @@ export default class TileDoc extends Component {
           <h2>Tiles Options</h2>
           <dl>
             <dt><code>fill        true|false</code></dt>
-            <dd>Whether the contents expand to fill all of the available space.</dd>
+            <dd>Whether the contents expand to fill all of the available
+              space.</dd>
             <dt><code>flush       true|false</code></dt>
-            <dd>Whether the contents are flush with the left and right edges or not.
-              Defaults to true. When flush, there is no padding around the outside
+            <dd>Whether the contents are flush with the left and right edges
+              or not.
+              Defaults to true. When flush, there is no padding around the
+              outside
               or between the contained tiles.</dd>
             <dt><code>onMore      {"{function}"}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
@@ -38,7 +41,8 @@ export default class TileDoc extends Component {
             <dt><code>selected    {"{number}|[{number}, ...]"}</code></dt>
             <dd>The currently selected item(s) using a zero based index.</dd>
             <dt><code>size        small|medium|large</code></dt>
-            <dd>The width of the contained tiles. Defaults to <code>medium</code>.</dd>
+            <dd>The width of the contained tiles.
+              Defaults to <code>medium</code>.</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available for Tiles.</p>
@@ -50,7 +54,8 @@ export default class TileDoc extends Component {
             <dt><code>onClick     {"{function}"}</code></dt>
             <dd>Called when the user clicks on the item. Callers should bind
               an identifier to the function to distinguish between multiple
-              items. For example <code>{"onClick={this._onClick.bind(this, id)}"}</code></dd>
+              items. For example <code>
+              {"onClick={this._onClick.bind(this, id)}"}</code></dd>
             <dt><code>selected    true|false</code></dt>
             <dd>Whether this item is currently selected.</dd>
             <dt><code>wide        true|false</code></dt>
@@ -66,7 +71,8 @@ export default class TileDoc extends Component {
 
           <p>These examples show a wide variety of Tile types within the same
             Tiles. In practice, each Tile should have similar styling within
-            the Tiles. Included here are Headers, Footer, Buttons, and Menus.</p>
+            the Tiles. Included here are Headers, Footer, Buttons, and
+            Menus.</p>
 
           <NavAnchor primary={true} path={`/docs/tiles-examples`}>
             Grommet Tiles Examples

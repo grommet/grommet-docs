@@ -42,7 +42,8 @@ export default class Meter17 extends Component {
             <Value value={value} units="GB" align="start" />
             <span>{label}</span>
           </Box>
-          <Meter series={SERIES} stacked={true} label={false} max={100} threshold={90}
+          <Meter series={SERIES} stacked={true} label={false} max={100}
+            threshold={90}
             onActive={(index) => this.setState({ index: index })} />
           <Box direction="row" justify="between">
             <Label size="small">0 GB</Label>

@@ -10,8 +10,10 @@ export default class Capitalization extends Component {
     return (
       <DocsArticle title="Capitalization" colorIndex="neutral-2">
         <Box>
-          <p>For the English language, we recommend using English title capitalization
-          rules for titles (i.e. generally, capitalize the first letter of each word). Titles
+          <p>For the English language, we recommend using English title
+            capitalization
+          rules for titles (i.e. generally, capitalize the first letter of
+            each word). Titles
           include the following user interface elements:</p>
           <ul>
             <li>Page titles</li>
@@ -23,8 +25,10 @@ export default class Capitalization extends Component {
           </ul>
 
           <h4>Sentence Capitalization</h4>
-          <p>Capitalize only the first letter of data labels unless a word used in the
-          data label otherwise deserves capitalization because of English capitalization
+          <p>Capitalize only the first letter of data labels unless a word
+            used in the
+          data label otherwise deserves capitalization because of English
+          capitalization
           rules (e.g. proper names, abbreviations, etc).</p>
 
           <p>Data labels include the following UI elements:</p>
@@ -41,9 +45,11 @@ export default class Capitalization extends Component {
           </ul>
 
           <h4>Attributes</h4>
-          <p>Capitalize only the first letter of attributes unless a word used in
+          <p>Capitalize only the first letter of attributes unless a word
+            used in
           the attribute otherwise deserves capitalization because of English
-          capitalization rules (e.g. proper names, abbreviations, etc). User-entered
+          capitalization rules (e.g. proper names, abbreviations, etc).
+          User-entered
           attributes will retain the user’s capitalization.</p>
 
           <h4>Exceptions</h4>
@@ -53,7 +59,8 @@ export default class Capitalization extends Component {
           non-capitalized words or phrases such as “empty”, “none”, “not set”,
           “unassigned”, or “no alerts”.</p>
 
-          <p>Some specific words and acronyms are always capitalized for branding
+          <p>Some specific words and acronyms are always capitalized for
+            branding
           or common industry recognition.</p>
 
           <p>Examples:</p>

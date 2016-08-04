@@ -43,7 +43,8 @@ export default class SearchDoc extends Component {
 
   _onSelect (pseudoEvent, selected) {
     var value;
-    if (pseudoEvent.suggestion && pseudoEvent.suggestion.hasOwnProperty('label')) {
+    if (pseudoEvent.suggestion &&
+      pseudoEvent.suggestion.hasOwnProperty('label')) {
       value = pseudoEvent.suggestion.label;
     } else {
       value = pseudoEvent.suggestion;
@@ -70,9 +71,12 @@ export default class SearchDoc extends Component {
           <dl>
             <dt><code>defaultValue  {"{string}"}</code></dt>
             <dd>What text to start with in the input.</dd>
-            <dt><code>dropAlign     {"{left: left|right, right: left|right, top: top|bottom, bottom: top|bottom}"}</code></dt>
+            <dt><code>dropAlign     {"{left: left|right, " +
+              "right: left|right, top: top|bottom, bottom: top|bottom}"}
+              </code></dt>
             <dd>Where to place the drop down.
-              At most one of left or right and one of top or bottom should be specified.</dd>
+              At most one of left or right and one of top or bottom should
+              be specified.</dd>
             <dt><code>fill          true|false</code></dt>
             <dd>Indicates whether an inline search input should take up the full
               width of its parent container or not.</dd>
@@ -83,8 +87,10 @@ export default class SearchDoc extends Component {
             <dd>Indicates that the search input should always
               be visible.</dd>
             <dt><code>onDOMChange   {"{function (event)}"}</code></dt>
-            <dd>Function that will be called when the user types in the input.</dd>
-            <dt><code>onSelect      {"{function ({target: , suggestion: }, selected)}"}</code></dt>
+            <dd>Function that will be called when the user types in the
+              input.</dd>
+            <dt><code>onSelect      {"{function ({target: , suggestion: }, " +
+              "selected)}"}</code></dt>
             <dd>Function that will be called when the user selects a
               suggestion. The target corresponds to the embedded input element
               , allowing you to distinguish which component triggered the event
@@ -102,8 +108,10 @@ export default class SearchDoc extends Component {
               to the search control button by default).
               Defaults to <code>true</code>.</dd>
             <dt><code>size          medium|large</code></dt>
-            <dd>The size of the inline search input. Defaults to <code>medium</code>.</dd>
-            <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]</code></dt>
+            <dd>The size of the inline search input.
+              Defaults to <code>medium</code>.</dd>
+            <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]
+              </code></dt>
             <dd>Suggestions to show, typically based on what the user has
             typed so far. You can pass an array of strings or objects. Objects
             must have a label: property but can have any other properties you

@@ -82,7 +82,8 @@ export default class Chart7 extends Component {
                 count={this.state.valuesB.length}
                 activeIndex={this.state.index}
                 onActive={(index) => this.setState({
-                  index: (undefined === index ? (this.state.valuesB.length - 1) : index)
+                  index: (undefined === index ?
+                    (this.state.valuesB.length - 1) : index)
                 })} />
             </Layers>
             <MarkerLabel vertical={true} reverse={true}

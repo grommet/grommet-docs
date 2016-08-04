@@ -44,7 +44,8 @@ export default class TabsDoc extends Component {
               Defaults to <code>center</code>.</dd>
             <dt><code>responsive          true|false</code></dt>
             <dd>Whether the row of tabs should be
-              switched to a centered column layout when the display area narrows.
+              switched to a centered column layout when the display
+              area narrows.
               Defaults to <code>true</code>.</dd>
           </dl>
         </section>

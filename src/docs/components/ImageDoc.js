@@ -19,13 +19,17 @@ export default class ImageDoc extends Component {
           <h2>Options</h2>
           <dl>
             <dt><code>caption    true|{"{string}"}</code></dt>
-            <dd>Whether to add image caption or not. If set to true, caption text
-              will be the image alt value. Also, caption can receive the text to be
+            <dd>Whether to add image caption or not. If set to true,
+              caption text
+              will be the image alt value. Also, caption can receive the text
+              to be
               used instead of the default one.</dd>
             <dt><code>full       true|horizontal|vertical|false</code></dt>
-            <dd>Whether the width and/or height should take the full viewport size.</dd>
+            <dd>Whether the width and/or height should take the full viewport
+              size.</dd>
             <dt><code>size       small|medium|large|thumb</code></dt>
-            <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
+            <dd>The size of the Paragraph text.
+              Defaults to <code>medium</code>.</dd>
             <dt><code>src        {"{string}"}</code></dt>
             <dd>The actual image file source.</dd>
           </dl>

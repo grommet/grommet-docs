@@ -60,7 +60,8 @@ export default class LegendDoc extends Component {
             <dt><code>onActive      {"{function (index)}"}</code></dt>
             <dd>Function that will be called when the user hovers over one
               of the data items.</dd>
-            <dt><code>series        {"[{label: , value: , colorIndex: , onClick: }, ...]"}</code></dt>
+            <dt><code>series        {"[{label: , value: , colorIndex: , " +
+              "onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.</dd>
             <dt><code>total         true|false</code></dt>
             <dd>Whether to show the total of all values.</dd>

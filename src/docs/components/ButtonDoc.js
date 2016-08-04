@@ -103,13 +103,15 @@ export default class ButtonDoc extends Component {
             <Button label="Action" />
           } />
           <Example name="Long" code={
-            <Button label="Action with a really long name that should be shortened"
+            <Button label={"Action with a really long name that should " +
+              "be shortened"}
               onClick={this._onClick} />
           } />
           <Example name="Fill" code={
             <Tiles fill={true}>
               <Tile pad="small">
-                <Button fill={true} onClick={this._onClick} label="One With Long Text" />
+                <Button fill={true} onClick={this._onClick}
+                  label="One With Long Text" />
               </Tile>
               <Tile pad="small">
                 <Button fill={true} onClick={this._onClick} label="Two" />
@@ -124,10 +126,12 @@ export default class ButtonDoc extends Component {
           } />
           <Example name="Colored context" code={
             <Section colorIndex="neutral-1" align="start"
-              pad={{horizontal: 'medium', vertical: 'medium', between: 'medium'}}>
+              pad={{horizontal: 'medium', vertical: 'medium',
+                between: 'medium'}}>
               <Button label="Default" onClick={this._onClick} />
               <Button label="Primary" primary={true} onClick={this._onClick} />
-              <Button label="Secondary" secondary={true} onClick={this._onClick} />
+              <Button label="Secondary" secondary={true}
+                onClick={this._onClick} />
               <Button label="Accent" accent={true} onClick={this._onClick} />
               <Button label="Disabled" />
               <Button icon={<CloseIcon />} onClick={this._onClick} />

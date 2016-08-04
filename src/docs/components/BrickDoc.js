@@ -38,7 +38,8 @@ export default class BrickDoc extends Component {
           </dl>
           <dl>
             <dt><code>type         small|large|wide|tall</code></dt>
-            <dd>The shape type of the Brick.  Defaults to <code>small</code>.</dd>
+            <dd>The shape type of the Brick.
+              Defaults to <code>small</code>.</dd>
           </dl>
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>

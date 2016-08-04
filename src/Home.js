@@ -72,10 +72,12 @@ export default class Home extends Component {
     if (this.state.showCodePen) {
       codePen = (
         <iframe height='268' scrolling='no'
-          src='//codepen.io/grommet/embed/gaEGPY/?height=268&theme-id=0&default-tab=js'
+          src={'//codepen.io/grommet/embed/gaEGPY/?' +
+            'height=268&theme-id=0&default-tab=js'}
           frameBorder='no' allowTransparency='true' allowFullScreen='true'
           style={{width: '100%'}}>See the Pen
-          <a href='http://codepen.io/grommet/pen/gaEGPY/'>Grommet Hello World</a>
+          <a href='http://codepen.io/grommet/pen/gaEGPY/'>
+            Grommet Hello World</a>
           by Grommet UX (<a href='http://codepen.io/grommet'>@grommet</a>) on
           <a href='http://codepen.io'>CodePen</a>.
         </iframe>
@@ -107,9 +109,12 @@ export default class Home extends Component {
           </Box>
           <Footer appCentered={true} justify="center">
             <Menu inline={true} responsive={false} direction="row">
-              <Anchor href="http://slackin.grommet.io" icon={<SlackIcon a11yTitle='Grommet Slack' />}/>
-              <Anchor href="https://github.com/grommet/grommet" icon={<GithubIcon a11yTitle='Grommet Github' />}/>
-              <Anchor href="https://twitter.com/grommetux" icon={<TwitterIcon a11yTitle='Grommet Twitter' />}/>
+              <Anchor href="http://slackin.grommet.io"
+                icon={<SlackIcon a11yTitle='Grommet Slack' />}/>
+              <Anchor href="https://github.com/grommet/grommet"
+                icon={<GithubIcon a11yTitle='Grommet Github' />}/>
+              <Anchor href="https://twitter.com/grommetux"
+                icon={<TwitterIcon a11yTitle='Grommet Twitter' />}/>
             </Menu>
           </Footer>
         </HomeSection>
@@ -120,7 +125,8 @@ export default class Home extends Component {
           <Box className="home__mobile" align="center">
             <Heading tag="h2">Mobile-first ready for business</Heading>
             <Paragraph align="center">Think small. Starting with mobile-first
-              design allows for easy app scalability to larger devices.</Paragraph>
+              design allows for easy app scalability to larger
+              devices.</Paragraph>
             {/*}
             <NavButton path="/docs/learn" label="Learn" />
             {*/}
@@ -129,7 +135,8 @@ export default class Home extends Component {
 
         <HomeSection>
           <Heading tag="h2">Start making now</Heading>
-          <Paragraph align="center">The easiest way to learn a new tool is to have it done
+          <Paragraph align="center">The easiest way to learn a new tool is
+            to have it done
             for you and then make it yours!</Paragraph>
           {codePen}
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
@@ -140,7 +147,8 @@ export default class Home extends Component {
           <Box direction="row">
             <Box align="center">
               <Heading tag="h2">Together is better</Heading>
-              <Paragraph align="center">Grommet is structured to foster active communication
+              <Paragraph align="center">Grommet is structured to foster
+                active communication
                 between designers and developers in hopes of creating better
                 user experience. </Paragraph>
               <NavButton path="/docs/about" label="About" />
@@ -173,10 +181,14 @@ export default class Home extends Component {
               <Box direction="column">
                 <Anchor href="">Podcast</Anchor>
                 <Anchor href="http://slackin.grommet.io">Slack</Anchor>
-                <Anchor href="https://github.com/grommet/grommet">Github</Anchor>
+                <Anchor href="https://github.com/grommet/grommet">
+                  Github
+                </Anchor>
               </Box>
               <Box direction="column">
-                <Anchor href="https://www.facebook.com/grommetux">Facebook</Anchor>
+                <Anchor href="https://www.facebook.com/grommetux">
+                  Facebook
+                </Anchor>
                 <Anchor href="https://twitter.com/grommetux">Twitter</Anchor>
                 <ThemeMenu size="small" align="right" />
               </Box>

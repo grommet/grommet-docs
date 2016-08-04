@@ -18,7 +18,8 @@ export default class ColumnsDoc extends Component {
     return (
       <DocsArticle title="Columns" colorIndex="neutral-3">
 
-        <p>Organize children into multiple components based on available width.</p>
+        <p>Organize children into multiple components based on available
+          width.</p>
 
         <section>
           <h2>Options</h2>

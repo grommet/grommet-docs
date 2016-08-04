@@ -12,7 +12,8 @@ export default class BarDoc extends Component {
     return (
       <DocsArticle title="Chart Bar" colorIndex="neutral-3">
 
-        <p>An bar graphic in a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>.
+        <p>An bar graphic in a <NavAnchor path={`/docs/chart`}>
+          Chart</NavAnchor>.
           It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
           Layers</NavAnchor> component.
           There can be multiple Bar components in the Chart.</p>
@@ -39,9 +40,11 @@ export default class BarDoc extends Component {
             <dt><code>min          {"{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
             <dt><code>points       true|false</code></dt>
-            <dd>Whether to show individual data points at the end for each value.</dd>
+            <dd>Whether to show individual data points at the end for each
+              value.</dd>
             <dt><code>reverse      true|false</code></dt>
-            <dd>When true, the indexes count right to left or bottom to top.</dd>
+            <dd>When true, the indexes count right to left or bottom to
+              top.</dd>
             <dt><code>values       {"[{number}, ...]"}</code></dt>
             <dd>An array of number values.</dd>
             <dt><code>vertical     true|false</code></dt>

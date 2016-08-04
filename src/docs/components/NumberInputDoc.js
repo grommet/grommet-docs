@@ -1,10 +1,11 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import NumberInput from 'grommet/components/NumberInput';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class NumberInputDoc extends Component {
 
@@ -57,35 +58,32 @@ export default class NumberInputDoc extends Component {
           <dt><code>toggle         true|false</code></dt>
           <dd>Whether to visualize it as a toggle switch.</dd>
           <dt><code>ariaDescribedby {"{string}"}</code></dt>
-          <dd>Optional attribute to enhance accessibility in case the checkbox is used inside a context.</dd>
+          <dd>Optional attribute to enhance accessibility in case the
+            checkbox is used inside a context.</dd>
           </dl>
         </section>
 
         <section>
           <h2>Example</h2>
 
-          <h3>Basic</h3>
-          <div className="example">
+          <Example name="Basic" code={
             <Form>
               <FormField>
                 <NumberInput id="item2" name="item2" label="Item 2"
                   value={this.state.value} onChange={this._onChange} />
               </FormField>
             </Form>
-          </div>
-          <pre><code className="html hljs xml">{"<NumberInput id=\"item2\" name=\"item2\" label=\"Item 2\" />"}</code></pre>
+          } />
 
-          <h3>Disabled</h3>
-          <div className="example">
+          <Example name="Disabled" code={
             <Form>
               <FormField>
-                <NumberInput id="item4" name="item4" label="Item 4" disabled={true}
+                <NumberInput id="item4" name="item4" label="Item 4"
+                  disabled={true}
                   value={this.state.value} />
-            </FormField>
-          </Form>
-          </div>
-          <pre><code className="html hljs xml">{"<NumberInput id=\"item4\" name=\"item4\" label=\"Item 4\" disabled=\{true\} />"}</code></pre>
-
+              </FormField>
+            </Form>
+          } />
         </section>
 
       </DocsArticle>

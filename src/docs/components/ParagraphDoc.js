@@ -24,7 +24,8 @@ export default class ParagraphDoc extends Component {
           <h2>Options</h2>
           <dl>
             <dt><code>size       small|medium|large|xlarge</code></dt>
-            <dd>The size of the Paragraph text. Defaults to <code>medium</code>.</dd>
+            <dd>The size of the Paragraph text.
+              Defaults to <code>medium</code>.</dd>
           </dl>
         </section>
 

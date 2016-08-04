@@ -48,10 +48,12 @@ export default class HeroDoc extends Component {
             <dt><code>image                          {"{string}"}</code></dt>
             <dd>Source of an image that can be be shown opposite the text.
               Optional.</dd>
-            <dt><code>justify                        start|center|end</code></dt>
+            <dt><code>justify                        start|center|end
+              </code></dt>
             <dd>Position of the text that overlays the Hero.
               Defaults to <code>end</code>.</dd>
-            <dt><code>responsiveBackgroundPosition   left|center|right</code></dt>
+            <dt><code>responsiveBackgroundPosition   left|center|right
+              </code></dt>
             <dd>Position of the background image for small mobile sizes.
               Defaults to <code>center</code>.</dd>
             <dt><code>separator                      true|false</code></dt>

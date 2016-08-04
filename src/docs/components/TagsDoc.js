@@ -22,7 +22,8 @@ export default class TagsDoc extends Component {
       <DocsArticle title="Tag(s)" colorIndex="neutral-3">
 
         <section>
-          <p>A list of tags. The preferred method of populating Tags is to use Tag children.</p>
+          <p>A list of tags. The preferred method of populating Tags is to
+            use Tag children.</p>
           <Tags>
             <Tag label="First" />
             <Tag label="Second" />

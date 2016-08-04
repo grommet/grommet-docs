@@ -28,7 +28,8 @@ export default class TitleDoc extends Component {
             <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>responsive     true|false</code></dt>
-            <dd>Whether to only display the logo when the display area narrows.</dd>
+            <dd>Whether to only display the logo when the display area
+              narrows.</dd>
           </dl>
         </section>
 

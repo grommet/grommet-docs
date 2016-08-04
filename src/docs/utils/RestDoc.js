@@ -74,7 +74,8 @@ export default class MyComponent extends Component {
             <dd>Calls <code>buildParams</code> if passed an object. Then joins
               the params array with '&' and adds a '?' prefix if needed</dd>
             <dt><code>processStatus  {"{response}"}</code></dt>
-            <dd>For use in a <a href="https://www.promisejs.org">promise</a> chain.
+            <dd>For use in a <a href="https://www.promisejs.org">promise</a>
+              chain.
               Rejects promise if response is not ok.</dd>
           </dl>
         </section>
@@ -90,8 +91,10 @@ export default class MyComponent extends Component {
           <h2>Deprecated</h2>
 
           <p>The following methods and the embedding
-            of <a href="https://github.com/visionmedia/superagent">superagent</a> are
-            deprecated and will be removed in a future release. The rationale for
+            of <a href="https://github.com/visionmedia/superagent">
+            superagent</a> are
+            deprecated and will be removed in a future release. The
+            rationale for
             this is that fetch is a simple enough interface.</p>
 
           <h2>Deprecated Methods</h2>
@@ -99,17 +102,22 @@ export default class MyComponent extends Component {
             <dt><code>del (uri)</code></dt>
             <dd>Delete the resource indicated by the uri.</dd>
             <dt><code>get (uri, object)</code></dt>
-            <dd>Get the resource indicated by the uri and optional query parameters.
+            <dd>Get the resource indicated by the uri and optional
+              query parameters.
             The second argument will be converted into a query string.</dd>
             <dt><code>head (uri, object)</code></dt>
-            <dd>Chek the resource indicated by the uri and optional query parameters.
+            <dd>Chek the resource indicated by the uri and optional query
+              parameters.
             The second argument will be converted into a query string.</dd>
             <dt><code>patch (uri, data)</code></dt>
-            <dd>Update some of the resource indicated by the uri with the provided data.</dd>
+            <dd>Update some of the resource indicated by the uri with the
+              provided data.</dd>
             <dt><code>post (uri, data)</code></dt>
-            <dd>Create a resource under the indicated uri with the provided data.</dd>
+            <dd>Create a resource under the indicated uri with the provided
+              data.</dd>
             <dt><code>put (uri, data)</code></dt>
-            <dd>Create or update the resource indicated by the uri with the provided data.</dd>
+            <dd>Create or update the resource indicated by the uri with the
+              provided data.</dd>
             <dt><code>setHeader (name, value)</code></dt>
             <dd>Set a default HTTP header.</dd>
             <dt><code>setHeaders (object)</code></dt>
@@ -118,8 +126,10 @@ export default class MyComponent extends Component {
             <dd>Set the default request timeout.</dd>
           </dl>
 
-          <p>Note, the object returned from head, get, patch, post, put, and del is
-          the superagent request object. You must call <code>end()</code> to actually
+          <p>Note, the object returned from head, get, patch, post, put,
+            and del is
+          the superagent request object. You must call <code>end()</code> to
+          actually
           perform the request.</p>
         </section>
 

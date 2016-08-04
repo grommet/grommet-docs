@@ -26,7 +26,8 @@ export default class LoginFormDoc extends Component {
           <dl>
             <dt><code>align           start|center|end</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
-            <dt><code>defaultValues   {"{username: ..., rememberMe: true|false}"}</code></dt>
+            <dt><code>defaultValues   {"{username: ..., " +
+              "rememberMe: true|false}"}</code></dt>
             <dd>Default values for username and rememberMe</dd>
             <dt><code>errors          {"[{message}, ...]"}</code></dt>
             <dd>An array of error messages. Use this if there is a failure
@@ -35,7 +36,8 @@ export default class LoginFormDoc extends Component {
             <dd>A link that would take the user to a new page.</dd>
             <dt><code>logo            {"{element}"}</code></dt>
             <dd>A logo component.</dd>
-            <dt><code>onSubmit        {"{function ({username: ..., password: ..., rememberMe: ...})}"}</code></dt>
+            <dt><code>onSubmit        {"{function ({username: ..., " +
+              "password: ..., rememberMe: ...})}"}</code></dt>
             <dd>Function that will be called with the username, password and
               rememberMe provided.</dd>
             <dt><code>rememberMe      true|false</code></dt>

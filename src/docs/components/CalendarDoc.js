@@ -44,7 +44,8 @@ export default class CalendarDoc extends Component {
             <dt><code>format        {"{string}"}</code></dt>
             <dd>The date format. Available syntax can be seen in the
               documentation
-              for <a href="http://momentjs.com/docs/#/displaying/format/">moment</a>.
+              for <a href="http://momentjs.com/docs/#/displaying/format/">
+              moment</a>.
               The default is <code>{"M/D/YYYY h:mm a"}</code>.</dd>
             <dt><code>id            {"{string}"}</code></dt>
             <dd>The id attribute of the input.</dd>

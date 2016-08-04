@@ -129,7 +129,8 @@ export default class ChartV1Doc extends Component {
             <dt><code>important   {"{number}"}</code></dt>
             <dd>The index of the series data that the legend should
               correspond to, if any.</dd>
-            <dt><code>legend      {"{position: overlay|after|inline, total: true|false}"}</code></dt>
+            <dt><code>legend      {"{position: overlay|after|inline, " +
+              "total: true|false}"}</code></dt>
             <dd>Whether to show a legend, where to place it,
               and whether to show a total value.</dd>
             <dt><code>max         {"{number}"}</code></dt>
@@ -139,13 +140,15 @@ export default class ChartV1Doc extends Component {
             <dd>The smallest possible value.
               Defaults to the smallest y value in the series data.</dd>
             <dt><code>points      true|false</code></dt>
-            <dd>For line and area charts, whether to draw individual data points.</dd>
+            <dd>For line and area charts, whether to draw individual data
+              points.</dd>
             <dt><code>segmented   true|false</code></dt>
             <dd>For bar charts, whether to draw the bars with distinct segments.
               Defaults to <code>false</code>.</dd>
             <dt><code>series       {"[{...}]"}</code></dt>
             <dd>An array of: <code>
-              {"{label: <string>, colorIndex: <string>, values: [[x,y]|{x: , y: , onClick: }]}"}
+              {"{label: <string>, colorIndex: <string>, " +
+                "values: [[x,y]|{x: , y: , onClick: }]}"}
               </code>. The x values can be either numbers or Date objects.
               The y values should be numbers. Currently, onClick interaction
               is only available for <code>type="bar"</code> Charts.</dd>
@@ -158,12 +161,14 @@ export default class ChartV1Doc extends Component {
             <dt><code>threshold    {"{number}"}</code></dt>
             <dd>Optional threshold value.</dd>
             <dt><code>type         line|bar|area</code></dt>
-            <dt><code>thresholds   {"[{value: , label: , colorIndex: }, ...]"}</code></dt>
+            <dt><code>thresholds   {"[{value: , label: , " +
+              "colorIndex: }, ...]"}</code></dt>
             <dd>An array of objects describing thresholds.</dd>
             <dd>Whether to draw a line graph, bar graph, or area graph.</dd>
             <dt><code>units        {"{string}"}</code></dt>
             <dd>Optional units to include.</dd>
-            <dt><code>xAxis        {"{placement: top|bottom: data: [{string}, ...]}"}</code></dt>
+            <dt><code>xAxis        {"{placement: top|bottom, " +
+              "data: [{string}, ...]}"}</code></dt>
             <dd>Optional xAxis placement and labels.</dd>
           </dl>
         </section>
@@ -180,12 +185,15 @@ export default class ChartV1Doc extends Component {
               a11yTitleId="barChartTitle" a11yDescId="barChartDesc" />
           } />
           <Example name="Area" code={
-            <Chart series={singleSeries} min={0} max={5} threshold={3} type="area"
+            <Chart series={singleSeries} min={0} max={5} threshold={3}
+              type="area"
               a11yTitleId="areaChartTitle" a11yDescId="areaChartDesc" />
           } />
           <Example name="Bar, Clickable" code={
-            <Chart series={singleClickableSeries} min={0} threshold={3} type="bar"
-              a11yTitleId="barClickableChartTitle" a11yDescId="barClickableChartDesc" />
+            <Chart series={singleClickableSeries} min={0} threshold={3}
+              type="bar"
+              a11yTitleId="barClickableChartTitle"
+              a11yDescId="barClickableChartDesc" />
           } />
           <Example name="Bar, Legend, xAxis, and Units" code={
             <Chart series={series} min={0} threshold={3} type="bar"
@@ -199,7 +207,8 @@ export default class ChartV1Doc extends Component {
               a11yTitleId="segmentedBarChartTitle"
               a11yDescId="segmentedBarChartDesc" />
           } />
-          <Example name="Area, Legend, xAxis, Units, Points, and Thresholds" code={
+          <Example name="Area, Legend, xAxis, Units, Points, and Thresholds"
+            code={
             <Chart series={series} min={0} max={5} threshold={3}
               type="area" legend={{}} points={true}
               xAxis={{placement: 'bottom', data: seriesXAxis}}
@@ -208,12 +217,16 @@ export default class ChartV1Doc extends Component {
               a11yDescId="complexAreaChartDesc" />
           } />
           <Example name="Area, Clickable" code={
-            <Chart series={clickableSeries} min={0} max={5} threshold={3} type="area"
-              a11yTitleId="areaClickableChartTitle" a11yDescId="areaClickableChartDesc" />
+            <Chart series={clickableSeries} min={0} max={5} threshold={3}
+              type="area"
+              a11yTitleId="areaClickableChartTitle"
+              a11yDescId="areaClickableChartDesc" />
           } />
         <Example name="Line, Clickable" code={
-            <Chart series={clickableSeries} min={0} max={5} threshold={3} type="line"
-              a11yTitleId="areaClickableChartTitle" a11yDescId="areaClickableChartDesc" />
+            <Chart series={clickableSeries} min={0} max={5} threshold={3}
+              type="line"
+              a11yTitleId="areaClickableChartTitle"
+              a11yDescId="areaClickableChartDesc" />
           } />
           <Example name="Small" code={
             <Chart series={series} min={0} threshold={3} type="bar" legend={{}}

@@ -15,7 +15,8 @@ import Button from 'grommet/components/Button';
 import Calendar from 'grommet/components/Calendar';
 import DateTime from 'grommet/components/DateTime';
 
-const SUGGESTIONS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+const SUGGESTIONS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven',
+  'eight'];
 
 export default class FullForm extends Component {
 
@@ -39,7 +40,8 @@ export default class FullForm extends Component {
   }
 
   _onChange (event) {
-    // console.log('!!! FullForm changed', event.target, 'to', event.target.value);
+    // console.log('!!! FullForm changed', event.target, 'to',
+    //   event.target.value);
   }
 
   _onSearchInputChange (value) {
@@ -82,15 +84,18 @@ export default class FullForm extends Component {
         <FormFields>
           <fieldset>
             <legend>First section</legend>
-            <FormField label="Item 1" htmlFor={p + "item1"} help="something helpful">
-              <input id={p + "item1"} name="item-1" type="text" onChange={this._onChange} />
+            <FormField label="Item 1" htmlFor={p + "item1"}
+              help="something helpful">
+              <input id={p + "item1"} name="item-1" type="text"
+                onChange={this._onChange} />
             </FormField>
             <FormField>
               <CheckBox id={p + "item2"} name="item-2" label="Item 2"
                 onChange={this._onChange} />
             </FormField>
             <FormField>
-              <CheckBox id={p + "item3"} name="item-3" label="Item 3" toggle={true}
+              <CheckBox id={p + "item3"} name="item-3" label="Item 3"
+                toggle={true}
                 onChange={this._onChange} />
             </FormField>
             <FormField label="Item 4">
@@ -168,7 +173,8 @@ export default class FullForm extends Component {
           </fieldset>
         </FormFields>
         <Footer pad={{vertical: 'medium'}}>
-          <Button label="OK" primary={true} strong={true} onClick={this.props.onSubmit} />
+          <Button label="OK" primary={true} strong={true}
+            onClick={this.props.onSubmit} />
         </Footer>
       </Form>
     );

@@ -50,7 +50,9 @@ export default class MapDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>data      {"{\n    categories: [{id: , label: , items: [id: , node: ]}, ...],\n    links: [{parentId: , childId: }, ...]\n}"}</code></dt>
+            <dt><code>data      {"{\n    categories: [{id: , label: , " +
+              "items: [id: , node: ]}, ...],\n    " +
+              "links: [{parentId: , childId: }, ...]\n}"}</code></dt>
             <dd>An array of objects describing the data.</dd>
             <dt><code>vertical  true|false</code></dt>
             <dd>Whether to orient the map vertically.</dd>
@@ -60,7 +62,8 @@ export default class MapDoc extends Component {
         <section>
           <Header justify="between">
             <h2>Example</h2>
-            <CheckBox checked={this.state.vertical} toggle={true} label="vertical"
+            <CheckBox checked={this.state.vertical} toggle={true}
+              label="vertical"
               onChange={() => this.setState({ vertical: ! vertical })} />
           </Header>
           <Example code={

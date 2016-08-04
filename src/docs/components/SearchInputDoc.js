@@ -68,7 +68,8 @@ export default class SearchInputDoc extends Component {
     const suggestions = RICH_VALUES.filter(richValue => {
       return regexp.test(richValue.value) || regexp.test(richValue.sub);
     });
-    this.setState({richValue: event.target.value, richSuggestions: suggestions});
+    this.setState({
+      richValue: event.target.value, richSuggestions: suggestions});
   }
 
   _onSelect2 (pseudoEvent) {
@@ -104,15 +105,18 @@ export default class SearchInputDoc extends Component {
             <dt><code>name          {"{string}"}</code></dt>
             <dd>The name attribute of the input.</dd>
             <dt><code>onDOMChange   {"{function (event)}"}</code></dt>
-            <dd>Function that will be called when the user types in the input.</dd>
-            <dt><code>onSelect      {"{function ({target: , suggestion: })}"}</code></dt>
+            <dd>Function that will be called when the user types in the
+              input.</dd>
+            <dt><code>onSelect      {"{function ({target: , suggestion: })}"}
+              </code></dt>
             <dd>Function that will be called when the user selects a suggestion.
               The target corresponds to the embedded input element, allowing you
               to distinguish which component triggered the event. The suggestion
               contains the object chosen from the supplied suggestions.</dd>
             <dt><code>placeHolder   {"{string}"}</code></dt>
             <dd>Placeholder text to use when the input is empty.</dd>
-            <dt><code>suggestions   {"[{value: , label: }|{string}, ...]"}</code></dt>
+            <dt><code>suggestions   {"[{value: , label: }|{string}, ...]"}
+              </code></dt>
             <dd>Suggestions can be either a string or an object.
               The <code>label</code> property of suggestion objects can be a
               string or a React element. This allows rendering richer

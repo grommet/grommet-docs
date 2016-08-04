@@ -15,14 +15,18 @@ export default class SocialShareDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>type         {"email|facebook|twitter|linkedin|google"}</code></dt>
+            <dt><code>type         {"email|facebook|twitter|linkedin|google"}
+              </code></dt>
             <dd>Which social network to share link to. Required.</dd>
             <dt><code>link         {"{string}"}</code></dt>
             <dd>Link to share. Required.</dd>
             <dt><code>text         {"{string}"}</code></dt>
-            <dd>Summary or description of link to be shared. Only valid with <code>twitter</code>, <code>linkedin</code>, and <code>email</code> type. Optional.</dd>
+            <dd>Summary or description of link to be shared. Only valid
+              with <code>twitter</code>, <code>linkedin</code>,
+              and <code>email</code> type. Optional.</dd>
             <dt><code>title        {"{string}"}</code></dt>
-            <dd>Title of the link to be shared. Only valid with <code>linkedin</code> and <code>email</code> type.  Optional.</dd>
+            <dd>Title of the link to be shared. Only valid with
+              <code>linkedin</code> and <code>email</code> type. Optional.</dd>
           </dl>
         </section>
 

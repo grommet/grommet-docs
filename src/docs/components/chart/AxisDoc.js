@@ -20,7 +20,8 @@ export default class AxisDoc extends Component {
         <Example code={
           <Chart vertical={true}>
             <Base height="small"/>
-            <Axis count={3} labels={[{ index: 2, label: '100%' }]} ticks={true} />
+            <Axis count={3} labels={[{ index: 2, label: '100%' }]}
+              ticks={true} />
           </Chart>
         }/>
 
@@ -37,7 +38,8 @@ export default class AxisDoc extends Component {
               do not need a label for each stop.
             </dd>
             <dt><code>reverse      true|false</code></dt>
-            <dd>When true, the indexes count right to left or bottom to top.</dd>
+            <dd>When true, the indexes count right to left or bottom to
+              top.</dd>
             <dt><code>ticks        true|false</code></dt>
             <dd>Whether to show tick marks for each stop.</dd>
             <dt><code>vertical     true|false</code></dt>
