@@ -43,9 +43,7 @@ export default class AnchorDoc extends Component {
           <h2>Options</h2>
           <dl>
             <dt><code>disabled       true|false</code></dt>
-            <dd>
-              Whether to disable the anchor. Default is false.
-            </dd>
+            <dd>Whether to disable the anchor. Defaults to false.</dd>
             <dt><code>href           {"{string}"}</code></dt>
             <dd>Hyperlink reference to place in the anchor.</dd>
             <dt><code>icon           {"{element}"}</code></dt>

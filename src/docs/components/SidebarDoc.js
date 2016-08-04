@@ -24,8 +24,8 @@ export default class SidebarDoc extends Component {
 
         <p>A full height, fixed width container. Usually a Sidebar is placed
         inside a <NavAnchor path="/docs/split">Split</NavAnchor> component.
-        A typical usage is for primary navigation, in which case it typically contains
-        a <NavAnchor path="/docs/header">Header</NavAnchor> and
+        A typical usage is for primary navigation, in which case it typically
+        contains a <NavAnchor path="/docs/header">Header</NavAnchor> and
         a <NavAnchor path="/docs/menu">Menu</NavAnchor>. The Sidebar may
         or may not be always visible. If it comes and goes, it is typically
         controlled via a <NavAnchor path="/docs/title">Title</NavAnchor> component
@@ -41,9 +41,11 @@ export default class SidebarDoc extends Component {
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
             <dt><code>full       true|false</code></dt>
-            <dd>Whether the sidebar should take up the full browser height or not.  Default is true.</dd>
+            <dd>Whether the sidebar should take up the full browser height or
+              not. Defaults to true.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> area also available.</p>
+          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+            also available.</p>
         </section>
 
         <section>

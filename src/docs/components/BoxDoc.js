@@ -28,7 +28,7 @@ export default class BoxDoc extends Component {
           <h2>Options</h2>
           <dl>
             <dt><code>a11yTitle      {"{string}"}</code></dt>
-            <dd>Custom title used by screen readers. Default is "Box".
+            <dd>Custom title used by screen readers. Defaults to "Box".
               Only used if onClick handler is specified.</dd>
             <dt><code>align          start|center|end|baseline|stretch</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
@@ -62,7 +62,7 @@ export default class BoxDoc extends Component {
             <dt><code>primary        true|false</code></dt>
             <dd>
               Whether this is a primary Box that will receive skip to main
-              content anchor. Default is false.
+              content anchor. Defaults to false.
             </dd>
             <dt><code>reverse        true|false</code></dt>
             <dd>Whether to reverse the order of the child components.</dd>

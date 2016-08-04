@@ -59,9 +59,9 @@ export default class CheckBoxDoc extends Component {
           <dd>Same as React {"<input onChange= >"}.</dd>
           <dt><code>reverse         true|false</code></dt>
           <dd>Whether to show the label in front of the checkbox.
-            Default is false.</dd>
+            Defaults to false.</dd>
           <dt><code>toggle          true|false</code></dt>
-          <dd>Whether to visualize it as a toggle switch. Default is false.</dd>
+          <dd>Whether to visualize it as a toggle switch. Defaults to false.</dd>
           </dl>
         </section>
 

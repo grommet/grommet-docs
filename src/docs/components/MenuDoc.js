@@ -40,7 +40,7 @@ export default class MenuDoc extends Component {
           <dl>
             <dt><code>closeOnClick  true|false</code></dt>
             <dd>Indicates whether the opened menu drop down should close
-            when clicked. Default is true.</dd>
+            when clicked. Defaults to true.</dd>
             <dt><code>inline        true|false</code></dt>
             <dd>Indicates whether the menu should be shown inline or
               a control shown to open it in a drop down. If false,
