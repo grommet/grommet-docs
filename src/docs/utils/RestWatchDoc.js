@@ -7,7 +7,8 @@ export default class RestWatchDoc extends Component {
 
   render () {
     var inline = [
-      "var requestId = RestWatch.start('/rest/index/resources', params,\n  this._onResponse);"
+      "var requestId = RestWatch.start('/rest/index/resources', params,\n  " +
+      "this._onResponse);"
     ].join('\n');
 
     var example = [
@@ -53,10 +54,12 @@ export default class RestWatchDoc extends Component {
 
           <pre><code className="javascript">{inline}</code></pre>
 
-          <p>WebSocket messages sent to the server are JSON and look like this:</p>
+          <p>WebSocket messages sent to the server are JSON and look like
+            this:</p>
           <pre><code className="javascript">{message}</code></pre>
 
-          <p>The server should respond with JSON messages that look like this:</p>
+          <p>The server should respond with JSON messages that look like
+            this:</p>
           <pre><code className="javascript">{response}</code></pre>
 
           <p>When messages are received from the server, the

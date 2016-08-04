@@ -105,7 +105,8 @@ export default class Chart12 extends Component {
       }));
       markerValues = [{
         label: <Legend series={markerSeries} />,
-        value: Math.round((MAX_UNIT / (this.state.series.length - 1)) * this.state.index)
+        value: Math.round((MAX_UNIT / (this.state.series.length - 1)) *
+          this.state.index)
       }];
     } else {
       markerValues = [{ label: <Value size="large" value='' />, value: 0 }];
