@@ -24,11 +24,11 @@ export default class HotSpotsDoc extends Component {
             <dt><code>count        {'{number}'}</code></dt>
             <dd>The number of slots, including both ends.
               This property is required.</dd>
-            <dt><code>onActive     {"{func (index)}"}</code></dt>
+            <dt><code>onActive     {"{function (index)}"}</code></dt>
             <dd>Hover handler. The hovered index is passed as an argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>
-            <dt><code>onClick      {"{func (index)}"}</code></dt>
+            <dt><code>onClick      {"{function (index)}"}</code></dt>
             <dd>Click handler. The clicked index is passed as an argument.</dd>
             <dt><code>vertical     true|false</code></dt>
             <dd>Whether the slots should be layed out horizontally

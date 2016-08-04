@@ -116,7 +116,7 @@ export default class LayerDoc extends Component {
             <dt><code>peek     true|false</code></dt>
             <dd>Whether the hidden contents are shown just a bit.
               Defaults to false.</dd>
-            <dt><code>onClose  {"function () {...}"}</code></dt>
+            <dt><code>onClose  {"{function ()}"}</code></dt>
             <dd>Function that will be called when the user clicks on the
               closer control. Clicking the closer control does not automatically
               cause the Layer to be removed. The recipient of this callback can

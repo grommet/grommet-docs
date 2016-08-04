@@ -67,7 +67,7 @@ export default class MeterDoc extends Component {
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
-            <dt><code>onActive    {"{func (index)}"}</code></dt>
+            <dt><code>onActive    {"{function (index)}"}</code></dt>
             <dd>Hover handler. The hovered series index is passed as an argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>

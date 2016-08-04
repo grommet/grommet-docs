@@ -27,14 +27,14 @@ export default class QuoteDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>borderColorIndex            string</code></dt>
+            <dt><code>borderColorIndex   {"{string}"}</code></dt>
             <dd>ColorIndex of the border.</dd>
-            <dt><code>size                        small|medium|large|full</code></dt>
+            <dt><code>size               small|medium|large|full</code></dt>
             <dd>Width of the box containing the quote.
               Defaults to <code>large</code>.</dd>
-            <dt><code>credit                      string</code></dt>
+            <dt><code>credit             {"{string}"}</code></dt>
             <dd>The name of the entity that the quote is credited to.</dd>
-            <dt><code>emphasizeCredit             true|false</code></dt>
+            <dt><code>emphasizeCredit    true|false</code></dt>
             <dd>Whether the quote credit should be bolded for emphasis.
               Defaults to <code>true</code>.</dd>
           </dl>

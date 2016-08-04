@@ -29,15 +29,15 @@ export default class BrickDoc extends Component {
         <section>
           <h2>Brick Options</h2>
           <dl>
-            <dt><code>label        string</code></dt>
+            <dt><code>label        {"{string}"}</code></dt>
             <dd>The label of the Brick.</dd>
           </dl>
           <dl>
-            <dt><code>href        {"{location}"}</code></dt>
+            <dt><code>href         {"{string}"}</code></dt>
             <dd>The hyperlink reference that the Brick links to.</dd>
           </dl>
           <dl>
-            <dt><code>type        small|large|wide|tall</code></dt>
+            <dt><code>type         small|large|wide|tall</code></dt>
             <dd>The shape type of the Brick.  Defaults to <code>small</code>.</dd>
           </dl>
           <dl>
@@ -46,8 +46,8 @@ export default class BrickDoc extends Component {
               Brick.  For example: <code>"neutral-1"</code></dd>
           </dl>
           <dl>
-            <dt><code>texture      {"{url}"}</code></dt>
-            <dd>A texture image to apply to the background.</dd>
+            <dt><code>texture      {"{string}"}</code></dt>
+            <dd>A texture image URL to apply to the background.</dd>
           </dl>
         </section>
 

@@ -82,9 +82,9 @@ export default class SearchDoc extends Component {
             <dt><code>inline        true|false</code></dt>
             <dd>Indicates that the search input should always
               be visible.</dd>
-            <dt><code>onDOMChange   {"function (event) {...}"}</code></dt>
+            <dt><code>onDOMChange   {"{function (event)}"}</code></dt>
             <dd>Function that will be called when the user types in the input.</dd>
-            <dt><code>onSelect      {"function ({target: , suggestion: }, selected) {...}"}</code></dt>
+            <dt><code>onSelect      {"{function ({target: , suggestion: }, selected)}"}</code></dt>
             <dd>Function that will be called when the user selects a
               suggestion. The target corresponds to the embedded input element
               , allowing you to distinguish which component triggered the event

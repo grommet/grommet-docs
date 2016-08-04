@@ -39,13 +39,13 @@ export default class FormFieldDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-          <dt><code>error     {"{text|node}"}</code></dt>
+          <dt><code>error     {"{string|node}"}</code></dt>
           <dd>Validation errors.</dd>
-          <dt><code>help      {"{text|node}"}</code></dt>
+          <dt><code>help      {"{string|node}"}</code></dt>
           <dd>Helpful text.</dd>
-          <dt><code>htmlFor   {"{id}"}</code></dt>
+          <dt><code>htmlFor   {"{string}"}</code></dt>
           <dd>Id of the input element that the label should be associated with.</dd>
-          <dt><code>label     {"{text|node}"}</code></dt>
+          <dt><code>label     {"{string|node}"}</code></dt>
           <dd>Label for the field.</dd>
           </dl>
         </section>

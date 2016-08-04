@@ -86,14 +86,14 @@ export default class SunBurstDoc extends Component {
               as the items in the <code>data</code> array.
               NOTE: Currently the graphic does not work well at depths
               greater than three.</dd>
-            <dt><code>onActive    {"{func ([index, ...])}"}</code></dt>
+            <dt><code>onActive   {"{function ([index, ...])}"}</code></dt>
             <dd>Hover handler. The hovered indexes are passed as the argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as the argument.</dd>
-            <dt><code>onClick     {"{func ([index, ...])}"}</code></dt>
+            <dt><code>onClick    {"{function ([index, ...])}"}</code></dt>
             <dd>Click handler. The clicked index path is passed as the
               argument.</dd>
-            <dt><code>size        small|medium|large</code></dt>
+            <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the SunBurst. Defaults to <code>medium</code>.</dd>
           </dl>
         </section>

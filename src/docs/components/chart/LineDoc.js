@@ -42,7 +42,7 @@ export default class LineDoc extends Component {
             <dd>Whether to show individual data points for each value.</dd>
             <dt><code>reverse      true|false</code></dt>
             <dd>When true, the indexes count right to left or bottom to top.</dd>
-            <dt><code>smooth      true|false</code></dt>
+            <dt><code>smooth       true|false</code></dt>
             <dd>When true, the line is drawn smoothly.</dd>
             <dt><code>values       {"[{number}, ...]"}</code></dt>
             <dd>An array of number values.</dd>

@@ -52,7 +52,7 @@ export default class MarkdownDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>components   {'{Component: { props: {<props>}}'}</code></dt>
+            <dt><code>components   {'{Component: { props: { } }}'}</code></dt>
             <dd>Set properties for components used in the markdown
               rendering. Possible components are 'a', 'h1-h6',
               'img', and 'p'</dd>

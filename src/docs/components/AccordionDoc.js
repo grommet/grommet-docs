@@ -31,7 +31,7 @@ export default class AccordionDoc extends Component {
         <section>
           <h2>AccordionPanel Options</h2>
           <dl>
-            <dt><code>active             {'{bool}'}</code></dt>
+            <dt><code>active              {'{bool}'}</code></dt>
             <dd>Optional flag to set the panel active (open). Default is false.</dd>
             <dt><code>heading             {'{string}|{node}'}</code></dt>
             <dd>heading of panel, displayed when panel is collapsed. Required.</dd>

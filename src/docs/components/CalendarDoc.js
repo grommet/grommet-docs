@@ -50,7 +50,7 @@ export default class CalendarDoc extends Component {
             <dd>The id attribute of the input.</dd>
             <dt><code>name          {"{string}"}</code></dt>
             <dd>The name attribute of the input.</dd>
-            <dt><code>onChange      {"function ({string}) {...}"}</code></dt>
+            <dt><code>onChange      {"{function ({string})"}</code></dt>
             <dd>Function that will be called when the user types some text into
               the input or selects a date from the drop down.</dd>
             <dt><code>value         {"{string}|{Date}|{moment}"}</code></dt>

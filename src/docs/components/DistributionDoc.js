@@ -78,13 +78,13 @@ export default class DistributionDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>full        true|false</code></dt>
+            <dt><code>full         true|false</code></dt>
             <dd>Whether the height should fill its container.</dd>
-            <dt><code>legend      true|false</code></dt>
+            <dt><code>legend       true|false</code></dt>
             <dd>Whether to show a legend.</dd>
-            <dt><code>legendTotal true|false</code></dt>
+            <dt><code>legendTotal  true|false</code></dt>
             <dd>Whether to show a total in the legend.</dd>
-            <dt><code>series      {"[{value: , label: , labelValue: , colorIndex: , onClick: , icon: }, ...]"}</code></dt>
+            <dt><code>series       {"[{value: , label: , labelValue: , colorIndex: , onClick: , icon: }, ...]"}</code></dt>
             <dd>An array of objects describing the
               data. All properties except <code>value</code> are
               optional. <code>labelValue</code> is used as the
@@ -92,7 +92,7 @@ export default class DistributionDoc extends Component {
               set, the <code>value</code> is displayed instead.</dd>
             <dt><code>size         small|medium|large</code></dt>
             <dd>The height of the Distribution. Defaults to <code>medium</code>.</dd>
-            <dt><code>units       {"{string}"}</code></dt>
+            <dt><code>units        {"{string}"}</code></dt>
             <dd>Optional units to display next to the value label.</dd>
           </dl>
         </section>

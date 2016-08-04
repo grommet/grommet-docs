@@ -25,7 +25,7 @@ export default class TitleDoc extends Component {
               Custom title used by screen readers. Default is "Title".
               Only used if onClick handler is specified.
             </dd>
-            <dt><code>onClick        {"{func}"}</code></dt>
+            <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>responsive     true|false</code></dt>
             <dd>Whether to only display the logo when the display area narrows.</dd>

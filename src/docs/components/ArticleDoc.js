@@ -19,13 +19,13 @@ export default class ArticleDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>onSelect      {"function (selected) {...}"}</code></dt>
+            <dt><code>onSelect      {"{function (selected)}"}</code></dt>
             <dd>Function that will be called when the article
               changes the currently selected chapter.</dd>
-            <dt><code>selected      number</code></dt>
+            <dt><code>selected      {"{number}"}</code></dt>
             <dd>The currently selected chapter using a zero based index.
               Defaults to 0.</dd>
-            <dt><code>scrollStep   true|false</code></dt>
+            <dt><code>scrollStep    true|false</code></dt>
             <dd>Whether to allow keyboard control of stepped scrolling through
             children. When true, directional keys will step through the
             children, depending on the direction they are laid out.

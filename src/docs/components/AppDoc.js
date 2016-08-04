@@ -28,7 +28,7 @@ export default class AppDoc extends Component {
               Whether to centralize or not the content inside the container.
               Default is true.
             </dd>
-            <dt><code>inline  true|false</code></dt>
+            <dt><code>inline    true|false</code></dt>
             <dd>
               Whether to render the app relative to the container (inline) or
               to the browser window. Default is false.

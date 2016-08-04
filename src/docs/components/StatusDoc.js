@@ -27,7 +27,7 @@ export default class StatusDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>a11yTitle  {"{title}"}</code></dt>
+            <dt><code>a11yTitle   {"{string}"}</code></dt>
             <dd>Accessibility Title. If not set uses the default title of the status icon.</dd>
             <dt><code>large       true|false</code></dt>
             <dd>Larger sized version. Deprecated, use <code>size</code>.</dd>
@@ -35,7 +35,7 @@ export default class StatusDoc extends Component {
             <dd>The size of the Status icon. Defaults to <code>medium</code>.</dd>
             <dt><code>small       true|false</code></dt>
             <dd>Smaller sized version. Deprecated, use <code>size</code>.</dd>
-            <dt><code>value       error|warning|ok|disabled|unknown</code></dt>
+            <dt><code>value       critical|warning|ok|disabled|unknown</code></dt>
             <dd>Which status to indicate.</dd>
           </dl>
         </section>

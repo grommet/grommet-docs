@@ -56,9 +56,9 @@ export default class ListDoc extends Component {
         <section>
           <h2>List Options</h2>
           <dl>
-            <dt><code>onMore         {"function () {...}"}</code></dt>
+            <dt><code>onMore         {"{function ()}"}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
-            <dt><code>onSelect       {"function (selected) {...}"}</code></dt>
+            <dt><code>onSelect       {"{function (selected)}"}</code></dt>
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index
               for that item. When multiple items are selected, it returns an
@@ -66,7 +66,7 @@ export default class ListDoc extends Component {
             <dt><code>selectable     true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
               that multiple rows may be selected</dd>
-            <dt><code>selected       number|[number, ...]</code></dt>
+            <dt><code>selected       {"{number}|[{number}, ...]"}</code></dt>
             <dd>The currently selected item(s) using a zero based index.</dd>
           </dl>
         </section>

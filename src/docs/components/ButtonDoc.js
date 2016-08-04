@@ -50,14 +50,14 @@ export default class ButtonDoc extends Component {
           <dd>Whether the button expands to fill all of the available
             width and height.
           </dd>
-          <dt><code>href           {"{text}"}</code></dt>
+          <dt><code>href           {"{string}"}</code></dt>
           <dd>If specified, the button will behave like an anchor tag.</dd>
           <dt><code>icon           {"{name}"}</code></dt>
           <dd>Icon element to place in the button.
             See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
-          <dt><code>label          {"{text|node}"}</code></dt>
+          <dt><code>label          {"{string|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
-          <dt><code>onClick        {"{func}"}</code></dt>
+          <dt><code>onClick        {"{function}"}</code></dt>
           <dd>Click handler. Not providing an onClick function causes the
             control to be disabled.</dd>
           <dt><code>plain          true|false</code></dt>

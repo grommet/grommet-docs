@@ -23,30 +23,20 @@ export default class NotificationDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>message  {"{string}"}</code></dt>
-            <dd>
-              Message to display in the notification box.
-            </dd>
+            <dt><code>message          {"{string}"}</code></dt>
+            <dd>Message to display in the notification box.</dd>
             <dt><code>percentComplete  {"{number}"}</code></dt>
-            <dd>
-              Number to measure the progress of an ongoing notification.
-            </dd>
-            <dt><code>size  small|medium|large</code></dt>
-            <dd>
-              Size of the notification box.
-            </dd>
-            <dt><code>state  {"{string}"}</code></dt>
-            <dd>
-              State of the element on the notification message (e.g. Active, Running).
-            </dd>
-            <dt><code>status  {"{string}"}</code></dt>
-            <dd>
-              Status of the element on the nofitication message (e.g. Ok, Critical).
-            </dd>
-            <dt><code>timestamp  {"{date}"}</code></dt>
-            <dd>
-              Timestamp of the notification message.
-            </dd>
+            <dd>Number to measure the progress of an ongoing notification.</dd>
+            <dt><code>size             small|medium|large</code></dt>
+            <dd>Size of the notification box.</dd>
+            <dt><code>state            {"{string}"}</code></dt>
+            <dd>State of the element on the notification message
+              (e.g. Active, Running).</dd>
+            <dt><code>status           {"{string}"}</code></dt>
+            <dd>Status of the element on the nofitication message
+              (e.g. Ok, Critical).</dd>
+            <dt><code>timestamp        {"{date}"}</code></dt>
+            <dd>Timestamp of the notification message.</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available for Notification.</p>

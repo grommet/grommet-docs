@@ -103,9 +103,9 @@ export default class SearchInputDoc extends Component {
             <dd>The id attribute of the input.</dd>
             <dt><code>name          {"{string}"}</code></dt>
             <dd>The name attribute of the input.</dd>
-            <dt><code>onDOMChange      {"function (event) {...}"}</code></dt>
+            <dt><code>onDOMChange   {"{function (event)}"}</code></dt>
             <dd>Function that will be called when the user types in the input.</dd>
-            <dt><code>onSelect      {"function ({target: , suggestion: }) {...}"}</code></dt>
+            <dt><code>onSelect      {"{function ({target: , suggestion: })}"}</code></dt>
             <dd>Function that will be called when the user selects a suggestion.
               The target corresponds to the embedded input element, allowing you
               to distinguish which component triggered the event. The suggestion

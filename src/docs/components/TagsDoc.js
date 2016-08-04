@@ -44,7 +44,7 @@ export default class TagsDoc extends Component {
         <section>
           <h2>Tag Options</h2>
           <dl>
-            <dt><code>label         {"{text}"}</code></dt>
+            <dt><code>label         {"{string}"}</code></dt>
             <dd>Label text for the tag.</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/anchor">Anchor</NavAnchor> are

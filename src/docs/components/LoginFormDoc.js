@@ -24,18 +24,20 @@ export default class LoginFormDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>align        start|center|end</code></dt>
+            <dt><code>align           start|center|end</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
             <dt><code>defaultValues   {"{username: ..., rememberMe: true|false}"}</code></dt>
             <dd>Default values for username and rememberMe</dd>
             <dt><code>errors          {"[{message}, ...]"}</code></dt>
-            <dd>An array of error messages. Use this if there is a failure to log in.</dd>
-            <dt><code>forgotPassword  {"{component}"}</code></dt>
+            <dd>An array of error messages. Use this if there is a failure
+              to log in.</dd>
+            <dt><code>forgotPassword  {"{element}"}</code></dt>
             <dd>A link that would take the user to a new page.</dd>
-            <dt><code>logo            {"{component}"}</code></dt>
+            <dt><code>logo            {"{element}"}</code></dt>
             <dd>A logo component.</dd>
-            <dt><code>onSubmit        {"function ({username: ..., password: ..., rememberMe: ...}) {...}"}</code></dt>
-            <dd>Function that will be called with the username, password and rememberMe provided.</dd>
+            <dt><code>onSubmit        {"{function ({username: ..., password: ..., rememberMe: ...})}"}</code></dt>
+            <dd>Function that will be called with the username, password and
+              rememberMe provided.</dd>
             <dt><code>rememberMe      true|false</code></dt>
             <dd>Whether to include a remember me input.</dd>
             <dt><code>secondaryText   {"{string}"}</code></dt>

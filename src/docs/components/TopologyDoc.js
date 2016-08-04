@@ -38,11 +38,11 @@ export default class TopologyDoc extends Component {
             <dd>Whether or not to visually demarcate the boundaries of the Part.</dd>
             <dt><code>direction    row|column</code></dt>
             <dd>The orientation to layout any child components in.</dd>
-            <dt><code>id           {"{id}"}</code></dt>
+            <dt><code>id           {"{string}"}</code></dt>
             <dd>The id of this part. The id should at least be unique within the Topology.</dd>
             <dt><code>justify      start|center|between|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
-            <dt><code>label        {"{label}"}</code></dt>
+            <dt><code>label        {"{string}"}</code></dt>
             <dd>The label of this part. This could be a part name or number, for example.</dd>
             <dt><code>reverse      true|false</code></dt>
             <dd>Whether to reverse the order of the child components.</dd>

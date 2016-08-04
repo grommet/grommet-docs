@@ -28,7 +28,7 @@ export default class FormDoc extends Component {
           <dl>
           <dt><code>compact   true|false</code></dt>
           <dd>Whether to render the form in a compact style.</dd>
-          <dt><code>onSubmit  {"{func}"}</code></dt>
+          <dt><code>onSubmit  {"{function}"}</code></dt>
           <dd>A function called when the user submits the form.</dd>
           <dt><code>pad       {"none|small|medium|large|{...}"}</code></dt>
           <dd>The amount of padding to put around the contents.

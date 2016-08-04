@@ -35,7 +35,7 @@ export default class ValueDoc extends Component {
               See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
             <dt><code>label        {"{string}"}</code></dt>
             <dd>Optional short description of the value.</dd>
-            <dt><code>onClick      {"{func}"}</code></dt>
+            <dt><code>onClick      {"{function}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>size         small|medium|large|xlarge</code></dt>
             <dd>The size of the value. Defaults to <code>medium</code>.</dd>

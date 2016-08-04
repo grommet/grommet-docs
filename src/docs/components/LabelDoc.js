@@ -18,7 +18,7 @@ export default class LabelDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>labelFor             string</code></dt>
+            <dt><code>labelFor          {"{string}"}</code></dt>
             <dd>ID of the form element that the label is for.  Optional.</dd>
             <dt><code>uppercase         true|false</code></dt>
             <dd>Convert the label to uppercase.  Defaults to <code>false</code>.</dd>

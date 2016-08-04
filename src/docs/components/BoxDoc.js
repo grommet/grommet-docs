@@ -27,32 +27,30 @@ export default class BoxDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>a11yTitle    {"{string}"}</code></dt>
-            <dd>
-              Custom title used by screen readers. Default is "Box".
-              Only used if onClick handler is specified.
-            </dd>
-            <dt><code>align        start|center|end|baseline|stretch</code></dt>
+            <dt><code>a11yTitle      {"{string}"}</code></dt>
+            <dd>Custom title used by screen readers. Default is "Box".
+              Only used if onClick handler is specified.</dd>
+            <dt><code>align          start|center|end|baseline|stretch</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
-            <dt><code>alignContent        start|center|end|between|around|stretch</code></dt>
+            <dt><code>alignContent   start|center|end|between|around|stretch</code></dt>
             <dd>How to align within a container when there is extra space in the cross axis. Defaults to <code>stretch</code></dd>
-            <dt><code>appCentered  true|false</code></dt>
+            <dt><code>appCentered    true|false</code></dt>
             <dd>Whether the box background should stretch across an App that is centered.</dd>
-            <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
+            <dt><code>colorIndex     {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code></dd>
-            <dt><code>direction    row|column</code></dt>
+            <dt><code>direction      row|column</code></dt>
             <dd>The orientation to layout the child components in.
               Defaults to <code>column</code>.</dd>
-            <dt><code>focusable         true|false</code></dt>
+            <dt><code>focusable      true|false</code></dt>
             <dd>Whether keyboard focus should be added for clickable Boxes. Defaults to <code>true</code>.</dd>
-            <dt><code>full         true|horizontal|vertical|false</code></dt>
+            <dt><code>full           true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport size.</dd>
-            <dt><code>onClick      {"{func}"}</code></dt>
+            <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Optional click handler.</dd>
-            <dt><code>justify      start|center|between|end</code></dt>
+            <dt><code>justify        start|center|between|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
-            <dt><code>pad          {"none|small|medium|large|{...}"}</code></dt>
+            <dt><code>pad            {"none|small|medium|large|{...}"}</code></dt>
             <dd>The amount of padding to put around the contents.
               An object can be specified to distinguish horizontal padding, vertical padding, and padding between child components: <code>
               {"{horizontal: none|small|medium|large, vertical: none|small|medium|large, between: none|small|medium|large}"}
@@ -61,27 +59,27 @@ export default class BoxDoc extends Component {
               (adds horizontal padding between components for <code>row</code>,
               or vertical padding between components for <code>column</code>).
             </dd>
-            <dt><code>primary      true|false</code></dt>
+            <dt><code>primary        true|false</code></dt>
             <dd>
               Whether this is a primary Box that will receive skip to main
               content anchor. Default is false.
             </dd>
-            <dt><code>reverse      true|false</code></dt>
+            <dt><code>reverse        true|false</code></dt>
             <dd>Whether to reverse the order of the child components.</dd>
-            <dt><code>responsive   true|false</code></dt>
+            <dt><code>responsive     true|false</code></dt>
             <dd>Whether children laid out in a row direction should be
               switched to a column layout when the display area narrows.
               Defaults to <code>true</code>.</dd>
-            <dt><code>separator   top|bottom|left|right</code></dt>
+            <dt><code>separator      top|bottom|left|right</code></dt>
             <dd>Add a separator.</dd>
-            <dt><code>size         auto|small|medium|large</code></dt>
+            <dt><code>size           auto|small|medium|large</code></dt>
             <dd>The width of the Box.  Defaults to <code>auto</code>.</dd>
-            <dt><code>tag          {"{text}"}</code></dt>
+            <dt><code>tag            {"{string}"}</code></dt>
             <dd>The DOM tag to use for the element.
               Defaults to <code>div</code>.</dd>
-            <dt><code>texture      {"{url}"}</code></dt>
-            <dd>A texture image to apply to the background.</dd>
-            <dt><code>wrap         true|false</code></dt>
+            <dt><code>texture        {"{string}"}</code></dt>
+            <dd>A texture image URL to apply to the background.</dd>
+            <dt><code>wrap           true|false</code></dt>
             <dd>Whether children can wrap if they {"can't"} all fit.
               Defaults to <code>true</code>.</dd>
           </dl>

@@ -45,15 +45,15 @@ export default class RadioButtonDoc extends Component {
           <dd>Same as React {"<input defaultChecked= >"}.</dd>
           <dt><code>disabled        true|false</code></dt>
           <dd>Same as React {"<input disabled= >"}.</dd>
-          <dt><code>id              {"{text}"}</code></dt>
+          <dt><code>id              {"{string}"}</code></dt>
           <dd>The DOM id attribute value to use for the underlying
             {"<input>"} element.</dd>
-          <dt><code>label           {"{text|node}"}</code></dt>
+          <dt><code>label           {"{string|node}"}</code></dt>
           <dd>Label text to place next to the control.</dd>
-          <dt><code>name            {"{text}"}</code></dt>
+          <dt><code>name            {"{string}"}</code></dt>
           <dd>The DOM name attribute value to use for the underlying
             {"<input>"} element.</dd>
-          <dt><code>onChange        {"{func}"}</code></dt>
+          <dt><code>onChange        {"{function}"}</code></dt>
           <dd>Same as React {"<input onChange= >"}.</dd>
           </dl>
         </section>

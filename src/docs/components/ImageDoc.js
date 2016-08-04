@@ -18,7 +18,7 @@ export default class ImageDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>caption       true|{"{string}"}</code></dt>
+            <dt><code>caption    true|{"{string}"}</code></dt>
             <dd>Whether to add image caption or not. If set to true, caption text
               will be the image alt value. Also, caption can receive the text to be
               used instead of the default one.</dd>

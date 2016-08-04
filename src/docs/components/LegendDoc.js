@@ -57,7 +57,7 @@ export default class LegendDoc extends Component {
           <dl>
             <dt><code>activeIndex   {"{index}"}</code></dt>
             <dd>Which data item should be shown as active, if any.</dd>
-            <dt><code>onActive      {"function (index) {...}"}</code></dt>
+            <dt><code>onActive      {"{function (index)}"}</code></dt>
             <dd>Function that will be called when the user hovers over one
               of the data items.</dd>
             <dt><code>series        {"[{label: , value: , colorIndex: , onClick: }, ...]"}</code></dt>

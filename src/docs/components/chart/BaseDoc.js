@@ -25,7 +25,7 @@ export default class BaseDoc extends Component {
             <dd>Whether contained children should be layed out horizontally
               or vertically. When using a horizontal layout, children will
               be given equivalent width.</dd>
-            <dt><code>width       small|medium|large|full</code></dt>
+            <dt><code>width        small|medium|large|full</code></dt>
             <dd>The width of the drawing area. Defaults
               to <code>medium</code>.</dd>
           </dl>

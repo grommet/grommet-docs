@@ -44,19 +44,19 @@ export default class NumberInputDoc extends Component {
           <dd>Same as React {"<input disabled= >"}.
             Also adds a hidden input element with the same name so
             form submissions work.</dd>
-          <dt><code>id              {"{text}"}</code></dt>
+          <dt><code>id              {"{string}"}</code></dt>
           <dd>The DOM id attribute value to use for the underlying
             {"<input>"} element.</dd>
-          <dt><code>label           {"{text|node}"}</code></dt>
+          <dt><code>label           {"{string|node}"}</code></dt>
           <dd>Label text to place next to the control.</dd>
-          <dt><code>name            {"{text}"}</code></dt>
+          <dt><code>name            {"{string}"}</code></dt>
           <dd>The DOM name attribute value to use for the underlying
             {"<input>"} element.</dd>
-          <dt><code>onChange        {"{func}"}</code></dt>
+          <dt><code>onChange        {"{function}"}</code></dt>
           <dd>Same as React {"<input onChange= >"}.</dd>
           <dt><code>toggle         true|false</code></dt>
           <dd>Whether to visualize it as a toggle switch.</dd>
-          <dt><code>ariaDescribedby {"{text}"}</code></dt>
+          <dt><code>ariaDescribedby {"{string}"}</code></dt>
           <dd>Optional attribute to enhance accessibility in case the checkbox is used inside a context.</dd>
           </dl>
         </section>

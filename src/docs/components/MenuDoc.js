@@ -55,10 +55,10 @@ export default class MenuDoc extends Component {
               At most one of left or right and one of top or bottom should be
               specified.
             </dd>
-            <dt><code>icon          {"{icon}"}</code></dt>
+            <dt><code>icon          {"{element}"}</code></dt>
             <dd>Indicates that the menu should be collapsed and the
               icon shown as a control top open it.</dd>
-            <dt><code>label         {"{text}"}</code></dt>
+            <dt><code>label         {"{string}"}</code></dt>
             <dd>Indicates that the menu should be collapsed and the
               label shown as a control top open it.</dd>
             <dt><code>responsive    true|false</code></dt>

@@ -31,12 +31,12 @@ export default class RangeDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>active        {'{start: {number}, end: {number}}'}</code></dt>
+            <dt><code>active       {'{start: {number}, end: {number}}'}</code></dt>
             <dd>The starting and ending selected slot indexes.</dd>
             <dt><code>count        {'{number}'}</code></dt>
             <dd>The number of slots, including both ends.
               This property is required.</dd>
-            <dt><code>onActive     {"{func ({start: {number}, end: {number}})}"}</code></dt>
+            <dt><code>onActive     {"{function ({start: {number}, end: {number}})}"}</code></dt>
             <dd>This function is called when the user changes the selected
               range.</dd>
             <dt><code>vertical     true|false</code></dt>

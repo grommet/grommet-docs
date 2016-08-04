@@ -46,30 +46,27 @@ export default class AnchorDoc extends Component {
             <dd>
               Whether to disable the anchor. Default is false.
             </dd>
-            <dt><code>href           {"{location}"}</code></dt>
+            <dt><code>href           {"{string}"}</code></dt>
             <dd>Hyperlink reference to place in the anchor.</dd>
             <dt><code>icon           {"{element}"}</code></dt>
             <dd>Icon element to place in the anchor.
               See <NavAnchor path="/develop/icon">Icon</NavAnchor>.</dd>
-            <dt><code>label          {"{text}"}</code></dt>
+            <dt><code>label          {"{string}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>
-            <dt><code>onClick        {"{func}"}</code></dt>
+            <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>primary        true|false</code></dt>
             <dd>Whether this is a primary anchor.</dd>
             <dt><code>reverse        true|false</code></dt>
             <dd>Whether an icon and label should be reversed so that the icon
               is at the end of the anchor.</dd>
-            <dt><code>tag            {"{text}"}</code></dt>
+            <dt><code>tag            {"{string}"}</code></dt>
             <dd>The DOM tag to use for the element. The default is {'<a>'}.
               This should be used in conjunction with components like
               Link from React Router. In this case, Link controls the
               navigation while Anchor controls the styling.</dd>
-            <dt><code>target         {"{location}"}</code></dt>
-            <dd>
-              Target of the link,
-              examples targets=_blank|_self|_parent|_top|framename.
-            </dd>
+            <dt><code>target         {"_blank|_self|_parent|_top|{string}"}</code></dt>
+            <dd>Target of the link.</dd>
           </dl>
         </section>
 
