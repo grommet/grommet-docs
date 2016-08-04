@@ -5,7 +5,9 @@ import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
-const COLORS = ['brand', 'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t', 'neutral-3', 'neutral-3-t', 'neutral-4',
+const COLORS = ['brand',
+  'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t',
+  'neutral-3', 'neutral-3-t', 'neutral-4',
   'accent-1', 'accent-1-t', 'accent-2', 'accent-2-t',
   'grey-1', 'grey-2', 'grey-3', 'grey-4', 'light-2', 'light-1',
   'critical', 'warning', 'ok', 'unknown'];
@@ -22,7 +24,8 @@ export default class BoxDoc extends Component {
       <DocsArticle title="Box" colorIndex="neutral-3">
 
         <p>General purpose flexible box layout. This does not support all of the
-          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"> flexbox capabilities</a>.</p>
+          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">
+            flexbox capabilities</a>.</p>
 
         <section>
           <h2>Options</h2>
@@ -30,12 +33,16 @@ export default class BoxDoc extends Component {
             <dt><code>a11yTitle      {"{string}"}</code></dt>
             <dd>Custom title used by screen readers. Defaults to "Box".
               Only used if onClick handler is specified.</dd>
-            <dt><code>align          start|center|end|baseline|stretch</code></dt>
+            <dt><code>align          start|center|end|baseline|stretch
+              </code></dt>
             <dd>How to align the contents along the cross axis.</dd>
-            <dt><code>alignContent   start|center|end|between|around|stretch</code></dt>
-            <dd>How to align within a container when there is extra space in the cross axis. Defaults to <code>stretch</code></dd>
+            <dt><code>alignContent   start|center|end|between|around|stretch
+              </code></dt>
+            <dd>How to align within a container when there is extra space in
+              the cross axis. Defaults to <code>stretch</code></dd>
             <dt><code>appCentered    true|false</code></dt>
-            <dd>Whether the box background should stretch across an App that is centered.</dd>
+            <dd>Whether the box background should stretch across an App that
+              is centered.</dd>
             <dt><code>colorIndex     {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code></dd>
@@ -43,19 +50,26 @@ export default class BoxDoc extends Component {
             <dd>The orientation to layout the child components in.
               Defaults to <code>column</code>.</dd>
             <dt><code>focusable      true|false</code></dt>
-            <dd>Whether keyboard focus should be added for clickable Boxes. Defaults to <code>true</code>.</dd>
+            <dd>Whether keyboard focus should be added for clickable Boxes.
+              Defaults to <code>true</code>.</dd>
             <dt><code>full           true|horizontal|vertical|false</code></dt>
-            <dd>Whether the width and/or height should take the full viewport size.</dd>
+            <dd>Whether the width and/or height should take the full viewport
+              size.</dd>
             <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Optional click handler.</dd>
             <dt><code>justify        start|center|between|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
-            <dt><code>pad            {"none|small|medium|large|{...}"}</code></dt>
+            <dt><code>pad            {"none|small|medium|large|{...}"}
+              </code></dt>
             <dd>The amount of padding to put around the contents.
-              An object can be specified to distinguish horizontal padding, vertical padding, and padding between child components: <code>
-              {"{horizontal: none|small|medium|large, vertical: none|small|medium|large, between: none|small|medium|large}"}
+              An object can be specified to distinguish horizontal padding,
+              vertical padding, and padding between child components: <code>
+              {"{horizontal: none|small|medium|large, " +
+                "vertical: none|small|medium|large, " +
+                "between: none|small|medium|large}"}
               </code>. Defaults to <code>none</code>.
-              Padding set using <code>between</code> only affects components based on the direction set
+              Padding set using <code>between</code> only affects components
+              based on the direction set
               (adds horizontal padding between components for <code>row</code>,
               or vertical padding between components for <code>column</code>).
             </dd>

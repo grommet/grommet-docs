@@ -32,7 +32,8 @@ export default class CheckBoxDoc extends Component {
             <CheckBox id="item1" name="item1" label="Item 1"
               checked={this.state.checked} onChange={this._onChange} />
             <CheckBox id="item2" name="item2" label="Item 2"
-              checked={this.state.checked} toggle={true} onChange={this._onChange} />
+              checked={this.state.checked} toggle={true}
+              onChange={this._onChange} />
           </Box>
         </section>
 
@@ -61,7 +62,8 @@ export default class CheckBoxDoc extends Component {
           <dd>Whether to show the label in front of the checkbox.
             Defaults to false.</dd>
           <dt><code>toggle          true|false</code></dt>
-          <dd>Whether to visualize it as a toggle switch. Defaults to false.</dd>
+          <dd>Whether to visualize it as a toggle switch.
+            Defaults to false.</dd>
           </dl>
         </section>
 
@@ -74,7 +76,8 @@ export default class CheckBoxDoc extends Component {
           } />
           <Example name="Toggle" code={
             <CheckBox id="item2" name="item2" label="Item 2"
-              checked={this.state.checked} toggle={true} onChange={this._onChange} />
+              checked={this.state.checked} toggle={true}
+              onChange={this._onChange} />
           } />
           <Example name="Disabled" code={
             <CheckBox id="item3" name="item3" label="Item 3"
@@ -86,7 +89,8 @@ export default class CheckBoxDoc extends Component {
           } />
           <Example name="Reverse" code={
             <CheckBox id="item5" name="item5" label="Item 5"
-              checked={this.state.checked} reverse={true} onChange={this._onChange} />
+              checked={this.state.checked} reverse={true}
+              onChange={this._onChange} />
           } />
           <Example name="No Label" code={
             <CheckBox id="item6" name="item6"

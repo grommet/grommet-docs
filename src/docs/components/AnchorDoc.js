@@ -63,7 +63,8 @@ export default class AnchorDoc extends Component {
               This should be used in conjunction with components like
               Link from React Router. In this case, Link controls the
               navigation while Anchor controls the styling.</dd>
-            <dt><code>target         {"_blank|_self|_parent|_top|{string}"}</code></dt>
+            <dt><code>target         {"_blank|_self|_parent|_top|{string}"}
+              </code></dt>
             <dd>Target of the link.</dd>
           </dl>
         </section>
@@ -90,7 +91,8 @@ export default class AnchorDoc extends Component {
               onClick={this._onClick} />
           } />
           <Example name="Target" code={
-            <Anchor href="" target="_blank" label="Label" onClick={this._onClick} />
+            <Anchor href="" target="_blank" label="Label"
+              onClick={this._onClick} />
           } />
           <Example name="Disabled" code={
             <Anchor primary={true} disabled={true}>Text</Anchor>
@@ -102,11 +104,15 @@ export default class AnchorDoc extends Component {
           } />
           <Example name="Colored context" code={
             <Section colorIndex="neutral-1"
-              pad={{horizontal: 'medium', vertical: 'medium', between: 'medium'}}>
+              pad={{horizontal: 'medium', vertical: 'medium',
+                between: 'medium'}}>
               <Anchor href="" onClick={this._onClick}>Text</Anchor>
-              <Anchor href="" primary={true} label="Label" onClick={this._onClick} />
-              <Anchor href="" icon={<EditIcon id='edit-icon-3' />} onClick={this._onClick} />
-              <Anchor href="" icon={<EditIcon id='edit-icon-4' />} label="Edit" onClick={this._onClick} />
+              <Anchor href="" primary={true} label="Label"
+                onClick={this._onClick} />
+              <Anchor href="" icon={<EditIcon id='edit-icon-3' />}
+                onClick={this._onClick} />
+              <Anchor href="" icon={<EditIcon id='edit-icon-4' />}
+                label="Edit" onClick={this._onClick} />
             </Section>
           } />
         </section>

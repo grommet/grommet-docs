@@ -23,7 +23,8 @@ export default class AccordionDoc extends Component {
             <dd>Transition content in &amp; out with a slide down animation.
               Defaults to true.</dd>
             <dt><code>openMulti           {'{bool}'}</code></dt>
-            <dd>Allow multiple panels to be opened at once. Defaults to false.</dd>
+            <dd>Allow multiple panels to be opened at once.
+              Defaults to false.</dd>
             <dt><code>initialIndex        {'{number}'}</code></dt>
             <dd>Optional initial accordion index.</dd>
           </dl>
@@ -33,9 +34,11 @@ export default class AccordionDoc extends Component {
           <h2>AccordionPanel Options</h2>
           <dl>
             <dt><code>active              {'{bool}'}</code></dt>
-            <dd>Optional flag to set the panel active (open). Defaults to false.</dd>
+            <dd>Optional flag to set the panel active (open).
+              Defaults to false.</dd>
             <dt><code>heading             {'{string}|{node}'}</code></dt>
-            <dd>heading of panel, displayed when panel is collapsed. Required.</dd>
+            <dd>heading of panel, displayed when panel is collapsed.
+              Required.</dd>
           </dl>
         </section>
 

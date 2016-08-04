@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import yargs from 'yargs';
 const argv = yargs.argv;
@@ -42,15 +42,16 @@ gulp.task('generate-icons-map', (done) => {
 
         var grommetIconPath = "grommet/components/icons/base/";
         iconsMap.push(
-          "\"" + icon.replace('.svg', '') + "\":" +
-          " require('" + grommetIconPath + componentName + "')"
+          "  \"" + icon.replace('.svg', '') + "\":\n" +
+          "    require('" + grommetIconPath + componentName + "')"
         );
 
         if (index === icons.length - 1) {
           iconsMap.push('};\n');
 
-          var destinationFile = path.join(__dirname, 'src/docs/components/iconsMap.js');
-          fs.writeFile(destinationFile, iconsMap.join(''), function(err) {
+          var destinationFile = path.join(__dirname,
+            'src/docs/components/iconsMap.js');
+          fs.writeFile(destinationFile, iconsMap.join("\n"), function(err) {
             if (err) {
               throw err;
             }
@@ -77,7 +78,8 @@ gulp.task('release:createTmp', (done) => {
 
 gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
   if (process.env.CI) {
-    git.clone('https://' + process.env.GH_TOKEN + '@github.com/grommet/grommet.github.io.git',
+    git.clone('https://' + process.env.GH_TOKEN +
+      '@github.com/grommet/grommet.github.io.git',
       {
         cwd: './tmp/'
       },
@@ -108,18 +110,20 @@ gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
                   .pipe(git.add({
                     args: '--all'
                   }))
-                  .pipe(git.commit('Heroku dev version update.')).on('end', () => {
-                    git.push('origin', 'master', { quiet: true }, (err) => {
-                      if (err) {
-                        throw err;
-                      }
+                  .pipe(git.commit('Heroku dev version update.'))
+                    .on('end', () => {
+                      git.push('origin', 'master', { quiet: true }, (err) => {
+                        if (err) {
+                          throw err;
+                        }
 
-                      process.chdir(__dirname);
-                      done();
+                        process.chdir(__dirname);
+                        done();
+                      });
                     });
-                  });
               } else {
-                console.log('No difference since last commit, skipping gh-pages release.');
+                console.log("No difference since last commit, " +
+                  "skipping gh-pages release.");
 
                 process.chdir(__dirname);
                 done();
@@ -130,7 +134,8 @@ gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
       }
     );
   } else {
-    console.warn('Skipping release. Release:gh-pages task should be executed by CI only.');
+    console.warn("Skipping release. Release:gh-pages task should be " +
+      "executed by CI only.");
   }
 });
 

@@ -46,7 +46,9 @@ export default class MenuDoc extends Component {
               a control shown to open it in a drop down. If false,
               the specified label or icon will be shown, if neither are
               specified, a default icon will be shown.</dd>
-            <dt><code>dropAlign     {"{left: left|right, right: left|right, top: top|bottom, bottom: top|bottom}"}</code></dt>
+            <dt><code>dropAlign     {"{left: left|right, " +
+              "right: left|right, top: top|bottom, " +
+              "bottom: top|bottom}"}</code></dt>
             <dd>Where to place the drop down. The keys correspond to a side
               of the drop down. The values correspond to a side of the control.
               For instance, <code>{"{left: 'left', top: 'bottom'}"}</code>
@@ -123,7 +125,8 @@ export default class MenuDoc extends Component {
               <Anchor href="#">Third</Anchor>
             </Menu>
           } />
-          <Example name="custom icon, down, not inline, do not close on click" code={
+          <Example name="custom icon, down, not inline, do not close on click"
+            code={
             <Menu icon={<FilterIcon />} closeOnClick={false} pad="medium">
               <CheckBox id="check-1" label="first" />
               <CheckBox id="check-2" label="second" />

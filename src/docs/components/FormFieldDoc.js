@@ -44,7 +44,8 @@ export default class FormFieldDoc extends Component {
           <dt><code>help      {"{string|node}"}</code></dt>
           <dd>Helpful text.</dd>
           <dt><code>htmlFor   {"{string}"}</code></dt>
-          <dd>Id of the input element that the label should be associated with.</dd>
+          <dd>Id of the input element that the label should be associated
+            with.</dd>
           <dt><code>label     {"{string|node}"}</code></dt>
           <dd>Label for the field.</dd>
           </dl>
@@ -106,7 +107,9 @@ export default class FormFieldDoc extends Component {
           <Example name="SearchInput" code={
             <Form>
               <FormField label="item 5" htmlFor="item5">
-                <SearchInput id="item5" defaultValue="This is a really long search value that keeps going and going. Wow it is really long!"/>
+                <SearchInput id="item5"
+                  defaultValue={"This is a really long search value " +
+                    "that keeps going and going. Wow it is really long!"} />
               </FormField>
             </Form>
           } />

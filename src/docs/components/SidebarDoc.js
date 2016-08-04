@@ -28,7 +28,8 @@ export default class SidebarDoc extends Component {
         contains a <NavAnchor path="/docs/header">Header</NavAnchor> and
         a <NavAnchor path="/docs/menu">Menu</NavAnchor>. The Sidebar may
         or may not be always visible. If it comes and goes, it is typically
-        controlled via a <NavAnchor path="/docs/title">Title</NavAnchor> component
+        controlled via a <NavAnchor path="/docs/title">
+        Title</NavAnchor> component
         inside a <NavAnchor path="/docs/header">Header</NavAnchor> component
         residing in the other side of the Split.</p>
 
