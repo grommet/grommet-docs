@@ -124,6 +124,18 @@ export default class GetStartedDoc extends Component {
                   <p>You can now play with Grommet using local Bower.</p>
                 </li>
               </ol>
+            <h4>Standalone</h4>
+            <ol>
+              <li>
+                <p>
+                  In case you have an existing project using Node, you can refer
+                  to <Anchor
+                    href="https://github.com/grommet/grommet-standalone"
+                    target='_blank'>grommet-standalone</Anchor> for reference
+                  on how to use Grommet with webpack.
+                </p>
+              </li>
+            </ol>
         </section>
         <section>
           <h2>Next Steps</h2>
@@ -134,7 +146,7 @@ export default class GetStartedDoc extends Component {
             and learn how Grommet works internally.
           </p>
           <p>We also have
-            a <Anchor href="http://vimeo.com/grommetux/videos">
+            a <Anchor href="http://vimeo.com/grommetux/videos" target='_blank'>
             Grommet Vimeo channel</Anchor> with
             additional training materials.</p>
         </section>
