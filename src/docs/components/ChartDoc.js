@@ -95,6 +95,44 @@ export default class ChartDoc extends Component {
         </section>
 
         <section>
+          <h2>Options</h2>
+          <dl>
+            <dt><code>full                  true|false</code></dt>
+            <dd>Whether to occupy the full parent width.</dd>
+            <dt><code>horizontalAlignWith   {'{string}'}</code></dt>
+            <dd>The id of the DOM element to align the Chart graphics with
+              horizontally. This can be used if the Chart has a
+              Base descendant with children that do not occupy the
+              full width of the Base. For example, if the Base contains
+              Boxes that are laid out horizontally and include Meters and
+              Values, you would give a Meter an id and set this property
+              to use it.</dd>
+            <dt><code>loading               true|false</code></dt>
+            <dd>Whether the Chart data is still being retrieved.</dd>
+            <dt><code>onMaxCount            {'{function (maxCount)}'}
+              </code></dt>
+            <dd>This function is called to provide guidance on how many data
+              points the Chart could handle. For instance, if the Chart
+              width is variable based on its parent width, the maxCount
+              can be used to set both the number of data points, ticks,
+              and/or labels to include.</dd>
+            <dt><code>vertical              true|false</code></dt>
+            <dd>Whether the child components should be laid out vertically.
+              If you want both an x-axis and y-axis, you would have two
+              Chart components, one inside the other, with only one of
+              them having <code>vertical={'true'}</code></dd>
+            <dt><code>verticalAlignWith    {'{string}'}</code></dt>
+            <dd>The id of the DOM element to align the Chart graphics with
+              vertically. This can be used if the Chart has a
+              Base descendant with children that do not occupy the
+              full width of the Base. For example, if the Base contains
+              Boxes that are laid out vertically and include Meters and
+              Values, you would give a Meter an id and set this property
+              to use it.</dd>
+          </dl>
+        </section>
+
+        <section>
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/chart-examples`}>

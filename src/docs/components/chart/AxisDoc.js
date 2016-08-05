@@ -17,6 +17,13 @@ export default class AxisDoc extends Component {
           horizontal or vertical on any edge. It should be placed inside a
           Chart component.</p>
 
+        <p>Callers are responsible to set the number of ticks and labels
+          appropriate to the anticipated size of the Chart. Tying it to
+          <code>onMaxCount</code> in <NavAnchor path={`/docs/chart`}>
+          Chart</NavAnchor> is a good way to get some guidance on many ticks
+          could be shown. But, you will need to take into account your
+          labels as well.</p>
+
         <Example code={
           <Chart vertical={true}>
             <Base height="small"/>
