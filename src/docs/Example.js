@@ -25,7 +25,10 @@ export default class Example extends Component {
     }
     let importStatement;
     if (preamble) {
-      importStatement = preamble.replace(/^\s/,'').replace(/  +/g, ' ');
+      importStatement = preamble
+        .replace(/^\s+/,'')
+        .replace(/\n\s+/g, "\n")
+        .replace(/[^\n]$/, "\n");
     }
 
     return (
@@ -50,5 +53,6 @@ Example.propTypes = {
   code: PropTypes.node.isRequired,
   control: PropTypes.node, // for LayerDoc
   name: PropTypes.string,
-  overrides: PropTypes.arrayOf(PropTypes.string)
+  overrides: PropTypes.arrayOf(PropTypes.string),
+  preamble: PropTypes.string
 };

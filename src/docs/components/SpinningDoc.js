@@ -19,10 +19,10 @@ export default class SpinningDoc extends Component {
           there should not be more than one Spinning icon on the screen at a
           time.</p>
 
-          <Example preamble={`
-              var Spinning = require('grommet/components/icons/Spinning');
-              //or var Spinning = Grommet.Icons.Spinning
-            `} code={
+          <Example preamble={
+            `var Spinning = require('grommet/components/icons/Spinning');
+            // or var Spinning = Grommet.Icons.Spinning;`
+            } code={
               <Spinning />
             } />
         </section>
