@@ -110,7 +110,7 @@ export default class ChartExamplesDoc extends Component {
 
         <Section appCentered={false} justify="between" align="start"
           direction="row" full="horizontal"
-          colorIndex={dark ? 'neutral-1' : undefined}>
+          colorIndex={dark ? 'grey-2' : undefined}>
           <Button icon={<PreviousIcon />}
             onClick={this._onPrevious} />
           <Chart />
