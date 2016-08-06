@@ -92,6 +92,7 @@ import TabsDoc from './components/TabsDoc';
 import TagsDoc from './components/TagsDoc';
 import TilesDoc from './components/TilesDoc';
 import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
+import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
 import TopologyDoc from './components/TopologyDoc';
 import ValueDoc from './components/ValueDoc';
@@ -167,7 +168,7 @@ export default [
       {path: 'header', label: 'Header', component: HeaderDoc},
       {path: 'heading', label: 'Heading', component: HeadingDoc},
       {path: 'headline', label: 'Headline', component: HeadlineDoc},
-      {path: 'hreo', label: 'Hero', component: HeroDoc},
+      {path: 'hero', label: 'Hero', component: HeroDoc},
       {path: 'icon', label: 'Icon', component: IconDoc},
       {path: 'image', label: 'Image', component: ImageDoc},
       {path: 'label', label: 'Label', component: LabelDoc},
@@ -200,6 +201,7 @@ export default [
       {path: 'tiles', label: 'Tiles', component: TilesDoc, contents: [
         {path: 'tiles-examples', component: TilesExamplesDoc}
       ]},
+      {path: 'tip', label: 'Tip', component: TipDoc},
       {path: 'title', label: 'Title', component: TitleDoc},
       {path: 'topology', label: 'Topology', component: TopologyDoc},
       {path: 'value', label: 'Value', component: ValueDoc},

@@ -25,10 +25,12 @@ export default class Example extends Component {
     }
     let importStatement;
     if (preamble) {
-      importStatement = preamble
-        .replace(/^\s+/,'')
-        .replace(/\n\s+/g, "\n")
-        .replace(/[^\n]$/, "\n");
+      // Ensure we end with a newline so any code starts on the next line.
+      importStatement = preamble.replace(/[^\n]$/, "\n");
+    }
+    let codeElement;
+    if (code) {
+      codeElement = this._renderCode();
     }
 
     return (
@@ -39,7 +41,7 @@ export default class Example extends Component {
           <pre>
             <code className="html xml hljs">
               {importStatement}
-              {this._renderCode()}
+              {codeElement}
             </code>
           </pre>
         </Box>
@@ -50,7 +52,7 @@ export default class Example extends Component {
 
 Example.propTypes = {
   align: PropTypes.oneOf(['start', 'center', 'end']),
-  code: PropTypes.node.isRequired,
+  code: PropTypes.node,
   control: PropTypes.node, // for LayerDoc
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string),

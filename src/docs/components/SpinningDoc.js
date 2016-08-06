@@ -5,6 +5,10 @@ import Spinning from 'grommet/components/icons/Spinning';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
+const PREAMBLE =
+`var Spinning = require('grommet/components/icons/Spinning');
+// or var Spinning = Grommet.Icons.Spinning;`;
+
 export default class SpinningDoc extends Component {
 
   render () {
@@ -19,12 +23,9 @@ export default class SpinningDoc extends Component {
           there should not be more than one Spinning icon on the screen at a
           time.</p>
 
-          <Example preamble={
-            `var Spinning = require('grommet/components/icons/Spinning');
-            // or var Spinning = Grommet.Icons.Spinning;`
-            } code={
-              <Spinning />
-            } />
+          <Example preamble={PREAMBLE} code={
+            <Spinning />
+          } />
         </section>
 
       </DocsArticle>
