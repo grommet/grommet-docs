@@ -18,7 +18,7 @@ export default class Example extends Component {
   }
 
   render () {
-    const { align, code, control, name, preamble } = this.props;
+    const { align, full, code, control, name, preamble } = this.props;
     let heading;
     if (name) {
       heading = <h3>{name}</h3>;
@@ -34,7 +34,7 @@ export default class Example extends Component {
     }
 
     return (
-      <Box flex={true}>
+      <Box full={full} flex={true}>
         {heading}
         <Box pad={{ between: 'medium' }} align={align}>
           {control || code}
@@ -56,5 +56,6 @@ Example.propTypes = {
   control: PropTypes.node, // for LayerDoc
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string),
-  preamble: PropTypes.string
+  preamble: PropTypes.string,
+  full: PropTypes.oneOf([true, 'horizontal', 'vertical', false])
 };

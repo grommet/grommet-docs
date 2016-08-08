@@ -43,6 +43,14 @@ export default class TileDoc extends Component {
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of the contained tiles.
               Defaults to <code>medium</code>.</dd>
+            <dt><code>masonry     true|false</code></dt>
+            <dd>Whether to update the number of columns based on the component
+              width. Defaults to <code>false</code>. The number of columns can
+              be set with <code>numColumns</code>.</dd>
+            <dt><code>numColumns  number</code></dt>
+            <dd>Number of columns to allow for masonry option, based on
+              component width. Responds based on the width of the tile children
+              (set with <code>size</code>).</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available for Tiles.</p>

@@ -45,7 +45,10 @@ export function renderRichTiles (options={}, onClick) {
           <strong>{"Tile " + index}</strong>
         </Header>
         <Box pad="small">
-          <p>Tile summary content. One or two lines.</p>
+          <p>{(options.alternateContent && index % 2 === 0) ?
+            'Tile summary content. One or two lines.' :
+            'Tile summary content. One or two lines. Tile summary content.\
+            One or two lines.'}</p>
         </Box>
         {bottom}
       </Tile>

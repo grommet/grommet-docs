@@ -18,6 +18,7 @@ import Tiles4 from './Tiles4';
 import Tiles5 from './Tiles5';
 import Tiles6 from './Tiles6';
 import Tiles7 from './Tiles7';
+import Tiles8 from './Tiles8';
 
 const TILES = [
   { label: 'Simple', component: Tiles1 },
@@ -26,7 +27,8 @@ const TILES = [
   { label: 'Fill, Flush', component: Tiles4 },
   { label: 'Row', component: Tiles5 },
   { label: 'Single Select', component: Tiles6 },
-  { label: 'Multiple Select', component: Tiles7 }
+  { label: 'Multiple Select', component: Tiles7 },
+  { label: 'Masonry, 4 Columns', component: Tiles8 }
 ];
 
 export default class TilesExamplesDoc extends Component {
