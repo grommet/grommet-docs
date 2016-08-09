@@ -157,8 +157,7 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <Footer primary={true} appCentered={true} direction="column"
-          pad={{ vertical: 'medium' }}>
+        <Footer primary={true} direction="column" pad='medium'>
           <Box direction="row" justify="between" align="start"
             pad={{ between: 'medium' }}>
             <Box direction="row" align="center" responsive={false}

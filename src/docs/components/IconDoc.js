@@ -12,14 +12,6 @@ import iconsMap from './iconsMap';
 const iconNames = Object.keys(iconsMap);
 import Example from '../Example';
 
-//hjjs configuration
-var hljs = require('highlight.js/lib/highlight');
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('javascript',
-  require('highlight.js/lib/languages/javascript'));
-hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-
 export default class IconDoc extends Component {
 
   constructor () {
@@ -35,14 +27,6 @@ export default class IconDoc extends Component {
     };
   }
 
-  componentDidMount () {
-    this._highlightCode();
-  }
-
-  componentDidUpdate () {
-    this._highlightCode();
-  }
-
   _onChange (e) {
     var value = e.target.value;
     var caseInsensitiveValue = new RegExp(value, 'i');
@@ -56,13 +40,6 @@ export default class IconDoc extends Component {
       icons: icons,
       pageIndex: 1
     });
-  }
-
-  _highlightCode () {
-    var nodes = document.querySelectorAll('pre code');
-    for (var i = 0; i < nodes.length; i++) {
-      hljs.highlightBlock(nodes[i]);
-    }
   }
 
   _onIconSelect (e) {

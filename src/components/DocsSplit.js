@@ -14,14 +14,6 @@ import CloseIcon from 'grommet/components/icons/base/Close';
 import GrommetLogo from 'grommet/components/icons/Grommet';
 import DocsMenu from './DocsMenu';
 
-//hjjs configuration
-import hljs from 'highlight.js/lib/highlight';
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('javascript',
-  require('highlight.js/lib/languages/javascript'));
-hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-
 export default class DocsSplit extends Component {
 
   constructor () {
@@ -34,18 +26,6 @@ export default class DocsSplit extends Component {
 
   componentDidMount () {
     this._scrollMenu();
-    this._highlightCode();
-  }
-
-  componentDidUpdate () {
-    this._highlightCode();
-  }
-
-  _highlightCode () {
-    const nodes = document.querySelectorAll('pre code');
-    for (var i = 0; i < nodes.length; i++) {
-      hljs.highlightBlock(nodes[i]);
-    }
   }
 
   _scrollMenu () {

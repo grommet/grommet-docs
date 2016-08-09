@@ -40,8 +40,7 @@ export default class Example extends Component {
           {control || code}
           <pre>
             <code className="html xml hljs">
-              {importStatement}
-              {codeElement}
+              {`${importStatement || ''}${codeElement}`}
             </code>
           </pre>
         </Box>
