@@ -137,7 +137,8 @@ export default class FullForm extends Component {
               help={this.state.rangeValue}>
               <input id={p + "item10"} name="item-10" type="range"
                 min="1" max="20" value={this.state.rangeValue}
-                onChange={this._onChangeRange}/>
+                onChange={this._onChangeRange}
+                onMouseUp={this._onChangeRange}/>
             </FormField>
           </fieldset>
           <fieldset>
