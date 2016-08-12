@@ -32,7 +32,7 @@ export default {
     }
   ],
   scssAssets: ['src/scss/**/*.scss'],
-  jsAssets: ['src/**/*.js', '!src/docs/components/iconsMap.js'],
+  jsAssets: ['src/**/*.js', '!src/develop/components/iconsMap.js'],
   mainJs: 'src/index.js',
   mainScss: 'src/scss/index.scss',
   webpack: {
