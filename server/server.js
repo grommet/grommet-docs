@@ -1,111 +1,147 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
-
-var compression = require('compression');
 var express = require('express');
 var http = require("http");
-var router = express.Router({strict: true});
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
-var path = require('path');
-var throng = require('throng');
-var themePicker = require('./theme-picker');
 
-var docs = require('./docs');
+var server = express();
 
-var WORKERS = process.env.WEB_CONCURRENCY || 1;
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 9000;
 
-throng(WORKERS, start);
+var app = express();
 
-function start() {
-  var app = express();
+const BASENAMES = ['', '/aruba', '/hpe', '/hpinc'];
 
-  app.set('views', path.resolve(__dirname, 'views'));
-  app.set('view engine', 'ejs');
+const DESIGN = [
+  'best_practices',
+  'usability',
+  'interactions',
+  'mobile',
+  'accessibility',
+  'color',
+  'padding',
+  'text',
+  'typography',
+  'writing_style',
+  'date_time',
+  'capitalization',
+  'icons',
+  'resources'
+];
 
-  app.use(compression());
+const DEVELOP = [
+  'helloworld',
+  'getstarted',
+  'dashboard',
+  'navigation',
+  'actions',
+  'anchor',
+  'app',
+  'article',
+  'box',
+  'brick',
+  'button',
+  'calendar',
+  'carousel',
+  'chart',
+  'checkbox',
+  'columns',
+  'datetime',
+  'date-and-time',
+  'distribution',
+  'footer',
+  'form',
+  'formfield',
+  'header',
+  'heading',
+  'headline',
+  'icon',
+  'image',
+  'label',
+  'layer',
+  'legend',
+  'list',
+  'loginform',
+  'map',
+  'menu',
+  'meter',
+  'notification',
+  'numberinput',
+  'paragraph',
+  'quote',
+  'radiobutton',
+  'search',
+  'searchinput',
+  'section',
+  'sidebar',
+  'socialshare',
+  'spinning',
+  'split',
+  'status',
+  'tabs',
+  'table',
+  'tags',
+  'tiles',
+  'title',
+  'topology',
+  'value',
+  'video',
+  'worldmap',
+  'markdown',
+  'rest',
+  'restwatch',
+  'architecture',
+  'integration',
+  'accessibility',
+  'browser_support'
+];
 
-  app.use(cookieParser());
+const REMAP = {
+  'checkbox': 'check-box',
+  'datetime': 'date-time',
+  'date-and-time': 'date-time',
+  'formfield': 'form-field',
+  'loginform': 'login-form',
+  'numberinput': 'number-input',
+  'radiobutton': 'radio-button',
+  'searchinput': 'search-input',
+  'socialshare': 'social-share',
+  'worldmap': 'world-map',
+  'restwatch': 'rest-watch'
+};
 
-  if (!process.env.SILENT_MODE) {
-    app.use(morgan('tiny'));
-  }
-
-  app.get('/', function (req, res) {
-    var docpath = path.join('/docs/',
-      themePicker(req.headers["x-forwarded-for"] || req.ip));
-    res.redirect(301, docpath);
+DESIGN.forEach(function (pathname) {
+  BASENAMES.forEach(function (basename) {
+    app.get('/docs' + basename + '/design/' + pathname, function (req, res) {
+      const newPathname = REMAP[pathname] || pathname;
+      res.redirect(301, req.protocol + '://grommet.github.io' + basename +
+        '/docs/' + newPathname);
+    });
   });
+});
 
-  router.use('/docs/', docs);
-
-  app.use('/', function(req, res, next) {
-    var acceptLanguageHeader = req.headers['accept-language'];
-
-    if (acceptLanguageHeader) {
-      var acceptedLanguages = acceptLanguageHeader.match(/[a-zA-z\-]{2,10}/g);
-      if (acceptedLanguages) {
-        res.cookie('languages', JSON.stringify(acceptedLanguages));
-      }
-    }
-
-    next();
+DEVELOP.forEach(function (pathname) {
+  BASENAMES.forEach(function (basename) {
+    app.get('/docs' + basename + '/develop/' + pathname, function (req, res) {
+      const newPathname = REMAP[pathname] || pathname;
+      res.redirect(301, req.protocol + '://grommet.github.io' + basename +
+        '/docs/' + newPathname);
+    });
   });
+});
 
-  // Redirect referneces to the original HPE sticker sheet
-  // to the new master HPE sticker sheet.
-  app.get('/assets/design/grommet_sticker_sheet.ai', function (req, res) {
-    res.redirect(301, '/assets/design/hpe/grommet-hpe-master.ai');
+BASENAMES.forEach(function (basename) {
+  app.get('/docs' + basename, function (req, res) {
+    res.redirect(301, req.protocol + '://grommet.github.io' + basename);
   });
+});
 
-  app.get('/assets/design/:name', function(req, res) {
-    var options = {
-      root: path.join(__dirname, '/../dist/assets/design'),
-      dotfiles: 'deny',
-      headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-      }
-    };
+app.get('/assets/*', function (req, res) {
+  res.redirect(301, req.protocol + '://grommet.github.io' + req.path);
+});
 
-    // Express uses the mime.lookup() method in the node-mime
-    // https://github.com/broofa/node-mime project to determine
-    // a file's mime type.  This method returns the mime type
-    // of 'application/postscript' for Adobe Illustrator files
-    // and this results in Safari attempting to show a preview of
-    // the file in the browser.  So we'll check for Illustrator
-    // files and handle them as a special case for now.
-    if (/\.ai$/.test(req.params.name) ) {
-      res.type('application/illustrator');
-    } else {
-      res.type(req.params.name);
-    }
+app.get('/', function (req, res) {
+  res.redirect(301, req.protocol + '://grommet.github.io');
+});
 
-    res.sendFile(req.params.name, options);
-  });
+var server = http.createServer(app);
+server.listen(PORT);
 
-  // The robots.txt file must be at the root of the webserver
-  // in order for bots to find locate it.  Without this function,
-  // the file is hosted under the /docs directory.
-  app.get('/robots.txt', function(req, res) {
-    var options = {
-      root: path.join(__dirname, '/../dist'),
-      dotfiles: 'deny',
-      headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-      }
-    };
-    res.sendFile('robots.txt', options);
-  });
-
-  app.
-    use('', router).
-    use('/assets', express.static(path.join(__dirname, '/../dist/assets')));
-
-  var server = http.createServer(app);
-
-  server.listen(PORT);
-
-  console.log('Server started, listening at: http://localhost:' + PORT + '...');
-}
+console.log('Server started, listening at: http://localhost:' + PORT + '...');

@@ -1,9 +1,8 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-@import 'grommet/scss/grommet-core/index';
+@import '~grommet/scss/grommet-core/index';
 @import 'objects.home';
 @import 'objects.swatch';
-@import 'objects.process-animation';
 
 .hpe-branding {
   display: none;
@@ -22,17 +21,8 @@ svg rect[fill="#00B388"] {
   padding-top: 0;
 }
 
-article .example {
-  margin-bottom: $inuit-base-spacing-unit;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: inherit;
-  }
+pre {
+  max-width: 100%;
 }
 
 .font-sample {

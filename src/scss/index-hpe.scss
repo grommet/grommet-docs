@@ -1,9 +1,8 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-@import 'grommet/scss/hpe/index';
+@import '~grommet/scss/hpe/index';
 @import 'objects.home';
 @import 'objects.swatch';
-@import 'objects.process-animation';
 
 html {
   font-family: 'Metric', Arial, sans-serif;
@@ -18,17 +17,8 @@ a.reference {
   padding-top: 0;
 }
 
-article .example {
-  margin-bottom: $inuit-base-spacing-unit;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: inherit;
-  }
+pre {
+  max-width: 100%;
 }
 
 .generic-branding {
