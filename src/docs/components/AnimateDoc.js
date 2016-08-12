@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../DocsArticle';
+import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
@@ -41,10 +41,13 @@ export default class AnimateDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>enter              {"{animation: , duration: , delay: }"}</code></dt>
+            <dt><code>enter              {"{animation: , duration: , delay: }"}
+            </code></dt>
             <dd>Animation when component is entering.</dd>
-            <dt><code>leave              {"{animation: , duration: , delay: }"}</code></dt>
-            <dd>Animation when component is leaving. Defaults to <code>enter</code> animation.</dd>
+            <dt><code>leave              {"{animation: , duration: , delay: }"}
+            </code></dt>
+            <dd>Animation when component is leaving. Defaults to
+              <code>enter</code> animation.</dd>
             <dt><code>component          {"{string}|{Component}"}</code></dt>
             <dd>Wrapping component. Defaults to <code>div</code>.</dd>
             <dt><code>visible            true|false</code></dt>
@@ -80,7 +83,9 @@ export default class AnimateDoc extends Component {
           <Button
             label="Toggle"
             primary={true}
-            onClick={() => this.setState({toggleSlide: !this.state.toggleSlide})}
+            onClick={() => this.setState({
+              toggleSlide: !this.state.toggleSlide
+            })}
           />
           <Example name="Slide" code={
             <Animate
@@ -104,8 +109,4 @@ export default class AnimateDoc extends Component {
       </DocsArticle>
     );
   }
-};
-
-AnimateDoc.contextTypes = {
-  routePrefix: React.PropTypes.string.isRequired
 };

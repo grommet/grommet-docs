@@ -25,6 +25,7 @@ import About from './reference/About';
 // import ActionsDoc from './patterns/ActionsDoc';
 import AccordionDoc from './components/AccordionDoc';
 import AnchorDoc from './components/AnchorDoc';
+import AnimateDoc from './components/AnimateDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
 import BoxDoc from './components/BoxDoc';
@@ -136,6 +137,7 @@ export default [
     contents: [
       {path: 'accordion', label: 'Accordion', component: AccordionDoc},
       {path: 'anchor', label: 'Anchor', component: AnchorDoc},
+      {path: 'animate', label: 'Animate', component: AnimateDoc},
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
       {path: 'box', label: 'Box', component: BoxDoc},
