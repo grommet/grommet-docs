@@ -29,19 +29,6 @@ export default class GetStartedDoc extends Component {
             </Anchor> <i>(at least Node 4.4.x+ and NPM 3.0.x+ required)</i>
             </li>
             <li>
-              Install <Anchor href="https://www.python.org/downloads/"
-              target="_blank">Python 2.7</Anchor> and
-              add the installation directory to your system Path variable.
-            </li>
-            <li>
-              For Windows, install <Anchor
-              href={"http://www.microsoft.com/en-us/download/details.aspx?" +
-                "id=11310"}
-              target="_blank">Windows SDK for Windows Server 2008 and .NET
-              Framework 3.5</Anchor> <i>(Ensure that a C compiler is
-                installed)</i>.
-            </li>
-            <li>
               <p>
                 Setup your NPM proxy (only required if you&#39;re behind a
                 proxy server).
