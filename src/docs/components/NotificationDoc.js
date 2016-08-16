@@ -23,11 +23,17 @@ export default class NotificationDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>closer           {"true|false"}</code></dt>
+            <dt><code>closer           {"true|false|{node}"}</code></dt>
             <dd>Adds a visible control to close the layer.
-              Defaults to <code>false</code>.</dd>
+              If the caller provides a node, it is the caller&#39;s
+              responsibility to listen to events from the node.</dd>
             <dt><code>message          {"{string}"}</code></dt>
             <dd>Message to display in the notification box.</dd>
+            <dt><code>onClose          {"{function ()}"}</code></dt>
+            <dd>Function that will be called when the user clicks on the
+              closer control. Clicking the closer control does not automatically
+              cause the Layer to be removed. The recipient of this callback can
+              still decide whether to continue rendering the Layer or not.</dd>
             <dt><code>percentComplete  {"{number}"}</code></dt>
             <dd>Number to measure the progress of an ongoing notification.</dd>
             <dt><code>size             small|medium|large</code></dt>
@@ -50,7 +56,7 @@ export default class NotificationDoc extends Component {
           <Example name="Unknown" code={
             <Notification message='Unknown Message' />
           } />
-          <Example name="Warning with Close Button" code={
+          <Example name="Warning" code={
             <Notification status='warning'
               message='Inconsistent configuration detected.'
               timestamp={new Date('Mon Jan 25 2016')}
