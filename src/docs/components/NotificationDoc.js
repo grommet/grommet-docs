@@ -24,7 +24,8 @@ export default class NotificationDoc extends Component {
           <h2>Options</h2>
           <dl>
             <dt><code>closer           {"true|false"}</code></dt>
-            <dd>Adds a visible control to close the layer. Defaults to <code>false</code>.</dd>
+            <dd>Adds a visible control to close the layer.
+              Defaults to <code>false</code>.</dd>
             <dt><code>message          {"{string}"}</code></dt>
             <dd>Message to display in the notification box.</dd>
             <dt><code>percentComplete  {"{number}"}</code></dt>
