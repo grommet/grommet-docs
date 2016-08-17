@@ -12,7 +12,7 @@ export default class ColumnsDoc extends Component {
   render () {
     var labels = [];
     for (var i=1; i<=23; i++) {
-      labels.push(`label ${i}`);
+      labels.push(<span>{`label ${i}`}</span>);
     }
 
     return (
