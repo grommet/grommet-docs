@@ -28,6 +28,7 @@ import Chart11 from './Chart11';
 import Chart13 from './Chart13';
 import Chart14 from './Chart14';
 import Chart15 from './Chart15';
+import Chart16 from './Chart16';
 
 const CHARTS = [
   { label: 'Area with Value', component: Chart9 },
@@ -50,8 +51,9 @@ const CHARTS = [
     component: Chart4 },
   { label: 'Vertical Meters with stacked segments and Legend',
     component: Chart5 },
-  { label: 'Sparkline', component: Chart15 }
-  // // { label: 'Stacked Meters scaled to width', component: Chart12 }
+  { label: 'Sparkline', component: Chart15 },
+  { label: 'Range selector controlling another Chart', component: Chart16 }
+  // { label: 'Stacked Meters scaled to width', component: Chart12 }
 ];
 
 export default class ChartExamplesDoc extends Component {
