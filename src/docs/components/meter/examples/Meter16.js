@@ -14,8 +14,7 @@ export default class Meter16 extends Component {
           {label: 'Gen 8', value: 20},
           {label: 'Gen 9', value: 10},
           {label: 'Gen 10', value: 30}
-        ]} units="GB"
-          a11yTitleId='meter-title' a11yDescId='meter-desc' />
+        ]} units="GB" />
       } />
     );
   }

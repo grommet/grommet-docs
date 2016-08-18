@@ -11,6 +11,10 @@ import Example from '../Example';
 
 Chart.displayName = 'Chart';
 
+const a11yTitle = (
+  'Chart representing number of commits in the last three days.'
+);
+
 export default class ChartDoc extends Component {
 
   render () {
@@ -48,7 +52,7 @@ export default class ChartDoc extends Component {
             A simple Meter based chart could be built via:</p>
 
             <Example code={
-              <Chart>
+              <Chart a11yTitle={a11yTitle}>
                 <Axis vertical={true} count={3} ticks={true} />
                 <Base>
                   <Meter vertical={true} value={70} />
