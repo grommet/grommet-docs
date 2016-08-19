@@ -6,6 +6,10 @@ import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
+const PREAMBLE =
+`var Status = require('grommet/components/icons/Status');
+// or var Status = Grommet.Icons.Status;`;
+
 export default class StatusDoc extends Component {
 
   render () {
@@ -46,10 +50,10 @@ export default class StatusDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Small" code={
+          <Example name="Small" preamble={PREAMBLE} code={
             <Status value="ok" size="small"/>
           } />
-          <Example name="Large" code={
+          <Example name="Large" preamble={PREAMBLE} code={
             <Status value="ok" size="large"/>
           } />
 
