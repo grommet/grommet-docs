@@ -42,7 +42,8 @@ export default class Meter14a extends Component {
             onActive={(index) => this.setState({ index: index })} />
           <Box direction="row" justify="between" align="center">
             <Label size="small">0 GB</Label>
-            <Value value={value} units="GB" align="center" label={label} />
+            <Value value={value} units="GB" align="center" label={label}
+              announce={true} />
             <Label size="small">100 GB</Label>
           </Box>
         </Box>
