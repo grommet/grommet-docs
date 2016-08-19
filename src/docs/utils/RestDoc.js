@@ -67,13 +67,13 @@ export default class MyComponent extends Component {
 
           <h2>Methods</h2>
           <dl>
-            <dt><code>buildParams    {"{object}"})</code></dt>
+            <dt><code>buildParams    ({"{object}"})</code></dt>
             <dd>Converts object to parameter array of strings
               of <code>name=URI-encoded-value</code>. Handles array values.</dd>
-            <dt><code>buildQuery     {"{object}|{Array}"}</code></dt>
+            <dt><code>buildQuery     ({"{object}|{Array}"})</code></dt>
             <dd>Calls <code>buildParams</code> if passed an object. Then joins
               the params array with '&' and adds a '?' prefix if needed</dd>
-            <dt><code>processStatus  {"{response}"}</code></dt>
+            <dt><code>processStatus  ({"{response}"})</code></dt>
             <dd>For use in a <a href="https://www.promisejs.org">promise</a>
               chain.
               Rejects promise if response is not ok.</dd>

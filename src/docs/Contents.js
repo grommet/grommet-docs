@@ -25,6 +25,7 @@ import About from './reference/About';
 // import ActionsDoc from './patterns/ActionsDoc';
 import AccordionDoc from './components/AccordionDoc';
 import AnchorDoc from './components/AnchorDoc';
+import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
 import BoxDoc from './components/BoxDoc';
@@ -66,7 +67,7 @@ import LegendDoc from './components/LegendDoc';
 import ListDoc from './components/ListDoc';
 import LoginFormDoc from './components/LoginFormDoc';
 import MapDoc from './components/MapDoc';
-import MarkdownDoc from './utils/MarkdownDoc';
+import MarkdownDoc from './components/MarkdownDoc';
 import MenuDoc from './components/MenuDoc';
 import MeterDoc from './components/MeterDoc';
 import MeterExamplesDoc from './components/meter/examples/MeterExamplesDoc';
@@ -177,6 +178,7 @@ export default [
       {path: 'list', label: 'List', component: ListDoc},
       {path: 'login-form', label: 'LoginForm', component: LoginFormDoc},
       {path: 'map', label: 'Map', component: MapDoc},
+      {path: 'markdown', label: 'Markdown', component: MarkdownDoc},
       {path: 'menu', label: 'Menu', component: MenuDoc},
       {path: 'meter', label: 'Meter', component: MeterDoc, contents: [
         {path: 'meter-examples', component: MeterExamplesDoc}
@@ -211,7 +213,7 @@ export default [
   },
   {label: 'Utils',
     contents: [
-      {path: 'markdown', label: 'Markdown', component: MarkdownDoc},
+      {path: 'announcer', label: 'Announcer', component: AnnouncerDoc},
       {path: 'rest', label: 'Rest', component: RestDoc},
       {path: 'rest-watch', label: 'RestWatch', component: RestWatchDoc}
     ]

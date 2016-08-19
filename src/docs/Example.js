@@ -4,7 +4,23 @@ import React, { Component,  PropTypes } from 'react';
 import jsxToString from 'jsx-to-string';
 import Box from 'grommet/components/Box';
 
+//hjjs configuration
+const hljs = require('highlight.js/lib/highlight');
+hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
+hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
+hljs.registerLanguage('javascript',
+  require('highlight.js/lib/languages/javascript'));
+hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
+
 export default class Example extends Component {
+
+  componentDidMount () {
+    hljs.highlightBlock(this.refs.code);
+  }
+
+  componentDidUpdate () {
+    hljs.highlightBlock(this.refs.code);
+  }
 
   _renderCode () {
     const { code, overrides } = this.props;
@@ -34,12 +50,12 @@ export default class Example extends Component {
     }
 
     return (
-      <Box full={full} flex={true}>
+      <Box full={full} flex={true} pad={{horizontal: 'medium'}}>
         {heading}
         <Box pad={{ between: 'medium' }} align={align}>
           {control || code}
-          <pre>
-            <code className="html xml hljs">
+          <pre >
+            <code ref='code' className="html xml hljs">
               {`${importStatement || ''}${codeElement || ''}`}
             </code>
           </pre>
