@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 export default class AnnouncerDoc extends Component {
 
@@ -63,9 +64,7 @@ export default class Dashboard extends Component {
 
         <section>
           <h2>Example</h2>
-          <pre><code className="javascript">
-            {example}
-          </code></pre>
+          <Example preamble={example}/>
         </section>
 
       </DocsArticle>
