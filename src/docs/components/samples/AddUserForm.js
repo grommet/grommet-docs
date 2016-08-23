@@ -166,11 +166,11 @@ export default class AddUserForm extends Component {
                 value={user.email} onChange={this._onChange} />
             </FormField>
             <FormField label="Office phone" htmlFor={p + "office-phone"}>
-              <input id={p + "office-phone"} name="office-phone" type="text"
+              <input id={p + "office-phone"} name="officePhone" type="text"
                 value={user.officePhone} onChange={this._onChange} />
             </FormField>
             <FormField label="Mobile phone" htmlFor={p + "mobile-phone"}>
-              <input id={p + "mobile-phone"} name="mobile-phone" type="text"
+              <input id={p + "mobile-phone"} name="mobilePhone" type="text"
                 value={user.mobilePhone} onChange={this._onChange} />
             </FormField>
           </fieldset>
