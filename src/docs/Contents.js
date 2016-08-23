@@ -32,6 +32,7 @@ import BoxDoc from './components/BoxDoc';
 import BrickDoc from './components/BrickDoc';
 import ButtonDoc from './components/ButtonDoc';
 import CalendarDoc from './components/CalendarDoc';
+import CardDoc from './components/CardDoc';
 import CarouselDoc from './components/CarouselDoc';
 import ChartDoc from './components/ChartDoc';
 import ChartAreaDoc from './components/chart/AreaDoc';
@@ -143,6 +144,7 @@ export default [
       {path: 'brick', label: 'Brick', component: BrickDoc},
       {path: 'button', label: 'Button', component: ButtonDoc},
       {path: 'calendar', label: 'Calendar', component: CalendarDoc},
+      {path: 'card', label: 'Card', component: CardDoc},
       {path: 'carousel', label: 'Carousel', component: CarouselDoc},
       {path: 'chart', label: 'Chart', component: ChartDoc, contents: [
         {path: 'chart-area', component: ChartAreaDoc},
