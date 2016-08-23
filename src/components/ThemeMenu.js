@@ -99,7 +99,7 @@ export default class ThemeMenu extends Component {
 
     return (
       <div>
-        <Anchor onClick={this._onOpen}>Theme</Anchor>
+        <Anchor href="#" onClick={this._onOpen}>Theme</Anchor>
         {layer}
       </div>
     );

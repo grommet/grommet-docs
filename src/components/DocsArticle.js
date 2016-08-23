@@ -27,7 +27,7 @@ export default class DocsArticle extends Component {
       pad = {horizontal: 'large'};
     }
     return (
-      <Article primary={true}>
+      <Article className="docs-article" primary={true}>
         <Header size="large" pad={{horizontal: 'large'}}
           colorIndex={this.props.colorIndex}>
           <h1>{this.props.title}</h1>

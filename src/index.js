@@ -16,10 +16,7 @@ const locale = getCurrentLocale();
 const localeData = getLocaleData({}, locale);
 
 const onRouteUpdate = () => {
-  var docElements = document.querySelectorAll('.article');
-  if (docElements.length > 0) {
-    docElements[0].scrollTop = 0;
-  }
+  window.scrollTo(0, 0);
   document.getElementById('content').focus();
 };
 

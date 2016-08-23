@@ -103,7 +103,7 @@ export default class DocsSplit extends Component {
         <Header justify="between" size="large" pad={{horizontal: 'large'}}>
           {title}
           <Menu direction="row" responsive={false}>
-            <a onClick={this._onMenuOpen}>Contents</a>
+            <a href="#" onClick={this._onMenuOpen}>Contents</a>
           </Menu>
         </Header>
       );
