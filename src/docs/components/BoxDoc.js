@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 const COLORS = ['brand',
@@ -97,6 +98,14 @@ export default class BoxDoc extends Component {
             <dd>Whether children can wrap if they {"can't"} all fit.
               Defaults to <code>true</code>.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Examples</h2>
+
+          <NavAnchor primary={true} path={`/docs/box-examples`}>
+            Grommet Box Examples
+          </NavAnchor>
         </section>
 
         <section>
