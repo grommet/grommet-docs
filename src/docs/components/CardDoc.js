@@ -24,6 +24,8 @@ export default class CardDoc extends Component {
   }
 
   render () {
+    const grommetPath = 'http://grommet.github.io';
+
     let simpleCard = (
       <Box colorIndex="light-2">
         <Card
@@ -40,7 +42,7 @@ export default class CardDoc extends Component {
     let linkCard = (
       <Box colorIndex="light-2">
         <Card
-          onClick={this._onClickCard.bind(this, window.location.pathname + '#')}
+          onClick={this._onClickCard.bind(this, grommetPath)}
           reverse={true}
           thumbnail="/docs/img/carousel-1.png"
           label="Featured Post"
@@ -48,7 +50,8 @@ export default class CardDoc extends Component {
           description={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
-          link={<Anchor href="#" label="Learn More" icon={<LinkNextIcon />} />}
+          link={<Anchor href={grommetPath} 
+            label="Learn More" icon={<LinkNextIcon />} />}
         />
       </Box>
     );
@@ -128,10 +131,11 @@ export default class CardDoc extends Component {
 
     let blogPostCard = (
       <Card
-        onClick={this._onClickCard.bind(this, window.location.pathname + '#')}
+        onClick={this._onClickCard.bind(this, grommetPath)}
         direction="column"
         label="Featured Post"
-        link={<Anchor href="#" label="Learn More" icon={<LinkNextIcon />} />}>
+        link={<Anchor href={grommetPath} label="Learn More" 
+          icon={<LinkNextIcon />} />}>
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -140,11 +144,12 @@ export default class CardDoc extends Component {
 
     let featuredPostCard = (
       <Card
-        onClick={this._onClickCard.bind(this, window.location.pathname + '#')}
+        onClick={this._onClickCard.bind(this, grommetPath)}
         thumbnail="/docs/img/carousel-1.png"
         direction="column"
         label="Featured Post"
-        link={<Anchor href="#" label="Learn More" icon={<LinkNextIcon />} />}>
+        link={<Anchor href={grommetPath} label="Learn More" 
+          icon={<LinkNextIcon />} />}>
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -163,7 +168,7 @@ export default class CardDoc extends Component {
     let cardTiles = (
       <Tiles size="large" colorIndex="light-2">
         <Card
-          onClick={this._onClickCard.bind(this, window.location.pathname + '#')}
+          onClick={this._onClickCard.bind(this, grommetPath)}
           direction="column"
           thumbnail="/docs/img/carousel-1.png"
           label="Featured Post"
@@ -179,7 +184,8 @@ export default class CardDoc extends Component {
             app, workload and service. Learn how hybrid infrastructure can
             help you achieve cloud agility with traditional IT
             predictability.`}
-          link={<Anchor href="#" label="Learn More" icon={<LinkNextIcon />} />}
+          link={<Anchor href={grommetPath} label="Learn More"
+            icon={<LinkNextIcon />} />}
         />
         <Card
           direction="column"
