@@ -6,6 +6,14 @@ import ReactDOMServer from 'react-dom/server';
 import { match, Router, RouterContext, useRouterHistory } from 'react-router';
 import { createHistory, createMemoryHistory } from 'history';
 import template from './template.ejs';
+import { IntlProvider, addLocaleData } from 'react-intl';
+import en from 'react-intl/locale-data/en';
+addLocaleData(en);
+
+import { getCurrentLocale, getLocaleData } from 'grommet/utils/Locale';
+
+const locale = getCurrentLocale();
+const localeData = getLocaleData({}, locale);
 
 const onRouteUpdate = () => {
   var docElements = document.querySelectorAll('.article');
@@ -51,8 +59,11 @@ if (typeof document !== 'undefined') {
 
   const routes = require('./routes');
   const element = document.getElementById('content');
-  ReactDOM.render(<Router onUpdate={onRouteUpdate} routes={routes}
-    history={history} />, element);
+  ReactDOM.render(
+    <IntlProvider locale={localeData.locale} messages={localeData.messages}>
+      <Router onUpdate={onRouteUpdate} routes={routes}
+      history={history} />
+    </IntlProvider>, element);
 
   document.body.classList.remove('loading');
 }
@@ -73,7 +84,10 @@ export default (locals, callback) => {
         null, template({
           theme: locals.theme,
           html: ReactDOMServer.renderToString(
-            <RouterContext {...renderProps} />
+            <IntlProvider locale={localeData.locale}
+              messages={localeData.messages}>
+              <RouterContext {...renderProps} />
+            </IntlProvider>
           )
         })
       );

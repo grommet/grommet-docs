@@ -16,8 +16,7 @@ export default class Meter15 extends Component {
           {label: 'Gen 10', value: 30}
         ]} units="GB"
           min={{value: 0, label: '0 GB'}} max={{value: 100, label: '100 GB'}}
-          threshold={90}
-          a11yTitleId='meter-title' a11yDescId='meter-desc' />
+          threshold={90} />
       } />
     );
   }

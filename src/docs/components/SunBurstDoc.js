@@ -46,7 +46,7 @@ export default class SunBurstDoc extends Component {
         data = data.children[path.shift()];
       }
       label = (
-        <Box align="end">
+        <Box align="end" announce={true}>
           <Value value={data.value} />
         </Box>
       );

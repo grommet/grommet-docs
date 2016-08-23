@@ -4,44 +4,20 @@ import React, { Component, PropTypes } from 'react';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Box from 'grommet/components/Box';
+import { announcePageLoaded } from 'grommet/utils/Announcer';
 import DocsFooter from './DocsFooter';
 
-//hjjs configuration
-const hljs = require('highlight.js/lib/highlight');
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('javascript',
-  require('highlight.js/lib/languages/javascript'));
-hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-
 const DEFAULT_TITLE = 'Grommet';
-
-export function updatePageTitle (title) {
-  if (document) {
-    if (title) {
-      document.title = `${title} | Grommet`;
-    } else {
-      document.title = DEFAULT_TITLE;
-    }
-  }
-};
 
 export default class DocsArticle extends Component {
 
   componentDidMount () {
-    updatePageTitle(this.props.title);
-    this._highlightCode();
-  }
-
-  componentDidUpdate () {
-    this._highlightCode();
-  }
-
-  _highlightCode () {
-    const nodes = document.querySelectorAll('pre code');
-    for (let i = 0; i < nodes.length; i++) {
-      hljs.highlightBlock(nodes[i]);
+    if (this.props.title) {
+      document.title = `${this.props.title} | Grommet`;
+    } else {
+      document.title = DEFAULT_TITLE;
     }
+    announcePageLoaded(this.props.title || DEFAULT_TITLE);
   }
 
   render () {

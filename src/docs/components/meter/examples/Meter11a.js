@@ -8,10 +8,10 @@ import Label from 'grommet/components/Label';
 import Example from '../../../Example';
 
 const SERIES = [
-  {label: 'Gen 7', value: 50},
-  {label: 'Gen 8', value: 20},
-  {label: 'Gen 9', value: 10},
-  {label: 'Gen 10', value: 30}
+  {label: 'Gen 7', value: 50, onClick: () => alert('50')},
+  {label: 'Gen 8', value: 20, onClick: () => alert('20')},
+  {label: 'Gen 9', value: 10, onClick: () => alert('10')},
+  {label: 'Gen 10', value: 30, onClick: () => alert('30')}
 ];
 
 export default class Meter11a extends Component {
@@ -38,7 +38,7 @@ export default class Meter11a extends Component {
       <Example align="center" code={
         <Box>
           <Box direction="row" justify="between" align="center"
-            pad={{ between: 'small' }}>
+            pad={{ between: 'small' }} announce={true}>
             <Value value={value} units="GB" align="start" />
             <span>{label}</span>
           </Box>

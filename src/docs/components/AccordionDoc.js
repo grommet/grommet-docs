@@ -61,8 +61,8 @@ export default class AccordionDoc extends Component {
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel heading="Thrid Title">
-                <h3>Thrid Accordion</h3>
+              <AccordionPanel heading="Third Title">
+                <h3>Third Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -87,8 +87,8 @@ export default class AccordionDoc extends Component {
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel heading="Thrid Title">
-                <h3>Thrid Accordion</h3>
+              <AccordionPanel heading="Third Title">
+                <h3>Third Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -113,8 +113,8 @@ export default class AccordionDoc extends Component {
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel heading="Thrid Title" active={true}>
-                <h3>Thrid Accordion</h3>
+              <AccordionPanel heading="Third Title" active={true}>
+                <h3>Third Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco

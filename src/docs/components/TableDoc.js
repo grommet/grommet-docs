@@ -80,7 +80,7 @@ export default class TableDoc extends Component {
             populating rows in the Table is to use TableRows inside
             a child <code>&lt;tbody&gt;</code> element.
             Callers should also specify
-            a child <code>&lt;thead%gt;</code> element if a header is
+            a child <code>&lt;thead&gt;</code> element if a header is
             needed.</p>
           <Table>{tableBody}</Table>
         </section>

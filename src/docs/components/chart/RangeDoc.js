@@ -47,6 +47,12 @@ export default class RangeDoc extends Component {
           </dl>
         </section>
 
+        <section>
+          <h2>Examples</h2>
+          <NavAnchor path={`/docs/chart-examples#7`} primary={true}>
+            Range selector</NavAnchor>
+        </section>
+
       </DocsArticle>
     );
   }
