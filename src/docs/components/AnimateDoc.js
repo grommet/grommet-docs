@@ -9,7 +9,6 @@ import Button from 'grommet/components/Button';
 import Animate from 'grommet/components/Animate';
 import ScrollAnimation from './samples/ScrollAnimation';
 import BoxesAnimation from './samples/BoxesAnimation';
-import { updatePageTitle } from '../../utils/a11y';
 
 Section.displayName = 'Section';
 Animate.displayName = 'Animate';
@@ -21,10 +20,6 @@ export default class AnimateDoc extends Component {
       toggleFade: true,
       toggleSlide: true
     };
-  }
-
-  componentDidMount () {
-    updatePageTitle('Animate');
   }
 
   render () {
