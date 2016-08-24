@@ -7,12 +7,6 @@ import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
-const PREAMBLE =
-`<Tip targetId="actions"
-  onClose={() => this.setState({ active: false })}>
-  Available actions
-</Tip>`;
-
 export default class TipDoc extends Component {
 
   constructor () {
@@ -50,7 +44,9 @@ export default class TipDoc extends Component {
         </section>
 
         <section>
-          <Example preamble={PREAMBLE} />
+          <Example
+            code={tip}
+          />
 
           <p>The caller is responsible for determining when to show a Tip.
             The tip should be removed when the <code>
