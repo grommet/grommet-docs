@@ -17,6 +17,9 @@ Layer.displayName = 'Layer';
 Header.displayName = 'Header';
 Form.displayName = 'Form';
 FormFields.displayName = 'FormFields';
+FullForm.displayName = 'FullForm';
+ConfirmationForm.displayName = 'ConfirmationForm';
+SampleArticle.displayName = 'SampleArticle';
 
 export default class LayerDoc extends Component {
 
@@ -139,7 +142,7 @@ export default class LayerDoc extends Component {
             </button>
             } code={confirmationLayer} />
           <Example name="Article, center" control={
-            <button onClick={this._onOpen.bind(this, 'edit')}>edit</button>
+            <button onClick={this._onOpen.bind(this, 'article')}>edit</button>
             } code={articleLayer} />
         </section>
 
