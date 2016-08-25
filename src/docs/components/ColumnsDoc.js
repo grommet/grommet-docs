@@ -43,5 +43,3 @@ export default class ColumnsDoc extends Component {
     );
   }
 };
-
-export default ColumnsDoc;

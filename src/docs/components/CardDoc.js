@@ -29,7 +29,7 @@ export default class CardDoc extends Component {
     let simpleCard = (
       <Box colorIndex="light-2">
         <Card
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
           description={`HPE Software Licensing and Management Solutions can
@@ -44,7 +44,7 @@ export default class CardDoc extends Component {
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
           reverse={true}
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
           description={`HPE Software Licensing and Management Solutions can
@@ -60,7 +60,7 @@ export default class CardDoc extends Component {
       <Box colorIndex="light-2">
         <Card
           direction="row"
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
           description={`See how Hewlett Packard Enterprise delivers mobile
@@ -145,7 +145,7 @@ export default class CardDoc extends Component {
     let featuredPostCard = (
       <Card
         onClick={this._onClickCard.bind(this, grommetPath)}
-        thumbnail="/docs/img/carousel-1.png"
+        thumbnail="/img/carousel-1.png"
         direction="column"
         label="Featured Post"
         link={<Anchor href={grommetPath} label="Learn More" 
@@ -170,7 +170,7 @@ export default class CardDoc extends Component {
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
           direction="column"
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="Protect Your Digital Enterprise ipsum dolores aeat"
           description={`It’s not an either/or world. It’s about finding the
@@ -189,7 +189,7 @@ export default class CardDoc extends Component {
         />
         <Card
           direction="column"
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
           description={`See how Hewlett Packard Enterprise delivers mobile
@@ -203,7 +203,7 @@ export default class CardDoc extends Component {
         />
         <Card
           direction="column"
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
           description={`HPE Software Licensing and Management Solutions can
@@ -212,7 +212,7 @@ export default class CardDoc extends Component {
         />
         <Card
           direction="column"
-          thumbnail="/docs/img/carousel-1.png"
+          thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
           description={`HPE Software Licensing and Management Solutions can
