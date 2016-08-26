@@ -82,8 +82,7 @@ export default class NotificationDoc extends Component {
             <Notification status='warning'
               message='Inconsistent configuration detected.'
               timestamp={new Date('Mon Jan 25 2016')}
-              state='Active'
-              closer={true} />
+              state='Active' />
           } />
           <Example name="Critical" code={
             <Notification status='critical'
