@@ -10,6 +10,10 @@ export default class LoginFormDoc extends Component {
 
   _onSubmit (fields) {
     // no-op
+    alert(
+      `Username: ${fields.username}, Password: ${fields.password},` +
+      ` rememberMe: ${fields.rememberMe}`
+    );
   }
 
   render () {
