@@ -10,7 +10,27 @@ Notification.displayName = 'Notification';
 
 export default class NotificationDoc extends Component {
 
+  constructor () {
+    super();
+    this.state = {
+      showNotification: true
+    };
+  }
+
   render () {
+
+    let closerExample;
+    if (this.state.showNotification) {
+      closerExample = (
+        <Example name="Closer" code={
+          <Notification status='critical'
+            message='Temperature threshold exceeded by 10 degrees.'
+            timestamp={new Date('Mon Jan 25 2016')}
+            state='Active' closer={true}
+            onClose={() => this.setState({ showNotification: false })} />
+        } />
+      );
+    }
     return (
       <DocsArticle title="Notification" colorIndex="neutral-3">
 
@@ -32,8 +52,10 @@ export default class NotificationDoc extends Component {
             <dt><code>onClose          {"{function ()}"}</code></dt>
             <dd>Function that will be called when the user clicks on the
               closer control. Clicking the closer control does not automatically
-              cause the Layer to be removed. The recipient of this callback can
-              still decide whether to continue rendering the Layer or not.</dd>
+              cause the Notification to be removed.
+              The recipient of this callback can
+              still decide whether to continue rendering the Notification
+              or not.</dd>
             <dt><code>percentComplete  {"{number}"}</code></dt>
             <dd>Number to measure the progress of an ongoing notification.</dd>
             <dt><code>size             small|medium|large</code></dt>
@@ -82,6 +104,7 @@ export default class NotificationDoc extends Component {
               state='Running'
               percentComplete={30} />
           } />
+          {closerExample}
         </section>
       </DocsArticle>
     );
