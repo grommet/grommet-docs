@@ -109,6 +109,8 @@ export default class GetStartedDoc extends Component {
                     bower_components/grommet/sample-grommet.html
                   </code></pre>
                   <p>You can now play with Grommet using local Bower.</p>
+                  <p>NOTE: if you are using the Bower distribution make
+                  sure to add React dependency with addons.</p>
                 </li>
               </ol>
             <h4>Standalone</h4>
