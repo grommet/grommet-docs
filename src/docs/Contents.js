@@ -77,6 +77,7 @@ import NavigationDoc from './patterns/NavigationDoc';
 import NotificationDoc from './components/NotificationDoc';
 import NumberInputDoc from './components/NumberInputDoc';
 import ParagraphDoc from './components/ParagraphDoc';
+import PulseDoc from './components/PulseDoc';
 import QuoteDoc from './components/QuoteDoc';
 import RadioButtonDoc from './components/RadioButtonDoc';
 import RestDoc from './utils/RestDoc';
@@ -190,6 +191,7 @@ export default [
       {path: 'notification', label: 'Notification', component: NotificationDoc},
       {path: 'number-input', label: 'NumberInput', component: NumberInputDoc},
       {path: 'paragraph', label: 'Paragraph', component: ParagraphDoc},
+      {path: 'pulse', label: 'Pulse', component: PulseDoc},
       {path: 'quote', label: 'Quote', component: QuoteDoc},
       {path: 'radio-button', label: 'RadioButton', component: RadioButtonDoc},
       {path: 'search', label: 'Search', component: SearchDoc},
