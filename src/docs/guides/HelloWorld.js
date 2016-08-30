@@ -23,8 +23,8 @@ export default class HelloWorld extends Component {
           </p>
           <p>
             To help you get started quickly we provide the following
-            <a href="http://codepen.io/grommet/pen/gaEGPY/" target="_blank">
-              codepen
+            <a href="https://codepen.io/pen?template=gaEGPY&editors=0010"
+               target="_blank">CodePen
             </a> template:
           </p>
           <iframe height='268' scrolling='no'
@@ -32,10 +32,10 @@ export default class HelloWorld extends Component {
               "height=268&theme-id=0&default-tab=result"}
             frameBorder='no' allowTransparency='true' allowFullScreen='true'
             style={{width: '100%'}}>See the Pen
-            <a href='http://codepen.io/grommet/pen/gaEGPY/'>
+            <a href='https://codepen.io/grommet/pen/gaEGPY/'>
               Grommet Hello World</a>
-            by Grommet UX (<a href='http://codepen.io/grommet'>@grommet</a>) on
-            <a href='http://codepen.io'>CodePen</a>.
+            by Grommet UX (<a href='https://codepen.io/grommet'>@grommet</a>) on
+            <a href='https://codepen.io'>CodePen</a>.
           </iframe>
           <p>
             Also, there is a Github
