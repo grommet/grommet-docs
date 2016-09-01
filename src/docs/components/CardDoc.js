@@ -51,7 +51,7 @@ export default class CardDoc extends Component {
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
           link={<Anchor href={grommetPath}
-            label="Learn More" icon={<LinkNextIcon />} />}
+          label="Learn More" icon={<LinkNextIcon />} />}
         />
       </Box>
     );
@@ -135,7 +135,7 @@ export default class CardDoc extends Component {
         direction="column"
         label="Featured Post"
         link={<Anchor href={grommetPath} label="Learn More"
-          icon={<LinkNextIcon />} />}>
+        icon={<LinkNextIcon />} />}>
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -149,7 +149,7 @@ export default class CardDoc extends Component {
         direction="column"
         label="Featured Post"
         link={<Anchor href={grommetPath} label="Learn More"
-          icon={<LinkNextIcon />} />}>
+        icon={<LinkNextIcon />} />}>
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -185,7 +185,7 @@ export default class CardDoc extends Component {
             help you achieve cloud agility with traditional IT
             predictability.`}
           link={<Anchor href={grommetPath} label="Learn More"
-            icon={<LinkNextIcon />} />}
+          icon={<LinkNextIcon />} />}
         />
         <Card
           direction="column"
