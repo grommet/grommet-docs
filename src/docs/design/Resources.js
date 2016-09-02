@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+ // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
@@ -52,10 +52,10 @@ export default class Resources extends Component {
           <ul>
             <li>
               <a id="hpe-ai-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-4.ai`}
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-5.ai`}
                 target="_blank">General Sticker Sheet for
                 Applications v0.9.4</a> (<a id="hpe-ai-general-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-4.pdf`}
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-5.pdf`}
                 target="_blank">pdf</a>)
             </li>
             <li>
@@ -97,9 +97,9 @@ export default class Resources extends Component {
           <ul>
             <li>
               <a id="hpe-sk-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-4.sketch`}
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-5.sketch`}
                 target="_blank">General Sticker Sheet for Applications
-                v0.9.4</a>
+                v0.9.5</a>
             </li>
                 <li>
               <a id="hpe-sk-data"
