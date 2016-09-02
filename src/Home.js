@@ -114,7 +114,8 @@ export default class Home extends Component {
               <Anchor href="https://github.com/grommet/grommet"
                 icon={<GithubIcon a11yTitle='Grommet Github' />}/>
               <Anchor href="https://twitter.com/grommetux"
-                icon={<TwitterIcon a11yTitle='Grommet Twitter' />}/>
+                icon={<TwitterIcon colorIndex="grey-4"
+                a11yTitle='Grommet Twitter' />}/>
             </Menu>
           </Footer>
         </HomeSection>

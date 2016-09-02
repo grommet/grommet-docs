@@ -50,8 +50,8 @@ export default class CardDoc extends Component {
           description={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
-          link={<Anchor href={grommetPath} 
-            label="Learn More" icon={<LinkNextIcon />} />}
+          link={<Anchor href={grommetPath}
+          label="Learn More" icon={<LinkNextIcon />} />}
         />
       </Box>
     );
@@ -67,7 +67,7 @@ export default class CardDoc extends Component {
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
-            source: 'video/test.mp4',
+            source: '/video/test.mp4',
             type: 'mp4'
           }}
           link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
@@ -134,8 +134,8 @@ export default class CardDoc extends Component {
         onClick={this._onClickCard.bind(this, grommetPath)}
         direction="column"
         label="Featured Post"
-        link={<Anchor href={grommetPath} label="Learn More" 
-          icon={<LinkNextIcon />} />}>
+        link={<Anchor href={grommetPath} label="Learn More"
+        icon={<LinkNextIcon />} />}>
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -148,8 +148,8 @@ export default class CardDoc extends Component {
         thumbnail="/img/carousel-1.png"
         direction="column"
         label="Featured Post"
-        link={<Anchor href={grommetPath} label="Learn More" 
-          icon={<LinkNextIcon />} />}>
+        link={<Anchor href={grommetPath} label="Learn More"
+        icon={<LinkNextIcon />} />}>
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -185,7 +185,7 @@ export default class CardDoc extends Component {
             help you achieve cloud agility with traditional IT
             predictability.`}
           link={<Anchor href={grommetPath} label="Learn More"
-            icon={<LinkNextIcon />} />}
+          icon={<LinkNextIcon />} />}
         />
         <Card
           direction="column"
@@ -196,7 +196,7 @@ export default class CardDoc extends Component {
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
-            source: 'video/test.mp4',
+            source: '/video/test.mp4',
             type: 'mp4'
           }}
           link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
