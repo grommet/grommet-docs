@@ -96,6 +96,7 @@ import TabsDoc from './components/TabsDoc';
 import TagsDoc from './components/TagsDoc';
 import TilesDoc from './components/TilesDoc';
 import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
+import TimestampDoc from './components/TimestampDoc';
 import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
 import TopologyDoc from './components/TopologyDoc';
@@ -209,6 +210,7 @@ export default [
       {path: 'tiles', label: 'Tiles', component: TilesDoc, contents: [
         {path: 'tiles-examples', component: TilesExamplesDoc}
       ]},
+      {path: 'timestamp', label: 'Timestamp', component: TimestampDoc},
       {path: 'tip', label: 'Tip', component: TipDoc},
       {path: 'title', label: 'Title', component: TitleDoc},
       {path: 'topology', label: 'Topology', component: TopologyDoc},
