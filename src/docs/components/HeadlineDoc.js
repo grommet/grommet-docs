@@ -27,8 +27,10 @@ export default class HeadlineDoc extends Component {
             <dt><code>margin      none|small|medium|large</code></dt>
             <dd>The vertical margin below the Headline. Defaults
               to <code>medium</code>.</dd>
-            <dt><code>size        small|medium|large</code></dt>
-            <dd>The size of the Headline. Defaults to <code>medium</code>.</dd>
+            <dt><code>size        small|medium|large|xlarge</code></dt>
+            <dd>The size of the Headline. Defaults to <code>medium</code>.
+              Note: <code>xlarge</code> should only be used for short,
+              single word situations.</dd>
             <dt><code>strong      true|false</code></dt>
             <dd>If the headline should be bold.  Defaults
               to <code>false</code>.</dd>
@@ -49,6 +51,9 @@ export default class HeadlineDoc extends Component {
           } />
           <Example name="Large" code={
             <Headline size="large">Sample Headline</Headline>
+          } />
+          <Example name="Extra Large" code={
+            <Headline size="xlarge">Headline</Headline>
           } />
         </section>
 
