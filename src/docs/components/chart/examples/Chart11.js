@@ -7,7 +7,7 @@ import Chart,
 import Value from 'grommet/components/Value';
 import Example from '../../../Example';
 
-const VALUES = [100, 95, 80, 82, 75, 70, 60, 55, 0, 15, 40, 50];
+const VALUES = [100, 95, 80, 82, 75, undefined, 60, 55, 0, 15, 40, 50];
 
 export default class Chart11 extends Component {
 
@@ -19,8 +19,12 @@ export default class Chart11 extends Component {
   render () {
 
     let markerLabel;
-    if (this.state.index || 0 === this.state.index) {
-      markerLabel = <Value value={VALUES[this.state.index]} />;
+    if (this.state.index >= 0) {
+      let value = VALUES[this.state.index];
+      if (undefined === value) {
+        value = '-';
+      }
+      markerLabel = <Value value={value} />;
     }
 
     return (

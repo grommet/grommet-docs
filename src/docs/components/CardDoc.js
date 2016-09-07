@@ -8,6 +8,7 @@ import Example from '../Example';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
+import Columns from 'grommet/components/Columns';
 import Tiles from 'grommet/components/Tiles';
 import Heading from 'grommet/components/Heading';
 import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
@@ -181,7 +182,7 @@ export default class CardDoc extends Component {
     );
 
     const socialCards = (
-      <Tiles size="large" colorIndex="light-2">
+      <Tiles colorIndex="light-2">
         {socialFeedCard1}
         {blogPostCard}
         {socialFeedCard2}
@@ -190,7 +191,7 @@ export default class CardDoc extends Component {
     );
 
     const cardTiles = (
-      <Tiles size="large" colorIndex="light-2">
+      <Tiles colorIndex="light-2">
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
           direction="column"
@@ -245,17 +246,19 @@ export default class CardDoc extends Component {
       </Tiles>
     );
 
-    const cardTilesMasonry = (
-      <Tiles size="large" masonry={true} numColumns={7} colorIndex="light-2">
-        {blogPostCard}
-        {featuredPostCard}
-        {socialFeedCard1}
-        {socialFeedCard1}
-        {blogPostCard}
-        {featuredPostCard}
-        {featuredPostCard}
-        {blogPostCard}
-      </Tiles>
+    const cardColumnsMasonry = (
+      <Box colorIndex="light-2">
+        <Columns masonry={true} maxCount={7} responsive={true}>
+          {blogPostCard}
+          {featuredPostCard}
+          {socialFeedCard1}
+          {socialFeedCard1}
+          {blogPostCard}
+          {featuredPostCard}
+          {featuredPostCard}
+          {blogPostCard}
+        </Columns>
+      </Box>
     );
 
     const stackCard = (
@@ -322,7 +325,8 @@ export default class CardDoc extends Component {
             <dt><code>direction            {'column|row'}</code></dt>
             <dd>Applies the Card in a column (default) or row direction.
             Expects multiple Card modules to be wrapped in
-            a <NavAnchor path="/docs/tiles">Tiles</NavAnchor> component.</dd>
+            a <NavAnchor path="/docs/tiles">Tiles</NavAnchor> or <NavAnchor
+            path="/docs/columns">Columns</NavAnchor> component.</dd>
             <dt><code>reverse              {'true|false'}</code></dt>
             <dd>If thumbnail url is set, align thumbnail to top or bottom of
             card. Defaults to <code>false</code>.</dd>
@@ -346,7 +350,8 @@ export default class CardDoc extends Component {
           <Example name="Link, Video, Simple, Simple (Tiles)"
             code={cardTiles} />
 
-          <Example name="Tiles with Masonry" code={cardTilesMasonry} />
+          <Example name="Columns (with Masonry, MaxCount 7, and Responsive)"
+            code={cardColumnsMasonry} />
 
           <Example name="Stack" code={stackCard} />
         </section>

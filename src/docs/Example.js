@@ -30,7 +30,8 @@ export default class Example extends Component {
         keyValueOverride[override] = `this._${override}`;
       });
     }
-    return jsxToString(code, { keyValueOverride: keyValueOverride });
+    return jsxToString(code, { keyValueOverride: keyValueOverride })
+      .replace('null', 'undefined');
   }
 
   render () {
