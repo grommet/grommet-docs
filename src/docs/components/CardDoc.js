@@ -6,12 +6,14 @@ import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 import Card from 'grommet/components/Card';
+import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Tiles from 'grommet/components/Tiles';
 import Heading from 'grommet/components/Heading';
 import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import SocialFacebookIcon from 'grommet/components/icons/base/SocialFacebook';
 import SocialLinkedinIcon from 'grommet/components/icons/base/SocialLinkedin';
+import LinkNextIcon from 'grommet/components/icons/base/LinkNext';
 import WatchIcon from 'grommet/components/icons/base/Watch';
 
 
@@ -30,7 +32,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -45,10 +47,15 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
-          link={grommetPath}
+          link={
+            <Anchor href={grommetPath}
+              label="Learn More"
+              icon={<LinkNextIcon />}
+            />
+          }
         />
       </Box>
     );
@@ -60,16 +67,19 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
-          description={`See how Hewlett Packard Enterprise delivers mobile
+          details={`See how Hewlett Packard Enterprise delivers mobile
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
             source: '/video/test.mp4',
             type: 'mp4'
           }}
-          link="#"
-          linkLabel="Watch Now"
-          linkIcon={<WatchIcon />}
+          link={
+            <Anchor href="#"
+              label="Watch Now"
+              icon={<WatchIcon />}
+            />
+          }
         />
       </Box>
     );
@@ -136,7 +146,13 @@ export default class CardDoc extends Component {
         onClick={this._onClickCard.bind(this, grommetPath)}
         direction="column"
         label="Featured Post"
-        link={grommetPath}
+        link={
+          <Anchor
+            href={grommetPath}
+            label="Learn More"
+            icon={<LinkNextIcon />}
+          />
+        }
       >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
@@ -150,7 +166,13 @@ export default class CardDoc extends Component {
         thumbnail="/img/carousel-1.png"
         direction="column"
         label="Featured Post"
-        link={grommetPath}
+        link={
+          <Anchor
+            href={grommetPath}
+            label="Learn More"
+            icon={<LinkNextIcon />}
+          />
+        }
       >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
@@ -175,7 +197,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="Protect Your Digital Enterprise ipsum dolores aeat"
-          description={`It’s not an either/or world. It’s about finding the
+          details={`It’s not an either/or world. It’s about finding the
             right platform for each app, workload and service. Learn how
             hybrid infrastructure can help you achieve cloud agility with
             traditional IT predictability. It’s not an either/or world. It’s
@@ -186,30 +208,28 @@ export default class CardDoc extends Component {
             app, workload and service. Learn how hybrid infrastructure can
             help you achieve cloud agility with traditional IT
             predictability.`}
-          link={grommetPath}
+          link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
         />
         <Card
           direction="column"
           thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
-          description={`See how Hewlett Packard Enterprise delivers mobile
+          details={`See how Hewlett Packard Enterprise delivers mobile
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
             source: '/video/test.mp4',
             type: 'mp4'
           }}
-          link="#"
-          linkText="Watch Now"
-          linkIcon={<WatchIcon />}
+          link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
         />
         <Card
           direction="column"
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -218,7 +238,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -241,15 +261,19 @@ export default class CardDoc extends Component {
     const stackCard = (
       <Card
         direction="row"
-        transparent={true}
+        colorIndex=""
         label="Featured Post"
         heading="The Key Steps to Reducing Software Spend"
-        paragraph="Protect Your Digital Enterprise ipsum lorem dolores aeat el"
-        description="HPE Software Licensing and Management Solutions can help
+        summary="Protect Your Digital Enterprise ipsum lorem dolores aeat el"
+        details="HPE Software Licensing and Management Solutions can help
         you optimize your software investments through control of complex
         negotiations and renewal processes"
-        link="#"
-        linkText="Learn More"
+        link={
+          <Anchor href={grommetPath}
+            label="Learn More"
+            icon={<LinkNextIcon />}
+          />
+        }
       />
     );
 
@@ -271,30 +295,24 @@ export default class CardDoc extends Component {
             <dt><code>heading              {'{string}'}</code></dt>
             <dd>Content heading.</dd>
             <dt>
-              <code>paragraph            {'{string|[string, ...]}'}</code>
+              <code>summary            {'{string|[string, ...]}'}</code>
             </dt>
             <dd>
-              Paragraph content.
+              Summary content.
               Array of strings will render multiple paragraphs.
             </dd>
             <dt>
-              <code>description          {'{string|[string, ...]}'}</code>
+              <code>details          {'{string|[string, ...]}'}</code>
             </dt>
             <dd>
-              Description content.
+              Details content.
               Array of strings will render multiple paragraphs.
             </dd>
             <dt><code>textSize             small|medium|large|xlarge</code></dt>
             <dd>Size of text within Card. Defaults to <code>medium</code>.</dd>
-            <dt><code>link                 {'{string}'}</code></dt>
-            <dd>Hyperlink reference to place in the anchor.</dd>
-            <dt><code>linkText             {'{string}'}</code></dt>
-            <dd>Label text to place in the anchor.</dd>
-            <dt><code>linkIcon             {'{element}'}</code></dt>
-            <dd>
-              Icon element to place in the anchor.
-              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.
-            </dd>
+            <dt><code>link                 {'{element}'}</code></dt>
+            <dd>Anchor element to place in the anchor.
+              See <NavAnchor path="/docs/anchor">Anchor</NavAnchor>.</dd>
             <dt><code>onClick              {'{function}'}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>video                {'{source: <string>, ' +
@@ -308,11 +326,6 @@ export default class CardDoc extends Component {
             <dt><code>reverse              {'true|false'}</code></dt>
             <dd>If thumbnail url is set, align thumbnail to top or bottom of
             card. Defaults to <code>false</code>.</dd>
-            <dt><code>transparent          {'true|false'}</code></dt>
-            <dd>
-              Whether the card should have a background.
-              Defaults to <code>false</code>.
-            </dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/tiles">Tile</NavAnchor> are
             also available for Card.</p>
