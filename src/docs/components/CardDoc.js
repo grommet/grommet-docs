@@ -267,11 +267,31 @@ export default class CardDoc extends Component {
             <dd>Content label.</dd>
             <dt><code>heading              {'{string}'}</code></dt>
             <dd>Content heading.</dd>
-            <dt><code>description          {'{string}'}</code></dt>
-            <dd>Content description.</dd>
-            <dt><code>link                 {'{element}'}</code></dt>
-            <dd>Anchor element to place in the anchor.
-              See <NavAnchor path="/docs/anchor">Anchor</NavAnchor>.</dd>
+            <dt>
+              <code>paragraph            {'{string|[string, ...]}'}</code>
+            </dt>
+            <dd>
+              Paragraph content.
+              Array of strings will render multiple paragraphs.
+            </dd>
+            <dt>
+              <code>description          {'{string|[string, ...]}'}</code>
+            </dt>
+            <dd>
+              Description content.
+              Array of strings will render multiple paragraphs.
+            </dd>
+            <dt><code>textSize             small|medium|large|xlarge</code></dt>
+            <dd>Size of text within Card. Defaults to <code>medium</code>.</dd>
+            <dt><code>link                 {'{string}'}</code></dt>
+            <dd>Hyperlink reference to place in the anchor.</dd>
+            <dt><code>linkText             {'{string}'}</code></dt>
+            <dd>Label text to place in the anchor.</dd>
+            <dt><code>linkIcon             {'{element}'}</code></dt>
+            <dd>
+              Icon element to place in the anchor.
+              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.
+            </dd>
             <dt><code>onClick              {'{function}'}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>video                {'{source: <string>, ' +
@@ -285,6 +305,11 @@ export default class CardDoc extends Component {
             <dt><code>reverse              {'true|false'}</code></dt>
             <dd>If thumbnail url is set, align thumbnail to top or bottom of
             card. Defaults to <code>false</code>.</dd>
+            <dt><code>transparent          {'true|false'}</code></dt>
+            <dd>
+              Whether the card should have a background.
+              Defaults to <code>false</code>.
+            </dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/tiles">Tile</NavAnchor> are
             also available for Card.</p>
