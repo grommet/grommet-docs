@@ -235,6 +235,21 @@ export default class CardDoc extends Component {
       </Tiles>
     );
 
+    const stackCard = (
+      <Card
+        direction="row"
+        transparent={true}
+        label="Featured Post"
+        heading="The Key Steps to Reducing Software Spend"
+        paragraph="Protect Your Digital Enterprise ipsum lorem dolores aeat el"
+        description="HPE Software Licensing and Management Solutions can help
+        you optimize your software investments through control of complex
+        negotiations and renewal processes"
+        link="#"
+        linkText="Learn More"
+      />
+    );
+
     return (
       <DocsArticle title="Card" colorIndex="neutral-3">
 
@@ -291,6 +306,8 @@ export default class CardDoc extends Component {
             code={cardTiles} />
 
           <Example name="Tiles with Masonry" code={cardTilesMasonry} />
+
+          <Example name="Stack" code={stackCard} />
         </section>
 
       </DocsArticle>
