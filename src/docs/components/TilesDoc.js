@@ -46,11 +46,13 @@ export default class TileDoc extends Component {
             <dt><code>masonry     true|false</code></dt>
             <dd>Whether to update the number of columns based on the component
               width. Defaults to <code>false</code>. The number of columns can
-              be set with <code>numColumns</code>.</dd>
+              be set with <code>numColumns</code>. Deprecated, use <NavAnchor
+              path="/docs/columns">Columns</NavAnchor> instead.</dd>
             <dt><code>numColumns  number</code></dt>
             <dd>Number of columns to allow for masonry option, based on
               component width. Responds based on the width of the tile children
-              (set with <code>size</code>).</dd>
+              (set with <code>size</code>). Deprecated, use <NavAnchor
+              path="/docs/columns">Columns</NavAnchor> instead.</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available for Tiles.</p>
