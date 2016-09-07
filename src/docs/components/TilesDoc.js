@@ -84,7 +84,7 @@ export default class TileDoc extends Component {
             the Tiles. Included here are Headers, Footer, Buttons, and
             Menus.</p>
 
-          <NavAnchor primary={true} path={`/docs/tiles-examples`}>
+          <NavAnchor primary={true} path="/docs/tiles-examples">
             Grommet Tiles Examples
           </NavAnchor>
 

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 const COLORS = ['brand',
@@ -145,8 +146,10 @@ export default class BoxDoc extends Component {
             </Box>
           } />
 
+          <NavAnchor primary={true} path="/docs/box-examples">
+            Grommet Box Examples
+          </NavAnchor>
         </section>
-
       </DocsArticle>
     );
   }
