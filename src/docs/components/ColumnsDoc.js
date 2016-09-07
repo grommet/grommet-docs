@@ -37,9 +37,9 @@ export default class ColumnsDoc extends Component {
               component width. Responds based on the width of the column
               children (set with <code>size</code>).</dd>
             <dt><code>responsive  true|false</code></dt>
-            <dd>Whether masonry columns should collapse into single, full-width column
-              when the display area narrows (to achive similar behavior as
-              responsive <NavAnchor path="/docs/tiles">Tiles</NavAnchor>).
+            <dd>Whether masonry columns should collapse into single, full-width
+              column when the display area narrows (to achive similar behavior
+              as responsive <NavAnchor path="/docs/tiles">Tiles</NavAnchor>).
               Defaults to <code>false</code>.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of each column. Defaults to <code>medium</code>.</dd>

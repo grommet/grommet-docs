@@ -294,7 +294,8 @@ export default class CardDoc extends Component {
           <Example name="Link, Video, Simple, Simple (Tiles)"
             code={cardTiles} />
 
-          <Example name="Columns (with Masonry, MaxCount 7, and Responsive)" code={cardColumnsMasonry} />
+          <Example name="Columns (with Masonry, MaxCount 7, and Responsive)"
+            code={cardColumnsMasonry} />
         </section>
 
       </DocsArticle>
