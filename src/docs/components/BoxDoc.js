@@ -43,6 +43,10 @@ export default class BoxDoc extends Component {
             <dt><code>appCentered    true|false</code></dt>
             <dd>Whether the box background should stretch across an App that
               is centered.</dd>
+            <dt><code>basis          {"xsmall|small|medium|large|xlarge|" +
+              "xxlarge|full|1/2|1/3|2/3|1/4|3/4"}</code></dt>
+            <dd>Whether to use a fixed or relative size for the Box's
+              flex-basis.</dd>
             <dt><code>colorIndex     {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code></dd>
@@ -52,6 +56,8 @@ export default class BoxDoc extends Component {
             <dt><code>focusable      true|false</code></dt>
             <dd>Whether keyboard focus should be added for clickable Boxes.
               Defaults to <code>true</code>.</dd>
+            <dt><code>flex           true|grow|shrink|false</code></dt>
+            <dd>Whether flex-grow and/or flex-shrink is true.</dd>
             <dt><code>full           true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport
               size.</dd>
@@ -84,13 +90,22 @@ export default class BoxDoc extends Component {
             <dd>Whether children laid out in a row direction should be
               switched to a column layout when the display area narrows.
               Defaults to <code>true</code>.</dd>
-            <dt><code>separator      top|bottom|left|right</code></dt>
+            <dt><code>separator      {"top|bottom|left|right|horizontal|" +
+              "vertical|all|none"}</code></dt>
             <dd>Add a separator.</dd>
-            <dt><code>size           auto|small|medium|large</code></dt>
-            <dd>The width of the Box.  Defaults to <code>auto</code>.</dd>
+            <dt><code>size           {"auto|xsmall|small|medium|large|" +
+              "xlarge|xxlarge|full|{...}"}</code></dt>
+            <dd>The width of the Box.  Defaults to <code>auto</code>.
+              An object can be specified to distinguish width, height (with
+              additional min and max options for width and height). E.g. <code>
+              {"{height: small, " +
+                "width: {max: large}}"}
+              </code>.</dd>
             <dt><code>tag            {"{string}"}</code></dt>
             <dd>The DOM tag to use for the element.
               Defaults to <code>div</code>.</dd>
+            <dt><code>textAlign      left|center|right</code></dt>
+            <dd>Set text-align for the Box contents.</dd>
             <dt><code>texture        {"{string}"}</code></dt>
             <dd>A texture image URL to apply to the background.</dd>
             <dt><code>wrap           true|false</code></dt>
