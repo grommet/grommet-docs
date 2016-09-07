@@ -8,7 +8,7 @@ export default class Box4m extends Component {
 
   render () {
     return (
-      <div>
+      <Box flex={true}>
         <Example code={
           <Box>
             <Box direction="row">
@@ -18,13 +18,13 @@ export default class Box4m extends Component {
                 colorIndex="neutral-1">
                 box 1
               </Box>
-              <Box basis="2/3" size={{ height: 'medium' }}>
+              <Box basis='2/3' size={{ height: { min: 'medium' } }}>
                 <Box basis='1/3' margin="small"
                   pad="medium" align="center" justify="center"
                   colorIndex="neutral-2">
                   box 2
                 </Box>
-                <Box basis='2/3' margin={{ top: 'small' }}
+                <Box basis='2/3' margin="small"
                   pad="medium" align="center" justify="center"
                   colorIndex="neutral-3">
                   box 3
@@ -61,7 +61,7 @@ export default class Box4m extends Component {
         The issue is covered
         in <a href="https://bugs.webkit.org/show_bug.cgi?id=137730">
         some discussion notes</a></p>
-      </div>
+      </Box>
     );
   }
 

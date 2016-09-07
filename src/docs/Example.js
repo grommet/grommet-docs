@@ -55,7 +55,7 @@ export default class Example extends Component {
         {heading}
         <Box pad={{ between: 'medium' }} align={align}>
           {control || code}
-          <pre >
+          <pre>
             <code ref='code' className="html xml hljs">
               {`${importStatement || ''}${codeElement || ''}`}
             </code>

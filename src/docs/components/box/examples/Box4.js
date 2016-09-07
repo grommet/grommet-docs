@@ -8,43 +8,42 @@ export default class Box4 extends Component {
 
   render () {
     return (
-      <div>
+      <Box flex={true}>
         <Example code={
           <Box>
-            <Box direction="row">
-              <Box basis='1/3' size={{ height: { min: 'medium' } }}
-                pad="medium" align="center" justify="center"
-                colorIndex="neutral-1">
+            <Box direction='row'>
+              <Box basis='1/3' pad='medium' align='center' justify='center'
+                colorIndex='neutral-1'>
                 box 1
               </Box>
-              <Box basis="2/3" size={{ height: 'medium' }}>
+              <Box basis='2/3' size={{ height: 'medium' }}>
                 <Box basis='1/3'
-                  pad="medium" align="center" justify="center"
-                  colorIndex="neutral-2">
+                  pad='medium' align='center' justify='center'
+                  colorIndex='neutral-2'>
                   box 2
                 </Box>
                 <Box basis='2/3'
-                  pad="medium" align="center" justify="center"
-                  colorIndex="neutral-3">
+                  pad='medium' align='center' justify='center'
+                  colorIndex='neutral-3'>
                   box 3
                 </Box>
               </Box>
             </Box>
             <Box>
               <Box
-                pad="medium" align="center" justify="center"
-                colorIndex="neutral-2">
+                pad='medium' align='center' justify='center'
+                colorIndex='neutral-2'>
                 box 4
               </Box>
-              <Box direction="row">
+              <Box direction='row'>
                 <Box basis='2/3'
-                  pad="medium" align="center" justify="center"
-                  colorIndex="neutral-3">
+                  pad='medium' align='center' justify='center'
+                  colorIndex='neutral-3'>
                   box 5
                 </Box>
                 <Box basis='1/3'
-                  pad="medium" align="center" justify="center"
-                  colorIndex="neutral-1">
+                  pad='medium' align='center' justify='center'
+                  colorIndex='neutral-1'>
                   box 6
                 </Box>
               </Box>
@@ -58,9 +57,9 @@ export default class Box4 extends Component {
         This can be worked around by giving that Box a height, but that is not
         always what is wanted.
         The issue is covered
-        in <a href="https://bugs.webkit.org/show_bug.cgi?id=137730">
+        in <a href='https://bugs.webkit.org/show_bug.cgi?id=137730'>
         some discussion notes</a></p>
-      </div>
+      </Box>
     );
   }
 

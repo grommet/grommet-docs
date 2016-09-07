@@ -111,7 +111,7 @@ export default class BoxDoc extends Component {
             <dd>A texture image URL to apply to the background.</dd>
             <dt><code>wrap           true|false</code></dt>
             <dd>Whether children can wrap if they {"can't"} all fit.
-              Defaults to <code>true</code>.</dd>
+              Defaults to <code>false</code>.</dd>
           </dl>
         </section>
 

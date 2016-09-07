@@ -23,7 +23,7 @@ export default class MeterDoc extends Component {
               }/>
             <Box align="end" direction="row">
               <Meter value={40} vertical={true} label={false} />
-              <Value value={40} />
+              <Value align="start" value={40} />
             </Box>
             <Box align="start" direction="column">
               <Value value={40} />
