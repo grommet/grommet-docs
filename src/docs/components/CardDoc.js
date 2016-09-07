@@ -6,14 +6,12 @@ import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 import Card from 'grommet/components/Card';
-import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Tiles from 'grommet/components/Tiles';
 import Heading from 'grommet/components/Heading';
 import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import SocialFacebookIcon from 'grommet/components/icons/base/SocialFacebook';
 import SocialLinkedinIcon from 'grommet/components/icons/base/SocialLinkedin';
-import LinkNextIcon from 'grommet/components/icons/base/LinkNext';
 import WatchIcon from 'grommet/components/icons/base/Watch';
 
 
@@ -26,7 +24,7 @@ export default class CardDoc extends Component {
   render () {
     const grommetPath = 'http://grommet.github.io';
 
-    let simpleCard = (
+    const simpleCard = (
       <Box colorIndex="light-2">
         <Card
           thumbnail="/img/carousel-1.png"
@@ -39,7 +37,7 @@ export default class CardDoc extends Component {
       </Box>
     );
 
-    let linkCard = (
+    const linkCard = (
       <Box colorIndex="light-2">
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
@@ -50,13 +48,12 @@ export default class CardDoc extends Component {
           description={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
-          link={<Anchor href={grommetPath}
-          label="Learn More" icon={<LinkNextIcon />} />}
+          link={grommetPath}
         />
       </Box>
     );
 
-    let videoCard = (
+    const videoCard = (
       <Box colorIndex="light-2">
         <Card
           direction="row"
@@ -70,34 +67,37 @@ export default class CardDoc extends Component {
             source: '/video/test.mp4',
             type: 'mp4'
           }}
-          link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
+          link="#"
+          linkLabel="Watch Now"
+          linkIcon={<WatchIcon />}
         />
       </Box>
     );
 
-    let twitterIconBox = (
+    const twitterIconBox = (
       <Box align="end">
         <SocialTwitterIcon />
       </Box>
     );
 
-    let facebookIconBox = (
+    const facebookIconBox = (
       <Box align="end">
         <SocialFacebookIcon />
       </Box>
     );
 
-    let linkedinIconBox = (
+    const linkedinIconBox = (
       <Box align="end">
         <SocialLinkedinIcon />
       </Box>
     );
 
-    let socialFeedCard1 = (
+    const socialFeedCard1 = (
       <Card
         onClick={this._onClickCard.bind(this, 'http://www.twitter.com')}
         direction="column"
-        label="Social">
+        label="Social"
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -105,11 +105,12 @@ export default class CardDoc extends Component {
       </Card>
     );
 
-    let socialFeedCard2 = (
+    const socialFeedCard2 = (
       <Card
         onClick={this._onClickCard.bind(this, 'http://www.facebook.com')}
         direction="column"
-        label="Social">
+        label="Social"
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -117,11 +118,12 @@ export default class CardDoc extends Component {
       </Card>
     );
 
-    let socialFeedCard3 = (
+    const socialFeedCard3 = (
       <Card
         onClick={this._onClickCard.bind(this, 'http://www.linkedin.com')}
         direction="column"
-        label="Social">
+        label="Social"
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -129,34 +131,34 @@ export default class CardDoc extends Component {
       </Card>
     );
 
-    let blogPostCard = (
+    const blogPostCard = (
       <Card
         onClick={this._onClickCard.bind(this, grommetPath)}
         direction="column"
         label="Featured Post"
-        link={<Anchor href={grommetPath} label="Learn More"
-        icon={<LinkNextIcon />} />}>
+        link={grommetPath}
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
       </Card>
     );
 
-    let featuredPostCard = (
+    const featuredPostCard = (
       <Card
         onClick={this._onClickCard.bind(this, grommetPath)}
         thumbnail="/img/carousel-1.png"
         direction="column"
         label="Featured Post"
-        link={<Anchor href={grommetPath} label="Learn More"
-        icon={<LinkNextIcon />} />}>
+        link={grommetPath}
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
       </Card>
     );
 
-    let socialCards = (
+    const socialCards = (
       <Tiles size="large" colorIndex="light-2">
         {socialFeedCard1}
         {blogPostCard}
@@ -165,7 +167,7 @@ export default class CardDoc extends Component {
       </Tiles>
     );
 
-    let cardTiles = (
+    const cardTiles = (
       <Tiles size="large" colorIndex="light-2">
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
@@ -184,8 +186,7 @@ export default class CardDoc extends Component {
             app, workload and service. Learn how hybrid infrastructure can
             help you achieve cloud agility with traditional IT
             predictability.`}
-          link={<Anchor href={grommetPath} label="Learn More"
-          icon={<LinkNextIcon />} />}
+          link={grommetPath}
         />
         <Card
           direction="column"
@@ -199,7 +200,9 @@ export default class CardDoc extends Component {
             source: '/video/test.mp4',
             type: 'mp4'
           }}
-          link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
+          link="#"
+          linkText="Watch Now"
+          linkIcon={<WatchIcon />}
         />
         <Card
           direction="column"
@@ -222,7 +225,7 @@ export default class CardDoc extends Component {
       </Tiles>
     );
 
-    let cardTilesMasonry = (
+    const cardTilesMasonry = (
       <Tiles size="large" masonry={true} numColumns={7} colorIndex="light-2">
         {blogPostCard}
         {featuredPostCard}
