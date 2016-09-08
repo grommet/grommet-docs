@@ -16,7 +16,8 @@ export default class Meter8a extends Component {
         <Box>
           <Meter type="circle" value={40} threshold={90}
             label={<Value value={40} units="GB" size={size} />} size={size} />
-          <Box direction="row" justify="center" pad={{ between: 'small' }}>
+          <Box direction="row" justify="center" pad={{ between: 'small' }}
+            responsive={false}>
             <Label size="small">0 GB</Label>
             <Label size="small">100 GB</Label>
           </Box>

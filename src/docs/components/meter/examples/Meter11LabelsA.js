@@ -20,7 +20,8 @@ export default class Meter11LabelsA extends Component {
     const { size } = this.props;
     const items = SERIES.map((serie, index) => (
       <Box key={index}>
-        <Box direction="row" justify="between" align="center">
+        <Box direction="row" justify="between" align="center"
+          responsive={false}>
           <Value value={SERIES[index].value} units="GB"
             size={size} />
           <Label margin="none">{SERIES[index].label}</Label>
@@ -31,7 +32,7 @@ export default class Meter11LabelsA extends Component {
     ));
 
     items.push(
-      <Box key="axis" direction="row" justify="between">
+      <Box key="axis" direction="row" justify="between" responsive={false}>
         <Label size="small">0 GB</Label>
         <Label size="small">100 GB</Label>
       </Box>

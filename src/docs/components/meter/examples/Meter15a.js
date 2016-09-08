@@ -37,7 +37,7 @@ export default class Meter15a extends Component {
 
     return (
       <Example align="center" code={
-        <Box direction="row" pad={{ between: 'small' }}>
+        <Box direction="row" pad={{ between: 'small' }} responsive={false}>
           <Meter type="arc" vertical={true} series={SERIES} label={false}
             max={100} threshold={90} size={size}
             onActive={(index) => this.setState({ index: index })} />

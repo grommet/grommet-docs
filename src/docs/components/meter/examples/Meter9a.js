@@ -16,7 +16,8 @@ export default class Meter9a extends Component {
         <Box>
           <Meter type="arc" value={40} label={false} threshold={90}
             size={size} />
-          <Box direction="row" justify="between" align="center">
+          <Box direction="row" justify="between" align="center"
+            responsive={false}>
             <Label size="small">0 GB</Label>
             <Value value={40} units="GB" align="start" size={size} />
             <Label size="small">100 GB</Label>

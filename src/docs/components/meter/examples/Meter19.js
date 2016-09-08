@@ -44,7 +44,8 @@ export default class Meter19 extends Component {
                 size={size} />
             } max={100} threshold={90} size={size}
             onActive={(index) => this.setState({ index: index })} />
-          <Box direction="row" justify="between" align="center">
+          <Box direction="row" justify="between" align="center"
+            responsive={false}>
             <Label size="small">0 GB</Label>
             <Label size="small">100 GB</Label>
           </Box>

@@ -41,7 +41,8 @@ export default class Meter14a extends Component {
           <Meter type="arc" series={SERIES} label={false} max={100}
             threshold={90} size={size}
             onActive={(index) => this.setState({ index: index })} />
-          <Box direction="row" justify="between" align="center">
+          <Box direction="row" justify="between" align="center"
+            responsive={false}>
             <Label size="small">0 GB</Label>
             <Value value={value} units="GB" align="center" label={label}
               announce={true} size={size} />

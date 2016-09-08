@@ -13,10 +13,10 @@ export default class Meter7a extends Component {
     const { size } = this.props;
     return (
       <Example align="center" code={
-        <Box direction="row">
+        <Box direction="row" responsive={false}>
           <Meter value={40} vertical={true} label={false} threshold={90}
             size={size} />
-          <Box justify="between">
+          <Box justify="between" responsive={false}>
             <Label size="small">100 GB</Label>
             <Value value={40} units="GB" align="start" size={size} />
             <Label size="small">0 GB</Label>

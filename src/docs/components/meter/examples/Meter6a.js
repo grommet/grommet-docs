@@ -16,7 +16,7 @@ export default class Meter6a extends Component {
         <Box>
           <Value value={40} units="GB" align="start" size={size} />
           <Meter value={40} label={false} threshold={90} size={size} />
-          <Box direction="row" justify="between">
+          <Box direction="row" justify="between" responsive={false}>
             <Label size="small">0 GB</Label>
             <Label size="small">100 GB</Label>
           </Box>

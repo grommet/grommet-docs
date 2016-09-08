@@ -12,7 +12,7 @@ export default class Meter5 extends Component {
     const { size } = this.props;
     return (
       <Example align="center" code={
-        <Box direction="row" align="center">
+        <Box direction="row" align="center" responsive={false}>
           <Meter type="arc" vertical={true} value={40} label={false}
             size={size} />
           <Value value={40} align="center" size={size} />

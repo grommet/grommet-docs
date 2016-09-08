@@ -39,14 +39,14 @@ export default class Meter17 extends Component {
       <Example align="center" code={
         <Box>
           <Box direction="row" justify="between" align="center"
-            pad={{ between: 'small' }}>
+            pad={{ between: 'small' }} responsive={false}>
             <Value value={value} units="GB" align="start" size={size} />
             <span>{label}</span>
           </Box>
           <Meter series={SERIES} stacked={true} label={false} max={100}
             threshold={90} size={size}
             onActive={(index) => this.setState({ index: index })} />
-          <Box direction="row" justify="between">
+          <Box direction="row" justify="between" responsive={false}>
             <Label size="small">0 GB</Label>
             <Label size="small">100 GB</Label>
           </Box>
