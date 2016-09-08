@@ -18,7 +18,8 @@ export default class ExamplesDoc extends Component {
     super();
     this._onNext = this._onNext.bind(this);
     this._onPrevious = this._onPrevious.bind(this);
-    this.state = { index: 0, dark: false };
+    this._onChangePropertyValue = this._onChangePropertyValue.bind(this);
+    this.state = { index: 0, dark: false, propertyValue: undefined };
   }
 
   componentDidMount () {
@@ -50,14 +51,36 @@ export default class ExamplesDoc extends Component {
     this._select((index > 0 ? index - 1 : examples.length - 1));
   }
 
+  _onChangePropertyValue (event) {
+    this.setState({ propertyValue: event.target.value });
+  }
+
   render () {
-    const { examples, title } = this.props;
-    const { index, dark } = this.state;
+    const { examples, property, title } = this.props;
+    const { index, dark, propertyValue } = this.state;
 
     const items = examples.map((item, index) => (
       <Anchor key={index} label={item.label}
         onClick={() => this._select(index)} />
     ));
+
+    let propertySelector;
+    let props = {};
+    if (property) {
+      const options = property.values.map(value => (
+        <option key={value}>{value}</option>
+      ));
+      options.unshift(<option key="NoNe"></option>);
+      propertySelector = (
+        <select value={propertyValue} onChange={this._onChangePropertyValue} >
+          {options}
+        </select>
+      );
+      if (propertyValue) {
+        props[property.name] = propertyValue;
+      }
+    }
+
     const Component = examples[this.state.index].component;
 
     return (
@@ -67,6 +90,7 @@ export default class ExamplesDoc extends Component {
           <Menu label={examples[index].label} inline={false} size="large">
             {items}
           </Menu>
+          {propertySelector}
           <CheckBox checked={dark} toggle={true} label="dark"
             onChange={() => this.setState({ dark: ! dark })} />
         </Header>
@@ -76,7 +100,7 @@ export default class ExamplesDoc extends Component {
           colorIndex={dark ? 'grey-2' : undefined}>
           <Button icon={<PreviousIcon />}
             onClick={this._onPrevious} />
-          <Component />
+          <Component {...props} />
           <Button icon={<NextIcon />}
             onClick={this._onNext} />
         </Section>
@@ -90,5 +114,9 @@ ExamplesDoc.propTypes = {
     label: PropTypes.string,
     component: PropTypes.func
   })),
+  property: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    values: PropTypes.arrayOf(PropTypes.string).isRequired
+  }),
   title: PropTypes.string
 };

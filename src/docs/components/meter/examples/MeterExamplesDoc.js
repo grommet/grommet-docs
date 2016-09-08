@@ -53,5 +53,9 @@ MeterExamplesDoc.defaultProps = {
     { label: 'Annotated Horizontal Arc Series Stacked', component: Meter20 },
     { label: 'Annotated Vertical Arc Series Stacked', component: Meter21 }
   ],
+  property: {
+    name: 'size',
+    values: ['small', 'medium', 'large']
+  },
   title: 'Meter Examples'
 };
