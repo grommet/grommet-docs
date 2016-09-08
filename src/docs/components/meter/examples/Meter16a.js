@@ -1,6 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Box from 'grommet/components/Box';
 import Meter from 'grommet/components/Meter';
 import Value from 'grommet/components/Value';
@@ -21,6 +21,7 @@ export default class Meter16a extends Component {
   }
 
   render () {
+    const { size } = this.props;
     const { index } = this.state;
 
     let value, label;
@@ -37,12 +38,17 @@ export default class Meter16a extends Component {
       <Example align="center" code={
         <Box direction="row" align="start" pad={{ between: 'small' }}>
           <Meter type="spiral" series={SERIES} label={false}
-            max={100} threshold={90}
+            max={100} threshold={90} size={size}
             onActive={(index) => this.setState({ index: index })} />
-          <Value value={value} units="GB" align="start" label={label} />
+          <Value value={value} units="GB" align="start" label={label}
+            size={size} />
         </Box>
       } />
     );
   }
 
+};
+
+Meter1.propTypes = {
+  size: PropTypes.string
 };

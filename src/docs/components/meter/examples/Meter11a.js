@@ -1,6 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Box from 'grommet/components/Box';
 import Meter from 'grommet/components/Meter';
 import Value from 'grommet/components/Value';
@@ -22,6 +22,7 @@ export default class Meter11a extends Component {
   }
 
   render () {
+    const { size } = this.props;
     const { index } = this.state;
 
     let value, label;
@@ -39,11 +40,12 @@ export default class Meter11a extends Component {
         <Box>
           <Box direction="row" justify="between" align="center"
             pad={{ between: 'small' }} announce={true}>
-            <Value value={value} units="GB" align="start" />
+            <Value value={value} units="GB" align="start" size={size} />
             <span>{label}</span>
           </Box>
           <Meter series={SERIES} label={false} max={100} threshold={90}
-            onActive={(index) => this.setState({ index: index })} />
+            onActive={(index) => this.setState({ index: index })}
+            size={size} />
           <Box direction="row" justify="between">
             <Label size="small">0 GB</Label>
             <Label size="small">100 GB</Label>
@@ -53,4 +55,8 @@ export default class Meter11a extends Component {
     );
   }
 
+};
+
+Meter11a.propTypes = {
+  size: PropTypes.string
 };
