@@ -26,10 +26,10 @@ export default class NavigationDoc extends Component {
           <Box className="call-out" pad={{horizontal: 'medium'}}
             colorIndex="light-2">
             <blockquote>
-              <strong>Hub & Spoke</strong> Nullam id dolor id nibh ultricies
-                vehicula ut id elit. Donec ullamcorper nulla non metus auctor
-                fringilla. Praesent commodo cursus magna, vel scelerisque nisl
-                consectetur et.
+              <strong>Hub & Spoke</strong> is useful for multiple, distinct 
+              linear workflows. Building task based experiences stemming from 
+              a common start point helps ensure the items within an app 
+              correlate for a cohesive experience.
             </blockquote>
           </Box>
         </Section>
