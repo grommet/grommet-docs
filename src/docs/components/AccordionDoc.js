@@ -37,8 +37,15 @@ export default class AccordionDoc extends Component {
             <dd>Optional flag to set the panel active (open).
               Defaults to false.</dd>
             <dt><code>heading             {'{string}|{node}'}</code></dt>
-            <dd>heading of panel, displayed when panel is collapsed.
+            <dd>Heading of panel, displayed when panel is collapsed.
               Required.</dd>
+            <dt>
+              <code>
+                pad                 none|small|medium|large|{`{...}`}
+              </code>
+            </dt>
+            <dd>The amount of padding to put around the Accordion panel heading
+              &amp; it's content</dd>
           </dl>
         </section>
 
@@ -71,23 +78,23 @@ export default class AccordionDoc extends Component {
             </Accordion>
           } />
 
-          <Example name="Open multiple, No animation" code={
+          <Example name="Open multiple, Padded, No animation" code={
             <Accordion animate={false} openMulti={true}>
-              <AccordionPanel heading="First Title">
+              <AccordionPanel pad="medium" heading="First Title">
                 <h3>First Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel heading="Second Title">
+              <AccordionPanel pad="medium" heading="Second Title">
                 <h3>Second Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat.</p>
               </AccordionPanel>
-              <AccordionPanel heading="Third Title">
+              <AccordionPanel pad="medium" heading="Third Title">
                 <h3>Third Accordion</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
