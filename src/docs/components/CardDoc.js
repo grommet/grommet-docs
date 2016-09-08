@@ -27,20 +27,20 @@ export default class CardDoc extends Component {
   render () {
     const grommetPath = 'http://grommet.github.io';
 
-    let simpleCard = (
+    const simpleCard = (
       <Box colorIndex="light-2">
         <Card
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
       </Box>
     );
 
-    let linkCard = (
+    const linkCard = (
       <Box colorIndex="light-2">
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
@@ -48,57 +48,67 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
-          link={<Anchor href={grommetPath}
-          label="Learn More" icon={<LinkNextIcon />} />}
+          link={
+            <Anchor href={grommetPath}
+              label="Learn More"
+              icon={<LinkNextIcon />}
+            />
+          }
         />
       </Box>
     );
 
-    let videoCard = (
+    const videoCard = (
       <Box colorIndex="light-2">
         <Card
           direction="row"
           thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
-          description={`See how Hewlett Packard Enterprise delivers mobile
+          details={`See how Hewlett Packard Enterprise delivers mobile
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
             source: '/video/test.mp4',
             type: 'mp4'
           }}
-          link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
+          link={
+            <Anchor href="#"
+              label="Watch Now"
+              icon={<WatchIcon />}
+            />
+          }
         />
       </Box>
     );
 
-    let twitterIconBox = (
+    const twitterIconBox = (
       <Box align="end">
         <SocialTwitterIcon />
       </Box>
     );
 
-    let facebookIconBox = (
+    const facebookIconBox = (
       <Box align="end">
         <SocialFacebookIcon />
       </Box>
     );
 
-    let linkedinIconBox = (
+    const linkedinIconBox = (
       <Box align="end">
         <SocialLinkedinIcon />
       </Box>
     );
 
-    let socialFeedCard1 = (
+    const socialFeedCard1 = (
       <Card
         onClick={this._onClickCard.bind(this, 'http://www.twitter.com')}
         direction="column"
-        label="Social">
+        label="Social"
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -106,11 +116,12 @@ export default class CardDoc extends Component {
       </Card>
     );
 
-    let socialFeedCard2 = (
+    const socialFeedCard2 = (
       <Card
         onClick={this._onClickCard.bind(this, 'http://www.facebook.com')}
         direction="column"
-        label="Social">
+        label="Social"
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -118,11 +129,12 @@ export default class CardDoc extends Component {
       </Card>
     );
 
-    let socialFeedCard3 = (
+    const socialFeedCard3 = (
       <Card
         onClick={this._onClickCard.bind(this, 'http://www.linkedin.com')}
         direction="column"
-        label="Social">
+        label="Social"
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
@@ -130,34 +142,46 @@ export default class CardDoc extends Component {
       </Card>
     );
 
-    let blogPostCard = (
+    const blogPostCard = (
       <Card
         onClick={this._onClickCard.bind(this, grommetPath)}
         direction="column"
         label="Featured Post"
-        link={<Anchor href={grommetPath} label="Learn More"
-        icon={<LinkNextIcon />} />}>
+        link={
+          <Anchor
+            href={grommetPath}
+            label="Learn More"
+            icon={<LinkNextIcon />}
+          />
+        }
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
       </Card>
     );
 
-    let featuredPostCard = (
+    const featuredPostCard = (
       <Card
         onClick={this._onClickCard.bind(this, grommetPath)}
         thumbnail="/img/carousel-1.png"
         direction="column"
         label="Featured Post"
-        link={<Anchor href={grommetPath} label="Learn More"
-        icon={<LinkNextIcon />} />}>
+        link={
+          <Anchor
+            href={grommetPath}
+            label="Learn More"
+            icon={<LinkNextIcon />}
+          />
+        }
+      >
         <Heading tag="h2">
           Protect Your Digital Enterprise ipsum lorem dolores aeat el
         </Heading>
       </Card>
     );
 
-    let socialCards = (
+    const socialCards = (
       <Tiles colorIndex="light-2">
         {socialFeedCard1}
         {blogPostCard}
@@ -166,7 +190,7 @@ export default class CardDoc extends Component {
       </Tiles>
     );
 
-    let cardTiles = (
+    const cardTiles = (
       <Tiles colorIndex="light-2">
         <Card
           onClick={this._onClickCard.bind(this, grommetPath)}
@@ -174,7 +198,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="Protect Your Digital Enterprise ipsum dolores aeat"
-          description={`It’s not an either/or world. It’s about finding the
+          details={`It’s not an either/or world. It’s about finding the
             right platform for each app, workload and service. Learn how
             hybrid infrastructure can help you achieve cloud agility with
             traditional IT predictability. It’s not an either/or world. It’s
@@ -185,15 +209,14 @@ export default class CardDoc extends Component {
             app, workload and service. Learn how hybrid infrastructure can
             help you achieve cloud agility with traditional IT
             predictability.`}
-          link={<Anchor href={grommetPath} label="Learn More"
-          icon={<LinkNextIcon />} />}
+          link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
         />
         <Card
           direction="column"
           thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
-          description={`See how Hewlett Packard Enterprise delivers mobile
+          details={`See how Hewlett Packard Enterprise delivers mobile
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
@@ -207,7 +230,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -216,14 +239,14 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          description={`HPE Software Licensing and Management Solutions can
+          details={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
       </Tiles>
     );
 
-    let cardColumnsMasonry = (
+    const cardColumnsMasonry = (
       <Box colorIndex="light-2">
         <Columns masonry={true} maxCount={7} responsive={true}>
           {blogPostCard}
@@ -236,6 +259,25 @@ export default class CardDoc extends Component {
           {blogPostCard}
         </Columns>
       </Box>
+    );
+
+    const stackCard = (
+      <Card
+        direction="row"
+        colorIndex=""
+        label="Featured Post"
+        heading="The Key Steps to Reducing Software Spend"
+        summary="Protect Your Digital Enterprise ipsum lorem dolores aeat el"
+        details="HPE Software Licensing and Management Solutions can help
+        you optimize your software investments through control of complex
+        negotiations and renewal processes"
+        link={
+          <Anchor href={grommetPath}
+            label="Learn More"
+            icon={<LinkNextIcon />}
+          />
+        }
+      />
     );
 
     return (
@@ -255,8 +297,22 @@ export default class CardDoc extends Component {
             <dd>Content label.</dd>
             <dt><code>heading              {'{string}'}</code></dt>
             <dd>Content heading.</dd>
-            <dt><code>description          {'{string}'}</code></dt>
-            <dd>Content description.</dd>
+            <dt>
+              <code>summary            {'{string|[string, ...]}'}</code>
+            </dt>
+            <dd>
+              Summary content.
+              Array of strings will render multiple paragraphs.
+            </dd>
+            <dt>
+              <code>details          {'{string|[string, ...]}'}</code>
+            </dt>
+            <dd>
+              Details content.
+              Array of strings will render multiple paragraphs.
+            </dd>
+            <dt><code>textSize             small|medium|large|xlarge</code></dt>
+            <dd>Size of text within Card. Defaults to <code>medium</code>.</dd>
             <dt><code>link                 {'{element}'}</code></dt>
             <dd>Anchor element to place in the anchor.
               See <NavAnchor path="/docs/anchor">Anchor</NavAnchor>.</dd>
@@ -296,6 +352,8 @@ export default class CardDoc extends Component {
 
           <Example name="Columns (with Masonry, MaxCount 7, and Responsive)"
             code={cardColumnsMasonry} />
+
+          <Example name="Stack" code={stackCard} />
         </section>
 
       </DocsArticle>
