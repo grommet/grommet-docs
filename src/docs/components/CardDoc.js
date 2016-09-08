@@ -267,7 +267,6 @@ export default class CardDoc extends Component {
         colorIndex=""
         label="Featured Post"
         heading="The Key Steps to Reducing Software Spend"
-        summary="Protect Your Digital Enterprise ipsum lorem dolores aeat el"
         text="HPE Software Licensing and Management Solutions can help
         you optimize your software investments through control of complex
         negotiations and renewal processes"
@@ -297,13 +296,6 @@ export default class CardDoc extends Component {
             <dd>Content label.</dd>
             <dt><code>heading              {'{string}'}</code></dt>
             <dd>Content heading.</dd>
-            <dt>
-              <code>summary            {'{string|[string, ...]}'}</code>
-            </dt>
-            <dd>
-              Summary content.
-              Array of strings will render multiple paragraphs.
-            </dd>
             <dt>
               <code>text             {'{string|[string, ...]}'}</code>
             </dt>
