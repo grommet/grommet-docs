@@ -33,7 +33,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          details={`HPE Software Licensing and Management Solutions can
+          text={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -48,7 +48,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          details={`HPE Software Licensing and Management Solutions can
+          text={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
           link={
@@ -68,7 +68,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
-          details={`See how Hewlett Packard Enterprise delivers mobile
+          text={`See how Hewlett Packard Enterprise delivers mobile
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
@@ -198,7 +198,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="Protect Your Digital Enterprise ipsum dolores aeat"
-          details={`It’s not an either/or world. It’s about finding the
+          text={`It’s not an either/or world. It’s about finding the
             right platform for each app, workload and service. Learn how
             hybrid infrastructure can help you achieve cloud agility with
             traditional IT predictability. It’s not an either/or world. It’s
@@ -216,7 +216,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Video - 4:27"
           heading="Foundation Paraguay Empowers Microbusinesses"
-          details={`See how Hewlett Packard Enterprise delivers mobile
+          text={`See how Hewlett Packard Enterprise delivers mobile
             solutions to improve quality of life and help eliminate poverty
             in South America.`}
           video={{
@@ -230,7 +230,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          details={`HPE Software Licensing and Management Solutions can
+          text={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -239,7 +239,7 @@ export default class CardDoc extends Component {
           thumbnail="/img/carousel-1.png"
           label="Featured Post"
           heading="The Key Steps to Reducing Software Spend"
-          details={`HPE Software Licensing and Management Solutions can
+          text={`HPE Software Licensing and Management Solutions can
             help you optimize your software investments through control of
             complex negotiations and renewal processes`}
         />
@@ -268,7 +268,7 @@ export default class CardDoc extends Component {
         label="Featured Post"
         heading="The Key Steps to Reducing Software Spend"
         summary="Protect Your Digital Enterprise ipsum lorem dolores aeat el"
-        details="HPE Software Licensing and Management Solutions can help
+        text="HPE Software Licensing and Management Solutions can help
         you optimize your software investments through control of complex
         negotiations and renewal processes"
         link={
@@ -305,10 +305,10 @@ export default class CardDoc extends Component {
               Array of strings will render multiple paragraphs.
             </dd>
             <dt>
-              <code>details          {'{string|[string, ...]}'}</code>
+              <code>text             {'{string|[string, ...]}'}</code>
             </dt>
             <dd>
-              Details content.
+              Text content.
               Array of strings will render multiple paragraphs.
             </dd>
             <dt><code>textSize             small|medium|large|xlarge</code></dt>
