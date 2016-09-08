@@ -49,6 +49,6 @@ export default class Meter16a extends Component {
 
 };
 
-Meter1.propTypes = {
+Meter16a.propTypes = {
   size: PropTypes.string
 };
