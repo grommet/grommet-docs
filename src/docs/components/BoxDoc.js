@@ -39,15 +39,17 @@ export default class BoxDoc extends Component {
             <dd>How to align the contents along the cross axis.</dd>
             <dt><code>alignContent   start|center|end|between|around|stretch
               </code></dt>
-            <dd>How to align within a container when there is extra space in
+            <dd>How to align the contents when there is extra space in
               the cross axis. Defaults to <code>stretch</code></dd>
+            <dt><code>alignSelf      start|center|end|stretch</code></dt>
+            <dd>How to align within its container along the cross axis.</dd>
             <dt><code>appCentered    true|false</code></dt>
             <dd>Whether the box background should stretch across an App that
               is centered.</dd>
             <dt><code>basis          {"xsmall|small|medium|large|xlarge|" +
               "xxlarge|full|1/2|1/3|2/3|1/4|3/4"}</code></dt>
-            <dd>Whether to use a fixed or relative size for the Box's
-              flex-basis.</dd>
+            <dd>Whether to use a fixed or relative size within its
+              container.</dd>
             <dt><code>colorIndex     {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code></dd>
