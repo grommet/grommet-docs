@@ -15,7 +15,7 @@ const series = [
     }},
   {continent: 'SouthAmerica', label: 'South America', value: 30,
     colorIndex: 'accent-2', onClick: () => {
-      alert('North America');
+      alert('South America');
     }},
   {continent: 'Europe', label: 'Europe', value: 20,
     colorIndex: 'unset', onClick: () => {
