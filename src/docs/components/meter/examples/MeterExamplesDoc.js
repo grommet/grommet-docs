@@ -55,7 +55,7 @@ MeterExamplesDoc.defaultProps = {
   ],
   property: {
     name: 'size',
-    values: ['small', 'medium', 'large']
+    values: ['xsmall', 'small', 'medium', 'large', 'xlarge']
   },
   title: 'Meter Examples'
 };
