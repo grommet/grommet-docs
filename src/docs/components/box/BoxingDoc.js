@@ -27,8 +27,13 @@ export default class BoxingDoc extends Component {
 
   constructor () {
     super();
+    this._onChangeCount = this._onChangeCount.bind(this);
+    let boxes = [];
+    for (let i=0; i<4; i+=1) {
+      boxes.push({ pad: 'medium' });
+    }
     this.state = { count: 4, direction: 'row', justify: 'between',
-      align: 'center', boxes: [] };
+      align: 'center', boxes: boxes };
   }
 
   _activate (index) {
@@ -40,6 +45,15 @@ export default class BoxingDoc extends Component {
       }
       this.setState({ active: index, boxes: boxes });
     };
+  }
+
+  _onChangeCount (event) {
+    const nextCount = parseInt(event.target.value, 10);
+    let boxes = this.state.boxes.slice(0, nextCount);
+    while (nextCount > boxes.length) {
+      boxes.push({ pad: 'medium' });
+    }
+    this.setState({ count: nextCount, boxes: boxes });
   }
 
   _changeBoxProp (index, prop) {
@@ -131,11 +145,7 @@ export default class BoxingDoc extends Component {
           </fieldset>
           <fieldset>
             <FormField label="Count">
-              <NumberInput value={count}
-                onChange={event =>
-                  this.setState({
-                    count: parseInt(event.target.value, 10)
-                  })} />
+              <NumberInput value={count} onChange={this._onChangeCount} />
             </FormField>
           </fieldset>
         </FormFields>

@@ -1,25 +1,12 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
-
-const COLORS = ['brand',
-  'neutral-1', 'neutral-1-t', 'neutral-2', 'neutral-2-t',
-  'neutral-3', 'neutral-3-t', 'neutral-4',
-  'accent-1', 'accent-1-t', 'accent-2', 'accent-2-t',
-  'grey-1', 'grey-2', 'grey-3', 'grey-4', 'light-2', 'light-1',
-  'critical', 'warning', 'ok', 'unknown'];
 
 export default class BoxDoc extends Component {
 
   render () {
-
-    var coloredBoxes = COLORS.map(function (color) {
-      return <Box key={color} colorIndex={color} pad="small">{color}</Box>;
-    });
 
     return (
       <DocsArticle title="Box" colorIndex="neutral-3">
@@ -52,7 +39,9 @@ export default class BoxDoc extends Component {
               container.</dd>
             <dt><code>colorIndex     {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
-              For example: <code>"neutral-1"</code></dd>
+              For example: <code>"neutral-1"</code>.
+              See <NavAnchor path="/docs/color">Color</NavAnchor> for
+              possible values.</dd>
             <dt><code>direction      row|column</code></dt>
             <dd>The orientation to layout the child components in.
               Defaults to <code>column</code>.</dd>
@@ -118,36 +107,6 @@ export default class BoxDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
-
-          <Example name="Default" code={
-            <Box>
-              <div>first</div>
-              <div>second</div>
-            </Box>
-          } />
-
-          <Example name="Row" code={
-            <Box direction="row">
-              <div>first</div>
-              <div>second</div>
-            </Box>
-          } />
-
-          <Example name="Kitchen sink" code={
-            <Box direction="row" align="center" colorIndex="neutral-1"
-              justify="between" pad="large" reverse={true} tag="aside">
-              <div>first</div>
-              <div>second</div>
-            </Box>
-          } />
-
-          <Example name="Color indexes" code={
-            <Box direction="row" wrap={true}>
-              {coloredBoxes}
-            </Box>
-          } />
-
           <NavAnchor primary={true} path="/docs/box-examples">
             Grommet Box Examples
           </NavAnchor>
