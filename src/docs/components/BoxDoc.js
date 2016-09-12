@@ -152,6 +152,12 @@ export default class BoxDoc extends Component {
             Grommet Box Examples
           </NavAnchor>
         </section>
+
+        <section>
+          <NavAnchor primary={true} path="/docs/boxing">
+            Grommet Boxing
+          </NavAnchor>
+        </section>
       </DocsArticle>
     );
   }

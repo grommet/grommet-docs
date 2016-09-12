@@ -31,10 +31,12 @@ import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
 import BoxDoc from './components/BoxDoc';
 import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
+import BoxingDoc from './components/box/BoxingDoc';
 import BrickDoc from './components/BrickDoc';
 import ButtonDoc from './components/ButtonDoc';
 import CalendarDoc from './components/CalendarDoc';
 import CardDoc from './components/CardDoc';
+import CardExamplesDoc from './components/card/examples/CardExamplesDoc';
 import CarouselDoc from './components/CarouselDoc';
 import ChartDoc from './components/ChartDoc';
 import ChartAreaDoc from './components/chart/AreaDoc';
@@ -146,12 +148,15 @@ export default [
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
       {path: 'box', label: 'Box', component: BoxDoc, contents: [
+        {path: 'boxing', component: BoxingDoc},
         {path: 'box-examples', component: BoxExamplesDoc}
       ]},
       {path: 'brick', label: 'Brick', component: BrickDoc},
       {path: 'button', label: 'Button', component: ButtonDoc},
       {path: 'calendar', label: 'Calendar', component: CalendarDoc},
-      {path: 'card', label: 'Card', component: CardDoc},
+      {path: 'card', label: 'Card', component: CardDoc, contents: [
+        {path: 'card-examples', component: CardExamplesDoc}
+      ]},
       {path: 'carousel', label: 'Carousel', component: CarouselDoc},
       {path: 'chart', label: 'Chart', component: ChartDoc, contents: [
         {path: 'chart-area', component: ChartAreaDoc},
