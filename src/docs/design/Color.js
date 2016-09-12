@@ -37,7 +37,7 @@ class Swatch extends Component {
       }).join('');
       const opacity =
         (match.length > 4) ? `${parseFloat(match[4]) * 100}%` : '';
-      this.setState({ hex: `0x${value} ${opacity}` });
+      this.setState({ hex: `#${value} ${opacity}` });
     }
   }
 
