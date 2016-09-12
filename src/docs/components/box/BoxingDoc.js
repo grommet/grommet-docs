@@ -5,6 +5,7 @@ import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
+import Heading from 'grommet/components/Heading';
 import Form from 'grommet/components/Form';
 import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
@@ -13,6 +14,7 @@ import NumberInput from 'grommet/components/NumberInput';
 import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
 import Button from 'grommet/components/Button';
+import CloseIcon from 'grommet/components/icons/base/Close';
 import DocsArticle from '../../../components/DocsArticle';
 import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
@@ -22,18 +24,24 @@ const RELATIVE_SIZES = ['full', '1/2', '1/3', '2/3', '1/4', '3/4'];
 const SIZES = FIXED_SIZES.concat(RELATIVE_SIZES);
 const MARGIN_SIZES = ['small', 'medium', 'large', 'none'];
 const PAD_SIZES = ['small', 'medium', 'large', 'none'];
+const DEFAULT_BOX = { pad: 'medium', margin: 'small' };
 
 export default class BoxingDoc extends Component {
 
   constructor () {
     super();
+    this._onResponsive = this._onResponsive.bind(this);
     this._onChangeCount = this._onChangeCount.bind(this);
     let boxes = [];
     for (let i=0; i<4; i+=1) {
-      boxes.push({ pad: 'medium' });
+      boxes.push({...DEFAULT_BOX});
     }
-    this.state = { count: 4, direction: 'row', justify: 'between',
-      align: 'center', boxes: boxes };
+    this.state = { count: 4, direction: 'row', justify: 'start',
+      align: 'center', wrap: true, boxes: boxes, priority: 'left' };
+  }
+
+  _onResponsive (responsive) {
+    this.setState({ responsive: responsive, priority: 'left' });
   }
 
   _activate (index) {
@@ -43,7 +51,7 @@ export default class BoxingDoc extends Component {
       if (! boxes[index]) {
         boxes[index] = {};
       }
-      this.setState({ active: index, boxes: boxes });
+      this.setState({ active: index, boxes: boxes, priority: 'right' });
     };
   }
 
@@ -51,7 +59,7 @@ export default class BoxingDoc extends Component {
     const nextCount = parseInt(event.target.value, 10);
     let boxes = this.state.boxes.slice(0, nextCount);
     while (nextCount > boxes.length) {
-      boxes.push({ pad: 'medium' });
+      boxes.push({...DEFAULT_BOX});
     }
     this.setState({ count: nextCount, boxes: boxes });
   }
@@ -95,11 +103,20 @@ export default class BoxingDoc extends Component {
   }
 
   _renderContainerForm () {
-    const { align, count, direction, justify, reverse, wrap } = this.state;
+    const { align, count, direction, justify, responsive, reverse,
+      wrap } = this.state;
+    let close;
+    if ('single' === responsive) {
+      close = (
+        <Button icon={<CloseIcon />}
+          onClick={() => this.setState({ priority: 'left' })} />
+      );
+    }
     return (
       <Form>
-        <Header size="large" tag="h3" pad="medium">
-          Properties
+        <Header size="large" pad="medium" justify="between">
+          <Heading tag="h3">Container</Heading>
+          {close}
         </Header>
         <FormFields>
           <fieldset>
@@ -144,7 +161,7 @@ export default class BoxingDoc extends Component {
             </FormField>
           </fieldset>
           <fieldset>
-            <FormField label="Count">
+            <FormField label="Number of boxes">
               <NumberInput value={count} onChange={this._onChangeCount} />
             </FormField>
           </fieldset>
@@ -154,8 +171,16 @@ export default class BoxingDoc extends Component {
   }
 
   _renderBoxForm (active) {
-    const { boxes } = this.state;
+    const { boxes, responsive } = this.state;
     const props = boxes[active];
+
+    let close;
+    if ('single' === responsive) {
+      close = (
+        <Button icon={<CloseIcon />}
+          onClick={() => this.setState({ priority: 'left' })} />
+      );
+    }
 
     let basisOptions = SIZES.map(size => <option key={size}>{size}</option>);
     basisOptions.unshift(<option key={0}></option>);
@@ -169,8 +194,9 @@ export default class BoxingDoc extends Component {
 
     return (
       <Form>
-        <Header size="large" tag="h3" pad="medium">
-          {`Box ${active + 1} Properties`}
+        <Header size="large" pad="medium" justify="between">
+          <Heading tag="h3">{`Box ${active + 1}`}</Heading>
+          {close}
         </Header>
         <FormFields>
           <fieldset>
@@ -215,12 +241,12 @@ export default class BoxingDoc extends Component {
   }
 
   render () {
-    const { active, align, boxes, count, direction, justify, reverse, wrap }
-      = this.state;
+    const { active, align, boxes, count, direction, justify,
+      priority, reverse, wrap } = this.state;
 
     let contents = [];
     for ( let i=0; i<count; i+=1 ) {
-      const colorIndex = active === i ? 'grey-1' : 'light-2';
+      const colorIndex = active === i ? 'grey-1' : 'grey-4';
       const props = boxes[i] || {};
       contents.push(
         <Box key={i} colorIndex={colorIndex}
@@ -228,7 +254,7 @@ export default class BoxingDoc extends Component {
           pad={props.pad} margin={props.margin}
           onClick={this._activate(i)}
           onFocus={this._activate(i)}>
-          <Value value={i + 1} />
+          <Value value={`Box ${i + 1}`} />
         </Box>
       );
     }
@@ -241,7 +267,7 @@ export default class BoxingDoc extends Component {
     }
 
     return (
-      <Split flex="left">
+      <Split flex="left" priority={priority} onResponsive={this._onResponsive}>
         <DocsArticle title="Boxing" colorIndex="neutral-3">
 
           <p>This is a boxing gym where you can spar
@@ -249,8 +275,9 @@ export default class BoxingDoc extends Component {
 
           <Example code={
             <Box direction={direction} justify={justify} align={align}
-              wrap={wrap} reverse={reverse}
-              onClick={() => this.setState({ active: undefined })}
+              wrap={wrap} reverse={reverse} pad="medium" colorIndex="light-2"
+              onClick={() => this.setState({
+                active: undefined, priority: 'right' })}
               onFocus={() => this.setState({ active: undefined })}>
               {contents}
             </Box>
