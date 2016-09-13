@@ -21,37 +21,41 @@ export default class CardDoc extends Component {
         </section>
 
         <section>
-          <h2>Card Options</h2>
+          <h2>Card Properties</h2>
           <dl>
-            <dt><code>description          {'{string|[string, ...]}'}
+            <dt><code>contentPad           {"none|small|medium|large|{...}"}
               </code></dt>
-            <dd>Array of strings will that will render as multiple
-              paragraphs.</dd>
-            <dt><code>direction            {'column|row'}</code></dt>
-            <dd>Applies the Card in a column (default) or row direction.
-              Expects multiple Card modules to be wrapped in
-              a <NavAnchor path="/docs/tiles">Tiles</NavAnchor> or <NavAnchor
-              path="/docs/columns">Columns</NavAnchor> component.</dd>
-            <dt><code>heading              {'{string}'}</code></dt>
-            <dd>Content heading.</dd>
-            <dt><code>label                {'{string}'}</code></dt>
-            <dd>Content label.</dd>
+            <dd>Padding for the Box containing the text content.
+              See <code>pad</code> in <NavAnchor path="/docs/box">
+              Box</NavAnchor> for additional details.</dd>
+            <dt><code>description          {'{string}|{element}'}
+              </code></dt>
+            <dd>Either a string in markdown syntax or an element.
+              See <NavAnchor path="/docs/markdown">
+              Markdown</NavAnchor> for additional details.</dd>
+            <dt><code>heading              {'{string}|{element}'}</code></dt>
+            <dd>Heading content.</dd>
+            <dt><code>headingStrong        true|false</code></dt>
+            <dd>Whether to render the heading strongly. This only has an
+              effect when the <code>heading</code> is supplied as a string.</dd>
+            <dt><code>label                {'{string}|{element}'}</code></dt>
+            <dd>Label content.</dd>
             <dt><code>link                 {'{element}'}</code></dt>
-            <dd>Anchor element to place in the anchor.
+            <dd>Anchor element.
               See <NavAnchor path="/docs/anchor">Anchor</NavAnchor>.</dd>
-            <dt><code>onClick              {'{function}'}</code></dt>
-            <dd>Click handler.</dd>
-            <dt><code>reverse              {'true|false'}</code></dt>
-            <dd>If thumbnail url is set, align thumbnail to top or bottom of
-              card. Defaults to <code>false</code>.</dd>
             <dt><code>textSize             small|medium|large|xlarge</code></dt>
-            <dd>Size of text within Card. Defaults to <code>medium</code>.</dd>
-            <dt><code>thumbnail            {'{url}'}</code></dt>
-            <dd>Url path to image. Use reverse option to position thumbnail
+            <dd>Size of text elements within the Card.
+              Defaults to <code>medium</code>. If you pass custom
+              elements for <code>description</code>, <code>label</code>,
+              or <code>heading</code>, they will not be resized.</dd>
+            <dt><code>thumbnail            {'{string}|{element}'}</code></dt>
+            <dd>Url path to image or
+              an <NavAnchor path="/docs/image">Image</NavAnchor> element.
+              Use the <code>reverse</code> property to position the thumbnail
               within card.</dd>
             <dt><code>video                {'{source: <string>, ' +
               'type: mp4|webm|ogg}|{element}'}</code></dt>
-            <dd>Video media type and source path. Also accepts
+            <dd>Video media type and source path or
               a <NavAnchor path="/docs/video">Video</NavAnchor> element.</dd>
           </dl>
           <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are

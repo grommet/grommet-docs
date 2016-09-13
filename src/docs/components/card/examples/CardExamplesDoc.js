@@ -9,6 +9,7 @@ import Card4 from './Card4';
 import Card5 from './Card5';
 import Card6 from './Card6';
 import Card7 from './Card7';
+import Card8 from './Card8';
 
 export default class CardExamplesDoc extends ExamplesDoc {};
 
@@ -22,7 +23,8 @@ CardExamplesDoc.defaultProps = {
     { label: 'Link, Video, Simple, Simple (Tiles)', component: Card5 },
     { label: 'Columns (with Masonry, MaxCount 7, and Responsive)',
       component: Card6 },
-    { label: 'Stack', component: Card7 }
+    { label: 'Stack', component: Card7 },
+    { label: 'Custom elements', component: Card8 }
   ],
   title: 'Card Examples'
 };
