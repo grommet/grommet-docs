@@ -1,3 +1,4 @@
-Disallow: /hpinc/
-Disallow: /aruba/
-Disallow: /hpe/
+User-agent: Googlebot
+Disallow: /hpinc/*
+Disallow: /aruba/*
+Disallow: /hpe/*
