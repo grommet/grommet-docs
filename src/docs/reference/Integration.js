@@ -32,8 +32,8 @@ export default class Integration extends Component {
 
         <h3>Style Sheets</h3>
         <p>
-          Your application uses the
-          <a href={"https://github.com/grommet/grommet/tree/master/" +
+          Your application uses
+          the <a href={"https://github.com/grommet/grommet/tree/master/" +
             "src/scss/grommet-core"} target="_blank">Grommet CSS</a> elements
           to ensure styling of components is aligned.  Your {"application's"}
           DOM structure will likely need to change to align with the DOM

@@ -79,8 +79,7 @@ export default class GetStartedDoc extends Component {
               <ol>
               	<li>
               		<p>Install <Anchor href="http://bower.io/" target="_blank">
-                    Bower</Anchor>
-                  <i>(at least 1.x required)</i>.</p>
+                    Bower</Anchor> <i>(at least 1.x required)</i>.</p>
               		<pre><code className="hljs bash">npm install -g bower
                     </code></pre>
               	</li>

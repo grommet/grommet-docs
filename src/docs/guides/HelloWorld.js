@@ -22,10 +22,10 @@ export default class HelloWorld extends Component {
             is not meant to be used in production.
           </p>
           <p>
-            To help you get started quickly we provide the following
-            <a href="https://codepen.io/pen?template=gaEGPY&editors=0010"
-               target="_blank">CodePen
-            </a> template:
+            To help you get started quickly we provide the
+            following <a
+              href="https://codepen.io/pen?template=gaEGPY&editors=0010"
+              target="_blank">CodePen</a> template:
           </p>
           <iframe height='268' scrolling='no'
             src={"//codepen.io/grommet/embed/gaEGPY/?" +
@@ -38,8 +38,9 @@ export default class HelloWorld extends Component {
             <a href='https://codepen.io'>CodePen</a>.
           </iframe>
           <p>
-            Also, there is a Github
-            <a href="https://gist.github.com/grommetux/fb257dcd546a58070db9"
+            Also, there is a
+            Github <a
+            href="https://gist.github.com/grommetux/fb257dcd546a58070db9"
             target="_blank">Gist</a> that you can use to load this same
             Hello World app in your local computer.
           </p>
