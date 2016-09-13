@@ -19,7 +19,7 @@ export default class TipDoc extends Component {
     let tip;
     if (active) {
       tip = (
-        <Tip targetId="actions"
+        <Tip target="actions"
           onClose={() => this.setState({ active: false })}>
           Available actions
         </Tip>
@@ -68,9 +68,10 @@ export default class TipDoc extends Component {
             <dt><code>onClose        {"{function}"}</code></dt>
             <dd>Called when the user clicks on the Tip, clicks on the target
               element, or when the target element loses focus.</dd>
-            <dt><code>targetId       {"{string}"}</code></dt>
-            <dd>The DOM id of the element the Tip should be associated
-              with.</dd>
+            <dt><code>target       {"{string}"}</code></dt>
+            <dd>The DOM id or class of the element the Tip should be associated
+              with. The id takes priority over class. If multiple classes
+              are found, the first one will be used.</dd>
           </dl>
         </section>
 
