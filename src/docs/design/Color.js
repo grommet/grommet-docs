@@ -13,7 +13,7 @@ const COLOR_ALPHA_REGEXP = /rgba\((\d+), (\d+), (\d+), (0\.\d+)\)/;
 const COLORS = [
   { label: 'Primary', prefix: 'brand', count: 1 },
   { label: 'Accent', prefix: 'accent', count: 3, tint: true, alpha: true },
-  { label: 'Netural', prefix: 'neutral', count: 4, tint: true, alpha: true },
+  { label: 'Neutral', prefix: 'neutral', count: 4, tint: true, alpha: true },
   { label: 'Grey', prefix: 'grey', count: 4, alpha: true },
   { label: 'Light', prefix: 'light', count: 2 },
   { label: 'Status', values: ['critical', 'warning', 'ok', 'unknown'] }
