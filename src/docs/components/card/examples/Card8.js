@@ -25,10 +25,12 @@ export default class Card8 extends Component {
               </Heading>
             }
             description={
-              <Paragraph>HPE Software Licensing and Management
-              Solutions can help you optimize your software investments
-              through control of complex negotiations and renewal
-              processes</Paragraph>
+              <Paragraph size="large" margin="medium">
+                HPE Software Licensing and Management
+                Solutions can help you optimize your software investments
+                through control of complex negotiations and renewal
+                processes
+            </Paragraph>
             }
           />
         </Box>
