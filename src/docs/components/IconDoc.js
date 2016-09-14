@@ -42,11 +42,8 @@ export default class IconDoc extends Component {
     });
   }
 
-  _onIconSelect (e) {
-    var parentNode = e.currentTarget;
-    var textNode = parentNode.getElementsByTagName('span')[0];
-
-    this.setState({value: textNode.textContent});
+  _onIconSelect (event) {
+    this.setState({value: event.currentTarget.nextSibling.textContent});
   }
 
   _onMoreIcons () {
@@ -56,7 +53,7 @@ export default class IconDoc extends Component {
 
   render () {
     const componentName = (this.state.value || 'SomeIcon')
-      .replace(/^(.)|-([a-z])/g, function (g) {
+      .replace(/^(.)|\-([a-z])/g, function (g) {
         return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
       });
 
@@ -75,7 +72,7 @@ export default class IconDoc extends Component {
         return g ? '<strong>' + g + '</strong>' : '';
       });
 
-      const name = iconName.replace(/^(.)|-([a-z])/g, function (g) {
+      const name = iconName.replace(/^(.)|\-([a-z])/g, function (g) {
         return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
       });
 
