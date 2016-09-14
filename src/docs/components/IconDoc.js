@@ -1,103 +1,101 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
 import Header from 'grommet/components/Header';
 import SearchInput from 'grommet/components/SearchInput';
+import Box from 'grommet/components/Box';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Button from 'grommet/components/Button';
 import SVGIcon from 'grommet/components/SVGIcon';
 import iconsMap from './iconsMap';
 const iconNames = Object.keys(iconsMap);
+import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
+
+const PAGE_SIZE = 50;
+const KEBAB_REGEXP = /^([a-z])|-([a-z])/g;
+
+function kebabToCamel (string) {
+  return string.replace(KEBAB_REGEXP, match => (
+    match.length > 1 ? match[1].toUpperCase() : match.toUpperCase()));
+}
 
 export default class IconDoc extends Component {
 
   constructor () {
     super();
-    this._onChange = this._onChange.bind(this);
-    this._onIconSelect = this._onIconSelect.bind(this);
+
+    this._onChangeSearch = this._onChangeSearch.bind(this);
     this._onMoreIcons = this._onMoreIcons.bind(this);
+
+    const kebabName = 'cloud';
+    const camelName = kebabToCamel(kebabName);
+    const Icon = iconsMap[kebabName];
     this.state = {
-      value: '',
-      inputData: '',
+      camelName: camelName,
+      Icon: Icon,
       icons: iconNames,
-      pageIndex: 1
+      inputData: '',
+      pageIndex: 1,
+      searchText: ''
     };
   }
 
-  _onChange (e) {
-    var value = e.target.value;
-    var caseInsensitiveValue = new RegExp(value, 'i');
-    var icons = iconNames.filter(function (icon) {
-      return icon.match(caseInsensitiveValue);
-    });
+  _onChangeSearch (event) {
+    const searchText = event.target.value;
+    const regexp = new RegExp(searchText, 'i');
+    const icons = iconNames.filter(icon => icon.match(regexp));
 
     this.setState({
-      value: value,
-      inputData: value,
       icons: icons,
-      pageIndex: 1
+      pageIndex: 1,
+      searchText: searchText
     });
   }
 
-  _onIconSelect (event) {
-    this.setState({value: event.currentTarget.nextSibling.textContent});
+  _selectIcon (camelName, kebabName) {
+    return () => this.setState({
+      camelName: camelName, Icon: iconsMap[kebabName]
+    });
   }
 
   _onMoreIcons () {
-    var pageIndex = this.state.pageIndex;
+    const { pageIndex } = this.state;
     this.setState({pageIndex: pageIndex + 1});
   }
 
   render () {
-    const componentName = (this.state.value || 'SomeIcon')
-      .replace(/^(.)|\-([a-z])/g, function (g) {
-        return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
-      });
+    const { camelName, Icon, icons, pageIndex, searchText }
+      = this.state;
 
-    const inline = [
-      "var " + componentName + " = require('grommet/components/icons/base/" +
-        componentName + "');",
-      "//or var " + componentName + " = Grommet.Icons.Base." + componentName,
-      "<" + componentName + " />"
-    ].join("\n");
+    const inline =
+`var ${camelName}Icon = require('grommet/components/icons/base/${camelName}');
+//or var ${camelName}Icon = Grommet.Icons.Base.${camelName};
+<${camelName}Icon />`;
 
-    let endIndex = this.state.pageIndex * 50;
-    const currentIcons = this.state.icons.slice(0, endIndex);
-    const tiles = currentIcons.map(function (iconName, index) {
+    const endIndex = pageIndex * PAGE_SIZE;
+    const tiles = icons.slice(0, endIndex).map((kName, index) => {
 
-      const iconText = iconName.replace(this.state.inputData, function (g) {
-        return g ? '<strong>' + g + '</strong>' : '';
-      });
+      const label = kName.replace(searchText, text => (
+        text ? `<strong>${text}</strong>` : ''));
+      const cName = kebabToCamel(kName);
+      const Icon = require(`grommet/components/icons/base/${cName}`);
 
-      const name = iconName.replace(/^(.)|\-([a-z])/g, function (g) {
-        return g.length > 1 ? g[1].toUpperCase() : g.toUpperCase();
-      });
-
-      const Icon = require(`grommet/components/icons/base/${name}`);
-
+      // We use dangerouslySetInnerHTML to allow wrapping <strong> around
+      // search text sub-string matches.
       return (
-        <Tile key={'tile_' + index} direction="row"
+        <Tile key={index} direction="row" size="small"
           align="center" justify="start">
-          <Button icon={<Icon />} onClick={this._onIconSelect} />
-          <span dangerouslySetInnerHTML={{__html: iconText}} />
+          <Button icon={<Icon />} onClick={this._selectIcon(cName, kName)} />
+          <span dangerouslySetInnerHTML={{ __html: label }} />
         </Tile>
       );
-    }.bind(this));
+    });
 
-    let moreIcons;
-    if (this.state.icons.length > 50 &&
-      endIndex < this.state.icons.length) {
-      moreIcons = this._onMoreIcons;
-    }
-
-    let Icon;
-    if (iconsMap.hasOwnProperty(this.state.value)) {
-      Icon = iconsMap[this.state.value];
-    } else {
-      Icon = iconsMap.cloud; // just picking one as an example
+    let onMoreIcons;
+    if (endIndex < icons.length) {
+      onMoreIcons = this._onMoreIcons;
     }
 
     return (
@@ -105,11 +103,22 @@ export default class IconDoc extends Component {
 
         <section>
           <p>Load icons inside your Grommet application.</p>
-          <Icon />
+          <Box direction="row" align="center" pad={{ between: 'medium' }}>
+            <Icon size="small" />
+            <Icon />
+            <Icon size="large" />
+            <Icon size="xlarge" />
+            <Icon size="huge" />
+          </Box>
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{inline}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the stroke color.
@@ -122,24 +131,8 @@ export default class IconDoc extends Component {
         </section>
 
         <section>
-          <h2>Built-in icons</h2>
-          <p>Most likely the icon you are looking is already available inside
-            Grommet iconography. This is how you import it:</p>
-          <pre><code className="html hljs xml">{inline}</code></pre>
-        </section>
-
-        <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <Icon />
-          } />
-          <Example name="Large, colored" code={
-            <Icon size="large" colorIndex="brand" />
-          } />
-          <Example name="Huge" code={
-            <Icon size="huge" colorIndex="brand" />
-          } />
           <Example name="Custom Logo" code={
             <SVGIcon viewBox='0 0 130 108' version='1.1'
               type='logo' a11yTitle='Locations Finder'>
@@ -162,10 +155,10 @@ export default class IconDoc extends Component {
         <section>
           <Header tag="h2" justify="between">
             Icons
-            <SearchInput id="iconSearchInput" name="iconSearchInput"
-              onDOMChange={this._onChange} value={this.state.inputData} />
+            <SearchInput value={searchText}
+              onDOMChange={this._onChangeSearch} />
           </Header>
-          <Tiles flush={true} onMore={moreIcons}>
+          <Tiles flush={true} onMore={onMoreIcons}>
             {tiles}
           </Tiles>
         </section>
