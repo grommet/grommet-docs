@@ -1,8 +1,14 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Headline from 'grommet/components/Headline';
+import Heading from 'grommet/components/Heading';
+import Paragraph from 'grommet/components/Paragraph';
+import Label from 'grommet/components/Label';
+import Value from 'grommet/components/Value';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
 
 export default class Typography extends Component {
 
@@ -15,15 +21,65 @@ export default class Typography extends Component {
   render () {
     return (
       <DocsArticle title="Typography" colorIndex="neutral-2">
-        <Box>
+
+        <section>
           <p>Applications use the <span ref="fontName">Arial</span> font.  The
           typographic scale and styles can be found in the attached assets.</p>
-          <h1 className="font-sample">H1 font sample</h1>
-          <h2 className="font-sample">H2 font sample</h2>
-          <h3 className="font-sample">H3 font sample</h3>
-          <h4 className="font-sample">H4 font sample</h4>
-          <h5 className="font-sample">H5 font sample</h5>
-        </Box>
+        </section>
+
+        <section>
+          <h2><NavAnchor path="/docs/headline">Headline</NavAnchor></h2>
+          <Headline size="xlarge"><strong>XL Headline</strong></Headline>
+          <Headline size="xlarge">XL Headline</Headline>
+          <Headline size="large"><strong>Large Headline</strong></Headline>
+          <Headline size="large">Large Headline</Headline>
+          <Headline size="medium"><strong>Medium Headline</strong></Headline>
+          <Headline size="medium">Medium Headline</Headline>
+          <Headline size="small"><strong>Small Headline</strong></Headline>
+          <Headline size="small">Small Headline</Headline>
+        </section>
+
+        <section>
+          <h2><NavAnchor path="/docs/heading">Heading</NavAnchor></h2>
+          <Heading tag="h1"><strong>H1 Heading</strong></Heading>
+          <Heading tag="h1">H1 Heading</Heading>
+          <Heading tag="h2"><strong>H2 Heading</strong></Heading>
+          <Heading tag="h2">H2 Heading</Heading>
+          <Heading tag="h3"><strong>H3 Heading</strong></Heading>
+          <Heading tag="h3">H3 Heading</Heading>
+          <Heading tag="h4"><strong>H4 Heading</strong></Heading>
+          <Heading tag="h4">H4 Heading</Heading>
+          <Heading tag="h5"><strong>H5 Heading</strong></Heading>
+          <Heading tag="h5">H5 Heading</Heading>
+        </section>
+
+        <section>
+          <h2><NavAnchor path="/docs/label">Label</NavAnchor></h2>
+          <Box>
+            <Label size="medium" uppercase={true}>Medium Label</Label>
+            <Label size="medium">Medium Label</Label>
+            <Label size="small" uppercase={true}>Small Label</Label>
+            <Label size="small">Small Label</Label>
+          </Box>
+        </section>
+
+        <section>
+          <h2><NavAnchor path="/docs/paragraph">Paragraph</NavAnchor></h2>
+          <Paragraph size="xlarge">XL Paragraph</Paragraph>
+          <Paragraph size="large">Large Paragraph</Paragraph>
+          <Paragraph size="medium">Medium Paragraph</Paragraph>
+          <Paragraph size="small">Small Paragraph</Paragraph>
+        </section>
+
+        <section>
+          <h2><NavAnchor path="/docs/value">Value</NavAnchor></h2>
+          <Box>
+            <Value size="xlarge" value={100} units="% XL" align="start" />
+            <Value size="large" value={100} units="% Large" align="start" />
+            <Value size="medium" value={100} units="% Medium" align="start" />
+            <Value size="small" value={100} units="% Small" align="start" />
+          </Box>
+        </section>
       </DocsArticle>
     );
   }
