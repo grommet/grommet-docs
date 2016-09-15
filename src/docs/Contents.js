@@ -23,7 +23,8 @@ import About from './reference/About';
 
 // import ActionsDoc from './patterns/ActionsDoc';
 import AccordionDoc from './components/AccordionDoc';
-import AnchorDoc from './components/AnchorDoc';
+import AnchorDoc from './components/anchor/AnchorDoc';
+import AnchorExamplesDoc from './components/anchor/examples/AnchorExamplesDoc';
 import AnimateDoc from './components/AnimateDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
@@ -143,7 +144,9 @@ export default [
   {label: 'Components',
     contents: [
       {path: 'accordion', label: 'Accordion', component: AccordionDoc},
-      {path: 'anchor', label: 'Anchor', component: AnchorDoc},
+      {path: 'anchor', label: 'Anchor', component: AnchorDoc, contents: [
+        {path: 'anchor-examples', component: AnchorExamplesDoc}
+      ]},
       {path: 'animate', label: 'Animate', component: AnimateDoc},
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},

@@ -1,17 +1,17 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Section from 'grommet/components/Section';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
-import NextIcon from 'grommet/components/icons/base/Next';
 import EditIcon from 'grommet/components/icons/base/Edit';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
-Section.displayName = 'Section';
 Anchor.displayName = 'Anchor';
+
+const USAGE =
+`import Anchor from 'grommet/components/Anchor';
+<Anchor href={location} label="Label" />`;
 
 export default class AnchorDoc extends Component {
 
@@ -32,7 +32,7 @@ export default class AnchorDoc extends Component {
             <Anchor href="" onClick={this._onClick}>Child text</Anchor>
             <Anchor href="" label="Label" primary={true}
               onClick={this._onClick} />
-            <Anchor href="" icon={<EditIcon id='edit-icon-1' />} label="Edit"
+            <Anchor href="" icon={<EditIcon id='edit-icon-1' />} label="Label"
               onClick={this._onClick} />
             <Anchor href="" icon={<EditIcon id='edit-icon-2' />}
               onClick={this._onClick} />
@@ -40,7 +40,12 @@ export default class AnchorDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>disabled       true|false</code></dt>
             <dd>Whether to disable the anchor. Defaults to false.</dd>
@@ -71,50 +76,10 @@ export default class AnchorDoc extends Component {
 
         <section>
           <h2>Examples</h2>
-          <Example name="Default" code={
-            <Anchor href="" onClick={this._onClick}>Child text</Anchor>
-          } />
-          <Example name="Primary, Label" code={
-            <Anchor href="" label="Label" primary={true}
-              onClick={this._onClick} />
-          } />
-          <Example name="Icon, Label" code={
-            <Anchor href="" icon={<EditIcon id='edit-icon-1' />} label="Edit"
-              onClick={this._onClick} />
-          } />
-          <Example name="Icon, Label, Reverse" code={
-            <Anchor href="" icon={<NextIcon />} label="Next" reverse={true}
-              onClick={this._onClick} />
-          } />
-          <Example name="Icon" code={
-            <Anchor href="" icon={<EditIcon id='edit-icon-2' />}
-              onClick={this._onClick} />
-          } />
-          <Example name="Target" code={
-            <Anchor href="" target="_blank" label="Label"
-              onClick={this._onClick} />
-          } />
-          <Example name="Disabled" code={
-            <Anchor primary={true} disabled={true}>Text</Anchor>
-          } />
-          <Example name="In a Header" code={
-            <h3>
-              <Anchor href="" label="Label" onClick={this._onClick} />
-            </h3>
-          } />
-          <Example name="Colored context" code={
-            <Section colorIndex="neutral-1"
-              pad={{horizontal: 'medium', vertical: 'medium',
-                between: 'medium'}}>
-              <Anchor href="" onClick={this._onClick}>Text</Anchor>
-              <Anchor href="" primary={true} label="Label"
-                onClick={this._onClick} />
-              <Anchor href="" icon={<EditIcon id='edit-icon-3' />}
-                onClick={this._onClick} />
-              <Anchor href="" icon={<EditIcon id='edit-icon-4' />}
-                label="Edit" onClick={this._onClick} />
-            </Section>
-          } />
+
+          <NavAnchor primary={true} path={`/docs/anchor-examples`}>
+            Grommet Anchor Examples
+          </NavAnchor>
         </section>
       </DocsArticle>
     );

@@ -21,7 +21,7 @@ export default class DocsArticle extends Component {
   }
 
   render () {
-    const { action, full } = this.props;
+    const { action, context, full, title } = this.props;
     let pad;
     if (! full) {
       pad = {horizontal: 'large'};
@@ -30,7 +30,7 @@ export default class DocsArticle extends Component {
       <Article className="docs-article" primary={true}>
         <Header size="large" pad={{horizontal: 'large'}}
           colorIndex={this.props.colorIndex} justify="between">
-          <h1>{this.props.title}</h1>
+          <h1>{context} {title}</h1>
           {action}
         </Header>
         <Box pad={pad}>
@@ -45,6 +45,7 @@ export default class DocsArticle extends Component {
 DocsArticle.propTypes = {
   action: PropTypes.node,
   colorIndex: PropTypes.string,
+  context: PropTypes.element,
   full: PropTypes.bool,
   title: PropTypes.string.isRequired
 };

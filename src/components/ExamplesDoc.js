@@ -56,7 +56,7 @@ export default class ExamplesDoc extends Component {
   }
 
   render () {
-    const { examples, property, title } = this.props;
+    const { context, examples, property, title } = this.props;
     const { index, dark, propertyValue } = this.state;
     const example = examples[index];
 
@@ -86,7 +86,8 @@ export default class ExamplesDoc extends Component {
     props = { ...(example.props || {}), ...props };
 
     return (
-      <DocsArticle title={title} colorIndex="neutral-3" full={true}>
+      <DocsArticle context={context} title={title} colorIndex="neutral-3"
+        full={true}>
         <Header justify="between" colorIndex="light-2"
           pad={{ horizontal: 'large' }}>
           <Menu label={examples[index].label} inline={false} size="large">
@@ -112,6 +113,7 @@ export default class ExamplesDoc extends Component {
 };
 
 ExamplesDoc.propTypes = {
+  context: PropTypes.element,
   examples: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     component: PropTypes.func,
