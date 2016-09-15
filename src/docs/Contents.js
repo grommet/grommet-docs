@@ -8,6 +8,7 @@ import Usability from './design/Usability';
 import Interactions from './design/Interactions';
 import Mobile from './design/Mobile';
 import Color from './design/Color';
+import Sizing from './design/Sizing';
 import Padding from './design/Padding';
 import Typography from './design/Typography';
 import WritingStyle from './design/WritingStyle';
@@ -126,6 +127,7 @@ export default [
       {path: 'interactions', label: 'Interactions', component: Interactions},
       {path: 'mobile', label: 'Mobile', component: Mobile},
       {path: 'color', label: 'Color', component: Color},
+      {path: 'sizing', label: 'Sizing', component: Sizing},
       {path: 'padding', label: 'Padding', component: Padding},
       {path: 'typography', label: 'Typography', component: Typography},
       {path: 'writing-style', label: 'Writing Style', component: WritingStyle},
