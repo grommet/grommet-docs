@@ -30,27 +30,27 @@ export default class Sizing extends Component {
           <Box pad={{ between: 'medium' }}>
             <Box size={{ height: 'xsmall', width: 'xsmall' }}
               justify="center" align="center" colorIndex="grey-4">
-              <Label>XSmall</Label>
+              <Label><strong>XSmall</strong></Label>
             </Box>
             <Box size={{ height: 'small', width: 'small' }}
               justify="center" align="center" colorIndex="grey-4">
-              <Label>Small</Label>
+              <Label><strong>Small</strong></Label>
             </Box>
             <Box size={{ height: 'medium', width: 'medium' }}
               justify="center" align="center" colorIndex="grey-4">
-              <Label>Medium</Label>
+              <Label><strong>Medium</strong></Label>
             </Box>
             <Box size={{ height: 'large', width: 'large' }}
               justify="center" align="center" colorIndex="grey-4">
-              <Label>Large</Label>
+              <Label><strong>Large</strong></Label>
             </Box>
             <Box size={{ height: 'xlarge', width: 'xlarge' }}
               justify="center" align="center" colorIndex="grey-4">
-              <Label>XLarge</Label>
+              <Label><strong>XLarge</strong></Label>
             </Box>
             <Box size={{ height: 'xxlarge', width: 'xxlarge' }}
               justify="center" align="center" colorIndex="grey-4">
-              <Label>XXLarge</Label>
+              <Label><strong>XXLarge</strong></Label>
             </Box>
           </Box>
         </section>
