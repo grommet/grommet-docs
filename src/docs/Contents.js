@@ -29,9 +29,9 @@ import AnimateDoc from './components/AnimateDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
-import BoxDoc from './components/BoxDoc';
+import BoxDoc from './components/box/BoxDoc';
 import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
-import BoxingDoc from './components/box/BoxingDoc';
+import BoxingGymDoc from './components/box/BoxingGymDoc';
 import BrickDoc from './components/BrickDoc';
 import ButtonDoc from './components/ButtonDoc';
 import CalendarDoc from './components/CalendarDoc';
@@ -151,8 +151,8 @@ export default [
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
       {path: 'box', label: 'Box', component: BoxDoc, contents: [
-        {path: 'boxing', component: BoxingDoc},
-        {path: 'box-examples', component: BoxExamplesDoc}
+        {path: 'box/gym', component: BoxingGymDoc},
+        {path: 'box/examples', component: BoxExamplesDoc}
       ]},
       {path: 'brick', label: 'Brick', component: BrickDoc},
       {path: 'button', label: 'Button', component: ButtonDoc},

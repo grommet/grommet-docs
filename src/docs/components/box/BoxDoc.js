@@ -1,8 +1,15 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
+import Box from 'grommet/components/Box';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+const USAGE =
+`import Box from 'grommet/components/Box';
+<Box>
+  {contents}
+</Box>`;
 
 export default class BoxDoc extends Component {
 
@@ -11,12 +18,23 @@ export default class BoxDoc extends Component {
     return (
       <DocsArticle title="Box" colorIndex="neutral-3">
 
-        <p>General purpose flexible box layout. This does not support all of the
-          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">
-            flexbox capabilities</a>.</p>
+        <section>
+          <p>General purpose flexible box layout. This supports many,
+            but not all, of the <a
+            href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">
+            flexbox</a> capabilities.</p>
+          <Box pad="large" colorIndex="light-2">
+            contents in a Box
+          </Box>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>a11yTitle      {"{string}"}</code></dt>
             <dd>Custom title used by screen readers. Defaults to "Box".
@@ -107,14 +125,14 @@ export default class BoxDoc extends Component {
         </section>
 
         <section>
-          <NavAnchor primary={true} path="/docs/box-examples">
-            Grommet Box Examples
+          <NavAnchor primary={true} path="/docs/box/examples">
+            Box Examples
           </NavAnchor>
         </section>
 
         <section>
-          <NavAnchor primary={true} path="/docs/boxing">
-            Grommet Boxing
+          <NavAnchor primary={true} path="/docs/box/gym">
+            Boxing Gym
           </NavAnchor>
         </section>
       </DocsArticle>

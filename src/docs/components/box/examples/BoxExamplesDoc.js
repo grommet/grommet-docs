@@ -1,6 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
+import React from 'react';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
+import NavAnchor from '../../../../components/NavAnchor';
 
 import Box1 from './Box1';
 import Box1m from './Box1m';
@@ -14,6 +16,7 @@ import Box4m from './Box4m';
 export default class BoxExamplesDoc extends ExamplesDoc {};
 
 BoxExamplesDoc.defaultProps = {
+  context: <NavAnchor path="/docs/box">Box</NavAnchor>,
   examples: [
     { label: 'Row fixed', component: Box1 },
     { label: 'Row fixed with margin', component: Box1m },
@@ -24,5 +27,5 @@ BoxExamplesDoc.defaultProps = {
     { label: 'Grid', component: Box4 },
     { label: 'Grid with margin', component: Box4m }
   ],
-  title: 'Box Examples'
+  title: 'Examples'
 };

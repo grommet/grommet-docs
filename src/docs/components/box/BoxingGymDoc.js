@@ -15,6 +15,7 @@ import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
+import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
 import DocsArticle from '../../../components/DocsArticle';
 import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
@@ -26,7 +27,7 @@ const MARGIN_SIZES = ['small', 'medium', 'large', 'none'];
 const PAD_SIZES = ['small', 'medium', 'large', 'none'];
 const DEFAULT_BOX = { pad: 'medium', margin: 'small' };
 
-export default class BoxingDoc extends Component {
+export default class BoxingGymDoc extends Component {
 
   constructor () {
     super();
@@ -268,7 +269,7 @@ export default class BoxingDoc extends Component {
 
     return (
       <Split flex="left" priority={priority} onResponsive={this._onResponsive}>
-        <DocsArticle title="Boxing" colorIndex="neutral-3">
+        <DocsArticle title="Boxing Gym" colorIndex="neutral-3">
 
           <p>This is a boxing gym where you can spar
             with <NavAnchor path="/docs/box">Boxes</NavAnchor>.</p>
@@ -282,6 +283,11 @@ export default class BoxingDoc extends Component {
               {contents}
             </Box>
           }/>
+
+          <section>
+            <NavAnchor path="/docs/box" icon={<LinkPreviousIcon />}
+              label="Box" primary={true} />
+          </section>
 
         </DocsArticle>
         <Sidebar separator="left" colorIndex="light-2">
