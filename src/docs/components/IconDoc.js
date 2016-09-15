@@ -70,7 +70,7 @@ export default class IconDoc extends Component {
       = this.state;
 
     const inline =
-`var ${camelName}Icon = require('grommet/components/icons/base/${camelName}');
+`import ${camelName}Icon from 'grommet/components/icons/base/${camelName}';
 //or var ${camelName}Icon = Grommet.Icons.Base.${camelName};
 <${camelName}Icon />`;
 
