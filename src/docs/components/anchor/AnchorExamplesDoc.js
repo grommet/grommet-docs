@@ -4,9 +4,9 @@ import React from 'react';
 import Anchor from 'grommet/components/Anchor';
 import EditIcon from 'grommet/components/icons/base/Edit';
 import NextIcon from 'grommet/components/icons/base/Next';
-import ExamplesDoc from '../../../../components/ExamplesDoc';
-import NavAnchor from '../../../../components/NavAnchor';
-import Example from '../../../Example';
+import ExamplesDoc from '../../../components/ExamplesDoc';
+import NavAnchor from '../../../components/NavAnchor';
+import Example from '../../Example';
 
 const AnchorExample = (props) => (
   <Example code={

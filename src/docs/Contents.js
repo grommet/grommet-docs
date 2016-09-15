@@ -24,7 +24,7 @@ import About from './reference/About';
 // import ActionsDoc from './patterns/ActionsDoc';
 import AccordionDoc from './components/AccordionDoc';
 import AnchorDoc from './components/anchor/AnchorDoc';
-import AnchorExamplesDoc from './components/anchor/examples/AnchorExamplesDoc';
+import AnchorExamplesDoc from './components/anchor/AnchorExamplesDoc';
 import AnimateDoc from './components/AnimateDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
