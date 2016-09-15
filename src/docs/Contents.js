@@ -4,8 +4,6 @@ import HelloWorld from './guides/HelloWorld';
 import GetStarted from './guides/GetStarted';
 
 import BestPractices from './design/BestPractices';
-import Usability from './design/Usability';
-import Interactions from './design/Interactions';
 import Mobile from './design/Mobile';
 import Color from './design/Color';
 import Sizing from './design/Sizing';
@@ -123,8 +121,6 @@ export default [
       {path: 'resources', label: 'Resources', component: Resources},
       {path: 'best-practices', label: 'Best Practices',
         component: BestPractices},
-      {path: 'usability', label: 'Usability', component: Usability},
-      {path: 'interactions', label: 'Interactions', component: Interactions},
       {path: 'mobile', label: 'Mobile', component: Mobile},
       {path: 'color', label: 'Color', component: Color},
       {path: 'sizing', label: 'Sizing', component: Sizing},

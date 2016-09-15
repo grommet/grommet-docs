@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import Label from 'grommet/components/Label';
+import Header from 'grommet/components/Header';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
 
@@ -12,13 +13,20 @@ export default class Sizing extends Component {
       <DocsArticle title="Sizing" colorIndex="neutral-2">
 
         <section>
-          <p>Grommet sizes things using T-shirt sizing.
-          Components like <NavAnchor path="/docs/box">Box</NavAnchor> use
-          sizes for width and height stops as illustrated
-          below.</p>
+          <p>Grommet uses T-shirt sizing concepts for both layout and
+            typography.</p>
         </section>
 
         <section>
+          <h2>General Layout</h2>
+          <p>Components
+          like <NavAnchor path="/docs/box">
+          Box</NavAnchor>, <NavAnchor path="/docs/meter">
+          Meter</NavAnchor>, and <NavAnchor path="/docs/chart">
+          Chart</NavAnchor> use
+          sizes for width stops as illustrated
+          below.</p>
+
           <Box pad={{ between: 'medium' }}>
             <Box size={{ height: 'xsmall', width: 'xsmall' }}
               justify="center" align="center" colorIndex="grey-4">
@@ -44,6 +52,21 @@ export default class Sizing extends Component {
               justify="center" align="center" colorIndex="grey-4">
               <Label>XXLarge</Label>
             </Box>
+          </Box>
+        </section>
+
+        <section>
+          <h2>Header</h2>
+          <p>Components
+          like <NavAnchor path="/docs/header">
+          Header</NavAnchor> use sizes for height stops as illustrated
+          below.</p>
+
+          <Box pad={{ between: 'medium' }}>
+            <Header size="medium" pad="medium" colorIndex="grey-4">
+              Medium
+            </Header>
+            <Header size="large" pad="medium" colorIndex="grey-4">Large</Header>
           </Box>
         </section>
 
