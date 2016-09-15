@@ -77,7 +77,7 @@ export default class AnchorDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/anchor-examples`}>
+          <NavAnchor primary={true} path={`/docs/anchor/examples`}>
             Anchor Examples
           </NavAnchor>
         </section>

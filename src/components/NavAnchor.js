@@ -25,7 +25,8 @@ export default class NavAnchor extends Component {
   render () {
     const { path } = this.props;
     let className = this.props.className || '';
-    if (this.context.router.isActive(path)) {
+    const exp = new RegExp(`^${path}$|^${path}\/`);
+    if (window.location.pathname.match(exp)) {
       className += ' active';
     }
     let href = this.context.router.createPath(path);

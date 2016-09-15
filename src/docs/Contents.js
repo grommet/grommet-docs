@@ -145,7 +145,7 @@ export default [
     contents: [
       {path: 'accordion', label: 'Accordion', component: AccordionDoc},
       {path: 'anchor', label: 'Anchor', component: AnchorDoc, contents: [
-        {path: 'anchor-examples', component: AnchorExamplesDoc}
+        {path: 'anchor/examples', component: AnchorExamplesDoc}
       ]},
       {path: 'animate', label: 'Animate', component: AnimateDoc},
       {path: 'app', label: 'App', component: AppDoc},
