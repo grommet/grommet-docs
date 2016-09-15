@@ -104,7 +104,8 @@ import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
 import TopologyDoc from './components/TopologyDoc';
 import ValueDoc from './components/ValueDoc';
-import VideoDoc from './components/VideoDoc';
+import VideoDoc from './components/video/VideoDoc';
+import VideoExamplesDoc from './components/video/examples/VideoExamplesDoc';
 import WorldMapDoc from './components/WorldMapDoc';
 
 export default [
@@ -224,7 +225,9 @@ export default [
       {path: 'title', label: 'Title', component: TitleDoc},
       {path: 'topology', label: 'Topology', component: TopologyDoc},
       {path: 'value', label: 'Value', component: ValueDoc},
-      {path: 'video', label: 'Video', component: VideoDoc},
+      {path: 'video', label: 'Video', component: VideoDoc, contents: [
+        {path: 'video-examples', component: VideoExamplesDoc}
+      ]},
       {path: 'world-map', label: 'WorldMap', component: WorldMapDoc}
     ]
   },

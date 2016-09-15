@@ -1,40 +1,39 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import Video from 'grommet/components/Video';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+const USAGE =
+`import Video from 'grommet/components/Video';
+<Video>
+  <source src="url-path" type='video/mp4' />
+</Video>`;
 
 export default class VideoDoc extends Component {
-
-  constructor () {
-    super();
-    this._onSingleSelect = this._onSingleSelect.bind(this);
-    this._onMultipleSelect = this._onMultipleSelect.bind(this);
-    this.state = { singleSelection: [0] };
-  }
-
-  // single selection is managed by the caller via state.singleSelection
-  _onSingleSelect (selection) {
-    this.setState({singleSelection: selection});
-  }
-
-  // multiple selection is managed by the Table
-  _onMultipleSelect (selection) {
-    // no-op
-  }
-
   render () {
 
     return (
       <DocsArticle title="Video" colorIndex="neutral-3">
 
-        <p>Video built on HTML5 video element. Callers must include
-          child <code>&lt;source&gt;</code>elements according to the
-          HTML5 <code>&lt;video&gt;</code> specification.</p>
+        <section>
+          <p>Video built on the HTML5 video element.</p>
+          <Video size="small">
+            <source src="/video/test.mp4" type="video/mp4"/>
+          </Video>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <p>Callers must include
+            child <code>{'<source>'}</code> elements according to the
+            HTML5 <code>{'<video>'}</code> specification.</p>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>allowFullScreen   true|false</code></dt>
             <dd>Enables fullscreen/expand control button on player.</dd>
@@ -83,32 +82,9 @@ export default class VideoDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Simple" code={
-            <Video>
-              <source src="/video/test.mp4" type='video/mp4'/>
-            </Video>
-          } />
-          <Example name="Title, Duration, Timeline, Poster, Full" code={
-            <Video title="Title" poster="/img/mobile_first.jpg" full={true}
-              duration={35} timeline={[
-                {label: 'Chapter 1', time: 0},
-                {label: 'Chapter 2', time: 10},
-                {label: 'Chapter 3', time: 20}
-              ]}>
-              <source src="/video/test.mp4" type="video/mp4"/>
-            </Video>
-          } />
-          <Example name="Small" code={
-            <Video size="small">
-              <source src="/video/test.mp4" type="video/mp4"/>
-            </Video>
-          } />
-          <Example name="Large" code={
-            <Video size="large">
-              <source src="/video/test.mp4" type="video/mp4"/>
-            </Video>
-          } />
-
+          <NavAnchor primary={true} path={`/docs/video-examples`}>
+            Grommet Video Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>
