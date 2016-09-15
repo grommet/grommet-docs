@@ -9,6 +9,7 @@ import Button from 'grommet/components/Button';
 import CheckBox from 'grommet/components/CheckBox';
 import PreviousIcon from 'grommet/components/icons/base/Previous';
 import NextIcon from 'grommet/components/icons/base/Next';
+import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
 import KeyboardAccelerators from 'grommet/utils/KeyboardAccelerators';
 import DocsArticle from './DocsArticle';
 
@@ -85,6 +86,17 @@ export default class ExamplesDoc extends Component {
     const Component = example.component;
     props = { ...(example.props || {}), ...props };
 
+    let contextSection;
+    if (context) {
+      const link = React.cloneElement(context,
+        { primary: true, icon: <LinkPreviousIcon /> });
+      contextSection = (
+        <Section pad={{ horizontal: 'large' }}>
+          {link}
+        </Section>
+      );
+    }
+
     return (
       <DocsArticle context={context} title={title} colorIndex="neutral-3"
         full={true}>
@@ -107,6 +119,9 @@ export default class ExamplesDoc extends Component {
           <Button icon={<NextIcon />}
             onClick={this._onNext} />
         </Section>
+
+        {contextSection}
+
       </DocsArticle>
     );
   }

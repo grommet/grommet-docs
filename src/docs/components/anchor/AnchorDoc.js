@@ -78,7 +78,7 @@ export default class AnchorDoc extends Component {
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/anchor-examples`}>
-            Grommet Anchor Examples
+            Anchor Examples
           </NavAnchor>
         </section>
       </DocsArticle>
