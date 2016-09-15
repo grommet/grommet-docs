@@ -2,6 +2,7 @@
 
 import React, { Component,  PropTypes } from 'react';
 import jsxToString from 'jsx-to-string';
+import debounce from 'lodash/debounce';
 import Box from 'grommet/components/Box';
 
 //hjjs configuration
@@ -13,12 +14,22 @@ hljs.registerLanguage('javascript',
 hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 
 export default class Example extends Component {
+  constructor (props) {
+    super(props);
+    this._highlightCode = props.debounceHighlight
+      ? debounce(this._highlightCode.bind(this), 100)
+      : this._highlightCode.bind(this);
+  }
 
   componentDidMount () {
-    hljs.highlightBlock(this.refs.code);
+    this._highlightCode();
   }
 
   componentDidUpdate () {
+    this._highlightCode();
+  }
+
+  _highlightCode () {
     hljs.highlightBlock(this.refs.code);
   }
 
@@ -73,5 +84,6 @@ Example.propTypes = {
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string),
   preamble: PropTypes.string,
+  debounceHighlight: PropTypes.bool,
   full: PropTypes.oneOf([true, 'horizontal', 'vertical', false])
 };
