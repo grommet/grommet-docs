@@ -1,11 +1,16 @@
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
 import React, { Component } from 'react';
-
 import Image from 'grommet/components/Image';
-
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import NavAnchor from '../../components/NavAnchor';
 
 Image.displayName = 'Image';
+
+const USAGE =
+`import Image from 'grommet/components/Image';
+<Image src="url-path" />`;
 
 export default class ImageDoc extends Component {
 
@@ -13,10 +18,21 @@ export default class ImageDoc extends Component {
     return (
       <DocsArticle title="Image" colorIndex="neutral-3">
 
-        <p>An image.</p>
+        <section>
+          <p>An image.</p>
+          <Box direction="row" align="center" pad={{ between: 'medium' }}>
+            <Image src="/img/carousel-1.png" size="thumb" />
+            <Image src="/img/carousel-1.png" size="small" />
+          </Box>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>caption    true|{"{string}"}</code></dt>
             <dd>Whether to add image caption or not. If set to true,
@@ -38,30 +54,9 @@ export default class ImageDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <Image src="/img/carousel-1.png" />
-          } />
-
-          <Example name="Thumb" code={
-            <Image src="/img/carousel-1.png" size="thumb" />
-          } />
-
-          <Example name="Small" code={
-            <Image src="/img/carousel-1.png" size="small" />
-          } />
-
-          <Example name="Large" code={
-            <Image src="/img/carousel-1.png" size="large" />
-          } />
-
-          <Example name="Full horizontal" code={
-            <Image src="/img/carousel-1.png" full="horizontal" />
-          } />
-
-          <Example name="Caption" code={
-            <Image src="/img/carousel-1.png" caption="1. Sample Image" />
-          } />
-
+          <NavAnchor primary={true} path={`/docs/image-examples`}>
+            Grommet Image Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

@@ -58,6 +58,7 @@ export default class ExamplesDoc extends Component {
   render () {
     const { examples, property, title } = this.props;
     const { index, dark, propertyValue } = this.state;
+    const example = examples[index];
 
     const items = examples.map((item, index) => (
       <Anchor key={index} label={item.label}
@@ -81,7 +82,8 @@ export default class ExamplesDoc extends Component {
       }
     }
 
-    const Component = examples[this.state.index].component;
+    const Component = example.component;
+    props = { ...(example.props || {}), ...props };
 
     return (
       <DocsArticle title={title} colorIndex="neutral-3" full={true}>
@@ -112,7 +114,8 @@ export default class ExamplesDoc extends Component {
 ExamplesDoc.propTypes = {
   examples: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
-    component: PropTypes.func
+    component: PropTypes.func,
+    props: PropTypes.object
   })),
   property: PropTypes.shape({
     name: PropTypes.string.isRequired,

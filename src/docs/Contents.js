@@ -65,6 +65,7 @@ import HeadlineDoc from './components/HeadlineDoc';
 import HeroDoc from './components/HeroDoc';
 import IconDoc from './components/IconDoc';
 import ImageDoc from './components/ImageDoc';
+import ImageExamplesDoc from './components/image/examples/ImageExamplesDoc';
 import LabelDoc from './components/LabelDoc';
 import LayerDoc from './components/LayerDoc';
 import LegendDoc from './components/LegendDoc';
@@ -183,7 +184,9 @@ export default [
       {path: 'headline', label: 'Headline', component: HeadlineDoc},
       {path: 'hero', label: 'Hero', component: HeroDoc},
       {path: 'icon', label: 'Icon', component: IconDoc},
-      {path: 'image', label: 'Image', component: ImageDoc},
+      {path: 'image', label: 'Image', component: ImageDoc, contents: [
+        {path: 'image-examples', component: ImageExamplesDoc}
+      ]},
       {path: 'label', label: 'Label', component: LabelDoc},
       {path: 'layer', label: 'Layer', component: LayerDoc},
       {path: 'legend', label: 'Legend', component: LegendDoc},
