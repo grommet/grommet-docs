@@ -13,12 +13,25 @@ hljs.registerLanguage('javascript',
 hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 
 export default class Example extends Component {
+  constructor (props) {
+    super(props);
+    this._highlightCode = this._highlightCode.bind(this);
+  }
 
   componentDidMount () {
-    hljs.highlightBlock(this.refs.code);
+    this._highlightCode();
   }
 
   componentDidUpdate () {
+    if (this.props.debounceHighlight) {
+      clearTimeout(this._highlightTimer);
+      this._highlightTimer = setTimeout(this._highlightCode, 100);
+    } else {
+      this._highlightCode();
+    }
+  }
+
+  _highlightCode () {
     hljs.highlightBlock(this.refs.code);
   }
 
@@ -73,5 +86,6 @@ Example.propTypes = {
   name: PropTypes.string,
   overrides: PropTypes.arrayOf(PropTypes.string),
   preamble: PropTypes.string,
+  debounceHighlight: PropTypes.bool,
   full: PropTypes.oneOf([true, 'horizontal', 'vertical', false])
 };
