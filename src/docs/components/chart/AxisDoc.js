@@ -4,36 +4,44 @@ import React, { Component } from 'react';
 import Chart, { Base, Axis } from 'grommet/components/chart/Chart';
 import DocsArticle from '../../../components/DocsArticle';
 import NavAnchor from '../../../components/NavAnchor';
-import Example from '../../Example';
+
+const USAGE = `import { Axis } from 'grommet/components/chart/Chart';
+<Axis count={3} labels={[{ index: 2, label: '100%' }]}
+  ticks={true} />
+`;
 
 export default class AxisDoc extends Component {
 
   render () {
     return (
       <DocsArticle title="Chart Axis" colorIndex="neutral-3">
+        <section>
+          <p>An axis decorating a <NavAnchor path={`/docs/chart`}>
+            Chart</NavAnchor>. An Axis can be
+            horizontal or vertical on any edge. It should be placed inside a
+            Chart component.</p>
 
-        <p>An axis decorating a <NavAnchor path={`/docs/chart`}>
-          Chart</NavAnchor>. An Axis can be
-          horizontal or vertical on any edge. It should be placed inside a
-          Chart component.</p>
+          <p>Callers are responsible to set the number of ticks and labels
+            appropriate to the anticipated size of the Chart. Tying it
+            to <code>onMaxCount</code> in <NavAnchor path={`/docs/chart`}>
+            Chart</NavAnchor> is a good way to get some guidance on many ticks
+            could be shown. But, you will need to take into account your
+            labels as well.</p>
 
-        <p>Callers are responsible to set the number of ticks and labels
-          appropriate to the anticipated size of the Chart. Tying it to
-          <code>onMaxCount</code> in <NavAnchor path={`/docs/chart`}>
-          Chart</NavAnchor> is a good way to get some guidance on many ticks
-          could be shown. But, you will need to take into account your
-          labels as well.</p>
-
-        <Example code={
           <Chart vertical={true}>
             <Base height="small"/>
             <Axis count={3} labels={[{ index: 2, label: '100%' }]}
               ticks={true} />
           </Chart>
-        }/>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html xml hljs">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>count        {'{number}'}</code></dt>
             <dd>The number of stops along the axis, including both ends.

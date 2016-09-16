@@ -22,10 +22,12 @@ import BrowserSupport from './reference/BrowserSupport';
 import About from './reference/About';
 
 // import ActionsDoc from './patterns/ActionsDoc';
-import AccordionDoc from './components/AccordionDoc';
+import AccordionDoc from './components/accordion/AccordionDoc';
+import AccordionExamplesDoc from './components/accordion/AccordionExamplesDoc';
 import AnchorDoc from './components/anchor/AnchorDoc';
 import AnchorExamplesDoc from './components/anchor/AnchorExamplesDoc';
-import AnimateDoc from './components/AnimateDoc';
+import AnimateDoc from './components/animate/AnimateDoc';
+import AnimateExamplesDoc from './components/animate/AnimateExamplesDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
@@ -158,11 +160,15 @@ export default [
   },
   {label: 'Components',
     contents: [
-      {path: 'accordion', label: 'Accordion', component: AccordionDoc},
+      {path: 'accordion', label: 'Accordion', index: AccordionDoc, contents: [
+        {path: 'examples', component: AccordionExamplesDoc}
+      ]},
       {path: 'anchor', label: 'Anchor', index: AnchorDoc, contents: [
         {path: 'examples', component: AnchorExamplesDoc}
       ]},
-      {path: 'animate', label: 'Animate', component: AnimateDoc},
+      {path: 'animate', label: 'Animate', index: AnimateDoc, contents: [
+        {path: 'examples', component: AnimateExamplesDoc}
+      ]},
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
       {path: 'box', label: 'Box', index: BoxDoc, contents: [

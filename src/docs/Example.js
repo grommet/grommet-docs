@@ -4,37 +4,7 @@ import React, { Component,  PropTypes } from 'react';
 import jsxToString from 'jsx-to-string';
 import Box from 'grommet/components/Box';
 
-//hjjs configuration
-const hljs = require('highlight.js/lib/highlight');
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('javascript',
-  require('highlight.js/lib/languages/javascript'));
-hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-
 export default class Example extends Component {
-  constructor (props) {
-    super(props);
-    this._highlightCode = this._highlightCode.bind(this);
-  }
-
-  componentDidMount () {
-    this._highlightCode();
-  }
-
-  componentDidUpdate () {
-    if (this.props.debounceHighlight) {
-      clearTimeout(this._highlightTimer);
-      this._highlightTimer = setTimeout(this._highlightCode, 100);
-    } else {
-      this._highlightCode();
-    }
-  }
-
-  _highlightCode () {
-    hljs.highlightBlock(this.refs.code);
-  }
-
   _renderCode () {
     const { code, overrides } = this.props;
     let keyValueOverride = {};

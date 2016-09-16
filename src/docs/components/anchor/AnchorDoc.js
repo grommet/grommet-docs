@@ -81,7 +81,7 @@ export default class AnchorDoc extends Component {
             Anchor Examples
           </NavAnchor>
         </section>
-        
+
       </DocsArticle>
     );
   }

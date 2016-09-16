@@ -7,7 +7,7 @@ import Animate from 'grommet/components/Animate';
 import Box from 'grommet/components/Box';
 import Example from '../../Example';
 
-export default class ScrollAnimation extends Component {
+export default class AnimateScrollExample extends Component {
   constructor (props) {
     super(props);
     this._onScroll = this._onScroll.bind(this);
@@ -71,7 +71,7 @@ export default class ScrollAnimation extends Component {
     const { scrollProgress } = this.state;
 
     return (
-      <Example name="Scroll" debounceHighlight code={
+      <Example code={
         <Box
           pad="medium"
           colorIndex="light-2"
