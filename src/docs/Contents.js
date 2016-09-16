@@ -80,6 +80,7 @@ import LoginFormDoc from './components/LoginFormDoc';
 import MapDoc from './components/MapDoc';
 import MarkdownDoc from './components/MarkdownDoc';
 import MenuDoc from './components/menu/MenuDoc';
+import MenuExamplesDoc from './components/menu/MenuExamplesDoc';
 import MeterDoc from './components/meter/MeterDoc';
 import MeterExamplesDoc from './components/meter/examples/MeterExamplesDoc';
 import NavigationDoc from './patterns/NavigationDoc';
@@ -223,7 +224,9 @@ export default [
       {path: 'login-form', label: 'LoginForm', component: LoginFormDoc},
       {path: 'map', label: 'Map', component: MapDoc},
       {path: 'markdown', label: 'Markdown', component: MarkdownDoc},
-      {path: 'menu', label: 'Menu', component: MenuDoc},
+      {path: 'menu', label: 'Menu', index: MenuDoc, contents: [
+        {path: 'examples', component: MenuExamplesDoc}
+      ]},
       {path: 'meter', label: 'Meter', index: MeterDoc, contents: [
         {path: 'examples', component: MeterExamplesDoc}
       ]},
