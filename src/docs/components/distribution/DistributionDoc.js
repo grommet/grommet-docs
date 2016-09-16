@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import Distribution from 'grommet/components/Distribution';
-import Notification from 'grommet/components/Notification';
 import DocsArticle from '../../../components/DocsArticle';
 import NavAnchor from '../../../components/NavAnchor';
 

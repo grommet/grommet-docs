@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Status from 'grommet/components/icons/Status';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 const USAGE =
 `import Status from 'grommet/components/Status';

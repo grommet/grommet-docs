@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import Spinning from 'grommet/components/icons/Spinning';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 const USAGE =
 `import Spinning from 'grommet/components/Spinning';
