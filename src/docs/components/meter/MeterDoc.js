@@ -9,6 +9,10 @@ import NavAnchor from '../../../components/NavAnchor';
 
 Meter.displayName = 'Meter';
 
+const USAGE =
+`import Meter from 'grommet/components/Meter';
+<Meter value={40} />`;
+
 export default class MeterDoc extends Component {
 
   render () {
@@ -37,46 +41,32 @@ export default class MeterDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>activeIndex {'{number}'}</code></dt>
             <dd>The currently active series value index, if any.</dd>
             <dt><code>colorIndex  {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the graphic color.
               For example: <code>"graph-1"</code></dd>
-            <dt><code>important   {"{number}"}</code></dt>
-            <dd>The index of the series data that the label should
-              correspond to, if any. This property is deprecated in
-              favor of `activeIndex`.</dd>
-            <dt><code>label       {"true|false|{node}"}</code></dt>
-            <dd>If `false`, no label is shown. If a `node` is specified, it is
-              used as the value label. The default is `true`, which causes
-              this component to build the label. `true` is deprecated.
-              Callers are encouraged to use <NavAnchor path="/docs/value">
-              Value</NavAnchor> to construct the appropriate label.</dd>
-            <dt><code>legend      {"{placement: right|bottom|inline, " +
-              "total: true|false}"}</code></dt>
-            <dd>Whether to show a legend. If showing, whether to include
-              a total,
-              and where to place it. If placement is not specified, it will be
-              placed to match the aspect ratio of the window.
-              <code>inline</code> is
-              only supported with horizontal bar. If placement is set to
-              <code>inline</code> and
-              total is set to <code>false</code>, the active value is hidden.
-              This property is deprecated. Callers are encouraged to use
-              <NavAnchor path="/docs/legend">Legend</NavAnchor> and place it
-              around the meter as needed.</dd>
-            <dt><code>max         {"{value: , label: }|{number}"}</code></dt>
+            <dt><code>label       {"{node}"}</code></dt>
+            <dd>Callers are encouraged to use <NavAnchor path="/docs/value">
+              Value</NavAnchor> to construct the appropriate label. Also
+              see deprecated options below.</dd>
+            <dt><code>max         {"{number}"}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>
-            <dt><code>min         {"{value: , label: }|{number}"}</code></dt>
+            <dt><code>min         {"{number}"}</code></dt>
             <dd>The smallest possible value. Defaults to 0.</dd>
             <dt><code>onActive    {"{function (index)}"}</code></dt>
             <dd>Hover handler. The hovered series index is passed as an
               argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>
-            <dt><code>series      {"[{value: , label: , colorIndex: , " +
+            <dt><code>series      {"[{value: , colorIndex: , " +
               "important: , onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.
               Either this or the <code>value</code> property must be
@@ -96,15 +86,52 @@ export default class MeterDoc extends Component {
             <dd>An array of objects describing thresholds.</dd>
             <dt><code>type        bar|arc|circle|spiral</code></dt>
             <dd>Whether to draw a bar, an arc, a circle, or a spiral.</dd>
-            <dt><code>units       {"{string}"}</code></dt>
-            <dd>Optional units to display next to the value label. This
-              property is deprecated. Callers are encouraged to use
-              <NavAnchor path="/docs/value">Value</NavAnchor> to construct
-              a label.</dd>
             <dt><code>value       {"{number}"}</code></dt>
             <dd>The current value.</dd>
             <dt><code>vertical    true|false</code></dt>
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
+          </dl>
+
+          <h3 className="error">Deprecated</h3>
+          <p>The following properties and/or options are deprecated and will be
+            removed in version 1.0.</p>
+          <dl>
+            <dt><code>important   {"{number}"}</code></dt>
+            <dd>The index of the series data that the label should
+              correspond to, if any. This property is deprecated in
+              favor of <code>activeIndex</code>.</dd>
+            <dt><code>label       true|false</code></dt>
+            <dd>If <code>false</code>, no label is shown. The default
+              is <code>true</code>, which
+              causes this component to build the
+              label. <code>true</code> and <code>false</code> are
+              deprecated. Instead, callers can
+              use <NavAnchor path="/docs/value">
+              Value</NavAnchor> to construct the appropriate label.</dd>
+            <dt><code>legend      {"{placement: right|bottom|inline, " +
+              "total: true|false}"}</code></dt>
+            <dd>Whether to show a legend. If showing, whether to include
+              a total,
+              and where to place it. If placement is not specified, it will be
+              placed to match the aspect ratio of the
+              window. <code>inline</code> is
+              only supported with horizontal bar. If placement is set
+              to <code>inline</code> and
+              total is set to <code>false</code>, the active value is hidden.
+              This property is deprecated. Callers are encouraged to
+              use <NavAnchor path="/docs/legend">Legend</NavAnchor> and place it
+              around the meter as needed.</dd>
+            <dt><code>max         {"{value: , label: }"}</code></dt>
+            <dd>The largest possible value and its label.</dd>
+            <dt><code>min         {"{value: , label: }"}</code></dt>
+            <dd>The smallest possible value and its label.</dd>
+            <dt><code>series      {"[{label: }, ...]"}</code></dt>
+            <dd>The label property of series items is deprecated.</dd>
+            <dt><code>units       {"{string}"}</code></dt>
+            <dd>Optional units to display next to the value label. This
+              property is deprecated. Callers should
+              use <NavAnchor path="/docs/value">Value</NavAnchor> to construct
+              a label.</dd>
           </dl>
         </section>
 

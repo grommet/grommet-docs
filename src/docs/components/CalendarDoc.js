@@ -25,8 +25,12 @@ export default class CalendarDoc extends Component {
       <DocsArticle title="Calendar" colorIndex="neutral-3">
 
         <section>
-          <p>An input field for a date. NOTE: This component is deprecated in
-            favor of <NavAnchor path="/docs/date-time">DateTime</NavAnchor>.</p>
+          <p>An input field for a date.</p>
+
+          <h3 className="error">Deprecated</h3>
+          <p>This component is
+            deprecated. <NavAnchor path="/docs/date-time">
+            DateTime</NavAnchor> should be used instead.</p>
 
           <Example code={
             <Form>
