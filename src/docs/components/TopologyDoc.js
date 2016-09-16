@@ -2,8 +2,22 @@
 
 import React, { Component } from 'react';
 import Topology from 'grommet/components/Topology';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
+
+Topology.displayName = 'Topology';
+
+const USAGE =
+`import Topology from 'grommet/components/Topology';
+<Topology links={[
+  {colorIndex: "graph-1", ids: ["p1", "p1"]}
+]}>
+  <Topology.Parts>
+    <Topology.Part id="p1" status="ok" label="1" />
+    <Topology.Part id="p2" status="ok" label="1" />
+  </Topology.Parts>
+</Topology>`;
 
 export default class TopologyDoc extends Component {
 
@@ -12,10 +26,27 @@ export default class TopologyDoc extends Component {
     return (
       <DocsArticle title="Topology" colorIndex="neutral-3">
 
-        <p>Visualize structure and connectivity.</p>
+        <section>
+          <p>Visualize structure and connectivity.</p>
+          <Box align="start" pad="medium">
+            <Topology links={[
+              {colorIndex: "graph-1", ids: ["p1", "p2"]}
+            ]}>
+              <Topology.Parts>
+                <Topology.Part id="p1" status="ok" label="1" align="center" />
+                <Topology.Part id="p2" status="ok" label="2" align="center" />
+              </Topology.Parts>
+            </Topology>
+          </Box>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>links       {"[{...}]"}</code></dt>
             <dd>An array of: <code>
@@ -30,7 +61,7 @@ export default class TopologyDoc extends Component {
 
           <h3>Toplogy.Part</h3>
           <p>An individual part. I Part can contain Parts or another Part.</p>
-          <h4>Options</h4>
+          <h4>Properties</h4>
           <dl>
             <dt><code>align        start|center|between|end|stretch</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
@@ -56,7 +87,7 @@ export default class TopologyDoc extends Component {
           <h3>Toplogy.Parts</h3>
           <p>A container for Part components. It is provided purely to assist
             with Part layout.</p>
-          <h4>Options</h4>
+          <h4>Properties</h4>
           <dl>
             <dt><code>direction    row|column</code></dt>
             <dd>The orientation to layout the child components in.</dd>

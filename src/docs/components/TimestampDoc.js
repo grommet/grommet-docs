@@ -7,6 +7,10 @@ import Example from '../Example';
 
 Timestamp.displayName = 'Timestamp';
 
+const USAGE =
+`import Timestamp from 'grommet/components/Timestamp';
+<Timestamp value={} />`;
+
 export default class TimestampDoc extends Component {
 
   render () {
@@ -20,11 +24,16 @@ export default class TimestampDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>align     start|center|end</code></dt>
             <dd>The horizontal alignment of the Timestamp.</dd>
-            <dt><code>fields     date|time</code></dt>
+            <dt><code>fields    date|time</code></dt>
             <dd>Whether to show jsut the date or just the time.</dd>
             <dt><code>value     {'{ISO8601 string}|{Date}'}</code></dt>
             <dd>The date value as an ISO8601 string or
