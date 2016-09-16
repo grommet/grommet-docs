@@ -3,75 +3,39 @@
 import React, { Component } from 'react';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+Table.displayName = 'Table';
+TableRow.displayName = 'TableRow';
+
+const USAGE =
+`import Table from 'grommet/components/Table';
+import TableRow from 'grommet/components/TableRow';
+<Table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <TableRow>
+      <td>Alan</td>
+      <td>plays accordion</td>
+    </TableRow>
+    <TableRow>
+      <td>Tracy</td>
+      <td>travels the world</td>
+    </TableRow>
+  </tbody>
+</Table>`;
+
+const ON_CLICK_SNIPPET = `onClick={this._onClick.bind(this, id)}`;
 
 export default class TableDoc extends Component {
 
-  constructor () {
-    super();
-    this._onSingleSelect = this._onSingleSelect.bind(this);
-    this._onMultipleSelect = this._onMultipleSelect.bind(this);
-
-    this.state = { singleSelected: [0] };
-  }
-
-  // single selection is managed by the caller via state.singleSelection
-  _onSingleSelect (selection) {
-    this.setState({singleSelected: selection});
-  }
-
-  // multiple selection is managed by the Table
-  _onMultipleSelect (selection) {
-    // no-op
-  }
-
   render () {
-
-    const tableHeader = (
-      <thead>
-        <tr>
-          <th>header 1</th>
-          <th>header 2</th>
-        </tr>
-      </thead>
-    );
-
-    const tableBody = (
-      <tbody>
-        <tr>
-          <td>first</td>
-          <td>note 1</td>
-        </tr>
-        <tr>
-          <td>second</td>
-          <td>note 2</td>
-        </tr>
-        <tr>
-          <td>third</td>
-          <td>note 3</td>
-        </tr>
-      </tbody>
-    );
-
-
-    const tableRow = (
-      <tbody>
-        <TableRow>
-          <td>first</td>
-          <td>note 1</td>
-        </TableRow>
-        <TableRow>
-          <td>second</td>
-          <td>note 2</td>
-        </TableRow>
-        <TableRow>
-          <td>third</td>
-          <td>note 3</td>
-        </TableRow>
-      </tbody>
-    );
-
     return (
       <DocsArticle title="Table" colorIndex="neutral-3">
 
@@ -79,14 +43,36 @@ export default class TableDoc extends Component {
           <p>Table of items. The preferred method of
             populating rows in the Table is to use TableRows inside
             a child <code>&lt;tbody&gt;</code> element.
-            Callers should also specify
+            Callers can also specify
             a child <code>&lt;thead&gt;</code> element if a header is
             needed.</p>
-          <Table>{tableBody}</Table>
+          <Table>
+            <thead>
+              <TableRow>
+                <th>name</th>
+                <th>note</th>
+              </TableRow>
+            </thead>
+            <tbody>
+              <TableRow>
+                <td>Alan</td>
+                <td>plays accordion</td>
+              </TableRow>
+              <TableRow>
+                <td>Tracy</td>
+                <td>travels the world</td>
+              </TableRow>
+            </tbody>
+          </Table>
         </section>
 
         <section>
-          <h2>Table Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Table Properties</h2>
           <dl>
             <dt><code>onMore        {"{function}"}</code></dt>
             <dd>Function that will be called when more data is needed. When this
@@ -115,13 +101,12 @@ export default class TableDoc extends Component {
         </section>
 
         <section>
-          <h2>TableRow Options</h2>
+          <h2>TableRow Properties</h2>
           <dl>
             <dt><code>onClick       {"{function}"}</code></dt>
             <dd>Called when the user clicks on the row. Callers should bind
               an identifier to the function to distinguish between multiple
-              rows. For example <code>
-              {"onClick={this._onClick.bind(this, id)}"}</code></dd>
+              rows. For example <code>{ON_CLICK_SNIPPET}</code></dd>
             <dt><code>selected      true|false</code></dt>
             <dd>Whether this row is currently selected.</dd>
           </dl>
@@ -130,31 +115,9 @@ export default class TableDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Simple" code={
-            <Table>{tableBody}</Table>
-          } />
-
-          <Example name="Selectable" code={
-            <Table selectable={true} selected={this.state.singleSelected}
-              onSelect={this._onSingleSelect}>
-              {tableHeader}
-              {tableBody}
-            </Table>
-          } />
-
-          <Example name="Multi-select" code={
-            <Table selectable="multiple" onSelect={this._onMultipleSelect}>
-              {tableHeader}
-              {tableBody}
-            </Table>
-          } />
-
-          <Example name="TableRow" code={
-            <Table selectable={true} onSelect={this._onMultipleSelect}>
-              {tableHeader}
-              {tableRow}
-            </Table>
-          } />
+          <NavAnchor primary={true} path={`/docs/table/examples`}>
+            Table Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

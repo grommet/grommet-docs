@@ -79,15 +79,19 @@ import ListDoc from './components/ListDoc';
 import LoginFormDoc from './components/LoginFormDoc';
 import MapDoc from './components/MapDoc';
 import MarkdownDoc from './components/MarkdownDoc';
-import MenuDoc from './components/MenuDoc';
+import MenuDoc from './components/menu/MenuDoc';
 import MeterDoc from './components/meter/MeterDoc';
 import MeterExamplesDoc from './components/meter/examples/MeterExamplesDoc';
 import NavigationDoc from './patterns/NavigationDoc';
-import NotificationDoc from './components/NotificationDoc';
+import NotificationDoc from './components/notification/NotificationDoc';
+import NotificationExamplesDoc from
+  './components/notification/NotificationExamplesDoc';
 import NumberInputDoc from './components/NumberInputDoc';
-import ParagraphDoc from './components/ParagraphDoc';
+import ParagraphDoc from './components/paragraph/ParagraphDoc';
+import ParagraphExamplesDoc from './components/paragraph/ParagraphExamplesDoc';
 import PulseDoc from './components/PulseDoc';
-import QuoteDoc from './components/QuoteDoc';
+import QuoteDoc from './components/quote/QuoteDoc';
+import QuoteExamplesDoc from './components/quote/QuoteExamplesDoc';
 import RadioButtonDoc from './components/RadioButtonDoc';
 import RestDoc from './utils/RestDoc';
 import RestWatchDoc from './utils/RestWatchDoc';
@@ -95,12 +99,15 @@ import SearchDoc from './components/SearchDoc';
 import SearchInputDoc from './components/SearchInputDoc';
 import SectionDoc from './components/SectionDoc';
 import SidebarDoc from './components/SidebarDoc';
-import SocialShareDoc from './components/SocialShareDoc';
+import SocialShareDoc from './components/social-share/SocialShareDoc';
+import SocialShareExamplesDoc from
+  './components/social-share/SocialShareExamplesDoc';
 import SpinningDoc from './components/SpinningDoc';
 import SplitDoc from './components/SplitDoc';
 import StatusDoc from './components/StatusDoc';
 import SunBurstDoc from './components/SunBurstDoc';
-import TableDoc from './components/TableDoc';
+import TableDoc from './components/table/TableDoc';
+import TableExamplesDoc from './components/table/TableExamplesDoc';
 import TabsDoc from './components/TabsDoc';
 import TagsDoc from './components/TagsDoc';
 import TilesDoc from './components/tiles/TilesDoc';
@@ -220,23 +227,35 @@ export default [
       {path: 'meter', label: 'Meter', index: MeterDoc, contents: [
         {path: 'examples', component: MeterExamplesDoc}
       ]},
-      {path: 'notification', label: 'Notification', component: NotificationDoc},
+      {path: 'notification', label: 'Notification', index: NotificationDoc,
+        contents: [
+          {path: 'examples', component: NotificationExamplesDoc}
+        ]},
       {path: 'number-input', label: 'NumberInput', component: NumberInputDoc},
-      {path: 'paragraph', label: 'Paragraph', component: ParagraphDoc},
+      {path: 'paragraph', label: 'Paragraph', index: ParagraphDoc, contents: [
+        {path: 'examples', component: ParagraphExamplesDoc}
+      ]},
       {path: 'pulse', label: 'Pulse', component: PulseDoc},
-      {path: 'quote', label: 'Quote', component: QuoteDoc},
+      {path: 'quote', label: 'Quote', index: QuoteDoc, contents: [
+        {path: 'examples', component: QuoteExamplesDoc}
+      ]},
       {path: 'radio-button', label: 'RadioButton', component: RadioButtonDoc},
       {path: 'search', label: 'Search', component: SearchDoc},
       {path: 'search-input', label: 'SearchInput', component: SearchInputDoc},
       {path: 'section', label: 'Section', component: SectionDoc},
       {path: 'sidebar', label: 'Sidebar', component: SidebarDoc},
-      {path: 'social-share', label: 'SocialShare', component: SocialShareDoc},
+      {path: 'social-share', label: 'SocialShare', index: SocialShareDoc,
+        contents: [
+          {path: 'examples', component: SocialShareExamplesDoc}
+        ]},
       {path: 'spinning', label: 'Spinning', component: SpinningDoc},
       {path: 'split', label: 'Split', component: SplitDoc},
       {path: 'status', label: 'Status', component: StatusDoc},
       {path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc},
-      {path: 'table', label: 'Table', component: TableDoc},
-      {path: 'tabs', label: 'Tabs', component: TabsDoc},
+      {path: 'table', label: 'Table', index: TableDoc, contents: [
+        {path: 'examples', component: TableExamplesDoc}
+      ]},
+      {path: 'tabs', label: 'Tabs', index: TabsDoc},
       {path: 'tags', label: 'Tags', component: TagsDoc},
       {path: 'tiles', label: 'Tiles', index: TilesDoc, contents: [
         {path: 'examples', component: TilesExamplesDoc}

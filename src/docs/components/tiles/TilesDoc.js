@@ -79,7 +79,7 @@ export default class TileDoc extends Component {
               (set with <code>size</code>). Deprecated, use <NavAnchor
               path="/docs/columns">Columns</NavAnchor> instead.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available for Tiles.</p>
         </section>
 
@@ -96,7 +96,7 @@ export default class TileDoc extends Component {
             <dd>Whether the tile should fill the full width of the Tiles
             component that contains it.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
             also available for Tile.</p>
         </section>
 

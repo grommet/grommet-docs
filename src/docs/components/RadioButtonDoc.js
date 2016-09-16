@@ -6,6 +6,11 @@ import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
+const USAGE =
+`import RadioButton from 'grommet/components/RadioButton';
+<RadioButton label="Choice 1" checked={} onChange={} />
+<RadioButton label="Choice 2" checked={} onChange={} />`;
+
 export default class RadioButtonDoc extends Component {
 
   constructor () {
@@ -37,24 +42,29 @@ export default class RadioButtonDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
           <dt><code>checked         true|false</code></dt>
-          <dd>Same as React {"<input checked= >"}.</dd>
+          <dd>Same as React <code>{"<input checked={} />"}</code>.</dd>
           <dt><code>defaultChecked  true|false</code></dt>
-          <dd>Same as React {"<input defaultChecked= >"}.</dd>
+          <dd>Same as React <code>{"<input defaultChecked={} />"}</code>.</dd>
           <dt><code>disabled        true|false</code></dt>
-          <dd>Same as React {"<input disabled= >"}.</dd>
+          <dd>Same as React <code>{"<input disabled={} />"}</code>.</dd>
           <dt><code>id              {"{string}"}</code></dt>
-          <dd>The DOM id attribute value to use for the underlying
-            {"<input>"} element.</dd>
+          <dd>The DOM id attribute value to use for the
+            underlying <code>{"<input />"}</code> element.</dd>
           <dt><code>label           {"{string|node}"}</code></dt>
           <dd>Label text to place next to the control.</dd>
           <dt><code>name            {"{string}"}</code></dt>
-          <dd>The DOM name attribute value to use for the underlying
-            {"<input>"} element.</dd>
+          <dd>The DOM name attribute value to use for the
+            underlying <code>{"<input />"}</code> element.</dd>
           <dt><code>onChange        {"{function}"}</code></dt>
-          <dd>Same as React {"<input onChange= >"}.</dd>
+          <dd>Same as React <code>{"<input onChange={} />"}</code>.</dd>
           </dl>
         </section>
 

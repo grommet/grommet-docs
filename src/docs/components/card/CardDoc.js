@@ -77,7 +77,7 @@ export default class CardDoc extends Component {
             <dd>Video media type and source path or
               a <NavAnchor path="/docs/video">Video</NavAnchor> element.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
             also available for Card.</p>
         </section>
 

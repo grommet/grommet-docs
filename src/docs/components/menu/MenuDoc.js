@@ -1,15 +1,15 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
 import Menu from 'grommet/components/Menu';
 import ConfigIcon from 'grommet/components/icons/base/Configuration';
 import FilterIcon from 'grommet/components/icons/base/Filter';
 import CheckBox from 'grommet/components/CheckBox';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+import Example from '../../Example';
 
 Menu.displayName = 'Menu';
 CheckBox.displayName = 'CheckBox';
