@@ -58,16 +58,16 @@ export default class SunBurstDoc extends Component {
         <section>
           <p>A SunBurst visualization.</p>
           <Example code={
-              <SunBurst data={DATA} size="xlarge"
-                active={this.state.active}
-                onActive={path => this.setState({ active: path })}
-                onClick={path => alert(path)}
-                label={label} />
+            <SunBurst data={DATA} size="xlarge"
+              active={this.state.active}
+              onActive={path => this.setState({ active: path })}
+              onClick={path => alert(path)}
+              label={label} />
           }/>
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>active    {'{[index, ...]}'}</code></dt>
             <dd>The currently active index path, if any.</dd>

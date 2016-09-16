@@ -8,6 +8,17 @@ import Example from '../Example';
 
 WorldMap.displayName = 'WorldMap';
 
+const USAGE =
+`import WorldMap from 'grommet/components/WorldMap';
+<WorldMap series={[
+    { continent: 'NorthAmerica', colorIndex: 'graph-1' },
+    { continent: 'SouthAmerica', colorIndex: 'accent-1' },
+    { continent: 'Europe', colorIndex: 'unset' },
+    { continent: 'Africa', colorIndex: 'graph-2' },
+    { continent: 'Asia', colorIndex: 'graph-3' },
+    { continent: 'Australia', colorIndex: 'graph-4' }
+  ]} />`;
+
 const series = [
   {continent: 'NorthAmerica', label: 'North America', value: 40,
     colorIndex: 'graph-1', onClick: () => {
@@ -44,7 +55,14 @@ export default class WorldMapDoc extends Component {
 
         <section>
           <p>A world map of continents.</p>
-          <WorldMap series={series} legend={true} units="B"/>
+          <WorldMap series={[
+            { continent: 'NorthAmerica', colorIndex: 'graph-1' },
+            { continent: 'SouthAmerica', colorIndex: 'accent-1' },
+            { continent: 'Europe', colorIndex: 'unset' },
+            { continent: 'Africa', colorIndex: 'graph-2' },
+            { continent: 'Asia', colorIndex: 'graph-3' },
+            { continent: 'Australia', colorIndex: 'graph-4' }
+          ]} legend={true} units="B"/>
           <p>Note: It is a good idea to include
           a <NavAnchor path="/docs/legend">
           Legend</NavAnchor> along
@@ -53,7 +71,12 @@ export default class WorldMapDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>series      {"[{continent: , colorIndex: , " +
               "onClick: }, ...]"}</code></dt>

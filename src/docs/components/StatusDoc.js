@@ -6,9 +6,9 @@ import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
-const PREAMBLE =
-`var Status = require('grommet/components/icons/Status');
-// or var Status = Grommet.Icons.Status;`;
+const USAGE =
+`import Status from 'grommet/components/Status';
+<Status value="ok" />`;
 
 export default class StatusDoc extends Component {
 
@@ -29,7 +29,12 @@ export default class StatusDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>a11yTitle   {"{string}"}</code></dt>
             <dd>Accessibility Title. If not set uses the default title of
@@ -45,18 +50,6 @@ export default class StatusDoc extends Component {
               </code></dt>
             <dd>Which status to indicate.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Example name="Small" preamble={PREAMBLE} code={
-            <Status value="ok" size="small"/>
-          } />
-          <Example name="Large" preamble={PREAMBLE} code={
-            <Status value="ok" size="large"/>
-          } />
-
         </section>
 
       </DocsArticle>

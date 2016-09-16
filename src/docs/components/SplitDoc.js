@@ -29,7 +29,7 @@ export default class SplitDoc extends Component {
         as this will provide the best responsive behavior across devices.</p>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>fixed               true|false</code></dt>
             <dd>Whether each side should scroll independently.</dd>
