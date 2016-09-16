@@ -49,6 +49,9 @@ export default class AxisDoc extends Component {
               top.</dd>
             <dt><code>ticks        true|false</code></dt>
             <dd>Whether to show tick marks for each stop.</dd>
+            <dt><code>tickAlign        start|end</code></dt>
+            <dd>How to align the tick marks along the axis. Defaults to 
+              <code>start</code>.</dd>
             <dt><code>vertical     true|false</code></dt>
             <dd>Whether the axis should be layed out horizontally
               or vertically.</dd>

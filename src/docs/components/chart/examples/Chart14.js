@@ -30,7 +30,7 @@ export default class Chart14 extends Component {
     return (
       <Example code={
         <Chart vertical={true}>
-          <Axis vertical={false} ticks={true}
+          <Axis vertical={false} ticks={true} tickAlign="end"
             count={5} labels={PERCENT_AXIS_LABELS} />
           <Chart vertical={false}>
             <Axis vertical={true} reverse={true} ticks={true}

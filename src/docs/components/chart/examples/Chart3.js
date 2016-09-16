@@ -49,7 +49,8 @@ export default class Chart3 extends Component {
     return (
       <Example code={
         <Chart vertical={true} horizontalAlignWith="meter-3-id">
-          <Axis ticks={true} count={5} labels={PERCENT_AXIS_LABELS} />
+          <Axis ticks={true} tickAlign="end" count={5} 
+            labels={PERCENT_AXIS_LABELS} />
           <Base vertical={true}>
             <Box align="start">{meters}</Box>
           </Base>

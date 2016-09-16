@@ -79,7 +79,8 @@ export default class Chart16 extends Component {
       <Example code={
         <Box>
           <Chart vertical={true}>
-            <Axis ticks={true} count={3} labels={UNIT_AXIS_LABELS} />
+            <Axis ticks={true} tickAlign="end" count={3} 
+              labels={UNIT_AXIS_LABELS} />
             <Base height="small" width="large" />
             <Layers>
               <Area values={VALUES} />
