@@ -112,16 +112,20 @@ export default class ChartV1Doc extends Component {
     return (
       <DocsArticle title="Chart V1" colorIndex="neutral-3">
 
-        <p>NOTE: This is the older version of the Grommet Chart component.
-        It is currently deprecated and will be removed in a future release.
-        Please refer to the latest <NavAnchor path={`/docs/chart`}>
-        Chart</NavAnchor> documentation for the current
-        version.</p>
+        <section>
+          <p>Shows a graphical data chart.</p>
 
-        <p>Shows a graphical data chart.</p>
-        <pre><code className="html hljs xml">
-          {"<Chart ... />"}
-        </code></pre>
+          <h3 className="error">Deprecated</h3>
+          <p>This is the older version of the Grommet Chart component.
+          It is currently deprecated and will be removed in version 1.0.
+          Please refer to the latest <NavAnchor path={`/docs/chart`}>
+          Chart</NavAnchor> documentation for the current
+          version.</p>
+
+          <pre><code className="html hljs xml">
+            {"<Chart ... />"}
+          </code></pre>
+        </section>
 
         <section>
           <h2>Options</h2>
