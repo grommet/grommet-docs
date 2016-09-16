@@ -111,7 +111,7 @@ export default class MeterDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/meter-examples`}>
+          <NavAnchor primary={true} path={`/docs/meter/examples`}>
             Grommet Meter Examples
           </NavAnchor>
         </section>

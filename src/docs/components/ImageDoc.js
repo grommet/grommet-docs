@@ -54,7 +54,7 @@ export default class ImageDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/image-examples`}>
+          <NavAnchor primary={true} path={`/docs/image/examples`}>
             Grommet Image Examples
           </NavAnchor>
         </section>

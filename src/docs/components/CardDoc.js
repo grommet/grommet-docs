@@ -65,7 +65,7 @@ export default class CardDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/card-examples`}>
+          <NavAnchor primary={true} path={`/docs/card/examples`}>
             Grommet Card Examples
           </NavAnchor>
         </section>

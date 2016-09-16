@@ -144,36 +144,36 @@ export default [
   {label: 'Components',
     contents: [
       {path: 'accordion', label: 'Accordion', component: AccordionDoc},
-      {path: 'anchor', label: 'Anchor', component: AnchorDoc, contents: [
-        {path: 'anchor/examples', component: AnchorExamplesDoc}
+      {path: 'anchor', label: 'Anchor', index: AnchorDoc, contents: [
+        {path: 'examples', component: AnchorExamplesDoc}
       ]},
       {path: 'animate', label: 'Animate', component: AnimateDoc},
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
-      {path: 'box', label: 'Box', component: BoxDoc, contents: [
-        {path: 'box/gym', component: BoxingGymDoc},
-        {path: 'box/examples', component: BoxExamplesDoc}
+      {path: 'box', label: 'Box', index: BoxDoc, contents: [
+        {path: 'gym', component: BoxingGymDoc},
+        {path: 'examples', component: BoxExamplesDoc}
       ]},
       {path: 'brick', label: 'Brick', component: BrickDoc},
       {path: 'button', label: 'Button', component: ButtonDoc},
       {path: 'calendar', label: 'Calendar', component: CalendarDoc},
-      {path: 'card', label: 'Card', component: CardDoc, contents: [
-        {path: 'card-examples', component: CardExamplesDoc}
+      {path: 'card', label: 'Card', index: CardDoc, contents: [
+        {path: 'examples', component: CardExamplesDoc}
       ]},
       {path: 'carousel', label: 'Carousel', component: CarouselDoc},
-      {path: 'chart', label: 'Chart', component: ChartDoc, contents: [
-        {path: 'chart-area', component: ChartAreaDoc},
-        {path: 'chart-axis', component: ChartAxisDoc},
-        {path: 'chart-bar', component: ChartBarDoc},
-        {path: 'chart-base', component: ChartBaseDoc},
-        {path: 'chart-examples', component: ChartExamplesDoc},
-        {path: 'chart-grid', component: ChartGridDoc},
-        {path: 'chart-hot-spots', component: ChartHotSpotsDoc},
-        {path: 'chart-layers', component: ChartLayersDoc},
-        {path: 'chart-line', component: ChartLineDoc},
-        {path: 'chart-marker', component: ChartMarkerDoc},
-        {path: 'chart-marker-label', component: ChartMarkerLabelDoc},
-        {path: 'chart-range', component: ChartRangeDoc}
+      {path: 'chart', label: 'Chart', index: ChartDoc, contents: [
+        {path: 'area', component: ChartAreaDoc},
+        {path: 'axis', component: ChartAxisDoc},
+        {path: 'bar', component: ChartBarDoc},
+        {path: 'base', component: ChartBaseDoc},
+        {path: 'examples', component: ChartExamplesDoc},
+        {path: 'grid', component: ChartGridDoc},
+        {path: 'hot-spots', component: ChartHotSpotsDoc},
+        {path: 'layers', component: ChartLayersDoc},
+        {path: 'line', component: ChartLineDoc},
+        {path: 'marker', component: ChartMarkerDoc},
+        {path: 'marker-label', component: ChartMarkerLabelDoc},
+        {path: 'range', component: ChartRangeDoc}
       ]},
       {path: 'chart-v1', component: ChartV1Doc},
       {path: 'check-box', label: 'CheckBox', component: CheckBoxDoc},
@@ -188,8 +188,8 @@ export default [
       {path: 'headline', label: 'Headline', component: HeadlineDoc},
       {path: 'hero', label: 'Hero', component: HeroDoc},
       {path: 'icon', label: 'Icon', component: IconDoc},
-      {path: 'image', label: 'Image', component: ImageDoc, contents: [
-        {path: 'image-examples', component: ImageExamplesDoc}
+      {path: 'image', label: 'Image', index: ImageDoc, contents: [
+        {path: 'examples', component: ImageExamplesDoc}
       ]},
       {path: 'label', label: 'Label', component: LabelDoc},
       {path: 'layer', label: 'Layer', component: LayerDoc},
@@ -199,8 +199,8 @@ export default [
       {path: 'map', label: 'Map', component: MapDoc},
       {path: 'markdown', label: 'Markdown', component: MarkdownDoc},
       {path: 'menu', label: 'Menu', component: MenuDoc},
-      {path: 'meter', label: 'Meter', component: MeterDoc, contents: [
-        {path: 'meter-examples', component: MeterExamplesDoc}
+      {path: 'meter', label: 'Meter', index: MeterDoc, contents: [
+        {path: 'examples', component: MeterExamplesDoc}
       ]},
       {path: 'notification', label: 'Notification', component: NotificationDoc},
       {path: 'number-input', label: 'NumberInput', component: NumberInputDoc},
@@ -220,16 +220,16 @@ export default [
       {path: 'table', label: 'Table', component: TableDoc},
       {path: 'tabs', label: 'Tabs', component: TabsDoc},
       {path: 'tags', label: 'Tags', component: TagsDoc},
-      {path: 'tiles', label: 'Tiles', component: TilesDoc, contents: [
-        {path: 'tiles-examples', component: TilesExamplesDoc}
+      {path: 'tiles', label: 'Tiles', index: TilesDoc, contents: [
+        {path: 'examples', component: TilesExamplesDoc}
       ]},
       {path: 'timestamp', label: 'Timestamp', component: TimestampDoc},
       {path: 'tip', label: 'Tip', component: TipDoc},
       {path: 'title', label: 'Title', component: TitleDoc},
       {path: 'topology', label: 'Topology', component: TopologyDoc},
       {path: 'value', label: 'Value', component: ValueDoc},
-      {path: 'video', label: 'Video', component: VideoDoc, contents: [
-        {path: 'video-examples', component: VideoExamplesDoc}
+      {path: 'video', label: 'Video', index: VideoDoc, contents: [
+        {path: 'examples', component: VideoExamplesDoc}
       ]},
       {path: 'world-map', label: 'WorldMap', component: WorldMapDoc}
     ]

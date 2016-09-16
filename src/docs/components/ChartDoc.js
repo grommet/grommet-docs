@@ -80,17 +80,17 @@ export default class ChartDoc extends Component {
           <h2>Components</h2>
 
           <Menu inline={true}>
-            <NavAnchor path={`/docs/chart-area`}>Area</NavAnchor>
-            <NavAnchor path={`/docs/chart-axis`}>Axis</NavAnchor>
-            <NavAnchor path={`/docs/chart-bar`}>Bar</NavAnchor>
-            <NavAnchor path={`/docs/chart-base`}>Base</NavAnchor>
-            <NavAnchor path={`/docs/chart-hot-spots`}>HotSpots</NavAnchor>
-            <NavAnchor path={`/docs/chart-grid`}>Grid</NavAnchor>
-            <NavAnchor path={`/docs/chart-layers`}>Layers</NavAnchor>
-            <NavAnchor path={`/docs/chart-line`}>Line</NavAnchor>
-            <NavAnchor path={`/docs/chart-marker`}>Marker</NavAnchor>
-            <NavAnchor path={`/docs/chart-marker-label`}>MarkerLabel</NavAnchor>
-            <NavAnchor path={`/docs/chart-range`}>Range</NavAnchor>
+            <NavAnchor path={`/docs/chart/area`}>Area</NavAnchor>
+            <NavAnchor path={`/docs/chart/axis`}>Axis</NavAnchor>
+            <NavAnchor path={`/docs/chart/bar`}>Bar</NavAnchor>
+            <NavAnchor path={`/docs/chart/base`}>Base</NavAnchor>
+            <NavAnchor path={`/docs/chart/hot-spots`}>HotSpots</NavAnchor>
+            <NavAnchor path={`/docs/chart/grid`}>Grid</NavAnchor>
+            <NavAnchor path={`/docs/chart/layers`}>Layers</NavAnchor>
+            <NavAnchor path={`/docs/chart/line`}>Line</NavAnchor>
+            <NavAnchor path={`/docs/chart/marker`}>Marker</NavAnchor>
+            <NavAnchor path={`/docs/chart/marker-label`}>MarkerLabel</NavAnchor>
+            <NavAnchor path={`/docs/chart/range`}>Range</NavAnchor>
           </Menu>
 
           <p>See the older <NavAnchor path={`/docs/chart-v1`}>
@@ -139,7 +139,7 @@ export default class ChartDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/chart-examples`}>
+          <NavAnchor primary={true} path={`/docs/chart/examples`}>
             Grommet Chart Examples
           </NavAnchor>
         </section>
