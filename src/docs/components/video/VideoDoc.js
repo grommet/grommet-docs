@@ -83,7 +83,7 @@ export default class VideoDoc extends Component {
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/video/examples`}>
-            Grommet Video Examples
+            Video Examples
           </NavAnchor>
         </section>
 

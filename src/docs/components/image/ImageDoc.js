@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 Image.displayName = 'Image';
 
@@ -55,7 +55,7 @@ export default class ImageDoc extends Component {
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/image/examples`}>
-            Grommet Image Examples
+            Image Examples
           </NavAnchor>
         </section>
 

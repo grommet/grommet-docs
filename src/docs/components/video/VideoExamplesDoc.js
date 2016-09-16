@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Video from 'grommet/components/Video';
-import ExamplesDoc from '../../../../components/ExamplesDoc';
-import Example from '../../../Example';
+import ExamplesDoc from '../../../components/ExamplesDoc';
+import NavAnchor from '../../../components/NavAnchor';
+import Example from '../../Example';
 
 const VideoExample = (props) => (
   <Example code={
@@ -16,6 +17,7 @@ const VideoExample = (props) => (
 export default class VideoExamplesDoc extends ExamplesDoc {};
 
 VideoExamplesDoc.defaultProps = {
+  context: <NavAnchor path="/docs/video">Video</NavAnchor>,
   examples: [
     { label: 'Default', component: VideoExample },
     { label: 'Small', component: VideoExample, props: { size: 'small' } },
@@ -31,5 +33,5 @@ VideoExamplesDoc.defaultProps = {
       }
     }
   ],
-  title: 'Video Examples'
+  title: 'Examples'
 };

@@ -5,9 +5,9 @@ import Chart, { Base, Line, Layers, Axis }
   from 'grommet/components/chart/Chart';
 import Meter from 'grommet/components/Meter';
 import Menu from 'grommet/components/Menu';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+import Example from '../../Example';
 
 Chart.displayName = 'Chart';
 
@@ -140,7 +140,7 @@ export default class ChartDoc extends Component {
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/chart/examples`}>
-            Grommet Chart Examples
+            Chart Examples
           </NavAnchor>
         </section>
 

@@ -1,6 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
+import React from 'react';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
+import NavAnchor from '../../../../components/NavAnchor';
 
 import Meter1 from './Meter1';
 import Meter2 from './Meter2';
@@ -28,6 +30,7 @@ import Meter21 from './Meter21';
 export default class MeterExamplesDoc extends ExamplesDoc {};
 
 MeterExamplesDoc.defaultProps = {
+  context: <NavAnchor path="/docs/meter">Meter</NavAnchor>,
   examples: [
     { label: 'Horizontal Bar', component: Meter1 },
     { label: 'Vertical Bar', component: Meter2 },
@@ -57,5 +60,5 @@ MeterExamplesDoc.defaultProps = {
     name: 'size',
     values: ['xsmall', 'small', 'medium', 'large', 'xlarge']
   },
-  title: 'Meter Examples'
+  title: 'Examples'
 };

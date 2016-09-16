@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import Meter from 'grommet/components/Meter';
 import Value from 'grommet/components/Value';
 import Box from 'grommet/components/Box';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 Meter.displayName = 'Meter';
 
@@ -112,7 +112,7 @@ export default class MeterDoc extends Component {
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/meter/examples`}>
-            Grommet Meter Examples
+            Meter Examples
           </NavAnchor>
         </section>
 

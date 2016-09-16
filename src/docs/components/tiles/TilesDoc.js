@@ -1,8 +1,20 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
+import Tiles from 'grommet/components/Tiles';
+import Tile from 'grommet/components/Tile';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+const USAGE =
+`import Tiles from 'grommet/components/Tiles';
+import Tile from 'grommet/components/Tile';
+<Tiles>
+  <Tile/>
+  <Tile/>
+</Tiles>`;
+
+const ONCLICK_EXAMPLE = `onClick={this._onClick.bind(this, id)}`;
 
 export default class TileDoc extends Component {
 
@@ -14,10 +26,23 @@ export default class TileDoc extends Component {
         <section>
           <p>A grid of items. The preferred method of populating
             Tiles is to use Tile children.</p>
+          <Tiles flush={false}>
+            <Tile pad="medium" size="small" colorIndex="light-2">Tile</Tile>
+            <Tile pad="medium" size="small" colorIndex="light-2">Tile</Tile>
+            <Tile pad="medium" size="small" colorIndex="light-2">Tile</Tile>
+          </Tiles>
         </section>
 
         <section>
-          <h2>Tiles Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <p>Callers must include
+            child <code>{'<source>'}</code> elements according to the
+            HTML5 <code>{'<video>'}</code> specification.</p>
+        </section>
+
+        <section>
+          <h2>Tiles Properties</h2>
           <dl>
             <dt><code>fill        true|false</code></dt>
             <dd>Whether the contents expand to fill all of the available
@@ -59,13 +84,12 @@ export default class TileDoc extends Component {
         </section>
 
         <section>
-          <h2>Tile Options</h2>
+          <h2>Tile Properties</h2>
           <dl>
             <dt><code>onClick     {"{function}"}</code></dt>
             <dd>Called when the user clicks on the item. Callers should bind
               an identifier to the function to distinguish between multiple
-              items. For example <code>
-              {"onClick={this._onClick.bind(this, id)}"}</code></dd>
+              items. For example <code>{ONCLICK_EXAMPLE}</code></dd>
             <dt><code>selected    true|false</code></dt>
             <dd>Whether this item is currently selected.</dd>
             <dt><code>wide        true|false</code></dt>
@@ -85,7 +109,7 @@ export default class TileDoc extends Component {
             Menus.</p>
 
           <NavAnchor primary={true} path="/docs/tiles/examples">
-            Grommet Tiles Examples
+            Tiles Examples
           </NavAnchor>
 
         </section>

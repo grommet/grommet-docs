@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Image from 'grommet/components/Image';
-import ExamplesDoc from '../../../../components/ExamplesDoc';
-import Example from '../../../Example';
+import ExamplesDoc from '../../../components/ExamplesDoc';
+import NavAnchor from '../../../components/NavAnchor';
+import Example from '../../Example';
 
 const ImageExample = (props) => (
   <Example code={
@@ -14,6 +15,7 @@ const ImageExample = (props) => (
 export default class ImageExamplesDoc extends ExamplesDoc {};
 
 ImageExamplesDoc.defaultProps = {
+  context: <NavAnchor path="/docs/image">Image</NavAnchor>,
   examples: [
     { label: 'Default', component: ImageExample },
     { label: 'Thumb', component: ImageExample, props: { size: 'thumb' } },
@@ -24,5 +26,5 @@ ImageExamplesDoc.defaultProps = {
     { label: 'Caption', component: ImageExample,
       props: { caption: 'Image caption' } }
   ],
-  title: 'Image Examples'
+  title: 'Examples'
 };

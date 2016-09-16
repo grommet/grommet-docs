@@ -1,6 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
+import React from 'react';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
+import NavAnchor from '../../../../components/NavAnchor';
 
 import Chart1 from './Chart1';
 import Chart2 from './Chart2';
@@ -23,6 +25,7 @@ import Chart16 from './Chart16';
 export default class ChartExamplesDoc extends ExamplesDoc {};
 
 ChartExamplesDoc.defaultProps = {
+  context: <NavAnchor path="/docs/chart">Chart</NavAnchor>,
   examples: [
     { label: 'Area with Value', component: Chart9 },
     { label: 'Line with Value', component: Chart10 },
@@ -48,5 +51,5 @@ ChartExamplesDoc.defaultProps = {
     { label: 'Range selector controlling another Chart', component: Chart16 }
     // { label: 'Stacked Meters scaled to width', component: Chart12 }
   ],
-  title: 'Chart Examples'
+  title: 'Examples'
 };

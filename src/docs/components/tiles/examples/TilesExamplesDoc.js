@@ -1,6 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
+import React from 'react';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
+import NavAnchor from '../../../../components/NavAnchor';
 
 import Tiles1 from './Tiles1';
 import Tiles2 from './Tiles2';
@@ -14,6 +16,7 @@ import Tiles8 from './Tiles8';
 export default class TilesExamplesDoc extends ExamplesDoc {};
 
 TilesExamplesDoc.defaultProps = {
+  context: <NavAnchor path="/docs/tiles">Tiles</NavAnchor>,
   examples: [
     { label: 'Simple', component: Tiles1 },
     { label: 'Not flush, Centered', component: Tiles2 },
@@ -24,5 +27,5 @@ TilesExamplesDoc.defaultProps = {
     { label: 'Multiple Select', component: Tiles7 },
     { label: 'Masonry, 4 Columns', component: Tiles8 }
   ],
-  title: 'Tiles Examples'
+  title: 'Examples'
 };
