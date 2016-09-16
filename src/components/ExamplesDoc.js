@@ -91,7 +91,7 @@ export default class ExamplesDoc extends Component {
       const link = React.cloneElement(context,
         { primary: true, icon: <LinkPreviousIcon /> });
       contextSection = (
-        <Section pad={{ horizontal: 'large' }}>
+        <Section pad={{ horizontal: 'large' }} align="start">
           {link}
         </Section>
       );

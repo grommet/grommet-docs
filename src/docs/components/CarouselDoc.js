@@ -6,6 +6,16 @@ import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
+Carousel.displayName = 'Carousel';
+Box.displayName = 'Box';
+
+const USAGE =
+`import Carousel from 'grommet/components/Carousel';
+<Carousel>
+  <img src="/img/carousel-1.png" />
+  <img src="/img/carousel-2.png" />
+</Carousel>`;
+
 export default class TileDoc extends Component {
 
   render () {
@@ -13,10 +23,22 @@ export default class TileDoc extends Component {
     return (
       <DocsArticle title="Carousel" colorIndex="neutral-3">
 
-        <p>Image carousel.</p>
+        <section>
+          <p>Image carousel.</p>
+
+          <Carousel>
+            <img src="/img/carousel-1.png" />
+            <img src="/img/carousel-2.png" />
+          </Carousel>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>autoplay            true|false</code></dt>
             <dd>Whether the carousel should play automatically or not.

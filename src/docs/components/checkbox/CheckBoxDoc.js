@@ -1,12 +1,16 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import CheckBox from 'grommet/components/CheckBox';
 import Box from 'grommet/components/Box';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 CheckBox.displayName = 'CheckBox';
+
+const USAGE =
+`import CheckBox from 'grommet/components/CheckBox';
+<CheckBox label="Label" onClick={} />`;
 
 export default class CheckBoxDoc extends Component {
 
@@ -38,7 +42,12 @@ export default class CheckBoxDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
           <dt><code>checked         true|false</code></dt>
           <dd>Same as React {"<input checked= >"}.</dd>
@@ -70,32 +79,9 @@ export default class CheckBoxDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Basic" code={
-            <CheckBox id="item1" name="item1" label="Item 1"
-              checked={this.state.checked} onChange={this._onChange} />
-          } />
-          <Example name="Toggle" code={
-            <CheckBox id="item2" name="item2" label="Item 2"
-              checked={this.state.checked} toggle={true}
-              onChange={this._onChange} />
-          } />
-          <Example name="Disabled" code={
-            <CheckBox id="item3" name="item3" label="Item 3"
-              checked={this.state.checked} disabled={true}  />
-          } />
-          <Example name="Disabled Toggle" code={
-            <CheckBox id="item4" name="item4" label="Item 4"
-              checked={this.state.checked} toggle={true} disabled={true}  />
-          } />
-          <Example name="Reverse" code={
-            <CheckBox id="item5" name="item5" label="Item 5"
-              checked={this.state.checked} reverse={true}
-              onChange={this._onChange} />
-          } />
-          <Example name="No Label" code={
-            <CheckBox id="item6" name="item6"
-              checked={this.state.checked} onChange={this._onChange} />
-          } />
+          <NavAnchor primary={true} path={`/docs/check-box/examples`}>
+            CheckBox Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

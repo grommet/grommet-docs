@@ -1,35 +1,57 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Columns from 'grommet/components/Columns';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
-import Columns from 'grommet/components/Columns';
 
 Columns.displayName = 'Columns';
+
+const USAGE =
+`import Columns from 'grommet/components/Columns';
+<Columns>
+  <Box />
+  <Box />
+</Columns>`;
 
 export default class ColumnsDoc extends Component {
 
   render () {
-    var labels = [];
-    for (var i=1; i<=23; i++) {
-      labels.push(<span key={i}>{`label ${i}`}</span>);
+    let boxes = [];
+    for (let i=0; i<6; i+=1) {
+      boxes.push(
+        <Box key={i} size="medium" align="center" pad="medium"
+          margin="small" colorIndex="light-2">
+          {`Box ${i + 1}`}
+        </Box>
+      );
     }
-
     return (
       <DocsArticle title="Columns" colorIndex="neutral-3">
 
-        <p>Organize children into multiple components based on available
-          width.</p>
+        <section>
+          <p>Organize children into multiple components based on available
+            width.</p>
+          <Columns>
+            {boxes}
+          </Columns>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>justify     start|center|between|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
             <dt><code>masonry     true|false</code></dt>
             <dd>Whether to fill the columns from left-to-right based on the
-              component width (set by <code>size</code> option). Defaults
+              component width (set with <code>size</code>). Defaults
               to <code>false</code>. The max number of columns can be set
               with <code>maxCount</code>.</dd>
             <dt><code>maxCount    number</code></dt>
@@ -40,7 +62,7 @@ export default class ColumnsDoc extends Component {
             <dd>Whether masonry columns should collapse into single, full-width
               column when the display area narrows (to achive similar behavior
               as responsive <NavAnchor path="/docs/tiles">Tiles</NavAnchor>).
-              Defaults to <code>false</code>.</dd>
+              Defaults to <code>true</code>.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of each column. Defaults to <code>medium</code>.</dd>
           </dl>
@@ -49,9 +71,9 @@ export default class ColumnsDoc extends Component {
         <section>
           <h2>Example</h2>
 
-          <Example name="Default" code={
+          <Example code={
             <Columns>
-              {labels}
+              {boxes}
             </Columns>
           } />
         </section>

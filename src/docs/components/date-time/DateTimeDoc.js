@@ -4,8 +4,12 @@ import React, { Component } from 'react';
 import DateTime from 'grommet/components/DateTime';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+const USAGE =
+`import DateTime from 'grommet/components/DateTime';
+<DateTime value={} onChange={} />`;
 
 export default class DateTimeDoc extends Component {
 
@@ -34,20 +38,23 @@ export default class DateTimeDoc extends Component {
       <DocsArticle title="DateTime" colorIndex="neutral-3">
 
         <section>
-          <p>An input field for a date and time.</p>
+          <p>An input field for a date and/or time.</p>
 
-          <Example code={
-            <Form>
-              <FormField>
-                <DateTime id="item1" name="item-1"
-                  onChange={this._onChange} value={this.state.value}  />
-              </FormField>
-            </Form>
-          } />
+          <Form>
+            <FormField>
+              <DateTime id="item1" name="item-1"
+                onChange={this._onChange} value={this.state.value}  />
+            </FormField>
+          </Form>
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>format        {"{string}"}</code></dt>
             <dd>The date format. Available syntax can be seen in the
@@ -74,26 +81,9 @@ export default class DateTimeDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <DateTime id="item1" name="item-1"
-              onChange={this._onChange} value={this.state.value}  />
-          } />
-
-          <Example name="Time only, 24 hour time, seconds, step 10" code={
-            <DateTime id="item2" name="item-2" format="H:mm:ss" step={10}
-              onChange={this._onChangeTime} value={this.state.time}  />
-          } />
-
-          <Example name="Time only, hours" code={
-            <DateTime id="item3" name="item-3" format="h a"
-              onChange={this._onChangeTime} value={this.state.time}  />
-          } />
-
-          <Example name="Date only" code={
-            <DateTime id="item4" name="item-4" format="M/D/YYYY"
-              onChange={this._onChangeDate} value={this.state.date}  />
-          } />
-
+          <NavAnchor primary={true} path={`/docs/date-time/examples`}>
+            DateTime Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

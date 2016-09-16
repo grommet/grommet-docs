@@ -8,14 +8,17 @@ import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import EditIcon from 'grommet/components/icons/base/Edit';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 Button.displayName = 'Button';
 Tiles.displayName = 'Tiles';
 Tile.displayName = 'Tile';
 Section.displayName = 'Section';
+
+const USAGE =
+`import Button from 'grommet/components/Button';
+<Button label="Label" onClick={} />`;
 
 export default class ButtonDoc extends Component {
 
@@ -42,7 +45,12 @@ export default class ButtonDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
           <dt><code>accent         true|false</code></dt>
           <dd>Whether this is an accent button.</dd>
@@ -77,69 +85,10 @@ export default class ButtonDoc extends Component {
 
         <section>
           <h2>Examples</h2>
-          <Example name="Default" code={
-            <Button label="Action" onClick={this._onClick} />
-          } />
-          <Example name="Primary" code={
-            <Button label="Action" primary={true} onClick={this._onClick} />
-          } />
-          <Example name="Secondary" code={
-            <Button label="Action" secondary={true} onClick={this._onClick} />
-          } />
-          <Example name="Accent" code={
-            <Button label="Action" accent={true} onClick={this._onClick} />
-          } />
-          <Example name="Icon" code={
-            <Button icon={<CloseIcon />} onClick={this._onClick} />
-          } />
-          <Example name="Icon, label" code={
-            <Button icon={<EditIcon />} label="Edit" onClick={this._onClick} />
-          } />
-          <Example name="Icon, label, plain" code={
-            <Button icon={<EditIcon />} label="Edit" plain={true}
-              onClick={this._onClick} />
-          } />
-          <Example name="Disabled" code={
-            <Button label="Action" />
-          } />
-          <Example name="Long" code={
-            <Button label={"Action with a really long name that should " +
-              "be shortened"}
-              onClick={this._onClick} />
-          } />
-          <Example name="Fill" code={
-            <Tiles fill={true}>
-              <Tile pad="small">
-                <Button fill={true} onClick={this._onClick}
-                  label="One With Long Text" />
-              </Tile>
-              <Tile pad="small">
-                <Button fill={true} onClick={this._onClick} label="Two" />
-              </Tile>
-              <Tile pad="small">
-                <Button fill={true} onClick={this._onClick} label="Three" />
-              </Tile>
-              <Tile pad="small">
-                <Button fill={true} onClick={this._onClick} label="Four" />
-              </Tile>
-            </Tiles>
-          } />
-          <Example name="Colored context" code={
-            <Section colorIndex="neutral-1" align="start"
-              pad={{horizontal: 'medium', vertical: 'medium',
-                between: 'medium'}}>
-              <Button label="Default" onClick={this._onClick} />
-              <Button label="Primary" primary={true} onClick={this._onClick} />
-              <Button label="Secondary" secondary={true}
-                onClick={this._onClick} />
-              <Button label="Accent" accent={true} onClick={this._onClick} />
-              <Button label="Disabled" />
-              <Button icon={<CloseIcon />} onClick={this._onClick} />
-            </Section>
-          } />
-          <Example name="Href" code={
-            <Button href="/" label="Home Page" />
-          } />
+
+          <NavAnchor primary={true} path={`/docs/button/examples`}>
+            Button Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

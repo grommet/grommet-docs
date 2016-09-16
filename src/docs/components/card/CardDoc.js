@@ -1,8 +1,18 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
+import Card from 'grommet/components/Card';
+import Anchor from 'grommet/components/Anchor';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+Card.displayName = 'Card';
+
+const USAGE =
+`import Card from 'grommet/components/Card';
+<Card label="Label" thumbnail="/img/carousel-1.png"
+  heading="Heading" description="Description"
+  link={<Anchor href="#" primary={true} label="Link" />} />`;
 
 export default class CardDoc extends Component {
   render () {
@@ -15,13 +25,22 @@ export default class CardDoc extends Component {
           can click through for more detail. Or, as search result items.
           All properties are optional and can be mixed and matched as
           needed.</p>
-          <p>This can be used in combination
+          <p>Card could be used in combination
           with <NavAnchor path="/docs/columns">Columns
           </NavAnchor> or <NavAnchor path="/docs/tiles">Tiles</NavAnchor>.</p>
+
+          <Card label="Label" thumbnail="/img/carousel-1.png"
+            heading="Heading" description="Description"
+            link={<Anchor href="#" primary={true} label="Link" />} />
         </section>
 
         <section>
-          <h2>Card Properties</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>contentPad           {"none|small|medium|large|{...}"}
               </code></dt>
@@ -66,7 +85,7 @@ export default class CardDoc extends Component {
           <h2>Examples</h2>
 
           <NavAnchor primary={true} path={`/docs/card/examples`}>
-            Grommet Card Examples
+            Card Examples
           </NavAnchor>
         </section>
 

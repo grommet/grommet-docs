@@ -12,6 +12,12 @@ Footer.displayName = 'Footer';
 Menu.displayName = 'Menu';
 Button.displayName = 'Button';
 
+const USAGE =
+`import Footer from 'grommet/components/Footer';
+<Footer>
+  <Menu />
+</Footer>`;
+
 export default class FooterDoc extends Component {
 
   _onClick () {
@@ -33,7 +39,12 @@ export default class FooterDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The size of the Header. Defaults to <code>medium</code>.</dd>

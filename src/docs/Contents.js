@@ -33,9 +33,10 @@ import BoxDoc from './components/box/BoxDoc';
 import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
 import BoxingGymDoc from './components/box/BoxingGymDoc';
 import BrickDoc from './components/BrickDoc';
-import ButtonDoc from './components/ButtonDoc';
+import ButtonDoc from './components/button/ButtonDoc';
+import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
 import CalendarDoc from './components/CalendarDoc';
-import CardDoc from './components/CardDoc';
+import CardDoc from './components/card/CardDoc';
 import CardExamplesDoc from './components/card/examples/CardExamplesDoc';
 import CarouselDoc from './components/CarouselDoc';
 import ChartDoc from './components/chart/ChartDoc';
@@ -52,13 +53,17 @@ import ChartMarkerLabelDoc from './components/chart/MarkerLabelDoc';
 import ChartRangeDoc from './components/chart/RangeDoc';
 import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
 import ChartV1Doc from './components/chart/ChartV1Doc';
-import CheckBoxDoc from './components/CheckBoxDoc';
+import CheckBoxDoc from './components/checkbox/CheckBoxDoc';
+import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/ColumnsDoc';
-// import DashboardDoc from './patterns/DashboardDoc';
-import DateTimeDoc from './components/DateTimeDoc';
-import DistributionDoc from './components/DistributionDoc';
+import DateTimeDoc from './components/date-time/DateTimeDoc';
+import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
+import DistributionDoc from './components/distribution/DistributionDoc';
+import DistributionExamplesDoc from
+  './components/distribution/DistributionExamplesDoc';
 import FooterDoc from './components/FooterDoc';
-import FormDoc from './components/FormDoc';
+import FormDoc from './components/form/FormDoc';
+import FormExamplesDoc from './components/form/FormExamplesDoc';
 import FormFieldDoc from './components/FormFieldDoc';
 import HeaderDoc from './components/HeaderDoc';
 import HeadingDoc from './components/HeadingDoc';
@@ -155,7 +160,9 @@ export default [
         {path: 'examples', component: BoxExamplesDoc}
       ]},
       {path: 'brick', label: 'Brick', component: BrickDoc},
-      {path: 'button', label: 'Button', component: ButtonDoc},
+      {path: 'button', label: 'Button', index: ButtonDoc, contents: [
+        {path: 'examples', component: ButtonExamplesDoc}
+      ]},
       {path: 'calendar', label: 'Calendar', component: CalendarDoc},
       {path: 'card', label: 'Card', index: CardDoc, contents: [
         {path: 'examples', component: CardExamplesDoc}
@@ -176,12 +183,21 @@ export default [
         {path: 'range', component: ChartRangeDoc}
       ]},
       {path: 'chart-v1', component: ChartV1Doc},
-      {path: 'check-box', label: 'CheckBox', component: CheckBoxDoc},
+      {path: 'check-box', label: 'CheckBox', index: CheckBoxDoc, contents: [
+        {path: 'examples', component: CheckBoxExamplesDoc}
+      ]},
       {path: 'columns', label: 'Columns', component: ColumnsDoc},
-      {path: 'date-time', label: 'DateTime', component: DateTimeDoc},
-      {path: 'distribution', label: 'Distribution', component: DistributionDoc},
+      {path: 'date-time', label: 'DateTime', index: DateTimeDoc, contents: [
+        {path: 'examples', component: DateTimeExamplesDoc}
+      ]},
+      {path: 'distribution', label: 'Distribution', index: DistributionDoc,
+        contents: [
+          {path: 'examples', component: DistributionExamplesDoc}
+        ]},
       {path: 'footer', label: 'Footer', component: FooterDoc},
-      {path: 'form', label: 'Form', component: FormDoc},
+      {path: 'form', label: 'Form', index: FormDoc, contents: [
+        {path: 'examples', component: FormExamplesDoc}
+      ]},
       {path: 'form-field', label: 'FormField', component: FormFieldDoc},
       {path: 'header', label: 'Header', component: HeaderDoc},
       {path: 'heading', label: 'Heading', component: HeadingDoc},
