@@ -2,7 +2,6 @@
 
 import React, { Component,  PropTypes } from 'react';
 import jsxToString from 'jsx-to-string';
-import debounce from 'lodash/debounce';
 import Box from 'grommet/components/Box';
 
 //hjjs configuration
@@ -16,9 +15,7 @@ hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 export default class Example extends Component {
   constructor (props) {
     super(props);
-    this._highlightCode = props.debounceHighlight
-      ? debounce(this._highlightCode.bind(this), 100)
-      : this._highlightCode.bind(this);
+    this._highlightCode = this._highlightCode.bind(this);
   }
 
   componentDidMount () {
@@ -26,7 +23,12 @@ export default class Example extends Component {
   }
 
   componentDidUpdate () {
-    this._highlightCode();
+    if (this.props.debounceHighlight) {
+      clearTimeout(this._highlightTimer);
+      this._highlightTimer = setTimeout(this._highlightCode, 100);
+    } else {
+      this._highlightCode();
+    }
   }
 
   _highlightCode () {
