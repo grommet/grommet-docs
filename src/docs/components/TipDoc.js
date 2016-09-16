@@ -5,7 +5,10 @@ import Tip from 'grommet/components/Tip';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+
+const USAGE =
+`import Tip from 'grommet/components/Tip';
+<Tip target="actions" onClose={...}>Available actions</Tip>`;
 
 export default class TipDoc extends Component {
 
@@ -25,6 +28,7 @@ export default class TipDoc extends Component {
         </Tip>
       );
     }
+
     return (
       <DocsArticle title="Tip" colorIndex="neutral-3">
 
@@ -44,9 +48,8 @@ export default class TipDoc extends Component {
         </section>
 
         <section>
-          <Example
-            code={tip}
-          />
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
 
           <p>The caller is responsible for determining when to show a Tip.
             The tip should be removed when the <code>
@@ -59,7 +62,7 @@ export default class TipDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>colorIndex     {"accent-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
@@ -68,7 +71,7 @@ export default class TipDoc extends Component {
             <dt><code>onClose        {"{function}"}</code></dt>
             <dd>Called when the user clicks on the Tip, clicks on the target
               element, or when the target element loses focus.</dd>
-            <dt><code>target       {"{string}"}</code></dt>
+            <dt><code>target         {"{string}"}</code></dt>
             <dd>The DOM id or class of the element the Tip should be associated
               with. The id takes priority over class. If multiple classes
               are found, the first one will be used.</dd>

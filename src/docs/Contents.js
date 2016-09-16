@@ -108,6 +108,7 @@ import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
 import TimestampDoc from './components/TimestampDoc';
 import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
+import ToastDoc from './components/ToastDoc';
 import TopologyDoc from './components/TopologyDoc';
 import ValueDoc from './components/ValueDoc';
 import VideoDoc from './components/video/VideoDoc';
@@ -242,6 +243,7 @@ export default [
       {path: 'timestamp', label: 'Timestamp', component: TimestampDoc},
       {path: 'tip', label: 'Tip', component: TipDoc},
       {path: 'title', label: 'Title', component: TitleDoc},
+      {path: 'toast', label: 'Toast', component: ToastDoc},
       {path: 'topology', label: 'Topology', component: TopologyDoc},
       {path: 'value', label: 'Value', component: ValueDoc},
       {path: 'video', label: 'Video', index: VideoDoc, contents: [

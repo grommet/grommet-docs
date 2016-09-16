@@ -6,7 +6,7 @@ import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 
 const USAGE =
-`import Status from 'grommet/components/Status';
+`import Status from 'grommet/components/icons/Status';
 <Status value="ok" />`;
 
 export default class StatusDoc extends Component {
