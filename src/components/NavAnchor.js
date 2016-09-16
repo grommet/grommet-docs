@@ -12,6 +12,16 @@ export default class NavAnchor extends Component {
   constructor () {
     super();
     this._onClick = this._onClick.bind(this);
+    this.state = { active: false };
+  }
+
+  componentDidUpdate () {
+    const { path } = this.props;
+    const exp = new RegExp(`^${path}$|^${path}\/`);
+    const active = exp.test(window.location.pathname);
+    if (active !== this.state.active) {
+      this.setState({ active: active });
+    }
   }
 
   _onClick (event) {
@@ -24,9 +34,9 @@ export default class NavAnchor extends Component {
 
   render () {
     const { path } = this.props;
+    const { active } = this.state;
     let className = this.props.className || '';
-    const exp = new RegExp(`^${path}$|^${path}\/`);
-    if (typeof window !== 'undefined' && window.location.pathname.match(exp)) {
+    if (active) {
       className += ' active';
     }
     let href = this.context.router.createPath(path);
