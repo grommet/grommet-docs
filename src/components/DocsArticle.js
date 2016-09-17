@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component, PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Box from 'grommet/components/Box';

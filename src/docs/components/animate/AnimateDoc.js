@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../../components/DocsArticle';
 import NavAnchor from '../../../components/NavAnchor';
-import Example from '../../Example';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
 import Button from 'grommet/components/Button';
