@@ -49,7 +49,8 @@ export default class Chart2 extends Component {
     return (
       <Example code={
         <Chart vertical={true} horizontalAlignWith="meter-2-id">
-          <Axis ticks={true} count={5} labels={PERCENT_AXIS_LABELS} />
+          <Axis ticks={true} tickAlign="end" count={5} 
+            labels={PERCENT_AXIS_LABELS} />
           <Layers>
             <Marker vertical={true} colorIndex={THRESHOLD_AXIS.colorIndex}
               value={THRESHOLD_AXIS.value} />

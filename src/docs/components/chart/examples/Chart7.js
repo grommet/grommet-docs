@@ -61,7 +61,8 @@ export default class Chart7 extends Component {
     return (
       <Example code={
         <Chart vertical={true}>
-          <Axis ticks={true} count={5} labels={PERCENT_AXIS_LABELS} />
+          <Axis ticks={true} count={5} tickAlign="end"
+            labels={PERCENT_AXIS_LABELS} />
           <Chart>
             <Axis vertical={true} reverse={true} ticks={true}
               count={2} labels={UNIT_AXIS_LABELS} />
