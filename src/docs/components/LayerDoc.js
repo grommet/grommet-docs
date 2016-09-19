@@ -130,18 +130,18 @@ export default class LayerDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Simple, top" control={
+          <Example align="start" name="Simple, top" control={
             <button onClick={this._onOpen.bind(this, 'simple')}>simple</button>
             } code={simpleLayer} />
-          <Example name="Edit, left" control={
+          <Example align="start" name="Edit, left" control={
             <button onClick={this._onOpen.bind(this, 'edit')}>edit</button>
             } code={editLayer} />
-          <Example name="Confirmation, right" control={
+          <Example align="start" name="Confirmation, right" control={
             <button onClick={this._onOpen.bind(this, 'confirmation')}>
               confirmation
             </button>
             } code={confirmationLayer} />
-          <Example name="Article, center" control={
+          <Example align="start" name="Article, center" control={
             <button onClick={this._onOpen.bind(this, 'article')}>edit</button>
             } code={articleLayer} />
         </section>
