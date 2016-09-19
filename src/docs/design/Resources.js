@@ -106,6 +106,11 @@ export default class Resources extends Component {
                 href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.sketch`}
                 target="_blank">Data Sticker Sheet for Applications v0.6</a>
             </li>
+            <li>
+              <a id="hpe-sk-app-templates"
+                href={`${ROOT}/hpe/hpe-app-templates-0-8.sketch`}
+                target="_blank">Application Templates Sticker Sheet v0.8</a>
+            </li>
           </ul>
 
           <h4>Axure</h4>
