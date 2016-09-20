@@ -38,7 +38,10 @@ export default class DocsArticle extends Component {
   }
 
   _highlightCode () {
-    var codeBlocks = document.querySelectorAll('code.html.xml.hljs');
+    const codeBlockNodeList = document.querySelectorAll('code.html.xml.hljs');
+    // IE11 errors out when attempting to call forEach on array-like object
+    const codeBlocks = Array.prototype.slice.call(codeBlockNodeList);
+
     codeBlocks.forEach((codeBlock) => {
       hljs.highlightBlock(codeBlock);
     });
