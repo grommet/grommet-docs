@@ -23,6 +23,11 @@ VideoExamplesDoc.defaultProps = {
     { label: 'Small', component: VideoExample, props: { size: 'small' } },
     { label: 'Medium', component: VideoExample, props: { size: 'medium' } },
     { label: 'Large', component: VideoExample, props: { size: 'large' } },
+    { label: 'Replay with Share Menu', component: VideoExample,
+      props: { title: 'Title', shareLink: 'http://grommet.io',
+        shareText: 'Website for Grommet UX Framework'
+      }
+    },
     { label: 'Title, Duration, Timeline, Poster, Full', component: VideoExample,
       props: { title: 'Title', poster: '/img/mobile_first.jpg', full: true,
         duration: 35, timeline: [
