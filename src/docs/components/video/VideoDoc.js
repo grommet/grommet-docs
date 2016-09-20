@@ -44,13 +44,8 @@ export default class VideoDoc extends Component {
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code>. This is visible when a
               poster image is not the same aspect ratio as the video.</dd>
-            <dt><code>duration          {"{number}"}</code></dt>
-            <dd>The length of the video in seconds.</dd>
             <dt><code>full              true|false</code></dt>
             <dd>Whether the width should take the full container width.</dd>
-            <dt><code>onClick           {"{function}"}</code></dt>
-            <dd>Click handler to override the default click handler to play
-              video and pass in a different function instead.</dd>
             <dt><code>loop              true|false</code></dt>
             <dd>Enables continuous video looping. Defaults
               to <code>false</code>.</dd>
@@ -73,6 +68,24 @@ export default class VideoDoc extends Component {
               </code> used to indicate chapter markers.</dd>
             <dt><code>title             {"{string}|{node}"}</code></dt>
             <dd>Descriptive title.</dd>
+            <dt><code>shareLink         {"{string}"}</code></dt>
+            <dd>Link to be used for social media sharing.
+                Shown at the end of the video.</dd>
+            <dt><code>shareHeadline     {"{string}"}</code></dt>
+            <dd>Headline to be used for social media sharing.</dd>
+            <dt><code>shareText         {"{string}"}</code></dt>
+            <dd>Text to be used for social media sharing.</dd>
+          </dl>
+
+          <h3 className="error">Deprecated</h3>
+          <p>The following properties and/or options are deprecated and will be
+            removed in version 1.0.</p>
+          <dl>
+            <dt><code>duration          {"{number}"}</code></dt>
+            <dd>The length of the video in seconds.</dd>
+            <dt><code>onClick           {"{function}"}</code></dt>
+            <dd>Click handler to override the default click handler to play
+              video and pass in a different function instead.</dd>
             <dt><code>videoHeader       {"{node}"}</code></dt>
             <dd>For instances when the video and header components are used
               together.</dd>
