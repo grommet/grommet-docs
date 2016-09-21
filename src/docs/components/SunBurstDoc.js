@@ -3,32 +3,52 @@
 import React, { Component } from 'react';
 import SunBurst from 'grommet/components/SunBurst';
 import Box from 'grommet/components/Box';
+import Legend from 'grommet/components/Legend';
 import Value from 'grommet/components/Value';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
 SunBurst.displayName = 'SunBurst';
 
+const USAGE =
+`import SunBurst from 'grommet/components/SunBurst';
+<SunBurst data={...} />`;
+
 const DATA = [
-  { value: 50, children: [
-    { value: 20, total: 10, children: [
-      { value: 5 },
-      { value: 1 }
+  { label: 'root-1', value: 50, colorIndex: 'neutral-1', children: [
+    { label: 'sub-1', value: 20, colorIndex: 'neutral-1', total: 10, children: [
+      { label: 'leaf-1', value: 5, colorIndex: 'neutral-1' },
+      { label: 'leaf-2', value: 1, colorIndex: 'neutral-1' }
     ] },
-    { value: 20 },
-    { value: 10 }
+    { label: 'sub-2', value: 20, colorIndex: 'neutral-1' },
+    { label: 'sub-3', value: 10, colorIndex: 'neutral-1' }
   ]},
-  { value: 30, children: [
-    { value: 15 },
-    { value: 10 },
-    { value: 5 }
+  { label: 'root-2', value: 30, colorIndex: 'neutral-2', children: [
+    { label: 'sub-4', value: 15, colorIndex: 'neutral-2' },
+    { label: 'sub-5', value: 10, colorIndex: 'neutral-1' },
+    { label: 'sub-6', value: 5, colorIndex: 'neutral-3' }
   ]},
-  { value: 20, children: [
-    { value: 10 },
-    { value: 7 },
-    { value: 3 }
+  { label: 'root-3', value: 20, colorIndex: 'neutral-3', children: [
+    { label: 'sub-7', value: 10, colorIndex: 'neutral-1' },
+    { label: 'sub-8', value: 7, colorIndex: 'neutral-1' },
+    { label: 'sub-9', value: 3, colorIndex: 'neutral-3' }
   ]}
 ];
+
+function seriesForPath (path) {
+  path = path.slice(0);
+  let data = { children: DATA };
+  let series = [];
+  while (path.length > 0) {
+    data = data.children[path.shift()];
+    series.push({
+      colorIndex: data.colorIndex,
+      label: data.label,
+      value: data.value
+    });
+  }
+  return series;
+}
 
 export default class SunBurstDoc extends Component {
 
@@ -37,18 +57,22 @@ export default class SunBurstDoc extends Component {
     this.state = {};
   }
 
+  _onClick (path) {
+    const series = seriesForPath(path);
+    const text = series.map(data => `${data.label} ${data.value}`).join(', ');
+    alert(text);
+  }
+
   render () {
+    const { active } = this.state;
+
     let label;
-    if (this.state.active) {
-      let path = this.state.active.slice(0);
-      let data = { children: DATA };
-      while (path.length > 0) {
-        data = data.children[path.shift()];
-      }
+    if (active) {
+      const series = seriesForPath(active).map(data => ({
+        ...data, value: <Value value={data.value} size="small" />
+      }));
       label = (
-        <Box align="end" announce={true}>
-          <Value value={data.value} />
-        </Box>
+        <Legend series={series} align="end" announce={true} />
       );
     }
 
@@ -57,13 +81,18 @@ export default class SunBurstDoc extends Component {
 
         <section>
           <p>A SunBurst visualization.</p>
-          <Example code={
-            <SunBurst data={DATA} size="xlarge"
-              active={this.state.active}
+          <Box align="start">
+            <SunBurst data={DATA} size="large"
+              active={active}
               onActive={path => this.setState({ active: path })}
-              onClick={path => alert(path)}
+              onClick={this._onClick}
               label={label} />
-          }/>
+          </Box>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -96,6 +125,24 @@ export default class SunBurstDoc extends Component {
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the SunBurst. Defaults to <code>medium</code>.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Example</h2>
+          <Example code={
+            <Box direction="row" align="center" pad={{ between: 'medium' }}>
+              <SunBurst data={DATA}
+                active={active}
+                onActive={path => this.setState({ active: path })}
+                onClick={path => alert(path)}
+                label={label} />
+              <Legend series={[
+                { label: 'on target', colorIndex: 'neutral-1' },
+                { label: 'over', colorIndex: 'neutral-2' },
+                { label: 'under', colorIndex: 'neutral-3' }
+              ]} />
+            </Box>
+          }/>
         </section>
 
       </DocsArticle>
