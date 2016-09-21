@@ -62,8 +62,10 @@ import DistributionExamplesDoc from
 import FooterDoc from './components/FooterDoc';
 import FormDoc from './components/form/FormDoc';
 import FormExamplesDoc from './components/form/FormExamplesDoc';
-import FormFieldDoc from './components/FormFieldDoc';
-import HeaderDoc from './components/HeaderDoc';
+import FormFieldDoc from './components/form-field/FormFieldDoc';
+import FormFieldExamplesDoc from './components/form-field/FormFieldExamplesDoc';
+import HeaderDoc from './components/header/HeaderDoc';
+import HeaderExamplesDoc from './components/header/HeaderExamplesDoc';
 import HeadingDoc from './components/HeadingDoc';
 import HeadlineDoc from './components/headline/HeadlineDoc';
 import HeadlineExamplesDoc from './components/headline/HeadlineExamplesDoc';
@@ -208,8 +210,12 @@ export default [
       {path: 'form', label: 'Form', index: FormDoc, contents: [
         {path: 'examples', component: FormExamplesDoc}
       ]},
-      {path: 'form-field', label: 'FormField', component: FormFieldDoc},
-      {path: 'header', label: 'Header', component: HeaderDoc},
+      {path: 'form-field', label: 'FormField', index: FormFieldDoc, contents: [
+        {path: 'examples', component: FormFieldExamplesDoc}
+      ]},
+      {path: 'header', label: 'Header', index: HeaderDoc, contents: [
+        {path: 'examples', component: HeaderExamplesDoc}
+      ]},
       {path: 'heading', label: 'Heading', component: HeadingDoc},
       {path: 'headline', label: 'Headline', index: HeadlineDoc, contents: [
         {path: 'examples', component: HeadlineExamplesDoc}
