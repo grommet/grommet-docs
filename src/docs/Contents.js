@@ -36,7 +36,6 @@ import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
 import BoxingGymDoc from './components/box/BoxingGymDoc';
 import ButtonDoc from './components/button/ButtonDoc';
 import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
-import CalendarDoc from './components/CalendarDoc';
 import CardDoc from './components/card/CardDoc';
 import CardExamplesDoc from './components/card/examples/CardExamplesDoc';
 import CarouselDoc from './components/CarouselDoc';
@@ -67,7 +66,8 @@ import FormExamplesDoc from './components/form/FormExamplesDoc';
 import FormFieldDoc from './components/FormFieldDoc';
 import HeaderDoc from './components/HeaderDoc';
 import HeadingDoc from './components/HeadingDoc';
-import HeadlineDoc from './components/HeadlineDoc';
+import HeadlineDoc from './components/headline/HeadlineDoc';
+import HeadlineExamplesDoc from './components/headline/HeadlineExamplesDoc';
 import HeroDoc from './components/HeroDoc';
 import IconDoc from './components/IconDoc';
 import ImageDoc from './components/image/ImageDoc';
@@ -77,7 +77,8 @@ import LayerDoc from './components/LayerDoc';
 import LegendDoc from './components/LegendDoc';
 import ListDoc from './components/ListDoc';
 import LoginFormDoc from './components/LoginFormDoc';
-import MapDoc from './components/MapDoc';
+import MapDoc from './components/map/MapDoc';
+import MapExamplesDoc from './components/map/MapExamplesDoc';
 import MarkdownDoc from './components/MarkdownDoc';
 import MenuDoc from './components/menu/MenuDoc';
 import MenuExamplesDoc from './components/menu/MenuExamplesDoc';
@@ -176,7 +177,6 @@ export default [
       {path: 'button', label: 'Button', index: ButtonDoc, contents: [
         {path: 'examples', component: ButtonExamplesDoc}
       ]},
-      {path: 'calendar', label: 'Calendar', component: CalendarDoc},
       {path: 'card', label: 'Card', index: CardDoc, contents: [
         {path: 'examples', component: CardExamplesDoc}
       ]},
@@ -213,7 +213,9 @@ export default [
       {path: 'form-field', label: 'FormField', component: FormFieldDoc},
       {path: 'header', label: 'Header', component: HeaderDoc},
       {path: 'heading', label: 'Heading', component: HeadingDoc},
-      {path: 'headline', label: 'Headline', component: HeadlineDoc},
+      {path: 'headline', label: 'Headline', index: HeadlineDoc, contents: [
+        {path: 'examples', component: HeadlineExamplesDoc}
+      ]},
       {path: 'hero', label: 'Hero', component: HeroDoc},
       {path: 'icon', label: 'Icon', component: IconDoc},
       {path: 'image', label: 'Image', index: ImageDoc, contents: [
@@ -224,7 +226,9 @@ export default [
       {path: 'legend', label: 'Legend', component: LegendDoc},
       {path: 'list', label: 'List', component: ListDoc},
       {path: 'login-form', label: 'LoginForm', component: LoginFormDoc},
-      {path: 'map', label: 'Map', component: MapDoc},
+      {path: 'map', label: 'Map', index: MapDoc, contents: [
+        {path: 'examples', component: MapExamplesDoc}
+      ]},
       {path: 'markdown', label: 'Markdown', component: MarkdownDoc},
       {path: 'menu', label: 'Menu', index: MenuDoc, contents: [
         {path: 'examples', component: MenuExamplesDoc}

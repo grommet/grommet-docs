@@ -20,6 +20,7 @@ export default class ExamplesDoc extends Component {
     this._onNext = this._onNext.bind(this);
     this._onPrevious = this._onPrevious.bind(this);
     this._onChangePropertyValue = this._onChangePropertyValue.bind(this);
+    this._onTogglePropertyValue = this._onTogglePropertyValue.bind(this);
     this.state = { index: 0, dark: false, propertyValue: undefined };
   }
 
@@ -56,6 +57,10 @@ export default class ExamplesDoc extends Component {
     this.setState({ propertyValue: event.target.value });
   }
 
+  _onTogglePropertyValue (event) {
+    this.setState({ propertyValue: ! this.state.propertyValue });
+  }
+
   render () {
     const { context, examples, property, title } = this.props;
     const { index, dark, propertyValue } = this.state;
@@ -69,15 +74,23 @@ export default class ExamplesDoc extends Component {
     let propertySelector;
     let props = {};
     if (property) {
-      const options = property.values.map(value => (
-        <option key={value}>{value}</option>
-      ));
-      options.unshift(<option key="NoNe"></option>);
-      propertySelector = (
-        <select value={propertyValue} onChange={this._onChangePropertyValue} >
-          {options}
-        </select>
-      );
+      if (property.values) {
+        const options = property.values.map(value => (
+          <option key={value}>{value}</option>
+        ));
+        options.unshift(<option key="NoNe"></option>);
+        propertySelector = (
+          <select value={propertyValue} onChange={this._onChangePropertyValue} >
+            {options}
+          </select>
+        );
+      } else {
+        propertySelector = (
+          <CheckBox checked={propertyValue || false} toggle={true}
+            label={property.name}
+            onChange={this._onTogglePropertyValue} />
+        );
+      }
       if (propertyValue) {
         props[property.name] = propertyValue;
       }
@@ -97,27 +110,40 @@ export default class ExamplesDoc extends Component {
       );
     }
 
+    let previous, next, menu, pad;
+    if (items.length > 1) {
+      menu = (
+        <Menu label={examples[index].label} inline={false} size="large">
+          {items}
+        </Menu>
+      );
+      previous = (
+        <Button icon={<PreviousIcon />} onClick={this._onPrevious} />
+      );
+      next = (
+        <Button icon={<NextIcon />} onClick={this._onNext} />
+      );
+    } else {
+      pad = { horizontal: 'large' };
+    }
+
     return (
       <DocsArticle context={context} title={title} colorIndex="neutral-3"
         full={true}>
         <Header justify="between" colorIndex="light-2"
           pad={{ horizontal: 'large' }}>
-          <Menu label={examples[index].label} inline={false} size="large">
-            {items}
-          </Menu>
+          {menu}
           {propertySelector}
           <CheckBox checked={dark} toggle={true} label="dark"
             onChange={() => this.setState({ dark: ! dark })} />
         </Header>
 
         <Section appCentered={false} justify="between" align="start"
-          direction="row" full="horizontal"
+          direction="row" full="horizontal" pad={pad}
           colorIndex={dark ? 'grey-2' : undefined}>
-          <Button icon={<PreviousIcon />}
-            onClick={this._onPrevious} />
+          {previous}
           <Component {...props} />
-          <Button icon={<NextIcon />}
-            onClick={this._onNext} />
+          {next}
         </Section>
 
         {contextSection}
@@ -136,7 +162,7 @@ ExamplesDoc.propTypes = {
   })),
   property: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    values: PropTypes.arrayOf(PropTypes.string).isRequired
+    values: PropTypes.arrayOf(PropTypes.string)
   }),
   title: PropTypes.string
 };

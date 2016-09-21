@@ -2,10 +2,16 @@
 
 import React, { Component } from 'react';
 import Headline from 'grommet/components/Headline';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 Headline.displayName = 'Headline';
+
+const USAGE =
+`import Headline from 'grommet/components/Headline';
+<Headline>
+  {contents}
+</Headline>`;
 
 export default class HeadlineDoc extends Component {
 
@@ -19,7 +25,12 @@ export default class HeadlineDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>align       start|center|end</code></dt>
             <dd>The horizontal alignment of the Headline. Defaults
@@ -40,21 +51,9 @@ export default class HeadlineDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <Headline>Sample Headline</Headline>
-          } />
-          <Example name="Strong" code={
-            <Headline strong={true}>Sample Headline</Headline>
-          } />
-          <Example name="Small" code={
-            <Headline size="small">Sample Headline</Headline>
-          } />
-          <Example name="Large" code={
-            <Headline size="large">Sample Headline</Headline>
-          } />
-          <Example name="Extra Large" code={
-            <Headline size="xlarge">Headline</Headline>
-          } />
+          <NavAnchor primary={true} path={`/docs/headline/examples`}>
+            Headline Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>
