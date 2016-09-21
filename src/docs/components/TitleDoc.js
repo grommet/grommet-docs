@@ -6,6 +6,12 @@ import DocsArticle from '../../components/DocsArticle';
 import Logo from '../../img/Logo';
 import Example from '../Example';
 
+Title.displayName = 'Title';
+
+const USAGE =
+`import Title from 'grommet/components/Title';
+<Title>{contents}</Title>`;
+
 export default class TitleDoc extends Component {
 
   render () {
@@ -18,13 +24,16 @@ export default class TitleDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>a11yTitle      {"{string}"}</code></dt>
-            <dd>
-              Custom title used by screen readers. Default is "Title".
-              Only used if onClick handler is specified.
-            </dd>
+            <dd>Custom title used by screen readers. Default is "Title".
+              Only used if onClick handler is specified.</dd>
             <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Click handler.</dd>
             <dt><code>responsive     true|false</code></dt>

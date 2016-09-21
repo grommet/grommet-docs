@@ -28,7 +28,7 @@ export default class ArticleDoc extends Component {
 
         <section>
           <p>A standard <Anchor
-            href="http://www.w3.org/TR/html-markup/article.html">
+            href="http://www.w3.org/TR/html5/sections.html#the-article-element">
             HTML5 article</Anchor>. It might
             contain a <NavAnchor path="/docs/header">Header</NavAnchor>, one
             or more <NavAnchor path="/docs/section">Sections</NavAnchor>, and
