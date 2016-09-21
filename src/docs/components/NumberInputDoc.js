@@ -7,6 +7,12 @@ import FormField from 'grommet/components/FormField';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
+NumberInput.displayName = 'NumberInput';
+
+const USAGE =
+`import NumberInput from 'grommet/components/NumberInput';
+<NumberInput value={} onChange={} />`;
+
 export default class NumberInputDoc extends Component {
 
   constructor () {
@@ -28,19 +34,24 @@ export default class NumberInputDoc extends Component {
             browser base so we can style it.</p>
           <Form>
             <FormField>
-              <NumberInput id="item2" name="item2" label="Item 2"
+              <NumberInput id="item1" name="item1" label="Item 1"
                 value={this.state.value} onChange={this._onChange} />
             </FormField>
           </Form>
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>ariaDescribedby {"{string}"}</code></dt>
             <dd>Optional attribute to enhance accessibility in case the
               this is used inside a context.</dd>
-            <dt><code>defaultValue  {"{number}|{string}"}</code></dt>
+            <dt><code>defaultValue  {"{number}"}</code></dt>
             <dd>Same as React {"<input defaultValue= >"}.</dd>
             <dt><code>disabled        true|false</code></dt>
             <dd>Same as React {"<input disabled= >"}.
@@ -49,8 +60,6 @@ export default class NumberInputDoc extends Component {
             <dt><code>id              {"{string}"}</code></dt>
             <dd>The DOM id attribute value to use for the underlying
               {"<input>"} element.</dd>
-            <dt><code>label           {"{string|node}"}</code></dt>
-            <dd>Label text to place next to the control.</dd>
             <dt><code>max             {"{number}"}</code></dt>
             <dd>Maximum value.</dd>
             <dt><code>min             {"{number}"}</code></dt>
@@ -62,29 +71,19 @@ export default class NumberInputDoc extends Component {
             <dd>Same as React {"<input onChange= >"}.</dd>
             <dt><code>step            {"{number}"}</code></dt>
             <dd>Steps to increase and decrease by.</dd>
-            <dt><code>toggle         true|false</code></dt>
-            <dd>Whether to visualize it as a toggle switch.</dd>
+            <dt><code>value           {"{number}"}</code></dt>
+            <dd>The value to put in the input.</dd>
           </dl>
         </section>
 
         <section>
           <h2>Example</h2>
 
-          <Example name="Basic" code={
+          <Example code={
             <Form>
               <FormField>
                 <NumberInput id="item2" name="item2" label="Item 2"
                   value={this.state.value} onChange={this._onChange} />
-              </FormField>
-            </Form>
-          } />
-
-          <Example name="Disabled" code={
-            <Form>
-              <FormField>
-                <NumberInput id="item4" name="item4" label="Item 4"
-                  disabled={true}
-                  value={this.state.value} />
               </FormField>
             </Form>
           } />
