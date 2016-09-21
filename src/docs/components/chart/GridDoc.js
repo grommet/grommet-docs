@@ -27,7 +27,7 @@ export default class GridDoc extends Component {
         }/>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>columns      {'{number}'}</code></dt>
             <dd>The number of columns, including each end.</dd>

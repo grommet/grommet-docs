@@ -1,16 +1,25 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
 import Split from 'grommet/components/Split';
+import Box from 'grommet/components/Box';
 import Sidebar from 'grommet/components/Sidebar';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Section from 'grommet/components/Section';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
+
+Split.displayName = 'Split';
+
+const USAGE =
+`import Split from 'grommet/components/Split';
+<Split>
+  {contents}
+</Split>`;
 
 export default class SplitDoc extends Component {
 
@@ -18,15 +27,33 @@ export default class SplitDoc extends Component {
     return (
       <DocsArticle title="Split" colorIndex="neutral-3">
 
-        <p>A full height container with two children laid out horizontally.
-        Typical uses involve placing
-        a <NavAnchor path="/docs/sidebar">Sidebar</NavAnchor> on
-        the left for primary navigation and then main content on the right.
-        The right side might contain a separate Split component to provide
-        further content depth. Typically, you will want the top Split to be
-        a direct child of
-        the <NavAnchor path="/docs/app">App</NavAnchor> component
-        as this will provide the best responsive behavior across devices.</p>
+        <section>
+          <p>A full height container with two children laid out horizontally.
+          Typical uses involve placing
+          a <NavAnchor path="/docs/sidebar">Sidebar</NavAnchor> on
+          the left for primary navigation and then main content on the right.
+          The right side might contain a separate Split component to provide
+          further content depth. Typically, you will want the top Split to be
+          a direct child of
+          the <NavAnchor path="/docs/app">App</NavAnchor> component
+          as this will provide the best responsive behavior across devices.</p>
+
+          <Box direction="row" colorIndex="light-2" basis="medium">
+            <Box basis="1/3" pad="large"
+              colorIndex="grey-4" justify="center" align="center">
+              Navigation
+            </Box>
+            <Box basis="2/3" pad="large"
+              justify="center" align="center">
+              Main content
+            </Box>
+          </Box>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
 
         <section>
           <h2>Properties</h2>

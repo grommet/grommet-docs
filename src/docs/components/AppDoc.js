@@ -2,14 +2,21 @@
 
 import React, { Component } from 'react';
 import App from 'grommet/components/App';
+import Box from 'grommet/components/Box';
+import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
-import Title from 'grommet/components/Title';
+import Footer from 'grommet/components/Footer';
+import Section from 'grommet/components/Section';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import NavAnchor from '../../components/NavAnchor';
 
 App.displayName = 'App';
-Header.displayName = 'Header';
-Title.displayName = 'Title';
+
+const USAGE =
+`import App from 'grommet/components/App';
+<App>
+  {contents}
+</App>`;
 
 export default class AppDoc extends Component {
 
@@ -18,34 +25,53 @@ export default class AppDoc extends Component {
     return (
       <DocsArticle title="App" colorIndex="neutral-3">
 
-        <p>Grommet main container, usually containing Header and Footer.</p>
-
         <section>
-          <h2>Options</h2>
-          <dl>
-            <dt><code>centered  true|false</code></dt>
-            <dd>
-              Whether to centralize or not the content inside the container.
-              Defaults to true.
-            </dd>
-            <dt><code>inline    true|false</code></dt>
-            <dd>
-              Whether to render the app relative to the container (inline) or
-              to the browser window. Defaults to false.
-            </dd>
-          </dl>
+          <p>This is the primary Grommet container outer. Typically it will
+            either contain a <NavAnchor path="/docs/split">Split</NavAnchor> or
+            an <NavAnchor path="/docs/article">Article</NavAnchor>.</p>
+
+          <Box pad={{ between: 'large' }} direction="row">
+            <Box direction="row" colorIndex="light-2" basis="medium">
+              <Box basis="1/3" pad="large"
+                colorIndex="grey-4" justify="center" align="center">
+                Navigation
+              </Box>
+              <Box basis="2/3" pad="large"
+                justify="center" align="center">
+                Main content
+              </Box>
+            </Box>
+            <Article colorIndex="light-2" basis="medium">
+              <Header
+                colorIndex="grey-4" justify="center" align="center">
+                Header
+              </Header>
+              <Section basis="medium" pad="large"
+                justify="center" align="center">
+                Sections
+              </Section>
+              <Footer colorIndex="grey-4" justify="center" align="center">
+                Footer
+              </Footer>
+            </Article>
+          </Box>
         </section>
 
         <section>
-          <h2>Examples</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
 
-          <Example name="App, header with title" code={
-            <App inline={true}>
-              <Header>
-                <Title>My App</Title>
-              </Header>
-            </App>
-          } />
+        <section>
+          <h2>Properties</h2>
+          <dl>
+            <dt><code>centered  true|false</code></dt>
+            <dd>Whether to centralize or not the content inside the container.
+              Defaults to true.</dd>
+            <dt><code>inline    true|false</code></dt>
+            <dd> Whether o render the app relative to the container (inline) or
+              to the browser window. Defaults to false.</dd>
+          </dl>
         </section>
 
       </DocsArticle>

@@ -28,7 +28,7 @@ export default class LineDoc extends Component {
         }/>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>activeIndex  {'{number}'}</code></dt>
             <dd>The currently active value index, if any.</dd>

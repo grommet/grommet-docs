@@ -11,6 +11,16 @@ import Example from '../../Example';
 
 Chart.displayName = 'Chart';
 
+const USAGE =
+`import Chart, { Axis, Base, Layers, Line } from 'grommet/components/chart';
+<Chart>
+  <Axis count={...} ticks={true}>
+  <Base />
+  <Layers>
+    <Line values={[...]} />
+  </Layers>
+</Chart>`;
+
 const a11yTitle = (
   'Chart representing number of commits in the last three days.'
 );
@@ -24,6 +34,11 @@ export default class ChartDoc extends Component {
         <section>
           <p>The Grommet Chart components provide the building blocks
             to construct a variety of Chart visualizations.</p>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -92,14 +107,10 @@ export default class ChartDoc extends Component {
             <NavAnchor path={`/docs/chart/marker-label`}>MarkerLabel</NavAnchor>
             <NavAnchor path={`/docs/chart/range`}>Range</NavAnchor>
           </Menu>
-
-          <p>See the older <NavAnchor path={`/docs/chart-v1`}>
-            Chart version 1</NavAnchor> documentation for the prior Chart
-            interface.</p>
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>full                  true|false</code></dt>
             <dd>Whether to occupy the full parent width.</dd>

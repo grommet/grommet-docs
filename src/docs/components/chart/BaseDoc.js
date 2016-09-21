@@ -16,7 +16,7 @@ export default class BaseDoc extends Component {
           Chart.</p>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>height       small|medium|large|sparkline</code></dt>
             <dd>The height of the drawing area. Defaults

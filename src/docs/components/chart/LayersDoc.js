@@ -31,7 +31,7 @@ export default class LayersDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <div>None</div>
         </section>
 

@@ -29,7 +29,7 @@ export default class RangeDoc extends Component {
         }/>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>active       {'{start: {number}, end: {number}}'}
               </code></dt>

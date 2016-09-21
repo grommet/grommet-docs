@@ -33,7 +33,7 @@ export default class MarkerDoc extends Component {
         }/>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the line color.

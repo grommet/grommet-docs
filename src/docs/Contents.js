@@ -34,7 +34,6 @@ import ArticleDoc from './components/ArticleDoc';
 import BoxDoc from './components/box/BoxDoc';
 import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
 import BoxingGymDoc from './components/box/BoxingGymDoc';
-import BrickDoc from './components/BrickDoc';
 import ButtonDoc from './components/button/ButtonDoc';
 import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
 import CalendarDoc from './components/CalendarDoc';
@@ -54,7 +53,6 @@ import ChartMarkerDoc from './components/chart/MarkerDoc';
 import ChartMarkerLabelDoc from './components/chart/MarkerLabelDoc';
 import ChartRangeDoc from './components/chart/RangeDoc';
 import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
-import ChartV1Doc from './components/chart/ChartV1Doc';
 import CheckBoxDoc from './components/checkbox/CheckBoxDoc';
 import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/ColumnsDoc';
@@ -175,7 +173,6 @@ export default [
         {path: 'gym', component: BoxingGymDoc},
         {path: 'examples', component: BoxExamplesDoc}
       ]},
-      {path: 'brick', label: 'Brick', component: BrickDoc},
       {path: 'button', label: 'Button', index: ButtonDoc, contents: [
         {path: 'examples', component: ButtonExamplesDoc}
       ]},
@@ -198,7 +195,6 @@ export default [
         {path: 'marker-label', component: ChartMarkerLabelDoc},
         {path: 'range', component: ChartRangeDoc}
       ]},
-      {path: 'chart-v1', component: ChartV1Doc},
       {path: 'check-box', label: 'CheckBox', index: CheckBoxDoc, contents: [
         {path: 'examples', component: CheckBoxExamplesDoc}
       ]},

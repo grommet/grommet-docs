@@ -1,12 +1,24 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Article from 'grommet/components/Article';
+import Section from 'grommet/components/Section';
+import Header from 'grommet/components/Header';
+import Footer from 'grommet/components/Footer';
+import Heading from 'grommet/components/Heading';
+import Paragraph from 'grommet/components/Paragraph';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
 import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
-import Article from 'grommet/components/Article';
-import Heading from 'grommet/components/Heading';
-import Section from 'grommet/components/Section';
+
+Article.displayName = 'Article';
+
+const USAGE =
+`import Article from 'grommet/components/Article';
+<Article>
+  {contents}
+</Article>`;
 
 export default class ArticleDoc extends Component {
 
@@ -14,10 +26,36 @@ export default class ArticleDoc extends Component {
     return (
       <DocsArticle title="Article" colorIndex="neutral-3">
 
-        <p>Styles standard HTML5 markup for use in articles.</p>
+        <section>
+          <p>A standard <Anchor
+            href="http://www.w3.org/TR/html-markup/article.html">
+            HTML5 article</Anchor>. It might
+            contain a <NavAnchor path="/docs/header">Header</NavAnchor>, one
+            or more <NavAnchor path="/docs/section">Sections</NavAnchor>, and
+            a <NavAnchor path="/docs/footer">Footer</NavAnchor>.</p>
+
+          <Article colorIndex="light-2">
+            <Header
+              colorIndex="grey-4" justify="center" align="center">
+              Header
+            </Header>
+            <Section basis="medium" pad="large"
+              justify="center" align="center">
+              Sections
+            </Section>
+            <Footer colorIndex="grey-4" justify="center" align="center">
+              Footer
+            </Footer>
+          </Article>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>onSelect      {"{function (selected)}"}</code></dt>
             <dd>Function that will be called when the article
@@ -32,17 +70,17 @@ export default class ArticleDoc extends Component {
             If the spacebar is pressed, the children will automatically
             be stepped through at an interval of ten seconds per child.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
           also available.</p>
         </section>
 
         <section>
           <Example name="Example" code={
             <Article>
-              <Heading tag="h1">Title</Heading>
+              <Heading tag="h1">Heading</Heading>
               <Section>
-                <h2>Heading</h2>
-                <p>Lorem ipsum ...</p>
+                <Heading tag="h2">Sub Heading</Heading>
+                <Paragraph>Lorem ipsum ...</Paragraph>
               </Section>
             </Article>
           } />

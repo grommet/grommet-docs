@@ -17,7 +17,7 @@ export default class HotSpotsDoc extends Component {
           Layers</NavAnchor> component.</p>
 
         <section>
-          <h2>Options</h2>
+          <h2>Properties</h2>
           <dl>
             <dt><code>activeIndex  {'{number}'}</code></dt>
             <dd>The currently active slot index, if any.</dd>
