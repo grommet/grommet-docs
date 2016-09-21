@@ -2,43 +2,14 @@
 
 import React, { Component } from 'react';
 import Markdown from 'grommet/components/Markdown';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 Markdown.displayName = 'Markdown';
 
-const TEXT = `
-# H1
-
-Paragraph [link](/).
-
-## H2
-
-![image](/img/carousel-1.png)
-`;
-
-const components = {
-  h1: {
-    props: {
-      strong: true
-    }
-  },
-  h2: {
-    props: {
-      strong: true
-    }
-  },
-  p: {
-    props: {
-      size: 'large'
-    }
-  },
-  img: {
-    props: {
-      size: 'small'
-    }
-  }
-};
+const USAGE =
+`import Markdown from 'grommet/components/Markdown';
+<Markdown content={...} />`;
 
 export default class MarkdownDoc extends Component {
 
@@ -46,12 +17,19 @@ export default class MarkdownDoc extends Component {
     return (
       <DocsArticle title="Markdown" colorIndex="neutral-4">
 
-        <p>Render <a href="http://daringfireball.net/projects/markdown/">
-          markdown</a> content
-          using Grommet components.</p>
+        <section>
+          <p>Render <a href="http://daringfireball.net/projects/markdown/">
+            markdown</a> content
+            using Grommet components.</p>
+        </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>components   {'{Component: { props: { } }}'}</code></dt>
             <dd>Set properties for components used in the markdown
@@ -65,13 +43,9 @@ export default class MarkdownDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <Markdown content={TEXT} />
-          } />
-
-          <Example name="Custom Props" code={
-            <Markdown content={TEXT} components={components} />
-          } />
+          <NavAnchor primary={true} path={`/docs/markdown/examples`}>
+            Markdown Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

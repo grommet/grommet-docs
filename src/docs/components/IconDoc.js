@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Header from 'grommet/components/Header';
+import Heading from 'grommet/components/Heading';
 import SearchInput from 'grommet/components/SearchInput';
 import Box from 'grommet/components/Box';
 import Tiles from 'grommet/components/Tiles';
@@ -153,8 +154,8 @@ export default class IconDoc extends Component {
         </section>
 
         <section>
-          <Header tag="h2" justify="between">
-            Icons
+          <Header justify="between">
+            <Heading tag="h2">Icons</Heading>
             <SearchInput value={searchText}
               onDOMChange={this._onChangeSearch} />
           </Header>

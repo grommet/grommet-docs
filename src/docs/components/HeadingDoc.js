@@ -1,14 +1,18 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import Heading from 'grommet/components/Heading';
+import DocsArticle from '../../components/DocsArticle';
+import NavAnchor from '../../components/NavAnchor';
+import Example from '../Example';
 
 Heading.displayName = 'Heading';
 
-const LONG_TEXT = 'A Long Heading That Will Probably Wrap Which ' +
-  'Should Be Avoided';
+const USAGE =
+`import Heading from 'grommet/components/Heading';
+<Heading>
+  {contents}
+</Heading>`;
 
 export default class HeadingDoc extends Component {
 
@@ -17,12 +21,19 @@ export default class HeadingDoc extends Component {
       <DocsArticle title="Heading" colorIndex="neutral-3">
 
         <section>
-          <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.</p>
+          <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.
+           See <NavAnchor path="/docs/typography">Typography</NavAnchor> for
+           examples of all heading tags.</p>
           <Heading>Sample Heading</Heading>
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>align       start|center|end</code></dt>
             <dd>The horizontal alignment of the Heading. Defaults
@@ -43,33 +54,10 @@ export default class HeadingDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
-          <Example name="Default" code={
+          <h2>Example</h2>
+          <Example code={
             <Heading>Sample Heading</Heading>
           } />
-          <Example name="H2, Centered" code={
-            <Heading tag="h2" align="center">Sample Heading</Heading>
-          } />
-          <Example name="H6, Strong" code={
-            <Heading strong={true} tag="h6">Sample Heading</Heading>
-          } />
-        </section>
-
-        <section>
-          <div className="example">
-            <h1><strong>H1 strong {LONG_TEXT}</strong></h1>
-            <h1>H1 {LONG_TEXT}</h1>
-            <h2><strong>H2 strong {LONG_TEXT}</strong></h2>
-            <h2>H2 {LONG_TEXT}</h2>
-            <h3><strong>H3 strong {LONG_TEXT}</strong></h3>
-            <h3>H3 {LONG_TEXT}</h3>
-            <h4><strong>H4 strong {LONG_TEXT}</strong></h4>
-            <h4>H4 {LONG_TEXT}</h4>
-            <h5><strong>H5 strong {LONG_TEXT}</strong></h5>
-            <h5>H5 {LONG_TEXT}</h5>
-            <h6><strong>H6 strong {LONG_TEXT}</strong></h6>
-            <h6>H6 {LONG_TEXT}</h6>
-          </div>
         </section>
 
       </DocsArticle>

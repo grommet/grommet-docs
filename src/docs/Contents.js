@@ -21,7 +21,6 @@ import Accessibility from './reference/Accessibility';
 import BrowserSupport from './reference/BrowserSupport';
 import About from './reference/About';
 
-// import ActionsDoc from './patterns/ActionsDoc';
 import AccordionDoc from './components/accordion/AccordionDoc';
 import AccordionExamplesDoc from './components/accordion/AccordionExamplesDoc';
 import AnchorDoc from './components/anchor/AnchorDoc';
@@ -79,7 +78,8 @@ import ListDoc from './components/ListDoc';
 import LoginFormDoc from './components/LoginFormDoc';
 import MapDoc from './components/map/MapDoc';
 import MapExamplesDoc from './components/map/MapExamplesDoc';
-import MarkdownDoc from './components/MarkdownDoc';
+import MarkdownDoc from './components/markdown/MarkdownDoc';
+import MarkdownExamplesDoc from './components/markdown/MarkdownExamplesDoc';
 import MenuDoc from './components/menu/MenuDoc';
 import MenuExamplesDoc from './components/menu/MenuExamplesDoc';
 import MeterDoc from './components/meter/MeterDoc';
@@ -152,9 +152,7 @@ export default [
     ]},
   {label: 'Patterns',
     contents: [
-      // {path: 'dashboard', label: 'Dashboard', component: DashboardDoc},
       {path: 'navigation', label: 'Navigation', component: NavigationDoc}
-      // {path: 'actions', label: 'Actions', component: ActionsDoc}
     ]
   },
   {label: 'Components',
@@ -229,7 +227,9 @@ export default [
       {path: 'map', label: 'Map', index: MapDoc, contents: [
         {path: 'examples', component: MapExamplesDoc}
       ]},
-      {path: 'markdown', label: 'Markdown', component: MarkdownDoc},
+      {path: 'markdown', label: 'Markdown', index: MarkdownDoc, contents: [
+        {path: 'examples', component: MarkdownExamplesDoc}
+      ]},
       {path: 'menu', label: 'Menu', index: MenuDoc, contents: [
         {path: 'examples', component: MenuExamplesDoc}
       ]},

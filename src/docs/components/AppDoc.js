@@ -42,8 +42,7 @@ export default class AppDoc extends Component {
               </Box>
             </Box>
             <Article colorIndex="light-2" basis="medium">
-              <Header
-                colorIndex="grey-4" justify="center" align="center">
+              <Header colorIndex="grey-4" justify="center" align="center">
                 Header
               </Header>
               <Section basis="medium" pad="large"

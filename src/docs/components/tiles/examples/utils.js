@@ -3,6 +3,7 @@
 import React from 'react';
 import Tile from 'grommet/components/Tile';
 import Header from 'grommet/components/Header';
+import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
 import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
@@ -41,8 +42,8 @@ export function renderRichTiles (options={}, onClick) {
       <Tile key={index} align="start"
         separator={options.separator ? 'top' : undefined}
         colorIndex={colorIndex}>
-        <Header tag="h4" size="small" pad={{horizontal: 'small'}}>
-          <strong>{"Tile " + index}</strong>
+        <Header size="small" pad={{horizontal: 'small'}}>
+          <Heading tag="h4"><strong>{"Tile " + index}</strong></Heading>
         </Header>
         <Box pad="small">
           <p>{(options.alternateContent && index % 2 === 0) ?
