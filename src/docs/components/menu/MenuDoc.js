@@ -49,11 +49,6 @@ export default class MenuDoc extends Component {
             <dt><code>closeOnClick  true|false</code></dt>
             <dd>Indicates whether the opened menu drop down should close
             when clicked. Defaults to true.</dd>
-            <dt><code>inline        true|false</code></dt>
-            <dd>Indicates whether the menu should be shown inline or
-              a control shown to open it in a drop down. If false,
-              the specified label or icon will be shown, if neither are
-              specified, a default icon will be shown.</dd>
             <dt><code>dropAlign     {"{left: left|right, " +
               "right: left|right, top: top|bottom, " +
               "bottom: top|bottom}"}</code></dt>
@@ -69,6 +64,11 @@ export default class MenuDoc extends Component {
             <dt><code>icon          {"{element}"}</code></dt>
             <dd>Indicates that the menu should be collapsed and the
               icon shown as a control top open it.</dd>
+            <dt><code>inline        true|false</code></dt>
+            <dd>Indicates whether the menu should be shown inline or
+              a control shown to open it in a drop down. If false,
+              the specified label or icon will be shown, if neither are
+              specified, a default icon will be shown.</dd>
             <dt><code>label         {"{string}"}</code></dt>
             <dd>Indicates that the menu should be collapsed and the
               label shown as a control top open it.</dd>

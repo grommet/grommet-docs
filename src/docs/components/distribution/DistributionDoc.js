@@ -48,10 +48,6 @@ export default class DistributionDoc extends Component {
           <dl>
             <dt><code>full         true|false</code></dt>
             <dd>Whether the height should fill its container.</dd>
-            <dt><code>legend       true|false</code></dt>
-            <dd>Whether to show a legend.</dd>
-            <dt><code>legendTotal  true|false</code></dt>
-            <dd>Whether to show a total in the legend.</dd>
             <dt><code>series       {"[{value: , label: , labelValue: , " +
               "colorIndex: , onClick: , icon: }, ...]"}</code></dt>
             <dd>An array of objects describing the
@@ -64,18 +60,6 @@ export default class DistributionDoc extends Component {
               Defaults to <code>medium</code>.</dd>
             <dt><code>units        {"{string}"}</code></dt>
             <dd>Optional units to display next to the value label.</dd>
-          </dl>
-
-          <h3 className="error">Deprecated</h3>
-          <p>The following properties are deprecated and will be
-            removed in version 1.0. Instead of using these properties,
-            callers should add their own <NavAnchor path="/docs/legend">
-            Legend</NavAnchor> laid out next to the Distribution.</p>
-          <dl>
-            <dt><code>legend       true|false</code></dt>
-            <dd>Whether to show a legend.</dd>
-            <dt><code>legendTotal  true|false</code></dt>
-            <dd>Whether to show a total in the legend.</dd>
           </dl>
         </section>
 

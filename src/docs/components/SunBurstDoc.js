@@ -115,6 +115,8 @@ export default class SunBurstDoc extends Component {
               as the items in the <code>data</code> array.
               NOTE: Currently the graphic does not work well at depths
               greater than three.</dd>
+            <dt><code>label       {"{node}"}</code></dt>
+            <dd>Label to show in a corner.</dd>
             <dt><code>onActive   {"{function ([index, ...])}"}</code></dt>
             <dd>Hover handler. The hovered indexes are passed as the argument.
               When the user is ceases to hover over the

@@ -32,9 +32,6 @@ export default class SocialShareDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>type         {"email|facebook|twitter|linkedin|google"}
-              </code></dt>
-            <dd>Which social network to share link to.</dd>
             <dt><code>link         {"{string}"}</code></dt>
             <dd>Link to share.</dd>
             <dt><code>text         {"{string}"}</code></dt>
@@ -44,6 +41,9 @@ export default class SocialShareDoc extends Component {
             <dt><code>title        {"{string}"}</code></dt>
             <dd>Title of the link to be shared. Only valid with
               <code>linkedin</code> and <code>email</code> type.</dd>
+            <dt><code>type         {"email|facebook|twitter|linkedin|google"}
+              </code></dt>
+            <dd>Which social network to share link to.</dd>
           </dl>
         </section>
 

@@ -58,20 +58,20 @@ export default class AnimateDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>component          {"{string}|{Component}"}</code></dt>
+            <dd>Wrapping component. Defaults to <code>{'<div/>'}</code>.</dd>
             <dt><code>enter              {"{animation: , duration: , delay: }"}
             </code></dt>
             <dd>Animation when component is entering.</dd>
+            <dt><code>keep               true|false</code></dt>
+            <dd>Whether to keep or remove element from the DOM.
+              Defaults to false.</dd>
             <dt><code>leave              {"{animation: , duration: , delay: }"}
             </code></dt>
             <dd>Animation when component is leaving. Defaults
               to enter animation.</dd>
-            <dt><code>component          {"{string}|{Component}"}</code></dt>
-            <dd>Wrapping component. Defaults to <code>{'<div/>'}</code>.</dd>
             <dt><code>visible            true|false</code></dt>
             <dd>Toggle visibility. Defaults to false.</dd>
-            <dt><code>keep               true|false</code></dt>
-            <dd>Whether to keep or remove element from the DOM.
-              Defaults to false.</dd>
           </dl>
         </section>
 

@@ -37,8 +37,8 @@ export default class TabsDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-            <dt><code>initialIndex        {"{number}"}</code></dt>
-            <dd>Initial tab index. Defaults to 0.</dd>
+            <dt><code>activeIndex         {"{number}"}</code></dt>
+            <dd>Active tab index. Defaults to 0.</dd>
             <dt><code>justify             start|center|end</code></dt>
             <dd>How to align the tabs along the main axis.
               Defaults to <code>center</code>.</dd>

@@ -34,6 +34,8 @@ export default class ImageDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>alt        {"{string}"}</code></dt>
+            <dd>Alternate text for screen readers.</dd>
             <dt><code>caption    true|{"{string}"}</code></dt>
             <dd>Whether to add image caption or not. If set to true,
               caption text

@@ -91,48 +91,6 @@ export default class MeterDoc extends Component {
             <dt><code>vertical    true|false</code></dt>
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
           </dl>
-
-          <h3 className="error">Deprecated</h3>
-          <p>The following properties and/or options are deprecated and will be
-            removed in version 1.0.</p>
-          <dl>
-            <dt><code>important   {"{number}"}</code></dt>
-            <dd>The index of the series data that the label should
-              correspond to, if any. This property is deprecated in
-              favor of <code>activeIndex</code>.</dd>
-            <dt><code>label       true|false</code></dt>
-            <dd>If <code>false</code>, no label is shown. The default
-              is <code>true</code>, which
-              causes this component to build the
-              label. <code>true</code> and <code>false</code> are
-              deprecated. Instead, callers can
-              use <NavAnchor path="/docs/value">
-              Value</NavAnchor> to construct the appropriate label.</dd>
-            <dt><code>legend      {"{placement: right|bottom|inline, " +
-              "total: true|false}"}</code></dt>
-            <dd>Whether to show a legend. If showing, whether to include
-              a total,
-              and where to place it. If placement is not specified, it will be
-              placed to match the aspect ratio of the
-              window. <code>inline</code> is
-              only supported with horizontal bar. If placement is set
-              to <code>inline</code> and
-              total is set to <code>false</code>, the active value is hidden.
-              This property is deprecated. Callers are encouraged to
-              use <NavAnchor path="/docs/legend">Legend</NavAnchor> and place it
-              around the meter as needed.</dd>
-            <dt><code>max         {"{value: , label: }"}</code></dt>
-            <dd>The largest possible value and its label.</dd>
-            <dt><code>min         {"{value: , label: }"}</code></dt>
-            <dd>The smallest possible value and its label.</dd>
-            <dt><code>series      {"[{label: }, ...]"}</code></dt>
-            <dd>The label property of series items is deprecated.</dd>
-            <dt><code>units       {"{string}"}</code></dt>
-            <dd>Optional units to display next to the value label. This
-              property is deprecated. Callers should
-              use <NavAnchor path="/docs/value">Value</NavAnchor> to construct
-              a label.</dd>
-          </dl>
         </section>
 
         <section>

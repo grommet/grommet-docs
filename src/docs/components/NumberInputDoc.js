@@ -37,29 +37,33 @@ export default class NumberInputDoc extends Component {
         <section>
           <h2>Options</h2>
           <dl>
-          <dt><code>checked         true|false</code></dt>
-          <dd>Same as React {"<input checked= >"}.</dd>
-          <dt><code>defaultChecked  true|false</code></dt>
-          <dd>Same as React {"<input defaultChecked= >"}.</dd>
-          <dt><code>disabled        true|false</code></dt>
-          <dd>Same as React {"<input disabled= >"}.
-            Also adds a hidden input element with the same name so
-            form submissions work.</dd>
-          <dt><code>id              {"{string}"}</code></dt>
-          <dd>The DOM id attribute value to use for the underlying
-            {"<input>"} element.</dd>
-          <dt><code>label           {"{string|node}"}</code></dt>
-          <dd>Label text to place next to the control.</dd>
-          <dt><code>name            {"{string}"}</code></dt>
-          <dd>The DOM name attribute value to use for the underlying
-            {"<input>"} element.</dd>
-          <dt><code>onChange        {"{function}"}</code></dt>
-          <dd>Same as React {"<input onChange= >"}.</dd>
-          <dt><code>toggle         true|false</code></dt>
-          <dd>Whether to visualize it as a toggle switch.</dd>
-          <dt><code>ariaDescribedby {"{string}"}</code></dt>
-          <dd>Optional attribute to enhance accessibility in case the
-            checkbox is used inside a context.</dd>
+            <dt><code>ariaDescribedby {"{string}"}</code></dt>
+            <dd>Optional attribute to enhance accessibility in case the
+              this is used inside a context.</dd>
+            <dt><code>defaultValue  {"{number}|{string}"}</code></dt>
+            <dd>Same as React {"<input defaultValue= >"}.</dd>
+            <dt><code>disabled        true|false</code></dt>
+            <dd>Same as React {"<input disabled= >"}.
+              Also adds a hidden input element with the same name so
+              form submissions work.</dd>
+            <dt><code>id              {"{string}"}</code></dt>
+            <dd>The DOM id attribute value to use for the underlying
+              {"<input>"} element.</dd>
+            <dt><code>label           {"{string|node}"}</code></dt>
+            <dd>Label text to place next to the control.</dd>
+            <dt><code>max             {"{number}"}</code></dt>
+            <dd>Maximum value.</dd>
+            <dt><code>min             {"{number}"}</code></dt>
+            <dd>Minimum value.</dd>
+            <dt><code>name            {"{string}"}</code></dt>
+            <dd>The DOM name attribute value to use for the underlying
+              {"<input>"} element.</dd>
+            <dt><code>onChange        {"{function}"}</code></dt>
+            <dd>Same as React {"<input onChange= >"}.</dd>
+            <dt><code>step            {"{number}"}</code></dt>
+            <dd>Steps to increase and decrease by.</dd>
+            <dt><code>toggle         true|false</code></dt>
+            <dd>Whether to visualize it as a toggle switch.</dd>
           </dl>
         </section>
 
