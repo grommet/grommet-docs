@@ -44,13 +44,13 @@ export default class ExamplesDoc extends Component {
   _onNext () {
     const { examples } = this.props;
     const { index } = this.state;
-    this._select((index < (examples.length - 1) ? index + 1 : 0));
+    this._select((index < (examples.length - 1) ? index + 1 :
+      (examples.length - 1)));
   }
 
   _onPrevious () {
-    const { examples } = this.props;
     const { index } = this.state;
-    this._select((index > 0 ? index - 1 : examples.length - 1));
+    this._select((index > 0 ? index - 1 : 0));
   }
 
   _onChangePropertyValue (event) {
@@ -117,12 +117,16 @@ export default class ExamplesDoc extends Component {
           {items}
         </Menu>
       );
-      previous = (
-        <Button icon={<PreviousIcon />} onClick={this._onPrevious} />
-      );
-      next = (
-        <Button icon={<NextIcon />} onClick={this._onNext} />
-      );
+      if (index > 0) {
+        previous = (
+          <Button icon={<PreviousIcon />} onClick={this._onPrevious} />
+        );
+      }
+      if (index < (items.length - 1)) {
+        next = (
+          <Button icon={<NextIcon />} onClick={this._onNext} />
+        );
+      }
     } else {
       pad = { horizontal: 'large' };
     }
