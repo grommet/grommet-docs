@@ -80,7 +80,8 @@ import LayerExamplesDoc from './components/layer/examples/LayerExamplesDoc';
 import LegendDoc from './components/LegendDoc';
 import ListDoc from './components/list/ListDoc';
 import ListExamplesDoc from './components/list/ListExamplesDoc';
-import LoginFormDoc from './components/LoginFormDoc';
+import LoginFormDoc from './components/login-form/LoginFormDoc';
+import LoginFormExamplesDoc from './components/login-form/LoginFormExamplesDoc';
 import MapDoc from './components/map/MapDoc';
 import MapExamplesDoc from './components/map/MapExamplesDoc';
 import MarkdownDoc from './components/markdown/MarkdownDoc';
@@ -238,7 +239,9 @@ export default [
       {path: 'list', label: 'List', index: ListDoc, contents: [
         {path: 'examples', component: ListExamplesDoc}
       ]},
-      {path: 'login-form', label: 'LoginForm', component: LoginFormDoc},
+      {path: 'login-form', label: 'LoginForm', index: LoginFormDoc, contents: [
+        {path: 'examples', component: LoginFormExamplesDoc}
+      ]},
       {path: 'map', label: 'Map', index: MapDoc, contents: [
         {path: 'examples', component: MapExamplesDoc}
       ]},

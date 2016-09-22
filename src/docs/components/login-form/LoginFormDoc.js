@@ -2,9 +2,14 @@
 
 import React, { Component } from 'react';
 import LoginForm from 'grommet/components/LoginForm';
-import DocsArticle from '../../components/DocsArticle';
-import Logo from '../../img/Logo';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+LoginForm.displayName = 'LoginForm';
+
+const USAGE =
+`import LoginForm from 'grommet/components/LoginForm';
+<LoginForm onSubmit={...} />`;
 
 export default class LoginFormDoc extends Component {
 
@@ -26,7 +31,12 @@ export default class LoginFormDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>align           start|center|end</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
@@ -58,36 +68,9 @@ export default class LoginFormDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Simple" code={
-            <LoginForm onSubmit={this._onSubmit} />
-          } />
-
-          <Example name="Full" code={
-            <LoginForm logo={<Logo />} title="Product Name"
-              secondaryText="Product Secondary Text"
-              onSubmit={this._onSubmit}
-              rememberMe={true} forgotPassword={<a>Forgot password?</a>}
-              errors={["Invalid username or password."]}
-              defaultValues={{
-                username: 'username@grommet.io',
-                rememberMe: true
-              }}
-            />
-          } />
-
-          <Example name="Full, Start" code={
-            <LoginForm align="start" logo={<Logo />} title="Product Name"
-              secondaryText="Product Secondary Text"
-              onSubmit={this._onSubmit}
-              rememberMe={true} forgotPassword={<a>Forgot password?</a>}
-              errors={["Invalid username or password."]}
-              defaultValues={{
-                username: 'username@grommet.io',
-                rememberMe: true
-              }}
-            />
-          } />
-
+          <NavAnchor primary={true} path={`/docs/login-form/examples`}>
+            LoginForm Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>
