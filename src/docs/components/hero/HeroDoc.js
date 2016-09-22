@@ -2,22 +2,20 @@
 
 import React, { Component } from 'react';
 import Hero from 'grommet/components/Hero';
-import Video from 'grommet/components/Video';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
 Hero.displayName = 'Hero';
+
+const USAGE =
+`import Hero from 'grommet/components/Hero';
+<Hero backgroundType="image" backgroundImage="img/carousel-1.png">
+  {contents}
+</Hero>`;
 
 export default class HeroDoc extends Component {
 
   render () {
-
-    const backgroundVideo = (
-      <Video autoPlay={true} showControls={false} loop={true} muted={true}>
-        <source src="video/test.mp4" type="video/mp4"/>
-      </Video>
-    );
-
     return (
       <DocsArticle title="Hero" colorIndex="neutral-3">
 
@@ -29,7 +27,12 @@ export default class HeroDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>backgroundImage                {"{string}"}</code></dt>
             <dd>Source of the image to be used for the background.
@@ -67,17 +70,9 @@ export default class HeroDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <Hero backgroundType="image" backgroundImage="img/carousel-1.png">
-              <h1>This is a Hero</h1>
-            </Hero>
-          } />
-
-          <Example name="Small Hero with Video Background" code={
-            <Hero size="small" backgroundVideo={backgroundVideo}>
-              <h1>This is a Hero with video</h1>
-            </Hero>
-          } />
+          <NavAnchor primary={true} path={`/docs/hero/examples`}>
+            Hero Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

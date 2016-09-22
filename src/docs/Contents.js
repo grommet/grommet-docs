@@ -69,14 +69,17 @@ import HeaderExamplesDoc from './components/header/HeaderExamplesDoc';
 import HeadingDoc from './components/HeadingDoc';
 import HeadlineDoc from './components/headline/HeadlineDoc';
 import HeadlineExamplesDoc from './components/headline/HeadlineExamplesDoc';
-import HeroDoc from './components/HeroDoc';
+import HeroDoc from './components/hero/HeroDoc';
+import HeroExamplesDoc from './components/hero/HeroExamplesDoc';
 import IconDoc from './components/IconDoc';
 import ImageDoc from './components/image/ImageDoc';
 import ImageExamplesDoc from './components/image/ImageExamplesDoc';
 import LabelDoc from './components/LabelDoc';
-import LayerDoc from './components/LayerDoc';
+import LayerDoc from './components/layer/LayerDoc';
+import LayerExamplesDoc from './components/layer/examples/LayerExamplesDoc';
 import LegendDoc from './components/LegendDoc';
-import ListDoc from './components/ListDoc';
+import ListDoc from './components/list/ListDoc';
+import ListExamplesDoc from './components/list/ListExamplesDoc';
 import LoginFormDoc from './components/LoginFormDoc';
 import MapDoc from './components/map/MapDoc';
 import MapExamplesDoc from './components/map/MapExamplesDoc';
@@ -219,15 +222,21 @@ export default [
       {path: 'headline', label: 'Headline', index: HeadlineDoc, contents: [
         {path: 'examples', component: HeadlineExamplesDoc}
       ]},
-      {path: 'hero', label: 'Hero', component: HeroDoc},
+      {path: 'hero', label: 'Hero', index: HeroDoc, contents: [
+        {path: 'examples', component: HeroExamplesDoc}
+      ]},
       {path: 'icon', label: 'Icon', component: IconDoc},
       {path: 'image', label: 'Image', index: ImageDoc, contents: [
         {path: 'examples', component: ImageExamplesDoc}
       ]},
       {path: 'label', label: 'Label', component: LabelDoc},
-      {path: 'layer', label: 'Layer', component: LayerDoc},
+      {path: 'layer', label: 'Layer', index: LayerDoc, contents: [
+        {path: 'examples', component: LayerExamplesDoc}
+      ]},
       {path: 'legend', label: 'Legend', component: LegendDoc},
-      {path: 'list', label: 'List', component: ListDoc},
+      {path: 'list', label: 'List', index: ListDoc, contents: [
+        {path: 'examples', component: ListExamplesDoc}
+      ]},
       {path: 'login-form', label: 'LoginForm', component: LoginFormDoc},
       {path: 'map', label: 'Map', index: MapDoc, contents: [
         {path: 'examples', component: MapExamplesDoc}

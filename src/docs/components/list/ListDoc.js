@@ -1,17 +1,29 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+List.displayName = 'List';
+
+const USAGE =
+`import List from 'grommet/components/List';
+import ListItem from 'grommet/components/ListItem';
+<List>
+  <ListItem>
+    {contents}
+  </ListItem>
+</List>`;
 
 const DATA = [
   {uid: 1, face: '', name: 'Alan', mood: 'happy'},
   {uid: 2, face: '', name: 'Chris', mood: 'cool'},
   {uid: 3, face: '', name: 'Eric', mood: 'odd'}
 ];
+
+const ON_CLICK_SNIPPET = `onClick={this._onClick.bind(this, id)}`;
 
 export default class ListDoc extends Component {
 
@@ -54,7 +66,12 @@ export default class ListDoc extends Component {
         </section>
 
         <section>
-          <h2>List Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>List Properties</h2>
           <dl>
             <dt><code>onMore         {"{function ()}"}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
@@ -72,37 +89,25 @@ export default class ListDoc extends Component {
         </section>
 
         <section>
-          <h2>ListItem Options</h2>
+          <h2>ListItem Properties</h2>
           <dl>
             <dt><code>onClick     {"function () {...}"}</code></dt>
             <dd>Called when the user clicks on the item. Callers should bind
               an identifier to the function to distinguish between multiple
-              items. For example <code>
-              {"onClick={this._onClick.bind(this, id)}"}</code></dd>
+              items. For example <code>{ON_CLICK_SNIPPET}</code></dd>
             <dt><code>selected    true|false</code></dt>
             <dd>Whether this item is currently selected.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
             also available for ListItem.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <List>{items}</List>
-          } />
-          <Example name="Selectable" code={
-            <List selectable={true} selected={this.state.singleSelected}
-              onSelect={this._onSingleSelect}>
-              {items}
-            </List>
-          } />
-          <Example name="Multi-select" code={
-            <List selectable="multiple" onSelect={this._onMultipleSelect}>
-              {items}
-            </List>
-          } />
+          <NavAnchor primary={true} path={`/docs/list/examples`}>
+            List Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

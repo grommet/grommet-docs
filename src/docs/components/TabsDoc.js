@@ -9,6 +9,21 @@ import Form from 'grommet/components/Form';
 import DocsArticle from '../../components/DocsArticle';
 import Example from '../Example';
 
+Tabs.displayName = 'Tabs';
+Tab.displayName = 'Tab';
+
+const USAGE =
+`import Tabs from 'grommet/components/Tabs';
+import Tab from 'grommet/components/Tab';
+<Tabs>
+  <Tab title="First Title">
+    {contents}
+  </Tab>
+  <Tab title="Second Title">
+    {contents}
+  </Tab>
+</Tabs>`;
+
 export default class TabsDoc extends Component {
 
   render () {
@@ -35,7 +50,12 @@ export default class TabsDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>activeIndex         {"{number}"}</code></dt>
             <dd>Active tab index. Defaults to 0.</dd>
@@ -51,13 +71,13 @@ export default class TabsDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
+          <h2>Example</h2>
 
-          <Example name="Simple" code={
+          <Example code={
             <Tabs>
               <Tab title="First Title">
                 <h3>First Tab</h3>
-                <p>Contents of the first tab</p>
+                <p>Contents of the first tab. This one has a Form.</p>
                 <Form compact={true}>
                   <FormFields>
                     <fieldset>
@@ -67,23 +87,6 @@ export default class TabsDoc extends Component {
                     </fieldset>
                   </FormFields>
                 </Form>
-              </Tab>
-              <Tab title="Second Title">
-                <h3>Second Tab</h3>
-                <p>Contents of the second tab</p>
-              </Tab>
-              <Tab title="Third Title">
-                <h3>Third Tab</h3>
-                <p>Contents of the third tab</p>
-              </Tab>
-            </Tabs>
-          } />
-
-          <Example name="Initial Index, Justify Start" code={
-            <Tabs initialIndex={1} justify="start">
-              <Tab title="First Title">
-                <h3>First Tab</h3>
-                <p>Contents of the first tab</p>
               </Tab>
               <Tab title="Second Title">
                 <h3>Second Tab</h3>

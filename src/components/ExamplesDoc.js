@@ -121,11 +121,15 @@ export default class ExamplesDoc extends Component {
         previous = (
           <Button icon={<PreviousIcon />} onClick={this._onPrevious} />
         );
+      } else {
+        previous = <span></span>;
       }
       if (index < (items.length - 1)) {
         next = (
           <Button icon={<NextIcon />} onClick={this._onNext} />
         );
+      } else {
+        next = <span></span>;
       }
     } else {
       pad = { horizontal: 'large' };

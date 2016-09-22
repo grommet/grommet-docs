@@ -8,31 +8,17 @@ import Example from '../Example';
 
 Legend.displayName = 'Legend';
 
-const series = [
-  {continent: 'NorthAmerica', label: 'North America', value: 40,
-    colorIndex: 'graph-1', onClick: () => {
-      alert('North America');
-    }},
-  {continent: 'SouthAmerica', label: 'South America', value: 30,
-    colorIndex: 'accent-2', onClick: () => {
-      alert('North America');
-    }},
-  {continent: 'Europe', label: 'Europe', value: 20,
-    colorIndex: 'unset', onClick: () => {
-      alert('Europe');
-    }},
-  {continent: 'Africa', label: 'Africa', value: 10,
-    colorIndex: 'graph-2', onClick: () => {
-      alert('Africa');
-    }},
-  {continent: 'Asia', label: 'Asia', value: 15,
-    colorIndex: 'graph-3', onClick: () => {
-      alert('Asia');
-    }},
-  {continent: 'Australia', label: 'Australia', value: 10,
-    colorIndex: 'graph-4', onClick: () => {
-      alert('Australia');
-    }}
+const USAGE =
+`import Legend from 'grommet/components/Legend';
+<Legend series={...} />`;
+
+const SERIES = [
+  {label: 'Americas', value: 40,
+    colorIndex: 'graph-1', onClick: () => alert('Americas') },
+  {label: 'Europe', value: 20,
+    colorIndex: 'unset', onClick: () => alert('Europe') },
+  {label: 'Asia', value: 15,
+    colorIndex: 'graph-3', onClick: () => alert('Asia') }
 ];
 
 export default class LegendDoc extends Component {
@@ -49,11 +35,16 @@ export default class LegendDoc extends Component {
             Distribution</NavAnchor>, <NavAnchor path="/docs/sun-burst">
             SunBurst</NavAnchor>, or <NavAnchor path="/docs/world-map">
             WorldMap</NavAnchor>.</p>
-          <Legend series={series} units="B"/>
+          <Legend series={SERIES} />
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>activeIndex   {"{index}"}</code></dt>
             <dd>Which data item should be shown as active, if any.</dd>
@@ -72,8 +63,8 @@ export default class LegendDoc extends Component {
 
         <section>
           <h2>Example</h2>
-          <Example code={
-            <Legend series={series} units="B"/>
+          <Example align="start" code={
+            <Legend series={SERIES} units="B"/>
           } />
         </section>
 
