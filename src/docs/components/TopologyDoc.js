@@ -103,7 +103,7 @@ export default class TopologyDoc extends Component {
         <section>
           <h2>Example</h2>
 
-          <Example code={
+          <Example align="start" code={
             <Topology links={[
               {colorIndex: "graph-1", ids: ["s1p1", "s2p1"]},
               {colorIndex: "graph-1", ids: ["s1p2", "s2p2"]},

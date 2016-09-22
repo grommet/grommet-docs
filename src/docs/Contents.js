@@ -102,7 +102,8 @@ import QuoteExamplesDoc from './components/quote/QuoteExamplesDoc';
 import RadioButtonDoc from './components/RadioButtonDoc';
 import RestDoc from './utils/RestDoc';
 import RestWatchDoc from './utils/RestWatchDoc';
-import SearchDoc from './components/SearchDoc';
+import SearchDoc from './components/search/SearchDoc';
+import SearchExamplesDoc from './components/search/SearchExamplesDoc';
 import SearchInputDoc from './components/SearchInputDoc';
 import SectionDoc from './components/SectionDoc';
 import SidebarDoc from './components/SidebarDoc';
@@ -263,7 +264,9 @@ export default [
         {path: 'examples', component: QuoteExamplesDoc}
       ]},
       {path: 'radio-button', label: 'RadioButton', component: RadioButtonDoc},
-      {path: 'search', label: 'Search', component: SearchDoc},
+      {path: 'search', label: 'Search', index: SearchDoc, contents: [
+        {path: 'examples', component: SearchExamplesDoc}
+      ]},
       {path: 'search-input', label: 'SearchInput', component: SearchInputDoc},
       {path: 'section', label: 'Section', component: SectionDoc},
       {path: 'sidebar', label: 'Sidebar', component: SidebarDoc},

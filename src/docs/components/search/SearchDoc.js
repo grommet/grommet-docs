@@ -1,9 +1,15 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 import Search from 'grommet/components/Search';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
+
+Search.displayName = 'Search';
+
+const USAGE =
+`import Search from 'grommet/components/Search';
+<Search value={} onDOMChange={} />`;
 
 const SIMPLE_SUGGESTIONS = ['item 1', 'item 2', 'item 3'];
 const RICH_SUGGESTIONS = [
@@ -67,7 +73,12 @@ export default class SearchDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>defaultValue  {"{string}"}</code></dt>
             <dd>What text to start with in the input.</dd>
@@ -125,49 +136,9 @@ export default class SearchDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
-            <Search onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
-          } />
-          <Example name="Left" code={
-            <Search onDOMChange={this._onDOMChange} onSelect={this._onSelect}
-              dropAlign={{right: 'right'}} />
-          } />
-          <Example name="Suggestions and Value" code={
-            <Search value={this.state.value}
-              suggestions={this.state.simpleSuggestions}
-              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
-          } />
-          <Example name="Inline" code={
-            <Search inline={true}/>
-          } />
-          <Example name="Inline, iconAlign" code={
-            <Search inline={true} iconAlign="start" />
-          } />
-          <Example name="Inline, Placeholder" code={
-            <Search inline={true} placeHolder="Search" />
-          } />
-          <Example name="Inline, Value, Suggestions" code={
-            <Search inline={true} value={this.state.value}
-              suggestions={this.state.simpleSuggestions}
-              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
-          } />
-          <Example name="Inline, Value, Rich Suggestions" code={
-            <Search inline={true} value={this.state.value}
-              suggestions={this.state.richSuggestions}
-              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
-          } />
-          <Example name="Large" code={
-            <Search inline={true} value={this.state.value} size="large"
-              suggestions={this.state.simpleSuggestions}
-              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
-          } />
-          <Example name="Large, Fill, Responsive False" code={
-            <Search inline={true} value={this.state.value} size="large"
-              fill={true} responsive={false}
-              suggestions={this.state.simpleSuggestions}
-              onDOMChange={this._onDOMChange} onSelect={this._onSelect} />
-          } />
-
+          <NavAnchor primary={true} path={`/docs/search/examples`}>
+            Search Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>
