@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import stringify from 'json-stringify-pretty-compact';
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
 import Header from 'grommet/components/Header';
@@ -10,9 +11,9 @@ import Form from 'grommet/components/Form';
 import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
 import CheckBox from 'grommet/components/CheckBox';
-import NumberInput from 'grommet/components/NumberInput';
 import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
+import Label from 'grommet/components/Label';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
@@ -25,155 +26,126 @@ const RELATIVE_SIZES = ['full', '1/2', '1/3', '2/3', '1/4', '3/4'];
 const SIZES = FIXED_SIZES.concat(RELATIVE_SIZES);
 const MARGIN_SIZES = ['small', 'medium', 'large', 'none'];
 const PAD_SIZES = ['small', 'medium', 'large', 'none'];
-const DEFAULT_BOX = { pad: 'medium', margin: 'small' };
+const DEFAULT_BOX = {
+  direction: 'row', align: 'center', justify: 'start',
+  margin: 'small', pad: 'medium',
+  wrap: true
+};
+const INITIAL_COUNT = 4;
+const COLOR_INDEXES = ['light-2', 'light-1'];
 
 export default class BoxingGymDoc extends Component {
 
   constructor () {
     super();
+
     this._onResponsive = this._onResponsive.bind(this);
-    this._onChangeCount = this._onChangeCount.bind(this);
-    let boxes = [];
-    for (let i=0; i<4; i+=1) {
-      boxes.push({...DEFAULT_BOX});
-    }
-    this.state = { count: 4, direction: 'row', justify: 'start',
-      align: 'center', wrap: true, boxes: boxes, priority: 'left' };
+
+    let nextId = 1;
+    let boxes = {};
+
+    let root = { ...DEFAULT_BOX,
+      id: nextId++, colorIndex: COLOR_INDEXES[0], childIds: [] };
+    boxes[root.id] = root;
+    [...Array(INITIAL_COUNT)].forEach(() => {
+      const child = { ...DEFAULT_BOX,
+        id: nextId++,
+        colorIndex: COLOR_INDEXES[1],
+        parentId: root.id,
+        childIds: []
+      };
+      root.childIds.push(child.id);
+      boxes[child.id] = child;
+    });
+
+    this.state = {
+      boxes: boxes, nextId: nextId,
+      rootId: root.id, priority: 'left', activeId: root.id
+    };
   }
 
   _onResponsive (responsive) {
     this.setState({ responsive: responsive, priority: 'left' });
   }
 
-  _activate (index) {
+  _activate (id) {
     return (event) => {
       event.stopPropagation();
-      let boxes = this.state.boxes.slice(0);
-      if (! boxes[index]) {
-        boxes[index] = {};
-      }
-      this.setState({ active: index, boxes: boxes, priority: 'right' });
+      this.setState({ activeId: id, priority: 'right', raw: false });
     };
   }
 
-  _onChangeCount (event) {
-    const nextCount = parseInt(event.target.value, 10);
-    let boxes = this.state.boxes.slice(0, nextCount);
-    while (nextCount > boxes.length) {
-      boxes.push({...DEFAULT_BOX});
-    }
-    this.setState({ count: nextCount, boxes: boxes });
-  }
-
-  _changeBoxProp (index, prop) {
+  _changeBoxProp (id, prop) {
     return (event) => {
-      let boxes = this.state.boxes.slice(0);
       let value = event.target.value || undefined;
       if ('true' === value) {
         value = true;
       } else if ('false' === value) {
         value = false;
       }
-      boxes[index][prop] = value;
+      let boxes = { ...this.state.boxes };
+      boxes[id][prop] = value;
       this.setState({ boxes: boxes });
     };
   }
 
-  _setAll (index) {
+  _toggleBoxProp (id, prop) {
     return () => {
-      const { count } = this.state;
-      let boxes = this.state.boxes.slice(0);
-      const master = boxes[index];
-      for (let i=0; i<count; i+=1) {
-        boxes[i] = {...master};
-      }
+      let boxes = { ...this.state.boxes };
+      boxes[id][prop] = ! boxes[id][prop];
       this.setState({ boxes: boxes });
     };
   }
 
-  _removeBox (index) {
+  _setPeers (id) {
     return () => {
-      let boxes = this.state.boxes.slice(0);
-      boxes.splice(index, 1);
-      this.setState({
-        boxes: boxes,
-        count: this.state.count - 1,
-        active: undefined
+      let nextBoxes = { ...this.state.boxes };
+      const master = nextBoxes[id];
+      // get parent and update all parent's children
+      nextBoxes[master.parentId].childIds.forEach(childId => {
+        let child = nextBoxes[childId];
+        nextBoxes[childId] = { ...master, childIds: child.childIds };
       });
+      this.setState({ boxes: nextBoxes });
     };
   }
 
-  _renderContainerForm () {
-    const { align, count, direction, justify, responsive, reverse,
-      wrap } = this.state;
-    let close;
-    if ('single' === responsive) {
-      close = (
-        <Button icon={<CloseIcon />}
-          onClick={() => this.setState({ priority: 'left' })} />
-      );
-    }
-    return (
-      <Form>
-        <Header size="large" pad="medium" justify="between">
-          <Heading tag="h3">Container</Heading>
-          {close}
-        </Header>
-        <FormFields>
-          <fieldset>
-            <FormField label="direction">
-              <select value={direction}
-                onChange={event =>
-                  this.setState({ direction: event.target.value })}>
-                <option>column</option>
-                <option>row</option>
-              </select>
-            </FormField>
-            <FormField label="justify">
-              <select value={justify}
-                onChange={event =>
-                  this.setState({ justify: event.target.value })}>
-                <option>start</option>
-                <option>center</option>
-                <option>between</option>
-                <option>end</option>
-              </select>
-            </FormField>
-            <FormField label="align">
-              <select value={align}
-                onChange={event =>
-                  this.setState({ align: event.target.value })}>
-                <option>stretch</option>
-                <option>start</option>
-                <option>center</option>
-                <option>baseline</option>
-                <option>end</option>
-              </select>
-            </FormField>
-            <FormField>
-              <CheckBox label="wrap" checked={wrap || false}
-                onChange={() =>
-                  this.setState({ wrap: ! wrap })}/>
-            </FormField>
-            <FormField>
-              <CheckBox label="reverse" checked={reverse || false}
-                onChange={() =>
-                  this.setState({ reverse: ! reverse })}/>
-            </FormField>
-          </fieldset>
-          <fieldset>
-            <FormField label="Number of boxes">
-              <NumberInput value={count} onChange={this._onChangeCount} />
-            </FormField>
-          </fieldset>
-        </FormFields>
-      </Form>
-    );
+  _removeBox (id, boxes=undefined) {
+    return () => {
+      let nextBoxes = boxes || { ...this.state.boxes };
+      const box = nextBoxes[id];
+      box.childIds.forEach(childId => this._removeBox(childId, nextBoxes)());
+      const parent = nextBoxes[box.parentId];
+      parent.childIds.splice(parent.childIds.indexOf(id), 1);
+      delete nextBoxes[id];
+      if (! boxes) { // only from the initial context
+        this.setState({ boxes: nextBoxes, activeId: box.parentId });
+      }
+    };
   }
 
-  _renderBoxForm (active) {
-    const { boxes, responsive } = this.state;
-    const props = boxes[active];
+  _depth (id) {
+    const box = this.state.boxes[id];
+    return (box.parentId ? this._depth(box.parentId) : 0) + 1;
+  }
+
+  _addBox (parentId) {
+    return () => {
+      let nextBoxes = { ...this.state.boxes };
+      let nextId = this.state.nextId;
+      let colorIndex =
+        COLOR_INDEXES[this._depth(parentId) % COLOR_INDEXES.length];
+      const box = { ...DEFAULT_BOX, id: nextId++, colorIndex: colorIndex,
+        parentId: parentId, childIds: [] };
+      nextBoxes[box.id] = box;
+      nextBoxes[parentId].childIds.push(box.id);
+      this.setState({ boxes: nextBoxes, nextId: nextId });
+    };
+  }
+
+  _renderForm () {
+    const { activeId, boxes, responsive } = this.state;
+    const box = boxes[activeId] || { ...DEFAULT_BOX };
 
     let close;
     if ('single' === responsive) {
@@ -193,78 +165,189 @@ export default class BoxingGymDoc extends Component {
       MARGIN_SIZES.map(size => <option key={size}>{size}</option>);
     marginOptions.unshift(<option key={0}></option>);
 
+    let containedFields;
+    if (box.parentId) {
+      containedFields = (
+        <fieldset>
+          <FormField label="basis">
+            <select value={box.basis || ''}
+              onChange={this._changeBoxProp(box.id, 'basis')}>
+              {basisOptions}
+            </select>
+          </FormField>
+          <FormField label="flex">
+            <select value={box.flex || ''}
+              onChange={this._changeBoxProp(box.id, 'flex')}>
+              <option></option>
+              <option>grow</option>
+              <option>shrink</option>
+              <option value={true}>true</option>
+              <option value={false}>false</option>
+            </select>
+          </FormField>
+        </fieldset>
+      );
+    }
+
+    let containerFields;
+    if (box.childIds.length > 0) {
+      containerFields = (
+        <fieldset>
+          <FormField label="direction">
+            <select value={box.direction}
+              onChange={this._changeBoxProp(box.id, 'direction')}>
+              <option>column</option>
+              <option>row</option>
+            </select>
+          </FormField>
+          <FormField>
+            <CheckBox label="wrap" checked={box.wrap || false}
+              onChange={this._toggleBoxProp(box.id, 'direction')} />
+          </FormField>
+          <FormField>
+            <CheckBox label="reverse" checked={box.reverse || false}
+              onChange={this._toggleBoxProp(box.id, 'reverse')} />
+          </FormField>
+        </fieldset>
+      );
+    }
+
+    let buttons = [];
+    if (box.parentId) {
+      buttons.push(
+        <Button key="peers" label="Set peers" secondary={true}
+          onClick={this._setPeers(box.id)} />
+      );
+      buttons.push(
+        <Button key="remove" label="Remove" secondary={true}
+          onClick={this._removeBox(box.id)} />
+      );
+    }
+
     return (
       <Form>
         <Header size="large" pad="medium" justify="between">
-          <Heading tag="h3">{`Box ${active + 1}`}</Heading>
+          <Heading tag="h3">{`Box ${box.id}`}</Heading>
           {close}
         </Header>
         <FormFields>
+          {containerFields}
+          {containedFields}
           <fieldset>
-            <FormField label="basis">
-              <select value={props.basis || ''}
-                onChange={this._changeBoxProp(active, 'basis')}>
-                {basisOptions}
+            <FormField label="justify">
+              <select value={box.justify}
+                onChange={this._changeBoxProp(box.id, 'justify')}>
+                <option>start</option>
+                <option>center</option>
+                <option>between</option>
+                <option>end</option>
               </select>
             </FormField>
-            <FormField label="flex">
-              <select value={props.flex || ''}
-                onChange={this._changeBoxProp(active, 'flex')}>
-                <option></option>
-                <option>grow</option>
-                <option>shrink</option>
-                <option value={true}>true</option>
-                <option value={false}>false</option>
+            <FormField label="align">
+              <select value={box.align}
+                onChange={this._changeBoxProp(box.id, 'align')}>
+                <option>stretch</option>
+                <option>start</option>
+                <option>center</option>
+                <option>baseline</option>
+                <option>end</option>
               </select>
             </FormField>
             <FormField label="pad">
-              <select value={props.pad || ''}
-                onChange={this._changeBoxProp(active, 'pad')}>
+              <select value={box.pad || ''}
+                onChange={this._changeBoxProp(box.id, 'pad')}>
                 {padOptions}
               </select>
             </FormField>
             <FormField label="margin">
-              <select value={props.margin || ''}
-                onChange={this._changeBoxProp(active, 'margin')}>
+              <select value={box.margin || ''}
+                onChange={this._changeBoxProp(box.id, 'margin')}>
                 {marginOptions}
               </select>
             </FormField>
           </fieldset>
         </FormFields>
-        <Footer pad="medium" justify="between">
-          <Button label="Set all" secondary={true}
-            onClick={this._setAll(active)} />
-          <Button label="Remove" secondary={true}
-            onClick={this._removeBox(active)} />
+        <Footer direction="column"
+          pad={{ horizontal: 'medium', vertical: 'medium', between: 'small'}}>
+          {buttons}
+          <Button label="Add" secondary={true}
+            onClick={this._addBox(box.id)} />
         </Footer>
       </Form>
     );
   }
 
-  render () {
-    const { active, align, boxes, count, direction, justify,
-      priority, reverse, wrap } = this.state;
+  _renderRaw () {
+    const { boxes, rawBoxes } = this.state;
+    return (
+      <Form>
+        <Header size="large" pad="medium" justify="between">
+          <Heading tag="h3">Raw</Heading>
+          <Button icon={<CloseIcon />}
+            onClick={() => {
+              this.setState({ raw: false, rawBoxes: undefined });
+            }} />
+        </Header>
+        <FormFields>
+          <FormField>
+            <textarea rows="20" value={rawBoxes || stringify(boxes)}
+              onChange={(event) => {
+                this.setState({ rawBoxes: event.target.value });
+              }} />
+          </FormField>
+        </FormFields>
+        <Footer pad="medium">
+          <Button label="Submit" primary={true}
+            onClick={() => {
+              const nextBoxes = JSON.parse(this.state.rawBoxes);
+              this.setState({
+                boxes: nextBoxes, raw: false, rawBoxes: undefined,
+                activeId: this.state.rootId
+              });
+            }} />
+        </Footer>
+      </Form>
+    );
+  }
 
-    let contents = [];
-    for ( let i=0; i<count; i+=1 ) {
-      const colorIndex = active === i ? 'grey-1' : 'grey-4';
-      const props = boxes[i] || {};
-      contents.push(
-        <Box key={i} colorIndex={colorIndex}
-          basis={props.basis} flex={props.flex}
-          pad={props.pad} margin={props.margin}
-          onClick={this._activate(i)}
-          onFocus={this._activate(i)}>
-          <Value value={`Box ${i + 1}`} />
-        </Box>
+  _renderBox (id) {
+    const box = this.state.boxes[id];
+    const {
+      colorIndex, direction, justify, align, pad, margin, reverse, wrap
+    } = box;
+    let contents = box.childIds.map(childId => this._renderBox(childId));
+    if (! contents.length) {
+      contents = <Value value={`Box ${id}`} />;
+    } else {
+      contents.unshift(
+        <Label key="label" margin="none"
+          style={{ position: 'absolute' }}>{`Box ${id}`}</Label>
       );
     }
+    return (
+      <Box key={id} direction={direction} justify={justify} align={align}
+        wrap={wrap} reverse={reverse}
+        pad={pad} margin={margin} colorIndex={colorIndex}
+        onClick={this._activate(id)} onFocus={this._activate(id)}>
+        {contents}
+      </Box>
+    );
+  }
 
-    let form;
-    if (active >= 0) {
-      form = this._renderBoxForm(active);
-    } else {
-      form = this._renderContainerForm();
+  render () {
+    const { activeId, priority, raw, rootId } = this.state;
+
+    const form = raw ? this._renderRaw() : this._renderForm();
+    const box = this._renderBox(rootId);
+
+    let rawControl;
+    if (! box.parentId && ! raw && activeId === rootId) {
+      rawControl = (
+        <Box pad="medium">
+          <Button label="Raw" plain={true}
+            onClick={() => this.setState({ raw: true })} />
+        </Box>
+      );
     }
 
     return (
@@ -274,15 +357,7 @@ export default class BoxingGymDoc extends Component {
           <p>This is a boxing gym where you can spar
             with <NavAnchor path="/docs/box">Boxes</NavAnchor>.</p>
 
-          <Example code={
-            <Box direction={direction} justify={justify} align={align}
-              wrap={wrap} reverse={reverse} pad="medium" colorIndex="light-2"
-              onClick={() => this.setState({
-                active: undefined, priority: 'right' })}
-              onFocus={() => this.setState({ active: undefined })}>
-              {contents}
-            </Box>
-          }/>
+          <Example code={box}/>
 
           <section>
             <NavAnchor path="/docs/box" icon={<LinkPreviousIcon />}
@@ -292,6 +367,7 @@ export default class BoxingGymDoc extends Component {
         </DocsArticle>
         <Sidebar separator="left" colorIndex="light-2">
           {form}
+          {rawControl}
         </Sidebar>
       </Split>
     );
