@@ -65,6 +65,9 @@ export default class RadioButtonDoc extends Component {
             underlying <code>{"<input />"}</code> element.</dd>
           <dt><code>onChange        {"{function}"}</code></dt>
           <dd>Same as React <code>{"<input onChange={} />"}</code>.</dd>
+          <dt><code>value           {"{string}"}</code></dt>
+          <dd>The DOM value attribute to use for the
+            underlying <code>{"<input />"}</code> element.</dd>
           </dl>
         </section>
 
