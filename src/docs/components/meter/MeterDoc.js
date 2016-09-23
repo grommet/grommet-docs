@@ -91,6 +91,9 @@ export default class MeterDoc extends Component {
             <dt><code>vertical    true|false</code></dt>
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
           </dl>
+          <p>Note: to be visually discernable, very small values are given a
+            minimum visual size that is disproportionate to the scale of the
+            rest of the meter.</p>
         </section>
 
         <section>
