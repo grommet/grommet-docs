@@ -1,39 +1,19 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import SearchInput from 'grommet/components/SearchInput';
-import Box from 'grommet/components/Box';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import DocsArticle from '../../../components/DocsArticle';
+import NavAnchor from '../../../components/NavAnchor';
 
-const SearchInputSuggestion = (props) => {
-  return (
-    <Box direction="row" justify="between">
-      {props.name}
-      <span className="secondary">{props.annotation}</span>
-    </Box>
-  );
-};
+SearchInput.displayName = 'SearchInput';
 
-SearchInputSuggestion.propTypes= {
-  name: PropTypes.string,
-  annotation: PropTypes.string
-};
+const USAGE =
+`import SearchInput from 'grommet/components/SearchInput';
+<SearchInput value={} onDOMChange={} onSelect={} suggestions={} />`;
 
 const VALUES = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
-
-const RICH_VALUES = [
-  {value: "first", sub: "alpha",
-    label: <SearchInputSuggestion name="first" annotation="alpha" />},
-  {value: "second", sub: "beta",
-    label: <SearchInputSuggestion name="second" annotation="beta" />},
-  {value: "third", sub: "gamma",
-    label: <SearchInputSuggestion name="third" annotation="gamma" />},
-  {value: "fourth", sub: "delta",
-    label: <SearchInputSuggestion name="fourth" annotation="delta" />}
-];
 
 export default class SearchInputDoc extends Component {
 
@@ -41,14 +21,7 @@ export default class SearchInputDoc extends Component {
     super();
     this._onDOMChange = this._onDOMChange.bind(this);
     this._onSelect = this._onSelect.bind(this);
-    this._onDOMChange2 = this._onDOMChange2.bind(this);
-    this._onSelect2 = this._onSelect2.bind(this);
-    this.state = {
-      value: "one",
-      suggestions: VALUES,
-      richValue: "second",
-      richSuggestions: RICH_VALUES
-    };
+    this.state = { value: VALUES[0], suggestions: VALUES };
   }
 
   _onDOMChange (event) {
@@ -61,22 +34,6 @@ export default class SearchInputDoc extends Component {
 
   _onSelect (pseudoEvent) {
     this.setState({value: pseudoEvent.suggestion, suggestions: VALUES});
-  }
-
-  _onDOMChange2 (event) {
-    const regexp = new RegExp('^' + event.target.value);
-    const suggestions = RICH_VALUES.filter(richValue => {
-      return regexp.test(richValue.value) || regexp.test(richValue.sub);
-    });
-    this.setState({
-      richValue: event.target.value, richSuggestions: suggestions});
-  }
-
-  _onSelect2 (pseudoEvent) {
-    this.setState({
-      richValue: pseudoEvent.suggestion.value,
-      richSuggestions: RICH_VALUES
-    });
   }
 
   render () {
@@ -96,7 +53,12 @@ export default class SearchInputDoc extends Component {
         </section>
 
         <section>
-          <h2>Options</h2>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
           <dl>
             <dt><code>defaultValue  {"{value: , label: }|{string}"}</code></dt>
             <dd>What text to start with in the input.</dd>
@@ -129,26 +91,9 @@ export default class SearchInputDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Simple" code={
-            <Form>
-              <FormField>
-                <SearchInput id="item1" name="item-1"
-                  value={this.state.value} onDOMChange={this._onDOMChange}
-                  onSelect={this._onSelect}
-                  suggestions={this.state.suggestions} />
-              </FormField>
-            </Form>
-          } />
-          <Example name="Rich Suggestions" code={
-            <Form>
-              <FormField>
-                <SearchInput id="item2" name="item-2"
-                  value={this.state.richValue} onDOMChange={this._onDOMChange2}
-                  onSelect={this._onSelect2}
-                  suggestions={this.state.richSuggestions} />
-              </FormField>
-            </Form>
-          } />
+          <NavAnchor primary={true} path={`/docs/search-input/examples`}>
+            SearchInput Examples
+          </NavAnchor>
         </section>
 
       </DocsArticle>

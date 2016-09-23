@@ -11,57 +11,7 @@ const USAGE =
 `import Search from 'grommet/components/Search';
 <Search value={} onDOMChange={} />`;
 
-const SIMPLE_SUGGESTIONS = ['item 1', 'item 2', 'item 3'];
-const RICH_SUGGESTIONS = [
-  {label: 'item 1', data: '/item-1'},
-  {label: 'item 2', data: '/item-2'},
-  {label: 'item 3', data: '/item-3'}
-];
-
 export default class SearchDoc extends Component {
-
-  constructor () {
-    super();
-    this._onDOMChange = this._onDOMChange.bind(this);
-    this._onSelect = this._onSelect.bind(this);
-    this.state = {
-      value: "",
-      simpleSuggestions: [],
-      richSuggestions: []
-    };
-  }
-
-  _onDOMChange (event) {
-    const regexp = new RegExp('^' + event.target.value);
-    const simpleSuggestions = SIMPLE_SUGGESTIONS.filter(function (suggestion) {
-      return regexp.test(suggestion);
-    });
-    const richSuggestions = RICH_SUGGESTIONS.filter(function (suggestion) {
-      return regexp.test(suggestion.label);
-    });
-
-    this.setState({
-      value: event.target.value,
-      simpleSuggestions: simpleSuggestions,
-      richSuggestions: richSuggestions
-    });
-  }
-
-  _onSelect (pseudoEvent, selected) {
-    var value;
-    if (pseudoEvent.suggestion &&
-      pseudoEvent.suggestion.hasOwnProperty('label')) {
-      value = pseudoEvent.suggestion.label;
-    } else {
-      value = pseudoEvent.suggestion;
-
-    }
-    this.setState({
-      value: value,
-      simpleSuggestions: [],
-      richSuggestions: []
-    });
-  }
 
   render () {
     return (

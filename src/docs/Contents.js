@@ -105,7 +105,9 @@ import RestDoc from './utils/RestDoc';
 import RestWatchDoc from './utils/RestWatchDoc';
 import SearchDoc from './components/search/SearchDoc';
 import SearchExamplesDoc from './components/search/SearchExamplesDoc';
-import SearchInputDoc from './components/SearchInputDoc';
+import SearchInputDoc from './components/search-input/SearchInputDoc';
+import SearchInputExamplesDoc from
+  './components/search-input/SearchInputExamplesDoc';
 import SectionDoc from './components/SectionDoc';
 import SidebarDoc from './components/SidebarDoc';
 import SocialShareDoc from './components/social-share/SocialShareDoc';
@@ -270,7 +272,10 @@ export default [
       {path: 'search', label: 'Search', index: SearchDoc, contents: [
         {path: 'examples', component: SearchExamplesDoc}
       ]},
-      {path: 'search-input', label: 'SearchInput', component: SearchInputDoc},
+      {path: 'search-input', label: 'SearchInput', index: SearchInputDoc,
+        contents: [
+          {path: 'examples', component: SearchInputExamplesDoc}
+        ]},
       {path: 'section', label: 'Section', component: SectionDoc},
       {path: 'sidebar', label: 'Sidebar', component: SidebarDoc},
       {path: 'social-share', label: 'SocialShare', index: SocialShareDoc,

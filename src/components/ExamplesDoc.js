@@ -117,20 +117,14 @@ export default class ExamplesDoc extends Component {
           {items}
         </Menu>
       );
-      if (index > 0) {
-        previous = (
-          <Button icon={<PreviousIcon />} onClick={this._onPrevious} />
-        );
-      } else {
-        previous = <span></span>;
-      }
-      if (index < (items.length - 1)) {
-        next = (
-          <Button icon={<NextIcon />} onClick={this._onNext} />
-        );
-      } else {
-        next = <span></span>;
-      }
+      previous = (
+        <Button icon={<PreviousIcon />}
+          onClick={index > 0 ? this._onPrevious : undefined} />
+      );
+      next = (
+        <Button icon={<NextIcon />}
+          onClick={index < (items.length - 1) ? this._onNext : undefined} />
+      );
     } else {
       pad = { horizontal: 'large' };
     }
@@ -147,7 +141,7 @@ export default class ExamplesDoc extends Component {
         </Header>
 
         <Section appCentered={false} justify="between" align="start"
-          direction="row" full="horizontal" pad={pad}
+          direction="row" pad={pad}
           colorIndex={dark ? 'grey-2' : undefined}>
           {previous}
           <Component {...props} />
