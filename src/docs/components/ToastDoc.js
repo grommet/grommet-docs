@@ -50,6 +50,7 @@ export default class ToastDoc extends Component {
         <section>
           <h2>Usage</h2>
           <pre><code className="html hljs xml">{USAGE}</code></pre>
+          
         </section>
 
         <section>
