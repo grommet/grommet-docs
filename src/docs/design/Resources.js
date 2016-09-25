@@ -47,6 +47,43 @@ export default class Resources extends Component {
         <section id="hpe">
           <h2>Hewlett Packard Enterprise</h2>
 
+          <h4>Sketch</h4>
+
+          <ul>
+            <li>
+              <a id="hpe-sk-general"
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.sketch`}
+                target="_blank">General Sticker Sheet for Applications
+                v0.9.6</a>
+            </li>
+                <li>
+              <a id="hpe-sk-data"
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.sketch`}
+                target="_blank">Data Sticker Sheet for Applications v0.6</a>
+            </li>
+            </li>
+                <li>
+              <a id="hpe-sk-icons"
+                href={`${ROOT}/hpe/hpe-functional-icons-0-5.sketch`}
+                target="_blank">Functional Icons Sticker Sheet v0.5</a>
+            </li>
+            <li>
+              <a id="hpe-sk-app-templates"
+                href={`${ROOT}/hpe/hpe-app-templates-0-8.sketch`}
+                target="_blank">Application Templates Sticker Sheet v0.8</a>
+            </li>
+          </ul>
+
+          <h4>Axure</h4>
+
+          <ul>
+            <li>
+              <a id="hpe-ax-general"
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-4.rplib`}
+                target="_blank">Axure Stencils for Applications v0.9.4</a>
+            </li>
+          </ul>
+
           <h4>Adobe Illustrator</h4>
 
           <ul>
@@ -89,37 +126,6 @@ export default class Resources extends Component {
                 (<a id="hpe-ai-classic-pdf"
                 href={`${ROOT}/hpe/hpe-sticker-sheet-apps-classic-0-6.pdf`}
                 target="_blank">pdf</a>)
-            </li>
-          </ul>
-
-          <h4>Sketch</h4>
-
-          <ul>
-            <li>
-              <a id="hpe-sk-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.sketch`}
-                target="_blank">General Sticker Sheet for Applications
-                v0.9.6</a>
-            </li>
-                <li>
-              <a id="hpe-sk-data"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.sketch`}
-                target="_blank">Data Sticker Sheet for Applications v0.6</a>
-            </li>
-            <li>
-              <a id="hpe-sk-app-templates"
-                href={`${ROOT}/hpe/hpe-app-templates-0-8.sketch`}
-                target="_blank">Application Templates Sticker Sheet v0.8</a>
-            </li>
-          </ul>
-
-          <h4>Axure</h4>
-
-          <ul>
-            <li>
-              <a id="hpe-ax-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-4.rplib`}
-                target="_blank">Axure Stencils for Applications v0.9.4</a>
             </li>
           </ul>
 
