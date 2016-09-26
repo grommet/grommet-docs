@@ -120,6 +120,7 @@ import SunBurstDoc from './components/SunBurstDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
 import TabsDoc from './components/TabsDoc';
+import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
 import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
 import TimestampDoc from './components/TimestampDoc';
@@ -290,6 +291,7 @@ export default [
         {path: 'examples', component: TableExamplesDoc}
       ]},
       {path: 'tabs', label: 'Tabs', index: TabsDoc},
+      {path: 'text-input', label: 'TextInput', component: TextInputDoc},
       {path: 'tiles', label: 'Tiles', index: TilesDoc, contents: [
         {path: 'examples', component: TilesExamplesDoc}
       ]},
