@@ -12,7 +12,6 @@ import NumberInput from 'grommet/components/NumberInput';
 import Table from 'grommet/components/Table';
 import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
-import Calendar from 'grommet/components/Calendar';
 import DateTime from 'grommet/components/DateTime';
 
 const SUGGESTIONS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven',
@@ -25,7 +24,6 @@ export default class FullForm extends Component {
     this._onChangeRange = this._onChangeRange.bind(this);
     this._onChange = this._onChange.bind(this);
     this._onSearchInputChange = this._onSearchInputChange.bind(this);
-    this._onCalendarChange = this._onCalendarChange.bind(this);
     this._onDateTimeChange = this._onDateTimeChange.bind(this);
     this._onSearch = this._onSearch.bind(this);
     this.state = {
@@ -52,11 +50,6 @@ export default class FullForm extends Component {
         suggestions: this._searchInputSuggestions
       }
     });
-  }
-
-  _onCalendarChange (value) {
-    // console.log('!!! FullForm _onCalendarChange', value);
-    this.setState({calendarDate: value});
   }
 
   _onDateTimeChange (value) {
@@ -122,11 +115,6 @@ export default class FullForm extends Component {
                 <option>second</option>
                 <option>third</option>
               </select>
-            </FormField>
-            <FormField label="Item 8" htmlFor={p + "item8"}>
-              <Calendar id={p + "item8"} name="item-8"
-                value={this.state.calendarDate}
-                onChange={this._onCalendarChange} />
             </FormField>
             <FormField label="Item 9" htmlFor={p + "item9"}>
               <NumberInput id={p + "item9"} name="item-9"
