@@ -56,13 +56,12 @@ export default class Resources extends Component {
                 target="_blank">General Sticker Sheet for Applications
                 v0.9.6</a>
             </li>
-                <li>
+            <li>
               <a id="hpe-sk-data"
                 href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.sketch`}
                 target="_blank">Data Sticker Sheet for Applications v0.6</a>
             </li>
-            </li>
-                <li>
+            <li>
               <a id="hpe-sk-icons"
                 href={`${ROOT}/hpe/hpe-functional-icons-0-5.sketch`}
                 target="_blank">Functional Icons Sticker Sheet v0.5</a>
