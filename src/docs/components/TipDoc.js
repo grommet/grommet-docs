@@ -58,7 +58,15 @@ export default class TipDoc extends Component {
             across page loads or visits. Tracking which tips a user
             has seen can be remembered in <Anchor
               href={"https://developer.mozilla.org/en-US/" +
-              "docs/Web/API/Window/localStorage"}>local storage</Anchor>.</p>
+              "docs/Web/API/Window/localStorage"}>local storage</Anchor>.
+              
+              Tips shouldn’t display any rich information including 
+              formatted text and should be limit in usage. Prioritize 
+              the tip need on user context relevance rather than what 
+              is simply “new” on the interface.
+              
+              To ensure memorability, keep the tip text to under one 
+              sentence to support quick skimming of content.</p>
         </section>
 
         <section>
