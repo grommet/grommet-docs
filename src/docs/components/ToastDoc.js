@@ -51,6 +51,22 @@ export default class ToastDoc extends Component {
           <h2>Usage</h2>
           <pre><code className="html hljs xml">{USAGE}</code></pre>
           
+          <p>The caller is responsible for determining when to show a Toast.
+            The toast should not be distracting or disturbing the user.
+            
+            To accomplish this, don't show a toast for every task 
+            state (i.e. Creating, Processing, Completed, etc). Instead,
+            only show a toast at the end state (i.e. when a task has been 
+            completed).
+            
+            Don't show a toast on a task that can be completed quickly.
+            Instead, reserve toast for tasks that may take long periods
+            of time to completely process.
+            
+            Grommet also recommends to incorporate user settings in
+            the app to allow the enable or disable of certain preferences 
+            of these toasts. (i.e. Allow the user to choose "only show me
+            alerts" or "only show me tasks that complete with errors", etc.</p>
         </section>
 
         <section>
