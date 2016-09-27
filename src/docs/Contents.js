@@ -109,6 +109,8 @@ import SearchInputDoc from './components/search-input/SearchInputDoc';
 import SearchInputExamplesDoc from
   './components/search-input/SearchInputExamplesDoc';
 import SectionDoc from './components/SectionDoc';
+import SelectDoc from './components/select/SelectDoc';
+import SelectExamplesDoc from './components/select/SelectExamplesDoc';
 import SidebarDoc from './components/SidebarDoc';
 import SocialShareDoc from './components/social-share/SocialShareDoc';
 import SocialShareExamplesDoc from
@@ -278,6 +280,9 @@ export default [
           {path: 'examples', component: SearchInputExamplesDoc}
         ]},
       {path: 'section', label: 'Section', component: SectionDoc},
+      {path: 'select', label: 'Select', index: SelectDoc, contents: [
+        {path: 'examples', component: SelectExamplesDoc}
+      ]},
       {path: 'sidebar', label: 'Sidebar', component: SidebarDoc},
       {path: 'social-share', label: 'SocialShare', index: SocialShareDoc,
         contents: [

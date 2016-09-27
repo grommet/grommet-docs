@@ -7,6 +7,8 @@ import FormField from 'grommet/components/FormField';
 import Header from 'grommet/components/Header';
 import CheckBox from 'grommet/components/CheckBox';
 import RadioButton from 'grommet/components/RadioButton';
+import TextInput from 'grommet/components/TextInput';
+import Select from 'grommet/components/Select';
 import SearchInput from 'grommet/components/SearchInput';
 import NumberInput from 'grommet/components/NumberInput';
 import Table from 'grommet/components/Table';
@@ -15,7 +17,7 @@ import Button from 'grommet/components/Button';
 import DateTime from 'grommet/components/DateTime';
 import Example from '../../Example';
 
-const SUGGESTIONS = ['one', 'two', 'three', 'four', 'five', 'six', 'seven',
+const VALUES = ['one', 'two', 'three', 'four', 'five', 'six', 'seven',
   'eight'];
 
 export default class FullFormExample extends Component {
@@ -26,10 +28,15 @@ export default class FullFormExample extends Component {
     this._onChange = this._onChange.bind(this);
     this._onSearchInputChange = this._onSearchInputChange.bind(this);
     this._onDateTimeChange = this._onDateTimeChange.bind(this);
-    this._onSearch = this._onSearch.bind(this);
+    this._onTextInputDOMChange = this._onTextInputDOMChange.bind(this);
+    this._onTextInputSelect = this._onTextInputSelect.bind(this);
+    this._onSelectSearch = this._onSelectSearch.bind(this);
+    this._onSelectChange = this._onSelectChange.bind(this);
     this.state = {
       rangeValue: 10,
-      searchInput: {suggestions: SUGGESTIONS},
+      searchInput: { suggestions: VALUES },
+      select: { options: VALUES },
+      textInput: { suggestions: VALUES, value: '' },
       calendarDate: (new Date()).toISOString().slice(0, 10)
     };
   }
@@ -53,18 +60,34 @@ export default class FullFormExample extends Component {
     });
   }
 
-  _onDateTimeChange (value) {
-    this.setState({ date: value });
+  _onTextInputDOMChange (event) {
+    const regexp = new RegExp('^' + event.target.value);
+    const suggestions = VALUES.filter(val => {
+      return regexp.test(val);
+    });
+    this.setState({
+      textInput: { value: event.target.value, suggestions: suggestions }
+    });
   }
 
-  _onSearch (text) {
-    const searchInput = this.state.searchInput;
-    const regexp = new RegExp('^' + text);
-    searchInput.suggestions =
-      this._searchInputSuggestions.filter(function (value) {
-        return regexp.test(value);
-      });
-    this.setState({searchInput: searchInput});
+  _onTextInputSelect (pseudoEvent) {
+    this.setState({
+      textInput: { value: pseudoEvent.suggestion, suggestions: VALUES }
+    });
+  }
+
+  _onSelectSearch (event) {
+    const regexp = new RegExp('^' + event.target.value);
+    const options = VALUES.filter(val => regexp.test(val));
+    this.setState({ select: { options: options } });
+  }
+
+  _onSelectChange (pseudoEvent) {
+    this.setState({ select: { value: pseudoEvent.option, options: VALUES } });
+  }
+
+  _onDateTimeChange (value) {
+    this.setState({ date: value });
   }
 
   render () {
@@ -103,20 +126,34 @@ export default class FullFormExample extends Component {
                 error="something's wrong">
                 <textarea id={p + "item5"} name="item-5"></textarea>
               </FormField>
-              <FormField label="Item 6" htmlFor={p + "item6"}>
-                <SearchInput id={p + "item6"} name="item-6"
+              <FormField label="Item 6a" htmlFor={p + "item6a"}>
+                <TextInput id={p + "item6a"} name="item-6a"
+                  value={this.state.textInput.value}
+                  suggestions={this.state.textInput.suggestions}
+                  onDOMChange={this._onTextInputDOMChange}
+                  onSelect={this._onTextInputSelect} />
+              </FormField>
+              <FormField label="Item 6b" htmlFor={p + "item6b"}>
+                <SearchInput id={p + "item6b"} name="item-6"
                   value={this.state.searchInput.value}
                   suggestions={this.state.searchInput.suggestions}
                   onChange={this._onSearchInputChange}
                   onSearch={this._onSearchInputSearch} />
               </FormField>
-              <FormField label="Item 7" htmlFor={p + "item7"}
+              <FormField label="Item 7a" htmlFor={p + "item7a"}
                 help={<a>learn more ...</a>}>
-                <select id={p + "item7"} name="item-7">
+                <select id={p + "item7a"} name="item-7a">
                   <option>first</option>
                   <option>second</option>
                   <option>third</option>
                 </select>
+              </FormField>
+              <FormField label="Item 7b" htmlFor={p + "item7b"}>
+                <Select id={p + "item6b"} name="item-7b"
+                  value={this.state.select.value}
+                  options={this.state.select.options}
+                  onSearch={this._onSelectSearch}
+                  onChange={this._onSelectChange} />
               </FormField>
               <FormField label="Item 9" htmlFor={p + "item9"}>
                 <NumberInput id={p + "item9"} name="item-9"

@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
+import Heading from 'grommet/components/Heading';
 import Box from 'grommet/components/Box';
 import { announcePageLoaded } from 'grommet/utils/Announcer';
 import DocsFooter from './DocsFooter';
@@ -57,7 +58,7 @@ export default class DocsArticle extends Component {
       <Article className="docs-article" primary={true}>
         <Header size="large" pad={{horizontal: 'large'}}
           colorIndex={this.props.colorIndex} justify="between">
-          <h1>{context} {title}</h1>
+          <Heading tag="h1">{context} {title}</Heading>
           {action}
         </Header>
         <Box ref='content' pad={pad}>
