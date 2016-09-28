@@ -8,7 +8,8 @@ export default class HotSpotsDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart HotSpots" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="HotSpots" colorIndex="neutral-3">
 
         <p>A means of interacting with
           a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>. It is structured

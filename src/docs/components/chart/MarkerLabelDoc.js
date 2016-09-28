@@ -11,7 +11,8 @@ export default class MarkerLabelDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart MarkerLabel" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="MarkerLabel" colorIndex="neutral-3">
 
         <p>A label along the edge of a <NavAnchor path={`/docs/chart`}>
           Chart</NavAnchor>. It is typically used to annotate

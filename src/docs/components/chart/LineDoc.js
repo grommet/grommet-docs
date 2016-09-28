@@ -10,7 +10,8 @@ export default class LineDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart Line" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="Line" colorIndex="neutral-3">
 
         <p>An line graphic in a <NavAnchor path={`/docs/chart`}>
           Chart</NavAnchor>.

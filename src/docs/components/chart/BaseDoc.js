@@ -8,7 +8,8 @@ export default class BaseDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart Base" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="Base" colorIndex="neutral-3">
 
         <p>The base area of a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>.
           When there are no child components, the width and height control the

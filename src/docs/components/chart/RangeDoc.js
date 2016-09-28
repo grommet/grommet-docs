@@ -10,7 +10,8 @@ export default class RangeDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart Range" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="Range" colorIndex="neutral-3">
 
         <p>A means of selecting a range within
           a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>. It is structured

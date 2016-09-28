@@ -14,7 +14,8 @@ export default class AxisDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart Axis" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="Axis" colorIndex="neutral-3">
         <section>
           <p>An axis decorating a <NavAnchor path={`/docs/chart`}>
             Chart</NavAnchor>. An Axis can be
@@ -58,7 +59,7 @@ export default class AxisDoc extends Component {
             <dt><code>ticks        true|false</code></dt>
             <dd>Whether to show tick marks for each stop.</dd>
             <dt><code>tickAlign        start|end</code></dt>
-            <dd>How to align the tick marks along the axis. Defaults to 
+            <dd>How to align the tick marks along the axis. Defaults to
               <code>start</code>.</dd>
             <dt><code>vertical     true|false</code></dt>
             <dd>Whether the axis should be layed out horizontally

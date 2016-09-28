@@ -9,7 +9,8 @@ export default class LayersDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart Layers" colorIndex="neutral-3">
+      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+        title="Layers" colorIndex="neutral-3">
 
         <section>
           <p>A container for graphic components in
