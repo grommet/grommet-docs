@@ -21,9 +21,13 @@ export default class Sizing extends Component {
           <h2>General Layout</h2>
           <p>Components
           like <NavAnchor path="/docs/box">
-          Box</NavAnchor>, <NavAnchor path="/docs/meter">
-          Meter</NavAnchor>, and <NavAnchor path="/docs/chart">
-          Chart</NavAnchor> use
+          Box</NavAnchor>, <NavAnchor path="/docs/sidebar">
+          Sidebar</NavAnchor>, <NavAnchor path="/docs/image">
+          Image</NavAnchor>, <NavAnchor path="/docs/video">
+          Video</NavAnchor>, <NavAnchor path="/docs/meter">
+          Meter</NavAnchor>, <NavAnchor path="/docs/chart">
+          Chart</NavAnchor>, and <NavAnchor path="/docs/distribution">
+          Distribution</NavAnchor> use
           sizes for width stops as illustrated
           below.</p>
 
