@@ -30,8 +30,8 @@ export default class BrowserSupport extends Component {
           <h2>Supported web browsers and versions</h2>
           <p>The following web browsers are tested and supported with
             Grommet.</p>
-          <Browser icon={IEIcon}>Microsoft Internet Explorer Version 11
-          </Browser>
+          <Browser icon={IEIcon}>Microsoft Internet Explorer Version 11,
+           latest version</Browser>
           <Browser icon={EdgeIcon}>Microsoft Edge, latest version</Browser>
           <Browser icon={FirefoxIcon}>Mozilla Firefox, latest version</Browser>
           <Browser icon={ChromeIcon}>
