@@ -68,7 +68,7 @@ export default class SearchDoc extends Component {
               the default inline size for smaller screens (instead of reverting
               to the search control button by default).
               Defaults to <code>true</code>.</dd>
-            <dt><code>size          medium|large</code></dt>
+            <dt><code>size          small|medium|large</code></dt>
             <dd>The size of the inline search input.
               Defaults to <code>medium</code>.</dd>
             <dt><code>suggestions   [{"{string}|{label: {string}, ...}"}, ...]
