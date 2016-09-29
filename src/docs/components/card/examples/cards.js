@@ -24,6 +24,7 @@ const learnMore = (
 
 export var socialFeedCard1 = (
   <Card direction="column" label="Social" margin="small"
+    a11yTitle="See Twitter Post"
     onClick={_onClickCard.bind(this, 'http://www.twitter.com')}>
     <Heading tag="h2">
       Protect Your Digital Enterprise ipsum lorem dolores aeat el
@@ -34,6 +35,7 @@ export var socialFeedCard1 = (
 
 export var socialFeedCard2 = (
   <Card direction="column" label="Social" margin="small"
+    a11yTitle="See Facebook Post"
     onClick={_onClickCard.bind(this, 'http://www.facebook.com')}>
     <Heading tag="h2">
       Protect Your Digital Enterprise ipsum lorem dolores aeat el
@@ -44,6 +46,7 @@ export var socialFeedCard2 = (
 
 export var socialFeedCard3 = (
   <Card direction="column" label="Social" margin="small"
+    a11yTitle="See LinkedIn Post"
     onClick={_onClickCard.bind(this, 'http://www.linkedin.com')}>
     <Heading tag="h2">
       Protect Your Digital Enterprise ipsum lorem dolores aeat el
@@ -54,8 +57,8 @@ export var socialFeedCard3 = (
 
 export var blogPostCard = (
   <Card direction="column" label="Featured Post" margin="small"
-    link={learnMore}
-    onClick={_onClickCard.bind(this, grommetPath)}>
+    a11yTitle="See Grommet Post"
+    link={learnMore} onClick={_onClickCard.bind(this, grommetPath)}>
     <Heading tag="h2">
       Protect Your Digital Enterprise ipsum lorem dolores aeat el
     </Heading>
@@ -64,7 +67,7 @@ export var blogPostCard = (
 
 export var featuredPostCard = (
   <Card direction="column" label="Featured Post" margin="small"
-    link={learnMore}
+    link={learnMore} a11yTitle="See Grommet Post"
     thumbnail="/img/carousel-1.png"
     onClick={_onClickCard.bind(this, grommetPath)}>
     <Heading tag="h2">

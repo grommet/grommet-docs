@@ -20,6 +20,7 @@ export default class Card3 extends Component {
               solutions to improve quality of life and help eliminate
               poverty in South America.`}
             video={{ source: '/video/test.mp4', type: 'mp4' }}
+            a11yTitle="See Foundation Paraguay Empowers Microbusinesses video"
             link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
           />
         </Box>

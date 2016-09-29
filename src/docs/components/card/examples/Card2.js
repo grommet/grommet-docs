@@ -20,6 +20,7 @@ export default class Card2 extends Component {
               help you optimize your software investments through control of
               complex negotiations and renewal processes`}
             link={<Anchor href="" label="Learn More" icon={<LinkNextIcon />} />}
+            a11yTitle='See Key Steps Post'
             onClick={() => alert('clicked')} />
         </Box>
       } />

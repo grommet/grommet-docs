@@ -30,6 +30,7 @@ export default class Card5 extends Component {
               help you achieve cloud agility with traditional IT
               predictability.`}
             link={watchNow}
+            a11yTitle="Watch Protect Your Digital Enterprise Video"
             onClick={() => alert('clicked')} />
           <Card direction="column" margin="small" label="Video - 4:27"
             thumbnail="/img/carousel-1.png"
@@ -38,7 +39,8 @@ export default class Card5 extends Component {
               solutions to improve quality of life and help
               eliminate poverty in South America.`}
             video={{ source: '/video/test.mp4', type: 'mp4' }}
-            link={watchNow} />
+            link={watchNow}
+            a11yTitle="Watch Protect Your Digital Enterprise Video" />
           <Card direction="column" margin="small" label="Featured Post"
             thumbnail="/img/carousel-1.png"
             heading="The Key Steps to Reducing Software Spend"
