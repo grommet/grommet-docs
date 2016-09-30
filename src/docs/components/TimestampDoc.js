@@ -33,8 +33,8 @@ export default class TimestampDoc extends Component {
           <dl>
             <dt><code>align     start|center|end</code></dt>
             <dd>The horizontal alignment of the Timestamp.</dd>
-            <dt><code>fields    date|time</code></dt>
-            <dd>Whether to show jsut the date or just the time.</dd>
+            <dt><code>fields    date|time|hours|minutes|seconds</code></dt>
+            <dd>Which fields to include in the Timestamp.</dd>
             <dt><code>value     {'{ISO8601 string}|{Date}'}</code></dt>
             <dd>The date value as an ISO8601 string or
               a <code>Date</code> object.</dd>
@@ -50,8 +50,17 @@ export default class TimestampDoc extends Component {
           <Example name="Date only" code={
             <Timestamp value={now} fields="date" />
           } />
+          <Example name="Date and time with seconds" code={
+            <Timestamp value={now} fields={["date", "time", "seconds"]} />
+          } />
           <Example name="Time only" code={
             <Timestamp value={now} fields="time" />
+          } />
+          <Example name="Time with seconds" code={
+            <Timestamp value={now} fields={["time", "seconds"]} />
+          } />
+          <Example name="Hours only" code={
+            <Timestamp value={now} fields="hours" />
           } />
         </section>
 
