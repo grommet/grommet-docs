@@ -53,7 +53,7 @@ export default class AnchorDoc extends Component {
             <dd>Hyperlink reference to place in the anchor.</dd>
             <dt><code>icon           {"{element}"}</code></dt>
             <dd>Icon element to place in the anchor.
-              See <NavAnchor path="/develop/icon">Icon</NavAnchor>.</dd>
+              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
             <dt><code>label          {"{string}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>
             <dt><code>onClick        {"{function}"}</code></dt>
