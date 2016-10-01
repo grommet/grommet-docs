@@ -8,8 +8,7 @@ import Example from '../../Example';
 
 const DistributionExample = (props) => (
   <Example code={
-    <Distribution a11yTitleId='distribution-title-1'
-      a11yDescId='distribution-desc-1' {...props} />
+    <Distribution {...props} />
   } />
 );
 

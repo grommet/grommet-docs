@@ -34,8 +34,7 @@ export default class DistributionDoc extends Component {
           <Distribution series={[
             {label: 'First', value: 80},
             {label: 'Second', value: 20}
-          ]} a11yTitleId='distribution-title-1'
-          a11yDescId='distribution-desc-1' />
+          ]} />
         </section>
 
         <section>
