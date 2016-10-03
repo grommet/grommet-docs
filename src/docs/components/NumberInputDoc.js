@@ -48,9 +48,6 @@ export default class NumberInputDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>ariaDescribedby {"{string}"}</code></dt>
-            <dd>Optional attribute to enhance accessibility in case the
-              this is used inside a context.</dd>
             <dt><code>defaultValue  {"{number}"}</code></dt>
             <dd>Same as React {"<input defaultValue= >"}.</dd>
             <dt><code>disabled        true|false</code></dt>
