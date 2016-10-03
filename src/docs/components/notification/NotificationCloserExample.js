@@ -18,7 +18,7 @@ export default class NotificationCloserExample extends Component {
     if (active) {
       result = (
         <Example code={
-          <Notification status='critical'
+          <Notification status='critical' announce={true}
             message='Temperature threshold exceeded by 10 degrees.'
             timestamp={new Date('Mon Jan 25 2016')}
             state='Active' closer={true}

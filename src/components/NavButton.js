@@ -21,8 +21,10 @@ export default class NavButton extends Component {
 
   render () {
     let href = this.context.router.createPath(this.props.path);
+    const restProps = {...this.props};
+    delete restProps.path;
     return (
-      <Button {...this.props} href={href} onClick={this._onClick} />
+      <Button {...restProps} href={href} onClick={this._onClick} />
     );
   }
 };
