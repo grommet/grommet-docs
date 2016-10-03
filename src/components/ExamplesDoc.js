@@ -68,7 +68,10 @@ export default class ExamplesDoc extends Component {
 
     const items = examples.map((item, index) => (
       <Anchor key={index} label={item.label} href='#'
-        onClick={() => this._select(index)} />
+        onClick={(event) => {
+          event.preventDefault();
+          this._select(index);
+        }} />
     ));
 
     let propertySelector;
