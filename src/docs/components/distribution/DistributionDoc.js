@@ -54,7 +54,7 @@ export default class DistributionDoc extends Component {
               optional. <code>labelValue</code> is used as the
               visible value. If <code>labelValue</code> is not
               set, the <code>value</code> is displayed instead.</dd>
-            <dt><code>size         small|medium|large</code></dt>
+            <dt><code>size         small|medium|large|full</code></dt>
             <dd>The height of the Distribution.
               Defaults to <code>medium</code>.</dd>
             <dt><code>units        {"{string}"}</code></dt>

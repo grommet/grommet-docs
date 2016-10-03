@@ -72,7 +72,7 @@ export default class SunBurstDoc extends Component {
         ...data, value: <Value value={data.value} size="small" />
       }));
       label = (
-        <Legend series={series} align="end" announce={true} />
+        <Legend series={series} announce={true} />
       );
     }
 
