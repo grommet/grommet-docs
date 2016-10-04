@@ -85,7 +85,7 @@ export default class DocsSplit extends Component {
       );
     }
     return (
-      <Sidebar ref="sidebar" size="small" separator="right">
+      <Sidebar ref="sidebar" size="small" separator="right" full={false}>
         <Header justify="between" size="large" pad={{horizontal: 'medium'}}>
           {title}
           {closer}
