@@ -56,10 +56,27 @@ export default class MapDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>data      {"{\n    categories: [{id: , label: , " +
-              "items: [id: , node: ]}, ...],\n    " +
-              "links: [{parentId: , childId: }, ...]\n}"}</code></dt>
+            <dt><code>active           {'{string}'}</code></dt>
+            <dd>The id of the currently active item, if any.</dd>
+            <dt><code>linkColorIndex   {"{category}-{index}"}</code></dt>
+            <dd>The color identifier to use for the link lines.
+              For example: <code>"graph-1"</code>.
+              See <NavAnchor path="/docs/color">Color</NavAnchor> for
+              possible values.</dd>
+            <dt><code>data             {`{
+  categories: [
+    { id: {string}, label: {string},
+      items: [{ id: {string}, label: {string}, node: {node} }, ...] },
+    ...],
+    links: [{ parentId: {string}, childId: {string},
+      colorIndex: {string} }, ...]
+}`}</code>
+            </dt>
             <dd>An array of objects describing the data.</dd>
+            <dt><code>onActive        {"{function (string)}"}</code></dt>
+            <dd>Hover handler. The hovered id is passed as an argument.
+              When the user is ceases to hover over an
+              item, <code>undefined</code> is passed as an argument.</dd>
             <dt><code>vertical  true|false</code></dt>
             <dd>Whether to orient the map vertically.</dd>
           </dl>
