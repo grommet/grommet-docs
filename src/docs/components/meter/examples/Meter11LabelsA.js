@@ -16,8 +16,14 @@ const SERIES = [
 
 export default class Meter11LabelsA extends Component {
 
+  constructor () {
+    super();
+    this.state = {};
+  }
+
   render () {
     const { size } = this.props;
+    const { activeIndex } = this.state;
     const items = SERIES.map((serie, index) => (
       <Box key={index}>
         <Box direction="row" justify="between" align="center"
@@ -27,7 +33,9 @@ export default class Meter11LabelsA extends Component {
           <Label margin="none">{SERIES[index].label}</Label>
         </Box>
         <Meter value={SERIES[index].value} max={100} label={false}
-          size={size} />
+          size={size} active={index === activeIndex}
+          onActive={(indx) => this.setState({
+            activeIndex: indx >= 0 ? index : undefined })} />
       </Box>
     ));
 

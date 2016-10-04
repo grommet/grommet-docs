@@ -39,7 +39,7 @@ export function renderRichTiles (options={}, onClick) {
     }
 
     richTiles.push(
-      <Tile key={index} align="start"
+      <Tile key={index} align="start" basis="small" flex={false}
         separator={options.separator ? 'top' : undefined}
         colorIndex={colorIndex}>
         <Header size="small" pad={{horizontal: 'small'}}>

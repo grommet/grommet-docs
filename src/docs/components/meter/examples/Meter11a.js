@@ -44,6 +44,7 @@ export default class Meter11a extends Component {
             <span>{label}</span>
           </Box>
           <Meter series={SERIES} label={false} max={100} threshold={90}
+            activeIndex={index}
             onActive={(index) => this.setState({ index: index })}
             size={size} />
           <Box direction="row" justify="between" responsive={false}>

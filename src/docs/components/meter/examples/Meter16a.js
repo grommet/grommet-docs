@@ -39,7 +39,7 @@ export default class Meter16a extends Component {
         <Box direction="row" align="start" pad={{ between: 'small' }}
           responsive={false}>
           <Meter type="spiral" series={SERIES} label={false}
-            max={100} threshold={90} size={size}
+            max={100} threshold={90} size={size} activeIndex={index}
             onActive={(index) => this.setState({ index: index })} />
           <Value value={value} units="GB" align="start" label={label}
             size={size} />

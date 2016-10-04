@@ -39,7 +39,7 @@ export default class Meter12a extends Component {
       <Example align="center" code={
         <Box direction="row" responsive={false}>
           <Meter vertical={true} series={SERIES} label={false} max={100}
-            threshold={90} size={size}
+            threshold={90} size={size} activeIndex={index}
             onActive={(index) => this.setState({ index: index })} />
           <Box justify="between" responsive={false}>
             <Label size="small">100 GB</Label>

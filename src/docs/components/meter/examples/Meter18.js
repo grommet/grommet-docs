@@ -40,6 +40,7 @@ export default class Meter18 extends Component {
         <Box direction="row" responsive={false}>
           <Meter vertical={true} stacked={true} series={SERIES}
             label={false} max={100} threshold={90} size={size}
+            activeIndex={index}
             onActive={(index) => this.setState({ index: index })} />
           <Box justify="between" responsive={false}>
             <Label size="small">100 GB</Label>

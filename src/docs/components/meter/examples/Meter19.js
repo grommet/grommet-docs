@@ -42,7 +42,7 @@ export default class Meter19 extends Component {
             label={
               <Value value={value} units="GB" align="center" label={label}
                 size={size} />
-            } max={100} threshold={90} size={size}
+            } max={100} threshold={90} size={size} activeIndex={index}
             onActive={(index) => this.setState({ index: index })} />
           <Box direction="row" justify="between" align="center"
             responsive={false}>
