@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
@@ -8,8 +8,8 @@ import NavAnchor from '../../components/NavAnchor';
 
 const BoxPad = (props) => (
   <Box pad={props.pad} size={{ height: 'small', width: 'small' }}
-    colorIndex="light-2">
-    <Box colorIndex="grey-4" flex={true} justify="center" align="center">
+    colorIndex="grey-4">
+    <Box colorIndex="light-2" flex={true} justify="center" align="center">
       <Label><strong>{props.pad}</strong></Label>
     </Box>
   </Box>
