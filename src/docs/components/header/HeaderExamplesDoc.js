@@ -28,7 +28,8 @@ HeaderExamplesDoc.defaultProps = {
       props: { code: (
         <Header>
           <Title>Title</Title>
-          <Search inline={true} className="flex" placeHolder="Search" />
+          <Search inline={true} fill={true} size="medium"
+            placeHolder="Search" />
         </Header>
       )}
     },
