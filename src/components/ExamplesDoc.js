@@ -142,7 +142,7 @@ export default class ExamplesDoc extends Component {
     let previous, next, menu, pad;
     if (items.length > 1) {
       menu = (
-        <Menu label={examples[index].label} inline={false} size="large">
+        <Menu label={examples[index].label} inline={false}>
           {items}
         </Menu>
       );
