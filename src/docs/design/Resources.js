@@ -63,7 +63,7 @@ export default class Resources extends Component {
             </li>
             <li>
               <a id="hpe-sk-icons"
-                href={`${ROOT}/hpe/hpe-functional-icons-0-5.sketch`}
+                href={`${ROOT}/hpe/hpe-functional-icons-1-0.sketch`}
                 target="_blank">Functional Icons Sticker Sheet v0.5</a>
             </li>
             <li>
