@@ -7,6 +7,7 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import CheckBox from 'grommet/components/CheckBox';
+import Select from 'grommet/components/Select';
 import PreviousIcon from 'grommet/components/icons/base/Previous';
 import NextIcon from 'grommet/components/icons/base/Next';
 import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
@@ -21,7 +22,9 @@ export default class ExamplesDoc extends Component {
     this._onPrevious = this._onPrevious.bind(this);
     this._onChangePropertyValue = this._onChangePropertyValue.bind(this);
     this._onTogglePropertyValue = this._onTogglePropertyValue.bind(this);
-    this.state = { index: 0, dark: false, propertyValue: undefined };
+    this.state = {
+      index: 0, background: 'no background', propertyValue: undefined
+    };
   }
 
   componentDidMount () {
@@ -63,7 +66,7 @@ export default class ExamplesDoc extends Component {
 
   render () {
     const { context, examples, property, title } = this.props;
-    const { index, dark, propertyValue } = this.state;
+    const { index, background, propertyValue } = this.state;
     const example = examples[index];
 
     const items = examples.map((item, index) => (
@@ -81,7 +84,7 @@ export default class ExamplesDoc extends Component {
         const options = property.values.map(value => (
           <option key={value}>{value}</option>
         ));
-        options.unshift(<option key="NoNe"></option>);
+        options.unshift(<option key="NoNe" />);
         propertySelector = (
           <select value={propertyValue} onChange={this._onChangePropertyValue} >
             {options}
@@ -107,7 +110,8 @@ export default class ExamplesDoc extends Component {
       const link = React.cloneElement(context,
         { primary: true, icon: <LinkPreviousIcon /> });
       contextSection = (
-        <Section pad={{ horizontal: 'large' }} align="start">
+        <Section pad={{ horizontal: 'large', vertical: 'medium' }}
+          align="start">
           {link}
         </Section>
       );
@@ -132,6 +136,15 @@ export default class ExamplesDoc extends Component {
       pad = { horizontal: 'large' };
     }
 
+    let content = <Component {...props} />;
+    if ('light on dark' === background) {
+      content = (
+        <Section flex={true} pad="medium" colorIndex="light-1">
+          {content}
+        </Section>
+      );
+    }
+
     return (
       <DocsArticle context={context} title={title} colorIndex="neutral-3"
         full={true}>
@@ -139,15 +152,16 @@ export default class ExamplesDoc extends Component {
           pad={{ horizontal: 'large' }}>
           {menu}
           {propertySelector}
-          <CheckBox checked={dark} toggle={true} label="dark"
-            onChange={() => this.setState({ dark: ! dark })} />
+          <Select value={background}
+            options={['no background', 'dark', 'light on dark']}
+            onChange={event => this.setState({ background: event.option })} />
         </Header>
 
         <Section appCentered={false} justify="between" align="start"
           direction="row" pad={pad}
-          colorIndex={dark ? 'grey-2' : undefined}>
+          colorIndex={'no background' !== background ? 'grey-2' : undefined}>
           {previous}
-          <Component {...props} />
+          {content}
           {next}
         </Section>
 
