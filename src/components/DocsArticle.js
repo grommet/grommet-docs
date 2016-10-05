@@ -58,7 +58,7 @@ export default class DocsArticle extends Component {
       <Article className="docs-article" primary={true}>
         <Header size="large" pad={{horizontal: 'large'}}
           colorIndex={this.props.colorIndex} justify="between">
-          <Heading tag="h1">{context} {title}</Heading>
+          <Heading tag="h1" margin="none">{context} {title}</Heading>
           {action}
         </Header>
         <Box ref='content' pad={pad}>
