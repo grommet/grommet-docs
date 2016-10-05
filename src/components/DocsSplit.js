@@ -28,6 +28,12 @@ export default class DocsSplit extends Component {
     this._scrollMenu();
   }
 
+  componentDidUpdate () {
+    if (this.refs.doc) {
+      findDOMNode(this.refs.doc).scrollIntoView();
+    }
+  }
+
   _scrollMenu () {
     if (this.refs.doc) {
       const path = window.location.pathname;
