@@ -123,7 +123,8 @@ export default class IconDoc extends Component {
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the stroke color.
-              For example: <code>"brand"</code></dd>
+              For example: <code>"brand"</code>. Use <code>"plain"</code> to
+              keep the original icon colors.</dd>
             <dt><code>size         small|medium|large|xlarge|huge</code></dt>
             <dd>The icon size.  Defaults to <code>medium</code>.</dd>
             <dt><code>type         control|logo|status</code></dt>
@@ -134,7 +135,8 @@ export default class IconDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Custom Logo" code={
+          <Example name="Custom Logo"
+            preamble={`import SVGIcon from 'grommet/components/SVGIcon';`} code={
             <SVGIcon viewBox='0 0 130 108' version='1.1'
               type='logo' a11yTitle='Locations Finder'>
               <g stroke='#865CD6' strokeWidth='4' fill='none'
