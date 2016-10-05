@@ -136,8 +136,8 @@ export default class IconDoc extends Component {
           <h2>Examples</h2>
 
           <Example name="Custom Logo"
-            preamble={`import SVGIcon from 'grommet/components/SVGIcon';`} code={
-            <SVGIcon viewBox='0 0 130 108' version='1.1'
+            preamble={`import SVGIcon from 'grommet/components/SVGIcon';`}
+            code={<SVGIcon viewBox='0 0 130 108' version='1.1'
               type='logo' a11yTitle='Locations Finder'>
               <g stroke='#865CD6' strokeWidth='4' fill='none'
                 strokeLinejoin='round'>
