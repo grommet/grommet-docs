@@ -14,6 +14,19 @@ import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
 import KeyboardAccelerators from 'grommet/utils/KeyboardAccelerators';
 import DocsArticle from './DocsArticle';
 
+const BACKGROUNDS =
+  ['no background', 'light', 'dark', 'light on dark', 'dark on light'];
+const OUTER_BACKGROUND = {
+  'dark': 'grey-2',
+  'dark on light': 'light-2',
+  'light': 'light-2',
+  'light on dark': 'grey-2'
+};
+const INNER_BACKGROUND = {
+  'dark on light': 'grey-2',
+  'light on dark': 'light-2'
+};
+
 export default class ExamplesDoc extends Component {
 
   constructor () {
@@ -146,9 +159,10 @@ export default class ExamplesDoc extends Component {
     }
 
     let content = <Component {...props} />;
-    if ('light on dark' === background) {
+    if (INNER_BACKGROUND[background]) {
       content = (
-        <Section flex={true} pad="medium" colorIndex="light-1">
+        <Section flex={true} pad="medium"
+          colorIndex={INNER_BACKGROUND[background]}>
           {content}
         </Section>
       );
@@ -162,13 +176,13 @@ export default class ExamplesDoc extends Component {
           {menu}
           {propertySelector}
           <Select value={background}
-            options={['no background', 'dark', 'light on dark']}
+            options={BACKGROUNDS}
             onChange={this._onBackground} />
         </Header>
 
         <Section appCentered={false} justify="between" align="start"
           direction="row" pad={pad}
-          colorIndex={'no background' !== background ? 'grey-2' : undefined}>
+          colorIndex={OUTER_BACKGROUND[background]}>
           {previous}
           {content}
           {next}
