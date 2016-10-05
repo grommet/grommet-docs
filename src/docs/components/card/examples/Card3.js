@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
-import WatchIcon from 'grommet/components/icons/base/Watch';
+import CirclePlayIcon from 'grommet/components/icons/base/CirclePlay';
 import Example from '../../../Example';
 
 export default class Card3 extends Component {
@@ -21,7 +21,8 @@ export default class Card3 extends Component {
               poverty in South America.`}
             video={{ source: '/video/test.mp4', type: 'mp4' }}
             a11yTitle="See Foundation Paraguay Empowers Microbusinesses video"
-            link={<Anchor href="#" label="Watch Now" icon={<WatchIcon />} />}
+            link={<Anchor href="#" label="Watch Now"
+              icon={<CirclePlayIcon />} />}
           />
         </Box>
       } />

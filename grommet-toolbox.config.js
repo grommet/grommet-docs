@@ -62,7 +62,6 @@ export default {
   },
   devServerPort: 8002,
   // devServerHost: "0.0.0.0",
-  scsslint: true,
   alias: {
     'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
     'grommet': path.resolve(__dirname, '../grommet/src/js')

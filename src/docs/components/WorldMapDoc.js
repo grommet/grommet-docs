@@ -62,7 +62,7 @@ export default class WorldMapDoc extends Component {
             { continent: 'Africa', colorIndex: 'graph-2' },
             { continent: 'Asia', colorIndex: 'graph-3' },
             { continent: 'Australia', colorIndex: 'graph-4' }
-          ]} legend={true} units="B"/>
+          ]} />
           <p>Note: It is a good idea to include
           a <NavAnchor path="/docs/legend">
           Legend</NavAnchor> along
@@ -91,7 +91,7 @@ export default class WorldMapDoc extends Component {
 
         <section>
           <Example name="Example" code={
-            <WorldMap series={series} legend={true} units="B"/>
+            <WorldMap series={series} />
           } />
         </section>
 

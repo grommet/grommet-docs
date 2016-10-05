@@ -4,13 +4,16 @@ import React, { Component } from 'react';
 import Card from 'grommet/components/Card';
 import Tiles from 'grommet/components/Tiles';
 import Anchor from 'grommet/components/Anchor';
-import WatchIcon from 'grommet/components/icons/base/Watch';
+import CirclePlayIcon from 'grommet/components/icons/base/CirclePlay';
 import Example from '../../../Example';
 
 export default class Card5 extends Component {
 
   render () {
-    const watchNow = <Anchor href="#" label="Watch Now" icon={<WatchIcon />} />;
+    const watchNow = (
+      <Anchor href="#" label="Watch Now"
+        icon={<CirclePlayIcon />} />
+    );
     return (
       <Example code={
         <Tiles colorIndex="light-2">
