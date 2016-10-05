@@ -45,6 +45,8 @@ export default class ImageDoc extends Component {
             <dt><code>full       true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport
               size.</dd>
+            <dt><code>fit       cover|contain</code></dt>
+            <dd>The object-fit flex property to apply to the image</dd>
             <dt><code>size       small|medium|large|thumb</code></dt>
             <dd>The size of the Paragraph text.
               Defaults to <code>medium</code>.</dd>

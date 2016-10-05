@@ -23,6 +23,13 @@ ImageExamplesDoc.defaultProps = {
     { label: 'Medium', component: ImageExample, props: { size: 'medium' } },
     { label: 'Large', component: ImageExample, props: { size: 'large' } },
     { label: 'Full', component: ImageExample, props: { full: 'horizontal' } },
+    { label: 'Fit',
+      component: ImageExample,
+      props: {
+        fit: 'contain',
+        size: 'thumb'
+      }
+    },
     { label: 'Caption', component: ImageExample,
       props: { caption: 'Image caption' } }
   ],
