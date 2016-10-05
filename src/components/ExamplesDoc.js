@@ -22,6 +22,7 @@ export default class ExamplesDoc extends Component {
     this._onPrevious = this._onPrevious.bind(this);
     this._onChangePropertyValue = this._onChangePropertyValue.bind(this);
     this._onTogglePropertyValue = this._onTogglePropertyValue.bind(this);
+    this._onBackground = this._onBackground.bind(this);
     this.state = {
       index: 0, background: 'no background', propertyValue: undefined
     };
@@ -62,6 +63,14 @@ export default class ExamplesDoc extends Component {
 
   _onTogglePropertyValue (event) {
     this.setState({ propertyValue: ! this.state.propertyValue });
+  }
+
+  _onBackground (event) {
+    const background = event.option;
+    this.setState({ background: background });
+    // const location = window.location;
+    // window.location.replace(
+    //   `?background=${encodeURIComponent(background)}${location.hash}`);
   }
 
   render () {
@@ -154,7 +163,7 @@ export default class ExamplesDoc extends Component {
           {propertySelector}
           <Select value={background}
             options={['no background', 'dark', 'light on dark']}
-            onChange={event => this.setState({ background: event.option })} />
+            onChange={this._onBackground} />
         </Header>
 
         <Section appCentered={false} justify="between" align="start"
