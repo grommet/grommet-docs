@@ -57,8 +57,7 @@ export default class ConfirmationForm extends Component {
             </fieldset>
           </FormFields>
           <Footer pad={{vertical: 'medium'}}>
-            <Button label="Destroy" primary={true} strong={true}
-              onClick={this._onSubmit} />
+            <Button label="Destroy" primary={true} onClick={this._onSubmit} />
           </Footer>
         </Form>
       </Box>

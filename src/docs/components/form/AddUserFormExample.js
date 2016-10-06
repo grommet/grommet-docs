@@ -178,8 +178,7 @@ export default class AddUserFormExample extends Component {
             </fieldset>
           </FormFields>
           <Footer pad={{vertical: 'medium'}}>
-            <Button label="Add" primary={true} strong={true}
-              onClick={this._onSubmit} />
+            <Button label="Add" primary={true} onClick={this._onSubmit} />
           </Footer>
         </Form>
       } />

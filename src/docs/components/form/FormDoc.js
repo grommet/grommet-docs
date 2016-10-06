@@ -26,7 +26,7 @@ const USAGE =
     </fieldset>
   </FormFields>
   <Footer pad={{vertical: 'medium'}}>
-    <Button label="Add" primary={true} strong={true}
+    <Button label="Add" primary={true}
       onClick={...} />
   </Footer>
 </Form>`;
@@ -66,7 +66,7 @@ export default class FormDoc extends Component {
               </fieldset>
             </FormFields>
             <Footer pad={{vertical: 'medium'}}>
-              <Button label="Submit" primary={true} strong={true}
+              <Button label="Submit" primary={true}
                 onClick={() => alert('submit')} />
             </Footer>
           </Form>

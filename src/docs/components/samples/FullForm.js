@@ -133,7 +133,7 @@ export default class FullForm extends Component {
             <legend>Another section</legend>
             <p>Some informational text.</p>
             <FormField label="Item 11">
-              <Table selectable={true} defaultSelection={0}>
+              <Table selectable={true}>
                 <tbody>
                   <tr>
                     <td>first</td>
@@ -162,8 +162,7 @@ export default class FullForm extends Component {
           </fieldset>
         </FormFields>
         <Footer pad={{vertical: 'medium'}}>
-          <Button label="OK" primary={true} strong={true}
-            onClick={this.props.onSubmit} />
+          <Button label="OK" primary={true} onClick={this.props.onSubmit} />
         </Footer>
       </Form>
     );
