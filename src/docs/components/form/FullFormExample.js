@@ -9,11 +9,11 @@ import CheckBox from 'grommet/components/CheckBox';
 import RadioButton from 'grommet/components/RadioButton';
 import TextInput from 'grommet/components/TextInput';
 import Select from 'grommet/components/Select';
-import SearchInput from 'grommet/components/SearchInput';
 import NumberInput from 'grommet/components/NumberInput';
 import Table from 'grommet/components/Table';
 import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
+import Anchor from 'grommet/components/Anchor';
 import DateTime from 'grommet/components/DateTime';
 import Example from '../../Example';
 
@@ -124,24 +124,17 @@ export default class FullFormExample extends Component {
               </FormField>
               <FormField label="Item 5" htmlFor={p + "item5"}
                 error="something's wrong">
-                <textarea id={p + "item5"} name="item-5"></textarea>
+                <textarea id={p + "item5"} name="item-5" />
               </FormField>
-              <FormField label="Item 6a" htmlFor={p + "item6a"}>
-                <TextInput id={p + "item6a"} name="item-6a"
+              <FormField label="Item 6" htmlFor={p + "item6"}>
+                <TextInput id={p + "item6"} name="item-6"
                   value={this.state.textInput.value}
                   suggestions={this.state.textInput.suggestions}
                   onDOMChange={this._onTextInputDOMChange}
                   onSelect={this._onTextInputSelect} />
               </FormField>
-              <FormField label="Item 6b" htmlFor={p + "item6b"}>
-                <SearchInput id={p + "item6b"} name="item-6"
-                  value={this.state.searchInput.value}
-                  suggestions={this.state.searchInput.suggestions}
-                  onChange={this._onSearchInputChange}
-                  onSearch={this._onSearchInputSearch} />
-              </FormField>
               <FormField label="Item 7a" htmlFor={p + "item7a"}
-                help={<a>learn more ...</a>}>
+                help={<Anchor>learn more ...</Anchor>}>
                 <select id={p + "item7a"} name="item-7a">
                   <option>first</option>
                   <option>second</option>
