@@ -7,6 +7,7 @@ import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
 import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
+import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 
 export function renderRichTiles (options={}, onClick) {
@@ -19,11 +20,11 @@ export function renderRichTiles (options={}, onClick) {
     } else if ('menu' === options.bottom) {
       bottom = (
         <Footer justify="between">
-          <span></span>
+          <span />
           <Menu inline={false} dropAlign={{bottom: 'bottom', right: 'right'}}>
-            <a>action 1</a>
-            <a>action 2</a>
-            <a>action 3</a>
+            <Anchor>action 1</Anchor>
+            <Anchor>action 2</Anchor>
+            <Anchor>action 3</Anchor>
           </Menu>
         </Footer>
       );
