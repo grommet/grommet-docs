@@ -17,13 +17,13 @@ import DocsArticle from './DocsArticle';
 const BACKGROUNDS =
   ['no background', 'light', 'dark', 'light on dark', 'dark on light'];
 const OUTER_BACKGROUND = {
-  'dark': 'grey-2',
+  'dark': 'grey-3',
   'dark on light': 'light-2',
   'light': 'light-2',
-  'light on dark': 'grey-2'
+  'light on dark': 'grey-3'
 };
 const INNER_BACKGROUND = {
-  'dark on light': 'grey-2',
+  'dark on light': 'grey-3',
   'light on dark': 'light-2'
 };
 
