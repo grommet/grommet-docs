@@ -42,7 +42,7 @@ export default class FullFormExample extends Component {
   }
 
   _onChangeRange (event) {
-    this.setState({rangeValue: event.target.value});
+    this.setState({rangeValue: parseInt(event.target.value, 10)});
   }
 
   _onChange (event) {
