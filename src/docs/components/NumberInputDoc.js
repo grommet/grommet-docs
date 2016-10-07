@@ -22,7 +22,7 @@ export default class NumberInputDoc extends Component {
   }
 
   _onChange (event) {
-    this.setState({value: parseInt(event.target.value)});
+    this.setState({value: event.target.value});
   }
 
   render () {
