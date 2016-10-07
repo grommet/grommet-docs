@@ -33,7 +33,7 @@ export function renderRichTiles (options={}, onClick) {
     var colorIndex;
     if (options.colorIndex) {
       if ('random' === options.colorIndex) {
-        colorIndex = 'neutral-' + index;
+        colorIndex = 'neutral-' + ((index % 3) + 1);
       } else {
         colorIndex = options.colorIndex;
       }
