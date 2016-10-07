@@ -29,9 +29,9 @@ export default class SectionDoc extends Component {
             href="http://www.w3.org/TR/html5/sections.html#the-section-element">
             HTML5 section</Anchor>. It might
             contain a <NavAnchor path="/docs/heading">Heading</NavAnchor>, one
-            or more <NavAnchor path="/docs/pargraph">Paragraphs</NavAnchor>,
-            <NavAnchor path="/docs/image">Images</NavAnchor>, and
-            <NavAnchor path="/docs/video">Videos</NavAnchor>.</p>
+            or more <NavAnchor path="/docs/paragraph">Paragraphs</NavAnchor>
+            , <NavAnchor path="/docs/image">Images</NavAnchor>
+            , and <NavAnchor path="/docs/video">Videos</NavAnchor>.</p>
         </section>
 
         <section>

@@ -21,7 +21,7 @@ export default class HeroDoc extends Component {
 
         <section>
           <p>A Hero image or video, overlaid with text.</p>
-          <Hero backgroundType="image" backgroundImage="img/carousel-1.png">
+          <Hero backgroundType="image" backgroundImage="/img/carousel-1.png">
             <h1>This is a Hero</h1>
           </Hero>
         </section>

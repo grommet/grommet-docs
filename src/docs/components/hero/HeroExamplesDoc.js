@@ -19,13 +19,13 @@ HeroExamplesDoc.defaultProps = {
   context: <NavAnchor path="/docs/hero">Hero</NavAnchor>,
   examples: [
     { label: 'Default', component: HeroExample, props: {
-      backgroundType: 'image', backgroundImage: 'img/carousel-1.png',
+      backgroundType: 'image', backgroundImage: '/img/carousel-1.png',
       children: <h1>You are my Hero</h1>
     } },
     { label: 'Video', component: HeroExample, props: {
       size: 'small', backgroundVideo: (
         <Video autoPlay={true} showControls={false} loop={true} muted={true}>
-          <source src="video/test.mp4" type="video/mp4"/>
+          <source src="/video/test.mp4" type="video/mp4"/>
         </Video>
       ),
       children: <h1>A Hero with video</h1>
