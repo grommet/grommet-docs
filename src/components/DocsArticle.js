@@ -8,7 +8,7 @@ import Box from 'grommet/components/Box';
 import { announcePageLoaded } from 'grommet/utils/Announcer';
 import DocsFooter from './DocsFooter';
 
-const DEFAULT_TITLE = 'Grommet';
+const BASE_TITLE = 'Grommet';
 
 //hjjs configuration
 const hljs = require('highlight.js/lib/highlight');
@@ -25,13 +25,22 @@ export default class DocsArticle extends Component {
   }
 
   componentDidMount () {
-    this._highlightCode();
-    if (this.props.title) {
-      document.title = `${this.props.title} | Grommet`;
-    } else {
-      document.title = DEFAULT_TITLE;
+    const { context, title } = this.props;
+    let docTitle;
+    if (title) {
+      if (context) {
+        docTitle = `${context.props.children} ${title}`;
+      } else {
+        docTitle = title;
+      }
     }
-    announcePageLoaded(this.props.title || DEFAULT_TITLE);
+    if (docTitle) {
+      document.title = `${docTitle} | ${BASE_TITLE}`;
+    } else {
+      document.title = BASE_TITLE;
+    }
+    announcePageLoaded(docTitle || BASE_TITLE);
+    this._highlightCode();
   }
 
   componentDidUpdate () {
