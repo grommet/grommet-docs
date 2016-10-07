@@ -172,7 +172,7 @@ export default class ExamplesDoc extends Component {
       <DocsArticle context={context} title={title} colorIndex="neutral-3"
         full={true}>
         <Header justify="between" colorIndex="light-2"
-          pad={{ horizontal: 'large' }}>
+          pad={{ horizontal: 'large' }} responsive={true}>
           {menu}
           {propertySelector}
           <Select value={background}
