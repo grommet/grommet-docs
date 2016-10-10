@@ -124,7 +124,9 @@ export default class Home extends Component {
           backgroundImage={'url(/img/mobile_first.jpg)'} justify="start"
           colorIndex="dark" style={mobileStyle}>
           <Box className="home__mobile" align="center">
-            <Heading tag="h2">Mobile-first ready for business</Heading>
+            <Heading tag="h2" align="center">
+              Mobile-first ready for business
+            </Heading>
             <Paragraph align="center">Think small. Starting with mobile-first
               design allows for easy app scalability to larger
               devices.</Paragraph>
