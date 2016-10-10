@@ -30,7 +30,7 @@ VideoExamplesDoc.defaultProps = {
     },
     { label: 'Title, Duration, Timeline, Poster, Full', component: VideoExample,
       props: { title: 'Title', poster: '/img/mobile_first.jpg', full: true,
-        duration: 35, timeline: [
+        timeline: [
           {label: 'Chapter 1', time: 0},
           {label: 'Chapter 2', time: 10},
           {label: 'Chapter 3', time: 20}

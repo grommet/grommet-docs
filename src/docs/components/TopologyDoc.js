@@ -11,11 +11,11 @@ Topology.displayName = 'Topology';
 const USAGE =
 `import Topology from 'grommet/components/Topology';
 <Topology links={[
-  {colorIndex: "graph-1", ids: ["p1", "p1"]}
+  {colorIndex: "graph-1", ids: ["p1", "p2"]}
 ]}>
   <Topology.Parts>
     <Topology.Part id="p1" status="ok" label="1" />
-    <Topology.Part id="p2" status="ok" label="1" />
+    <Topology.Part id="p2" status="ok" label="2" />
   </Topology.Parts>
 </Topology>`;
 
@@ -104,19 +104,24 @@ export default class TopologyDoc extends Component {
           <h2>Example</h2>
 
           <Example align="start" code={
-            <Topology links={[
+            <Topology a11yTitle='Server Topology' links={[
+              {colorIndex: "graph-1", ids: ["s1p1", "s2p1"]},
               {colorIndex: "graph-1", ids: ["s1p1", "s2p1"]},
               {colorIndex: "graph-1", ids: ["s1p2", "s2p2"]},
               {colorIndex: "graph-2", ids: ["em1p2", "em2p1"]},
               {colorIndex: "graph-2", ids: ["em2p2", "em3p1"]},
               {colorIndex: "graph-2", ids: ["em3p2", "em4p1"]},
-              {colorIndex: "graph-2", ids: ["em4p2", "em1p1"]}
+              {colorIndex: "graph-2", ids: ["em4p2", "em1p1"]},
+              {colorIndex: "graph-2", ids: ["s2p14", "s2p8"]},
+              {colorIndex: "graph-2", ids: ["em4p2", "s2p8"]}
             ]}>
               <Topology.Parts direction="row">
 
-                <Topology.Part className="rack" direction="column">
+                <Topology.Part a11yTitle='rack'
+                  className="rack" direction="column">
 
-                  <Topology.Part className="switch" direction="column">
+                  <Topology.Part a11yTitle='switch'
+                    className="switch" direction="column">
                     <Topology.Parts direction="row">
                       <Topology.Part id="s1p1" status="ok" label="1"
                         direction="column" demarcate={false} />
@@ -138,7 +143,8 @@ export default class TopologyDoc extends Component {
                     <Topology.Label>HP 3100 SI</Topology.Label>
                   </Topology.Part>
 
-                  <Topology.Part className="enclosure" direction="column">
+                  <Topology.Part a11yTitle='enclosure'
+                    className="enclosure" direction="column">
                     <Topology.Part className="em"
                       label="HP Virtual Connect FlexFabric-20/40 F8 Module" />
                     <Topology.Part className="em"
@@ -152,11 +158,11 @@ export default class TopologyDoc extends Component {
                             demarcate={false} align="center" />
                         </Topology.Parts>
                       </Topology.Part>
-                      <Topology.Part className="fan" status="ok" label="1"
-                        align="center" />
+                      <Topology.Part a11yTitle='fan 1 ok'
+                        className="fan" status="ok" label="1" align="center" />
                       <Topology.Part className="fan" />
-                      <Topology.Part className="fan" status="ok" label="3"
-                        align="center" />
+                      <Topology.Part a11yTitle='fan 3 ok' className="fan"
+                        status="ok" label="3" align="center" />
                     </Topology.Parts>
                     <Topology.Part className="em"
                       label="HP Virtual Connect FlexFabric-20/40 F8 Module" />
@@ -180,9 +186,11 @@ export default class TopologyDoc extends Component {
 
                 </Topology.Part>
 
-                <Topology.Part className="rack" direction="column">
+                <Topology.Part a11yTitle='rack'
+                  className="rack" direction="column">
 
-                  <Topology.Part className="switch" direction="column">
+                  <Topology.Part a11yTitle='switch'
+                    className="switch" direction="column">
                     <Topology.Parts direction="row">
                       <Topology.Part id="s2p1" status="ok" label="1"
                         direction="column" demarcate={false} />
@@ -230,7 +238,8 @@ export default class TopologyDoc extends Component {
                     </Topology.Parts>
                   </Topology.Part>
 
-                  <Topology.Part className="enclosure" direction="column">
+                  <Topology.Part a11yTitle='enclosure'
+                    className="enclosure" direction="column">
                     <Topology.Parts direction="row">
                       <Topology.Part className="em">
                         <Topology.Parts direction="column">
