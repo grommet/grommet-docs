@@ -38,6 +38,7 @@ export default class Chart9 extends Component {
               count={VALUES.length} index={this.state.index} />
             <Area values={VALUES} activeIndex={this.state.index} />
             <HotSpots count={VALUES.length}
+              a11yTitle={VALUES[this.state.index]}
               activeIndex={this.state.index}
               onClick={(index) => alert(VALUES[index])}
               onActive={(index) => this.setState({
