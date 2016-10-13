@@ -5,7 +5,7 @@ import Spinning from 'grommet/components/icons/Spinning';
 import DocsArticle from '../../components/DocsArticle';
 
 const USAGE =
-`import Spinning from 'grommet/components/Spinning';
+`import Spinning from 'grommet/components/icons/Spinning';
 <Spinning />`;
 
 export default class SpinningDoc extends Component {
