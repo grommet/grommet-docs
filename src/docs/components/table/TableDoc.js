@@ -107,8 +107,6 @@ export default class TableDoc extends Component {
             <dd>Called when the user clicks on the row. Callers should bind
               an identifier to the function to distinguish between multiple
               rows. For example <code>{ON_CLICK_SNIPPET}</code></dd>
-            <dt><code>selected      true|false</code></dt>
-            <dd>Whether this row is currently selected.</dd>
           </dl>
         </section>
 

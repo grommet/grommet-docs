@@ -95,8 +95,6 @@ export default class ListDoc extends Component {
             <dd>Called when the user clicks on the item. Callers should bind
               an identifier to the function to distinguish between multiple
               items. For example <code>{ON_CLICK_SNIPPET}</code></dd>
-            <dt><code>selected    true|false</code></dt>
-            <dd>Whether this item is currently selected.</dd>
           </dl>
           <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
             also available for ListItem.</p>
