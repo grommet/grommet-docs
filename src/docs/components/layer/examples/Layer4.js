@@ -22,7 +22,8 @@ export default class Layer4 extends Component {
   render () {
     const { active } = this.state;
     const layer = (
-      <Layer onClose={this._onClose} closer={true} align="right">
+      <Layer onClose={this._onClose} closer={true} align="right"
+        flush={true}>
         <SampleArticle />
       </Layer>
     );
