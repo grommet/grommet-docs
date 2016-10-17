@@ -156,14 +156,14 @@ export default class BoxingGymDoc extends Component {
     }
 
     let basisOptions = SIZES.map(size => <option key={size}>{size}</option>);
-    basisOptions.unshift(<option key={0}></option>);
+    basisOptions.unshift(<option key={0} />);
 
     let padOptions = PAD_SIZES.map(size => <option key={size}>{size}</option>);
-    padOptions.unshift(<option key={0}></option>);
+    padOptions.unshift(<option key={0} />);
 
     let marginOptions =
       MARGIN_SIZES.map(size => <option key={size}>{size}</option>);
-    marginOptions.unshift(<option key={0}></option>);
+    marginOptions.unshift(<option key={0} />);
 
     let containedFields;
     if (box.parentId) {
@@ -178,7 +178,7 @@ export default class BoxingGymDoc extends Component {
           <FormField label="flex">
             <select value={box.flex || ''}
               onChange={this._changeBoxProp(box.id, 'flex')}>
-              <option></option>
+              <option />
               <option>grow</option>
               <option>shrink</option>
               <option value={true}>true</option>
@@ -202,7 +202,7 @@ export default class BoxingGymDoc extends Component {
           </FormField>
           <FormField>
             <CheckBox label="wrap" checked={box.wrap || false}
-              onChange={this._toggleBoxProp(box.id, 'direction')} />
+              onChange={this._toggleBoxProp(box.id, 'wrap')} />
           </FormField>
           <FormField>
             <CheckBox label="reverse" checked={box.reverse || false}
