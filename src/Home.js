@@ -15,22 +15,34 @@ import GrommetLogo from 'grommet/components/icons/Grommet';
 import SlackIcon from 'grommet/components/icons/base/SocialSlack';
 import GithubIcon from 'grommet/components/icons/base/SocialGithub';
 import TwitterIcon from 'grommet/components/icons/base/SocialTwitter';
+import ResourcesIcon from 'grommet/components/icons/base/Resources';
+import AccessAccessibilityIcon from
+  'grommet/components/icons/base/AccessAccessibility';
+import ConfigureIcon from 'grommet/components/icons/base/Configure';
+import RunIcon from 'grommet/components/icons/base/Run';
 import Hands from './img/Hands.js';
 import NavAnchor from './components/NavAnchor';
 import NavButton from './components/NavButton';
 import ThemeMenu from './components/ThemeMenu';
 
-class HomeSection extends Component {
-  render () {
-    return (
-      <Section
-        appCentered={true} justify="center" align="center"
-        pad={{vertical: "large"}} {...this.props}>
-        {this.props.children}
-      </Section>
-    );
-  }
-};
+const HomeSection = (props) => (
+  <Section
+    appCentered={true} justify='center' align='center'
+    pad={{vertical: 'large'}} {...props}>
+    {props.children}
+  </Section>
+);
+
+
+const WhyGrommetItem = (props) => (
+  <Box basis='1/4' pad={{ between: 'small', 'vertical': 'small' }}>
+    <Header direction='column' pad={{ between: 'medium' }}>
+      {props.icon}
+      <Heading tag='h3' strong={true}>{props.heading}</Heading>
+    </Header>
+    {props.children}
+  </Box>
+);
 
 export default class Home extends Component {
 
@@ -56,7 +68,7 @@ export default class Home extends Component {
   }
 
   _onScroll (event) {
-    const elem = findDOMNode(this.refs.mobile);
+    const elem = findDOMNode(this._mobileRef);
     const rect = elem.getBoundingClientRect();
     if (rect.top < 0) {
       this.setState({ mobileOffset: Math.abs(rect.top) / 12 });
@@ -87,119 +99,165 @@ export default class Home extends Component {
     }
 
     return (
-      <Article className="home">
-        <HomeSection pad="none">
-          <Header fixed={false} appCentered={true} justify="center">
-            <Menu direction="row" responsive={false} dropAlign={{left: 'left'}}>
-              <NavAnchor path="/docs/get-started">Start</NavAnchor>
+      <Article className='home'>
+        <HomeSection pad='none'>
+          <Header fixed={false} appCentered={true} justify='center'>
+            <Menu direction='row' responsive={false} dropAlign={{left: 'left'}}>
+              <NavAnchor path='/docs/get-started'>Start</NavAnchor>
               {/*}
-              <NavAnchor path="/docs/learn">Learn</NavAnchor>
+              <NavAnchor path='/docs/learn'>Learn</NavAnchor>
               {*/}
-              <NavAnchor path="/docs">Docs</NavAnchor>
+              <NavAnchor path='/docs'>Docs</NavAnchor>
             </Menu>
           </Header>
-          <Box primary={true} pad={{vertical: 'large'}} direction="column"
-            align="center" flex={false}>
-            <GrommetLogo size="xlarge" a11yTitle="Grommet Logo"
+          <Box primary={true} pad={{vertical: 'large'}} direction='column'
+            align='center' flex={false}>
+            <GrommetLogo size='xlarge' a11yTitle='Grommet Logo'
               a11yTitleId='hero_logo' />
-            <Heading tag="h2" margin="medium">grommet</Heading>
-            <Paragraph size="large" align="center">
+            <Heading tag='h2' margin='medium'>grommet</Heading>
+            <Paragraph size='large' align='center'>
               focus on the essential experience
             </Paragraph>
           </Box>
-          <Footer appCentered={true} justify="center">
-            <Menu inline={true} responsive={false} direction="row">
-              <Anchor href="http://slackin.grommet.io"
+          <Footer appCentered={true} justify='center'>
+            <Menu inline={true} responsive={false} direction='row'>
+              <Anchor href='http://slackin.grommet.io'
                 icon={<SlackIcon a11yTitle='Grommet Slack' />}/>
-              <Anchor href="https://github.com/grommet/grommet"
+              <Anchor href='https://github.com/grommet/grommet'
                 icon={<GithubIcon a11yTitle='Grommet Github' />}/>
-              <Anchor href="https://twitter.com/grommetux"
-                icon={<TwitterIcon colorIndex="grey-4"
+              <Anchor href='https://twitter.com/grommetux'
+                icon={<TwitterIcon colorIndex='grey-4'
                 a11yTitle='Grommet Twitter' />}/>
             </Menu>
           </Footer>
         </HomeSection>
 
-        <HomeSection ref="mobile"
-          backgroundImage={'url(/img/mobile_first.jpg)'} justify="start"
-          colorIndex="dark" style={mobileStyle}>
-          <Box className="home__mobile" align="center">
-            <Heading tag="h2" align="center">
+        <HomeSection ref={(ref) => this._mobileRef = ref}
+          backgroundImage={'url(/img/mobile_first.jpg)'} justify='start'
+          colorIndex='dark' style={mobileStyle}>
+          <Box className='home__mobile' align='center'>
+            <Heading tag='h2' align='center'>
               Mobile-first ready for business
             </Heading>
-            <Paragraph align="center">Think small. Starting with mobile-first
+            <Paragraph align='center'>Think small. Starting with mobile-first
               design allows for easy app scalability to larger
               devices.</Paragraph>
             {/*}
-            <NavButton path="/docs/learn" label="Learn" />
+            <NavButton path='/docs/learn' label='Learn' />
             {*/}
           </Box>
         </HomeSection>
 
+        <HomeSection colorIndex='brand'>
+          <Heading tag='h2'>Why Grommet?</Heading>
+          <Box direction='row' wrap={true}
+            pad={{
+              between: 'large', vertical: 'medium', horizontal: 'medium'
+            }}>
+            <WhyGrommetItem icon={<ResourcesIcon size='xlarge' />}
+              heading='Comprehensive'>
+              <Paragraph align='center'>
+                A curated design and development platform that is more than
+                just a ReactJS widget library. Grommet offers the tools
+                to create amazing experiences.
+              </Paragraph>
+            </WhyGrommetItem>
+            <WhyGrommetItem icon={<ConfigureIcon size='xlarge' />}
+              heading='Flexible'>
+              <Paragraph align='center'>
+                Responsive web without the hassle of grid management and
+                modular components loaded on-demand. Themes allow your
+                brand to shine.
+              </Paragraph>
+            </WhyGrommetItem>
+            <WhyGrommetItem icon={<AccessAccessibilityIcon size='xlarge' />}
+              heading='Accessible'>
+              <Box flex={true}>
+                <Paragraph align='center'>
+                  All users matter. Grommet provides a robust foundation
+                  of accessibility features to meet web standards.
+                </Paragraph>
+              </Box>
+              <Footer justify='center' align='center'>
+                <Anchor primary={true} target='_blank'
+                  href='https://vimeo.com/187068246'>Watch this</Anchor>
+              </Footer>
+            </WhyGrommetItem>
+            <WhyGrommetItem icon={<RunIcon size='xlarge' />}
+              heading='Active'>
+              <Paragraph align='center'>
+                Our community is open and engaged. Design resources, development
+                tools, and online training provide a seamless on-boarding
+                experience.
+              </Paragraph>
+            </WhyGrommetItem>
+          </Box>
+        </HomeSection>
+
         <HomeSection>
-          <Heading tag="h2">Start making now</Heading>
-          <Paragraph align="center">The easiest way to learn a new tool is
+          <Heading tag='h2'>Start making now</Heading>
+          <Paragraph align='center'>The easiest way to learn a new tool is
             to have it done
             for you and then make it yours!</Paragraph>
           {codePen}
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
-          <NavButton path="/docs" label="Docs" />
+          <NavButton path='/docs' label='Docs' />
         </HomeSection>
 
-        <HomeSection colorIndex="light-2">
-          <Box direction="row">
-            <Box align="center">
-              <Heading tag="h2">Together is better</Heading>
-              <Paragraph align="center">Grommet is structured to foster
+        <HomeSection colorIndex='light-2'>
+          <Box direction='row'>
+            <Box align='center'>
+              <Heading tag='h2'>Together is better</Heading>
+              <Paragraph align='center'>Grommet is structured to foster
                 active communication
                 between designers and developers in hopes of creating better
                 user experience. </Paragraph>
-              <NavButton path="/docs/about" label="About" />
+              <NavButton path='/docs/about' label='About' />
             </Box>
             <Hands />
           </Box>
         </HomeSection>
 
-        <Footer primary={true} direction="column" pad='medium'>
-          <Box direction="row" justify="between" align="start"
+        <Footer primary={true} direction='column' pad='medium'>
+          <Box direction='row' justify='between' align='start'
             pad={{ between: 'medium' }}>
-            <Box direction="row" align="center" responsive={false}
+            <Box direction='row' align='center' responsive={false}
               pad={{ between: 'small'}}>
               <GrommetLogo /> <strong>grommet</strong>
             </Box>
-            <Box direction="row" pad={{ between: 'large' }}>
-              <Box direction="column">
-                <NavAnchor path="/docs/get-started">Start</NavAnchor>
+            <Box direction='row' pad={{ between: 'large' }}>
+              <Box direction='column'>
+                <NavAnchor path='/docs/get-started'>Start</NavAnchor>
                 {/*}
-                <NavAnchor path="/docs/learn">Learn</NavAnchor>
+                <NavAnchor path='/docs/learn'>Learn</NavAnchor>
                 {*/}
-                <NavAnchor path="/docs">Docs</NavAnchor>
+                <NavAnchor path='/docs'>Docs</NavAnchor>
               </Box>
-              <Box direction="column">
-                <Anchor href="https://blog.grommet.io">Blog</Anchor>
-                <Anchor href="https://vimeo.com/grommetux">Training</Anchor>
-                <NavAnchor path="/docs/about">About</NavAnchor>
+              <Box direction='column'>
+                <Anchor href='https://blog.grommet.io'>Blog</Anchor>
+                <Anchor href='https://vimeo.com/grommetux'>Training</Anchor>
+                <NavAnchor path='/docs/about'>About</NavAnchor>
               </Box>
-              <Box direction="column">
-                <Anchor href="">Podcast</Anchor>
-                <Anchor href="http://slackin.grommet.io">Slack</Anchor>
-                <Anchor href="https://github.com/grommet/grommet">
+              <Box direction='column'>
+                <Anchor href=''>Podcast</Anchor>
+                <Anchor href='http://slackin.grommet.io'>Slack</Anchor>
+                <Anchor href='https://github.com/grommet/grommet'>
                   Github
                 </Anchor>
               </Box>
-              <Box direction="column">
-                <Anchor href="https://www.facebook.com/grommetux">
+              <Box direction='column'>
+                <Anchor href='https://www.facebook.com/grommetux'>
                   Facebook
                 </Anchor>
-                <Anchor href="https://twitter.com/grommetux">Twitter</Anchor>
-                <ThemeMenu size="small" align="right" />
+                <Anchor href='https://twitter.com/grommetux'>Twitter</Anchor>
+                <ThemeMenu size='small' align='right' />
               </Box>
             </Box>
           </Box>
-          <Box direction="row" justify="between">
+          <Box direction='row' justify='between'>
             <span>
               Documentation licensed under <Anchor
-                href="http://creativecommons.org/licenses/by/4.0/legalcode">
+                href='http://creativecommons.org/licenses/by/4.0/legalcode'>
                 CC BY 4.0
               </Anchor>
             </span>
