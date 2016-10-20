@@ -65,9 +65,15 @@ export default class ButtonDoc extends Component {
             See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
           <dt><code>label          {"{string|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
+          <dt><code>method         push|replace</code></dt>
+          <dd>Valid only when used with <code>path</code>. Indicates
+            whether the browser history should be appended to or replaced.
+            The default is <code>push</code>.</dd>
           <dt><code>onClick        {"{function}"}</code></dt>
-          <dd>Click handler. Not providing an onClick function causes the
-            control to be disabled.</dd>
+          <dd>Click handler. Not setting this property and not specifying
+            a <code>path</code> causes the Button to be disabled.</dd>
+          <dt><code>path           {"{string}"}</code></dt>
+          <dd>React-router path to navigate to when clicked.</dd>
           <dt><code>plain          true|false</code></dt>
           <dd>Whether this is a plain button with no border or padding. Use
             this when wrapping children that provide the complete visualization

@@ -55,8 +55,14 @@ export default class AnchorDoc extends Component {
               See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
             <dt><code>label          {"{string}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>
+            <dt><code>method         push|replace</code></dt>
+            <dd>Valid only when used with <code>path</code>. Indicates
+              whether the browser history should be appended to or replaced.
+              The default is <code>push</code>.</dd>
             <dt><code>onClick        {"{function}"}</code></dt>
             <dd>Click handler.</dd>
+            <dt><code>path           {"{string}"}</code></dt>
+            <dd>React-router path to navigate to when clicked.</dd>
             <dt><code>primary        true|false</code></dt>
             <dd>Whether this is a primary anchor.</dd>
             <dt><code>reverse        true|false</code></dt>
