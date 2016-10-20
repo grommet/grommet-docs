@@ -67,7 +67,7 @@ export default class MeterDoc extends Component {
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>
             <dt><code>series      {"[{value: , colorIndex: , " +
-              "important: , onClick: }, ...]"}</code></dt>
+              "onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.
               Either this or the <code>value</code> property must be
               provided.</dd>

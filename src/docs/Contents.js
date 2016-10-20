@@ -27,6 +27,7 @@ import AnchorDoc from './components/anchor/AnchorDoc';
 import AnchorExamplesDoc from './components/anchor/AnchorExamplesDoc';
 import AnimateDoc from './components/animate/AnimateDoc';
 import AnimateExamplesDoc from './components/animate/AnimateExamplesDoc';
+import AnnotatedMeterDoc from './components/AnnotatedMeterDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
@@ -177,6 +178,8 @@ export default [
       {path: 'animate', label: 'Animate', index: AnimateDoc, contents: [
         {path: 'examples', component: AnimateExamplesDoc}
       ]},
+      {path: 'annotated-meter', label: 'AnnotatedMeter',
+        component: AnnotatedMeterDoc},
       {path: 'app', label: 'App', component: AppDoc},
       {path: 'article', label: 'Article', component: ArticleDoc},
       {path: 'box', label: 'Box', index: BoxDoc, contents: [
