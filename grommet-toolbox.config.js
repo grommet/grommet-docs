@@ -63,6 +63,7 @@ export default {
   devServerPort: 8002,
   // devServerHost: "0.0.0.0",
   alias: {
+    'grommet-addons': path.resolve(__dirname, '../grommet-addons/src/js'),
     'grommet/scss': path.resolve(__dirname, '../grommet/src/scss'),
     'grommet': path.resolve(__dirname, '../grommet/src/js')
   },
