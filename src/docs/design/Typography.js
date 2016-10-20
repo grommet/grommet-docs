@@ -7,8 +7,8 @@ import Paragraph from 'grommet/components/Paragraph';
 import Label from 'grommet/components/Label';
 import Value from 'grommet/components/Value';
 import Box from 'grommet/components/Box';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 export default class Typography extends Component {
 
@@ -28,7 +28,7 @@ export default class Typography extends Component {
         </section>
 
         <section>
-          <h2><NavAnchor path="/docs/headline">Headline</NavAnchor></h2>
+          <h2><Anchor path="/docs/headline">Headline</Anchor></h2>
           <Headline size="xlarge"><strong>XL Headline</strong></Headline>
           <Headline size="xlarge">XL Headline</Headline>
           <Headline size="large"><strong>Large Headline</strong></Headline>
@@ -40,7 +40,7 @@ export default class Typography extends Component {
         </section>
 
         <section>
-          <h2><NavAnchor path="/docs/heading">Heading</NavAnchor></h2>
+          <h2><Anchor path="/docs/heading">Heading</Anchor></h2>
           <Heading tag="h1"><strong>H1 Heading</strong></Heading>
           <Heading tag="h1">H1 Heading</Heading>
           <Heading tag="h2"><strong>H2 Heading</strong></Heading>
@@ -54,7 +54,7 @@ export default class Typography extends Component {
         </section>
 
         <section>
-          <h2><NavAnchor path="/docs/label">Label</NavAnchor></h2>
+          <h2><Anchor path="/docs/label">Label</Anchor></h2>
           <Box>
             <Label size="medium" uppercase={true}>Medium Label</Label>
             <Label size="medium">Medium Label</Label>
@@ -64,7 +64,7 @@ export default class Typography extends Component {
         </section>
 
         <section>
-          <h2><NavAnchor path="/docs/paragraph">Paragraph</NavAnchor></h2>
+          <h2><Anchor path="/docs/paragraph">Paragraph</Anchor></h2>
           <Paragraph size="xlarge">XL Paragraph</Paragraph>
           <Paragraph size="large">Large Paragraph</Paragraph>
           <Paragraph size="medium">Medium Paragraph</Paragraph>
@@ -72,7 +72,7 @@ export default class Typography extends Component {
         </section>
 
         <section>
-          <h2><NavAnchor path="/docs/value">Value</NavAnchor></h2>
+          <h2><Anchor path="/docs/value">Value</Anchor></h2>
           <Box>
             <Value size="xlarge" value={100} units="% XL" align="start" />
             <Value size="large" value={100} units="% Large" align="start" />

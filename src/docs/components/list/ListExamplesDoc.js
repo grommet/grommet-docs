@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const DATA = [
@@ -65,7 +65,7 @@ class ListExample extends Component {
 export default class ListExamplesDoc extends ExamplesDoc {};
 
 ListExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/list">List</NavAnchor>,
+  context: <Anchor path="/docs/list">List</Anchor>,
   examples: [
     { label: 'Default', component: ListExample },
     { label: 'Selectable', component: ListExample,

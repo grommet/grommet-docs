@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import Box from 'grommet/components/Box';
 import Label from 'grommet/components/Label';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 const COLOR_REGEXP = /rgb\((\d+), (\d+), (\d+)\)/;
 const COLOR_ALPHA_REGEXP = /rgba\((\d+), (\d+), (\d+), (0\.\d+)\)/;
@@ -124,7 +124,7 @@ export default class Color extends Component {
           </div>
 
           <p>These colors can be used as the background color
-            for a <NavAnchor path="/docs/box">Box</NavAnchor> via
+            for a <Anchor path="/docs/box">Box</Anchor> via
             the <code>colorIndex</code> property.</p>
         </section>
 

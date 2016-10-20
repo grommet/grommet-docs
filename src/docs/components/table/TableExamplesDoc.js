@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const TABLE_HEADER = (
@@ -92,7 +92,7 @@ class TableExample extends Component {
 export default class TableExamplesDoc extends ExamplesDoc {};
 
 TableExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/table">Table</NavAnchor>,
+  context: <Anchor path="/docs/table">Table</Anchor>,
   examples: [
     { label: 'Default', component: TableExample,
       props: { rows: TABLE_BODY_PLAIN } },

@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Accordion.displayName = 'Accordion';
 
@@ -78,9 +78,9 @@ export default class AccordionDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/accordion/examples`}>
+          <Anchor primary={true} path={`/docs/accordion/examples`}>
             Accordion Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

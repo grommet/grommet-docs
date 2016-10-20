@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import WorldMap from 'grommet/components/WorldMap';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 WorldMap.displayName = 'WorldMap';
@@ -64,8 +64,8 @@ export default class WorldMapDoc extends Component {
             { continent: 'Australia', colorIndex: 'graph-4' }
           ]} />
           <p>Note: It is a good idea to include
-          a <NavAnchor path="/docs/legend">
-          Legend</NavAnchor> along
+          a <Anchor path="/docs/legend">
+          Legend</Anchor> along
           with this visualization. You can use the same <code>series</code>
           property for both <code>WorldMap</code> and <code>Legend</code>.</p>
         </section>

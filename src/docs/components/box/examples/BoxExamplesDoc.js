@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React from 'react';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
-import NavAnchor from '../../../../components/NavAnchor';
 
 import Box1 from './Box1';
 import Box1m from './Box1m';
@@ -16,7 +16,7 @@ import Box4m from './Box4m';
 export default class BoxExamplesDoc extends ExamplesDoc {};
 
 BoxExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/box">Box</NavAnchor>,
+  context: <Anchor path="/docs/box">Box</Anchor>,
   examples: [
     { label: 'Row fixed', component: Box1 },
     { label: 'Row fixed with margin', component: Box1m },

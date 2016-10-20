@@ -2,21 +2,21 @@
 
 import React, { Component } from 'react';
 import Chart, { Base, Area, Layers } from 'grommet/components/chart/Chart';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 export default class AreaDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Area" colorIndex="neutral-3">
 
-        <p>An area graphic in a <NavAnchor path={`/docs/chart`}>
-          Chart</NavAnchor>.
-          It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
-          Layers</NavAnchor> component.
+        <p>An area graphic in a <Anchor path={`/docs/chart`}>
+          Chart</Anchor>.
+          It should be placed inside a <Anchor path={`/docs/chart-layers`}>
+          Layers</Anchor> component.
           There can be multiple Area components in the Chart.</p>
 
         <Example code={

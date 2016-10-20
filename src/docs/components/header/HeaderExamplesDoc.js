@@ -11,7 +11,6 @@ import ActionsIcon from 'grommet/components/icons/base/Actions';
 import NotificationIcon from 'grommet/components/icons/base/Notification';
 import UserSettingsIcon from 'grommet/components/icons/base/UserSettings';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Logo from '../../../img/Logo';
 import Example from '../../Example';
 
@@ -22,7 +21,7 @@ const HeaderExample = (props) => (
 export default class HeaderExamplesDoc extends ExamplesDoc {};
 
 HeaderExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/header">Header</NavAnchor>,
+  context: <Anchor path="/docs/header">Header</Anchor>,
   examples: [
     { label: 'Title and Search', component: HeaderExample,
       props: { code: (

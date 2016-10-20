@@ -5,8 +5,8 @@ import Chart, { Base, Line, Layers, Axis }
   from 'grommet/components/chart/Chart';
 import Meter from 'grommet/components/Meter';
 import Menu from 'grommet/components/Menu';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 Chart.displayName = 'Chart';
@@ -95,17 +95,17 @@ export default class ChartDoc extends Component {
           <h2>Components</h2>
 
           <Menu inline={true}>
-            <NavAnchor path={`/docs/chart/area`}>Area</NavAnchor>
-            <NavAnchor path={`/docs/chart/axis`}>Axis</NavAnchor>
-            <NavAnchor path={`/docs/chart/bar`}>Bar</NavAnchor>
-            <NavAnchor path={`/docs/chart/base`}>Base</NavAnchor>
-            <NavAnchor path={`/docs/chart/hot-spots`}>HotSpots</NavAnchor>
-            <NavAnchor path={`/docs/chart/grid`}>Grid</NavAnchor>
-            <NavAnchor path={`/docs/chart/layers`}>Layers</NavAnchor>
-            <NavAnchor path={`/docs/chart/line`}>Line</NavAnchor>
-            <NavAnchor path={`/docs/chart/marker`}>Marker</NavAnchor>
-            <NavAnchor path={`/docs/chart/marker-label`}>MarkerLabel</NavAnchor>
-            <NavAnchor path={`/docs/chart/range`}>Range</NavAnchor>
+            <Anchor path={`/docs/chart/area`}>Area</Anchor>
+            <Anchor path={`/docs/chart/axis`}>Axis</Anchor>
+            <Anchor path={`/docs/chart/bar`}>Bar</Anchor>
+            <Anchor path={`/docs/chart/base`}>Base</Anchor>
+            <Anchor path={`/docs/chart/hot-spots`}>HotSpots</Anchor>
+            <Anchor path={`/docs/chart/grid`}>Grid</Anchor>
+            <Anchor path={`/docs/chart/layers`}>Layers</Anchor>
+            <Anchor path={`/docs/chart/line`}>Line</Anchor>
+            <Anchor path={`/docs/chart/marker`}>Marker</Anchor>
+            <Anchor path={`/docs/chart/marker-label`}>MarkerLabel</Anchor>
+            <Anchor path={`/docs/chart/range`}>Range</Anchor>
           </Menu>
         </section>
 
@@ -150,9 +150,9 @@ export default class ChartDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/chart/examples`}>
+          <Anchor primary={true} path={`/docs/chart/examples`}>
             Chart Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

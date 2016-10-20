@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Headline from 'grommet/components/Headline';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Headline.displayName = 'Headline';
 
@@ -51,9 +51,9 @@ export default class HeadlineDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/headline/examples`}>
+          <Anchor primary={true} path={`/docs/headline/examples`}>
             Headline Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

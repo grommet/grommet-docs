@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE =
 `import Box from 'grommet/components/Box';
@@ -58,7 +58,7 @@ export default class BoxDoc extends Component {
             <dt><code>colorIndex     {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the background color.
               For example: <code>"neutral-1"</code>.
-              See <NavAnchor path="/docs/color">Color</NavAnchor> for
+              See <Anchor path="/docs/color">Color</Anchor> for
               possible values.</dd>
             <dt><code>direction      row|column</code></dt>
             <dd>The orientation to layout the child components in.
@@ -125,15 +125,15 @@ export default class BoxDoc extends Component {
         </section>
 
         <section>
-          <NavAnchor primary={true} path="/docs/box/examples">
+          <Anchor primary={true} path="/docs/box/examples">
             Box Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
         <section>
-          <NavAnchor primary={true} path="/docs/box/gym">
+          <Anchor primary={true} path="/docs/box/gym">
             Boxing Gym
-          </NavAnchor>
+          </Anchor>
         </section>
       </DocsArticle>
     );

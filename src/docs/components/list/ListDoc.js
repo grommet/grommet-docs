@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 List.displayName = 'List';
 
@@ -96,16 +96,16 @@ export default class ListDoc extends Component {
               an identifier to the function to distinguish between multiple
               items. For example <code>{ON_CLICK_SNIPPET}</code></dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             also available for ListItem.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/list/examples`}>
+          <Anchor primary={true} path={`/docs/list/examples`}>
             List Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

@@ -7,8 +7,8 @@ import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 App.displayName = 'App';
 
@@ -27,8 +27,8 @@ export default class AppDoc extends Component {
 
         <section>
           <p>This is the primary Grommet container outer. Typically it will
-            either contain a <NavAnchor path="/docs/split">Split</NavAnchor> or
-            an <NavAnchor path="/docs/article">Article</NavAnchor>.</p>
+            either contain a <Anchor path="/docs/split">Split</Anchor> or
+            an <Anchor path="/docs/article">Article</Anchor>.</p>
 
           <Box pad={{ between: 'large' }} direction="row">
             <Box direction="row" colorIndex="light-2" basis="medium">

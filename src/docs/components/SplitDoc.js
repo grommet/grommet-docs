@@ -10,7 +10,6 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Section from 'grommet/components/Section';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Split.displayName = 'Split';
@@ -30,12 +29,12 @@ export default class SplitDoc extends Component {
         <section>
           <p>A full height container with two children laid out horizontally.
           Typical uses involve placing
-          a <NavAnchor path="/docs/sidebar">Sidebar</NavAnchor> on
+          a <Anchor path="/docs/sidebar">Sidebar</Anchor> on
           the left for primary navigation and then main content on the right.
           The right side might contain a separate Split component to provide
           further content depth. Typically, you will want the top Split to be
           a direct child of
-          the <NavAnchor path="/docs/app">App</NavAnchor> component
+          the <Anchor path="/docs/app">App</Anchor> component
           as this will provide the best responsive behavior across devices.</p>
 
           <Box direction="row" colorIndex="light-2" basis="medium">

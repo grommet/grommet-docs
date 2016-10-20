@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Notification from 'grommet/components/Notification';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 import NotificationCloserExample from './NotificationCloserExample';
 
@@ -16,7 +16,7 @@ const NotificationExample = (props) => (
 export default class NotificationExamplesDoc extends ExamplesDoc {};
 
 NotificationExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/notification">Notification</NavAnchor>,
+  context: <Anchor path="/docs/notification">Notification</Anchor>,
   examples: [
     { label: 'Unknown', component: NotificationExample,
       props: { message: 'Unknown Message' }},

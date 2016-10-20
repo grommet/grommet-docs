@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import SearchInput from 'grommet/components/SearchInput';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 SearchInput.displayName = 'SearchInput';
 
@@ -91,9 +91,9 @@ export default class SearchInputDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/search-input/examples`}>
+          <Anchor primary={true} path={`/docs/search-input/examples`}>
             SearchInput Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Heading from 'grommet/components/Heading';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Heading.displayName = 'Heading';
@@ -22,7 +22,7 @@ export default class HeadingDoc extends Component {
 
         <section>
           <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.
-           See <NavAnchor path="/docs/typography">Typography</NavAnchor> for
+           See <Anchor path="/docs/typography">Typography</Anchor> for
            examples of all heading tags.</p>
           <Heading>Sample Heading</Heading>
         </section>

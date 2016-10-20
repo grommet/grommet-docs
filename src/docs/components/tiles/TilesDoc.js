@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE =
 `import Tiles from 'grommet/components/Tiles';
@@ -69,7 +69,7 @@ export default class TileDoc extends Component {
             <dd>The width of the contained tiles.
               Defaults to <code>medium</code>.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
           also available for Tiles.</p>
         </section>
 
@@ -86,7 +86,7 @@ export default class TileDoc extends Component {
             <dd>Whether the tile should fill the full width of the Tiles
             component that contains it.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             also available for Tile.</p>
         </section>
 
@@ -98,9 +98,9 @@ export default class TileDoc extends Component {
             the Tiles. Included here are Headers, Footer, Buttons, and
             Menus.</p>
 
-          <NavAnchor primary={true} path="/docs/tiles/examples">
+          <Anchor primary={true} path="/docs/tiles/examples">
             Tiles Examples
-          </NavAnchor>
+          </Anchor>
 
         </section>
 

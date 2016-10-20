@@ -2,26 +2,26 @@
 
 import React, { Component } from 'react';
 import Chart, { Base, Marker, Layers } from 'grommet/components/chart/Chart';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 export default class MarkerDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Marker" colorIndex="neutral-3">
 
-        <p>An simple line graphic in a <NavAnchor path={`/docs/chart`}>
-          Chart</NavAnchor>. It is typically used to indicate a threshold or
+        <p>An simple line graphic in a <Anchor path={`/docs/chart`}>
+          Chart</Anchor>. It is typically used to indicate a threshold or
           to indicate the currently active index the user is hovering over.
           The location of the line should be specified either via
           the <code>count</code> and <code>index</code> properties or via
           the <code>min</code>, <code>max</code>,
           and <code>value</code> properties.
-          It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
-          Layers</NavAnchor> component.
+          It should be placed inside a <Anchor path={`/docs/chart-layers`}>
+          Layers</Anchor> component.
           There can be multiple Marker components in the Chart.</p>
 
         <Example code={

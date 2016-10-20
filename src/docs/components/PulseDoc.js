@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react';
 import Pulse from 'grommet/components/icons/Pulse';
+import Anchor from 'grommet/components/Anchor';
 import LinkNext from 'grommet/components/icons/base/LinkNext';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Pulse.displayName = 'Pulse';
@@ -24,9 +24,9 @@ export default class PulseDoc extends Component {
             A pulsing icon which denotes further information is
             available upon interaction. This component can
             be used in combination with
-            an <NavAnchor path="/docs/anchor">
-            Anchor</NavAnchor> or <NavAnchor path="/docs/button">
-            Button</NavAnchor> component.
+            an <Anchor path="/docs/anchor">
+            Anchor</Anchor> or <Anchor path="/docs/button">
+            Button</Anchor> component.
           </p>
           <Pulse/>
         </section>
@@ -41,7 +41,7 @@ export default class PulseDoc extends Component {
           <dl>
             <dt><code>icon           {"{element}"}</code></dt>
             <dd>Icon element to place in the pulse.
-              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
+              See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
           </dl>
         </section>
 

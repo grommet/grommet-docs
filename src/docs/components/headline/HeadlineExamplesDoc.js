@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Headline from 'grommet/components/Headline';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const HeadlineExample = (props) => (
@@ -15,7 +15,7 @@ const HeadlineExample = (props) => (
 export default class HeadlineExamplesDoc extends ExamplesDoc {};
 
 HeadlineExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/headline">Headline</NavAnchor>,
+  context: <Anchor path="/docs/headline">Headline</Anchor>,
   examples: [
     { label: 'Default', component: HeadlineExample },
     { label: 'Small', component: HeadlineExample, props: { size: 'small' } },

@@ -7,8 +7,8 @@ import Footer from 'grommet/components/Footer';
 import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
 import Button from 'grommet/components/Button';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE =
 `import Form from 'grommet/components/Form';
@@ -98,9 +98,9 @@ export default class FormDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/form/examples`}>
+          <Anchor primary={true} path={`/docs/form/examples`}>
             Form Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

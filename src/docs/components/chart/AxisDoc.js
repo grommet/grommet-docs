@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Chart, { Base, Axis } from 'grommet/components/chart/Chart';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE = `import { Axis } from 'grommet/components/chart/Chart';
 <Axis count={3} labels={[{ index: 2, label: '100%' }]}
@@ -14,18 +14,18 @@ export default class AxisDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Axis" colorIndex="neutral-3">
         <section>
-          <p>An axis decorating a <NavAnchor path={`/docs/chart`}>
-            Chart</NavAnchor>. An Axis can be
+          <p>An axis decorating a <Anchor path={`/docs/chart`}>
+            Chart</Anchor>. An Axis can be
             horizontal or vertical on any edge. It should be placed inside a
             Chart component.</p>
 
           <p>Callers are responsible to set the number of ticks and labels
             appropriate to the anticipated size of the Chart. Tying it
-            to <code>onMaxCount</code> in <NavAnchor path={`/docs/chart`}>
-            Chart</NavAnchor> is a good way to get some guidance on many ticks
+            to <code>onMaxCount</code> in <Anchor path={`/docs/chart`}>
+            Chart</Anchor> is a good way to get some guidance on many ticks
             could be shown. But, you will need to take into account your
             labels as well.</p>
 

@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Video from 'grommet/components/Video';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE =
 `import Video from 'grommet/components/Video';
@@ -81,9 +81,9 @@ export default class VideoDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/video/examples`}>
+          <Anchor primary={true} path={`/docs/video/examples`}>
             Video Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

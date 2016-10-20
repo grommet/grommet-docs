@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import Search from 'grommet/components/Search';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
+import Anchor from 'grommet/components/Anchor';
 import Example from '../../Example';
 
 const SIMPLE_SUGGESTIONS = ['first', 'second', 'third', 'fourth'];
@@ -80,7 +80,7 @@ class SearchExample extends Component {
 export default class SearchExamplesDoc extends ExamplesDoc {};
 
 SearchExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/search">Search</NavAnchor>,
+  context: <Anchor path="/docs/search">Search</Anchor>,
   examples: [
     { label: 'Default', component: SearchExample },
     { label: 'Left', component: SearchExample, props: {

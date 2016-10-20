@@ -8,8 +8,8 @@ import RadioButton from 'grommet/components/RadioButton';
 import NumberInput from 'grommet/components/NumberInput';
 import SearchInput from 'grommet/components/SearchInput';
 import DateTime from 'grommet/components/DateTime';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const FormFieldExample = (props) => (
@@ -23,7 +23,7 @@ const FormFieldExample = (props) => (
 export default class FormFieldExamplesDoc extends ExamplesDoc {};
 
 FormFieldExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/form-field">FormField</NavAnchor>,
+  context: <Anchor path="/docs/form-field">FormField</Anchor>,
   examples: [
     { label: 'Text input', component: FormFieldExample,
       props: { label: 'Item 1', htmlFor: 'item1',

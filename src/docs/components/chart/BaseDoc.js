@@ -1,17 +1,17 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 export default class BaseDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Base" colorIndex="neutral-3">
 
-        <p>The base area of a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>.
+        <p>The base area of a <Anchor path={`/docs/chart`}>Chart</Anchor>.
           When there are no child components, the width and height control the
           drawing area. There should be exactly one Base component within a
           Chart.</p>

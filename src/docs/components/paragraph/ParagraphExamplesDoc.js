@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Paragraph from 'grommet/components/Paragraph';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const TEXT = `Raised on hip-hop and foster care, defiant city kid Ricky
@@ -24,7 +24,7 @@ const ParagraphExample = (props) => (
 export default class ParagraphExamplesDoc extends ExamplesDoc {};
 
 ParagraphExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/paragraph">Paragraph</NavAnchor>,
+  context: <Anchor path="/docs/paragraph">Paragraph</Anchor>,
   examples: [
     { label: 'Default', component: ParagraphExample },
     { label: 'Small', component: ParagraphExample, props: { size: 'small' } },

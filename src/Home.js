@@ -10,6 +10,7 @@ import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import GrommetLogo from 'grommet/components/icons/Grommet';
 import SlackIcon from 'grommet/components/icons/base/SocialSlack';
@@ -21,8 +22,6 @@ import AccessAccessibilityIcon from
 import ConfigureIcon from 'grommet/components/icons/base/Configure';
 import RunIcon from 'grommet/components/icons/base/Run';
 import Hands from './img/Hands.js';
-import NavAnchor from './components/NavAnchor';
-import NavButton from './components/NavButton';
 import ThemeMenu from './components/ThemeMenu';
 
 const HomeSection = (props) => (
@@ -103,11 +102,11 @@ export default class Home extends Component {
         <HomeSection pad='none'>
           <Header fixed={false} appCentered={true} justify='center'>
             <Menu direction='row' responsive={false} dropAlign={{left: 'left'}}>
-              <NavAnchor path='/docs/get-started'>Start</NavAnchor>
+              <Anchor path='/docs/get-started'>Start</Anchor>
               {/*}
-              <NavAnchor path='/docs/learn'>Learn</NavAnchor>
+              <Anchor path='/docs/learn'>Learn</Anchor>
               {*/}
-              <NavAnchor path='/docs'>Docs</NavAnchor>
+              <Anchor path='/docs'>Docs</Anchor>
             </Menu>
           </Header>
           <Box primary={true} pad={{vertical: 'large'}} direction='column'
@@ -143,7 +142,7 @@ export default class Home extends Component {
               design allows for easy app scalability to larger
               devices.</Paragraph>
             {/*}
-            <NavButton path='/docs/learn' label='Learn' />
+            <Button path='/docs/learn' label='Learn' />
             {*/}
           </Box>
         </HomeSection>
@@ -201,7 +200,7 @@ export default class Home extends Component {
             for you and then make it yours!</Paragraph>
           {codePen}
           <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
-          <NavButton path='/docs' label='Docs' />
+          <Button path='/docs' label='Docs' />
         </HomeSection>
 
         <HomeSection colorIndex='light-2'>
@@ -212,7 +211,7 @@ export default class Home extends Component {
                 active communication
                 between designers and developers in hopes of creating better
                 user experience. </Paragraph>
-              <NavButton path='/docs/about' label='About' />
+              <Button path='/docs/about' label='About' />
             </Box>
             <Hands />
           </Box>
@@ -227,16 +226,16 @@ export default class Home extends Component {
             </Box>
             <Box direction='row' pad={{ between: 'large' }}>
               <Box direction='column'>
-                <NavAnchor path='/docs/get-started'>Start</NavAnchor>
+                <Anchor path='/docs/get-started'>Start</Anchor>
                 {/*}
-                <NavAnchor path='/docs/learn'>Learn</NavAnchor>
+                <Anchor path='/docs/learn'>Learn</Anchor>
                 {*/}
-                <NavAnchor path='/docs'>Docs</NavAnchor>
+                <Anchor path='/docs'>Docs</Anchor>
               </Box>
               <Box direction='column'>
                 <Anchor href='https://blog.grommet.io'>Blog</Anchor>
                 <Anchor href='https://vimeo.com/grommetux'>Training</Anchor>
-                <NavAnchor path='/docs/about'>About</NavAnchor>
+                <Anchor path='/docs/about'>About</Anchor>
               </Box>
               <Box direction='column'>
                 <Anchor href=''>Podcast</Anchor>

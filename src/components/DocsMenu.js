@@ -5,8 +5,8 @@ import Menu from 'grommet/components/Menu';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
+import Anchor from 'grommet/components/Anchor';
 import Contents from '../docs/Contents';
-import NavAnchor from './NavAnchor';
 import ThemeMenu from './ThemeMenu';
 
 export default class DocsMenu extends Component {
@@ -17,10 +17,10 @@ export default class DocsMenu extends Component {
 
       if (content.path) {
         item = (
-          <NavAnchor key={content.label} path={`/docs/${content.path}`}
+          <Anchor key={content.label} path={`/docs/${content.path}`}
             onClick={this.props.onClick}>
             {content.label}
-          </NavAnchor>
+          </Anchor>
         );
       } else {
         item = (

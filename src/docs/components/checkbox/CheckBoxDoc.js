@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import CheckBox from 'grommet/components/CheckBox';
 import Box from 'grommet/components/Box';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 CheckBox.displayName = 'CheckBox';
 
@@ -79,9 +79,9 @@ export default class CheckBoxDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/check-box/examples`}>
+          <Anchor primary={true} path={`/docs/check-box/examples`}>
             CheckBox Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

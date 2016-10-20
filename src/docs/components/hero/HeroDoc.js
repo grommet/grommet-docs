@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Hero from 'grommet/components/Hero';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Hero.displayName = 'Hero';
 
@@ -70,9 +70,9 @@ export default class HeroDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/hero/examples`}>
+          <Anchor primary={true} path={`/docs/hero/examples`}>
             Hero Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

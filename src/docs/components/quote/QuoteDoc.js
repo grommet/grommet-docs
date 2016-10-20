@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Quote from 'grommet/components/Quote';
 import Paragraph from 'grommet/components/Paragraph';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Quote.displayName = 'Quote';
 
@@ -53,16 +53,16 @@ export default class QuoteDoc extends Component {
               Defaults to <code>true</code>.</dd>
           </dl>
 
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             available.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/quote/examples`}>
+          <Anchor primary={true} path={`/docs/quote/examples`}>
             Quote Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

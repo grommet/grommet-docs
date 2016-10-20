@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Columns from 'grommet/components/Columns';
 import Box from 'grommet/components/Box';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Columns.displayName = 'Columns';
@@ -61,7 +61,7 @@ export default class ColumnsDoc extends Component {
             <dt><code>responsive  true|false</code></dt>
             <dd>Whether masonry columns should collapse into single, full-width
               column when the display area narrows (to achive similar behavior
-              as responsive <NavAnchor path="/docs/tiles">Tiles</NavAnchor>).
+              as responsive <Anchor path="/docs/tiles">Tiles</Anchor>).
               Defaults to <code>true</code>.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of each column. Defaults to <code>medium</code>.</dd>

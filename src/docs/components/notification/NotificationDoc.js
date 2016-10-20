@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Notification from 'grommet/components/Notification';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Notification.displayName = 'Notification';
 
@@ -58,16 +58,16 @@ export default class NotificationDoc extends Component {
             <dt><code>timestamp        {"{date}"}</code></dt>
             <dd>Timestamp of the notification message.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
           also available for Notification.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/notification/examples`}>
+          <Anchor primary={true} path={`/docs/notification/examples`}>
             Notification Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

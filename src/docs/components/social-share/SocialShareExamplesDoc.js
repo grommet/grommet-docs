@@ -2,8 +2,8 @@
 
 import React from 'react';
 import SocialShare from 'grommet/components/SocialShare';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const SocialShareExample = (props) => (
@@ -15,7 +15,7 @@ const SocialShareExample = (props) => (
 export default class SocialShareExamplesDoc extends ExamplesDoc {};
 
 SocialShareExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/social-share">SocialShare</NavAnchor>,
+  context: <Anchor path="/docs/social-share">SocialShare</Anchor>,
   examples: [
     { label: 'Email', component: SocialShareExample,
       props: { type: 'email', link: 'http://grommet.io',

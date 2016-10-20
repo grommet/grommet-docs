@@ -1,21 +1,21 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 export default class HotSpotsDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="HotSpots" colorIndex="neutral-3">
 
         <p>A means of interacting with
-          a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>. It is structured
+          a <Anchor path={`/docs/chart`}>Chart</Anchor>. It is structured
           as a specified number of slots that the user can hover over or click.
-          It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
-          Layers</NavAnchor> component.</p>
+          It should be placed inside a <Anchor path={`/docs/chart-layers`}>
+          Layers</Anchor> component.</p>
 
         <section>
           <h2>Properties</h2>

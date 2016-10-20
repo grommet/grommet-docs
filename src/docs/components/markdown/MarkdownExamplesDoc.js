@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Markdown from 'grommet/components/Markdown';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const MarkdownExample = (props) => (
@@ -48,7 +48,7 @@ const COMPONENTS = {
 export default class MarkdownExamplesDoc extends ExamplesDoc {};
 
 MarkdownExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/markdown">Markdown</NavAnchor>,
+  context: <Anchor path="/docs/markdown">Markdown</Anchor>,
   examples: [
     { label: 'Default', component: MarkdownExample,
       props: { content: TEXT } },

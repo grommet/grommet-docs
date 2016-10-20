@@ -3,8 +3,8 @@
 import React from 'react';
 import Quote from 'grommet/components/Quote';
 import Paragraph from 'grommet/components/Paragraph';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const TEXT = `Uncle, you're basically a criminal now. But on the bright side,
@@ -27,7 +27,7 @@ const QuoteExample = (props) => (
 export default class QuoteExamplesDoc extends ExamplesDoc {};
 
 QuoteExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/quote">Quote</NavAnchor>,
+  context: <Anchor path="/docs/quote">Quote</Anchor>,
   examples: [
     { label: 'Default', component: QuoteExample,
       props: { children: SINGLE, credit: 'Ricky Baker' }},

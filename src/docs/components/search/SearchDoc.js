@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Search from 'grommet/components/Search';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Search.displayName = 'Search';
 
@@ -86,9 +86,9 @@ export default class SearchDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/search/examples`}>
+          <Anchor primary={true} path={`/docs/search/examples`}>
             Search Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

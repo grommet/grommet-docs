@@ -2,32 +2,32 @@
 
 import React, { Component } from 'react';
 import Menu from 'grommet/components/Menu';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 export default class LayersDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Layers" colorIndex="neutral-3">
 
         <section>
           <p>A container for graphic components in
-            a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>.
+            a <Anchor path={`/docs/chart`}>Chart</Anchor>.
             There should be exactly one Layers component within a
             Chart.</p>
 
           <p>Components to place inside Layers:</p>
 
           <Menu inline={true}>
-            <NavAnchor path={`/docs/chart-area`}>Area</NavAnchor>
-            <NavAnchor path={`/docs/chart-bar`}>Bar</NavAnchor>
-            <NavAnchor path={`/docs/chart-hot-spots`}>HotSpots</NavAnchor>
-            <NavAnchor path={`/docs/chart-grid`}>Grid</NavAnchor>
-            <NavAnchor path={`/docs/chart-line`}>Line</NavAnchor>
-            <NavAnchor path={`/docs/chart-marker`}>Marker</NavAnchor>
-            <NavAnchor path={`/docs/chart-range`}>Range</NavAnchor>
+            <Anchor path={`/docs/chart-area`}>Area</Anchor>
+            <Anchor path={`/docs/chart-bar`}>Bar</Anchor>
+            <Anchor path={`/docs/chart-hot-spots`}>HotSpots</Anchor>
+            <Anchor path={`/docs/chart-grid`}>Grid</Anchor>
+            <Anchor path={`/docs/chart-line`}>Line</Anchor>
+            <Anchor path={`/docs/chart-marker`}>Marker</Anchor>
+            <Anchor path={`/docs/chart-range`}>Range</Anchor>
           </Menu>
         </section>
 

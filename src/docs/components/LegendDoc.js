@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Legend from 'grommet/components/Legend';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Legend.displayName = 'Legend';
@@ -30,11 +30,11 @@ export default class LegendDoc extends Component {
 
         <section>
           <p>A legend, typically associated with a data visualization such
-            as <NavAnchor path="/docs/meter">
-            Meter</NavAnchor>, <NavAnchor path="/docs/distribution">
-            Distribution</NavAnchor>, <NavAnchor path="/docs/sun-burst">
-            SunBurst</NavAnchor>, or <NavAnchor path="/docs/world-map">
-            WorldMap</NavAnchor>.</p>
+            as <Anchor path="/docs/meter">
+            Meter</Anchor>, <Anchor path="/docs/distribution">
+            Distribution</Anchor>, <Anchor path="/docs/sun-burst">
+            SunBurst</Anchor>, or <Anchor path="/docs/world-map">
+            WorldMap</Anchor>.</p>
           <Legend series={SERIES} />
         </section>
 

@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Paragraph from 'grommet/components/Paragraph';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Paragraph.displayName = 'Paragraph';
 
@@ -52,9 +52,9 @@ export default class ParagraphDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/paragraph/examples`}>
+          <Anchor primary={true} path={`/docs/paragraph/examples`}>
             Paragraph Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

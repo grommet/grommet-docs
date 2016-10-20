@@ -1,9 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Anchor from 'grommet/components/Anchor';
+import DocsArticle from '../../components/DocsArticle';
 
 export default class GetStartedDoc extends Component {
 
@@ -129,8 +128,8 @@ export default class GetStartedDoc extends Component {
           <h2>Next Steps</h2>
           <p>
             We recommend that you check out
-            the <NavAnchor path="/docs/architecture">
-            Architecture</NavAnchor> page
+            the <Anchor path="/docs/architecture">
+            Architecture</Anchor> page
             and learn how Grommet works internally.
           </p>
           <p>We also have

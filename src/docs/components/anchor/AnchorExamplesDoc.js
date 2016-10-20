@@ -5,7 +5,6 @@ import Anchor from 'grommet/components/Anchor';
 import EditIcon from 'grommet/components/icons/base/Edit';
 import NextIcon from 'grommet/components/icons/base/Next';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const AnchorExample = (props) => (
@@ -33,7 +32,7 @@ const AnchorHeaderExample = (props) => (
 export default class AnchorExamplesDoc extends ExamplesDoc {};
 
 AnchorExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/anchor">Anchor</NavAnchor>,
+  context: <Anchor path="/docs/anchor">Anchor</Anchor>,
   examples: [
     { label: 'Default', component: AnchorChildExample },
     { label: 'Primary, Label', component: AnchorExample,

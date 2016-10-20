@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Distribution from 'grommet/components/Distribution';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Distribution.displayName = 'Distribution';
 
@@ -65,9 +65,9 @@ export default class DistributionDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/distribution/examples`}>
+          <Anchor primary={true} path={`/docs/distribution/examples`}>
             Distribution Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

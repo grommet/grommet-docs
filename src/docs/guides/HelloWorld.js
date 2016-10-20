@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 export default class HelloWorld extends Component {
 
@@ -50,8 +50,8 @@ export default class HelloWorld extends Component {
           <p>
             Now that {"you've"} already played with Grommet, we recommend that
             you check
-            out the <NavAnchor path="/docs/get-started">
-            Get Started</NavAnchor> page and learn
+            out the <Anchor path="/docs/get-started">
+            Get Started</Anchor> page and learn
             how to install Grommet in your local environment.
           </p>
         </section>

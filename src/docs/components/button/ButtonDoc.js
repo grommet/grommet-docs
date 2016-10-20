@@ -6,10 +6,10 @@ import Button from 'grommet/components/Button';
 import Section from 'grommet/components/Section';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
+import Anchor from 'grommet/components/Anchor';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import EditIcon from 'grommet/components/icons/base/Edit';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Button.displayName = 'Button';
 Tiles.displayName = 'Tiles';
@@ -62,7 +62,7 @@ export default class ButtonDoc extends Component {
           <dd>If specified, the button will behave like an anchor tag.</dd>
           <dt><code>icon           {"{name}"}</code></dt>
           <dd>Icon element to place in the button.
-            See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
+            See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
           <dt><code>label          {"{string|node}"}</code></dt>
           <dd>Label text to place in the button.</dd>
           <dt><code>onClick        {"{function}"}</code></dt>
@@ -86,9 +86,9 @@ export default class ButtonDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/button/examples`}>
+          <Anchor primary={true} path={`/docs/button/examples`}>
             Button Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

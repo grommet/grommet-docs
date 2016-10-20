@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Label from 'grommet/components/Label';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Label.displayName = 'Label';
@@ -22,9 +22,9 @@ export default class LabelDoc extends Component {
 
         <section>
           <p>A simple text label. This could be used to annotate
-            a <NavAnchor path="/docs/value">Value</NavAnchor> to indicate
+            a <Anchor path="/docs/value">Value</Anchor> to indicate
             what the value refers to. Or, it can annotate
-            a <NavAnchor path="/docs/card">Card</NavAnchor> to indicate
+            a <Anchor path="/docs/card">Card</Anchor> to indicate
             a category.</p>
           <Label>Sample Label</Label>
         </section>

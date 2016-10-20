@@ -3,8 +3,8 @@
 import React from 'react';
 import Hero from 'grommet/components/Hero';
 import Video from 'grommet/components/Video';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const HeroExample = (props) => (
@@ -16,7 +16,7 @@ const HeroExample = (props) => (
 export default class HeroExamplesDoc extends ExamplesDoc {};
 
 HeroExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/hero">Hero</NavAnchor>,
+  context: <Anchor path="/docs/hero">Hero</Anchor>,
   examples: [
     { label: 'Default', component: HeroExample, props: {
       backgroundType: 'image', backgroundImage: '/img/carousel-1.png',

@@ -1,10 +1,9 @@
-// (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Card.displayName = 'Card';
 
@@ -26,8 +25,8 @@ export default class CardDoc extends Component {
           All properties are optional and can be mixed and matched as
           needed.</p>
           <p>Card could be used in combination
-          with <NavAnchor path="/docs/columns">Columns
-          </NavAnchor> or <NavAnchor path="/docs/tiles">Tiles</NavAnchor>.</p>
+          with <Anchor path="/docs/columns">Columns
+          </Anchor> or <Anchor path="/docs/tiles">Tiles</Anchor>.</p>
 
           <Card label="Label" thumbnail="/img/carousel-1.png"
             heading="Heading" description="Description"
@@ -45,13 +44,13 @@ export default class CardDoc extends Component {
             <dt><code>contentPad           {"none|small|medium|large|{...}"}
               </code></dt>
             <dd>Padding for the Box containing the text content.
-              See <code>pad</code> in <NavAnchor path="/docs/box">
-              Box</NavAnchor> for additional details.</dd>
+              See <code>pad</code> in <Anchor path="/docs/box">
+              Box</Anchor> for additional details.</dd>
             <dt><code>description          {'{string}|{element}'}
               </code></dt>
             <dd>Either a string in markdown syntax or an element.
-              See <NavAnchor path="/docs/markdown">
-              Markdown</NavAnchor> for additional details.</dd>
+              See <Anchor path="/docs/markdown">
+              Markdown</Anchor> for additional details.</dd>
             <dt><code>heading              {'{string}|{element}'}</code></dt>
             <dd>Heading content.</dd>
             <dt><code>headingStrong        true|false</code></dt>
@@ -61,7 +60,7 @@ export default class CardDoc extends Component {
             <dd>Label content.</dd>
             <dt><code>link                 {'{element}'}</code></dt>
             <dd>Anchor element.
-              See <NavAnchor path="/docs/anchor">Anchor</NavAnchor>.</dd>
+              See <Anchor path="/docs/anchor">Anchor</Anchor>.</dd>
             <dt><code>textSize             small|medium|large|xlarge</code></dt>
             <dd>Size of text elements within the Card.
               Defaults to <code>medium</code>. If you pass custom
@@ -69,24 +68,24 @@ export default class CardDoc extends Component {
               or <code>heading</code>, they will not be resized.</dd>
             <dt><code>thumbnail            {'{string}|{element}'}</code></dt>
             <dd>Url path to image or
-              an <NavAnchor path="/docs/image">Image</NavAnchor> element.
+              an <Anchor path="/docs/image">Image</Anchor> element.
               Use the <code>reverse</code> property to position the thumbnail
               within card.</dd>
             <dt><code>video                {'{source: <string>, ' +
               'type: mp4|webm|ogg}|{element}'}</code></dt>
             <dd>Video media type and source path or
-              a <NavAnchor path="/docs/video">Video</NavAnchor> element.</dd>
+              a <Anchor path="/docs/video">Video</Anchor> element.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             also available for Card.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/card/examples`}>
+          <Anchor primary={true} path={`/docs/card/examples`}>
             Card Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

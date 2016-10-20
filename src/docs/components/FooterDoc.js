@@ -1,12 +1,12 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
-import Example from '../Example';
+import Anchor from 'grommet/components/Anchor';
 import Footer from 'grommet/components/Footer';
 import Menu from 'grommet/components/Menu';
 import Button from 'grommet/components/Button';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
 
 Footer.displayName = 'Footer';
 Menu.displayName = 'Menu';
@@ -52,7 +52,7 @@ export default class FooterDoc extends Component {
             <dd>Whether it should be treated as main footer or not.
               Used for Accessibility.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Options for <Anchor path="/docs/box">Box</Anchor> are
           also available.</p>
         </section>
 

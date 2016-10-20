@@ -8,7 +8,6 @@ import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 export default class NavigationDoc extends Component {
 
@@ -26,9 +25,9 @@ export default class NavigationDoc extends Component {
           <Box className="call-out" pad={{horizontal: 'medium'}}
             colorIndex="light-2">
             <blockquote>
-              <strong>Hub & Spoke</strong> is useful for multiple, distinct 
-              linear workflows. Building task based experiences stemming from 
-              a common start point helps ensure the items within an app 
+              <strong>Hub & Spoke</strong> is useful for multiple, distinct
+              linear workflows. Building task based experiences stemming from
+              a common start point helps ensure the items within an app
               correlate for a cohesive experience.
             </blockquote>
           </Box>
@@ -57,9 +56,9 @@ export default class NavigationDoc extends Component {
                 elements or unique application functions, those should be
                 reserved for the main navigation’s sidebar.
               </Paragraph>
-              <NavAnchor path="/docs/header" primary={true}>
+              <Anchor path="/docs/header" primary={true}>
                 Header Component
-              </NavAnchor>
+              </Anchor>
             </Box>
           </Box>
         </Section>
@@ -85,9 +84,9 @@ export default class NavigationDoc extends Component {
                 The sidebar should be accessible at all times. For more simple
                 applications, the sidebar might not even be needed.
               </Paragraph>
-              <NavAnchor path="/docs/sidebar" primary={true}>
+              <Anchor path="/docs/sidebar" primary={true}>
                 Sidebar Component
-              </NavAnchor>
+              </Anchor>
             </Box>
           </Box>
         </Section>
@@ -118,9 +117,9 @@ export default class NavigationDoc extends Component {
                 In responsive views, it’s important to note that the dropdown
                 menu does not occupy the entire screen.
               </Paragraph>
-              <NavAnchor path="/docs/menu" primary={true}>
+              <Anchor path="/docs/menu" primary={true}>
                 Menu Component
-              </NavAnchor>
+              </Anchor>
             </Box>
           </Box>
         </Section>
@@ -149,9 +148,9 @@ export default class NavigationDoc extends Component {
                 the experience, rather than the styling and structure of the
                 componentry.
               </Paragraph>
-              <NavAnchor path="/docs/resources" primary={true}>
+              <Anchor path="/docs/resources" primary={true}>
                 Design Resources
-              </NavAnchor>
+              </Anchor>
             </Box>
           </Box>
         </Section>

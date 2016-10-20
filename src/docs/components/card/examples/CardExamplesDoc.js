@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React from 'react';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
-import NavAnchor from '../../../../components/NavAnchor';
 
 import Card1 from './Card1';
 import Card2 from './Card2';
@@ -16,7 +16,7 @@ import Card8 from './Card8';
 export default class CardExamplesDoc extends ExamplesDoc {};
 
 CardExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/card">Card</NavAnchor>,
+  context: <Anchor path="/docs/card">Card</Anchor>,
   examples: [
     { label: 'Default', component: Card1 },
     { label: 'Reverse, Link', component: Card2 },

@@ -9,7 +9,6 @@ import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Article.displayName = 'Article';
@@ -30,9 +29,9 @@ export default class ArticleDoc extends Component {
           <p>A standard <Anchor
             href="http://www.w3.org/TR/html5/sections.html#the-article-element">
             HTML5 article</Anchor>. It might
-            contain a <NavAnchor path="/docs/header">Header</NavAnchor>, one
-            or more <NavAnchor path="/docs/section">Sections</NavAnchor>, and
-            a <NavAnchor path="/docs/footer">Footer</NavAnchor>.</p>
+            contain a <Anchor path="/docs/header">Header</Anchor>, one
+            or more <Anchor path="/docs/section">Sections</Anchor>, and
+            a <Anchor path="/docs/footer">Footer</Anchor>.</p>
 
           <Article colorIndex="light-2">
             <Header
@@ -70,7 +69,7 @@ export default class ArticleDoc extends Component {
             If the spacebar is pressed, the children will automatically
             be stepped through at an interval of ten seconds per child.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
           also available.</p>
         </section>
 

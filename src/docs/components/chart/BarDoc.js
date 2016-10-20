@@ -2,21 +2,21 @@
 
 import React, { Component } from 'react';
 import Chart, { Base, Bar, Layers } from 'grommet/components/chart/Chart';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 export default class BarDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Bar" colorIndex="neutral-3">
 
-        <p>An bar graphic in a <NavAnchor path={`/docs/chart`}>
-          Chart</NavAnchor>.
-          It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
-          Layers</NavAnchor> component.
+        <p>An bar graphic in a <Anchor path={`/docs/chart`}>
+          Chart</Anchor>.
+          It should be placed inside a <Anchor path={`/docs/chart-layers`}>
+          Layers</Anchor> component.
           There can be multiple Bar components in the Chart.</p>
 
         <Example code={

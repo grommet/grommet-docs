@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Image from 'grommet/components/Image';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const ImageExample = (props) => (
@@ -15,7 +15,7 @@ const ImageExample = (props) => (
 export default class ImageExamplesDoc extends ExamplesDoc {};
 
 ImageExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/image">Image</NavAnchor>,
+  context: <Anchor path="/docs/image">Image</Anchor>,
   examples: [
     { label: 'Default', component: ImageExample },
     { label: 'Thumb', component: ImageExample, props: { size: 'thumb' } },

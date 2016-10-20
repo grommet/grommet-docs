@@ -3,21 +3,21 @@
 import React, { Component } from 'react';
 import Chart, { Base, MarkerLabel } from 'grommet/components/chart/Chart';
 import Value from 'grommet/components/Value';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 export default class MarkerLabelDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="MarkerLabel" colorIndex="neutral-3">
 
-        <p>A label along the edge of a <NavAnchor path={`/docs/chart`}>
-          Chart</NavAnchor>. It is typically used to annotate
-          a <NavAnchor path={`/docs/chart-marker`}>
-          Marker</NavAnchor> component.
+        <p>A label along the edge of a <Anchor path={`/docs/chart`}>
+          Chart</Anchor>. It is typically used to annotate
+          a <Anchor path={`/docs/chart-marker`}>
+          Marker</Anchor> component.
           The location of the label should be specified either via
           the <code>count</code> and <code>index</code> properties or via
           the <code>min</code>, <code>max</code>,

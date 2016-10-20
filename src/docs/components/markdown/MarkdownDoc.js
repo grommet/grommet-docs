@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Markdown from 'grommet/components/Markdown';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Markdown.displayName = 'Markdown';
 
@@ -43,9 +43,9 @@ export default class MarkdownDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/markdown/examples`}>
+          <Anchor primary={true} path={`/docs/markdown/examples`}>
             Markdown Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

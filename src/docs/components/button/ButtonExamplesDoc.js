@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Button from 'grommet/components/Button';
+import Anchor from 'grommet/components/Anchor';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import EditIcon from 'grommet/components/icons/base/Edit';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 import ButtonTileExample from './ButtonTileExample';
 
@@ -18,7 +18,7 @@ const ButtonExample = (props) => (
 export default class ButtonExamplesDoc extends ExamplesDoc {};
 
 ButtonExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/button">Button</NavAnchor>,
+  context: <Anchor path="/docs/button">Button</Anchor>,
   examples: [
     { label: 'Default', component: ButtonExample,
       props: { label: 'Action' } },

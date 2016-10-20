@@ -2,23 +2,23 @@
 
 import React, { Component } from 'react';
 import Chart, { Base, Range, Layers } from 'grommet/components/chart/Chart';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 export default class RangeDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<NavAnchor path="/docs/chart">Chart</NavAnchor>}
+      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
         title="Range" colorIndex="neutral-3">
 
         <p>A means of selecting a range within
-          a <NavAnchor path={`/docs/chart`}>Chart</NavAnchor>. It is structured
+          a <Anchor path={`/docs/chart`}>Chart</Anchor>. It is structured
           as a specified number of slots that the user can select by clicking
           and dragging across.
-          It should be placed inside a <NavAnchor path={`/docs/chart-layers`}>
-          Layers</NavAnchor> component.</p>
+          It should be placed inside a <Anchor path={`/docs/chart-layers`}>
+          Layers</Anchor> component.</p>
 
         <Example code={
           <Chart>
@@ -50,8 +50,8 @@ export default class RangeDoc extends Component {
 
         <section>
           <h2>Examples</h2>
-          <NavAnchor path={`/docs/chart-examples#7`} primary={true}>
-            Range selector</NavAnchor>
+          <Anchor path={`/docs/chart-examples#7`} primary={true}>
+            Range selector</Anchor>
         </section>
 
       </DocsArticle>

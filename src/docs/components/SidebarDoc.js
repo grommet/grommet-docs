@@ -10,7 +10,6 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 import Example from '../Example';
 
 Sidebar.displayName = 'Sidebar';
@@ -33,14 +32,14 @@ export default class SidebarDoc extends Component {
 
         <section>
           <p>A full height, fixed width container. Usually a Sidebar is placed
-          inside a <NavAnchor path="/docs/split">Split</NavAnchor> component.
+          inside a <Anchor path="/docs/split">Split</Anchor> component.
           A typical usage is for primary navigation, where it typically
-          contains a <NavAnchor path="/docs/header">Header</NavAnchor> and
-          a <NavAnchor path="/docs/menu">Menu</NavAnchor>. The Sidebar may
+          contains a <Anchor path="/docs/header">Header</Anchor> and
+          a <Anchor path="/docs/menu">Menu</Anchor>. The Sidebar may
           or may not be always visible. If it comes and goes, it is typically
-          controlled via a <NavAnchor path="/docs/title">
-          Title</NavAnchor> component
-          inside a <NavAnchor path="/docs/header">Header</NavAnchor> component
+          controlled via a <Anchor path="/docs/title">
+          Title</Anchor> component
+          inside a <Anchor path="/docs/header">Header</Anchor> component
           residing in the other side of the Split.</p>
 
           <Box direction="row" colorIndex="light-2">
@@ -72,7 +71,7 @@ export default class SidebarDoc extends Component {
             <dd>Whether the sidebar should take up the full browser height or
               not. Defaults to true.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             also available.</p>
         </section>
 

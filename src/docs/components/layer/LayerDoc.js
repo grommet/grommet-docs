@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE =
 `import Layer from 'grommet/components/Layer';
@@ -17,8 +17,8 @@ export default class LayerDoc extends Component {
 
         <section>
           <p>A modal overlay. This could contain
-            a <NavAnchor path="/docs/form">Form</NavAnchor> or
-            an <NavAnchor path="/docs/article">Article</NavAnchor>.</p>
+            a <Anchor path="/docs/form">Form</Anchor> or
+            an <Anchor path="/docs/article">Article</Anchor>.</p>
         </section>
 
         <section>
@@ -55,9 +55,9 @@ export default class LayerDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/layer/examples`}>
+          <Anchor primary={true} path={`/docs/layer/examples`}>
             Layer Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

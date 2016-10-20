@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 FormField.displayName = 'FormField';
 
@@ -65,9 +65,9 @@ export default class FormFieldDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/form-field/examples`}>
+          <Anchor primary={true} path={`/docs/form-field/examples`}>
             FormField Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

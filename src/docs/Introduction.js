@@ -1,9 +1,9 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../components/DocsArticle';
-import NavAnchor from '../components/NavAnchor';
+import Anchor from 'grommet/components/Anchor';
 import Menu from 'grommet/components/Menu';
+import DocsArticle from '../components/DocsArticle';
 
 export default class Introduction extends Component {
 
@@ -19,18 +19,18 @@ export default class Introduction extends Component {
           interaction
           methods and screen sizes.</p>
           <Menu direction="column">
-            <NavAnchor path="/docs/hello-world" primary={true}
+            <Anchor path="/docs/hello-world" primary={true}
               id='hello-world-anchor'>
               Hello World
-            </NavAnchor>
-            <NavAnchor path="/docs/get-started" primary={true}
+            </Anchor>
+            <Anchor path="/docs/get-started" primary={true}
               id='get-started-anchor'>
               Get Started
-            </NavAnchor>
-            <NavAnchor path="/docs/resources" primary={true}
+            </Anchor>
+            <Anchor path="/docs/resources" primary={true}
               id='resources-anchor'>
               Design Resources
-            </NavAnchor>
+            </Anchor>
           </Menu>
         </section>
       </DocsArticle>

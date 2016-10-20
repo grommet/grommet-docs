@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import SocialShare from 'grommet/components/SocialShare';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 SocialShare.displayName = 'SocialShare';
 
@@ -50,9 +50,9 @@ export default class SocialShareDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/social-share/examples`}>
+          <Anchor primary={true} path={`/docs/social-share/examples`}>
             SocialShare Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

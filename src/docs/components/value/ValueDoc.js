@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import Value from 'grommet/components/Value';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Value.displayName = 'Value';
 
@@ -36,11 +36,11 @@ export default class ValueDoc extends Component {
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the text color.
               For example: <code>
-              neutral-1</code>. See <NavAnchor path="/docs/color">
-              Color</NavAnchor> for possible values.</dd>
+              neutral-1</code>. See <Anchor path="/docs/color">
+              Color</Anchor> for possible values.</dd>
             <dt><code>icon         {"{element}"}</code></dt>
             <dd>Optional icon element to place next to the value.
-              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
+              See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
             <dt><code>label        {"{string}"}</code></dt>
             <dd>Optional short description of the value.</dd>
             <dt><code>onClick      {"{function}"}</code></dt>
@@ -50,7 +50,7 @@ export default class ValueDoc extends Component {
             <dt><code>trendIcon    {"{element}"}</code></dt>
             <dd>Optional icon element to place next to the value indicating
               the trend. For example, a <code>LinkUp</code> icon.
-              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
+              See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
             <dt><code>value        {"{number}"}</code></dt>
             <dd>The value itself.</dd>
             <dt><code>units        {"{string}"}</code></dt>
@@ -61,9 +61,9 @@ export default class ValueDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/value/examples`}>
+          <Anchor primary={true} path={`/docs/value/examples`}>
             Value Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

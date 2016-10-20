@@ -5,7 +5,6 @@ import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import EditIcon from 'grommet/components/icons/base/Edit';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Anchor.displayName = 'Anchor';
 
@@ -53,7 +52,7 @@ export default class AnchorDoc extends Component {
             <dd>Hyperlink reference to place in the anchor.</dd>
             <dt><code>icon           {"{element}"}</code></dt>
             <dd>Icon element to place in the anchor.
-              See <NavAnchor path="/docs/icon">Icon</NavAnchor>.</dd>
+              See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
             <dt><code>label          {"{string}"}</code></dt>
             <dd>Label text to place in the anchor.</dd>
             <dt><code>onClick        {"{function}"}</code></dt>
@@ -77,9 +76,9 @@ export default class AnchorDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/anchor/examples`}>
+          <Anchor primary={true} path={`/docs/anchor/examples`}>
             Anchor Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

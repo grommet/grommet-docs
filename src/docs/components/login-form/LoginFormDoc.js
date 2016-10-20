@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import LoginForm from 'grommet/components/LoginForm';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 LoginForm.displayName = 'LoginForm';
 
@@ -68,9 +68,9 @@ export default class LoginFormDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/login-form/examples`}>
+          <Anchor primary={true} path={`/docs/login-form/examples`}>
             LoginForm Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

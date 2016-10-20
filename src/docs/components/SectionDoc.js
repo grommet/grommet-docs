@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
+import Anchor from 'grommet/components/Anchor';
 import Example from '../Example';
 import Section from 'grommet/components/Section';
 import Header from 'grommet/components/Header';
 import Menu from 'grommet/components/Menu';
 import Heading from 'grommet/components/Heading';
-import Anchor from 'grommet/components/Anchor';
 import Paragraph from 'grommet/components/Paragraph';
 import Image from 'grommet/components/Image';
 
@@ -28,10 +27,10 @@ export default class SectionDoc extends Component {
           <p>A standard <Anchor
             href="http://www.w3.org/TR/html5/sections.html#the-section-element">
             HTML5 section</Anchor>. It might
-            contain a <NavAnchor path="/docs/heading">Heading</NavAnchor>, one
-            or more <NavAnchor path="/docs/paragraph">Paragraphs</NavAnchor>
-            , <NavAnchor path="/docs/image">Images</NavAnchor>
-            , and <NavAnchor path="/docs/video">Videos</NavAnchor>.</p>
+            contain a <Anchor path="/docs/heading">Heading</Anchor>, one
+            or more <Anchor path="/docs/paragraph">Paragraphs</Anchor>
+            , <Anchor path="/docs/image">Images</Anchor>
+            , and <Anchor path="/docs/video">Videos</Anchor>.</p>
         </section>
 
         <section>
@@ -41,7 +40,7 @@ export default class SectionDoc extends Component {
 
         <section>
           <h2>Properties</h2>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             available.</p>
         </section>
 

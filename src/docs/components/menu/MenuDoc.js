@@ -6,7 +6,6 @@ import CheckBox from 'grommet/components/CheckBox';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Menu.displayName = 'Menu';
 CheckBox.displayName = 'CheckBox';
@@ -78,16 +77,16 @@ export default class MenuDoc extends Component {
             <dt><code>size          small|medium|large</code></dt>
             <dd>The size of the Menu. Defaults to <code>medium</code>.</dd>
           </dl>
-          <p>Properties for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
           also available.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/menu/examples`}>
+          <Anchor primary={true} path={`/docs/menu/examples`}>
             Menu Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

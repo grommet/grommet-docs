@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React from 'react';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
-import NavAnchor from '../../../../components/NavAnchor';
 
 import Chart1 from './Chart1';
 import Chart2 from './Chart2';
@@ -25,7 +25,7 @@ import Chart16 from './Chart16';
 export default class ChartExamplesDoc extends ExamplesDoc {};
 
 ChartExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/chart">Chart</NavAnchor>,
+  context: <Anchor path="/docs/chart">Chart</Anchor>,
   examples: [
     { label: 'Area with Value', component: Chart9 },
     { label: 'Line with Value', component: Chart10 },

@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import Meter from 'grommet/components/Meter';
 import Value from 'grommet/components/Value';
 import Box from 'grommet/components/Box';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Meter.displayName = 'Meter';
 
@@ -54,8 +54,8 @@ export default class MeterDoc extends Component {
             <dd>The color identifier to use for the graphic color.
               For example: <code>"graph-1"</code></dd>
             <dt><code>label       {"{node}"}</code></dt>
-            <dd>Callers are encouraged to use <NavAnchor path="/docs/value">
-              Value</NavAnchor> to construct the appropriate label. Also
+            <dd>Callers are encouraged to use <Anchor path="/docs/value">
+              Value</Anchor> to construct the appropriate label. Also
               see deprecated options below.</dd>
             <dt><code>max         {"{number}"}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>
@@ -99,9 +99,9 @@ export default class MeterDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/meter/examples`}>
+          <Anchor primary={true} path={`/docs/meter/examples`}>
             Meter Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

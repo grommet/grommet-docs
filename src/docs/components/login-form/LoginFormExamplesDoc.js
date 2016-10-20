@@ -2,8 +2,8 @@
 
 import React from 'react';
 import LoginForm from 'grommet/components/LoginForm';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Logo from '../../../img/Logo';
 import Example from '../../Example';
 
@@ -23,7 +23,7 @@ const LoginFormExample = (props) => (
 export default class LoginFormExamplesDoc extends ExamplesDoc {};
 
 LoginFormExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/login-form">LoginForm</NavAnchor>,
+  context: <Anchor path="/docs/login-form">LoginForm</Anchor>,
   examples: [
     { label: 'Default', component: LoginFormExample },
     { label: 'Everything', component: LoginFormExample, props: {

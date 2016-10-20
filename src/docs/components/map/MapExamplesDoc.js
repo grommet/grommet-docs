@@ -3,8 +3,8 @@
 import React from 'react';
 import Map from 'grommet/components/Map';
 import Box from 'grommet/components/Box';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const MapExample = (props) => (
@@ -52,7 +52,7 @@ const RICH_DATA = {
 export default class MapExamplesDoc extends ExamplesDoc {};
 
 MapExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/map">Map</NavAnchor>,
+  context: <Anchor path="/docs/map">Map</Anchor>,
   examples: [
     { label: 'Default', component: MapExample, props: { data: DATA } },
     { label: 'Rich data', component: MapExample, props: { data: RICH_DATA } }

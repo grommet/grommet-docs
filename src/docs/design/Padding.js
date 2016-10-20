@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import Label from 'grommet/components/Label';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 const BoxPad = (props) => (
   <Box pad={props.pad} size={{ height: 'small', width: 'small' }}
@@ -29,13 +29,13 @@ export default class Padding extends Component {
 
         <section>
           <p>Components
-          like <NavAnchor path="/docs/box">
-          Box</NavAnchor>, <NavAnchor path="/docs/header">
-          Header</NavAnchor>, <NavAnchor path="/docs/footer">
-          Footer</NavAnchor>, <NavAnchor path="/docs/form">
-          Form</NavAnchor>, <NavAnchor path="/docs/sidebar">
-          Sidebar</NavAnchor>, and <NavAnchor path="/docs/menu">
-          Menu</NavAnchor> use pad stops as illustrated below.</p>
+          like <Anchor path="/docs/box">
+          Box</Anchor>, <Anchor path="/docs/header">
+          Header</Anchor>, <Anchor path="/docs/footer">
+          Footer</Anchor>, <Anchor path="/docs/form">
+          Form</Anchor>, <Anchor path="/docs/sidebar">
+          Sidebar</Anchor>, and <Anchor path="/docs/menu">
+          Menu</Anchor> use pad stops as illustrated below.</p>
 
           <Box direction="row" wrap={true} pad={{ between: 'medium' }}>
             <BoxPad pad="none" />

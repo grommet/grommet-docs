@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import DateTime from 'grommet/components/DateTime';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 const USAGE =
 `import DateTime from 'grommet/components/DateTime';
@@ -81,9 +81,9 @@ export default class DateTimeDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/date-time/examples`}>
+          <Anchor primary={true} path={`/docs/date-time/examples`}>
             DateTime Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

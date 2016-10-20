@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Distribution from 'grommet/components/Distribution';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const DistributionExample = (props) => (
@@ -67,7 +67,7 @@ const ICON_SERIES = [
 export default class DistributionExamplesDoc extends ExamplesDoc {};
 
 DistributionExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/distribution">Distribution</NavAnchor>,
+  context: <Anchor path="/docs/distribution">Distribution</Anchor>,
   examples: [
     { label: 'Default', component: DistributionExample,
       props: { series: SERIES } },

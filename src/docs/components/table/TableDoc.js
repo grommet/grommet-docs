@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Table.displayName = 'Table';
 TableRow.displayName = 'TableRow';
@@ -113,9 +113,9 @@ export default class TableDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/table/examples`}>
+          <Anchor primary={true} path={`/docs/table/examples`}>
             Table Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import Select from 'grommet/components/Select';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Select.displayName = 'Select';
 
@@ -92,9 +92,9 @@ export default class SelectDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/select/examples`}>
+          <Anchor primary={true} path={`/docs/select/examples`}>
             Select Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

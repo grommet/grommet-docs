@@ -15,10 +15,10 @@ import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
 import Label from 'grommet/components/Label';
 import Button from 'grommet/components/Button';
+import Anchor from 'grommet/components/Anchor';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const FIXED_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'];
@@ -355,12 +355,12 @@ export default class BoxingGymDoc extends Component {
         <DocsArticle title="Boxing Gym" colorIndex="neutral-3">
 
           <p>This is a boxing gym where you can spar
-            with <NavAnchor path="/docs/box">Boxes</NavAnchor>.</p>
+            with <Anchor path="/docs/box">Boxes</Anchor>.</p>
 
           <Example code={box}/>
 
           <section>
-            <NavAnchor path="/docs/box" icon={<LinkPreviousIcon />}
+            <Anchor path="/docs/box" icon={<LinkPreviousIcon />}
               label="Box" primary={true} />
           </section>
 

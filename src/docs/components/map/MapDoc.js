@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import GrommetMap from 'grommet/components/Map';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 GrommetMap.displayName = 'Map';
 
@@ -61,7 +61,7 @@ export default class MapDoc extends Component {
             <dt><code>linkColorIndex   {"{category}-{index}"}</code></dt>
             <dd>The color identifier to use for the link lines.
               For example: <code>"graph-1"</code>.
-              See <NavAnchor path="/docs/color">Color</NavAnchor> for
+              See <Anchor path="/docs/color">Color</Anchor> for
               possible values.</dd>
             <dt><code>data             {`{
   categories: [
@@ -85,9 +85,9 @@ export default class MapDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/map/examples`}>
+          <Anchor primary={true} path={`/docs/map/examples`}>
             Map Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

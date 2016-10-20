@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import Label from 'grommet/components/Label';
 import Header from 'grommet/components/Header';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import NavAnchor from '../../components/NavAnchor';
 
 export default class Sizing extends Component {
   render () {
@@ -20,14 +20,14 @@ export default class Sizing extends Component {
         <section>
           <h2>General Layout</h2>
           <p>Components
-          like <NavAnchor path="/docs/box">
-          Box</NavAnchor>, <NavAnchor path="/docs/sidebar">
-          Sidebar</NavAnchor>, <NavAnchor path="/docs/image">
-          Image</NavAnchor>, <NavAnchor path="/docs/video">
-          Video</NavAnchor>, <NavAnchor path="/docs/meter">
-          Meter</NavAnchor>, <NavAnchor path="/docs/chart">
-          Chart</NavAnchor>, and <NavAnchor path="/docs/distribution">
-          Distribution</NavAnchor> use
+          like <Anchor path="/docs/box">
+          Box</Anchor>, <Anchor path="/docs/sidebar">
+          Sidebar</Anchor>, <Anchor path="/docs/image">
+          Image</Anchor>, <Anchor path="/docs/video">
+          Video</Anchor>, <Anchor path="/docs/meter">
+          Meter</Anchor>, <Anchor path="/docs/chart">
+          Chart</Anchor>, and <Anchor path="/docs/distribution">
+          Distribution</Anchor> use
           sizes for width stops as illustrated
           below.</p>
 
@@ -62,8 +62,8 @@ export default class Sizing extends Component {
         <section>
           <h2>Header</h2>
           <p>Components
-          like <NavAnchor path="/docs/header">
-          Header</NavAnchor> use sizes for height stops as illustrated
+          like <Anchor path="/docs/header">
+          Header</Anchor> use sizes for height stops as illustrated
           below.</p>
 
           <Box pad={{ between: 'medium' }}>

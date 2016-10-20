@@ -1,8 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React from 'react';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
-import NavAnchor from '../../../../components/NavAnchor';
 
 import Tiles1 from './Tiles1';
 import Tiles2 from './Tiles2';
@@ -15,7 +15,7 @@ import Tiles7 from './Tiles7';
 export default class TilesExamplesDoc extends ExamplesDoc {};
 
 TilesExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/tiles">Tiles</NavAnchor>,
+  context: <Anchor path="/docs/tiles">Tiles</Anchor>,
   examples: [
     { label: 'Simple', component: Tiles1 },
     { label: 'Not flush, Centered', component: Tiles2 },

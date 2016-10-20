@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Value from 'grommet/components/Value';
+import Anchor from 'grommet/components/Anchor';
 import GlobeIcon from 'grommet/components/icons/base/Globe';
 import UpIcon from 'grommet/components/icons/base/LinkUp';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const ValueExample = (props) => (
@@ -17,7 +17,7 @@ const ValueExample = (props) => (
 export default class ValueExamplesDoc extends ExamplesDoc {};
 
 ValueExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/value">Value</NavAnchor>,
+  context: <Anchor path="/docs/value">Value</Anchor>,
   examples: [
     { label: 'Default', component: ValueExample },
     { label: 'Units, Icon, Trend, Label, Color', component: ValueExample,

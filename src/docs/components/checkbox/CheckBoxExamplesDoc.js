@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import CheckBox from 'grommet/components/CheckBox';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 class CheckBoxExample extends Component {
@@ -31,7 +31,7 @@ class CheckBoxExample extends Component {
 export default class CheckBoxExamplesDoc extends ExamplesDoc {};
 
 CheckBoxExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/check-box">CheckBox</NavAnchor>,
+  context: <Anchor path="/docs/check-box">CheckBox</Anchor>,
   examples: [
     { label: 'Basic', component: CheckBoxExample,
       props: { label: 'Label' } },

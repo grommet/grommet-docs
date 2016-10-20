@@ -1,13 +1,13 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
+import Anchor from 'grommet/components/Anchor';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import Animate from 'grommet/components/Animate';
+import DocsArticle from '../../../components/DocsArticle';
 
 Section.displayName = 'Section';
 Animate.displayName = 'Animate';
@@ -78,9 +78,9 @@ export default class AnimateDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/animate/examples`}>
+          <Anchor primary={true} path={`/docs/animate/examples`}>
             Animate Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

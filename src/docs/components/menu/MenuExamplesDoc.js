@@ -8,7 +8,6 @@ import Button from 'grommet/components/Button';
 import ActionsIcon from 'grommet/components/icons/base/Actions';
 import FilterIcon from 'grommet/components/icons/base/Filter';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const ANCHORS = [
@@ -38,7 +37,7 @@ const MenuExample = (props) => (
 export default class MenuExamplesDoc extends ExamplesDoc {};
 
 MenuExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/menu">Menu</NavAnchor>,
+  context: <Anchor path="/docs/menu">Menu</Anchor>,
   examples: [
     { label: 'Inline, Column', component: MenuExample,
       props: { children: ANCHORS, inline: true }

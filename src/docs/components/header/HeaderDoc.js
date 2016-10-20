@@ -7,7 +7,6 @@ import Anchor from 'grommet/components/Anchor';
 import Search from 'grommet/components/Search';
 import Title from 'grommet/components/Title';
 import DocsArticle from '../../../components/DocsArticle';
-import NavAnchor from '../../../components/NavAnchor';
 
 Header.displayName = 'Header';
 
@@ -55,16 +54,16 @@ export default class HeaderDoc extends Component {
             <dd>Whether to render it in a style suitable for a splash
               screen.</dd>
           </dl>
-          <p>Options for <NavAnchor path="/docs/box">Box</NavAnchor> are
+          <p>Options for <Anchor path="/docs/box">Box</Anchor> are
           also available.</p>
         </section>
 
         <section>
           <h2>Examples</h2>
 
-          <NavAnchor primary={true} path={`/docs/header/examples`}>
+          <Anchor primary={true} path={`/docs/header/examples`}>
             Header Examples
-          </NavAnchor>
+          </Anchor>
         </section>
 
       </DocsArticle>

@@ -3,8 +3,8 @@
 import React from 'react';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
+import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
-import NavAnchor from '../../../components/NavAnchor';
 import Example from '../../Example';
 
 const DefaultAccordion = (props) => (
@@ -38,7 +38,7 @@ const DefaultAccordion = (props) => (
 export default class AccordionExamplesDoc extends ExamplesDoc {};
 
 AccordionExamplesDoc.defaultProps = {
-  context: <NavAnchor path="/docs/accordion">Accordion</NavAnchor>,
+  context: <Anchor path="/docs/accordion">Accordion</Anchor>,
   examples: [
     { label: 'Default', component: DefaultAccordion },
     { label: 'multiple, no animation', component: DefaultAccordion,
