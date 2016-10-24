@@ -37,7 +37,7 @@ FormFieldExamplesDoc.defaultProps = {
       props: { children: <CheckBox id="item2" label="Item 2" /> }
     },
     { label: 'RadioButton with help', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1', help: 'help text',
+      props: { label: 'Item 1', help: 'help text',
         children: [
           <RadioButton key="1" id="item1-1" label="choice 1" name="choice"/>,
           <RadioButton key="2" id="item1-2" label="choice 2" name="choice"/>
@@ -60,7 +60,7 @@ FormFieldExamplesDoc.defaultProps = {
     },
     { label: 'DateTime', component: FormFieldExample,
       props: { label: 'Item 1', htmlFor: 'item1',
-        children: <DateTime id="item7" onChange={() => alert('TBD')}
+        children: <DateTime id="item1" onChange={() => alert('TBD')}
           value="9/21/2016 11:00 am" /> }
     }
   ],
