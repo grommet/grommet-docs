@@ -62,10 +62,12 @@ export default class SelectDoc extends Component {
           <dl>
             <dt><code>defaultValue  {"{value: , label: }|{string}"}</code></dt>
             <dd>What text to start with in the input.</dd>
-            <dt><code>id            {"{string}"}</code></dt>
-            <dd>The id attribute of the input.</dd>
-            <dt><code>name          {"{string}"}</code></dt>
-            <dd>The name attribute of the input.</dd>
+            <dt><code>inline        true|false</code></dt>
+            <dd>Whether to display the options inline or via a drop down. The
+              default is <code>false</code>.</dd>
+            <dt><code>multiple      true|false</code></dt>
+            <dd>Whether to allow multiple options to be selected. The
+              default is <code>false</code>.</dd>
             <dt><code>onChange      {"{function ({target: , option: })}"}
               </code></dt>
             <dd>Function that will be called when the user selects a option.

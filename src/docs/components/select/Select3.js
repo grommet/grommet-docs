@@ -2,13 +2,12 @@
 
 import React, { Component } from 'react';
 import Select from 'grommet/components/Select';
-import Form from 'grommet/components/Form';
-import FormField from 'grommet/components/FormField';
+import Box from 'grommet/components/Box';
 import Example from '../../Example';
 
 const VALUES = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
 
-export default class Select0 extends Component {
+export default class Select3 extends Component {
 
   constructor () {
     super();
@@ -17,20 +16,17 @@ export default class Select0 extends Component {
   }
 
   _onChange (pseudoEvent) {
-    this.setState({ value: pseudoEvent.option });
+    this.setState({ value: pseudoEvent.value });
   }
 
   render () {
     return (
-      <Example align="center" code={
-        <Form>
-          <FormField>
-            <Select id="item1" name="item-1"
-              options={VALUES}
-              value={this.state.value} onChange={this._onChange} />
-          </FormField>
-        </Form>
-      } />
+      <Box flex={true}>
+        <Example align="start" code={
+          <Select inline={true} options={VALUES}
+            value={this.state.value} onChange={this._onChange} />
+        } />
+      </Box>
     );
   }
 
