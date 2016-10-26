@@ -10,7 +10,7 @@ import Example from '../Example';
 Pulse.displayName = 'Pulse';
 
 const USAGE =
-`import Pulse from 'grommet/components/Pulse';
+`import Pulse from 'grommet/components/icons/Pulse';
 <Pulse />`;
 
 export default class PulseDoc extends Component {
