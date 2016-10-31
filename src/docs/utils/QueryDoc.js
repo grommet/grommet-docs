@@ -11,47 +11,6 @@ let errorQuery = new Query('a b "');
 export default class QueryDoc extends Component {
 
   render () {
-
-    const example =
-`import { headers, buildQuery, processStatus } from 'grommet/utils/Rest';
-
-export default class MyComponent extends Component {
-
-  _getData (filters) {
-    const query = buildQuery(filters);
-    const options = { method: 'GET', headers: { ...headers, Auth: _token };
-    fetch(\`/rest/index/resources\${query}\`, options)
-    .then(processStatus)
-    .then(response => response.json())
-    .then(result => this.setState({ result: result, error: undefined }))
-    .catch(error => this.setState({ result: undefined, error: error }));
-  }
-
-})`;
-
-    const deprecatedExample =
-`export default class MyComponent extends Component {
-  ...
-  _onResponse (err, res) {
-    if (err && err.timeout > 1000) {
-      this.setState({error: 'Timeout', result: {}});
-    } else if (res.status === 400) {
-      Actions.logout();
-    } else if (!res.ok) {
-      this.setState({error: res.body || res.text, result: {}});
-    } else {
-      var result = res.body;
-      this.setState({result: result, error: null});
-    }
-  }
-  ...
-  _getData () {
-    Rest.get('/rest/index/resources', this.state.options.params)
-      .end(this._onResponse);
-  }
-  ...
-})`;
-
     return (
       <DocsArticle title="Query" colorIndex="neutral-4">
 
