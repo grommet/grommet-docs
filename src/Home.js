@@ -217,9 +217,9 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <Footer primary={true} direction='column' pad='medium'>
+        <Footer align='start' primary={true} direction='column' pad='medium'>
           <Box direction='row' justify='between' align='start'
-            pad={{ between: 'medium' }}>
+            pad={{ between: 'medium' }} full='horizontal'>
             <Box direction='row' align='center' responsive={false}
               pad={{ between: 'small'}}>
               <GrommetLogo /> <strong>grommet</strong>
