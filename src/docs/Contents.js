@@ -60,6 +60,7 @@ import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
+import FilterControlDoc from './components/FilterControlDoc';
 import FooterDoc from './components/FooterDoc';
 import FormDoc from './components/form/FormDoc';
 import FormExamplesDoc from './components/form/FormExamplesDoc';
@@ -81,6 +82,10 @@ import LayerExamplesDoc from './components/layer/examples/LayerExamplesDoc';
 import LegendDoc from './components/LegendDoc';
 import ListDoc from './components/list/ListDoc';
 import ListExamplesDoc from './components/list/ListExamplesDoc';
+import ListPlaceholderDoc
+  from './components/list-placeholder/ListPlaceholderDoc';
+import ListPlaceholderExamplesDoc
+  from './components/list-placeholder/ListPlaceholderExamplesDoc';
 import LoginFormDoc from './components/login-form/LoginFormDoc';
 import LoginFormExamplesDoc from './components/login-form/LoginFormExamplesDoc';
 import MapDoc from './components/map/MapDoc';
@@ -99,6 +104,7 @@ import NumberInputDoc from './components/NumberInputDoc';
 import ParagraphDoc from './components/paragraph/ParagraphDoc';
 import ParagraphExamplesDoc from './components/paragraph/ParagraphExamplesDoc';
 import PulseDoc from './components/PulseDoc';
+import QueryDoc from './utils/QueryDoc';
 import QuoteDoc from './components/quote/QuoteDoc';
 import QuoteExamplesDoc from './components/quote/QuoteExamplesDoc';
 import RadioButtonDoc from './components/RadioButtonDoc';
@@ -116,6 +122,7 @@ import SidebarDoc from './components/SidebarDoc';
 import SocialShareDoc from './components/social-share/SocialShareDoc';
 import SocialShareExamplesDoc from
   './components/social-share/SocialShareExamplesDoc';
+import SortDoc from './components/SortDoc';
 import SpinningDoc from './components/SpinningDoc';
 import SplitDoc from './components/SplitDoc';
 import StatusDoc from './components/StatusDoc';
@@ -218,6 +225,8 @@ export default [
         contents: [
           {path: 'examples', component: DistributionExamplesDoc}
         ]},
+      {path: 'filter-control', label: 'FilterControl',
+        component: FilterControlDoc},
       {path: 'footer', label: 'Footer', component: FooterDoc},
       {path: 'form', label: 'Form', index: FormDoc, contents: [
         {path: 'examples', component: FormExamplesDoc}
@@ -247,6 +256,10 @@ export default [
       {path: 'list', label: 'List', index: ListDoc, contents: [
         {path: 'examples', component: ListExamplesDoc}
       ]},
+      {path: 'list-placeholder', label: 'ListPlaceholder',
+        index: ListPlaceholderDoc, contents: [
+          {path: 'examples', component: ListPlaceholderExamplesDoc}
+        ] },
       {path: 'login-form', label: 'LoginForm', index: LoginFormDoc, contents: [
         {path: 'examples', component: LoginFormExamplesDoc}
       ]},
@@ -291,6 +304,7 @@ export default [
         contents: [
           {path: 'examples', component: SocialShareExamplesDoc}
         ]},
+      {path: 'sort', label: 'Sort', component: SortDoc},
       {path: 'spinning', label: 'Spinning', component: SpinningDoc},
       {path: 'split', label: 'Split', component: SplitDoc},
       {path: 'status', label: 'Status', component: StatusDoc},
@@ -320,6 +334,7 @@ export default [
   {label: 'Utils',
     contents: [
       {path: 'announcer', label: 'Announcer', component: AnnouncerDoc},
+      {path: 'query', label: 'Query', component: QueryDoc},
       {path: 'rest', label: 'Rest', component: RestDoc},
       {path: 'rest-watch', label: 'RestWatch', component: RestWatchDoc}
     ]

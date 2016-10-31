@@ -1,0 +1,60 @@
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+import React, { Component } from 'react';
+import FilterControl from 'grommet-addons/components/FilterControl';
+import DocsArticle from '../../components/DocsArticle';
+import Example from '../Example';
+
+FilterControl.displayName = 'FilterControl';
+
+const USAGE =
+`import FilterControl from 'grommet-addons/components/FilterControl';
+<FilterControl unfilteredTotal={} filterdTotal={} onClick={} />`;
+
+export default class FilterControlDoc extends Component {
+
+  render () {
+
+    return (
+      <DocsArticle title="FilterControl" colorIndex="neutral-3">
+
+        <section>
+          <p>A Button to control filter configuration annotated with counts
+            of total and matches.</p>
+          <FilterControl unfilteredTotal={100} filteredTotal={50}
+            onClick={() => {}} />
+          <p><strong>NOTE:</strong> This component comes from
+            the <code>grommet-addons</code> repository. You will need to add
+            a dependency to that repository in order to use it.</p>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
+          <dl>
+            <dt><code>filteredTotal     {"{number}"}</code></dt>
+            <dd>How many items match after filtering.</dd>
+            <dt><code>onClick           {"function () {...}"} </code></dt>
+            <dd>Function that will be called when the user clicks the
+              control.</dd>
+            <dt><code>unfilteredTotal   {"{number}"}</code></dt>
+            <dd>How many items there are without any filtering.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Example</h2>
+          <Example align='start' code={
+            <FilterControl unfilteredTotal={100} filteredTotal={50}
+              onClick={() => {}} />
+          } />
+        </section>
+
+      </DocsArticle>
+    );
+  }
+}

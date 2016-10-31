@@ -32,7 +32,7 @@ export default class AnnotatedMeterDoc extends Component {
         <section>
           <p>An interactive <Anchor path="/docs/meter">Meter</Anchor> annotated
             with a <Anchor path="/docs/value">Value</Anchor> and
-            endpoint <Anchor path="/docs/label">Labels</Anchor>.</p>
+            optional <Anchor path="/docs/legend">Legend</Anchor>.</p>
           <Box direction="row" align="center" pad={{ between: 'large' }}>
             <AnnotatedMeter type="bar" series={[
               { label: 'First', value: 20 },
@@ -56,17 +56,19 @@ export default class AnnotatedMeterDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>legend      true|false</code></dt>
+            <dd>Whether to show a Legend below the Meter. Defaults
+              to <code>false</code>.</dd>
             <dt><code>max         {"{number}"}</code></dt>
-            <dd>The largest possible value. Defaults to 100.</dd>
+            <dd>The largest possible value.</dd>
             <dt><code>series      {"[{value: , colorIndex: , " +
               "onClick: }, ...]"}</code></dt>
             <dd>An array of objects describing the data.</dd>
             <dt><code>size        small|medium|large</code></dt>
-            <dd>The size of the Meter. Defaults to <code>medium</code>.
-              Currently, the <code>spiral</code> type Meter does not respond
-              to this property.</dd>
+            <dd>The size of the Meter and Value. Defaults
+              to <code>medium</code>.</dd>
             <dt><code>type        bar|circle</code></dt>
-            <dd>Whether to draw a bar, or a circle visual.</dd>
+            <dd>Whether to draw a bar or a circle visual.</dd>
             <dt><code>units       {"{string}"}</code></dt>
             <dd>Optional units to display next to the value.</dd>
           </dl>
@@ -79,7 +81,7 @@ export default class AnnotatedMeterDoc extends Component {
             <AnnotatedMeter type="circle" series={[
               { label: 'First', value: 20 },
               { label: 'Second', value: 50 }
-            ]} />
+            ]} legend={true} />
           } />
         </section>
 

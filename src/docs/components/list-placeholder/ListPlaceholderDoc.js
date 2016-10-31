@@ -1,0 +1,68 @@
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+
+import React, { Component } from 'react';
+import ListPlaceholder from 'grommet-addons/components/ListPlaceholder';
+import Anchor from 'grommet/components/Anchor';
+import DocsArticle from '../../../components/DocsArticle';
+
+ListPlaceholder.displayName = 'ListPlaceholder';
+
+const USAGE =
+`import ListPlaceholder from 'grommet-addons/components/ListPlaceholder';
+<ListPlaceholder ... />`;
+
+export default class ListPlaceholderDoc extends Component {
+
+  render () {
+    return (
+      <DocsArticle title="ListPlaceholder" colorIndex="neutral-3">
+
+        <section>
+          <p>Displays helpful content when
+            a <Anchor path="/docs/list">List</Anchor>,
+            <Anchor path="/docs/tiles">Tiles</Anchor>, or
+            <Anchor path="/docs/table">Table</Anchor> has no content
+            to show, either while the data is being fetched, nothing
+            matches search or filter criteria, or there just aren't any items
+            to begin with.</p>
+          <ListPlaceholder unfilteredTotal={0} filteredTotal={0} />
+          <p><strong>NOTE:</strong> This component comes from
+            the <code>grommet-addons</code> repository. You will need to add
+            a dependency to that repository in order to use it.</p>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
+
+        <section>
+          <h2>Properties</h2>
+          <dl>
+            <dt><code>direction   asc|desc</code></dt>
+            <dd>The active direction.</dd>
+            <dt><code>onChange    {"function ({ value: , direction: }) {}"}
+              </code></dt>
+            <dd>Function that will be called when the user makes a choice. It
+              is passed an object describing the current option value and
+              direction.</dd>
+            <dt><code>options     {"[{label: , value: , direction: }, ...]"}
+              </code></dt>
+            <dd>Array of possible options. When an option is chosen, the
+              intial direction will be set as defined for that option.</dd>
+            <dt><code>value       {"{string}"}</code></dt>
+            <dd>The active option value.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Examples</h2>
+          <Anchor primary={true} path={`/docs/list-placeholder/examples`}>
+            ListPlaceholder Examples
+          </Anchor>
+        </section>
+
+      </DocsArticle>
+    );
+  }
+}
