@@ -6,6 +6,7 @@ import TableRow from 'grommet/components/TableRow';
 import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../components/ExamplesDoc';
 import Example from '../../Example';
+import Table4 from './Table4';
 
 const TABLE_HEADER = (
   <thead>
@@ -104,7 +105,8 @@ TableExamplesDoc.defaultProps = {
         header: TABLE_HEADER, rows: TABLE_BODY_PLAIN } },
     { label: 'TableRow', component: TableExample,
       props: { selectable: 'multiple',
-        header: TABLE_HEADER, rows: TABLE_BODY_TABLE_ROWS } }
+        header: TABLE_HEADER, rows: TABLE_BODY_TABLE_ROWS } },
+    { label: 'Sorting', component: Table4 }
   ],
   title: 'Examples'
 };

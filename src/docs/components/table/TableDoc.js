@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
+import TableHeader from 'grommet/components/TableHeader';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
 
@@ -13,12 +14,7 @@ const USAGE =
 `import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
 <Table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Note</th>
-    </tr>
-  </thead>
+  <TableHeader labels={['Name', 'Note']} />
   <tbody>
     <TableRow>
       <td>Alan</td>
@@ -44,15 +40,10 @@ export default class TableDoc extends Component {
             populating rows in the Table is to use TableRows inside
             a child <code>&lt;tbody&gt;</code> element.
             Callers can also specify
-            a child <code>&lt;thead&gt;</code> element if a header is
-            needed.</p>
+            a <Anchor path="/docs/table-header">TableHeader</Anchor> if
+            a header is needed.</p>
           <Table>
-            <thead>
-              <TableRow>
-                <th>name</th>
-                <th>note</th>
-              </TableRow>
-            </thead>
+            <TableHeader labels={['Name', 'Note']} />
             <tbody>
               <TableRow>
                 <td>Alan</td>

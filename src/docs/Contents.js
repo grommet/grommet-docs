@@ -129,6 +129,7 @@ import StatusDoc from './components/StatusDoc';
 import SunBurstDoc from './components/SunBurstDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
+import TableHeaderDoc from './components/TableHeaderDoc';
 import TabsDoc from './components/TabsDoc';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
@@ -312,6 +313,7 @@ export default [
       {path: 'table', label: 'Table', index: TableDoc, contents: [
         {path: 'examples', component: TableExamplesDoc}
       ]},
+      {path: 'table-header', label: 'TableHeader', component: TableHeaderDoc},
       {path: 'tabs', label: 'Tabs', index: TabsDoc},
       {path: 'text-input', label: 'TextInput', component: TextInputDoc},
       {path: 'tiles', label: 'Tiles', index: TilesDoc, contents: [
