@@ -60,8 +60,6 @@ export default class SelectDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>defaultValue  {"{value: , label: }|{string}"}</code></dt>
-            <dd>What text to start with in the input.</dd>
             <dt><code>inline        true|false</code></dt>
             <dd>Whether to display the options inline or via a drop down. The
               default is <code>false</code>.</dd>
