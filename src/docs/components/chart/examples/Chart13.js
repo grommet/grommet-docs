@@ -50,6 +50,7 @@ export default class Chart13 extends Component {
   }
 
   render () {
+    const { size } = this.props;
 
     return (
       <Example code={
@@ -57,7 +58,7 @@ export default class Chart13 extends Component {
           <Axis vertical={true} ticks={true}
             count={5} labels={PERCENT_AXIS_LABELS} />
           <Chart vertical={true} full={true} onMaxCount={this._onMaxCount}>
-            <Base height="medium" width="full" />
+            <Base height={size} width="full" />
             <Layers>
               <Grid rows={3} columns={(this.state.values.length / 12) + 1} />
               <Area max={100} min={0} values={this.state.values} />

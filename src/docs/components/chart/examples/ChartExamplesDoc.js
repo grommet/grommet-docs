@@ -1,6 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import ExamplesDoc from '../../../../components/ExamplesDoc';
 
@@ -22,34 +22,60 @@ import Chart14 from './Chart14';
 import Chart15 from './Chart15';
 import Chart16 from './Chart16';
 
-export default class ChartExamplesDoc extends ExamplesDoc {};
+const EXAMPLES = [
+  { label: 'Area with Value', component: Chart9 },
+  { label: 'Line with Value', component: Chart10 },
+  { label: 'Bar with Value', component: Chart11 },
+  { label: 'Area and Line with Value', component: Chart6 },
+  { label: 'Smooth Area and Line with Value', component: Chart6s },
+  { label: 'Vertical Area and Line with Value and updating',
+    component: Chart7 },
+  { label: 'Area and Line scaled to width and Legend',
+    component: Chart8 },
+  { label: 'Range selector', component: Chart13 },
+  { label: 'Vertical Range selector', component: Chart14 },
+  { label: 'Vertical Meters with Values, Axis, and Threshold',
+    component: Chart1 },
+  { label: 'Horizontal Meters with Values, Axis, and Threshold',
+    component: Chart2 },
+  { label: 'Horizontal Meters with inline labels and Values',
+    component: Chart3 },
+  { label: 'Vertical Meters with multiple segments and Legend',
+    component: Chart4 },
+  { label: 'Vertical Meters with stacked segments and Legend',
+    component: Chart5 },
+  { label: 'Sparkline', component: Chart15 },
+  { label: 'Range selector controlling another Chart',
+    component: Chart16 }
+];
 
-ChartExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/chart">Chart</Anchor>,
-  examples: [
-    { label: 'Area with Value', component: Chart9 },
-    { label: 'Line with Value', component: Chart10 },
-    { label: 'Bar with Value', component: Chart11 },
-    { label: 'Area and Line with Value', component: Chart6 },
-    { label: 'Smooth Area and Line with Value', component: Chart6s },
-    { label: 'Vertical Area and Line with Value and updating',
-      component: Chart7 },
-    { label: 'Area and Line scaled to width and Legend', component: Chart8 },
-    { label: 'Range selector', component: Chart13 },
-    { label: 'Vertical Range selector', component: Chart14 },
-    { label: 'Vertical Meters with Values, Axis, and Threshold',
-      component: Chart1 },
-    { label: 'Horizontal Meters with Values, Axis, and Threshold',
-      component: Chart2 },
-    { label: 'Horizontal Meters with inline labels and Values',
-      component: Chart3 },
-    { label: 'Vertical Meters with multiple segments and Legend',
-      component: Chart4 },
-    { label: 'Vertical Meters with stacked segments and Legend',
-      component: Chart5 },
-    { label: 'Sparkline', component: Chart15 },
-    { label: 'Range selector controlling another Chart', component: Chart16 }
-    // { label: 'Stacked Meters scaled to width', component: Chart12 }
-  ],
-  title: 'Examples'
+export default class ChartExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this._onChangeSize = this._onChangeSize.bind(this);
+    this.state = {};
+  }
+
+  _onChangeSize (size) {
+    this.setState({ size: size });
+  }
+
+  render () {
+    const { size } = this.state;
+    const examples = EXAMPLES.map(example => (
+      { ...example, props: { size: size } }
+    ));
+    return (
+      <ExamplesDoc
+        context={<Anchor path="/docs/chart">Chart</Anchor>}
+        examples={examples}
+        onPropertyChange={this._onChangeSize}
+        property={{
+          name: 'size',
+          values: [ 'xxsmall', 'xsmall', 'small', 'medium', 'large' ]
+        }}
+        title='Examples' />
+    );
+  }
 };

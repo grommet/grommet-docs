@@ -32,6 +32,7 @@ export default class Chart6s extends Component {
   }
 
   render () {
+    const { size } = this.props;
 
     let markerLabel;
     if (this.state.index || 0 === this.state.index) {
@@ -46,7 +47,7 @@ export default class Chart6s extends Component {
           <Chart vertical={true}>
             <MarkerLabel count={VALUESb.length} index={this.state.index}
               label={markerLabel} />
-            <Base height="medium" width="large" />
+            <Base height={size} width="large" />
             <Layers>
               <Grid rows={3} columns={5} />
               <Marker colorIndex="critical" value={THRESHOLD_AXIS.value} />

@@ -71,7 +71,11 @@ export default class ExamplesDoc extends Component {
   }
 
   _onChangePropertyValue (event) {
+    const { onPropertyChange } = this.props;
     this.setState({ propertyValue: event.target.value });
+    if (onPropertyChange) {
+      onPropertyChange(event.target.value);
+    }
   }
 
   _onTogglePropertyValue (event) {
@@ -202,6 +206,7 @@ ExamplesDoc.propTypes = {
     component: PropTypes.func,
     props: PropTypes.object
   })),
+  onPropertyChange: PropTypes.func,
   property: PropTypes.shape({
     name: PropTypes.string.isRequired,
     values: PropTypes.arrayOf(PropTypes.string)

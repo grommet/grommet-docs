@@ -55,6 +55,7 @@ export default class Chart16 extends Component {
   }
 
   render () {
+    const { size } = this.props;
     const { active, activeValues, index } = this.state;
 
     let markerLabel;
@@ -79,9 +80,9 @@ export default class Chart16 extends Component {
       <Example code={
         <Box>
           <Chart vertical={true}>
-            <Axis ticks={true} tickAlign="end" count={3} 
+            <Axis ticks={true} tickAlign="end" count={3}
               labels={UNIT_AXIS_LABELS} />
-            <Base height="small" width="large" />
+            <Base height="xsmall" width="large" />
             <Layers>
               <Area values={VALUES} />
               <Range count={VALUES.length}
@@ -91,7 +92,7 @@ export default class Chart16 extends Component {
           <Chart vertical={true}>
             <MarkerLabel count={activeValues.length} index={index}
               label={markerLabel} />
-            <Base height="medium" width="large" />
+            <Base height={size} width="large" />
             <Layers>
               <Grid rows={3} />
               <Marker vertical={true} colorIndex="graph-2"

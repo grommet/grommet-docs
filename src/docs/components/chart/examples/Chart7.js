@@ -52,6 +52,7 @@ export default class Chart7 extends Component {
   }
 
   render () {
+    const { size } = this.props;
 
     let markerLabel;
     if (this.state.index || 0 === this.state.index) {
@@ -66,7 +67,7 @@ export default class Chart7 extends Component {
           <Chart>
             <Axis vertical={true} reverse={true} ticks={true}
               count={2} labels={UNIT_AXIS_LABELS} />
-            <Base height="large" width="large" />
+            <Base height='large' width={size} />
             <Layers>
               <Grid rows={5} columns={3} />
               <Marker vertical={true}

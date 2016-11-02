@@ -62,6 +62,7 @@ export default class Chart8 extends Component {
   }
 
   render () {
+    const { size } = this.props;
 
     let markerLabel;
     if (this.state.index || 0 === this.state.index) {
@@ -85,7 +86,7 @@ export default class Chart8 extends Component {
           <Chart vertical={true} full={true} onMaxCount={this._maxCount()}>
             <MarkerLabel count={this.state.valuesB.length}
               index={this.state.index} label={markerLabel} />
-            <Base height="medium" width="full" />
+            <Base height={size} width="full" />
             <Layers>
               <Grid rows={3} columns={(this.state.valuesB.length / 12) + 1} />
               <Marker colorIndex="critical" value={THRESHOLD_AXIS.value} />

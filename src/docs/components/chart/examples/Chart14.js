@@ -26,6 +26,7 @@ export default class Chart14 extends Component {
   }
 
   render () {
+    const { size } = this.props;
 
     return (
       <Example code={
@@ -35,7 +36,7 @@ export default class Chart14 extends Component {
           <Chart vertical={false}>
             <Axis vertical={true} reverse={true} ticks={true}
               count={2} labels={UNIT_AXIS_LABELS} />
-            <Base height="large" width="medium" />
+            <Base height="large" width={size} />
             <Layers>
               <Grid columns={3} rows={2} />
               <Area vertical={true} max={100} min={0} values={VALUES} />

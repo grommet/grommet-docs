@@ -17,6 +17,7 @@ export default class Chart9 extends Component {
   }
 
   render () {
+    const { size } = this.props;
 
     let markerLabel;
     if (this.state.index >= 0) {
@@ -32,7 +33,7 @@ export default class Chart9 extends Component {
         <Chart vertical={true}>
           <MarkerLabel count={VALUES.length} index={this.state.index}
             label={markerLabel} />
-          <Base height="medium" width="large" />
+          <Base height={size} width="large" />
           <Layers>
             <Marker vertical={true} colorIndex="graph-2"
               count={VALUES.length} index={this.state.index} />

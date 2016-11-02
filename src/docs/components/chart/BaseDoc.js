@@ -19,7 +19,8 @@ export default class BaseDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>height       small|medium|large|sparkline</code></dt>
+            <dt><code>height       xxsmall|xsmall|small|medium|large|sparkline
+              </code></dt>
             <dd>The height of the drawing area. Defaults
               to <code>medium</code>.</dd>
             <dt><code>vertical     true|false</code></dt>
