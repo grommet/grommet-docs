@@ -33,7 +33,8 @@ export default class TimestampDoc extends Component {
           <dl>
             <dt><code>align     start|center|end</code></dt>
             <dd>The horizontal alignment of the Timestamp.</dd>
-            <dt><code>fields    date|time|hours|minutes|seconds</code></dt>
+            <dt><code>fields    date|time|year|month|day|hour|minute|second
+              </code></dt>
             <dd>Which fields to include in the Timestamp.</dd>
             <dt><code>value     {'{ISO8601 string}|{Date}'}</code></dt>
             <dd>The date value as an ISO8601 string or
@@ -49,6 +50,9 @@ export default class TimestampDoc extends Component {
           } />
           <Example name="Date only" code={
             <Timestamp value={now} fields="date" />
+          } />
+          <Example name="Month and day only" code={
+            <Timestamp value={now} fields={['month', 'day']} />
           } />
           <Example name="Date and time with seconds" code={
             <Timestamp value={now} fields={["date", "time", "seconds"]} />
