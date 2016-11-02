@@ -65,7 +65,7 @@ export default class SidebarDoc extends Component {
             <dt><code>fixed      true|false</code></dt>
             <dd>Whether any contained Header and Footer should be fixed to
               the top and bottom.</dd>
-            <dt><code>size       small|medium|large</code></dt>
+            <dt><code>size       xsmall|small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
             <dt><code>full       true|false</code></dt>
             <dd>Whether the sidebar should take up the full browser height or
