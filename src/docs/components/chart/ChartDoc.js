@@ -12,7 +12,8 @@ import Example from '../../Example';
 Chart.displayName = 'Chart';
 
 const USAGE =
-`import Chart, { Axis, Base, Layers, Line } from 'grommet/components/chart';
+`import Chart, { Axis, Base, Layers, Line } ` +
+`from 'grommet/components/chart/Chart';
 <Chart>
   <Axis count={...} ticks={true}>
   <Base />
