@@ -149,7 +149,7 @@ export default class Home extends Component {
 
         <HomeSection colorIndex='brand'>
           <Heading tag='h2'>Why Grommet?</Heading>
-          <Box direction='row' wrap={true}
+          <Box direction='row' full='horizontal'
             pad={{
               between: 'large', vertical: 'medium', horizontal: 'medium'
             }}>
