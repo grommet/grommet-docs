@@ -34,7 +34,7 @@ export default class Example extends Component {
     }
 
     return (
-      <Box full={full} flex={true} pad={{horizontal: 'medium'}}>
+      <Box full={full} pad={{horizontal: 'medium'}}>
         {heading}
         <Box pad={{ between: 'medium' }} align={align}>
           {control || code}

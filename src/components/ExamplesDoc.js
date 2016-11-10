@@ -5,6 +5,7 @@ import Section from 'grommet/components/Section';
 import Header from 'grommet/components/Header';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
+import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import CheckBox from 'grommet/components/CheckBox';
 import Select from 'grommet/components/Select';
@@ -165,7 +166,7 @@ export default class ExamplesDoc extends Component {
     let content = <Component {...props} />;
     if (INNER_BACKGROUND[background]) {
       content = (
-        <Section flex={true} pad="medium"
+        <Section pad="medium"
           colorIndex={INNER_BACKGROUND[background]}>
           {content}
         </Section>
@@ -188,7 +189,9 @@ export default class ExamplesDoc extends Component {
           direction="row" pad={pad}
           colorIndex={OUTER_BACKGROUND[background]}>
           {previous}
-          {content}
+          <Box flex={true}>
+            {content}
+          </Box>
           {next}
         </Section>
 

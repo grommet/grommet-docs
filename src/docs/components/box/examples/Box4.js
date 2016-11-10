@@ -8,7 +8,7 @@ export default class Box4 extends Component {
 
   render () {
     return (
-      <Box flex={true}>
+      <div>
         <Example code={
           <Box>
             <Box direction='row'>
@@ -59,7 +59,7 @@ export default class Box4 extends Component {
         The issue is covered
         in <a href='https://bugs.webkit.org/show_bug.cgi?id=137730'>
         some discussion notes</a></p>
-      </Box>
+      </div>
     );
   }
 
