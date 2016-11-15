@@ -39,19 +39,15 @@ export default class ListPlaceholderDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>direction   asc|desc</code></dt>
-            <dd>The active direction.</dd>
-            <dt><code>onChange    {"function ({ value: , direction: }) {}"}
-              </code></dt>
-            <dd>Function that will be called when the user makes a choice. It
-              is passed an object describing the current option value and
-              direction.</dd>
-            <dt><code>options     {"[{label: , value: , direction: }, ...]"}
-              </code></dt>
-            <dd>Array of possible options. When an option is chosen, the
-              intial direction will be set as defined for that option.</dd>
-            <dt><code>value       {"{string}"}</code></dt>
-            <dd>The active option value.</dd>
+            <dt><code>addControl       {"{element}"}</code></dt>
+            <dd>An control to show when there are no items in existence.</dd>
+            <dt><code>emptyMessage     {"{string}"}</code></dt>
+            <dd>What to say when there are no items in existence. Defaults
+              to 'None'.</dd>
+            <dt><code>filteredTotal    {"{number}"}</code></dt>
+            <dd>How many items match the current search and/or filters.</dd>
+            <dt><code>unfilteredTotal  {"{number}"}</code></dt>
+            <dd>How many items exist.</dd>
           </dl>
         </section>
 
