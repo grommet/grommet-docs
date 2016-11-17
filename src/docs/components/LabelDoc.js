@@ -39,6 +39,10 @@ export default class LabelDoc extends Component {
           <dl>
             <dt><code>labelFor          {"{string}"}</code></dt>
             <dd>ID of the form element that the label is for.  Optional.</dd>
+            <dt><code>truncate    true|false</code></dt>
+            <dd>Restrict the text to a single line and truncate with
+              ellipsis if it is too long to all fit.
+              Defaults to <code>false</code>.</dd>
             <dt><code>uppercase         true|false</code></dt>
             <dd>Convert the label to uppercase.
               Defaults to <code>false</code>.</dd>
@@ -53,6 +57,12 @@ export default class LabelDoc extends Component {
           } />
           <Example name="Uppercase" code={
             <Label uppercase={true}>Sample Label</Label>
+          } />
+        <Example name="Truncate" code={
+            <Label truncate={true}>
+              Avoid creating long labels wherever possible as they are harder
+              to read
+            </Label>
           } />
         </section>
 

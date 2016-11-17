@@ -47,6 +47,10 @@ export default class HeadingDoc extends Component {
             <dt><code>tag         h1|h2|h3|h4|h5|h6</code></dt>
             <dd>Which HTML heading level should be used.
               Defaults to <code>h1</code>.</dd>
+            <dt><code>truncate    true|false</code></dt>
+            <dd>Restrict the text to a single line and truncate with
+              ellipsis if it is too long to all fit.
+              Defaults to <code>false</code>.</dd>
             <dt><code>uppercase   true|false</code></dt>
             <dd>Convert the heading to uppercase.
               Defaults to <code>false</code>.</dd>
@@ -54,9 +58,12 @@ export default class HeadingDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
-          <Example code={
+          <h2>Examples</h2>
+          <Example name='Default' code={
             <Heading>Sample Heading</Heading>
+          } />
+        <Example name='Truncate' code={
+            <Heading truncate={true}>Avoid Creating Long Headings</Heading>
           } />
         </section>
 

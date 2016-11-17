@@ -39,6 +39,10 @@ export default class TitleDoc extends Component {
             <dt><code>responsive     true|false</code></dt>
             <dd>Whether to only display the logo when the display area
               narrows.</dd>
+            <dt><code>truncate       true|false</code></dt>
+            <dd>Restrict the text to a single line and truncate with
+              ellipsis if it is too long to all fit.
+              Defaults to <code>true</code>.</dd>
           </dl>
         </section>
 
