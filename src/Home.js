@@ -5,6 +5,7 @@ import { findDOMNode } from 'react-dom';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
+import Headline from 'grommet/components/Headline';
 import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
@@ -13,6 +14,8 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import GrommetLogo from 'grommet/components/icons/Grommet';
+import UpIcon from 'grommet/components/icons/base/Up';
+import DownIcon from 'grommet/components/icons/base/Down';
 import SlackIcon from 'grommet/components/icons/base/SocialSlack';
 import GithubIcon from 'grommet/components/icons/base/SocialGithub';
 import TwitterIcon from 'grommet/components/icons/base/SocialTwitter';
@@ -24,13 +27,17 @@ import RunIcon from 'grommet/components/icons/base/Run';
 import Hands from './img/Hands.js';
 import ThemeMenu from './components/ThemeMenu';
 
-const HomeSection = (props) => (
-  <Section
-    appCentered={true} justify='center' align='center'
-    pad={{vertical: 'large'}} {...props}>
-    {props.children}
-  </Section>
-);
+class HomeSection extends Component {
+  render () {
+    return (
+      <Section
+        appCentered={true} justify='center' align='center'
+        pad={{vertical: 'large'}} {...this.props}>
+        {this.props.children}
+      </Section>
+    );
+  }
+};
 
 
 const WhyGrommetItem = (props) => (
@@ -48,10 +55,15 @@ export default class Home extends Component {
   constructor () {
     super();
     this._onScroll = this._onScroll.bind(this);
-    this.state = { mobileOffset: 0, showCodePen: false };
+    this._onResize = this._onResize.bind(this);
+    this.state = {
+      mobileNavHeight: 0, mobileOffset: 0, navActive: false,
+      showCodePen: false
+    };
   }
 
   componentDidMount () {
+    window.addEventListener('resize', this._onResize);
     this._app = document.querySelector('.grommetux-app');
     this._app.addEventListener('scroll', this._onScroll);
     // delay showing the codepen to avoid interfering with logo animation
@@ -59,11 +71,24 @@ export default class Home extends Component {
     if (document) {
       document.title = 'Grommet';
     }
+    this._layout();
   }
 
   componentWillUnmount () {
+    window.removeEventListener('resize', this._onResize);
     this._app.removeEventListener('scroll', this._onScroll);
     clearTimeout(this.timeout);
+  }
+
+  _onResize () {
+    this._layout();
+  }
+
+  _layout () {
+    if (this._mobileNavRef) {
+      const rect = findDOMNode(this._mobileNavRef).getBoundingClientRect();
+      this.setState({ mobileNavHeight: rect.height });
+    }
   }
 
   _onScroll (event) {
@@ -75,12 +100,19 @@ export default class Home extends Component {
   }
 
   render () {
-    const mobileStyle = {
-      backgroundPosition: `50% ${50 - this.state.mobileOffset}%`
-    };
+    const {
+      mobileNavHeight, mobileOffset, navActive, showCodePen
+    } = this.state;
+
+    let articleStyle;
+    if (! navActive) {
+      articleStyle = { transform: `translateY(-${mobileNavHeight}px)` };
+    }
+
+    const mobileStyle = { backgroundPosition: `50% ${50 - mobileOffset}%` };
 
     let codePen;
-    if (this.state.showCodePen) {
+    if (showCodePen) {
       codePen = (
         <iframe height='268' scrolling='no'
           src={'//codepen.io/grommet/embed/gaEGPY/?' +
@@ -98,34 +130,66 @@ export default class Home extends Component {
     }
 
     return (
-      <Article className='home'>
-        <HomeSection pad='none'>
-          <Header fixed={false} appCentered={true} justify='center'>
-            <Menu direction='row' responsive={false} dropAlign={{left: 'left'}}>
+      <Article className='home' style={articleStyle}>
+
+        <HomeSection ref={(ref) => this._mobileNavRef = ref}
+          className='home-mobile' colorIndex='brand'
+          pad={{ vertical: 'medium', between: 'small' }}>
+          <GrommetLogo a11yTitle='Grommet Logo' invert={true} />
+          <Menu primary={true}>
+            <Anchor path='/docs/get-started'>Start</Anchor>
+            <Anchor path='/docs'>Docs</Anchor>
+          </Menu>
+        </HomeSection>
+
+        <HomeSection pad={{ vertical: 'medium' }} align='stretch'>
+
+          <Button className='home-mobile' fill={true}
+            onClick={() => this.setState({ navActive: ! navActive })}>
+            <Box align='center' pad={{ between: 'small' }}>
+              {navActive ? <UpIcon /> : <DownIcon />}
+              MENU
+            </Box>
+          </Button>
+          <Header className='home-desktop' fixed={false} appCentered={true}>
+            <GrommetLogo a11yTitle='Grommet Logo' />
+            <Menu direction='row' responsive={false}>
               <Anchor path='/docs/get-started'>Start</Anchor>
-              {/*}
-              <Anchor path='/docs/learn'>Learn</Anchor>
-              {*/}
               <Anchor path='/docs'>Docs</Anchor>
             </Menu>
           </Header>
+
           <Box primary={true} pad={{vertical: 'large'}} direction='column'
             align='center' flex={false}>
-            <GrommetLogo size='xlarge' a11yTitle='Grommet Logo'
-              a11yTitleId='hero_logo' />
-            <Heading tag='h2' margin='medium'>grommet</Heading>
-            <Paragraph size='large' align='center'>
+
+            <Headline className='home-desktop' size='xlarge'>
+              <span>gr</span>
+              <GrommetLogo size='large' a11yTitle='Grommet Logo'
+                a11yTitleId='hero_logo' />
+              <span>mmet</span>
+            </Headline>
+
+            <Box className='home-mobile' align='center'
+              pad={{ between: 'medium' }}>
+              <GrommetLogo size='large' a11yTitle='Grommet Logo'
+                a11yTitleId='hero_logo' />
+              <Heading tag='h1'>grommet</Heading>
+            </Box>
+
+            <Paragraph size='large' align='center' margin='none'>
               focus on the essential experience
             </Paragraph>
           </Box>
           <Footer appCentered={true} justify='center'>
             <Menu inline={true} responsive={false} direction='row'>
               <Anchor href='http://slackin.grommet.io'
-                icon={<SlackIcon a11yTitle='Grommet Slack' />}/>
+                icon={<SlackIcon
+                  a11yTitle='Grommet Slack' />}/>
               <Anchor href='https://github.com/grommet/grommet'
-                icon={<GithubIcon a11yTitle='Grommet Github' />}/>
+                icon={<GithubIcon
+                  a11yTitle='Grommet Github' />}/>
               <Anchor href='https://twitter.com/grommetux'
-                icon={<TwitterIcon colorIndex='grey-4'
+                icon={<TwitterIcon
                 a11yTitle='Grommet Twitter' />}/>
             </Menu>
           </Footer>

@@ -6,3 +6,19 @@
   flex: 0 0 auto;
   margin-bottom: round($inuit-base-spacing-unit * 14);
 }
+
+@include media-query(lap-and-up) {
+  .home-mobile {
+    display: none;
+  }
+}
+
+@include media-query(palm) {
+  .home-desktop {
+    display: none;
+  }
+
+  .home {
+    transition: transform $animation-duration;
+  }
+}
