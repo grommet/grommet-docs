@@ -13,8 +13,7 @@ function createContentRoutes (contents, asChildren) {
   let result = [];
   contents.forEach(content => {
     if (content.path) {
-      const path = (asChildren ? content.path : `/docs/${content.path}`);
-      const route = { path };
+      const route = { path: content.path };
       if (content.component) {
         route.component = content.component;
       } else {
