@@ -82,7 +82,8 @@ export default class DocsMenu extends Component {
       }
       return false;
     });
-    const menuItems = this._renderMenuItems([activeSection], null);
+    const contents = activeSection ? [activeSection] : Contents;
+    const menuItems = this._renderMenuItems(contents, null);
 
     return (
       <Menu direction='column' align='start' justify='between' primary={true}>
