@@ -49,7 +49,7 @@ class ListExample extends Component {
           <span>{datum.name}</span>
           <span className="secondary">{datum.mood}</span>
         </ListItem>
-        );
+      );
     });
 
     return (

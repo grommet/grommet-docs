@@ -80,7 +80,7 @@ export default class SidebarDoc extends Component {
             <Sidebar colorIndex="neutral-1" full={false}>
               <Header pad="medium" justify="between">
                 <Title>Title</Title>
-                <Button icon={<CloseIcon />} onClose={this._onClose} />
+                <Button icon={<CloseIcon />} onClick={this._onClose} />
               </Header>
               <Menu primary={true}>
                 <Anchor>Navigation 1</Anchor>

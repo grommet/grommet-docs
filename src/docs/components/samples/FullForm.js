@@ -99,7 +99,7 @@ export default class FullForm extends Component {
             </FormField>
             <FormField label="Item 5" htmlFor={p + "item5"}
               error="something's wrong">
-              <textarea id={p + "item5"} name="item-5"></textarea>
+              <textarea id={p + "item5"} name="item-5" />
             </FormField>
             <FormField label="Item 6" htmlFor={p + "item6"}>
               <SearchInput id={p + "item6"} name="item-6"

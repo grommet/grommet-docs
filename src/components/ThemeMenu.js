@@ -77,9 +77,9 @@ export default class ThemeMenu extends Component {
 
   render () {
     const { align } = this.props;
-    const { theme, active } = this.state;
+    const { active } = this.state;
 
-    let layer = <span></span>;
+    let layer = <span />;
     if (active) {
       const links = THEMES.map(theme => (
         <Anchor key={theme} href={this.state.themeUrls[theme]}>

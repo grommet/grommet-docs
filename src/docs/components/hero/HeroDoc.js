@@ -9,7 +9,7 @@ Hero.displayName = 'Hero';
 
 const USAGE =
 `import Hero from 'grommet/components/Hero';
-<Hero backgroundType="image" backgroundImage="img/carousel-1.png">
+<Hero backgroundImage="img/carousel-1.png">
   {contents}
 </Hero>`;
 
@@ -21,7 +21,7 @@ export default class HeroDoc extends Component {
 
         <section>
           <p>A Hero image or video, overlaid with text.</p>
-          <Hero backgroundType="image" backgroundImage="/img/carousel-1.png">
+          <Hero backgroundImage="/img/carousel-1.png">
             <h1>This is a Hero</h1>
           </Hero>
         </section>
