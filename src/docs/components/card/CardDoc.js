@@ -16,7 +16,7 @@ const USAGE =
 export default class CardDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Card" colorIndex="neutral-3">
+      <DocsArticle title="Card">
 
         <section>
           <p>An annotated summary of something. This could be used on a

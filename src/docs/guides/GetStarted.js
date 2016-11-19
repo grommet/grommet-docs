@@ -8,7 +8,7 @@ export default class GetStartedDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Get Started" colorIndex="neutral-1">
+      <DocsArticle title="Get Started">
         <p>
           Welcome to the Grommet Get Started page. Here you will find
           instructions

@@ -57,7 +57,7 @@ export default class ListDoc extends Component {
     });
 
     return (
-      <DocsArticle title="List" colorIndex="neutral-3">
+      <DocsArticle title="List">
 
         <section>
           <p>A list of items. The preferred method of populating items in the

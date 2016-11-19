@@ -21,7 +21,7 @@ export default class TileDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Tiles" colorIndex="neutral-3">
+      <DocsArticle title="Tiles">
 
         <section>
           <p>A grid of items. The preferred method of populating

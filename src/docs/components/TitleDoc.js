@@ -16,7 +16,7 @@ export default class TitleDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Title" colorIndex="neutral-3">
+      <DocsArticle title="Title">
 
         <section>
           <p>Title component usually rendered inside a Header.</p>

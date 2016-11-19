@@ -16,7 +16,7 @@ export default class TimestampDoc extends Component {
   render () {
     const now = (new Date()).toISOString();
     return (
-      <DocsArticle title="Timestamp" colorIndex="neutral-3">
+      <DocsArticle title="Timestamp">
 
         <section>
           <p>A localized timestamp.</p>

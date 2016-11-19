@@ -8,7 +8,7 @@ export default class DateTime extends Component {
 
   render () {
     return (
-      <DocsArticle title="Date and Time" colorIndex="neutral-2">
+      <DocsArticle title="Date and Time">
         <Box>
           <p>Date and time formats should generally be displayed in the user’s
           local timezone.  Any exceptions to this should include the timezone

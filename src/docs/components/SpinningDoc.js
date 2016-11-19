@@ -12,7 +12,7 @@ export default class SpinningDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Spinning" colorIndex="neutral-3">
+      <DocsArticle title="Spinning">
 
         <section>
           <p>An indeterminate spinning/busy icon. This should be used sparingly.

@@ -21,7 +21,7 @@ export default class SectionDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Section" colorIndex="neutral-3">
+      <DocsArticle title="Section">
 
         <section>
           <p>A standard <Anchor

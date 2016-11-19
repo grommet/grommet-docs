@@ -23,7 +23,7 @@ import AccordionPanel from 'grommet/components/AccordionPanel';
 export default class AccordionDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Accordion" colorIndex="neutral-3">
+      <DocsArticle title="Accordion">
 
         <section>
           <p>A collapsible accordion component.</p>

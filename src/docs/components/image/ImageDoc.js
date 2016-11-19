@@ -16,7 +16,7 @@ export default class ImageDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Image" colorIndex="neutral-3">
+      <DocsArticle title="Image">
 
         <section>
           <p>An image.</p>

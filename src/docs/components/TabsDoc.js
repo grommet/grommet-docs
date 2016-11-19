@@ -29,7 +29,7 @@ export default class TabsDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Tab(s)" colorIndex="neutral-3">
+      <DocsArticle title="Tab(s)">
 
         <section>
           <p>A tabular view component.</p>

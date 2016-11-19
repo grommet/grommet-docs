@@ -24,7 +24,7 @@ export default class SplitDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Split" colorIndex="neutral-3">
+      <DocsArticle title="Split">
 
         <section>
           <p>A full height container with two children laid out horizontally.

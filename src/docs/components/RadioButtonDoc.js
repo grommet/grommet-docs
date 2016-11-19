@@ -25,7 +25,7 @@ export default class RadioButtonDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="RadioButton" colorIndex="neutral-3">
+      <DocsArticle title="RadioButton">
 
         <section>
           <p>A radio button in a web form. We have a separate component from the

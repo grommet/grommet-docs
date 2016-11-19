@@ -174,8 +174,7 @@ export default class ExamplesDoc extends Component {
     }
 
     return (
-      <DocsArticle context={context} title={title} colorIndex="neutral-3"
-        full={true}>
+      <DocsArticle context={context} title={title} full={true}>
         <Header justify="between" colorIndex="light-2"
           pad={{ horizontal: 'large' }} responsive={true}>
           {menu}

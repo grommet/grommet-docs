@@ -15,7 +15,7 @@ export default class ValueDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Value" colorIndex="neutral-3">
+      <DocsArticle title="Value">
 
         <section>
           <p>Value component, focusing on a single number.</p>

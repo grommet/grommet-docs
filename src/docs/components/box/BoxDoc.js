@@ -16,7 +16,7 @@ export default class BoxDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Box" colorIndex="neutral-3">
+      <DocsArticle title="Box">
 
         <section>
           <p>General purpose flexible box layout. This supports many,

@@ -13,7 +13,7 @@ export default class StatusDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Status" colorIndex="neutral-3">
+      <DocsArticle title="Status">
 
         <section>
           <p>A status icon.</p>

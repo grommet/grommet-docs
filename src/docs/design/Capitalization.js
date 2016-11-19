@@ -8,7 +8,7 @@ export default class Capitalization extends Component {
 
   render () {
     return (
-      <DocsArticle title="Capitalization" colorIndex="neutral-2">
+      <DocsArticle title="Capitalization">
         <Box>
           <p>For the English language, we recommend using English title
             capitalization

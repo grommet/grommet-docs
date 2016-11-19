@@ -26,7 +26,7 @@ export default class LegendDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Legend" colorIndex="neutral-3">
+      <DocsArticle title="Legend">
 
         <section>
           <p>A legend, typically associated with a data visualization such

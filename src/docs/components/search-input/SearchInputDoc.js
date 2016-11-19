@@ -38,7 +38,7 @@ export default class SearchInputDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="SearchInput" colorIndex="neutral-3">
+      <DocsArticle title="SearchInput">
 
         <section>
           <p>An input field with a search control.</p>

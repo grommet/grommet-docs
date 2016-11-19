@@ -28,7 +28,7 @@ export default class SidebarDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Sidebar" colorIndex="neutral-3">
+      <DocsArticle title="Sidebar">
 
         <section>
           <p>A full height, fixed width container. Usually a Sidebar is placed

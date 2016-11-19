@@ -29,7 +29,7 @@ export default class ColumnsDoc extends Component {
       );
     }
     return (
-      <DocsArticle title="Columns" colorIndex="neutral-3">
+      <DocsArticle title="Columns">
 
         <section>
           <p>Organize children into multiple components based on available

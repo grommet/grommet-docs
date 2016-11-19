@@ -23,7 +23,7 @@ export default class AppDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="App" colorIndex="neutral-3">
+      <DocsArticle title="App">
 
         <section>
           <p>This is the primary Grommet container outer. Typically it will

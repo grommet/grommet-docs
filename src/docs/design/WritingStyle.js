@@ -8,7 +8,7 @@ export default class WritingStyle extends Component {
 
   render () {
     return (
-      <DocsArticle title="Writing Style" colorIndex="neutral-2">
+      <DocsArticle title="Writing Style">
         <Box>
           <p>Applications should use a conversational tone and should
             not include

@@ -15,7 +15,7 @@ export default class SearchDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Search" colorIndex="neutral-3">
+      <DocsArticle title="Search">
 
         <section>
           <p>A responsive search control.</p>

@@ -9,11 +9,12 @@ import Contents from './docs/Contents';
 
 const Container = (props) => <div>{props.children}</div>;
 
-function createContentRoutes (contents) {
+function createContentRoutes (contents, asChildren) {
   let result = [];
   contents.forEach(content => {
     if (content.path) {
-      const route = { path: content.path };
+      const path = (asChildren ? content.path : `/docs/${content.path}`);
+      const route = { path };
       if (content.component) {
         route.component = content.component;
       } else {
@@ -22,8 +23,11 @@ function createContentRoutes (contents) {
       if (content.index) {
         route.indexRoute = { component: content.index };
       }
+      if (content.children) {
+        route.childRoutes = createContentRoutes(content.children, true);
+      }
       if (content.contents) {
-        route.childRoutes = createContentRoutes(content.contents);
+        result = result.concat(createContentRoutes(content.contents));
       }
       result.push(route);
     } else if (content.contents) {

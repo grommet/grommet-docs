@@ -18,7 +18,7 @@ export default class HeadingDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Heading" colorIndex="neutral-3">
+      <DocsArticle title="Heading">
 
         <section>
           <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.

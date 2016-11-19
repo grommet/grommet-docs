@@ -17,7 +17,7 @@ export default class PulseDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Pulse" colorIndex="neutral-3">
+      <DocsArticle title="Pulse">
 
         <section>
           <p>

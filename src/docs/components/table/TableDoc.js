@@ -33,7 +33,7 @@ export default class TableDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Table" colorIndex="neutral-3">
+      <DocsArticle title="Table">
 
         <section>
           <p>Table of items. The preferred method of

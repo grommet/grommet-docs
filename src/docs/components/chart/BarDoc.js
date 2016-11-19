@@ -11,7 +11,7 @@ export default class BarDoc extends Component {
   render () {
     return (
       <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Bar" colorIndex="neutral-3">
+        title="Bar">
 
         <p>An bar graphic in a <Anchor path={`/docs/chart`}>
           Chart</Anchor>.

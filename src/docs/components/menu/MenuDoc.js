@@ -27,7 +27,7 @@ export default class MenuDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Menu" colorIndex="neutral-3">
+      <DocsArticle title="Menu">
 
         <section>
           <p>Presents a list of choices responsively.</p>

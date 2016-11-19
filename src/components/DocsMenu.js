@@ -2,7 +2,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import Menu from 'grommet/components/Menu';
-import Box from 'grommet/components/Box';
+import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
 import Anchor from 'grommet/components/Anchor';
@@ -15,20 +15,30 @@ export default class DocsMenu extends Component {
     return contents.filter(content => content.label).map((content, index) => {
       let item;
 
-      if (content.path) {
+      if (! content.contents) {
         item = (
           <Anchor key={content.label} path={`/docs/${content.path}`}
             onClick={this.props.onClick}>
             {content.label}
           </Anchor>
         );
-      } else {
+      } else if (content.path) {
         item = (
-          <Box key={content.label} pad={{horizontal: 'medium'}}>
-            <Heading tag="h3" strong={true}>
+          <Anchor key={content.label} path={`/docs/${content.path}`}
+            onClick={this.props.onClick}>
+            <Heading tag='h3' margin='none' strong={true}>
               {content.label}
             </Heading>
-          </Box>
+          </Anchor>
+        );
+      } else {
+        item = (
+          <Header key={content.label} align='end'
+            pad={{ horizontal: 'medium' }}>
+            <Heading tag='h4' strong={true}>
+              {content.label}
+            </Heading>
+          </Header>
         );
       }
 
@@ -39,7 +49,7 @@ export default class DocsMenu extends Component {
 
       if (!context || subItems) {
         return (
-          <Menu key={content.label} direction="column" align="start"
+          <Menu key={content.label} direction='column' align='start'
             primary={true}>
             {item}
             {subItems}
@@ -51,15 +61,34 @@ export default class DocsMenu extends Component {
     });
   }
 
+  _isActive(item) {
+    const { router } = this.context;
+    let result = false;
+    if (item.path && router.isActive(`/docs/${item.path}`)) {
+      result = true;
+    } else if (item.contents) {
+      result = item.contents.some(contentItem => this._isActive(contentItem));
+    }
+    return result;
+  }
+
   render () {
-    const menuItems = this._renderMenuItems(Contents, null);
+    // figure out which section we are in
+    let activeSection;
+    Contents.some(item => {
+      if (this._isActive(item)) {
+        activeSection = item;
+        return true;
+      }
+      return false;
+    });
+    const menuItems = this._renderMenuItems([activeSection], null);
 
     return (
-      <Menu direction="column" align="start" justify="between" primary={true}>
+      <Menu direction='column' align='start' justify='between' primary={true}>
         {menuItems}
-        <Footer primary={true} colorIndex="light-2"
-          pad={{ horizontal: 'medium' }}>
-          <ThemeMenu align="left" />
+        <Footer size='large' primary={true} pad={{ horizontal: 'medium' }}>
+          <ThemeMenu align='left' />
         </Footer>
       </Menu>
     );
@@ -68,4 +97,8 @@ export default class DocsMenu extends Component {
 
 DocsMenu.propTypes = {
   onClick: PropTypes.func
+};
+
+DocsMenu.contextTypes = {
+  router: PropTypes.any
 };

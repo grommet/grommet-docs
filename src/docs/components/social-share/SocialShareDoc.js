@@ -16,7 +16,7 @@ export default class SocialShareDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Social Share" colorIndex="neutral-3">
+      <DocsArticle title="Social Share">
 
         <section>
           <p>A social media share icon button.</p>

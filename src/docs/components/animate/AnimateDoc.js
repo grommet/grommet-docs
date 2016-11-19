@@ -28,7 +28,7 @@ export default class AnimateDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Animate" colorIndex="neutral-3">
+      <DocsArticle title="Animate">
 
         <section>
           <p>An animation wrapper to transition components in &amp; out.</p>

@@ -30,7 +30,7 @@ export default class ChartDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart" colorIndex="neutral-3">
+      <DocsArticle title="Chart">
 
         <section>
           <p>The Grommet Chart components provide the building blocks

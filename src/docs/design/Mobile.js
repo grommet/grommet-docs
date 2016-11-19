@@ -8,7 +8,7 @@ export default class Mobile extends Component {
 
   render () {
     return (
-      <DocsArticle title="Mobile" colorIndex="neutral-1">
+      <DocsArticle title="Mobile">
         <Box>
           <p>Mobile is not just different screen sizes. Mobile devices actually
           change the fundamental user user experience of common tasks. Embrace

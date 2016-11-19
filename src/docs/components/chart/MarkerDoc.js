@@ -11,7 +11,7 @@ export default class MarkerDoc extends Component {
   render () {
     return (
       <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Marker" colorIndex="neutral-3">
+        title="Marker">
 
         <p>An simple line graphic in a <Anchor path={`/docs/chart`}>
           Chart</Anchor>. It is typically used to indicate a threshold or

@@ -11,7 +11,7 @@ export default class GridDoc extends Component {
   render () {
     return (
       <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Grid" colorIndex="neutral-3">
+        title="Grid">
 
         <p>A grid decorating a <Anchor path={`/docs/chart`}>
           Chart</Anchor>. It should be

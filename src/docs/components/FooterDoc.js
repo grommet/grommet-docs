@@ -26,7 +26,7 @@ export default class FooterDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Footer" colorIndex="neutral-3">
+      <DocsArticle title="Footer">
 
         <section>
           <p>Put things at the bottom.</p>

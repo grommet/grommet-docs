@@ -48,7 +48,7 @@ export default class FormDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Form" colorIndex="neutral-3">
+      <DocsArticle title="Form">
 
         <section>
           <p>A web form.</p>

@@ -26,7 +26,7 @@ export default class CheckBoxDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="CheckBox" colorIndex="neutral-3">
+      <DocsArticle title="CheckBox">
 
         <section>
           <p>A check box in a web form. We have a separate component from the

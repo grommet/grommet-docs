@@ -19,7 +19,7 @@ export default class Padding extends Component {
 
   render () {
     return (
-      <DocsArticle title="Padding" colorIndex="neutral-2">
+      <DocsArticle title="Padding">
         <section>
           <p>Padding around elements is based off of multiples and fractions of
             24px. This value is used for line height, sizing, padding and

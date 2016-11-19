@@ -24,6 +24,7 @@ import AccessAccessibilityIcon from
   'grommet/components/icons/base/AccessAccessibility';
 import ConfigureIcon from 'grommet/components/icons/base/Configure';
 import RunIcon from 'grommet/components/icons/base/Run';
+import Contents from './docs/Contents';
 import Hands from './img/Hands.js';
 import ThemeMenu from './components/ThemeMenu';
 
@@ -129,6 +130,12 @@ export default class Home extends Component {
       codePen = <div style={{ height: 268 }} />;
     }
 
+    const menuAnchors = Contents.map(section => (
+      <Anchor key={section.path} path={`/docs/${section.path}`}>
+        {section.label}
+      </Anchor>
+    ));
+
     return (
       <Article className='home' style={articleStyle}>
 
@@ -137,8 +144,7 @@ export default class Home extends Component {
           pad={{ vertical: 'medium', between: 'small' }}>
           <GrommetLogo a11yTitle='Grommet Logo' invert={true} />
           <Menu primary={true}>
-            <Anchor path='/docs/get-started'>Start</Anchor>
-            <Anchor path='/docs'>Docs</Anchor>
+            {menuAnchors}
           </Menu>
         </HomeSection>
 
@@ -151,11 +157,11 @@ export default class Home extends Component {
               MENU
             </Box>
           </Button>
-          <Header className='home-desktop' fixed={false} appCentered={true}>
+          <Header className='home-desktop' fixed={false} appCentered={true}
+            pad={{ between: 'medium' }}>
             <GrommetLogo a11yTitle='Grommet Logo' />
             <Menu direction='row' responsive={false}>
-              <Anchor path='/docs/get-started'>Start</Anchor>
-              <Anchor path='/docs'>Docs</Anchor>
+              {menuAnchors}
             </Menu>
           </Header>
 

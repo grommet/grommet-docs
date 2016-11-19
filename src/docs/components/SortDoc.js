@@ -22,7 +22,7 @@ export default class SortDoc extends Component {
   render () {
     const { direction, value } = this.state;
     return (
-      <DocsArticle title="Sort" colorIndex="neutral-3">
+      <DocsArticle title="Sort">
 
         <section>
           <p>A combination of <Anchor path="/docs/select">Select</Anchor> and

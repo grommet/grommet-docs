@@ -38,7 +38,7 @@ export default class TextInputDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="TextInput" colorIndex="neutral-3">
+      <DocsArticle title="TextInput">
 
         <section>
           <p>A text input field with optional suggestions.</p>

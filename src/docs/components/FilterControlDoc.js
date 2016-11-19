@@ -16,7 +16,7 @@ export default class FilterControlDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="FilterControl" colorIndex="neutral-3">
+      <DocsArticle title="FilterControl">
 
         <section>
           <p>A Button to control filter configuration annotated with counts

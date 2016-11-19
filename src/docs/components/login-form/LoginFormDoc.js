@@ -23,7 +23,7 @@ export default class LoginFormDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="LoginForm" colorIndex="neutral-3">
+      <DocsArticle title="LoginForm">
 
         <section>
           <p>The form used to log in.</p>

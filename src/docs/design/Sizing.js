@@ -10,7 +10,7 @@ import DocsArticle from '../../components/DocsArticle';
 export default class Sizing extends Component {
   render () {
     return (
-      <DocsArticle title="Sizing" colorIndex="neutral-2">
+      <DocsArticle title="Sizing">
 
         <section>
           <p>Grommet uses T-shirt sizing concepts for both layout and

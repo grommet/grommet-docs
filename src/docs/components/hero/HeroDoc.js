@@ -17,7 +17,7 @@ export default class HeroDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Hero" colorIndex="neutral-3">
+      <DocsArticle title="Hero">
 
         <section>
           <p>A Hero image or video, overlaid with text.</p>

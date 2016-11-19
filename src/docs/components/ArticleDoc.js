@@ -23,7 +23,7 @@ export default class ArticleDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Article" colorIndex="neutral-3">
+      <DocsArticle title="Article">
 
         <section>
           <p>A standard <Anchor

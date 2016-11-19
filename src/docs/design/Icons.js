@@ -92,7 +92,7 @@ export default class Icons extends Component {
     });
 
     return (
-      <DocsArticle title="Icons" colorIndex="neutral-2">
+      <DocsArticle title="Icons">
         <Box>
           <p>Icons are used for inline controls. Users should be able to
             identify

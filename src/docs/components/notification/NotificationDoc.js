@@ -16,7 +16,7 @@ export default class NotificationDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Notification" colorIndex="neutral-3">
+      <DocsArticle title="Notification">
 
         <section>
           <p>A box to display notification messages.</p>

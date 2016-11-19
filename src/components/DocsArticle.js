@@ -86,7 +86,3 @@ DocsArticle.propTypes = {
   full: PropTypes.bool,
   title: PropTypes.string.isRequired
 };
-
-DocsArticle.defaultProps = {
-  colorIndex: 'neutral-1'
-};

@@ -27,7 +27,7 @@ export default class NumberInputDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="NumberInput" colorIndex="neutral-3">
+      <DocsArticle title="NumberInput">
 
         <section>
           <p>A number input in a web form. We have a separate component from the

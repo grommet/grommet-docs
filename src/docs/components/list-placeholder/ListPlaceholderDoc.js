@@ -15,7 +15,7 @@ export default class ListPlaceholderDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="ListPlaceholder" colorIndex="neutral-3">
+      <DocsArticle title="ListPlaceholder">
 
         <section>
           <p>Displays helpful content when

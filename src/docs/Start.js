@@ -5,19 +5,15 @@ import Anchor from 'grommet/components/Anchor';
 import Menu from 'grommet/components/Menu';
 import DocsArticle from '../components/DocsArticle';
 
-export default class Introduction extends Component {
+export default class Start extends Component {
 
   render () {
     return (
-      <DocsArticle title="Docs">
+      <DocsArticle title="Start">
         <section>
-          <p>Grommet was created to give developers and designers alike access
-            to tools
-          that otherwise are out of reach of most product teams. Grommet’s
-          goal is to
-          assist in creating experiences that work accross the many different
-          interaction
-          methods and screen sizes.</p>
+          <p>There are a bunch of ways of get started with Grommet. Whether
+          you’re a designer, developer, or just interested in technology
+          we’ve got you covered.</p>
           <Menu direction="column">
             <Anchor path="/docs/hello-world" primary={true}
               id='hello-world-anchor'>

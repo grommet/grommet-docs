@@ -27,7 +27,7 @@ export default class AnnotatedMeterDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="AnnotatedMeter" colorIndex="neutral-3">
+      <DocsArticle title="AnnotatedMeter">
 
         <section>
           <p>An interactive <Anchor path="/docs/meter">Meter</Anchor> annotated

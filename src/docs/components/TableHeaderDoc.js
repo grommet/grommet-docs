@@ -65,7 +65,7 @@ export default class TableHeaderDoc extends Component {
     });
 
     return (
-      <DocsArticle title="TableHeader" colorIndex="neutral-3">
+      <DocsArticle title="TableHeader">
 
         <section>
           <p>A table header that can be used as a sort control.</p>

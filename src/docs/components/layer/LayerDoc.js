@@ -13,7 +13,7 @@ const USAGE =
 export default class LayerDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Layer" colorIndex="neutral-3">
+      <DocsArticle title="Layer">
 
         <section>
           <p>A modal overlay. This could contain

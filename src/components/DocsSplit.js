@@ -37,7 +37,7 @@ export default class DocsSplit extends Component {
   _scrollMenu () {
     if (this.refs.doc) {
       const path = window.location.pathname;
-      const anchor = document.querySelector(`[href="${path}"]`);
+      const anchor = document.querySelector(`[href='${path}']`);
       if (anchor) {
         const sidebar = findDOMNode(this.refs.sidebar);
         const anchorRect = anchor.getBoundingClientRect();
@@ -70,12 +70,12 @@ export default class DocsSplit extends Component {
     this.refs.doc.scrollTop = 0;
   }
 
-  _renderTitle () {
+  _renderTitle (invert) {
     return (
       <Title responsive={false}>
-        <Link to="/">
-          <Box align="center" direction="row">
-            <GrommetLogo />
+        <Link to='/'>
+          <Box align='center' direction='row'>
+            <GrommetLogo invert={invert}/>
           </Box>
         </Link>
       </Title>
@@ -83,7 +83,7 @@ export default class DocsSplit extends Component {
   }
 
   _renderMenu () {
-    const title = this._renderTitle();
+    const title = this._renderTitle(true);
     let closer;
     if ('single' === this.state.responsive) {
       closer = (
@@ -91,8 +91,9 @@ export default class DocsSplit extends Component {
       );
     }
     return (
-      <Sidebar ref="sidebar" size="small" separator="right" full={false}>
-        <Header justify="between" size="large" pad={{horizontal: 'medium'}}>
+      <Sidebar ref='sidebar' size='small' separator='right' full={true}
+        colorIndex='brand'>
+        <Header justify='between' size='large' pad={{horizontal: 'medium'}}>
           {title}
           {closer}
         </Header>
@@ -106,16 +107,16 @@ export default class DocsSplit extends Component {
     if ('single' === this.state.responsive) {
       const title = this._renderTitle();
       header = (
-        <Header justify="between" size="large" pad={{horizontal: 'large'}}>
+        <Header justify='between' size='large' pad={{horizontal: 'large'}}>
           {title}
-          <Menu direction="row" responsive={false}>
-            <a href="#" onClick={this._onMenuOpen}>Contents</a>
+          <Menu direction='row' responsive={false}>
+            <a href='#' onClick={this._onMenuOpen}>Contents</a>
           </Menu>
         </Header>
       );
     }
     return (
-      <div ref="doc" className="docs-split__doc">
+      <div ref='doc' className='docs-split__doc'>
         {header}
         {this.props.children}
       </div>
@@ -126,7 +127,7 @@ export default class DocsSplit extends Component {
     let priority = ('single' === this.state.responsive && this.state.showMenu ?
       'left' : 'right');
     return (
-      <Split flex="right" priority={priority} fixed={true}
+      <Split flex='right' priority={priority} fixed={true}
         onResponsive={this._onResponsive}>
         {this._renderMenu()}
         {this._renderDoc()}

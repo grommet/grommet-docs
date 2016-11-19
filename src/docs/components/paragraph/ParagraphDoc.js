@@ -26,7 +26,7 @@ export default class ParagraphDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Paragraph" colorIndex="neutral-3">
+      <DocsArticle title="Paragraph">
 
         <section>
           <p>A paragraph of text, such as ...</p>

@@ -15,7 +15,7 @@ export default class AxisDoc extends Component {
   render () {
     return (
       <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Axis" colorIndex="neutral-3">
+        title="Axis">
         <section>
           <p>An axis decorating a <Anchor path={`/docs/chart`}>
             Chart</Anchor>. An Axis can be

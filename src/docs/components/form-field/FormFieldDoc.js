@@ -31,7 +31,7 @@ export default class FormFieldDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="FormField" colorIndex="neutral-3">
+      <DocsArticle title="FormField">
 
         <section>
           <p>A field in a web form.</p>

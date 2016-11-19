@@ -18,7 +18,7 @@ export default class DistributionDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Distribution" colorIndex="neutral-3">
+      <DocsArticle title="Distribution">
 
         <section>
           <p>Shows a graphic of relatively sized items.

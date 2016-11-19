@@ -38,7 +38,7 @@ export default class SelectDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Select" colorIndex="neutral-3">
+      <DocsArticle title="Select">
 
         <section>
           <p>An select-like field with optional search capability.</p>

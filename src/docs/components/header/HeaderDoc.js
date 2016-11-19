@@ -20,7 +20,7 @@ export default class HeaderDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Header" colorIndex="neutral-3">
+      <DocsArticle title="Header">
 
         <section>
           <p>Combines Title and Menu elements responsively.</p>

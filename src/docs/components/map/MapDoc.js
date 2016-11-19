@@ -40,7 +40,7 @@ export default class MapDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Map" colorIndex="neutral-3">
+      <DocsArticle title="Map">
 
         <section>
           <p>Shows a graph of nodes and links between them.</p>

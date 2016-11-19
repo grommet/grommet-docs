@@ -51,7 +51,7 @@ export default class WorldMapDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="WorldMap" colorIndex="neutral-3">
+      <DocsArticle title="WorldMap">
 
         <section>
           <p>A world map of continents.</p>

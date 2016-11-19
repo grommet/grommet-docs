@@ -13,7 +13,7 @@ export default class NavigationDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Primary Navigation" colorIndex="neutral-2">
+      <DocsArticle title="Primary Navigation">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
             Grommet follows a mobile-first design approach for its main

@@ -11,7 +11,7 @@ export default class LineDoc extends Component {
   render () {
     return (
       <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Line" colorIndex="neutral-3">
+        title="Line">
 
         <p>An line graphic in a <Anchor path={`/docs/chart`}>
           Chart</Anchor>.

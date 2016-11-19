@@ -30,7 +30,7 @@ export default class TipDoc extends Component {
     }
 
     return (
-      <DocsArticle title="Tip" colorIndex="neutral-3">
+      <DocsArticle title="Tip">
 
         <section>
           <p>An attention getter used to highlight an aspect of the interface
@@ -59,13 +59,13 @@ export default class TipDoc extends Component {
             has seen can be remembered in <Anchor
               href={"https://developer.mozilla.org/en-US/" +
               "docs/Web/API/Window/localStorage"}>local storage</Anchor>.
-              
-              Tips shouldn’t display any rich information including 
-              formatted text and should be limit in usage. Prioritize 
-              the tip need on user context relevance rather than what 
+
+              Tips shouldn’t display any rich information including
+              formatted text and should be limit in usage. Prioritize
+              the tip need on user context relevance rather than what
               is simply “new” on the interface.
-              
-              To ensure memorability, keep the tip text to under one 
+
+              To ensure memorability, keep the tip text to under one
               sentence to support quick skimming of content.</p>
         </section>
 

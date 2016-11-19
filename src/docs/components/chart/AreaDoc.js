@@ -11,7 +11,7 @@ export default class AreaDoc extends Component {
   render () {
     return (
       <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Area" colorIndex="neutral-3">
+        title="Area">
 
         <p>An area graphic in a <Anchor path={`/docs/chart`}>
           Chart</Anchor>.

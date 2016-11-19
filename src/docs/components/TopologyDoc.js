@@ -24,7 +24,7 @@ export default class TopologyDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Topology" colorIndex="neutral-3">
+      <DocsArticle title="Topology">
 
         <section>
           <p>Visualize structure and connectivity.</p>

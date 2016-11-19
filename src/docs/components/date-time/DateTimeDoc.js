@@ -35,7 +35,7 @@ export default class DateTimeDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="DateTime" colorIndex="neutral-3">
+      <DocsArticle title="DateTime">
 
         <section>
           <p>An input field for a date and/or time.</p>

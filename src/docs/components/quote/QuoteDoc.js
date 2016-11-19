@@ -21,7 +21,7 @@ export default class QuoteDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Quote" colorIndex="neutral-3">
+      <DocsArticle title="Quote">
 
         <section>
           <p>A quote with a colored border.</p>

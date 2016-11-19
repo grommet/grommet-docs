@@ -18,7 +18,7 @@ export default class LabelDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title=" Label" colorIndex="neutral-3">
+      <DocsArticle title="Label">
 
         <section>
           <p>A simple text label. This could be used to annotate

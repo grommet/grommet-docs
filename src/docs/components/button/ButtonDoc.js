@@ -28,7 +28,7 @@ export default class ButtonDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Button" colorIndex="neutral-3">
+      <DocsArticle title="Button">
 
         <section>
           <p>A button. We have a separate component from the

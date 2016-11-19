@@ -7,7 +7,7 @@ export default class BestPractices extends Component {
 
   render () {
     return (
-      <DocsArticle title="Best Practices" colorIndex="neutral-1">
+      <DocsArticle title="Best Practices">
         <section>
           <dl>
             <dt>Know your users</dt>

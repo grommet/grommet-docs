@@ -20,7 +20,7 @@ export default class Typography extends Component {
 
   render () {
     return (
-      <DocsArticle title="Typography" colorIndex="neutral-2">
+      <DocsArticle title="Typography">
 
         <section>
           <p>Applications use the <span ref="fontName">Arial</span> font.  The

@@ -15,7 +15,7 @@ export default class VideoDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Video" colorIndex="neutral-3">
+      <DocsArticle title="Video">
 
         <section>
           <p>Video built on the HTML5 video element.</p>

@@ -21,7 +21,7 @@ export default class TileDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Carousel" colorIndex="neutral-3">
+      <DocsArticle title="Carousel">
 
         <section>
           <p>Image carousel.</p>

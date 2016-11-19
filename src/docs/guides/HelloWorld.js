@@ -8,7 +8,7 @@ export default class HelloWorld extends Component {
 
   render () {
     return (
-      <DocsArticle title="Hello World" colorIndex="neutral-1">
+      <DocsArticle title="Hello World">
         <section>
           <p>
             The easiest way to learn a framework is by writing a simple

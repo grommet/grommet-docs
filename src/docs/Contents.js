@@ -55,8 +55,10 @@ import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
 import CheckBoxDoc from './components/checkbox/CheckBoxDoc';
 import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/ColumnsDoc';
+import Components from './Components';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
+import Design from './Design';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
@@ -125,12 +127,14 @@ import SocialShareExamplesDoc from
 import SortDoc from './components/SortDoc';
 import SpinningDoc from './components/SpinningDoc';
 import SplitDoc from './components/SplitDoc';
+import Start from './Start';
 import StatusDoc from './components/StatusDoc';
 import SunBurstDoc from './components/SunBurstDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
 import TableHeaderDoc from './components/TableHeaderDoc';
 import TabsDoc from './components/TabsDoc';
+import Templates from './Templates';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
 import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
@@ -146,212 +150,231 @@ import VideoExamplesDoc from './components/video/VideoExamplesDoc';
 import WorldMapDoc from './components/WorldMapDoc';
 
 export default [
-  {label: 'Guides',
-    contents: [
-      {path: 'hello-world', label: 'Hello World',
-        component: HelloWorld},
-      {path: 'get-started', label: 'Get Started',
-        component: GetStarted}
-    ]
-  },
-  {label: 'Design',
-    contents: [
-      // {path: 'learn', label: 'Learn', component: Learn},
-      {path: 'resources', label: 'Resources', component: Resources},
-      {path: 'best-practices', label: 'Best Practices',
-        component: BestPractices},
-      {path: 'mobile', label: 'Mobile', component: Mobile},
-      {path: 'color', label: 'Color', component: Color},
-      {path: 'sizing', label: 'Sizing', component: Sizing},
-      {path: 'padding', label: 'Padding', component: Padding},
-      {path: 'typography', label: 'Typography', component: Typography},
-      {path: 'writing-style', label: 'Writing Style', component: WritingStyle},
-      {path: 'date-and-time', label: 'Date and Time', component: DateTime},
-      {path: 'capitalization', label: 'Capitalization',
-        component: Capitalization}
+  { label: 'Start', path: 'start', component: Start, contents: [
+    { label: 'Design', contents: [
+      { path: 'resources', label: 'Resources', component: Resources }
     ]},
-  {label: 'Patterns',
-    contents: [
-      {path: 'navigation', label: 'Navigation', component: NavigationDoc}
-    ]
-  },
-  {label: 'Components',
-    contents: [
-      {path: 'accordion', label: 'Accordion', index: AccordionDoc, contents: [
-        {path: 'examples', component: AccordionExamplesDoc}
+    { label: 'Develop', contents: [
+      { path: 'hello-world', label: 'Hello World', component: HelloWorld },
+      { path: 'get-started', label: 'Get Started', component: GetStarted }
+    ]}
+  ]},
+  { label: 'Design', path: 'design', component: Design, contents: [
+    // { path: 'learn', label: 'Learn', component: Learn },
+    // { path: 'resources', label: 'Resources', component: Resources },
+    { path: 'best-practices', label: 'Best Practices',
+      component: BestPractices },
+    { path: 'mobile', label: 'Mobile', component: Mobile },
+    { path: 'color', label: 'Color', component: Color },
+    { path: 'sizing', label: 'Sizing', component: Sizing },
+    { path: 'padding', label: 'Padding', component: Padding },
+    { path: 'typography', label: 'Typography', component: Typography },
+    { path: 'writing-style', label: 'Writing Style',
+      component: WritingStyle },
+    { path: 'date-and-time', label: 'Date and Time', component: DateTime },
+    { path: 'capitalization', label: 'Capitalization',
+      component: Capitalization }
+  ]},
+  { label: 'Templates', path: 'templates', component: Templates, contents: [
+    { path: 'navigation', label: 'Navigation', component: NavigationDoc }
+  ]},
+  { label: 'Components', path: 'components', index: Components, contents: [
+    { label: 'Layout', contents: [
+      { path: 'box', label: 'Box', index: BoxDoc, children: [
+        { path: 'gym', component: BoxingGymDoc },
+        { path: 'examples', component: BoxExamplesDoc }
       ]},
-      {path: 'anchor', label: 'Anchor', index: AnchorDoc, contents: [
-        {path: 'examples', component: AnchorExamplesDoc}
+      { path: 'columns', label: 'Columns', component: ColumnsDoc },
+      { path: 'layer', label: 'Layer', index: LayerDoc, children: [
+        { path: 'examples', component: LayerExamplesDoc }
       ]},
-      {path: 'animate', label: 'Animate', index: AnimateDoc, contents: [
-        {path: 'examples', component: AnimateExamplesDoc}
+      { path: 'split', label: 'Split', component: SplitDoc }
+    ]},
+    { label: 'Structure', contents: [
+      { path: 'app', label: 'App', component: AppDoc },
+      { path: 'article', label: 'Article', component: ArticleDoc },
+      { path: 'card', label: 'Card', index: CardDoc, children: [
+        { path: 'examples', component: CardExamplesDoc }
       ]},
-      {path: 'annotated-meter', label: 'AnnotatedMeter',
-        component: AnnotatedMeterDoc},
-      {path: 'app', label: 'App', component: AppDoc},
-      {path: 'article', label: 'Article', component: ArticleDoc},
-      {path: 'box', label: 'Box', index: BoxDoc, contents: [
-        {path: 'gym', component: BoxingGymDoc},
-        {path: 'examples', component: BoxExamplesDoc}
+      { path: 'footer', label: 'Footer', component: FooterDoc },
+      { path: 'header', label: 'Header', index: HeaderDoc, children: [
+        { path: 'examples', component: HeaderExamplesDoc }
       ]},
-      {path: 'button', label: 'Button', index: ButtonDoc, contents: [
-        {path: 'examples', component: ButtonExamplesDoc}
+      { path: 'hero', label: 'Hero', index: HeroDoc, children: [
+        { path: 'examples', component: HeroExamplesDoc }
       ]},
-      {path: 'card', label: 'Card', index: CardDoc, contents: [
-        {path: 'examples', component: CardExamplesDoc}
-      ]},
-      {path: 'carousel', label: 'Carousel', component: CarouselDoc},
-      {path: 'chart', label: 'Chart', index: ChartDoc, contents: [
-        {path: 'area', component: ChartAreaDoc},
-        {path: 'axis', component: ChartAxisDoc},
-        {path: 'bar', component: ChartBarDoc},
-        {path: 'base', component: ChartBaseDoc},
-        {path: 'examples', component: ChartExamplesDoc},
-        {path: 'grid', component: ChartGridDoc},
-        {path: 'hot-spots', component: ChartHotSpotsDoc},
-        {path: 'layers', component: ChartLayersDoc},
-        {path: 'line', component: ChartLineDoc},
-        {path: 'marker', component: ChartMarkerDoc},
-        {path: 'marker-label', component: ChartMarkerLabelDoc},
-        {path: 'range', component: ChartRangeDoc}
-      ]},
-      {path: 'check-box', label: 'CheckBox', index: CheckBoxDoc, contents: [
-        {path: 'examples', component: CheckBoxExamplesDoc}
-      ]},
-      {path: 'columns', label: 'Columns', component: ColumnsDoc},
-      {path: 'date-time', label: 'DateTime', index: DateTimeDoc, contents: [
-        {path: 'examples', component: DateTimeExamplesDoc}
-      ]},
-      {path: 'distribution', label: 'Distribution', index: DistributionDoc,
-        contents: [
-          {path: 'examples', component: DistributionExamplesDoc}
+      { path: 'notification', label: 'Notification', index: NotificationDoc,
+        children: [
+          { path: 'examples', component: NotificationExamplesDoc }
         ]},
-      {path: 'filter-control', label: 'FilterControl',
-        component: FilterControlDoc},
-      {path: 'footer', label: 'Footer', component: FooterDoc},
-      {path: 'form', label: 'Form', index: FormDoc, contents: [
-        {path: 'examples', component: FormExamplesDoc}
+      { path: 'section', label: 'Section', component: SectionDoc },
+      { path: 'sidebar', label: 'Sidebar', component: SidebarDoc },
+      { path: 'toast', label: 'Toast', component: ToastDoc },
+      { path: 'value', label: 'Value', index: ValueDoc, children: [
+        { path: 'examples', component: ValueExamplesDoc }
+      ]}
+    ]},
+    { label: 'Text', contents: [
+      { path: 'heading', label: 'Heading', component: HeadingDoc },
+      { path: 'headline', label: 'Headline', index: HeadlineDoc, children: [
+        { path: 'examples', component: HeadlineExamplesDoc }
       ]},
-      {path: 'form-field', label: 'FormField', index: FormFieldDoc, contents: [
-        {path: 'examples', component: FormFieldExamplesDoc}
+      { path: 'label', label: 'Label', component: LabelDoc },
+      { path: 'markdown', label: 'Markdown', index: MarkdownDoc, children: [
+        { path: 'examples', component: MarkdownExamplesDoc }
       ]},
-      {path: 'header', label: 'Header', index: HeaderDoc, contents: [
-        {path: 'examples', component: HeaderExamplesDoc}
+      { path: 'paragraph', label: 'Paragraph', index: ParagraphDoc,
+        children: [
+          { path: 'examples', component: ParagraphExamplesDoc }
+        ]},
+      { path: 'quote', label: 'Quote', index: QuoteDoc, children: [
+        { path: 'examples', component: QuoteExamplesDoc }
       ]},
-      {path: 'heading', label: 'Heading', component: HeadingDoc},
-      {path: 'headline', label: 'Headline', index: HeadlineDoc, contents: [
-        {path: 'examples', component: HeadlineExamplesDoc}
+      { path: 'timestamp', label: 'Timestamp', component: TimestampDoc },
+      { path: 'title', label: 'Title', component: TitleDoc }
+    ]},
+    { label: 'Controls', contents: [
+      { path: 'accordion', label: 'Accordion', index: AccordionDoc,
+        children: [
+          { path: 'examples', component: AccordionExamplesDoc }
+        ]},
+      { path: 'anchor', label: 'Anchor', index: AnchorDoc, children: [
+        { path: 'examples', component: AnchorExamplesDoc }
       ]},
-      {path: 'hero', label: 'Hero', index: HeroDoc, contents: [
-        {path: 'examples', component: HeroExamplesDoc}
+      { path: 'button', label: 'Button', index: ButtonDoc, children: [
+        { path: 'examples', component: ButtonExamplesDoc }
       ]},
-      {path: 'icon', label: 'Icon', component: IconDoc},
-      {path: 'image', label: 'Image', index: ImageDoc, contents: [
-        {path: 'examples', component: ImageExamplesDoc}
+      { path: 'filter-control', label: 'FilterControl',
+        component: FilterControlDoc },
+      { path: 'menu', label: 'Menu', index: MenuDoc, children: [
+        { path: 'examples', component: MenuExamplesDoc }
       ]},
-      {path: 'label', label: 'Label', component: LabelDoc},
-      {path: 'layer', label: 'Layer', index: LayerDoc, contents: [
-        {path: 'examples', component: LayerExamplesDoc}
+      { path: 'search', label: 'Search', index: SearchDoc, children: [
+        { path: 'examples', component: SearchExamplesDoc }
       ]},
-      {path: 'legend', label: 'Legend', component: LegendDoc},
-      {path: 'list', label: 'List', index: ListDoc, contents: [
-        {path: 'examples', component: ListExamplesDoc}
+      { path: 'sort', label: 'Sort', component: SortDoc },
+      { path: 'tabs', label: 'Tabs', index: TabsDoc },
+      { path: 'tip', label: 'Tip', component: TipDoc }
+    ]},
+    { label: 'Forms', contents: [
+      { path: 'check-box', label: 'CheckBox', index: CheckBoxDoc, children: [
+        { path: 'examples', component: CheckBoxExamplesDoc }
       ]},
-      {path: 'list-placeholder', label: 'ListPlaceholder',
-        index: ListPlaceholderDoc, contents: [
-          {path: 'examples', component: ListPlaceholderExamplesDoc}
+      { path: 'date-time', label: 'DateTime', index: DateTimeDoc, children: [
+        { path: 'examples', component: DateTimeExamplesDoc }
+      ]},
+      { path: 'form', label: 'Form', index: FormDoc, children: [
+        { path: 'examples', component: FormExamplesDoc }
+      ]},
+      { path: 'form-field', label: 'FormField', index: FormFieldDoc,
+        children: [
+          { path: 'examples', component: FormFieldExamplesDoc }
+        ]},
+      { path: 'number-input', label: 'NumberInput',
+        component: NumberInputDoc },
+      { path: 'radio-button', label: 'RadioButton',
+        component: RadioButtonDoc },
+      { path: 'search-input', label: 'SearchInput', index: SearchInputDoc,
+        children: [
+          { path: 'examples', component: SearchInputExamplesDoc }
+        ]},
+      { path: 'select', label: 'Select', index: SelectDoc, children: [
+        { path: 'examples', component: SelectExamplesDoc }
+      ]},
+      { path: 'text-input', label: 'TextInput', component: TextInputDoc }
+    ]},
+    { label: 'Listing', contents: [
+      { path: 'list', label: 'List', index: ListDoc, children: [
+        { path: 'examples', component: ListExamplesDoc }
+      ]},
+      { path: 'list-placeholder', label: 'ListPlaceholder',
+        index: ListPlaceholderDoc, children: [
+          { path: 'examples', component: ListPlaceholderExamplesDoc }
         ] },
-      {path: 'login-form', label: 'LoginForm', index: LoginFormDoc, contents: [
-        {path: 'examples', component: LoginFormExamplesDoc}
+      { path: 'table', label: 'Table', index: TableDoc, children: [
+        { path: 'examples', component: TableExamplesDoc }
       ]},
-      {path: 'map', label: 'Map', index: MapDoc, contents: [
-        {path: 'examples', component: MapExamplesDoc}
+      { path: 'table-header', label: 'TableHeader',
+        component: TableHeaderDoc },
+      { path: 'tiles', label: 'Tiles', index: TilesDoc, children: [
+        { path: 'examples', component: TilesExamplesDoc }
+      ]}
+    ]},
+    { label: 'Visualization', contents: [
+      { path: 'annotated-meter', label: 'AnnotatedMeter',
+        component: AnnotatedMeterDoc },
+      { path: 'chart', label: 'Chart', index: ChartDoc, children: [
+        { path: 'area', component: ChartAreaDoc },
+        { path: 'axis', component: ChartAxisDoc },
+        { path: 'bar', component: ChartBarDoc },
+        { path: 'base', component: ChartBaseDoc },
+        { path: 'examples', component: ChartExamplesDoc },
+        { path: 'grid', component: ChartGridDoc },
+        { path: 'hot-spots', component: ChartHotSpotsDoc },
+        { path: 'layers', component: ChartLayersDoc },
+        { path: 'line', component: ChartLineDoc },
+        { path: 'marker', component: ChartMarkerDoc },
+        { path: 'marker-label', component: ChartMarkerLabelDoc },
+        { path: 'range', component: ChartRangeDoc }
       ]},
-      {path: 'markdown', label: 'Markdown', index: MarkdownDoc, contents: [
-        {path: 'examples', component: MarkdownExamplesDoc}
-      ]},
-      {path: 'menu', label: 'Menu', index: MenuDoc, contents: [
-        {path: 'examples', component: MenuExamplesDoc}
-      ]},
-      {path: 'meter', label: 'Meter', index: MeterDoc, contents: [
-        {path: 'examples', component: MeterExamplesDoc}
-      ]},
-      {path: 'notification', label: 'Notification', index: NotificationDoc,
-        contents: [
-          {path: 'examples', component: NotificationExamplesDoc}
+      { path: 'distribution', label: 'Distribution', index: DistributionDoc,
+        children: [
+          { path: 'examples', component: DistributionExamplesDoc }
         ]},
-      {path: 'number-input', label: 'NumberInput', component: NumberInputDoc},
-      {path: 'paragraph', label: 'Paragraph', index: ParagraphDoc, contents: [
-        {path: 'examples', component: ParagraphExamplesDoc}
+      { path: 'legend', label: 'Legend', component: LegendDoc },
+      { path: 'map', label: 'Map', index: MapDoc, children: [
+        { path: 'examples', component: MapExamplesDoc }
       ]},
-      {path: 'pulse', label: 'Pulse', component: PulseDoc},
-      {path: 'quote', label: 'Quote', index: QuoteDoc, contents: [
-        {path: 'examples', component: QuoteExamplesDoc}
+      { path: 'meter', label: 'Meter', index: MeterDoc, children: [
+        { path: 'examples', component: MeterExamplesDoc }
       ]},
-      {path: 'radio-button', label: 'RadioButton', component: RadioButtonDoc},
-      {path: 'search', label: 'Search', index: SearchDoc, contents: [
-        {path: 'examples', component: SearchExamplesDoc}
-      ]},
-      {path: 'search-input', label: 'SearchInput', index: SearchInputDoc,
-        contents: [
-          {path: 'examples', component: SearchInputExamplesDoc}
+      { path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc },
+      { path: 'topology', label: 'Topology', component: TopologyDoc },
+      { path: 'world-map', label: 'WorldMap', component: WorldMapDoc }
+    ]},
+    { label: 'Icons', contents: [
+      { path: 'icon', label: 'Icon', component: IconDoc },
+      { path: 'pulse', label: 'Pulse', component: PulseDoc },
+      { path: 'social-share', label: 'SocialShare', index: SocialShareDoc,
+        children: [
+          { path: 'examples', component: SocialShareExamplesDoc }
         ]},
-      {path: 'section', label: 'Section', component: SectionDoc},
-      {path: 'select', label: 'Select', index: SelectDoc, contents: [
-        {path: 'examples', component: SelectExamplesDoc}
+      { path: 'spinning', label: 'Spinning', component: SpinningDoc },
+      { path: 'status', label: 'Status', component: StatusDoc }
+    ]},
+    { label: 'Media', contents: [
+      { path: 'carousel', label: 'Carousel', component: CarouselDoc },
+      { path: 'image', label: 'Image', index: ImageDoc, children: [
+        { path: 'examples', component: ImageExamplesDoc }
       ]},
-      {path: 'sidebar', label: 'Sidebar', component: SidebarDoc},
-      {path: 'social-share', label: 'SocialShare', index: SocialShareDoc,
-        contents: [
-          {path: 'examples', component: SocialShareExamplesDoc}
-        ]},
-      {path: 'sort', label: 'Sort', component: SortDoc},
-      {path: 'spinning', label: 'Spinning', component: SpinningDoc},
-      {path: 'split', label: 'Split', component: SplitDoc},
-      {path: 'status', label: 'Status', component: StatusDoc},
-      {path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc},
-      {path: 'table', label: 'Table', index: TableDoc, contents: [
-        {path: 'examples', component: TableExamplesDoc}
+      { path: 'video', label: 'Video', index: VideoDoc, children: [
+        { path: 'examples', component: VideoExamplesDoc }
+      ]}
+    ]},
+
+    { path: 'login-form', label: 'LoginForm', index: LoginFormDoc, children: [
+      { path: 'examples', component: LoginFormExamplesDoc }
+    ]},
+
+    { label: 'Utils', contents: [
+      { path: 'animate', label: 'Animate', index: AnimateDoc, children: [
+        { path: 'examples', component: AnimateExamplesDoc }
       ]},
-      {path: 'table-header', label: 'TableHeader', component: TableHeaderDoc},
-      {path: 'tabs', label: 'Tabs', index: TabsDoc},
-      {path: 'text-input', label: 'TextInput', component: TextInputDoc},
-      {path: 'tiles', label: 'Tiles', index: TilesDoc, contents: [
-        {path: 'examples', component: TilesExamplesDoc}
-      ]},
-      {path: 'timestamp', label: 'Timestamp', component: TimestampDoc},
-      {path: 'tip', label: 'Tip', component: TipDoc},
-      {path: 'title', label: 'Title', component: TitleDoc},
-      {path: 'toast', label: 'Toast', component: ToastDoc},
-      {path: 'topology', label: 'Topology', component: TopologyDoc},
-      {path: 'value', label: 'Value', index: ValueDoc, contents: [
-        {path: 'examples', component: ValueExamplesDoc}
-      ]},
-      {path: 'video', label: 'Video', index: VideoDoc, contents: [
-        {path: 'examples', component: VideoExamplesDoc}
-      ]},
-      {path: 'world-map', label: 'WorldMap', component: WorldMapDoc}
-    ]
-  },
-  {label: 'Utils',
-    contents: [
-      {path: 'announcer', label: 'Announcer', component: AnnouncerDoc},
-      {path: 'query', label: 'Query', component: QueryDoc},
-      {path: 'rest', label: 'Rest', component: RestDoc},
-      {path: 'rest-watch', label: 'RestWatch', component: RestWatchDoc}
-    ]
-  },
-  {label: 'Reference',
-    contents: [
-      {path: 'architecture', label: 'Architecture',
+      { path: 'announcer', label: 'Announcer', component: AnnouncerDoc },
+      { path: 'query', label: 'Query', component: QueryDoc },
+      { path: 'rest', label: 'Rest', component: RestDoc },
+      { path: 'rest-watch', label: 'RestWatch', component: RestWatchDoc }
+    ]},
+    { label: 'Reference', contents: [
+      { path: 'architecture', label: 'Architecture',
         component: Architecture},
-      {path: 'integration', label: 'Integration',
+      { path: 'integration', label: 'Integration',
         component: Integration},
-      {path: 'accessibility', label: 'Accessibility',
+      { path: 'accessibility', label: 'Accessibility',
         component: Accessibility},
-      {path: 'browser-support', label: 'Browser Support',
+      { path: 'browser-support', label: 'Browser Support',
         component: BrowserSupport},
-      {path: 'about', label: 'About', component: About}
-    ]
-  }
+      { path: 'about', label: 'About', component: About}
+    ]}
+  ]}
 ];

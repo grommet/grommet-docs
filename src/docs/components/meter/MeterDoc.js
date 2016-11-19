@@ -17,7 +17,7 @@ export default class MeterDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Meter" colorIndex="neutral-3">
+      <DocsArticle title="Meter">
 
         <section>
           <p>Shows a bar, arc, or circular meter graphic.</p>

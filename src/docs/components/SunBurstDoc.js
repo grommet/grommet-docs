@@ -77,7 +77,7 @@ export default class SunBurstDoc extends Component {
     }
 
     return (
-      <DocsArticle title="SunBurst" colorIndex="neutral-3">
+      <DocsArticle title="SunBurst">
 
         <section>
           <p>A SunBurst visualization.</p>

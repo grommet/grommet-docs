@@ -17,7 +17,7 @@ export default class HeadlineDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Headline" colorIndex="neutral-3">
+      <DocsArticle title="Headline">
 
         <section>
           <p>Headline text, usually used in marketing pages.</p>

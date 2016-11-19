@@ -100,7 +100,7 @@ export default class IconDoc extends Component {
     }
 
     return (
-      <DocsArticle title="Icon" colorIndex="neutral-3">
+      <DocsArticle title="Icon">
 
         <section>
           <p>Load icons inside your Grommet application.</p>

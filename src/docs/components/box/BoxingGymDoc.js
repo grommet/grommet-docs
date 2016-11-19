@@ -352,7 +352,7 @@ export default class BoxingGymDoc extends Component {
 
     return (
       <Split flex="left" priority={priority} onResponsive={this._onResponsive}>
-        <DocsArticle title="Boxing Gym" colorIndex="neutral-3">
+        <DocsArticle title="Boxing Gym">
 
           <p>This is a boxing gym where you can spar
             with <Anchor path="/docs/box">Boxes</Anchor>.</p>

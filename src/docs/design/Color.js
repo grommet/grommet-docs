@@ -100,7 +100,7 @@ export default class Color extends Component {
     });
 
     return (
-      <DocsArticle title="Color" colorIndex="neutral-2">
+      <DocsArticle title="Color">
         <section>
           <div className="generic-branding">
             <p>These are the generic, or un-branded, colors. It is expected that
