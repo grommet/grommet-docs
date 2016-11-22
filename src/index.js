@@ -3,22 +3,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import { match, Router, RouterContext, useRouterHistory } from 'react-router';
-import { createHistory, createMemoryHistory } from 'history';
+import { AppContainer } from 'react-hot-loader';
+import { match, RouterContext, useRouterHistory } from 'react-router';
+import { createMemoryHistory } from 'history';
 import template from './template.ejs';
-import { IntlProvider, addLocaleData } from 'react-intl';
-import en from 'react-intl/locale-data/en';
-addLocaleData(en);
+import App from './App';
 
-import { getCurrentLocale, getLocaleData } from 'grommet/utils/Locale';
 
-const locale = getCurrentLocale();
-const localeData = getLocaleData({}, locale);
+if (typeof document !== 'undefined') {
+  require('autotrack');
+  require('./lib/modernizr');
 
-const onRouteUpdate = () => {
-  window.scrollTo(0, 0);
-  document.getElementById('content').focus();
-};
+  const element = document.getElementById('content');
+  ReactDOM.render(
+    <AppContainer>
+      <App />
+    </AppContainer>, element);
+
+  document.body.classList.remove('loading');
+
+  // Hot Module Replacement API
+  if (module.hot) {
+    module.hot.accept('./App', () => {
+      const NextApp = require('./App').default;
+      ReactDOM.render(
+        <AppContainer>
+          <NextApp />
+        </AppContainer>,
+        element
+      );
+    });
+  }
+}
 
 const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
 
@@ -30,39 +46,6 @@ function basenameForTheme (theme) {
     basename = `/${theme}`;
   }
   return basename;
-}
-
-if (typeof document !== 'undefined') {
-  require('autotrack');
-  require('./lib/modernizr');
-
-  const firstPathElement = window.location.pathname.split('/')[1];
-  const theme = (THEMES.indexOf(firstPathElement) === -1 ? 'vanilla' :
-    firstPathElement);
-  require(`./scss/index-${theme}`);
-
-  const basename = basenameForTheme(theme);
-  let historyOptions = {};
-  if ('/' !== basename) {
-    historyOptions.basename = basename;
-  }
-  const history = useRouterHistory(createHistory)(historyOptions);
-
-  if (__DEV_MODE__) {
-    var themeLink = document.getElementById('theme-link');
-    var themeUrl = `/assets/css/index-${theme}.css`;
-    themeLink.setAttribute('href', themeUrl);
-  }
-
-  const routes = require('./routes');
-  const element = document.getElementById('content');
-  ReactDOM.render(
-    <IntlProvider locale={localeData.locale} messages={localeData.messages}>
-      <Router onUpdate={onRouteUpdate} routes={routes}
-      history={history} />
-    </IntlProvider>, element);
-
-  document.body.classList.remove('loading');
 }
 
 export default (locals, callback) => {
@@ -81,10 +64,9 @@ export default (locals, callback) => {
         null, template({
           theme: locals.theme,
           html: ReactDOMServer.renderToString(
-            <IntlProvider locale={localeData.locale}
-              messages={localeData.messages}>
+            <App>
               <RouterContext {...renderProps} />
-            </IntlProvider>
+            </App>
           )
         })
       );
