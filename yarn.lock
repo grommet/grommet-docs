@@ -2053,7 +2053,7 @@ faye-websocket@~0.11.0:
 
 fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   version "1.9.0"
-  resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.0.tgz#6f268f1f347a6b3c875d1e89da7e1ed79adfc0ec"
+  resolved "http://registry.npmjs.org/fb-watchman/-/fb-watchman-1.9.0.tgz#6f268f1f347a6b3c875d1e89da7e1ed79adfc0ec"
   dependencies:
     bser "^1.0.2"
 
@@ -2251,7 +2251,7 @@ front-matter@2.1.0:
 
 fs-exists-sync@^0.1.0:
   version "0.1.0"
-  resolved "http://registry.npmjs.org/fs-exists-sync/-/fs-exists-sync-0.1.0.tgz#982d6893af918e72d08dec9e8673ff2b5a8d6add"
+  resolved "https://registry.yarnpkg.com/fs-exists-sync/-/fs-exists-sync-0.1.0.tgz#982d6893af918e72d08dec9e8673ff2b5a8d6add"
 
 fs-extra@^1.0.0:
   version "1.0.0"
@@ -2393,7 +2393,7 @@ glob-watcher@^0.0.6:
 
 glob2base@^0.0.12:
   version "0.0.12"
-  resolved "https://registry.yarnpkg.com/glob2base/-/glob2base-0.0.12.tgz#9d419b3e28f12e83a362164a277055922c9c0d56"
+  resolved "http://registry.npmjs.org/glob2base/-/glob2base-0.0.12.tgz#9d419b3e28f12e83a362164a277055922c9c0d56"
   dependencies:
     find-index "^0.1.1"
 
@@ -2586,7 +2586,7 @@ grommet-toolbox@^1.1.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "1.0.1"
-  resolved "https://github.com/grommet/grommet/tarball/stable#1bf8d11e0b3066c1354f24fe073044cddc7c15b3"
+  resolved "https://github.com/grommet/grommet/tarball/stable#5e8836d4eedfa5fad53ac342d47a8ce02791f929"
   dependencies:
     classnames "^2.2.3"
     deep-assign "^2.0.0"
@@ -2826,7 +2826,7 @@ has-color@^0.1.7:
 
 has-flag@^1.0.0:
   version "1.0.0"
-  resolved "http://registry.npmjs.org/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
 has-gulplog@^0.1.0:
   version "0.1.0"
@@ -3323,11 +3323,11 @@ is-plain-obj@^1.0.0:
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
-  resolved "http://registry.npmjs.org/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
+  resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
 
 is-primitive@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
+  resolved "http://registry.npmjs.org/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
 
 is-property@^1.0.0:
   version "1.0.2"
@@ -5361,11 +5361,11 @@ q@^1.1.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.4.1.tgz#55705bcd93c5f3673530c2c2cbc0c2b3addc286e"
 
-qs@6.2.0, qs@^6.1.0:
+qs@6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.0.tgz#3b7848c03c2dece69a9522b0fae8c4126d745f3b"
 
-qs@~6.3.0:
+qs@^6.1.0, qs@~6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.0.tgz#f403b264f23bc01228c74131b407f18d5ea5d442"
 
@@ -5537,19 +5537,7 @@ readable-stream@^1.0.27-1, readable-stream@^1.1.13, readable-stream@~1.1.9:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.5:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.2.tgz#a9e6fec3c7dda85f8bb1b3ba7028604556fc825e"
-  dependencies:
-    buffer-shims "^1.0.0"
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    string_decoder "~0.10.x"
-    util-deprecate "~1.0.1"
-
-readable-stream@~2.0.0:
+readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@~2.0.0:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
@@ -5560,7 +5548,7 @@ readable-stream@~2.0.0:
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
-readable-stream@~2.1.4:
+readable-stream@^2.0.5, readable-stream@~2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
@@ -6479,7 +6467,7 @@ uid-number@~0.0.6:
 
 unc-path-regex@^0.1.0:
   version "0.1.2"
-  resolved "https://registry.yarnpkg.com/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
+  resolved "http://registry.npmjs.org/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
 
 unherit@^1.0.4:
   version "1.1.0"
