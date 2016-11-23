@@ -3,7 +3,6 @@ node_js:
 - '6.9.1'
 sudo: false
 before_script:
-- npm install -g gulp
 - yarn cache clean
 script:
 - npm run build
