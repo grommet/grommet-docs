@@ -2,31 +2,21 @@
 
 import React, { Component } from 'react';
 import Headline from 'grommet/components/Headline';
-import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-Headline.displayName = 'Headline';
-
-const USAGE =
-`import Headline from 'grommet/components/Headline';
-<Headline>
-  {contents}
-</Headline>`;
 
 export default class HeadlineDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Headline">
+      <DocsArticle title="Headline" action={
+        <Button primary={true} path={`/docs/headline/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>Headline text, usually used in marketing pages.</p>
           <Headline>Sample Headline</Headline>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -46,14 +36,6 @@ export default class HeadlineDoc extends Component {
             <dd>If the headline should be bold.  Defaults
               to <code>false</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/headline/examples`}>
-            Headline Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

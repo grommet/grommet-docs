@@ -10,7 +10,7 @@ import Contents from './docs/Contents';
 const Container = (props) => <div>{props.children}</div>;
 
 function createContentRoutes (contents, asChildren) {
-  let result = [];
+  let result = { docs: [], examples: [] };
   contents.forEach(content => {
     if (content.path) {
       const route = { path: content.path };
@@ -22,32 +22,46 @@ function createContentRoutes (contents, asChildren) {
       if (content.index) {
         route.indexRoute = { component: content.index };
       }
+      if (content.examples) {
+        result.examples.push({
+          path: `/docs/${content.path}/examples`,
+          component: content.examples
+        });
+      }
       if (content.children) {
-        route.childRoutes = createContentRoutes(content.children, true);
+        const contentRoutes = createContentRoutes(content.children, true);
+        route.childRoutes = contentRoutes.docs;
+        result.examples = result.examples.concat(contentRoutes.examples);
       }
       if (content.contents) {
-        result = result.concat(createContentRoutes(content.contents));
+        const contentRoutes = createContentRoutes(content.contents);
+        result.docs = result.docs.concat(contentRoutes.docs);
+        result.examples = result.examples.concat(contentRoutes.examples);
       }
-      result.push(route);
+      result.docs.push(route);
     } else if (content.contents) {
-      result = result.concat(createContentRoutes(content.contents));
+      const contentRoutes = createContentRoutes(content.contents);
+      result.docs = result.docs.concat(contentRoutes.docs);
+      result.examples = result.examples.concat(contentRoutes.examples);
     }
   });
   return result;
 }
 
-const routes = createContentRoutes(Contents);
+const contentRoutes = createContentRoutes(Contents);
+
+let rootChildren = [];
+rootChildren = rootChildren.concat(contentRoutes.examples);
+rootChildren.push({
+  path: 'docs',
+  component: DocsSplit,
+  indexRoute: { component: Introduction },
+  childRoutes: contentRoutes.docs
+});
 
 export default {
   path: '/',
   component: Docs,
   indexRoute: { component: Home },
-  childRoutes: [
-    {
-      path: 'docs',
-      component: DocsSplit,
-      indexRoute: { component: Introduction },
-      childRoutes: routes
-    }
-  ]
+  childRoutes: rootChildren
 };

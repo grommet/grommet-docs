@@ -1,27 +1,30 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Headline from 'grommet/components/Headline';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const HeadlineExample = (props) => (
-  <Example code={
-    <Headline {...props}>Sample Headline</Headline>
-  } />
-);
+const PROPS_SCHEMA = {
+  strong: { value: true },
+  size: { options: ['small', 'medium', 'large', 'xlarge'] }
+};
 
-export default class HeadlineExamplesDoc extends ExamplesDoc {};
+export default class HeadlineExamplesDoc extends Component {
 
-HeadlineExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/headline">Headline</Anchor>,
-  examples: [
-    { label: 'Default', component: HeadlineExample },
-    { label: 'Small', component: HeadlineExample, props: { size: 'small' } },
-    { label: 'Medium', component: HeadlineExample, props: { size: 'medium' } },
-    { label: 'Large', component: HeadlineExample, props: { size: 'large' } },
-    { label: 'XLarge', component: HeadlineExample, props: { size: 'xlarge' } }
-  ],
-  title: 'Examples'
+  constructor () {
+    super();
+    this.state = { elementProps: {} };
+  }
+
+  render () {
+    const { elementProps } = this.state;
+    const element = <Headline {...elementProps}>Sample Headline</Headline>;
+    return (
+      <InteractiveExample contextLabel='Headline' contextPath='/docs/headline'
+        preamble={`import Headline from 'grommet/components/Headline';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({ elementProps })} />
+    );
+  }
 };

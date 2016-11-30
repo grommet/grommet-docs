@@ -33,3 +33,13 @@
 .doc-brand {
   stroke: $brand-color;
 }
+
+.code {
+  flex: 1 0 auto;
+  margin: 0;
+  overflow: auto;
+
+  .hljs {
+    // height: 100%;
+  }
+}

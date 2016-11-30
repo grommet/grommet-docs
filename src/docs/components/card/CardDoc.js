@@ -3,20 +3,16 @@
 import React, { Component } from 'react';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-Card.displayName = 'Card';
-
-const USAGE =
-`import Card from 'grommet/components/Card';
-<Card label="Label" thumbnail="/img/carousel-1.png"
-  heading="Heading" description="Description"
-  link={<Anchor href="#" primary={true} label="Link" />} />`;
 
 export default class CardDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Card">
+      <DocsArticle title="Card" action={
+        <Button primary={true} path={`/docs/card/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>An annotated summary of something. This could be used on a
@@ -31,11 +27,6 @@ export default class CardDoc extends Component {
           <Card label="Label" thumbnail="/img/carousel-1.png"
             heading="Heading" description="Description"
             link={<Anchor href="#" primary={true} label="Link" />} />
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -78,14 +69,6 @@ export default class CardDoc extends Component {
           </dl>
           <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
             also available for Card.</p>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/card/examples`}>
-            Card Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

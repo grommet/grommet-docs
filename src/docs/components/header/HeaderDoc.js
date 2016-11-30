@@ -2,42 +2,33 @@
 
 import React, { Component } from 'react';
 import Header from 'grommet/components/Header';
+import Button from 'grommet/components/Button';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Search from 'grommet/components/Search';
 import Title from 'grommet/components/Title';
 import DocsArticle from '../../../components/DocsArticle';
 
-Header.displayName = 'Header';
-
-const USAGE =
-`import Header from 'grommet/components/Header';
-<Header>
-  {contents}
-</Header>`;
-
 export default class HeaderDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Header">
+      <DocsArticle title='Header' action={
+        <Button primary={true} path={`/docs/header/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>Combines Title and Menu elements responsively.</p>
-          <Header justify="between">
+          <Header justify='between'>
             <Title>Title</Title>
-            <Menu direction="row" align="center" responsive={false}>
-              <Anchor href="#" className="active">First</Anchor>
-              <Anchor href="#">Second</Anchor>
-              <Anchor href="#">Third</Anchor>
-              <Search dropAlign={{right: "right"}} />
+            <Menu direction='row' align='center' responsive={false}>
+              <Anchor href='#' className='active'>First</Anchor>
+              <Anchor href='#'>Second</Anchor>
+              <Anchor href='#'>Third</Anchor>
+              <Search dropAlign={{right: 'right'}} />
             </Menu>
           </Header>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -54,16 +45,8 @@ export default class HeaderDoc extends Component {
             <dd>Whether to render it in a style suitable for a splash
               screen.</dd>
           </dl>
-          <p>Options for <Anchor path="/docs/box">Box</Anchor> are
+          <p>Options for <Anchor path='/docs/box'>Box</Anchor> are
           also available.</p>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/header/examples`}>
-            Header Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

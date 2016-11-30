@@ -37,7 +37,7 @@ import BoxingGymDoc from './components/box/BoxingGymDoc';
 import ButtonDoc from './components/button/ButtonDoc';
 import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
 import CardDoc from './components/card/CardDoc';
-import CardExamplesDoc from './components/card/examples/CardExamplesDoc';
+import CardExamplesDoc from './components/card/CardExamplesDoc';
 import CarouselDoc from './components/CarouselDoc';
 import ChartDoc from './components/chart/ChartDoc';
 import ChartAreaDoc from './components/chart/AreaDoc';
@@ -193,13 +193,11 @@ export default [
     { label: 'Structure', contents: [
       { path: 'app', label: 'App', component: AppDoc },
       { path: 'article', label: 'Article', component: ArticleDoc },
-      { path: 'card', label: 'Card', index: CardDoc, children: [
-        { path: 'examples', component: CardExamplesDoc }
-      ]},
+      { path: 'card', label: 'Card', index: CardDoc,
+        examples: CardExamplesDoc },
       { path: 'footer', label: 'Footer', component: FooterDoc },
-      { path: 'header', label: 'Header', index: HeaderDoc, children: [
-        { path: 'examples', component: HeaderExamplesDoc }
-      ]},
+      { path: 'header', label: 'Header', index: HeaderDoc,
+        examples: HeaderExamplesDoc },
       { path: 'hero', label: 'Hero', index: HeroDoc, children: [
         { path: 'examples', component: HeroExamplesDoc }
       ]},
@@ -216,9 +214,8 @@ export default [
     ]},
     { label: 'Text', contents: [
       { path: 'heading', label: 'Heading', component: HeadingDoc },
-      { path: 'headline', label: 'Headline', index: HeadlineDoc, children: [
-        { path: 'examples', component: HeadlineExamplesDoc }
-      ]},
+      { path: 'headline', label: 'Headline', index: HeadlineDoc,
+        examples: HeadlineExamplesDoc },
       { path: 'label', label: 'Label', component: LabelDoc },
       { path: 'markdown', label: 'Markdown', index: MarkdownDoc, children: [
         { path: 'examples', component: MarkdownExamplesDoc }

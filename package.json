@@ -24,7 +24,7 @@
     "grommet-addons": "https://github.com/grommet/grommet-addons/tarball/stable",
     "highlight.js": "^9.8.0",
     "json-stringify-pretty-compact": "^1.0.1",
-    "jsx-to-string": "^0.2.15",
+    "jsx-to-string": "^0.3.0",
     "react-desc": "^0.1.0",
     "react-router": "^3.0.0"
   },
