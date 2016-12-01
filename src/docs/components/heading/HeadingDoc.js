@@ -3,33 +3,23 @@
 import React, { Component } from 'react';
 import Heading from 'grommet/components/Heading';
 import Anchor from 'grommet/components/Anchor';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
-
-Heading.displayName = 'Heading';
-
-const USAGE =
-`import Heading from 'grommet/components/Heading';
-<Heading>
-  {contents}
-</Heading>`;
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
 
 export default class HeadingDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Heading">
+      <DocsArticle title='Heading' action={
+        <Button primary={true} path={`/docs/heading/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>An HTML heading, one of h1, h2, h3, h4, h5, h6.
-           See <Anchor path="/docs/typography">Typography</Anchor> for
+           See <Anchor path='/docs/typography'>Typography</Anchor> for
            examples of all heading tags.</p>
           <Heading>Sample Heading</Heading>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -55,16 +45,6 @@ export default class HeadingDoc extends Component {
             <dd>Convert the heading to uppercase.
               Defaults to <code>false</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-          <Example name='Default' code={
-            <Heading>Sample Heading</Heading>
-          } />
-        <Example name='Truncate' code={
-            <Heading truncate={true}>Avoid Creating Long Headings</Heading>
-          } />
         </section>
 
       </DocsArticle>

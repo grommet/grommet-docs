@@ -1,10 +1,10 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Paragraph from 'grommet/components/Paragraph';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
+
+Paragraph.displayName = 'Paragraph';
 
 const TEXT = `Raised on hip-hop and foster care, defiant city kid Ricky
 gets a fresh start in the New Zealand countryside. He quickly finds himself
@@ -15,21 +15,27 @@ national manhunt ensues, the newly branded outlaws must face their
 options: go out in a blaze of glory or overcome their differences and
 survive as a family.`;
 
-const ParagraphExample = (props) => (
-  <Example align="start" code={
-    <Paragraph {...props}>{TEXT}</Paragraph>
-  } />
-);
 
-export default class ParagraphExamplesDoc extends ExamplesDoc {};
+const PROPS_SCHEMA = {
+  size: { options: ['small', 'medium', 'large', 'xlarge'] }
+};
 
-ParagraphExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/paragraph">Paragraph</Anchor>,
-  examples: [
-    { label: 'Default', component: ParagraphExample },
-    { label: 'Small', component: ParagraphExample, props: { size: 'small' } },
-    { label: 'Large', component: ParagraphExample, props: { size: 'large' } },
-    { label: 'XLarge', component: ParagraphExample, props: { size: 'xlarge' } }
-  ],
-  title: 'Examples'
+export default class ParagraphExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { elementProps: {} };
+  }
+
+  render () {
+    const { elementProps } = this.state;
+    const element = <Paragraph {...elementProps}>{TEXT}</Paragraph>;
+    return (
+      <InteractiveExample contextLabel='Paragraph' contextPath='/docs/paragraph'
+        preamble={`import Paragraph from 'grommet/components/Paragraph';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({ elementProps })} />
+    );
+  }
 };

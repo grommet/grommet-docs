@@ -12,7 +12,7 @@ const ComponentDoc = (props) => {
     if (property.defaultValue) {
       defaultVaule = [`The default is `, <b>{property.defaultValue}</b>, '.'];
     }
-    let format = `{${property.format}}`;
+    let format = `{${property.format}}`.replace(/,/g, '|');
     if (property.format === 'boolean') {
       format = '{true|false}';
       if (typeof property.defaultValue === 'undefined') {
@@ -40,12 +40,12 @@ const ComponentDoc = (props) => {
   });
 
   let usage;
-  if (componentDoc.extras.usage) {
+  if (componentDoc.usage) {
     usage = (
       <section>
         <h2>Usage</h2>
         <pre><code className="html hljs xml">
-          {componentDoc.extras.usage}
+          {componentDoc.usage}
         </code></pre>
       </section>
     );

@@ -2,30 +2,23 @@
 
 import React, { Component } from 'react';
 import Timestamp from 'grommet/components/Timestamp';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
-
-Timestamp.displayName = 'Timestamp';
-
-const USAGE =
-`import Timestamp from 'grommet/components/Timestamp';
-<Timestamp value={} />`;
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
+import Example from '../../Example';
 
 export default class TimestampDoc extends Component {
 
   render () {
     const now = (new Date()).toISOString();
     return (
-      <DocsArticle title="Timestamp">
+      <DocsArticle title='Timestamp' action={
+        <Button primary={true} path={`/docs/timestamp/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>A localized timestamp.</p>
           <Timestamp value={now}/>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -45,26 +38,26 @@ export default class TimestampDoc extends Component {
         <section>
           <h2>Examples</h2>
 
-          <Example name="Default" code={
+          <Example name='Default' code={
             <Timestamp value={now} />
           } />
-          <Example name="Date only" code={
-            <Timestamp value={now} fields="date" />
+          <Example name='Date only' code={
+            <Timestamp value={now} fields='date' />
           } />
-          <Example name="Month and day only" code={
+          <Example name='Month and day only' code={
             <Timestamp value={now} fields={['month', 'day']} />
           } />
-          <Example name="Date and time with seconds" code={
-            <Timestamp value={now} fields={["date", "time", "seconds"]} />
+          <Example name='Date and time with seconds' code={
+            <Timestamp value={now} fields={['date', 'time', 'seconds']} />
           } />
-          <Example name="Time only" code={
-            <Timestamp value={now} fields="time" />
+          <Example name='Time only' code={
+            <Timestamp value={now} fields='time' />
           } />
-          <Example name="Time with seconds" code={
-            <Timestamp value={now} fields={["time", "seconds"]} />
+          <Example name='Time with seconds' code={
+            <Timestamp value={now} fields={['time', 'seconds']} />
           } />
-          <Example name="Hours only" code={
-            <Timestamp value={now} fields="hours" />
+          <Example name='Hours only' code={
+            <Timestamp value={now} fields='hours' />
           } />
         </section>
 

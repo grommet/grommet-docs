@@ -9,7 +9,7 @@ export default class HeadlineDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Headline" action={
+      <DocsArticle title='Headline' action={
         <Button primary={true} path={`/docs/headline/examples`}
           label='Examples' />
         }>

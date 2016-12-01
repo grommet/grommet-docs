@@ -2,16 +2,8 @@
 
 import React, { Component } from 'react';
 import Paragraph from 'grommet/components/Paragraph';
-import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-Paragraph.displayName = 'Paragraph';
-
-const USAGE =
-`import Paragraph from 'grommet/components/Paragraph';
-<Paragraph>
-  Text ...
-</Paragraph>`;
 
 const TEXT = `Raised on hip-hop and foster care, defiant city kid Ricky
 gets a fresh start in the New Zealand countryside. He quickly finds himself
@@ -26,7 +18,10 @@ export default class ParagraphDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Paragraph">
+      <DocsArticle title='Paragraph' action={
+        <Button primary={true} path={`/docs/paragraph/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>A paragraph of text, such as ...</p>
@@ -36,25 +31,12 @@ export default class ParagraphDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>size       small|medium|large|xlarge</code></dt>
             <dd>The size of the Paragraph text.
               Defaults to <code>medium</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/paragraph/examples`}>
-            Paragraph Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

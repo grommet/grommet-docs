@@ -3,8 +3,6 @@
 import React, { Component } from 'react';
 import Title from 'grommet/components/Title';
 import DocsArticle from '../../components/DocsArticle';
-import Logo from '../../img/Logo';
-import Example from '../Example';
 
 Title.displayName = 'Title';
 
@@ -21,11 +19,6 @@ export default class TitleDoc extends Component {
         <section>
           <p>Title component usually rendered inside a Header.</p>
           <Title>Sample Title</Title>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -47,14 +40,8 @@ export default class TitleDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
-
-          <Example name="Simple" code={
-            <Title>Sample Title</Title>
-          } />
-          <Example name="Logo and text" code={
-            <Title><Logo /> Sample Title</Title>
-          } />
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

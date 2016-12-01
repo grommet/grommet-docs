@@ -71,7 +71,8 @@ import FormFieldDoc from './components/form-field/FormFieldDoc';
 import FormFieldExamplesDoc from './components/form-field/FormFieldExamplesDoc';
 import HeaderDoc from './components/header/HeaderDoc';
 import HeaderExamplesDoc from './components/header/HeaderExamplesDoc';
-import HeadingDoc from './components/HeadingDoc';
+import HeadingDoc from './components/heading/HeadingDoc';
+import HeadingExamplesDoc from './components/heading/HeadingExamplesDoc';
 import HeadlineDoc from './components/headline/HeadlineDoc';
 import HeadlineExamplesDoc from './components/headline/HeadlineExamplesDoc';
 import HeroDoc from './components/hero/HeroDoc';
@@ -140,7 +141,8 @@ import Templates from './Templates';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
 import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
-import TimestampDoc from './components/TimestampDoc';
+import TimestampDoc from './components/timestamp/TimestampDoc';
+import TimestampExamplesDoc from './components/timestamp/TimestampExamplesDoc';
 import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
 import ToastDoc from './components/ToastDoc';
@@ -213,21 +215,19 @@ export default [
         examples: ValueExamplesDoc }
     ]},
     { label: 'Text', contents: [
-      { path: 'heading', label: 'Heading', component: HeadingDoc },
+      { path: 'heading', label: 'Heading', component: HeadingDoc,
+        examples: HeadingExamplesDoc },
       { path: 'headline', label: 'Headline', index: HeadlineDoc,
         examples: HeadlineExamplesDoc },
       { path: 'label', label: 'Label', component: LabelDoc },
-      { path: 'markdown', label: 'Markdown', index: MarkdownDoc, children: [
-        { path: 'examples', component: MarkdownExamplesDoc }
-      ]},
+      { path: 'markdown', label: 'Markdown', index: MarkdownDoc,
+        examples: MarkdownExamplesDoc },
       { path: 'paragraph', label: 'Paragraph', index: ParagraphDoc,
-        children: [
-          { path: 'examples', component: ParagraphExamplesDoc }
-        ]},
-      { path: 'quote', label: 'Quote', index: QuoteDoc, children: [
-        { path: 'examples', component: QuoteExamplesDoc }
-      ]},
-      { path: 'timestamp', label: 'Timestamp', component: TimestampDoc },
+        examples: ParagraphExamplesDoc },
+      { path: 'quote', label: 'Quote', index: QuoteDoc,
+        examples: QuoteExamplesDoc },
+      { path: 'timestamp', label: 'Timestamp', component: TimestampDoc,
+        examples: TimestampExamplesDoc },
       { path: 'title', label: 'Title', component: TitleDoc }
     ]},
     { label: 'Controls', contents: [

@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Label from 'grommet/components/Label';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 Label.displayName = 'Label';
 
@@ -18,52 +17,35 @@ export default class LabelDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Label">
+      <DocsArticle title='Label'>
 
         <section>
           <p>A simple text label. This could be used to annotate
-            a <Anchor path="/docs/value">Value</Anchor> to indicate
+            a <Anchor path='/docs/value'>Value</Anchor> to indicate
             what the value refers to. Or, it can annotate
-            a <Anchor path="/docs/card">Card</Anchor> to indicate
+            a <Anchor path='/docs/card'>Card</Anchor> to indicate
             a category.</p>
           <Label>Sample Label</Label>
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>labelFor          {"{string}"}</code></dt>
+            <dt><code>labelFor    {"{string}"}</code></dt>
             <dd>ID of the form element that the label is for.  Optional.</dd>
             <dt><code>truncate    true|false</code></dt>
             <dd>Restrict the text to a single line and truncate with
               ellipsis if it is too long to all fit.
               Defaults to <code>false</code>.</dd>
-            <dt><code>uppercase         true|false</code></dt>
+            <dt><code>uppercase   true|false</code></dt>
             <dd>Convert the label to uppercase.
               Defaults to <code>false</code>.</dd>
           </dl>
         </section>
 
         <section>
-          <h2>Examples</h2>
-
-          <Example name="Default" code={
-            <Label>Sample Label</Label>
-          } />
-          <Example name="Uppercase" code={
-            <Label uppercase={true}>Sample Label</Label>
-          } />
-        <Example name="Truncate" code={
-            <Label truncate={true}>
-              Avoid creating long labels wherever possible as they are harder
-              to read
-            </Label>
-          } />
+          <h2>Usage</h2>
+          <pre><code className='html hljs xml'>{USAGE}</code></pre>
         </section>
 
       </DocsArticle>
