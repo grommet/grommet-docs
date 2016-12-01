@@ -22,7 +22,7 @@ export default class HeroDoc extends Component {
         }>
 
         <section>
-          <p>{desc}</p>
+          <p>{DESC}</p>
           <Hero backgroundImage='/img/carousel-1.png'>
             <Heading tag='h1'>Sample Heading</Heading>
           </Hero>

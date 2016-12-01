@@ -32,13 +32,7 @@ export default class SectionDoc extends Component {
       <DocsArticle title="Section">
 
         <section>
-          <p>A standard <Anchor
-            href="http://www.w3.org/TR/html5/sections.html#the-section-element">
-            HTML5 section</Anchor>. It might
-            contain a <Anchor path="/docs/heading">Heading</Anchor>, one
-            or more <Anchor path="/docs/paragraph">Paragraphs</Anchor>
-            , <Anchor path="/docs/image">Images</Anchor>
-            , and <Anchor path="/docs/video">Videos</Anchor>.</p>
+          <p>{DESC}</p>
 
           <Section colorIndex="light-2" pad='medium'>
             <Heading tag='h2'>Sample Heading</Heading>
