@@ -32,7 +32,7 @@ class HomeSection extends Component {
   render () {
     return (
       <Section
-        appCentered={true} justify='center' align='center'
+        justify='center' align='center'
         pad={{vertical: 'large'}} {...this.props}>
         {this.props.children}
       </Section>
@@ -189,13 +189,13 @@ export default class Home extends Component {
           <Footer appCentered={true} justify='center'>
             <Menu inline={true} responsive={false} direction='row'>
               <Anchor href='http://slackin.grommet.io'
-                icon={<SlackIcon
+                icon={<SlackIcon colorIndex='plain'
                   a11yTitle='Grommet Slack' />}/>
               <Anchor href='https://github.com/grommet/grommet'
                 icon={<GithubIcon
                   a11yTitle='Grommet Github' />}/>
               <Anchor href='https://twitter.com/grommetux'
-                icon={<TwitterIcon
+                icon={<TwitterIcon colorIndex='plain'
                 a11yTitle='Grommet Twitter' />}/>
             </Menu>
           </Footer>
@@ -275,7 +275,7 @@ export default class Home extends Component {
 
         <HomeSection colorIndex='light-2'>
           <Box direction='row'>
-            <Box align='center'>
+            <Box align='center' pad='medium'>
               <Heading tag='h2'>Together is better</Heading>
               <Paragraph align='center'>Grommet is structured to foster
                 active communication
@@ -289,12 +289,13 @@ export default class Home extends Component {
 
         <Footer align='start' primary={true} direction='column' pad='medium'>
           <Box direction='row' justify='between' align='start'
-            pad={{ between: 'medium' }} full='horizontal'>
+            pad={{ between: 'medium' }} size={{ width: 'max' }}>
             <Box direction='row' align='center' responsive={false}
               pad={{ between: 'small'}}>
               <GrommetLogo /> <strong>grommet</strong>
             </Box>
-            <Box direction='row' pad={{ between: 'large' }}>
+            <Box direction='row' pad={{ between: 'large' }}
+              responsive={false}>
               <Box direction='column'>
                 <Anchor path='/docs/get-started'>Start</Anchor>
                 {/*}
@@ -323,7 +324,7 @@ export default class Home extends Component {
               </Box>
             </Box>
           </Box>
-          <Box direction='row' justify='between'>
+          <Box direction='row' justify='between' pad={{ vertical: 'medium' }}>
             <span>
               Documentation licensed under <Anchor
                 href='http://creativecommons.org/licenses/by/4.0/legalcode'>
