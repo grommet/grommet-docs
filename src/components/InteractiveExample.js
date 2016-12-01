@@ -125,6 +125,7 @@ export default class InteractiveExample extends Component {
         } else if ('false' === value) {
           value = false;
         }
+        console.log('!!! mount', name, value);
 
         const matchContext = name.match(CONTEXT_PROP_REGEXP);
         const matchContents = name.match(CONTENTS_PROP_REGEXP);
@@ -172,7 +173,9 @@ export default class InteractiveExample extends Component {
 
   _normalizeActiveForElement (active, schema) {
     let result = {};
-    Object.keys(active).forEach(property => {
+    Object.keys(active)
+    .filter(property => schema[property]) // in case user types incorrect URL
+    .forEach(property => {
       if (schema[property].options ||
         typeof schema[property].value === 'boolean') {
         result[property] = active[property];

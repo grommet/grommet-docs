@@ -17,9 +17,17 @@ const PROPS_SCHEMA = {
 };
 
 const CONTENTS_SCHEMA = {
-  title: { value: true, initial: true },
-  search: { value: true, initial: true },
-  menu: { value: true, initial: true }
+  title: { value: <Title>Sample Title</Title>, initial: true },
+  search: { value: (
+    <Search inline={true} fill={true} size='medium' placeHolder='Search' />
+  ), initial: true },
+  menu: { value: (
+    <Menu icon={<ActionsIcon />} dropAlign={{right: 'right'}}>
+      <Anchor href='#' className='active'>First</Anchor>
+      <Anchor href='#'>Second</Anchor>
+      <Anchor href='#'>Third</Anchor>
+    </Menu>
+  ), initial: true }
 };
 
 export default class HeaderExamplesDoc extends Component {
@@ -32,34 +40,11 @@ export default class HeaderExamplesDoc extends Component {
   render () {
     let { contents, elementProps } = this.state;
 
-    let title;
-    if (contents.title) {
-      title = <Title>Sample Title</Title>;
-    }
-
-    let search;
-    if (contents.search) {
-      search = (
-        <Search inline={true} fill={true} size="medium" placeHolder="Search" />
-      );
-    }
-
-    let menu;
-    if (contents.menu) {
-      menu = (
-        <Menu icon={<ActionsIcon />} dropAlign={{right: "right"}}>
-          <Anchor href="#" className="active">First</Anchor>
-          <Anchor href="#">Second</Anchor>
-          <Anchor href="#">Third</Anchor>
-        </Menu>
-      );
-    }
-
     const element = (
       <Header {...elementProps}>
-        {title}
-        {search}
-        {menu}
+        {contents.title}
+        {contents.search}
+        {contents.menu}
       </Header>
     );
 

@@ -136,7 +136,8 @@ import SunBurstDoc from './components/SunBurstDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
 import TableHeaderDoc from './components/TableHeaderDoc';
-import TabsDoc from './components/TabsDoc';
+import TabsDoc from './components/tabs/TabsDoc';
+import TabsExamplesDoc from './components/tabs/TabsExamplesDoc';
 import Templates from './Templates';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
@@ -243,25 +244,20 @@ export default [
     ]},
     { label: 'Controls', contents: [
       { path: 'accordion', label: 'Accordion', index: AccordionDoc,
-        children: [
-          { path: 'examples', component: AccordionExamplesDoc }
-        ]},
-      { path: 'anchor', label: 'Anchor', index: AnchorDoc, children: [
-        { path: 'examples', component: AnchorExamplesDoc }
-      ]},
-      { path: 'button', label: 'Button', index: ButtonDoc, children: [
-        { path: 'examples', component: ButtonExamplesDoc }
-      ]},
+        examples: AccordionExamplesDoc },
+      { path: 'anchor', label: 'Anchor', index: AnchorDoc,
+        examples: AnchorExamplesDoc },
+      { path: 'button', label: 'Button', index: ButtonDoc,
+        examples: ButtonExamplesDoc },
       { path: 'filter-control', label: 'FilterControl',
         component: FilterControlDoc },
-      { path: 'menu', label: 'Menu', index: MenuDoc, children: [
-        { path: 'examples', component: MenuExamplesDoc }
-      ]},
-      { path: 'search', label: 'Search', index: SearchDoc, children: [
-        { path: 'examples', component: SearchExamplesDoc }
-      ]},
+      { path: 'menu', label: 'Menu', index: MenuDoc,
+        examples: MenuExamplesDoc },
+      { path: 'search', label: 'Search', index: SearchDoc,
+        examples: SearchExamplesDoc },
       { path: 'sort', label: 'Sort', component: SortDoc },
-      { path: 'tabs', label: 'Tabs', index: TabsDoc },
+      { path: 'tabs', label: 'Tabs', index: TabsDoc,
+        examples: TabsExamplesDoc },
       { path: 'tip', label: 'Tip', component: TipDoc }
     ]},
     { label: 'Forms', contents: [

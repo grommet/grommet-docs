@@ -22,9 +22,21 @@ const PROPS_SCHEMA = {
 };
 
 const CONTENTS_SCHEMA = {
-  header: { value: true, initial: true },
-  menu: { value: true, initial: true },
-  footer: { value: true, initial: true }
+  header: { value: (
+    <Header pad='medium' justify='between'><Title>Title</Title></Header>
+  ), initial: true },
+  menu: { value: (
+    <Box flex='grow' justify='start'>
+      <Menu primary={true}>
+        <Anchor href='#' className='active'>First</Anchor>
+        <Anchor href='#'>Second</Anchor>
+        <Anchor href='#'>Third</Anchor>
+      </Menu>
+    </Box>
+  ), initial: true },
+  footer: { value: (
+    <Footer pad='medium'><Button icon={<UserIcon />} /></Footer>
+  ), initial: true }
 };
 
 export default class SidebarExamplesDoc extends Component {
@@ -37,42 +49,11 @@ export default class SidebarExamplesDoc extends Component {
   render () {
     let { contents, elementProps } = this.state;
 
-    let header;
-    if (contents.header) {
-      header = (
-        <Header pad='medium' justify='between'>
-          <Title>Title</Title>
-        </Header>
-      );
-    }
-
-    let menu;
-    if (contents.menu) {
-      menu = (
-        <Box flex='grow' justify='start'>
-          <Menu primary={true}>
-            <Anchor href='#' className='active'>First</Anchor>
-            <Anchor href='#'>Second</Anchor>
-            <Anchor href='#'>Third</Anchor>
-          </Menu>
-        </Box>
-      );
-    }
-
-    let footer;
-    if (contents.footer) {
-      footer = (
-        <Footer pad='medium'>
-          <Button icon={<UserIcon />} />
-        </Footer>
-      );
-    }
-
     const element = (
       <Sidebar colorIndex='neutral-1' {...elementProps}>
-        {header}
-        {menu}
-        {footer}
+        {contents.header}
+        {contents.menu}
+        {contents.footer}
       </Sidebar>
     );
 

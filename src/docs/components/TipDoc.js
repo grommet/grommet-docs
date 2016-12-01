@@ -45,12 +45,6 @@ export default class TipDoc extends Component {
           </Menu>
           {tip}
 
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-
           <p>The caller is responsible for determining when to show a Tip.
             The tip should be removed when the <code>
             onClose</code> function is called. Additionally, the Tip should
@@ -84,6 +78,11 @@ export default class TipDoc extends Component {
               with. The id takes priority over class. If multiple classes
               are found, the first one will be used.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import Sort from 'grommet-addons/components/Sort';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
-
-Sort.displayName = 'Sort';
 
 const USAGE =
 `import Sort from 'grommet-addons/components/Sort';
@@ -22,11 +19,11 @@ export default class SortDoc extends Component {
   render () {
     const { direction, value } = this.state;
     return (
-      <DocsArticle title="Sort">
+      <DocsArticle title='Sort'>
 
         <section>
-          <p>A combination of <Anchor path="/docs/select">Select</Anchor> and
-            two direction <Anchor path="/docs/button">Buttons</Anchor> for
+          <p>A combination of <Anchor path='/docs/select'>Select</Anchor> and
+            two direction <Anchor path='/docs/button'>Buttons</Anchor> for
             use as a means of choosing how to sort something.</p>
           <Sort options={[
             { label: 'Name', value: 'name'},
@@ -39,38 +36,27 @@ export default class SortDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>direction   asc|desc</code></dt>
             <dd>The active direction.</dd>
-            <dt><code>onChange    {"function ({ value: , direction: }) {}"}
+            <dt><code>onChange    {'function ({ value: , direction: }) {}'}
               </code></dt>
             <dd>Function that will be called when the user makes a choice. It
               is passed an object describing the current option value and
               direction.</dd>
-            <dt><code>options     {"[{label: , value: , direction: }, ...]"}
+            <dt><code>options     {'[{label: , value: , direction: }, ...]'}
               </code></dt>
             <dd>Array of possible options. When an option is chosen, the
               intial direction will be set as defined for that option.</dd>
-            <dt><code>value       {"{string}"}</code></dt>
+            <dt><code>value       {'{string}'}</code></dt>
             <dd>The active option value.</dd>
           </dl>
         </section>
 
         <section>
-          <h2>Example</h2>
-          <Example code={
-            <Sort options={[
-              { label: 'Name', value: 'name'},
-              { label: 'Modified', value: 'modified'}
-            ]} value={value} direction={direction}
-              onChange={(object) => this.setState(object)} />
-          } />
+          <h2>Usage</h2>
+          <pre><code className='html hljs xml'>{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

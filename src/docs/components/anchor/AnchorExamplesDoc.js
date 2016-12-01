@@ -1,54 +1,57 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import EditIcon from 'grommet/components/icons/base/Edit';
-import NextIcon from 'grommet/components/icons/base/Next';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import Heading from 'grommet/components/Heading';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const AnchorExample = (props) => (
-  <Example code={
-    <Anchor href="" {...props} />
-  } />
-);
+const PROPS_SCHEMA = {
+  icon: { value: <EditIcon />, initial: true },
+  label: { value: 'Label', initial: true },
+  primary: { value: true },
+  reverse: { value: true },
+  disabled: { value: true },
+  animateIcon: { value: true, initial: true },
+  path: { value: '/' },
+  href: { value: '#', initial: true },
+  target: { value: '_blank' }
+};
 
-const AnchorChildExample = (props) => (
-  <Example code={
-    <Anchor href="" {...props}>
-      Name
-    </Anchor>
-  } />
-);
+const CONTENTS_SCHEMA = {
+  textChild: { value: 'Text label' },
+  headingChild: { value: <Heading tag='h3'>Heading Label</Heading> }
+};
 
-const AnchorHeaderExample = (props) => (
-  <Example code={
-    <h3>
-      <Anchor href="" {...props} />
-    </h3>
-  } />
-);
+export default class CardExamplesDoc extends Component {
 
-export default class AnchorExamplesDoc extends ExamplesDoc {};
+  constructor () {
+    super();
+    this.state = { contents: {}, elementProps: {} };
+  }
 
-AnchorExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/anchor">Anchor</Anchor>,
-  examples: [
-    { label: 'Default', component: AnchorChildExample },
-    { label: 'Primary, Label', component: AnchorExample,
-      props: { primary: true, label: 'Name' } },
-    { label: 'Icon, Label', component: AnchorExample,
-      props: { icon: <EditIcon />, label: 'Edit' } },
-    { label: 'Icon, Label, Reverse', component: AnchorExample,
-      props: { icon: <NextIcon />, label: 'Next', reverse: true } },
-    { label: 'Icon', component: AnchorExample,
-      props: { icon: <EditIcon /> } },
-    { label: 'Target', component: AnchorExample,
-      props: { label: 'Name', target: '_blank' } },
-    { label: 'Disabled', component: AnchorExample,
-      props: { primary: true, label: 'Name', disabled: true } },
-    { label: 'Header', component: AnchorHeaderExample,
-      props: { label: 'Heading' }}
-  ],
-  title: 'Examples'
+  render () {
+    const { contents, elementProps } = this.state;
+    let element;
+    if (Object.keys(contents).length === 0) {
+      element = <Anchor {...elementProps} />;
+    } else {
+      element = (
+        <Anchor {...elementProps}>
+          {contents.headingChild}
+          {contents.textChild}
+        </Anchor>
+      );
+    }
+    return (
+      <InteractiveExample contextLabel='Anchor' contextPath='/docs/anchor'
+        preamble={`import Anchor from 'grommet/components/Anchor';`}
+        propsSchema={PROPS_SCHEMA}
+        contentsSchema={CONTENTS_SCHEMA}
+        element={element}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
+    );
+  }
 };

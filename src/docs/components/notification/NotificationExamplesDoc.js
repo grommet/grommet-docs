@@ -10,7 +10,7 @@ const PROPS_SCHEMA = {
   status: { options: ['ok', 'critical', 'warning', 'unknown'] },
   state: { value: 'Sample state', initial: true },
   message: { value: 'Sample message', initial: true },
-  timestamp: { value: (new Date()), initial: true },
+  timestamp: { value: (new Date()).toISOString(), initial: true },
   percentComplete: { value: 30 },
   size: { options: ['small', 'medium', 'large'] }
 };

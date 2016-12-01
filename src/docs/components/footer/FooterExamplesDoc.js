@@ -17,9 +17,17 @@ const PROPS_SCHEMA = {
 };
 
 const CONTENTS_SCHEMA = {
-  logo: { value: true, initial: true },
-  copyright: { value: true, initial: true },
-  menu: { value: true, initial: true }
+  logo: { value: <Logo />, initial: true },
+  copyright: { value: (
+    <Paragraph margin='none'>&copy; 2016 Grommet Labs</Paragraph>
+  ), initial: true },
+  menu: { value: (
+    <Menu direction='row' size='small'>
+      <Anchor href="#">First</Anchor>
+      <Anchor href="#">Second</Anchor>
+      <Anchor href="#">Third</Anchor>
+    </Menu>
+  ), initial: true }
 };
 
 export default class FooterExamplesDoc extends Component {
@@ -32,34 +40,11 @@ export default class FooterExamplesDoc extends Component {
   render () {
     let { contents, elementProps } = this.state;
 
-    let logo;
-    if (contents.logo) {
-      logo = <Logo />;
-    }
-
-    let copyright;
-    if (contents.copyright) {
-      copyright = (
-        <Paragraph margin='none'>&copy; 2016 Grommet Labs</Paragraph>
-      );
-    }
-
-    let menu;
-    if (contents.menu) {
-      menu = (
-        <Menu direction='row'>
-          <Anchor href="#">First</Anchor>
-          <Anchor href="#">Second</Anchor>
-          <Anchor href="#">Third</Anchor>
-        </Menu>
-      );
-    }
-
     const element = (
       <Footer justify='between' {...elementProps}>
-        {logo}
-        {copyright}
-        {menu}
+        {contents.logo}
+        {contents.copyright}
+        {contents.menu}
       </Footer>
     );
 
