@@ -125,7 +125,6 @@ export default class InteractiveExample extends Component {
         } else if ('false' === value) {
           value = false;
         }
-        console.log('!!! mount', name, value);
 
         const matchContext = name.match(CONTEXT_PROP_REGEXP);
         const matchContents = name.match(CONTENTS_PROP_REGEXP);

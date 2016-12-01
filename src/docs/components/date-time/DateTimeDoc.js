@@ -4,12 +4,8 @@ import React, { Component } from 'react';
 import DateTime from 'grommet/components/DateTime';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
-import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-const USAGE =
-`import DateTime from 'grommet/components/DateTime';
-<DateTime value={} onChange={} />`;
 
 export default class DateTimeDoc extends Component {
 
@@ -35,55 +31,45 @@ export default class DateTimeDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="DateTime">
+      <DocsArticle title='DateTime' action={
+        <Button primary={true} path='/docs/date-time/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>An input field for a date and/or time.</p>
 
           <Form>
             <FormField>
-              <DateTime id="item1" name="item-1"
+              <DateTime id='item1' name='item-1'
                 onChange={this._onChange} value={this.state.value}  />
             </FormField>
           </Form>
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>format        {"{string}"}</code></dt>
+            <dt><code>format        {'{string}'}</code></dt>
             <dd>The date format. Available syntax can be seen in the
               documentation
-              for <a href="http://momentjs.com/docs/#/displaying/format/">
+              for <a href='http://momentjs.com/docs/#/displaying/format/'>
               moment</a>.
-              The default is <code>{"M/D/YYYY h:mm a"}</code>.</dd>
-            <dt><code>id            {"{string}"}</code></dt>
+              The default is <code>{'M/D/YYYY h:mm a'}</code>.</dd>
+            <dt><code>id            {'{string}'}</code></dt>
             <dd>The id attribute of the input.</dd>
-            <dt><code>name          {"{string}"}</code></dt>
+            <dt><code>name          {'{string}'}</code></dt>
             <dd>The name attribute of the input.</dd>
-            <dt><code>onChange      {"{function ({string})}"}</code></dt>
+            <dt><code>onChange      {'{function ({string})}'}</code></dt>
             <dd>Function that will be called when the user types some text into
               the input or selects a date from the drop down.</dd>
-            <dt><code>step          {"{number}"}</code></dt>
+            <dt><code>step          {'{number}'}</code></dt>
             <dd>The step granularity of the least significant format
               element.</dd>
-            <dt><code>value         {"{string}|{Date}|{moment}"}</code></dt>
+            <dt><code>value         {'{string}|{Date}|{moment}'}</code></dt>
             <dd>If a string is specified, it is put in the input. If a Date
               or moment is specified, it is formatted and put in the input.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/date-time/examples`}>
-            DateTime Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

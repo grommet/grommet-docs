@@ -4,20 +4,21 @@ import React, { Component } from 'react';
 import DateTime from 'grommet/components/DateTime';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-class DateTimeExample extends Component {
+const PROPS_SCHEMA = {
+  format: {
+    options: ['M/D/YYYY h:mm a', 'M/D/YYYY', 'D/M/YYYY', 'H:mm:ss', 'h a']
+  },
+  step: { options: [1, 5] }
+};
+
+export default class HeadlineExamplesDoc extends Component {
 
   constructor () {
     super();
     this._onChange = this._onChange.bind(this);
-    this.state = {};
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this.setState({ value: undefined });
+    this.state = { elementProps: {} };
   }
 
   _onChange (value) {
@@ -25,32 +26,21 @@ class DateTimeExample extends Component {
   }
 
   render () {
+    const { elementProps, value } = this.state;
+    const element = (
+      <Form>
+        <FormField>
+          <DateTime id="id" name="name" {...elementProps}
+            onChange={this._onChange} value={value} />
+        </FormField>
+      </Form>
+    );
     return (
-      <Example code={
-        <Form>
-          <FormField>
-            <DateTime id="id" name="name" {...this.props}
-              onChange={this._onChange} value={this.state.value}  />
-          </FormField>
-        </Form>
-      } />
+      <InteractiveExample contextLabel='DateTime' contextPath='/docs/date-time'
+        preamble={`import DateTime from 'grommet/components/DateTime';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({ elementProps })} />
     );
   }
-
-};
-
-export default class DateTimeExamplesDoc extends ExamplesDoc {};
-
-DateTimeExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/date-time">DateTime</Anchor>,
-  examples: [
-    { label: 'Default', component: DateTimeExample },
-    { label: 'Time only, 24 hour time, seconds, step 10',
-      component: DateTimeExample, props: { format: 'H:mm:ss', step: 10 } },
-    { label: 'Time only, hours', component: DateTimeExample,
-      props: { format: 'h a' } },
-    { label: 'Date only', component: DateTimeExample,
-      props: { format: 'M/D/YYYY' } }
-  ],
-  title: 'Examples'
 };

@@ -3,19 +3,10 @@
 import React, { Component } from 'react';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
-import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
 FormField.displayName = 'FormField';
-
-const USAGE =
-`import Form from 'grommet/components/Form';
-import FormField from 'grommet/components/FormField';
-<Form>
-  <FormField label="Item 1">
-    {contents}
-  </FormField>
-</Form>`;
 
 export default class FormFieldDoc extends Component {
 
@@ -31,43 +22,33 @@ export default class FormFieldDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="FormField">
+      <DocsArticle title='FormField' action={
+        <Button primary={true} path='/docs/form-field/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A field in a web form.</p>
           <Form>
-            <FormField label="Item 1" htmlFor="item1">
-              <input id="item1" type="text" />
+            <FormField label='Item 1' htmlFor='item1'>
+              <input id='item1' type='text' />
             </FormField>
           </Form>
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
-          <dt><code>error     {"{string|node}"}</code></dt>
+          <dt><code>error     {'{string|node}'}</code></dt>
           <dd>Validation errors.</dd>
-          <dt><code>help      {"{string|node}"}</code></dt>
+          <dt><code>help      {'{string|node}'}</code></dt>
           <dd>Helpful text.</dd>
-          <dt><code>htmlFor   {"{string}"}</code></dt>
+          <dt><code>htmlFor   {'{string}'}</code></dt>
           <dd>Id of the input element that the label should be associated
             with.</dd>
-          <dt><code>label     {"{string|node}"}</code></dt>
+          <dt><code>label     {'{string|node}'}</code></dt>
           <dd>Label for the field.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/form-field/examples`}>
-            FormField Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

@@ -4,12 +4,11 @@ import React, { Component } from 'react';
 import RadioButton from 'grommet/components/RadioButton';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 const USAGE =
 `import RadioButton from 'grommet/components/RadioButton';
-<RadioButton label="Choice 1" checked={} onChange={} />
-<RadioButton label="Choice 2" checked={} onChange={} />`;
+<RadioButton label="Choice 1" name='choice' checked={} onChange={} />
+<RadioButton label="Choice 2" name='choice' checked={} onChange={} />`;
 
 export default class RadioButtonDoc extends Component {
 
@@ -42,11 +41,6 @@ export default class RadioButtonDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
           <dt><code>checked         true|false</code></dt>
@@ -72,29 +66,8 @@ export default class RadioButtonDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
-
-          <Example name="Basic" code={
-            <div>
-              <RadioButton id="choice2-1" name="choice2-1" label="Choice 1"
-                checked={this.state.choice === 'choice-1'}
-                onChange={this._onChange.bind(this, 'choice-1')} />
-              <RadioButton id="choice2-2" name="choice2-2" label="Choice 2"
-                checked={this.state.choice === 'choice-2'}
-                onChange={this._onChange.bind(this, 'choice-2')} />
-            </div>
-          } />
-
-          <Example name="Disabled" code={
-            <div>
-              <RadioButton id="choice3-1" name="choice3-1" label="Choice 1"
-                checked={this.state.choice === 'choice-1'} disabled={true}
-                onChange={this._onChange.bind(this, 'choice-1')} />
-              <RadioButton id="choice3-2" name="choice3-2" label="Choice 2"
-                checked={this.state.choice === 'choice-2'} disabled={true}
-                onChange={this._onChange.bind(this, 'choice-2')} />
-            </div>
-          } />
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

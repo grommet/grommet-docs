@@ -261,30 +261,22 @@ export default [
       { path: 'tip', label: 'Tip', component: TipDoc }
     ]},
     { label: 'Forms', contents: [
-      { path: 'check-box', label: 'CheckBox', index: CheckBoxDoc, children: [
-        { path: 'examples', component: CheckBoxExamplesDoc }
-      ]},
-      { path: 'date-time', label: 'DateTime', index: DateTimeDoc, children: [
-        { path: 'examples', component: DateTimeExamplesDoc }
-      ]},
-      { path: 'form', label: 'Form', index: FormDoc, children: [
-        { path: 'examples', component: FormExamplesDoc }
-      ]},
+      { path: 'check-box', label: 'CheckBox', index: CheckBoxDoc,
+        examples: CheckBoxExamplesDoc },
+      { path: 'date-time', label: 'DateTime', index: DateTimeDoc,
+        examples: DateTimeExamplesDoc },
+      { path: 'form', label: 'Form', index: FormDoc,
+        examples: FormExamplesDoc },
       { path: 'form-field', label: 'FormField', index: FormFieldDoc,
-        children: [
-          { path: 'examples', component: FormFieldExamplesDoc }
-        ]},
+        examples: FormFieldExamplesDoc },
       { path: 'number-input', label: 'NumberInput',
         component: NumberInputDoc },
       { path: 'radio-button', label: 'RadioButton',
         component: RadioButtonDoc },
       { path: 'search-input', label: 'SearchInput', index: SearchInputDoc,
-        children: [
-          { path: 'examples', component: SearchInputExamplesDoc }
-        ]},
-      { path: 'select', label: 'Select', index: SelectDoc, children: [
-        { path: 'examples', component: SelectExamplesDoc }
-      ]},
+        examples: SearchInputExamplesDoc },
+      { path: 'select', label: 'Select', index: SelectDoc,
+        examples: SelectExamplesDoc },
       { path: 'text-input', label: 'TextInput', component: TextInputDoc }
     ]},
     { label: 'Listing', contents: [

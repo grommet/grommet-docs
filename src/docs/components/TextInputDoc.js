@@ -5,7 +5,6 @@ import TextInput from 'grommet/components/TextInput';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 TextInput.displayName = 'TextInput';
 
@@ -53,11 +52,6 @@ export default class TextInputDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>defaultValue  {"{string}"}</code></dt>
@@ -86,19 +80,9 @@ export default class TextInputDoc extends Component {
         </section>
 
         <section>
-          <h2>Examples</h2>
-
-          <Example align="start" code={
-            <Form>
-              <FormField>
-                <TextInput id="item2" name="item-2"
-                  value={this.state.value} onDOMChange={this._onDOMChange}
-                  onSelect={this._onSelect}
-                  suggestions={this.state.suggestions} />
-              </FormField>
-            </Form>
-          } />
-      </section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
+        </section>
 
       </DocsArticle>
     );

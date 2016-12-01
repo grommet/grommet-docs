@@ -4,14 +4,10 @@ import React, { Component } from 'react';
 import Select from 'grommet/components/Select';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
-import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
 Select.displayName = 'Select';
-
-const USAGE =
-`import Select from 'grommet/components/Select';
-<Select value={} onSearch={} onChange={} options={} />`;
 
 const VALUES = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
 
@@ -38,7 +34,10 @@ export default class SelectDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Select">
+      <DocsArticle title="Select" action={
+        <Button primary={true} path='/docs/select/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>An select-like field with optional search capability.</p>
@@ -50,11 +49,6 @@ export default class SelectDoc extends Component {
                 options={this.state.options} />
             </FormField>
           </Form>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -87,14 +81,6 @@ export default class SelectDoc extends Component {
             <dt><code>value         {"{value: , label: }|{string}"}</code></dt>
             <dd>What text to put in the input.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/select/examples`}>
-            Select Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

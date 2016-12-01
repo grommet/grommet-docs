@@ -1,19 +1,70 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
+import React, { Component } from 'react';
+import SearchInput from 'grommet/components/SearchInput';
+import Box from 'grommet/components/Box';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-import SearchInput1 from './SearchInput1';
-import SearchInput2 from './SearchInput2';
+const PROPS_SCHEMA = {
+  placeHolder: { value: 'Search', initial: true },
+  suggestions: { options: ['none', 'simple', 'rich'] }
+};
 
-export default class SearchInputExamplesDoc extends ExamplesDoc {};
-
-SearchInputExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/search-input">SearchInput</Anchor>,
-  examples: [
-    { label: 'Simple', component: SearchInput1 },
-    { label: 'Rich Suggestions', component: SearchInput2 }
+const SUGGESTIONS_MAP = {
+  none: undefined,
+  rich: [
+    {value: "first", sub: "alpha",
+      label: (
+        <Box direction="row" justify="between">
+          <span>first</span>
+          <span className="secondary">alpha</span>
+        </Box>
+      )},
+    {value: "second", sub: "beta",
+      label: (
+        <Box direction="row" justify="between">
+          <span>second</span>
+          <span className="secondary">beta</span>
+        </Box>
+      )},
+    {value: "third", sub: "gamma",
+      label: (
+        <Box direction="row" justify="between">
+          <span>third</span>
+          <span className="secondary">gamma</span>
+        </Box>
+      )},
+    {value: "fourth", sub: "delta",
+      label: (
+        <Box direction="row" justify="between">
+          <span>fourth</span>
+          <span className="secondary">delta</span>
+        </Box>
+      )}
   ],
-  title: 'Examples'
+  simple: ['first', 'second', 'third', 'fourth']
+};
+
+export default class HeadlineExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { elementProps: {} };
+  }
+
+  render () {
+    const { elementProps } = this.state;
+    if (elementProps.suggestions) {
+      elementProps.suggestions = SUGGESTIONS_MAP[elementProps.suggestions];
+    }
+    const element = <SearchInput {...elementProps} />;
+    return (
+      <InteractiveExample contextLabel='SearchInput'
+        contextPath='/docs/search-input'
+        preamble={`import SearchInput from 'grommet/components/SearchInput';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({ elementProps })} />
+    );
+  }
 };

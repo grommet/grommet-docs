@@ -1,68 +1,52 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
 import CheckBox from 'grommet/components/CheckBox';
-import RadioButton from 'grommet/components/RadioButton';
-import NumberInput from 'grommet/components/NumberInput';
-import SearchInput from 'grommet/components/SearchInput';
-import DateTime from 'grommet/components/DateTime';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import TextInput from 'grommet/components/TextInput';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const FormFieldExample = (props) => (
-  <Example code={
-    <Form>
-      <FormField {...props} />
-    </Form>
-  } />
-);
+const PROPS_SCHEMA = {
+  label: { value: 'Sample label', initial: true },
+  help: { value: 'sample help' },
+  error: { value: 'sample error' }
+};
 
-export default class FormFieldExamplesDoc extends ExamplesDoc {};
+const CONTENTS_SCHEMA = {
+  contents: { options: ['TextInput', 'CheckBox'] }
+};
 
-FormFieldExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/form-field">FormField</Anchor>,
-  examples: [
-    { label: 'Text input', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1',
-        children: <input id="item1" type="text" /> }
-    },
-    { label: 'Text input with error', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1', error: 'error text',
-        children: <input id="item1" type="text" /> }
-    },
-    { label: 'Checkbox', component: FormFieldExample,
-      props: { children: <CheckBox id="item2" label="Item 2" /> }
-    },
-    { label: 'RadioButton with help', component: FormFieldExample,
-      props: { label: 'Item 1', help: 'help text',
-        children: [
-          <RadioButton key="1" id="item1-1" label="choice 1" name="choice"/>,
-          <RadioButton key="2" id="item1-2" label="choice 2" name="choice"/>
-        ] }
-    },
-    { label: 'Range', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1',
-        children: <input id="item1" type="range" min="0" max="80"
-          defaultValue="40" /> }
-    },
-    { label: 'NumberInput', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1',
-        children: <NumberInput id="item1" name="number" /> }
-    },
-    { label: 'SearchInput', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1',
-        children: <SearchInput id="item1"
-          defaultValue={"This is a really long search value " +
-            "that keeps going and going. Wow it is really long!"} /> }
-    },
-    { label: 'DateTime', component: FormFieldExample,
-      props: { label: 'Item 1', htmlFor: 'item1',
-        children: <DateTime id="item1" onChange={() => alert('TBD')}
-          value="9/21/2016 11:00 am" /> }
-    }
-  ],
-  title: 'Examples'
+const CONTENTS_MAP = {
+  'TextInput': <TextInput />,
+  'CheckBox': <CheckBox label='Sample label'/>
+};
+
+export default class HeadlineExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { contents: {}, elementProps: {} };
+  }
+
+  render () {
+    const { contents, elementProps } = this.state;
+    const content = CONTENTS_MAP[contents.contents || 'TextInput'];
+    const element = (
+      <Form>
+        <FormField {...elementProps}>{content}</FormField>
+      </Form>
+    );
+    return (
+      <InteractiveExample contextLabel='FormField'
+        contextPath='/docs/form-field'
+        preamble={`import FormField from 'grommet/components/FormField';`}
+        propsSchema={PROPS_SCHEMA}
+        contentsSchema={CONTENTS_SCHEMA}
+        element={element}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
+    );
+  }
 };
