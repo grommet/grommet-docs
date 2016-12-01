@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import FilterControl from 'grommet-addons/components/FilterControl';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 const USAGE =
 `import FilterControl from 'grommet-addons/components/FilterControl';
