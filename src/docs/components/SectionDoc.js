@@ -13,6 +13,18 @@ const USAGE =
   {contents}
 </Section>`;
 
+export const DESC = (
+  <span>
+    A standard <Anchor
+    href="http://www.w3.org/TR/html5/sections.html#the-section-element">
+    HTML5 section</Anchor>. It might
+    contain a <Anchor path="/docs/heading">Heading</Anchor>, one
+    or more <Anchor path="/docs/paragraph">Paragraphs</Anchor>
+    , <Anchor path="/docs/image">Images</Anchor>
+    , and <Anchor path="/docs/video">Videos</Anchor>.
+  </span>
+);
+
 export default class SectionDoc extends Component {
 
   render () {

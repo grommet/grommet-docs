@@ -7,6 +7,16 @@ import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (
+  <span>
+    An annotated summary of something. This could be used on a
+    home/marketing page to provide snippets of content that the user
+    can click through for more detail. Or, as search result items.
+    All properties are optional and can be mixed and matched as
+    needed.
+  </span>
+);
+
 export default class CardDoc extends Component {
   render () {
     return (
@@ -16,11 +26,7 @@ export default class CardDoc extends Component {
         }>
 
         <section>
-          <p>An annotated summary of something. This could be used on a
-          home/marketing page to provide snippets of content that the user
-          can click through for more detail. Or, as search result items.
-          All properties are optional and can be mixed and matched as
-          needed.</p>
+          <p>{DESC}</p>
           <p>Card could be used in combination
           with <Anchor path='/docs/columns'>Columns
           </Anchor> or <Anchor path='/docs/tiles'>Tiles</Anchor>.</p>
