@@ -4,13 +4,14 @@ import React, { Component } from 'react';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../../components/DocsArticle';
 
 export default class CardDoc extends Component {
   render () {
     return (
       <DocsArticle title="Card" action={
-        <Button primary={true} path={`/docs/card/examples`}
+        <Button primary={true} path='/docs/card/examples'
           label='Examples' />
         }>
 
@@ -24,9 +25,12 @@ export default class CardDoc extends Component {
           with <Anchor path="/docs/columns">Columns
           </Anchor> or <Anchor path="/docs/tiles">Tiles</Anchor>.</p>
 
-          <Card label="Label" thumbnail="/img/carousel-1.png"
-            heading="Heading" description="Description"
-            link={<Anchor href="#" primary={true} label="Link" />} />
+          <Box pad='medium' colorIndex='light-2'>
+            <Card label="Label" thumbnail="/img/carousel-1.png"
+              heading="Heading" description="Description"
+              link={<Anchor href="#" primary={true} label="Link" />}
+              colorIndex='light-1' />
+          </Box>
         </section>
 
         <section>

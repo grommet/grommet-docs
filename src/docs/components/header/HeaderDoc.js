@@ -7,6 +7,7 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Search from 'grommet/components/Search';
 import Title from 'grommet/components/Title';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../../components/DocsArticle';
 
 export default class HeaderDoc extends Component {
@@ -14,21 +15,26 @@ export default class HeaderDoc extends Component {
   render () {
     return (
       <DocsArticle title='Header' action={
-        <Button primary={true} path={`/docs/header/examples`}
+        <Button primary={true} path='/docs/header/examples'
           label='Examples' />
         }>
 
         <section>
           <p>Combines Title and Menu elements responsively.</p>
-          <Header justify='between'>
-            <Title>Title</Title>
-            <Menu direction='row' align='center' responsive={false}>
-              <Anchor href='#' className='active'>First</Anchor>
-              <Anchor href='#'>Second</Anchor>
-              <Anchor href='#'>Third</Anchor>
-              <Search dropAlign={{right: 'right'}} />
-            </Menu>
-          </Header>
+
+          <Box pad='medium' colorIndex='light-2'>
+            <Header pad={{ horizontal: 'medium' }} justify='between'
+              colorIndex='light-1'>
+              <Title>Title</Title>
+              <Search inline={true} fill={true} placeHolder='Search'
+                size='medium' />
+              <Menu inline={false} dropAlign={{ right: 'right' }}>
+                <Anchor href='#' className='active'>First</Anchor>
+                <Anchor href='#'>Second</Anchor>
+                <Anchor href='#'>Third</Anchor>
+              </Menu>
+            </Header>
+          </Box>
         </section>
 
         <section>

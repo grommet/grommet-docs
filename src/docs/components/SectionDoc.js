@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Anchor from 'grommet/components/Anchor';
-import Example from '../Example';
 import Section from 'grommet/components/Section';
-import Header from 'grommet/components/Header';
-import Menu from 'grommet/components/Menu';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
-import Image from 'grommet/components/Image';
 
 Section.displayName = 'Section';
 
@@ -31,11 +27,11 @@ export default class SectionDoc extends Component {
             or more <Anchor path="/docs/paragraph">Paragraphs</Anchor>
             , <Anchor path="/docs/image">Images</Anchor>
             , and <Anchor path="/docs/video">Videos</Anchor>.</p>
-        </section>
 
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Section colorIndex="light-2" pad='medium'>
+            <Heading tag='h2'>Sample Heading</Heading>
+            <Paragraph>Sample content.</Paragraph>
+          </Section>
         </section>
 
         <section>
@@ -45,20 +41,8 @@ export default class SectionDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
-          <Example code={
-            <Section>
-              <Header align="center" justify="between">
-                <Heading tag="h3">Heading</Heading>
-                <Menu direction="row">
-                  <Anchor href="">Anchor 1</Anchor>
-                  <Anchor href="">Anchor 2</Anchor>
-                </Menu>
-              </Header>
-              <Paragraph>Lorem ipsum ...</Paragraph>
-              <Image src="/img/carousel-1.png" />
-            </Section>
-          } />
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

@@ -2,31 +2,23 @@
 
 import React, { Component } from 'react';
 import Notification from 'grommet/components/Notification';
+import Button from 'grommet/components/Button';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-
-Notification.displayName = 'Notification';
-
-const USAGE =
-`import Notification from 'grommet/components/Notification';
-<Notification status="warning"
-  message="You will need a tray. The food is hot." />`;
 
 export default class NotificationDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Notification">
+      <DocsArticle title='Notification' action={
+        <Button primary={true} path='/docs/notification/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A box to display notification messages.</p>
-          <Notification status="warning"
-            message="You will need a tray. The food is hot." />
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Notification status='warning'
+            message='You will need a tray. The food is hot.' />
         </section>
 
         <section>
@@ -58,16 +50,8 @@ export default class NotificationDoc extends Component {
             <dt><code>timestamp        {"{date}"}</code></dt>
             <dd>Timestamp of the notification message.</dd>
           </dl>
-          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
+          <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
           also available for Notification.</p>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/notification/examples`}>
-            Notification Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

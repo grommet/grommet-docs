@@ -57,11 +57,6 @@ export default class AppDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>centered  true|false</code></dt>
@@ -71,6 +66,11 @@ export default class AppDoc extends Component {
             <dd> Whether o render the app relative to the container (inline) or
               to the browser window. Defaults to false.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

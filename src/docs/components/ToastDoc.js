@@ -45,12 +45,6 @@ export default class ToastDoc extends Component {
             onClick={() => this.setState({ active: true })} />
           {toast}
 
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-
           <p>The caller is responsible for determining when to show a Toast.
             The toast should not be distracting or disturbing the user.
 
@@ -78,6 +72,11 @@ export default class ToastDoc extends Component {
             <dt><code>status    critical|warning|ok|disabled|unknown</code></dt>
             <dd>Which status to indicate.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

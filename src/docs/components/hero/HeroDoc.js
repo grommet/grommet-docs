@@ -2,33 +2,24 @@
 
 import React, { Component } from 'react';
 import Hero from 'grommet/components/Hero';
-import Anchor from 'grommet/components/Anchor';
+import Heading from 'grommet/components/Heading';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-Hero.displayName = 'Hero';
-
-const USAGE =
-`import Hero from 'grommet/components/Hero';
-<Hero backgroundImage="img/carousel-1.png">
-  {contents}
-</Hero>`;
 
 export default class HeroDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Hero">
+      <DocsArticle title='Hero' action={
+        <Button primary={true} path='/docs/hero/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A Hero image or video, overlaid with text.</p>
-          <Hero backgroundImage="/img/carousel-1.png">
-            <h1>This is a Hero</h1>
+          <Hero backgroundImage='/img/carousel-1.png'>
+            <Heading tag='h1'>Sample Heading</Heading>
           </Hero>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -65,14 +56,6 @@ export default class HeroDoc extends Component {
             <dt><code>size                           small|large</code></dt>
             <dd>Size of the Hero. Defaults to <code>large</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/hero/examples`}>
-            Hero Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

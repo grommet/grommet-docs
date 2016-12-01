@@ -63,7 +63,8 @@ import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
 import FilterControlDoc from './components/FilterControlDoc';
-import FooterDoc from './components/FooterDoc';
+import FooterDoc from './components/footer/FooterDoc';
+import FooterExamplesDoc from './components/footer/FooterExamplesDoc';
 import FormDoc from './components/form/FormDoc';
 import FormExamplesDoc from './components/form/FormExamplesDoc';
 import FormFieldDoc from './components/form-field/FormFieldDoc';
@@ -120,7 +121,8 @@ import SearchInputExamplesDoc from
 import SectionDoc from './components/SectionDoc';
 import SelectDoc from './components/select/SelectDoc';
 import SelectExamplesDoc from './components/select/SelectExamplesDoc';
-import SidebarDoc from './components/SidebarDoc';
+import SidebarDoc from './components/sidebar/SidebarDoc';
+import SidebarExamplesDoc from './components/sidebar/SidebarExamplesDoc';
 import SocialShareDoc from './components/social-share/SocialShareDoc';
 import SocialShareExamplesDoc from
   './components/social-share/SocialShareExamplesDoc';
@@ -195,22 +197,20 @@ export default [
       { path: 'article', label: 'Article', component: ArticleDoc },
       { path: 'card', label: 'Card', index: CardDoc,
         examples: CardExamplesDoc },
-      { path: 'footer', label: 'Footer', component: FooterDoc },
+      { path: 'footer', label: 'Footer', component: FooterDoc,
+        examples: FooterExamplesDoc },
       { path: 'header', label: 'Header', index: HeaderDoc,
         examples: HeaderExamplesDoc },
-      { path: 'hero', label: 'Hero', index: HeroDoc, children: [
-        { path: 'examples', component: HeroExamplesDoc }
-      ]},
+      { path: 'hero', label: 'Hero', index: HeroDoc,
+        examples: HeroExamplesDoc },
       { path: 'notification', label: 'Notification', index: NotificationDoc,
-        children: [
-          { path: 'examples', component: NotificationExamplesDoc }
-        ]},
+        examples: NotificationExamplesDoc },
       { path: 'section', label: 'Section', component: SectionDoc },
-      { path: 'sidebar', label: 'Sidebar', component: SidebarDoc },
+      { path: 'sidebar', label: 'Sidebar', component: SidebarDoc,
+        examples: SidebarExamplesDoc },
       { path: 'toast', label: 'Toast', component: ToastDoc },
-      { path: 'value', label: 'Value', index: ValueDoc, children: [
-        { path: 'examples', component: ValueExamplesDoc }
-      ]}
+      { path: 'value', label: 'Value', index: ValueDoc,
+        examples: ValueExamplesDoc }
     ]},
     { label: 'Text', contents: [
       { path: 'heading', label: 'Heading', component: HeadingDoc },

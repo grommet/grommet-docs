@@ -5,11 +5,8 @@ import Article from 'grommet/components/Article';
 import Section from 'grommet/components/Section';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
-import Heading from 'grommet/components/Heading';
-import Paragraph from 'grommet/components/Paragraph';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
 
 Article.displayName = 'Article';
 
@@ -49,11 +46,6 @@ export default class ArticleDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>onSelect      {"{function (selected)}"}</code></dt>
@@ -74,15 +66,8 @@ export default class ArticleDoc extends Component {
         </section>
 
         <section>
-          <Example name="Example" code={
-            <Article>
-              <Heading tag="h1">Heading</Heading>
-              <Section>
-                <Heading tag="h2">Sub Heading</Heading>
-                <Paragraph>Lorem ipsum ...</Paragraph>
-              </Section>
-            </Article>
-          } />
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

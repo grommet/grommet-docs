@@ -2,29 +2,22 @@
 
 import React, { Component } from 'react';
 import Value from 'grommet/components/Value';
+import Button from 'grommet/components/Button';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-
-Value.displayName = 'Value';
-
-const USAGE =
-`import Value from 'grommet/components/Value';
-<Value value={75} />`;
 
 export default class ValueDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Value">
+      <DocsArticle title="Value" action={
+        <Button primary={true} path='/docs/value/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>Value component, focusing on a single number.</p>
           <Value value={75} />
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -56,14 +49,6 @@ export default class ValueDoc extends Component {
             <dt><code>units        {"{string}"}</code></dt>
             <dd>Optional units to display next to the value.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/value/examples`}>
-            Value Examples
-          </Anchor>
         </section>
 
       </DocsArticle>
