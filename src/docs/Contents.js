@@ -58,7 +58,6 @@ import ColumnsDoc from './components/ColumnsDoc';
 import Components from './Components';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
-import Design from './Design';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
@@ -83,6 +82,7 @@ import ImageExamplesDoc from './components/image/ImageExamplesDoc';
 import LabelDoc from './components/LabelDoc';
 import LayerDoc from './components/layer/LayerDoc';
 import LayerExamplesDoc from './components/layer/examples/LayerExamplesDoc';
+import Learn from './Learn';
 import LegendDoc from './components/LegendDoc';
 import ListDoc from './components/list/ListDoc';
 import ListExamplesDoc from './components/list/ListExamplesDoc';
@@ -163,7 +163,7 @@ export default [
       { path: 'get-started', label: 'Get Started', component: GetStarted }
     ]}
   ]},
-  { label: 'Design', path: 'design', component: Design, contents: [
+  { label: 'Learn', path: 'learn', component: Learn, contents: [
     // { path: 'learn', label: 'Learn', component: Learn },
     // { path: 'resources', label: 'Resources', component: Resources },
     { path: 'best-practices', label: 'Best Practices',
@@ -177,7 +177,18 @@ export default [
       component: WritingStyle },
     { path: 'date-and-time', label: 'Date and Time', component: DateTime },
     { path: 'capitalization', label: 'Capitalization',
-      component: Capitalization }
+      component: Capitalization },
+    { label: 'Reference', contents: [
+      { path: 'architecture', label: 'Architecture',
+        component: Architecture},
+      { path: 'integration', label: 'Integration',
+        component: Integration},
+      { path: 'accessibility', label: 'Accessibility',
+        component: Accessibility},
+      { path: 'browser-support', label: 'Browser Support',
+        component: BrowserSupport},
+      { path: 'about', label: 'About', component: About}
+    ]}
   ]},
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'navigation', label: 'Navigation', component: NavigationDoc }
@@ -361,17 +372,6 @@ export default [
       { path: 'query', label: 'Query', component: QueryDoc },
       { path: 'rest', label: 'Rest', component: RestDoc },
       { path: 'rest-watch', label: 'RestWatch', component: RestWatchDoc }
-    ]},
-    { label: 'Reference', contents: [
-      { path: 'architecture', label: 'Architecture',
-        component: Architecture},
-      { path: 'integration', label: 'Integration',
-        component: Integration},
-      { path: 'accessibility', label: 'Accessibility',
-        component: Accessibility},
-      { path: 'browser-support', label: 'Browser Support',
-        component: BrowserSupport},
-      { path: 'about', label: 'About', component: About}
     ]}
   ]}
 ];

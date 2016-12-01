@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 import Paragraph from 'grommet/components/Paragraph';
 import DocsArticle from '../components/DocsArticle';
 
-export default class Design extends Component {
+export default class Learn extends Component {
 
   render () {
     return (
-      <DocsArticle title="Design">
+      <DocsArticle title='Learn'>
         <Paragraph />
       </DocsArticle>
     );

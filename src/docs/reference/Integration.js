@@ -7,7 +7,7 @@ export default class Integration extends Component {
 
   render () {
     return (
-      <DocsArticle title="Integration" colorIndex="neutral-4">
+      <DocsArticle title='Integration'>
         <p>
           {"Grommet's"} modular design enables you to use the parts of Grommet
           applicable to your application.  There are several ways you can
@@ -18,7 +18,7 @@ export default class Integration extends Component {
 
         <h3>Style Guide</h3>
         <p>
-          Your team references the <a data-to="design">
+          Your team references the <a data-to='design'>
           Grommet style guide</a> with
           an emphasis on brand alignment, primarily around the logo, font,
           and color palette.  If your application is not in a position to
@@ -26,7 +26,7 @@ export default class Integration extends Component {
           appropriate option.
           You may find the <a
           href={"https://github.com/grommet/grommet/tree/master/" +
-            "src/scss/grommet-core"} target="_blank">Grommet CSS</a> elements
+            "src/scss/grommet-core"} target='_blank'>Grommet CSS</a> elements
           a useful reference.
         </p>
 
@@ -34,7 +34,7 @@ export default class Integration extends Component {
         <p>
           Your application uses
           the <a href={"https://github.com/grommet/grommet/tree/master/" +
-            "src/scss/grommet-core"} target="_blank">Grommet CSS</a> elements
+            "src/scss/grommet-core"} target='_blank'>Grommet CSS</a> elements
           to ensure styling of components is aligned.  Your {"application's"}
           DOM structure will likely need to change to align with the DOM
           structure expected by the Grommet CSS.
@@ -42,7 +42,7 @@ export default class Integration extends Component {
 
         <h3>Components</h3>
         <p>
-          Your application leverages the <a data-to="develop_app">
+          Your application leverages the <a data-to='develop_app'>
           Grommet components</a> with
           the accompanying markup, styling, and images.
           This model is appropriate in several situations:

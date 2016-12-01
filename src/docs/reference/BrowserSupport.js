@@ -12,9 +12,9 @@ import AppleIcon from 'grommet/components/icons/base/PlatformApple';
 class Browser extends Component {
   render () {
     return (
-      <Box direction="row" align="center"
+      <Box direction='row' align='center'
         pad={{between: 'small', vertical: 'medium'}}>
-        <this.props.icon size="large" />
+        <this.props.icon size='large' />
         <strong>{this.props.children}</strong>
       </Box>
     );
@@ -25,9 +25,8 @@ export default class BrowserSupport extends Component {
 
   render () {
     return (
-      <DocsArticle title="Browser Support" colorIndex="neutral-4">
+      <DocsArticle title='Browser Support'>
         <section>
-          <h2>Supported web browsers and versions</h2>
           <p>The following web browsers are tested and supported with
             Grommet.</p>
           <Browser icon={IEIcon}>Microsoft Internet Explorer Version 11,
@@ -40,11 +39,11 @@ export default class BrowserSupport extends Component {
             Apple Safari mobile and desktop, latest versions</Browser>
           <p>
           Grommet makes heavy use of the <a
-          href="https://www.w3.org/TR/css-flexbox-1/">
+          href='https://www.w3.org/TR/css-flexbox-1/'>
           HTML5 Flexible Box Layout Module</a>. For this reason, Grommet
           requires
           a modern browser to ensure users have a good experience.  You can
-          check the <a href="http://caniuse.com/#feat=flexbox">
+          check the <a href='http://caniuse.com/#feat=flexbox'>
           Can I Use</a> website to
           learn more about this capability and the levels of browser support.
           </p>

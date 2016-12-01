@@ -10,7 +10,7 @@ import DocsArticle from '../../../components/DocsArticle';
 export default class CardDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Card" action={
+      <DocsArticle title='Card' action={
         <Button primary={true} path='/docs/card/examples'
           label='Examples' />
         }>
@@ -22,13 +22,13 @@ export default class CardDoc extends Component {
           All properties are optional and can be mixed and matched as
           needed.</p>
           <p>Card could be used in combination
-          with <Anchor path="/docs/columns">Columns
-          </Anchor> or <Anchor path="/docs/tiles">Tiles</Anchor>.</p>
+          with <Anchor path='/docs/columns'>Columns
+          </Anchor> or <Anchor path='/docs/tiles'>Tiles</Anchor>.</p>
 
           <Box pad='medium' colorIndex='light-2'>
-            <Card label="Label" thumbnail="/img/carousel-1.png"
-              heading="Heading" description="Description"
-              link={<Anchor href="#" primary={true} label="Link" />}
+            <Card label='Label' thumbnail='/img/carousel-1.png'
+              heading='Heading' description='Description'
+              link={<Anchor href='#' primary={true} label='Link' />}
               colorIndex='light-1' />
           </Box>
         </section>
@@ -44,7 +44,7 @@ export default class CardDoc extends Component {
             <dt><code>description          {'{string}|{element}'}
               </code></dt>
             <dd>Either a string in markdown syntax or an element.
-              See <Anchor path="/docs/markdown">
+              See <Anchor path='/docs/markdown'>
               Markdown</Anchor> for additional details.</dd>
             <dt><code>heading              {'{string}|{element}'}</code></dt>
             <dd>Heading content.</dd>
@@ -55,7 +55,7 @@ export default class CardDoc extends Component {
             <dd>Label content.</dd>
             <dt><code>link                 {'{element}'}</code></dt>
             <dd>Anchor element.
-              See <Anchor path="/docs/anchor">Anchor</Anchor>.</dd>
+              See <Anchor path='/docs/anchor'>Anchor</Anchor>.</dd>
             <dt><code>textSize             small|medium|large|xlarge</code></dt>
             <dd>Size of text elements within the Card.
               Defaults to <code>medium</code>. If you pass custom
@@ -63,15 +63,15 @@ export default class CardDoc extends Component {
               or <code>heading</code>, they will not be resized.</dd>
             <dt><code>thumbnail            {'{string}|{element}'}</code></dt>
             <dd>Url path to image or
-              an <Anchor path="/docs/image">Image</Anchor> element.
+              an <Anchor path='/docs/image'>Image</Anchor> element.
               Use the <code>reverse</code> property to position the thumbnail
               within card.</dd>
             <dt><code>video                {'{source: <string>, ' +
               'type: mp4|webm|ogg}|{element}'}</code></dt>
             <dd>Video media type and source path or
-              a <Anchor path="/docs/video">Video</Anchor> element.</dd>
+              a <Anchor path='/docs/video'>Video</Anchor> element.</dd>
           </dl>
-          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
+          <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
             also available for Card.</p>
         </section>
 

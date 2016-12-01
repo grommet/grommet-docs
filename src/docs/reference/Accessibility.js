@@ -13,7 +13,7 @@ export default class Accessibility extends Component {
 
   render () {
     return (
-      <DocsArticle title="Accessibility" colorIndex="neutral-5">
+      <DocsArticle title='Accessibility'>
 
         <section>
           <p>Products that are accessible to all users are good for people,
@@ -21,7 +21,7 @@ export default class Accessibility extends Component {
           and the ability to have a pleasant experience with your
           application.</p>
 
-          <p>We follow the <a href="http://www.w3.org/TR/WCAG20/">Web Content
+          <p>We follow the <a href='http://www.w3.org/TR/WCAG20/'>Web Content
           Accessibility Guidelines (WCAG)</a>.  By following this style guide
           and utilizing the accompanying implementation platform, you will be
           well on your way to satisfying the WCAG recommendations.</p>
@@ -47,14 +47,14 @@ export default class Accessibility extends Component {
             </thead>
             <tbody>
               <tr>
-                <td><Status value="critical"/></td>
-                <td><pre><code className="html hljs xml">
-                  {"<Status value=\"critical\">"}</code></pre></td>
+                <td><Status value='critical'/></td>
+                <td><pre><code className='html hljs xml'>
+                  {"<Status value='critical'>"}</code></pre></td>
               </tr>
               <tr>
-                <td><Status value="critical" a11yTitle="Server Down"/></td>
-                <td><pre><code className="html hljs xml">
-                  {"<Status value=\"critical\" a11yTitle=\"Server Down\">"}
+                <td><Status value='critical' a11yTitle='Server Down'/></td>
+                <td><pre><code className='html hljs xml'>
+                  {"<Status value='critical' a11yTitle='Server Down'>"}
                 </code></pre></td>
               </tr>
             </tbody>
@@ -76,8 +76,8 @@ export default class Accessibility extends Component {
             lang attribute can be set on other elements like App.
           </p>
           <h4>Example</h4>
-          <pre><code className="html hljs xml">
-            {"<App lang=\"en-US\">\n  ...\n</App>"}
+          <pre><code className='html hljs xml'>
+            {"<App lang='en-US'>\n  ...\n</App>"}
           </code></pre>
           <h3>Skip Links</h3>
           <p>Grommet has skip links that make it easy to skip repetitive
@@ -87,7 +87,7 @@ export default class Accessibility extends Component {
             to the main content element. The "Skip to Footer" link is
             added by default with the Footer component. </p>
           <h4>Example:</h4>
-          <pre><code className="html hljs xml">
+          <pre><code className='html hljs xml'>
             {"<App>\n" +
             "  <Article>\n" +
             "    <Header>\n" +
