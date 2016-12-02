@@ -2,12 +2,11 @@
 
 import React, { Component } from 'react';
 import stringify from 'json-stringify-pretty-compact';
-import Split from 'grommet/components/Split';
-import Sidebar from 'grommet/components/Sidebar';
+// import Split from 'grommet/components/Split';
+// import Sidebar from 'grommet/components/Sidebar';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
 import Heading from 'grommet/components/Heading';
-import Form from 'grommet/components/Form';
 import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
 import CheckBox from 'grommet/components/CheckBox';
@@ -15,11 +14,8 @@ import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
 import Label from 'grommet/components/Label';
 import Button from 'grommet/components/Button';
-import Anchor from 'grommet/components/Anchor';
 import CloseIcon from 'grommet/components/icons/base/Close';
-import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious';
-import DocsArticle from '../../../components/DocsArticle';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
 
 const FIXED_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'];
 const RELATIVE_SIZES = ['full', '1/2', '1/3', '2/3', '1/4', '3/4'];
@@ -38,8 +34,6 @@ export default class BoxingGymDoc extends Component {
 
   constructor () {
     super();
-
-    this._onResponsive = this._onResponsive.bind(this);
 
     let nextId = 1;
     let boxes = {};
@@ -60,18 +54,14 @@ export default class BoxingGymDoc extends Component {
 
     this.state = {
       boxes: boxes, nextId: nextId,
-      rootId: root.id, priority: 'left', activeId: root.id
+      rootId: root.id, activeId: root.id
     };
-  }
-
-  _onResponsive (responsive) {
-    this.setState({ responsive: responsive, priority: 'left' });
   }
 
   _activate (id) {
     return (event) => {
       event.stopPropagation();
-      this.setState({ activeId: id, priority: 'right', raw: false });
+      this.setState({ activeId: id, raw: false });
     };
   }
 
@@ -143,17 +133,9 @@ export default class BoxingGymDoc extends Component {
     };
   }
 
-  _renderForm () {
-    const { activeId, boxes, responsive } = this.state;
+  _renderFields () {
+    const { activeId, boxes, raw, rootId } = this.state;
     const box = boxes[activeId] || { ...DEFAULT_BOX };
-
-    let close;
-    if ('single' === responsive) {
-      close = (
-        <Button icon={<CloseIcon />}
-          onClick={() => this.setState({ priority: 'left' })} />
-      );
-    }
 
     let basisOptions = SIZES.map(size => <option key={size}>{size}</option>);
     basisOptions.unshift(<option key={0} />);
@@ -224,63 +206,80 @@ export default class BoxingGymDoc extends Component {
       );
     }
 
+    let rawControl;
+    if (! box.parentId && ! raw && activeId === rootId) {
+      rawControl = (
+        <Box pad="medium">
+          <Button label="Raw" plain={true}
+            onClick={() => this.setState({ raw: true })} />
+        </Box>
+      );
+    }
+
     return (
-      <Form>
-        <Header size="large" pad="medium" justify="between">
-          <Heading tag="h3">{`Box ${box.id}`}</Heading>
-          {close}
-        </Header>
-        <FormFields>
-          {containerFields}
-          {containedFields}
-          <fieldset>
-            <FormField label="justify">
-              <select value={box.justify}
-                onChange={this._changeBoxProp(box.id, 'justify')}>
-                <option>start</option>
-                <option>center</option>
-                <option>between</option>
-                <option>end</option>
-              </select>
-            </FormField>
-            <FormField label="align">
-              <select value={box.align}
-                onChange={this._changeBoxProp(box.id, 'align')}>
-                <option>stretch</option>
-                <option>start</option>
-                <option>center</option>
-                <option>baseline</option>
-                <option>end</option>
-              </select>
-            </FormField>
-            <FormField label="pad">
-              <select value={box.pad || ''}
-                onChange={this._changeBoxProp(box.id, 'pad')}>
-                {padOptions}
-              </select>
-            </FormField>
-            <FormField label="margin">
-              <select value={box.margin || ''}
-                onChange={this._changeBoxProp(box.id, 'margin')}>
-                {marginOptions}
-              </select>
-            </FormField>
-          </fieldset>
-        </FormFields>
+      <div>
+        <legend>{`Box ${box.id}`}</legend>
+        {containerFields}
+        {containedFields}
+        <fieldset>
+          <FormField label="justify">
+            <select value={box.justify}
+              onChange={this._changeBoxProp(box.id, 'justify')}>
+              <option>start</option>
+              <option>center</option>
+              <option>between</option>
+              <option>end</option>
+            </select>
+          </FormField>
+          <FormField label="align">
+            <select value={box.align}
+              onChange={this._changeBoxProp(box.id, 'align')}>
+              <option>stretch</option>
+              <option>start</option>
+              <option>center</option>
+              <option>baseline</option>
+              <option>end</option>
+            </select>
+          </FormField>
+          <FormField label="pad">
+            <select value={box.pad || ''}
+              onChange={this._changeBoxProp(box.id, 'pad')}>
+              {padOptions}
+            </select>
+          </FormField>
+          <FormField label="margin">
+            <select value={box.margin || ''}
+              onChange={this._changeBoxProp(box.id, 'margin')}>
+              {marginOptions}
+            </select>
+          </FormField>
+          <FormField label="colorIndex">
+            <select value={box.colorIndex || ''}
+              onChange={this._changeBoxProp(box.id, 'colorIndex')}>
+              <option />
+              <option>light-1</option>
+              <option>light-2</option>
+              <option>accent-1</option>
+              <option>neutral-1</option>
+              <option>neutral-2</option>
+            </select>
+          </FormField>
+        </fieldset>
         <Footer direction="column"
           pad={{ horizontal: 'medium', vertical: 'medium', between: 'small'}}>
           {buttons}
           <Button label="Add" secondary={true}
             onClick={this._addBox(box.id)} />
+          {rawControl}
         </Footer>
-      </Form>
+      </div>
     );
   }
 
   _renderRaw () {
     const { boxes, rawBoxes } = this.state;
     return (
-      <Form>
+      <div>
         <Header size="large" pad="medium" justify="between">
           <Heading tag="h3">Raw</Heading>
           <Button icon={<CloseIcon />}
@@ -306,7 +305,7 @@ export default class BoxingGymDoc extends Component {
               });
             }} />
         </Footer>
-      </Form>
+      </div>
     );
   }
 
@@ -335,41 +334,19 @@ export default class BoxingGymDoc extends Component {
   }
 
   render () {
-    const { activeId, priority, raw, rootId } = this.state;
+    const { raw, rootId } = this.state;
 
-    const form = raw ? this._renderRaw() : this._renderForm();
+    const fields = raw ? this._renderRaw() : this._renderFields();
     const box = this._renderBox(rootId);
 
-    let rawControl;
-    if (! box.parentId && ! raw && activeId === rootId) {
-      rawControl = (
-        <Box pad="medium">
-          <Button label="Raw" plain={true}
-            onClick={() => this.setState({ raw: true })} />
-        </Box>
-      );
-    }
-
     return (
-      <Split flex="left" priority={priority} onResponsive={this._onResponsive}>
-        <DocsArticle title="Boxing Gym">
-
-          <p>This is a boxing gym where you can spar
-            with <Anchor path="/docs/box">Boxes</Anchor>.</p>
-
-          <Example code={box}/>
-
-          <section>
-            <Anchor path="/docs/box" icon={<LinkPreviousIcon />}
-              label="Box" primary={true} />
-          </section>
-
-        </DocsArticle>
-        <Sidebar separator="left" colorIndex="light-2">
-          {form}
-          {rawControl}
-        </Sidebar>
-      </Split>
+      <InteractiveExample contextLabel='Box' contextPath='/docs/box'
+        preamble={`import Box from 'grommet/components/Box';`}
+        fields={fields}
+        element={box}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
     );
   }
 };

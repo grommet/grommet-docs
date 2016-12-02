@@ -32,7 +32,7 @@ import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
 import BoxDoc from './components/box/BoxDoc';
-import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
+// import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
 import BoxingGymDoc from './components/box/BoxingGymDoc';
 import ButtonDoc from './components/button/ButtonDoc';
 import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
@@ -196,10 +196,7 @@ export default [
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
-      { path: 'box', label: 'Box', index: BoxDoc, children: [
-        { path: 'gym', component: BoxingGymDoc },
-        { path: 'examples', component: BoxExamplesDoc }
-      ]},
+      { path: 'box', label: 'Box', index: BoxDoc, examples: BoxingGymDoc },
       { path: 'columns', label: 'Columns', component: ColumnsDoc },
       { path: 'layer', label: 'Layer', index: LayerDoc, children: [
         { path: 'examples', component: LayerExamplesDoc }
