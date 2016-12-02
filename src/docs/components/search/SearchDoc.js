@@ -32,7 +32,7 @@ export default class SearchDoc extends Component {
               be specified.</dd>
             <dt><code>fill          true|false</code></dt>
             <dd>Indicates whether an inline search input should take up the full
-              width of its parent container or not.</dd>
+              width of its parent container or not. Defaults to false.</dd>
             <dt><code>iconAlign     start|end</code></dt>
             <dd>Whether the search icon should align with the start or end of
               the input field. Defaults to <code>end</code>.</dd>

@@ -65,6 +65,9 @@ export default class MenuDoc extends Component {
               a control shown to open it in a drop down. If false,
               the specified label or icon will be shown, if neither are
               specified, a default icon will be shown.</dd>
+            <dt><code>fill          true|false</code></dt>
+            <dd>Indicates whether an inline menu should take up the available
+              space of its parent container or not. Defaults to false.</dd>
             <dt><code>label         {'{string}'}</code></dt>
             <dd>Indicates that the menu should be collapsed and the
               label shown as a control top open it.</dd>

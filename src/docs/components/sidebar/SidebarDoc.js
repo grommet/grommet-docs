@@ -48,8 +48,9 @@ export default class SidebarDoc extends Component {
           <h2>Properties</h2>
           <dl>
             <dt><code>fixed      true|false</code></dt>
-            <dd>Whether any contained Header and Footer should be fixed to
-              the top and bottom.</dd>
+            <dd>
+              Whether the sidebar height should be fixed at the full
+              viewport size. Defaults to false.</dd>
             <dt><code>size       xsmall|small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
             <dt><code>full       true|false</code></dt>
