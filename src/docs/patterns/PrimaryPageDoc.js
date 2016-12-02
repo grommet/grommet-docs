@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
-import Image from 'grommet/components/Image';
 import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
 import DocsTemplate from '../../components/DocsTemplate';
