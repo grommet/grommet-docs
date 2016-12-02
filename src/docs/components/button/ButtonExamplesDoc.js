@@ -1,47 +1,68 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Button from 'grommet/components/Button';
-import Anchor from 'grommet/components/Anchor';
-import CloseIcon from 'grommet/components/icons/base/Close';
+import Box from 'grommet/components/Box';
 import EditIcon from 'grommet/components/icons/base/Edit';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
-import ButtonTileExample from './ButtonTileExample';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const ButtonExample = (props) => (
-  <Example align="start" code={
-    <Button onClick={() => alert('click')} {...props} />
-  } />
-);
+Button.displayName = 'Button';
 
-export default class ButtonExamplesDoc extends ExamplesDoc {};
+const PROPS_SCHEMA = {
+  icon: { value: <EditIcon />, initial: true },
+  label: { value: 'Label', initial: true },
+  primary: { value: true },
+  secondary: { value: true },
+  accent: { value: true },
+  plain: { value: true },
+  onClick: { value: () => alert('click'), initial: true },
+  path: { value: '/' },
+  href: { value: '#', initial: true },
+  type: { options: ['button', 'reset', 'submit'] }
+};
 
-ButtonExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/button">Button</Anchor>,
-  examples: [
-    { label: 'Default', component: ButtonExample,
-      props: { label: 'Action' } },
-    { label: 'Primary', component: ButtonExample,
-      props: { label: 'Action', primary: true } },
-    { label: 'Secondary', component: ButtonExample,
-      props: { label: 'Action', secondary: true } },
-    { label: 'Accent', component: ButtonExample,
-      props: { label: 'Action', accent: true } },
-    { label: 'Icon', component: ButtonExample,
-      props: { icon: <CloseIcon /> } },
-    { label: 'Icon, label', component: ButtonExample,
-      props: { icon: <EditIcon />, label: 'Edit' } },
-    { label: 'Icon, label, plain', component: ButtonExample,
-      props: { icon: <EditIcon />, label: 'Edit', plain: true } },
-    { label: 'Disabled', component: ButtonExample,
-      props: { label: 'Action', onClick: undefined } },
-    { label: 'Long', component: ButtonExample,
-      props: { label: `Action with a really long name that should
-        be shortened` } },
-    { label: 'Href', component: ButtonExample,
-      props: { label: 'Action', href: '#' } },
-    { label: 'Full', component:ButtonTileExample }
-  ],
-  title: 'Examples'
+const CONTENTS_SCHEMA = {
+  'in-a-box': { value: true },
+  'containing-a-box': { value: true }
+};
+
+export default class ButtonExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { contents: {}, elementProps: {} };
+  }
+
+  render () {
+    const { contents, elementProps } = this.state;
+    let element;
+    if (Object.keys(contents).length === 0) {
+      element = <Button {...elementProps} />;
+    } else {
+      if (contents['containing-a-box']) {
+        element = (
+          <Button {...elementProps}>
+            <Box pad='large' colorIndex='neutral-2'>
+              Contents
+            </Box>
+          </Button>
+        );
+      } else {
+        element = <Button {...elementProps} />;
+      }
+      if (contents['in-a-box']) {
+        element = <Box pad='medium' colorIndex='light-2'>{element}</Box>;
+      }
+    }
+    return (
+      <InteractiveExample contextLabel='Button' contextPath='/docs/button'
+        preamble={`import Button from 'grommet/components/Button';`}
+        propsSchema={PROPS_SCHEMA}
+        contentsSchema={CONTENTS_SCHEMA}
+        element={element}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
+    );
+  }
 };

@@ -33,7 +33,7 @@ export default class FooterDoc extends Component {
               colorIndex='light-1'>
               <Logo />
               <Paragraph>&copy; 2016 Grommet Labs</Paragraph>
-              <Menu direction='row'>
+              <Menu direction='row' size='small'>
                 <Anchor href='#'>First</Anchor>
                 <Anchor href='#'>Second</Anchor>
                 <Anchor href='#'>Third</Anchor>

@@ -26,8 +26,14 @@ const PROPS_SCHEMA = {
 };
 
 const CONTENTS_SCHEMA = {
-  card: { value: true },
-  heading: { value: true, initial: true }
+  card: { value: (
+    <Box colorIndex="grey-1-a">
+      <Card heading="Heading" description="Hero description text."
+      label="label"
+      link={<Anchor href="#" primary={true} label="Link" />} />
+    </Box>
+  ) },
+  heading: { value: <Heading tag='h1'>Sample Heading</Heading>, initial: true }
 };
 
 export default class HeroExamplesDoc extends Component {
@@ -40,28 +46,10 @@ export default class HeroExamplesDoc extends Component {
   render () {
     let { contents, elementProps } = this.state;
 
-    let heading;
-    if (contents.heading) {
-      heading = (
-        <Heading tag='h1'>Sample Heading</Heading>
-      );
-    }
-
-    let card;
-    if (contents.card) {
-      card = (
-        <Box colorIndex="grey-1-a">
-          <Card heading="Heading" description="Hero description text."
-          label="label"
-          link={<Anchor href="#" primary={true} label="Link" />} />
-        </Box>
-      );
-    }
-
     const element = (
       <Hero {...elementProps}>
-        {heading}
-        {card}
+        {contents.heading}
+        {contents.card}
       </Hero>
     );
 

@@ -3,9 +3,6 @@
 import React, { Component } from 'react';
 import FilterControl from 'grommet-addons/components/FilterControl';
 import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
-
-FilterControl.displayName = 'FilterControl';
 
 const USAGE =
 `import FilterControl from 'grommet-addons/components/FilterControl';
@@ -29,11 +26,6 @@ export default class FilterControlDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>filteredTotal     {"{number}"}</code></dt>
@@ -47,11 +39,8 @@ export default class FilterControlDoc extends Component {
         </section>
 
         <section>
-          <h2>Example</h2>
-          <Example align='start' code={
-            <FilterControl unfilteredTotal={100} filteredTotal={50}
-              onClick={() => {}} />
-          } />
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

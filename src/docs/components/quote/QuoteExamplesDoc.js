@@ -9,16 +9,18 @@ Quote.displayName = 'Quote';
 Paragraph.displayName = 'Paragraph';
 
 const PROPS_SCHEMA = {
-  credit: { value: 'Ricky Baker' },
+  credit: { value: 'Ricky Baker', initial: true },
   emphasizeCredit: { value: true, initial: true },
   size: { options: ['small', 'medium', 'large', 'full'] },
   borderColorIndex: { options: ['brand', 'accent-1', 'accent-2'] }
 };
 
 const CONTENTS_SCHEMA = {
-  line1: { value: true, initial: true },
-  line2: { value: true, initial: true },
-  line3: { value: true, initial: true }
+  line1: { value: <Paragraph>Trees. Birds. Rivers. Sky.</Paragraph>,
+    initial: true },
+  line2: { value: <Paragraph>Running with my Uncle Hec</Paragraph>,
+    initial: true },
+  line3: { value: <Paragraph>Living forever.</Paragraph>, initial: true }
 };
 
 export default class QuoteExamplesDoc extends Component {
@@ -30,20 +32,12 @@ export default class QuoteExamplesDoc extends Component {
 
   render () {
     const { contents, elementProps } = this.state;
-    let line1;
-    if (contents.line1) {
-      line1 = <Paragraph>Trees. Birds. Rivers. Sky.</Paragraph>;
-    }
-    let line2;
-    if (contents.line2) {
-      line2 = <Paragraph>Running with my Uncle Hec</Paragraph>;
-    }
-    let line3;
-    if (contents.line3) {
-      line3 = <Paragraph>Living forever.</Paragraph>;
-    }
     const element = (
-      <Quote {...elementProps}>{line1}{line2}{line3}</Quote>
+      <Quote {...elementProps}>
+        {contents.line1}
+        {contents.line2}
+        {contents.line3}
+      </Quote>
     );
     return (
       <InteractiveExample contextLabel='Quote' contextPath='/docs/quote'

@@ -5,7 +5,7 @@ var React = require('react');
 var Hands = React.createClass({
 
   render: function() {
-    var classes = [];
+    var classes = ['logo'];
     if (this.props.inverse) {
       classes.push('logo--inverse');
     }
@@ -13,7 +13,8 @@ var Hands = React.createClass({
       classes.push(this.props.className);
     }
     return (
-      <svg width="480" height="350" viewBox="0 0 480 350" version="1.1">
+      <svg className={classes.join(' ')} width="480" height="350"
+        viewBox="0 0 480 350" version="1.1">
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g id="Group-8" transform="translate(282.876512, 174.467071) rotate(90.000000) translate(-282.876512, -174.467071) translate(109.376512, 89.467071)">
             <path d="M102.776059,258.247396 C95.0404486,258.247396 88.7694974,251.983842 88.7694974,244.255251 L88.7694974,-73.7604593 C88.7694974,-81.4881075 95.0430416,-87.7526042 102.776059,-87.7526042 L243.289799,-87.7526042 C251.025409,-87.7526042 257.29636,-81.4890503 257.29636,-73.7604593 L257.29636,244.255251 C257.29636,251.982899 251.022816,258.247396 243.289799,258.247396 L102.776059,258.247396 Z" id="Rectangle-Copy" stroke="#666666" strokeWidth="4" fill="#CCCCCC" transform="translate(173.032929, 85.247396) scale(-1, 1) rotate(-270.000000) translate(-173.032929, -85.247396) "></path>

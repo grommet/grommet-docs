@@ -91,9 +91,11 @@ export default class InteractiveExample extends Component {
     const { contentsSchema, propsSchema } = props;
 
     let activeProps = {};
-    Object.keys(propsSchema)
-    .filter(property => propsSchema[property].initial)
-    .forEach(property => activeProps[property] = true);
+    if (propsSchema) {
+      Object.keys(propsSchema)
+      .filter(property => propsSchema[property].initial)
+      .forEach(property => activeProps[property] = true);
+    }
 
     let activeContents = {};
     if (contentsSchema) {
@@ -172,7 +174,9 @@ export default class InteractiveExample extends Component {
 
   _normalizeActiveForElement (active, schema) {
     let result = {};
-    Object.keys(active).forEach(property => {
+    Object.keys(active)
+    .filter(property => schema[property]) // in case user types incorrect URL
+    .forEach(property => {
       if (schema[property].options ||
         typeof schema[property].value === 'boolean') {
         result[property] = active[property];
@@ -213,8 +217,8 @@ export default class InteractiveExample extends Component {
 
   render () {
     const {
-      align, contentsSchema, contextLabel, contextPath, element, justify,
-      preamble, propsSchema
+      align, contentsSchema, contextLabel, contextPath, element, fields,
+      justify, preamble, propsSchema
     } = this.props;
     const {
       activeContents, activeProps, contextProps, responsive, showCode,
@@ -224,6 +228,11 @@ export default class InteractiveExample extends Component {
     const backControl = (
       <Anchor path={contextPath} primary={true} icon={<BackIcon />}
         label={contextLabel} />
+    );
+
+    let propFields = fields || (
+      <PropFields schema={propsSchema} active={activeProps}
+        onChange={this._onChangeActiveProps} />
     );
 
     let contentsFields;
@@ -254,6 +263,7 @@ export default class InteractiveExample extends Component {
 
     let mobileHeader, sidebarControl, sidebarBackControl;
     if ('single' === responsive) {
+
       mobileHeader = (
         <Header pad={{ horizontal: 'medium' }} justify='between'>
           {backControl}
@@ -269,6 +279,7 @@ export default class InteractiveExample extends Component {
         <Button icon={<CloseIcon />}
           onClick={() => this.setState({ showProperties: false })} />
       );
+
     } else {
 
       sidebarBackControl = backControl;
@@ -288,8 +299,7 @@ export default class InteractiveExample extends Component {
             {sidebarControl}
           </Header>
           <Form pad={{ horizontal: 'medium' }}>
-            <PropFields schema={propsSchema} active={activeProps}
-              onChange={this._onChangeActiveProps} />
+            {propFields}
             {contentsFields}
             <ContextFields {...contextProps}
               onChange={this._onChangeContextProps} />
@@ -320,10 +330,11 @@ InteractiveExample.propTypes = {
   contextLabel: PropTypes.string.isRequired,
   contextPath: PropTypes.string.isRequired,
   element: PropTypes.element.isRequired,
+  fields: PropTypes.element, // for BoxingGym
   justify: PropTypes.string,
   onChange: PropTypes.func,
   preamble: PropTypes.string,
-  propsSchema: PropTypes.object.isRequired
+  propsSchema: PropTypes.object
 };
 
 InteractiveExample.contextTypes = {

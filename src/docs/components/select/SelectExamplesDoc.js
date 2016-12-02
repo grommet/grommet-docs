@@ -1,27 +1,93 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
+import React, { Component } from 'react';
+import Select from 'grommet/components/Select';
+import Box from 'grommet/components/Box';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-import Select0 from './Select0';
-import Select1 from './Select1';
-import Select2 from './Select2';
-import Select3 from './Select3';
-import Select4 from './Select4';
-import Select5 from './Select5';
+const PROPS_SCHEMA = {
+  placeHolder: { value: 'Search', initial: true },
+  inline: { value: true },
+  multiple: { value: true },
+  onSearch: { value: true },
+  options: { options: ['strings', 'objects'] }
+};
 
-export default class SelectExamplesDoc extends ExamplesDoc {};
-
-SelectExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/select">Select</Anchor>,
-  examples: [
-    { label: 'Default', component: Select0 },
-    { label: 'Search', component: Select1 },
-    { label: 'Rich Suggestions', component: Select2 },
-    { label: 'Inline', component: Select3 },
-    { label: 'Multiple', component: Select4 },
-    { label: 'Inline + Search', component: Select5 }
+const OPTIONS_MAP = {
+  objects: [
+    {value: "first", sub: "alpha",
+      label: (
+        <Box direction="row" justify="between">
+          <span>first</span>
+          <span className="secondary">alpha</span>
+        </Box>
+      )},
+    {value: "second", sub: "beta",
+      label: (
+        <Box direction="row" justify="between">
+          <span>second</span>
+          <span className="secondary">beta</span>
+        </Box>
+      )},
+    {value: "third", sub: "gamma",
+      label: (
+        <Box direction="row" justify="between">
+          <span>third</span>
+          <span className="secondary">gamma</span>
+        </Box>
+      )},
+    {value: "fourth", sub: "delta",
+      label: (
+        <Box direction="row" justify="between">
+          <span>fourth</span>
+          <span className="secondary">delta</span>
+        </Box>
+      )}
   ],
-  title: 'Examples'
+  strings: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
+};
+
+export default class SelectExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this._onChange = this._onChange.bind(this);
+    this._onSearch = this._onSearch.bind(this);
+    this.state = { elementProps: {} };
+  }
+
+  _onChange (event) {
+    console.log('!!! _onChange', event);
+    const value = event.value.value || event.value;
+    this.setState({ value });
+  }
+
+  _onSearch (event) {
+    const { elementProps } = this.state;
+    const regexp = new RegExp('^' + event.target.value);
+    const options = OPTIONS_MAP[elementProps.options || 'strings'];
+    const nextOptions =
+      options.filter(option => regexp.test(option.value || option));
+    this.setState({ options: nextOptions });
+  }
+
+  render () {
+    const { elementProps, options, value } = this.state;
+    let props = { ...elementProps };
+    props.options = options || OPTIONS_MAP[elementProps.options || 'strings'];
+    if (elementProps.onSearch) {
+      props.onSearch = this._onSearch;
+    }
+    const element = (
+      <Select {...props} value={value} onChange={this._onChange} />
+    );
+    return (
+      <InteractiveExample contextLabel='Select' contextPath='/docs/select'
+        preamble={`import Select from 'grommet/components/Select';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({
+          elementProps, options: undefined })} />
+    );
+  }
 };

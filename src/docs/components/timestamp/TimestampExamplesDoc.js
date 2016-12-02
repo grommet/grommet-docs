@@ -20,7 +20,9 @@ export default class TimestampExamplesDoc extends Component {
 
   render () {
     const { elementProps } = this.state;
-    const element = <Timestamp {...elementProps} value={new Date()} />;
+    const element = (
+      <Timestamp {...elementProps} value={(new Date()).toISOString()} />
+    );
     return (
       <InteractiveExample contextLabel='Timestamp' contextPath='/docs/timestamp'
         preamble={`import Timestamp from 'grommet/components/Timestamp';`}

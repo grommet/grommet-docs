@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import EditIcon from 'grommet/components/icons/base/Edit';
 import ComponentDoc from '../../../components/ComponentDoc';
 
@@ -28,9 +29,8 @@ export default class AnchorDoc extends Component {
       </Box>
     );
     const examples = (
-      <Anchor primary={true} path={`/docs/anchor/examples`}>
-        Anchor Examples
-      </Anchor>
+      <Button primary={true} path='/docs/anchor/examples'
+        label='Examples' />
     );
     const icon = <span> See <Anchor path="/docs/icon">Icon</Anchor>.</span>;
     return (

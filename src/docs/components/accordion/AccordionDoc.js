@@ -3,43 +3,28 @@
 import React, { Component } from 'react';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
-import Anchor from 'grommet/components/Anchor';
+import Paragraph from 'grommet/components/Paragraph';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-Accordion.displayName = 'Accordion';
-
-const USAGE =
-`import Accordion from 'grommet/components/Accordion';
-import AccordionPanel from 'grommet/components/AccordionPanel';
-<Accordion>
-  <AccordionPanel heading="First Panel">
-    <p>First Panel contents</p>
-  </AccordionPanel>
-  <AccordionPanel heading="Second Panel">
-    <p>First Panel contents</p>
-  </AccordionPanel>
-</Accordion>`;
 
 export default class AccordionDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Accordion">
+      <DocsArticle title='Accordion' action={
+        <Button primary={true} path='/docs/accordion/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A collapsible accordion component.</p>
           <Accordion>
-            <AccordionPanel heading="First Panel">
-              <h3>First Panel</h3>
+            <AccordionPanel heading='First Panel'>
+              <Paragraph>First panel contents</Paragraph>
             </AccordionPanel>
-            <AccordionPanel heading="Second Panel">
-              <h3>Second Panel</h3>
+            <AccordionPanel heading='Second Panel'>
+              <Paragraph>Second panel contents</Paragraph>
             </AccordionPanel>
           </Accordion>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html xml hljs">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -73,14 +58,6 @@ export default class AccordionDoc extends Component {
             <dd>The amount of padding to put around the Accordion panel heading
               &amp; it's content</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/accordion/examples`}>
-            Accordion Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

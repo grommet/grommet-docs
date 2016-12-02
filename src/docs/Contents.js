@@ -32,7 +32,7 @@ import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
 import BoxDoc from './components/box/BoxDoc';
-import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
+// import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
 import BoxingGymDoc from './components/box/BoxingGymDoc';
 import ButtonDoc from './components/button/ButtonDoc';
 import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
@@ -137,7 +137,8 @@ import SunBurstDoc from './components/SunBurstDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
 import TableHeaderDoc from './components/TableHeaderDoc';
-import TabsDoc from './components/TabsDoc';
+import TabsDoc from './components/tabs/TabsDoc';
+import TabsExamplesDoc from './components/tabs/TabsExamplesDoc';
 import Templates from './Templates';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
@@ -197,10 +198,7 @@ export default [
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
-      { path: 'box', label: 'Box', index: BoxDoc, children: [
-        { path: 'gym', component: BoxingGymDoc },
-        { path: 'examples', component: BoxExamplesDoc }
-      ]},
+      { path: 'box', label: 'Box', index: BoxDoc, examples: BoxingGymDoc },
       { path: 'columns', label: 'Columns', component: ColumnsDoc },
       { path: 'layer', label: 'Layer', index: LayerDoc, children: [
         { path: 'examples', component: LayerExamplesDoc }
@@ -245,52 +243,39 @@ export default [
     ]},
     { label: 'Controls', contents: [
       { path: 'accordion', label: 'Accordion', index: AccordionDoc,
-        children: [
-          { path: 'examples', component: AccordionExamplesDoc }
-        ]},
-      { path: 'anchor', label: 'Anchor', index: AnchorDoc, children: [
-        { path: 'examples', component: AnchorExamplesDoc }
-      ]},
-      { path: 'button', label: 'Button', index: ButtonDoc, children: [
-        { path: 'examples', component: ButtonExamplesDoc }
-      ]},
+        examples: AccordionExamplesDoc },
+      { path: 'anchor', label: 'Anchor', index: AnchorDoc,
+        examples: AnchorExamplesDoc },
+      { path: 'button', label: 'Button', index: ButtonDoc,
+        examples: ButtonExamplesDoc },
       { path: 'filter-control', label: 'FilterControl',
         component: FilterControlDoc },
-      { path: 'menu', label: 'Menu', index: MenuDoc, children: [
-        { path: 'examples', component: MenuExamplesDoc }
-      ]},
-      { path: 'search', label: 'Search', index: SearchDoc, children: [
-        { path: 'examples', component: SearchExamplesDoc }
-      ]},
+      { path: 'menu', label: 'Menu', index: MenuDoc,
+        examples: MenuExamplesDoc },
+      { path: 'search', label: 'Search', index: SearchDoc,
+        examples: SearchExamplesDoc },
       { path: 'sort', label: 'Sort', component: SortDoc },
-      { path: 'tabs', label: 'Tabs', index: TabsDoc },
+      { path: 'tabs', label: 'Tabs', index: TabsDoc,
+        examples: TabsExamplesDoc },
       { path: 'tip', label: 'Tip', component: TipDoc }
     ]},
     { label: 'Forms', contents: [
-      { path: 'check-box', label: 'CheckBox', index: CheckBoxDoc, children: [
-        { path: 'examples', component: CheckBoxExamplesDoc }
-      ]},
-      { path: 'date-time', label: 'DateTime', index: DateTimeDoc, children: [
-        { path: 'examples', component: DateTimeExamplesDoc }
-      ]},
-      { path: 'form', label: 'Form', index: FormDoc, children: [
-        { path: 'examples', component: FormExamplesDoc }
-      ]},
+      { path: 'check-box', label: 'CheckBox', index: CheckBoxDoc,
+        examples: CheckBoxExamplesDoc },
+      { path: 'date-time', label: 'DateTime', index: DateTimeDoc,
+        examples: DateTimeExamplesDoc },
+      { path: 'form', label: 'Form', index: FormDoc,
+        examples: FormExamplesDoc },
       { path: 'form-field', label: 'FormField', index: FormFieldDoc,
-        children: [
-          { path: 'examples', component: FormFieldExamplesDoc }
-        ]},
+        examples: FormFieldExamplesDoc },
       { path: 'number-input', label: 'NumberInput',
         component: NumberInputDoc },
       { path: 'radio-button', label: 'RadioButton',
         component: RadioButtonDoc },
       { path: 'search-input', label: 'SearchInput', index: SearchInputDoc,
-        children: [
-          { path: 'examples', component: SearchInputExamplesDoc }
-        ]},
-      { path: 'select', label: 'Select', index: SelectDoc, children: [
-        { path: 'examples', component: SelectExamplesDoc }
-      ]},
+        examples: SearchInputExamplesDoc },
+      { path: 'select', label: 'Select', index: SelectDoc,
+        examples: SelectExamplesDoc },
       { path: 'text-input', label: 'TextInput', component: TextInputDoc }
     ]},
     { label: 'Listing', contents: [
