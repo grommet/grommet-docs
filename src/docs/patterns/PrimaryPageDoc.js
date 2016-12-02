@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
+import Image from 'grommet/components/Image';
 import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
 import DocsTemplate from '../../components/DocsTemplate';
@@ -49,9 +50,25 @@ export default class PrimaryPageDoc extends Component {
           </Paragraph>
         </Section>
         <Section>
-          <Box size={{height: 'medium'}}colorIndex="light-2" 
-            justify="center" align="center">
-            Image placeholder
+          <Box direction="row" pad={{between: 'small'}}>
+            <Box>
+              <Paragraph margin="small">
+                Desktop
+              </Paragraph>
+              <img src="/img/templates/template-primary-desktop.png" />
+            </Box>
+            <Box>
+              <Paragraph margin="small">
+                Tablet
+              </Paragraph>
+              <img src="/img/templates/template-primary-tablet.png" />
+            </Box>
+            <Box>
+              <Paragraph margin="small">
+                Palm
+              </Paragraph>
+              <img src="/img/templates/template-primary-palm.png" />
+            </Box>
           </Box>
         </Section>
         <Section>

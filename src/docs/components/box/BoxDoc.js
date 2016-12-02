@@ -20,6 +20,7 @@ export const DESC = (
 );
 
 export default class BoxDoc extends Component {
+
   render () {
 
     return (
