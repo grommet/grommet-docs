@@ -10,6 +10,12 @@ import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 import Logo from '../../../img/Logo';
 
+export const DESC = (
+  <span>
+    Put things at the bottom.
+  </span>
+);
+
 export default class FooterDoc extends Component {
 
   render () {
@@ -20,7 +26,7 @@ export default class FooterDoc extends Component {
         }>
 
         <section>
-          <p>Put things at the bottom.</p>
+          <p>{DESC}</p>
 
           <Box pad='medium' colorIndex='light-2'>
             <Footer pad={{ horizontal: 'medium' }} justify='between'

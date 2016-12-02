@@ -10,7 +10,9 @@ import Section from 'grommet/components/Section';
 import DocsTemplate from '../../components/DocsTemplate';
 import { DESC as BoxDesc } from '../components/box/BoxDoc';
 import { DESC as CardDesc } from '../components/card/CardDoc';
+import { DESC as FooterDesc } from '../components/footer/FooterDoc';
 import { DESC as HeroDesc } from '../components/hero/HeroDoc';
+import { DESC as HeaderDesc } from '../components/header/HeaderDoc';
 import { DESC as SectionDesc } from '../components/SectionDoc';
 
 const COMPONENTS = [
@@ -20,6 +22,12 @@ const COMPONENTS = [
   },{
     title: 'Card',
     desc: CardDesc
+  },{
+    title: 'Footer',
+    desc: FooterDesc
+  },{
+    title: 'Header',
+    desc: HeaderDesc
   },{
     title: 'Hero',
     desc: HeroDesc
@@ -33,7 +41,7 @@ export default class PrimaryPageDoc extends Component {
   render () {
     const componentsList = COMPONENTS.map(({title, desc}, index) => 
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
-        <Anchor label={title} />
+        <Anchor label={title} path={`/docs/${title.toLowerCase()}`} />
         <Paragraph margin="small">{desc}</Paragraph>
       </Box>
     );

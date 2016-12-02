@@ -10,6 +10,12 @@ import Title from 'grommet/components/Title';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (
+  <span>
+    Combines Title and Menu elements responsively.
+  </span>
+);
+
 export default class HeaderDoc extends Component {
 
   render () {
@@ -20,7 +26,7 @@ export default class HeaderDoc extends Component {
         }>
 
         <section>
-          <p>Combines Title and Menu elements responsively.</p>
+          <p>{DESC}</p>
 
           <Box pad='medium' colorIndex='light-2'>
             <Header pad={{ horizontal: 'medium' }} justify='between'
