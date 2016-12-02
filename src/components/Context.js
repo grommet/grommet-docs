@@ -18,7 +18,7 @@ const INNER_BACKGROUND = {
 
 export default class Context extends Component {
   render () {
-    const { align, background, children, justify } = this.props;
+    const { align, background, children, justify, pad } = this.props;
     let contents = children;
     if (INNER_BACKGROUND[background]) {
       contents = (
@@ -29,7 +29,7 @@ export default class Context extends Component {
     }
     return (
       <Box colorIndex={OUTER_BACKGROUND[background]}
-        justify={justify} align={align} full='vertical' pad='medium'>
+        justify={justify} align={align} full='vertical' pad={pad}>
         {contents}
       </Box>
     );
@@ -39,10 +39,12 @@ export default class Context extends Component {
 Context.propTypes = {
   align: PropTypes.string,
   background: PropTypes.oneOf(BACKGROUNDS),
-  justify: PropTypes.string
+  justify: PropTypes.string,
+  pad: PropTypes.string
 };
 
 Context.defaultProps = {
   align: 'center',
-  justify: 'center'
+  justify: 'center',
+  pad: 'medium'
 };

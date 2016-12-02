@@ -4,17 +4,11 @@ import React, { Component } from 'react';
 import Columns from 'grommet/components/Columns';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
 
 Columns.displayName = 'Columns';
 
-const USAGE =
-`import Columns from 'grommet/components/Columns';
-<Columns>
-  <Box />
-  <Box />
-</Columns>`;
 
 export default class ColumnsDoc extends Component {
 
@@ -22,14 +16,17 @@ export default class ColumnsDoc extends Component {
     let boxes = [];
     for (let i=0; i<6; i+=1) {
       boxes.push(
-        <Box key={i} size="medium" align="center" pad="medium"
-          margin="small" colorIndex="light-2">
+        <Box key={i} size='medium' align='center' pad='medium'
+          margin='small' colorIndex='light-2'>
           {`Box ${i + 1}`}
         </Box>
       );
     }
     return (
-      <DocsArticle title="Columns">
+      <DocsArticle title='Columns' action={
+        <Button primary={true} path='/docs/columns/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>Organize children into multiple components based on available
@@ -37,11 +34,6 @@ export default class ColumnsDoc extends Component {
           <Columns>
             {boxes}
           </Columns>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -61,21 +53,11 @@ export default class ColumnsDoc extends Component {
             <dt><code>responsive  true|false</code></dt>
             <dd>Whether masonry columns should collapse into single, full-width
               column when the display area narrows (to achive similar behavior
-              as responsive <Anchor path="/docs/tiles">Tiles</Anchor>).
+              as responsive <Anchor path='/docs/tiles'>Tiles</Anchor>).
               Defaults to <code>true</code>.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of each column. Defaults to <code>medium</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Example</h2>
-
-          <Example code={
-            <Columns>
-              {boxes}
-            </Columns>
-          } />
         </section>
 
       </DocsArticle>

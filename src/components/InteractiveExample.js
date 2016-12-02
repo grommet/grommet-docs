@@ -217,8 +217,8 @@ export default class InteractiveExample extends Component {
 
   render () {
     const {
-      align, contentsSchema, contextLabel, contextPath, element, fields,
-      justify, preamble, propsSchema
+      align, codeElement, contentsSchema, contextLabel, contextPath,
+      element, fields, justify, pad, preamble, propsSchema
     } = this.props;
     const {
       activeContents, activeProps, contextProps, responsive, showCode,
@@ -254,7 +254,7 @@ export default class InteractiveExample extends Component {
           </Header>
           <Box pad={{ horizontal: 'medium' }} flex='grow'>
             <Code preamble={preamble}>
-              {element}
+              {codeElement || element}
             </Code>
           </Box>
         </Sidebar>
@@ -310,7 +310,8 @@ export default class InteractiveExample extends Component {
 
           <Article>
             {mobileHeader}
-            <Context {...contextProps} justify={justify} align={align}>
+            <Context {...contextProps} justify={justify} align={align}
+              pad={pad}>
               {element}
             </Context>
           </Article>
@@ -326,6 +327,7 @@ export default class InteractiveExample extends Component {
 
 InteractiveExample.propTypes = {
   align: PropTypes.string,
+  codeElement: PropTypes.element, // for Layer
   contentsSchema: PropTypes.object,
   contextLabel: PropTypes.string.isRequired,
   contextPath: PropTypes.string.isRequired,
@@ -333,6 +335,7 @@ InteractiveExample.propTypes = {
   fields: PropTypes.element, // for BoxingGym
   justify: PropTypes.string,
   onChange: PropTypes.func,
+  pad: PropTypes.string, // for Split
   preamble: PropTypes.string,
   propsSchema: PropTypes.object
 };

@@ -54,7 +54,8 @@ import ChartRangeDoc from './components/chart/RangeDoc';
 import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
 import CheckBoxDoc from './components/checkbox/CheckBoxDoc';
 import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
-import ColumnsDoc from './components/ColumnsDoc';
+import ColumnsDoc from './components/columns/ColumnsDoc';
+import ColumnsExamplesDoc from './components/columns/ColumnsExamplesDoc';
 import Components from './Components';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
@@ -81,7 +82,7 @@ import ImageDoc from './components/image/ImageDoc';
 import ImageExamplesDoc from './components/image/ImageExamplesDoc';
 import LabelDoc from './components/LabelDoc';
 import LayerDoc from './components/layer/LayerDoc';
-import LayerExamplesDoc from './components/layer/examples/LayerExamplesDoc';
+import LayerExamplesDoc from './components/layer/LayerExamplesDoc';
 import Learn from './Learn';
 import LegendDoc from './components/LegendDoc';
 import ListDoc from './components/list/ListDoc';
@@ -129,7 +130,8 @@ import SocialShareExamplesDoc from
   './components/social-share/SocialShareExamplesDoc';
 import SortDoc from './components/SortDoc';
 import SpinningDoc from './components/SpinningDoc';
-import SplitDoc from './components/SplitDoc';
+import SplitDoc from './components/split/SplitDoc';
+import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
 import SunBurstDoc from './components/SunBurstDoc';
@@ -197,11 +199,12 @@ export default [
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
       { path: 'box', label: 'Box', index: BoxDoc, examples: BoxingGymDoc },
-      { path: 'columns', label: 'Columns', component: ColumnsDoc },
-      { path: 'layer', label: 'Layer', index: LayerDoc, children: [
-        { path: 'examples', component: LayerExamplesDoc }
-      ]},
-      { path: 'split', label: 'Split', component: SplitDoc }
+      { path: 'columns', label: 'Columns', component: ColumnsDoc,
+        examples: ColumnsExamplesDoc },
+      { path: 'layer', label: 'Layer', index: LayerDoc,
+        examples: LayerExamplesDoc },
+      { path: 'split', label: 'Split', component: SplitDoc,
+        examples: SplitExamplesDoc }
     ]},
     { label: 'Structure', contents: [
       { path: 'app', label: 'App', component: AppDoc },

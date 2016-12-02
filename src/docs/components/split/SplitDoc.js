@@ -3,55 +3,40 @@
 import React, { Component } from 'react';
 import Split from 'grommet/components/Split';
 import Box from 'grommet/components/Box';
-import Sidebar from 'grommet/components/Sidebar';
-import Article from 'grommet/components/Article';
-import Header from 'grommet/components/Header';
-import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
-import Section from 'grommet/components/Section';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
-
-Split.displayName = 'Split';
-
-const USAGE =
-`import Split from 'grommet/components/Split';
-<Split>
-  {contents}
-</Split>`;
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
 
 export default class SplitDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Split">
+      <DocsArticle title='Split' action={
+        <Button primary={true} path='/docs/split/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A full height container with two children laid out horizontally.
           Typical uses involve placing
-          a <Anchor path="/docs/sidebar">Sidebar</Anchor> on
+          a <Anchor path='/docs/sidebar'>Sidebar</Anchor> on
           the left for primary navigation and then main content on the right.
           The right side might contain a separate Split component to provide
           further content depth. Typically, you will want the top Split to be
           a direct child of
-          the <Anchor path="/docs/app">App</Anchor> component
+          the <Anchor path='/docs/app'>App</Anchor> component
           as this will provide the best responsive behavior across devices.</p>
 
-          <Box direction="row" colorIndex="light-2" basis="medium">
-            <Box basis="1/3" pad="large"
-              colorIndex="grey-4" justify="center" align="center">
+          <Split flex='right' fixed={false}>
+            <Box basis='1/3' colorIndex='grey-4'
+              pad='large' justify='center' align='center'>
               Navigation
             </Box>
-            <Box basis="2/3" pad="large"
-              justify="center" align="center">
+            <Box basis='2/3' colorIndex='light-2'
+              pad='large' justify='center' align='center'>
               Main content
             </Box>
-          </Box>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          </Split>
         </section>
 
         <section>
@@ -62,7 +47,7 @@ export default class SplitDoc extends Component {
             <dt><code>flex                both|left|right</code></dt>
             <dd>Which side to give flexible space to.
               The default value is 'both'.</dd>
-            <dt><code>onResponsive        {"{function (columns)}"}</code></dt>
+            <dt><code>onResponsive        {'{function (columns)}'}</code></dt>
             <dd>Function that will be called when the display area changes.
               When space is limited the 'columns' parameter will be set to
               'single'. Otherwise 'columns' will be set to 'multiple'.</dd>
@@ -76,25 +61,6 @@ export default class SplitDoc extends Component {
             collapse down to just the priority side.  The default value is
             'priority'</dd>
           </dl>
-        </section>
-
-        <section>
-          <Example name="Example" code={
-            <Split flex="right">
-              <Sidebar size="small" colorIndex="neutral-1">
-                <Header pad={{horizontal: 'medium'}}>Header One</Header>
-                <Menu primary={true}>
-                  <Anchor>Navigation 1</Anchor>
-                  <Anchor>Navigation 2</Anchor>
-                  <Anchor>Navigation 3</Anchor>
-                </Menu>
-              </Sidebar>
-              <Article>
-                <Header pad={{horizontal: 'medium'}}>Header Two</Header>
-                <Section pad="medium">Content</Section>
-              </Article>
-            </Split>
-          } />
         </section>
 
       </DocsArticle>
