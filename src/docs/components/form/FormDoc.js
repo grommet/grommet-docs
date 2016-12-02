@@ -9,27 +9,6 @@ import FormField from 'grommet/components/FormField';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
-const USAGE =
-`import Form from 'grommet/components/Form';
-<Form onSubmit={...}>
-  <Header>
-    <h1>Heading</h1>
-  </Header>
-  <FormFields>
-    <fieldset>
-      <FormField label='Field name' htmlFor='input-id'
-        error={errors.name}>
-        <input id='input-id' name='name' type='text'
-          value={...} onChange={...} />
-      </FormField>
-    </fieldset>
-  </FormFields>
-  <Footer pad={{vertical: 'medium'}}>
-    <Button label='Add' primary={true}
-      onClick={...} />
-  </Footer>
-</Form>`;
-
 export default class FormDoc extends Component {
 
   constructor () {
