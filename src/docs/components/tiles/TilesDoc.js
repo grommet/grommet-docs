@@ -4,15 +4,8 @@ import React, { Component } from 'react';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-const USAGE =
-`import Tiles from 'grommet/components/Tiles';
-import Tile from 'grommet/components/Tile';
-<Tiles>
-  <Tile/>
-  <Tile/>
-</Tiles>`;
 
 const ONCLICK_EXAMPLE = `onClick={this._onClick.bind(this, id)}`;
 
@@ -21,24 +14,19 @@ export default class TileDoc extends Component {
   render () {
 
     return (
-      <DocsArticle title="Tiles">
+      <DocsArticle title='Tiles' action={
+        <Button primary={true} path='/docs/tiles/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A grid of items. The preferred method of populating
             Tiles is to use Tile children.</p>
           <Tiles flush={false}>
-            <Tile pad="medium" size="small" colorIndex="light-2">Tile</Tile>
-            <Tile pad="medium" size="small" colorIndex="light-2">Tile</Tile>
-            <Tile pad="medium" size="small" colorIndex="light-2">Tile</Tile>
+            <Tile pad='medium' size='small' colorIndex='light-2'>Tile</Tile>
+            <Tile pad='medium' size='small' colorIndex='light-2'>Tile</Tile>
+            <Tile pad='medium' size='small' colorIndex='light-2'>Tile</Tile>
           </Tiles>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-          <p>Callers must include
-            child <code>{'<source>'}</code> elements according to the
-            HTML5 <code>{'<video>'}</code> specification.</p>
         </section>
 
         <section>
@@ -53,30 +41,30 @@ export default class TileDoc extends Component {
               Defaults to true. When flush, there is no padding around the
               outside
               or between the contained tiles.</dd>
-            <dt><code>onMore      {"{function}"}</code></dt>
+            <dt><code>onMore      {'{function}'}</code></dt>
             <dd>Function that will be called when more data is needed.</dd>
-            <dt><code>onSelect    {"{function (selected)}"}</code></dt>
+            <dt><code>onSelect    {'{function (selected)}'}</code></dt>
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index
               for that item. When multiple items are selected, it returns an
-              array of those {"item's"} zero based indexes.</dd>
+              array of those {'item\'s'} zero based indexes.</dd>
             <dt><code>selectable  true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
               that multiple rows may be selected</dd>
-            <dt><code>selected    {"{number}|[{number}, ...]"}</code></dt>
+            <dt><code>selected    {'{number}|[{number}, ...]'}</code></dt>
             <dd>The currently selected item(s) using a zero based index.</dd>
             <dt><code>size        small|medium|large</code></dt>
             <dd>The width of the contained tiles.
               Defaults to <code>medium</code>.</dd>
           </dl>
-          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
+          <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
           also available for Tiles.</p>
         </section>
 
         <section>
           <h2>Tile Properties</h2>
           <dl>
-            <dt><code>onClick     {"{function}"}</code></dt>
+            <dt><code>onClick     {'{function}'}</code></dt>
             <dd>Called when the user clicks on the item. Callers should bind
               an identifier to the function to distinguish between multiple
               items. For example <code>{ONCLICK_EXAMPLE}</code></dd>
@@ -86,22 +74,8 @@ export default class TileDoc extends Component {
             <dd>Whether the tile should fill the full width of the Tiles
             component that contains it.</dd>
           </dl>
-          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
+          <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
             also available for Tile.</p>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <p>These examples show a wide variety of Tile types within the same
-            Tiles. In practice, each Tile should have similar styling within
-            the Tiles. Included here are Headers, Footer, Buttons, and
-            Menus.</p>
-
-          <Anchor primary={true} path="/docs/tiles/examples">
-            Tiles Examples
-          </Anchor>
-
         </section>
 
       </DocsArticle>

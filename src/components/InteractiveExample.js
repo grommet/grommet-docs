@@ -30,7 +30,8 @@ class PropFields extends Component {
     return (event) => {
       const { schema } = this.props;
       let active = { ...this.props.active };
-      const value = event.value || event.target.value;
+      const value =
+        (undefined === event.value) ? event.target.value : event.value;
       if (schema[property].value) {
         active[property] = ! active[property];
       } else {

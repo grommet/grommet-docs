@@ -4,14 +4,11 @@ import React, { Component } from 'react';
 import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
 import TableRow from 'grommet/components/TableRow';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
+import Example from '../../Example';
 
 TableHeader.displayName = 'TableHeader';
-
-const USAGE =
-`import TableHeader from 'grommet/components/TableHeader';
-<TableHeader labels={[]} />`;
 
 const COLUMNS = [
   { label: 'Name', property: 'name' },
@@ -65,7 +62,10 @@ export default class TableHeaderDoc extends Component {
     });
 
     return (
-      <DocsArticle title="TableHeader">
+      <DocsArticle title='TableHeader' action={
+        <Button primary={true} path='/docs/table-header/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A table header that can be used as a sort control.</p>
@@ -80,23 +80,18 @@ export default class TableHeaderDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>labels          {"[{node}, ...]"}</code></dt>
+            <dt><code>labels          {'[{node}, ...]'}</code></dt>
             <dd>Header cell contents.</dd>
-            <dt><code>onSort          {"{function ({index}, {ascending})}"}
+            <dt><code>onSort          {'{function ({index}, {ascending})}'}
               </code></dt>
             <dd>Function that will be called when the user clicks on a
               header cell. It is passed the index of the cell and which
               direction to sort in.</dd>
             <dt><code>sortAscending   true|false</code></dt>
             <dd>Indicates which direction the sort is currenly going.</dd>
-            <dt><code>sortIndex       {"{number}"}</code></dt>
+            <dt><code>sortIndex       {'{number}'}</code></dt>
             <dd>Indicates which cell is currently being sorted on.</dd>
           </dl>
         </section>
@@ -104,7 +99,7 @@ export default class TableHeaderDoc extends Component {
         <section>
           <h2>Example</h2>
 
-          <Example align="start" code={
+          <Example align='start' code={
             <Table>
               <TableHeader labels={columnLabels}
                 sortIndex={index} sortAscending={ascending}

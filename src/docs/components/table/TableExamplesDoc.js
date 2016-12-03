@@ -3,38 +3,28 @@
 import React, { Component } from 'react';
 import Table from 'grommet/components/Table';
 import TableRow from 'grommet/components/TableRow';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
-import Table4 from './Table4';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const TABLE_HEADER = (
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Note</th>
-    </tr>
-  </thead>
-);
+Table.displayName = 'Table';
+TableRow.displayName = 'TableRow';
 
-const TABLE_BODY_PLAIN = (
-  <tbody>
-    <tr>
-      <td>Alan</td>
-      <td>plays accordion</td>
-    </tr>
-    <tr>
-      <td>Tracy</td>
-      <td>travels the world</td>
-    </tr>
-    <tr>
-      <td>Chris</td>
-      <td>drops the mic</td>
-    </tr>
-  </tbody>
-);
+const PROPS_SCHEMA = {
+  selectable: { options: ['false', 'true', 'multiple'] },
+  scrollable: { value: true }
+};
 
-const TABLE_BODY_TABLE_ROWS = (
+const CONTENTS_SCHEMA = {
+  header: { value: (
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+  ), initial: true }
+};
+
+const TABLE_BODY = (
   <tbody>
     <TableRow>
       <td>Alan</td>
@@ -51,62 +41,49 @@ const TABLE_BODY_TABLE_ROWS = (
   </tbody>
 );
 
-class TableExample extends Component {
+export default class TableExamplesDoc extends Component {
 
   constructor () {
     super();
-    this._onSingleSelect = this._onSingleSelect.bind(this);
-    this._onMultipleSelect = this._onMultipleSelect.bind(this);
-
-    this.state = { singleSelected: [0] };
+    this._onSelect = this._onSelect.bind(this);
+    this.state = { contents: {}, elementProps: {} };
   }
 
-  // single selection is managed by the caller via state.singleSelection
-  _onSingleSelect (selection) {
-    this.setState({singleSelected: selection});
-  }
-
-  // multiple selection is managed by the Table
-  _onMultipleSelect (selection) {
+  _onSelect (selection) {
     // no-op
   }
 
   render () {
-    const { header, rows, ...props } = this.props;
+    const { contents, elementProps } = this.state;
+    const props = { ...elementProps };
+
     if ('multiple' === props.selectable) {
-      props.onSelect = this._onMultipleSelect;
-    } else if (props.selectable) {
-      props.selected = this.state.singleSelected;
-      props.onSelect = this._onSingleSelect;
+      props.onSelect = this._onSelect;
+    } else if ('true' === props.selectable) {
+      props.onSelect = this._onSelect;
+      props.selectable = true;
+    } else {
+      delete props.selectable;
     }
+
+    const element = (
+      <Table {...props}>
+        {contents.header}
+        {TABLE_BODY}
+      </Table>
+    );
+
     return (
-      <Example align="start" code={
-        <Table {...props}>
-          {header}
-          {rows}
-        </Table>
-      } />
+      <InteractiveExample contextLabel='Table' contextPath='/docs/table'
+        preamble={`import Table from 'grommet/components/Table';\n` +
+          `import TableRow from 'grommet/components/TableRow';`}
+        propsSchema={PROPS_SCHEMA}
+        contentsSchema={CONTENTS_SCHEMA}
+        align='stretch'
+        element={element}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
     );
   }
-};
-
-export default class TableExamplesDoc extends ExamplesDoc {};
-
-TableExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/table">Table</Anchor>,
-  examples: [
-    { label: 'Default', component: TableExample,
-      props: { rows: TABLE_BODY_PLAIN } },
-    { label: 'Selectable', component: TableExample,
-      props: { selectable: true,
-        header: TABLE_HEADER, rows: TABLE_BODY_PLAIN } },
-    { label: 'Multi-select', component: TableExample,
-      props: { selectable: 'multiple',
-        header: TABLE_HEADER, rows: TABLE_BODY_PLAIN } },
-    { label: 'TableRow', component: TableExample,
-      props: { selectable: 'multiple',
-        header: TABLE_HEADER, rows: TABLE_BODY_TABLE_ROWS } },
-    { label: 'Sorting', component: Table4 }
-  ],
-  title: 'Examples'
 };

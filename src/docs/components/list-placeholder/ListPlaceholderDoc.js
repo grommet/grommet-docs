@@ -3,25 +3,25 @@
 import React, { Component } from 'react';
 import ListPlaceholder from 'grommet-addons/components/ListPlaceholder';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
 ListPlaceholder.displayName = 'ListPlaceholder';
-
-const USAGE =
-`import ListPlaceholder from 'grommet-addons/components/ListPlaceholder';
-<ListPlaceholder ... />`;
 
 export default class ListPlaceholderDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="ListPlaceholder">
+      <DocsArticle title='ListPlaceholder' action={
+        <Button primary={true} path='/docs/list-placeholder/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>Displays helpful content when
-            a <Anchor path="/docs/list">List</Anchor>,
-            <Anchor path="/docs/tiles">Tiles</Anchor>, or
-            <Anchor path="/docs/table">Table</Anchor> has no content
+            a <Anchor path='/docs/list'>List</Anchor>, <Anchor
+              path='/docs/tiles'>Tiles</Anchor>, or <Anchor
+              path='/docs/table'>Table</Anchor> has no content
             to show, either while the data is being fetched, nothing
             matches search or filter criteria, or there just aren't any items
             to begin with.</p>
@@ -32,30 +32,18 @@ export default class ListPlaceholderDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>addControl       {"{element}"}</code></dt>
+            <dt><code>addControl       {'{element}'}</code></dt>
             <dd>An control to show when there are no items in existence.</dd>
-            <dt><code>emptyMessage     {"{string}"}</code></dt>
+            <dt><code>emptyMessage     {'{string}'}</code></dt>
             <dd>What to say when there are no items in existence. Defaults
               to 'None'.</dd>
-            <dt><code>filteredTotal    {"{number}"}</code></dt>
+            <dt><code>filteredTotal    {'{number}'}</code></dt>
             <dd>How many items match the current search and/or filters.</dd>
-            <dt><code>unfilteredTotal  {"{number}"}</code></dt>
+            <dt><code>unfilteredTotal  {'{number}'}</code></dt>
             <dd>How many items exist.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-          <Anchor primary={true} path={`/docs/list-placeholder/examples`}>
-            ListPlaceholder Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

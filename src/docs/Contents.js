@@ -142,7 +142,9 @@ import SunBurstDoc from './components/sun-burst/SunBurstDoc';
 import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
-import TableHeaderDoc from './components/TableHeaderDoc';
+import TableHeaderDoc from './components/table-header/TableHeaderDoc';
+import TableHeaderExamplesDoc
+  from './components/table-header/TableHeaderExamplesDoc';
 import TabsDoc from './components/tabs/TabsDoc';
 import TabsExamplesDoc from './components/tabs/TabsExamplesDoc';
 import Templates from './Templates';
@@ -289,21 +291,16 @@ export default [
       { path: 'text-input', label: 'TextInput', component: TextInputDoc }
     ]},
     { label: 'Listing', contents: [
-      { path: 'list', label: 'List', index: ListDoc, children: [
-        { path: 'examples', component: ListExamplesDoc }
-      ]},
+      { path: 'list', label: 'List', index: ListDoc,
+        examples: ListExamplesDoc },
       { path: 'list-placeholder', label: 'ListPlaceholder',
-        index: ListPlaceholderDoc, children: [
-          { path: 'examples', component: ListPlaceholderExamplesDoc }
-        ] },
-      { path: 'table', label: 'Table', index: TableDoc, children: [
-        { path: 'examples', component: TableExamplesDoc }
-      ]},
+        index: ListPlaceholderDoc, examples: ListPlaceholderExamplesDoc },
+      { path: 'table', label: 'Table', index: TableDoc,
+        examples: TableExamplesDoc },
       { path: 'table-header', label: 'TableHeader',
-        component: TableHeaderDoc },
-      { path: 'tiles', label: 'Tiles', index: TilesDoc, children: [
-        { path: 'examples', component: TilesExamplesDoc }
-      ]}
+        component: TableHeaderDoc, examples: TableHeaderExamplesDoc },
+      { path: 'tiles', label: 'Tiles', index: TilesDoc,
+        examples: TilesExamplesDoc }
     ]},
     { label: 'Visualization', contents: [
       { path: 'annotated-meter', label: 'AnnotatedMeter',
