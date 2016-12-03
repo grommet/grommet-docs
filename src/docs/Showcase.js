@@ -43,7 +43,8 @@ export default class Start extends Component {
   render () {
     return (
       <Article>
-        <Header size='large' pad={{horizontal: 'medium'}}>
+
+        <Header size='large' pad='medium'>
           <Title responsive={false}>
             <Anchor path='/'>
               <GrommetLogo />

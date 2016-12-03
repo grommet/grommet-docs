@@ -4,10 +4,8 @@ import React, { Component, PropTypes } from 'react';
 import Menu from 'grommet/components/Menu';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
-import Footer from 'grommet/components/Footer';
 import Anchor from 'grommet/components/Anchor';
 import Contents from '../docs/Contents';
-import ThemeMenu from './ThemeMenu';
 
 export default class DocsMenu extends Component {
 
@@ -88,9 +86,6 @@ export default class DocsMenu extends Component {
     return (
       <Menu direction='column' align='start' justify='between' primary={true}>
         {menuItems}
-        <Footer size='large' primary={true} pad={{ horizontal: 'medium' }}>
-          <ThemeMenu align='left' />
-        </Footer>
       </Menu>
     );
   }
