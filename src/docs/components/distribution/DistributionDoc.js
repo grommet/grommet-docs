@@ -2,23 +2,19 @@
 
 import React, { Component } from 'react';
 import Distribution from 'grommet/components/Distribution';
-import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
 Distribution.displayName = 'Distribution';
-
-const USAGE =
-`import Distribution from 'grommet/components/Distribution';
-<Distribution series={[
-  {label: 'First', value: 80},
-  {label: 'Second', value: 20}
-  ]} />`;
 
 export default class DistributionDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Distribution">
+      <DocsArticle title='Distribution' action={
+        <Button primary={true} path='/docs/distribution/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>Shows a graphic of relatively sized items.
@@ -38,17 +34,12 @@ export default class DistributionDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>full         true|false</code></dt>
             <dd>Whether the height should fill its container.</dd>
-            <dt><code>series       {"[{value: , label: , labelValue: , " +
-              "colorIndex: , onClick: , icon: }, ...]"}</code></dt>
+            <dt><code>series       {'[{value: , label: , labelValue: , ' +
+              'colorIndex: , onClick: , icon: }, ...]'}</code></dt>
             <dd>An array of objects describing the
               data. All properties except <code>value</code> are
               optional. <code>labelValue</code> is used as the
@@ -57,17 +48,9 @@ export default class DistributionDoc extends Component {
             <dt><code>size         small|medium|large|full</code></dt>
             <dd>The height of the Distribution.
               Defaults to <code>medium</code>.</dd>
-            <dt><code>units        {"{string}"}</code></dt>
+            <dt><code>units        {'{string}'}</code></dt>
             <dd>Optional units to display next to the value label.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/distribution/examples`}>
-            Distribution Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

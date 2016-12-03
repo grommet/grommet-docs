@@ -86,7 +86,8 @@ import LabelDoc from './components/LabelDoc';
 import LayerDoc from './components/layer/LayerDoc';
 import LayerExamplesDoc from './components/layer/LayerExamplesDoc';
 import Learn from './Learn';
-import LegendDoc from './components/LegendDoc';
+import LegendDoc from './components/legend/LegendDoc';
+import LegendExamplesDoc from './components/legend/LegendExamplesDoc';
 import ListDoc from './components/list/ListDoc';
 import ListExamplesDoc from './components/list/ListExamplesDoc';
 import ListPlaceholderDoc
@@ -102,7 +103,7 @@ import MarkdownExamplesDoc from './components/markdown/MarkdownExamplesDoc';
 import MenuDoc from './components/menu/MenuDoc';
 import MenuExamplesDoc from './components/menu/MenuExamplesDoc';
 import MeterDoc from './components/meter/MeterDoc';
-import MeterExamplesDoc from './components/meter/examples/MeterExamplesDoc';
+import MeterExamplesDoc from './components/meter/MeterExamplesDoc';
 import NavigationDoc from './patterns/NavigationDoc';
 import NotificationDoc from './components/notification/NotificationDoc';
 import NotificationExamplesDoc from
@@ -315,16 +316,12 @@ export default [
         { path: 'range', component: ChartRangeDoc }
       ], examples: ChartExamplesDoc },
       { path: 'distribution', label: 'Distribution', index: DistributionDoc,
-        children: [
-          { path: 'examples', component: DistributionExamplesDoc }
-        ]},
-      { path: 'legend', label: 'Legend', component: LegendDoc },
-      { path: 'map', label: 'Map', index: MapDoc, children: [
-        { path: 'examples', component: MapExamplesDoc }
-      ]},
-      { path: 'meter', label: 'Meter', index: MeterDoc, children: [
-        { path: 'examples', component: MeterExamplesDoc }
-      ]},
+        examples: DistributionExamplesDoc },
+      { path: 'legend', label: 'Legend', component: LegendDoc,
+        examples: LegendExamplesDoc },
+      { path: 'map', label: 'Map', index: MapDoc, examples: MapExamplesDoc },
+      { path: 'meter', label: 'Meter', index: MeterDoc,
+        examples: MeterExamplesDoc },
       { path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc },
       { path: 'topology', label: 'Topology', component: TopologyDoc },
       { path: 'world-map', label: 'WorldMap', component: WorldMapDoc }
