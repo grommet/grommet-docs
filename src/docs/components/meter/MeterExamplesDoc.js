@@ -114,7 +114,8 @@ export default class HeaderExamplesDoc extends Component {
       }
       value = (
         <Value value={valueValue} label={valueLabel} units='GB'
-          size={props.size} align={vertical ? 'start' : 'center'} />
+          size={props.size}
+          align={(vertical || 'bar' === props.type) ? 'start' : 'center'} />
       );
     }
 
