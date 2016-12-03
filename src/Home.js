@@ -43,8 +43,7 @@ const THEMES = [
 class HomeSection extends Component {
   render () {
     return (
-      <Section
-        justify='center' align='center'
+      <Section justify='center' align='center'
         pad={{vertical: 'large'}} {...this.props}>
         {this.props.children}
       </Section>
@@ -181,9 +180,10 @@ export default class Home extends Component {
           </Menu>
         </Header>
 
-        <HomeSection pad={{ vertical: 'medium' }} align='stretch'>
+        <HomeSection pad={{ vertical: 'medium' }} align='stretch'
+          basis='large'>
 
-          <Button className='home-mobile' fill={true}
+          <Button className='home-mobile'
             onClick={() => this.setState({ navActive: ! navActive })}>
             <Box align='center' pad={{ between: 'small' }}>
               {navActive ? <UpIcon /> : <DownIcon />}
@@ -192,7 +192,7 @@ export default class Home extends Component {
           </Button>
 
           <Box primary={true} pad={{vertical: 'large'}} direction='column'
-            align='center' flex={false}>
+            justify='center' align='center' flex='grow'>
 
             <Headline className='home-desktop' size='xlarge'>
               <span>gr</span>
@@ -212,6 +212,7 @@ export default class Home extends Component {
               focus on the essential experience
             </Paragraph>
           </Box>
+
           <Footer appCentered={true} justify='center'>
             <Menu inline={true} responsive={false} direction='row'>
               <Anchor href='http://slackin.grommet.io'
