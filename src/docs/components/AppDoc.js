@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import App from 'grommet/components/App';
 import Box from 'grommet/components/Box';
+import Split from 'grommet/components/Split';
+import Sidebar from 'grommet/components/Sidebar';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
@@ -20,39 +22,50 @@ const USAGE =
 
 export default class AppDoc extends Component {
 
-  render () {
+  constructor () {
+    super();
+    this.state = { priority: 'right' };
+  }
 
+  render () {
+    const { priority } = this.state;
     return (
-      <DocsArticle title="App">
+      <DocsArticle title='App'>
 
         <section>
           <p>This is the primary Grommet container outer. Typically it will
-            either contain a <Anchor path="/docs/split">Split</Anchor> or
-            an <Anchor path="/docs/article">Article</Anchor>.</p>
+            either contain a <Anchor path='/docs/split'>Split</Anchor> or
+            an <Anchor path='/docs/article'>Article</Anchor>.</p>
 
-          <Box pad={{ between: 'large' }} direction="row">
-            <Box direction="row" colorIndex="light-2" basis="medium">
-              <Box basis="1/3" pad="large"
-                colorIndex="grey-4" justify="center" align="center">
-                Navigation
-              </Box>
-              <Box basis="2/3" pad="large"
-                justify="center" align="center">
+          <Box pad={{ between: 'large' }} direction='column'>
+
+            <Split fixed={false} flex='right' priority={priority}>
+              <Sidebar full={false}>
+                <Box pad='large' colorIndex='grey-4'
+                  justify='center' align='center'
+                  onClick={() => this.setState({ priority: 'right' })}>
+                  Sidebar
+                </Box>
+              </Sidebar>
+              <Box pad='large' colorIndex='light-2'
+                justify='center' align='center'
+                onClick={() => this.setState({ priority: 'left' })}>
                 Main content
               </Box>
-            </Box>
-            <Article colorIndex="light-2" basis="medium">
-              <Header colorIndex="grey-4" justify="center" align="center">
+            </Split>
+
+            <Article colorIndex='light-2'>
+              <Header colorIndex='grey-4' justify='center' align='center'>
                 Header
               </Header>
-              <Section basis="medium" pad="large"
-                justify="center" align="center">
+              <Section pad='large' justify='center' align='center'>
                 Sections
               </Section>
-              <Footer colorIndex="grey-4" justify="center" align="center">
+              <Footer colorIndex='grey-4' justify='center' align='center'>
                 Footer
               </Footer>
             </Article>
+
           </Box>
         </section>
 
@@ -70,7 +83,7 @@ export default class AppDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <pre><code className='html hljs xml'>{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

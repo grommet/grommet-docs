@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Split from 'grommet/components/Split';
+import Sidebar from 'grommet/components/Sidebar';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
@@ -9,7 +10,13 @@ import DocsArticle from '../../../components/DocsArticle';
 
 export default class SplitDoc extends Component {
 
+  constructor () {
+    super();
+    this.state = { priority: 'right' };
+  }
+
   render () {
+    const { priority } = this.state;
     return (
       <DocsArticle title='Split' action={
         <Button primary={true} path='/docs/split/examples'
@@ -27,13 +34,17 @@ export default class SplitDoc extends Component {
           the <Anchor path='/docs/app'>App</Anchor> component
           as this will provide the best responsive behavior across devices.</p>
 
-          <Split flex='right' fixed={false}>
-            <Box basis='1/3' colorIndex='grey-4'
-              pad='large' justify='center' align='center'>
-              Navigation
-            </Box>
-            <Box basis='2/3' colorIndex='light-2'
-              pad='large' justify='center' align='center'>
+          <Split fixed={false} flex='right' priority={priority}>
+            <Sidebar full={false}>
+              <Box pad="large" colorIndex="grey-4"
+                justify="center" align="center"
+                onClick={() => this.setState({ priority: 'right' })}>
+                Sidebar
+              </Box>
+            </Sidebar>
+            <Box pad="large" colorIndex='light-2'
+              justify="center" align="center"
+              onClick={() => this.setState({ priority: 'left' })}>
               Main content
             </Box>
           </Split>
