@@ -194,7 +194,9 @@ export default class InteractiveExample extends Component {
       this._normalizeActiveForElement(activeProps, propsSchema);
     let contents =
       this._normalizeActiveForElement(activeContents, contentsSchema);
-    onChange(elementProps, contents);
+    if (onChange) {
+      onChange(elementProps, contents);
+    }
   }
 
   _onChangeActiveProps (activeProps) {
@@ -230,10 +232,13 @@ export default class InteractiveExample extends Component {
         label={contextLabel} />
     );
 
-    let propFields = fields || (
-      <PropFields schema={propsSchema} active={activeProps}
-        onChange={this._onChangeActiveProps} />
-    );
+    let propFields;
+    if (fields || propsSchema) {
+      propFields = fields || (
+        <PropFields schema={propsSchema} active={activeProps}
+          onChange={this._onChangeActiveProps} />
+      );
+    }
 
     let contentsFields;
     if (contentsSchema) {

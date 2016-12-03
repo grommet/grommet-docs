@@ -5,14 +5,8 @@ import SunBurst from 'grommet/components/SunBurst';
 import Box from 'grommet/components/Box';
 import Legend from 'grommet/components/Legend';
 import Value from 'grommet/components/Value';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
-
-SunBurst.displayName = 'SunBurst';
-
-const USAGE =
-`import SunBurst from 'grommet/components/SunBurst';
-<SunBurst data={...} />`;
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
 
 const DATA = [
   { label: 'root-1', value: 50, colorIndex: 'neutral-1', children: [
@@ -69,7 +63,7 @@ export default class SunBurstDoc extends Component {
     let label;
     if (active) {
       const series = seriesForPath(active).map(data => ({
-        ...data, value: <Value value={data.value} size="small" />
+        ...data, value: <Value value={data.value} size='small' />
       }));
       label = (
         <Legend series={series} />
@@ -77,22 +71,20 @@ export default class SunBurstDoc extends Component {
     }
 
     return (
-      <DocsArticle title="SunBurst">
+      <DocsArticle title='SunBurst' action={
+        <Button primary={true} path='/docs/sun-burst/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A SunBurst visualization.</p>
-          <Box align="start">
-            <SunBurst data={DATA} size="large"
+          <Box align='start'>
+            <SunBurst data={DATA} size='medium'
               active={active}
               onActive={path => this.setState({ active: path })}
               onClick={this._onClick}
               label={label} />
           </Box>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -115,36 +107,18 @@ export default class SunBurstDoc extends Component {
               as the items in the <code>data</code> array.
               NOTE: Currently the graphic does not work well at depths
               greater than three.</dd>
-            <dt><code>label       {"{node}"}</code></dt>
+            <dt><code>label       {'{node}'}</code></dt>
             <dd>Label to show in a corner.</dd>
-            <dt><code>onActive   {"{function ([index, ...])}"}</code></dt>
+            <dt><code>onActive   {'{function ([index, ...])}'}</code></dt>
             <dd>Hover handler. The hovered indexes are passed as the argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as the argument.</dd>
-            <dt><code>onClick    {"{function ([index, ...])}"}</code></dt>
+            <dt><code>onClick    {'{function ([index, ...])}'}</code></dt>
             <dd>Click handler. The clicked index path is passed as the
               argument.</dd>
             <dt><code>size       small|medium|large</code></dt>
             <dd>The size of the SunBurst. Defaults to <code>medium</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Example</h2>
-          <Example code={
-            <Box direction="row" align="center" pad={{ between: 'medium' }}>
-              <SunBurst data={DATA}
-                active={active}
-                onActive={path => this.setState({ active: path })}
-                onClick={path => alert(path)}
-                label={label} />
-              <Legend series={[
-                { label: 'on target', colorIndex: 'neutral-1' },
-                { label: 'over', colorIndex: 'neutral-2' },
-                { label: 'under', colorIndex: 'neutral-3' }
-              ]} />
-            </Box>
-          }/>
         </section>
 
       </DocsArticle>

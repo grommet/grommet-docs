@@ -137,7 +137,8 @@ import SplitDoc from './components/split/SplitDoc';
 import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
-import SunBurstDoc from './components/SunBurstDoc';
+import SunBurstDoc from './components/sun-burst/SunBurstDoc';
+import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
 import TableHeaderDoc from './components/TableHeaderDoc';
@@ -152,12 +153,14 @@ import TimestampExamplesDoc from './components/timestamp/TimestampExamplesDoc';
 import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
 import ToastDoc from './components/ToastDoc';
-import TopologyDoc from './components/TopologyDoc';
+import TopologyDoc from './components/topology/TopologyDoc';
+import TopologyExamplesDoc from './components/topology/TopologyExamplesDoc';
 import ValueDoc from './components/value/ValueDoc';
 import ValueExamplesDoc from './components/value/ValueExamplesDoc';
 import VideoDoc from './components/video/VideoDoc';
 import VideoExamplesDoc from './components/video/VideoExamplesDoc';
-import WorldMapDoc from './components/WorldMapDoc';
+import WorldMapDoc from './components/world-map/WorldMapDoc';
+import WorldMapExamplesDoc from './components/world-map/WorldMapExamplesDoc';
 
 export default [
   { label: 'Start', path: 'start', component: Start, contents: [
@@ -322,9 +325,12 @@ export default [
       { path: 'map', label: 'Map', index: MapDoc, examples: MapExamplesDoc },
       { path: 'meter', label: 'Meter', index: MeterDoc,
         examples: MeterExamplesDoc },
-      { path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc },
-      { path: 'topology', label: 'Topology', component: TopologyDoc },
-      { path: 'world-map', label: 'WorldMap', component: WorldMapDoc }
+      { path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc,
+        examples: SunBurstExamplesDoc },
+      { path: 'topology', label: 'Topology', component: TopologyDoc,
+        examples: TopologyExamplesDoc },
+      { path: 'world-map', label: 'WorldMap', component: WorldMapDoc,
+        examples: WorldMapExamplesDoc }
     ]},
     { label: 'Icons', contents: [
       { path: 'icon', label: 'Icon', component: IconDoc },
