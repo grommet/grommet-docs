@@ -150,7 +150,7 @@ import TabsExamplesDoc from './components/tabs/TabsExamplesDoc';
 import Templates from './Templates';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
-import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
+import TilesExamplesDoc from './components/tiles/TilesExamplesDoc';
 import TimestampDoc from './components/timestamp/TimestampDoc';
 import TimestampExamplesDoc from './components/timestamp/TimestampExamplesDoc';
 import TipDoc from './components/TipDoc';
