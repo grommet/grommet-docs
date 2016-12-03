@@ -6,21 +6,11 @@ import Chart, { Base, Line, Layers, Axis }
 import Meter from 'grommet/components/Meter';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 import Example from '../../Example';
 
 Chart.displayName = 'Chart';
-
-const USAGE =
-`import Chart, { Axis, Base, Layers, Line } ` +
-`from 'grommet/components/chart/Chart';
-<Chart>
-  <Axis count={...} ticks={true}>
-  <Base />
-  <Layers>
-    <Line values={[...]} />
-  </Layers>
-</Chart>`;
 
 const a11yTitle = (
   'Chart representing number of commits in the last three days.'
@@ -30,16 +20,14 @@ export default class ChartDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Chart">
+      <DocsArticle title='Chart' action={
+        <Button primary={true} path='/docs/chart/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>The Grommet Chart components provide the building blocks
             to construct a variety of Chart visualizations.</p>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -146,14 +134,6 @@ export default class ChartDoc extends Component {
               Values, you would give a Meter an id and set this property
               to use it.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/chart/examples`}>
-            Chart Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

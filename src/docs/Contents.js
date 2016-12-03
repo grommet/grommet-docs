@@ -27,7 +27,9 @@ import AnchorDoc from './components/anchor/AnchorDoc';
 import AnchorExamplesDoc from './components/anchor/AnchorExamplesDoc';
 import AnimateDoc from './components/animate/AnimateDoc';
 import AnimateExamplesDoc from './components/animate/AnimateExamplesDoc';
-import AnnotatedMeterDoc from './components/AnnotatedMeterDoc';
+import AnnotatedMeterDoc from './components/annotated-meter/AnnotatedMeterDoc';
+import AnnotatedMeterExamplesDoc from
+  './components/annotated-meter/AnnotatedMeterExamplesDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
@@ -51,7 +53,7 @@ import ChartLineDoc from './components/chart/LineDoc';
 import ChartMarkerDoc from './components/chart/MarkerDoc';
 import ChartMarkerLabelDoc from './components/chart/MarkerLabelDoc';
 import ChartRangeDoc from './components/chart/RangeDoc';
-import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
+import ChartExamplesDoc from './components/chart/ChartExamplesDoc';
 import CheckBoxDoc from './components/checkbox/CheckBoxDoc';
 import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/columns/ColumnsDoc';
@@ -298,13 +300,12 @@ export default [
     ]},
     { label: 'Visualization', contents: [
       { path: 'annotated-meter', label: 'AnnotatedMeter',
-        component: AnnotatedMeterDoc },
+        component: AnnotatedMeterDoc, examples: AnnotatedMeterExamplesDoc },
       { path: 'chart', label: 'Chart', index: ChartDoc, children: [
         { path: 'area', component: ChartAreaDoc },
         { path: 'axis', component: ChartAxisDoc },
         { path: 'bar', component: ChartBarDoc },
         { path: 'base', component: ChartBaseDoc },
-        { path: 'examples', component: ChartExamplesDoc },
         { path: 'grid', component: ChartGridDoc },
         { path: 'hot-spots', component: ChartHotSpotsDoc },
         { path: 'layers', component: ChartLayersDoc },
@@ -312,7 +313,7 @@ export default [
         { path: 'marker', component: ChartMarkerDoc },
         { path: 'marker-label', component: ChartMarkerLabelDoc },
         { path: 'range', component: ChartRangeDoc }
-      ]},
+      ], examples: ChartExamplesDoc },
       { path: 'distribution', label: 'Distribution', index: DistributionDoc,
         children: [
           { path: 'examples', component: DistributionExamplesDoc }
