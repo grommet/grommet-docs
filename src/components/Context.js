@@ -29,7 +29,7 @@ export default class Context extends Component {
     }
     return (
       <Box colorIndex={OUTER_BACKGROUND[background]}
-        justify={justify} align={align} full='vertical' pad={pad}>
+        justify={justify} align={align} flex='grow' pad={pad}>
         {contents}
       </Box>
     );

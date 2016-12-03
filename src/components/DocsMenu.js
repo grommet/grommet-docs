@@ -48,7 +48,7 @@ export default class DocsMenu extends Component {
       if (!context || subItems) {
         return (
           <Menu key={content.label} direction='column' align='start'
-            primary={true}>
+            size='small' primary={true}>
             {item}
             {subItems}
           </Menu>
@@ -84,7 +84,8 @@ export default class DocsMenu extends Component {
     const menuItems = this._renderMenuItems(contents, null);
 
     return (
-      <Menu direction='column' align='start' justify='between' primary={true}>
+      <Menu direction='column' align='start' justify='between' size='small'
+        primary={true}>
         {menuItems}
       </Menu>
     );
