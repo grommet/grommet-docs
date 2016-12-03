@@ -131,7 +131,8 @@ export default class Home extends Component {
     }
 
     const menuAnchors = Contents.map(section => (
-      <Anchor key={section.path} path={`/docs/${section.path}`}>
+      <Anchor key={section.path}
+        path={section.plain ? section.path : `/docs/${section.path}`}>
         {section.label}
       </Anchor>
     ));

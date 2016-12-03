@@ -126,6 +126,7 @@ import SearchInputExamplesDoc from
 import SectionDoc from './components/SectionDoc';
 import SelectDoc from './components/select/SelectDoc';
 import SelectExamplesDoc from './components/select/SelectExamplesDoc';
+import Showcase from './Showcase';
 import SidebarDoc from './components/sidebar/SidebarDoc';
 import SidebarExamplesDoc from './components/sidebar/SidebarExamplesDoc';
 import SocialShareDoc from './components/social-share/SocialShareDoc';
@@ -199,6 +200,8 @@ export default [
       { path: 'about', label: 'About', component: About}
     ]}
   ]},
+  { label: 'Showcase', path: '/docs/showcase', component: Showcase,
+    plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'navigation', label: 'Navigation', component: NavigationDoc }
   ]},
