@@ -7,41 +7,41 @@ export default class RestWatchDoc extends Component {
 
   render () {
     var inline = [
-      "var requestId = RestWatch.start('/rest/index/resources', params,\n  " +
-      "this._onResponse);"
+      'var requestId = RestWatch.start(\'/rest/index/resources\', params,\n  ' +
+      'this._onResponse);'
     ].join('\n');
 
     var example = [
-      "var Component = React.createClass({",
-      "  ...",
-      "  _onUpdate: function (result) {",
-      "    this.setState({result: result});",
-      "  },",
-      "  _getData: function () {",
-      "    this._request = RestWatch.start('/rest/index/resources',",
-      "      this.state.options.params, this._onUpdate);",
-      "  },",
-      "  ...",
-      "});"
+      'var Component = React.createClass({',
+      '  ...',
+      '  _onUpdate: function (result) {',
+      '    this.setState({result: result});',
+      '  },',
+      '  _getData: function () {',
+      '    this._request = RestWatch.start(\'/rest/index/resources\',',
+      '      this.state.options.params, this._onUpdate);',
+      '  },',
+      '  ...',
+      '});'
     ].join('\n');
 
     var message = [
-      "{",
-      "  id: <id string>,",
-      "  url: <url string>,",
-      "  params: <params object>",
-      "}"
+      '{',
+      '  id: <id string>,',
+      '  url: <url string>,',
+      '  params: <params object>',
+      '}'
     ].join('\n');
 
     var response = [
-      "{",
-      "  id: <id string>,",
-      "  result: <result object>",
-      "}"
+      '{',
+      '  id: <id string>,',
+      '  result: <result object>',
+      '}'
     ].join('\n');
 
     return (
-      <DocsArticle title="RestWatch" colorIndex="neutral-4">
+      <DocsArticle title='RestWatch'>
 
         <section>
           <p>Attempts to use WebSocket to receive asynchronous updates
@@ -52,15 +52,15 @@ export default class RestWatchDoc extends Component {
           side supporting web sockets and supporting the interaction
           protocol used by RestWatch.</p>
 
-          <pre><code className="javascript">{inline}</code></pre>
+          <pre><code className='javascript'>{inline}</code></pre>
 
           <p>WebSocket messages sent to the server are JSON and look like
             this:</p>
-          <pre><code className="javascript">{message}</code></pre>
+          <pre><code className='javascript'>{message}</code></pre>
 
           <p>The server should respond with JSON messages that look like
             this:</p>
-          <pre><code className="javascript">{response}</code></pre>
+          <pre><code className='javascript'>{response}</code></pre>
 
           <p>When messages are received from the server, the
           <code>result</code> will be sent to the callback that was passed
@@ -70,7 +70,6 @@ export default class RestWatchDoc extends Component {
           connection is lost, RestWatch will poll every five seconds trying
           to re-establish the connection. When the connection is restored,
           all active watching is automatically resumed.</p>
-
         </section>
 
         <section>
@@ -94,7 +93,7 @@ export default class RestWatchDoc extends Component {
 
         <section>
           <h2>Example</h2>
-          <pre><code className="javascript">
+          <pre><code className='javascript'>
             {example}
           </code></pre>
         </section>

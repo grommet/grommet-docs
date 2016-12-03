@@ -19,7 +19,7 @@ export default class Example extends Component {
         {heading}
         <Box pad={{ between: 'medium' }} align={align}>
           {control || code}
-          <Code preambl={preamble} overrides={overrides}>{code}</Code>
+          <Code preamble={preamble} overrides={overrides}>{code}</Code>
         </Box>
       </Box>
     );

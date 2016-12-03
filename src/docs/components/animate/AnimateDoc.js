@@ -28,12 +28,12 @@ export default class AnimateDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Animate">
+      <DocsArticle title='Animate'>
 
         <section>
           <p>An animation wrapper to transition components in &amp; out.</p>
           <Button
-            label="Toggle"
+            label='Toggle'
             primary={true}
             onClick={() => this.setState({toggleFade: !this.state.toggleFade})}
           />
@@ -52,21 +52,21 @@ export default class AnimateDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html xml hljs">{USAGE}</code></pre>
+          <pre><code className='html xml hljs'>{USAGE}</code></pre>
         </section>
 
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>component          {"{string}|{Component}"}</code></dt>
+            <dt><code>component          {'{string}|{Component}'}</code></dt>
             <dd>Wrapping component. Defaults to <code>{'<div/>'}</code>.</dd>
-            <dt><code>enter              {"{animation: , duration: , delay: }"}
+            <dt><code>enter              {'{animation: , duration: , delay: }'}
             </code></dt>
             <dd>Animation when component is entering.</dd>
             <dt><code>keep               true|false</code></dt>
             <dd>Whether to keep or remove element from the DOM.
               Defaults to false.</dd>
-            <dt><code>leave              {"{animation: , duration: , delay: }"}
+            <dt><code>leave              {'{animation: , duration: , delay: }'}
             </code></dt>
             <dd>Animation when component is leaving. Defaults
               to enter animation.</dd>

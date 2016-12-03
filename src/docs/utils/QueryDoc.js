@@ -12,7 +12,7 @@ export default class QueryDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Query" colorIndex="neutral-4">
+      <DocsArticle title='Query'>
 
         <section>
           <p>Utility functions for managing search and filter contexts. It can
@@ -41,42 +41,42 @@ export default class QueryDoc extends Component {
 
           <h2>Methods</h2>
           <dl>
-            <dt><code>error    ({"{object}"})</code></dt>
+            <dt><code>error    ({'{object}'})</code></dt>
             <dd>An exception object indicating syntactical issues with
               parsing.</dd>
-            <dt><code>set      ({"{string}"})</code></dt>
+            <dt><code>set      ({'{string}'})</code></dt>
             <dd>Replace the current text string.</dd>
             <dt><code>toString ()</code></dt>
             <dd>Gets the current text string.</dd>
             <dt><code>tree     ()</code></dt>
             <dd>Returns a boolean logic tree object. This permits syntax
               highlighting and programmatic processing. Connecting nodes are
-              of the form <code>{"{ op: and|or, left: , right: }"}</code>. Leaf
+              of the form <code>{'{ op: and|or, left: , right: }'}</code>. Leaf
               nodes are of the form <code>
-              {"{ text: , name:, value: , not: true|false }"}</code></dd>
+              {'{ text: , name:, value: , not: true|false }'}</code></dd>
           </dl>
         </section>
 
         <section>
           <h2>Examples</h2>
           <h3>Boolean Logic</h3>
-          <pre><code className="javascript">
+          <pre><code className='javascript'>
             {`let query = new Query('${query.toString()}');\n`}
             {'query.toString();\n'}
-            {'>> ' + query.toString() + "\n"}
+            {'>> ' + query.toString() + '\n'}
             {'query.error();\n'}
-            {'>> ' + query.error() + "\n"}
+            {'>> ' + query.error() + '\n'}
             {'query.tree();\n'}
             {'>> ' + JSON.stringify(query.tree(), null, '  ')}
           </code></pre>
 
           <h3>Syntax error</h3>
-          <pre><code className="javascript">
+          <pre><code className='javascript'>
             {`let errorQuery = new Query('${errorQuery.toString()}');\n`}
             {'errorQuery.toString();\n'}
-            {'>> ' + errorQuery.toString() + "\n"}
+            {'>> ' + errorQuery.toString() + '\n'}
             {'errorQuery.error();\n'}
-            {'>> ' + errorQuery.error() + "\n"}
+            {'>> ' + errorQuery.error() + '\n'}
           </code></pre>
         </section>
 

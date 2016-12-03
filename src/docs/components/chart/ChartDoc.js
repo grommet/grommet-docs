@@ -88,8 +88,8 @@ export default class ChartDoc extends Component {
             <Anchor path={`/docs/chart/axis`}>Axis</Anchor>
             <Anchor path={`/docs/chart/bar`}>Bar</Anchor>
             <Anchor path={`/docs/chart/base`}>Base</Anchor>
-            <Anchor path={`/docs/chart/hot-spots`}>HotSpots</Anchor>
             <Anchor path={`/docs/chart/grid`}>Grid</Anchor>
+            <Anchor path={`/docs/chart/hot-spots`}>HotSpots</Anchor>
             <Anchor path={`/docs/chart/layers`}>Layers</Anchor>
             <Anchor path={`/docs/chart/line`}>Line</Anchor>
             <Anchor path={`/docs/chart/marker`}>Marker</Anchor>

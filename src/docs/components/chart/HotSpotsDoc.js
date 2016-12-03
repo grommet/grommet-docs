@@ -3,13 +3,13 @@
 import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
+import BackControl from './BackControl';
 
 export default class HotSpotsDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="HotSpots">
+      <DocsArticle context={<BackControl />} title='HotSpots'>
 
         <p>A means of interacting with
           a <Anchor path={`/docs/chart`}>Chart</Anchor>. It is structured
@@ -25,11 +25,11 @@ export default class HotSpotsDoc extends Component {
             <dt><code>count        {'{number}'}</code></dt>
             <dd>The number of slots, including both ends.
               This property is required.</dd>
-            <dt><code>onActive     {"{function (index)}"}</code></dt>
+            <dt><code>onActive     {'{function (index)}'}</code></dt>
             <dd>Hover handler. The hovered index is passed as an argument.
               When the user is ceases to hover over the
               component, <code>undefined</code> is passed as an argument.</dd>
-            <dt><code>onClick      {"{function (index)}"}</code></dt>
+            <dt><code>onClick      {'{function (index)}'}</code></dt>
             <dd>Click handler. The clicked index is passed as an argument.</dd>
             <dt><code>vertical     true|false</code></dt>
             <dd>Whether the slots should be layed out horizontally
