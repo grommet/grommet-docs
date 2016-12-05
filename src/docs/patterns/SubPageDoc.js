@@ -58,9 +58,27 @@ export default class SubPageDoc extends Component {
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}}>
+          <Box direction="row" pad={{between: 'small'}} responsive={false} wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
+              <Box separator="all">
+                <Header size="small" colorIndex="grey-4" />
+                <Box colorIndex="light-1" pad="large" separator="bottom" />
+                <Box colorIndex="light-2"
+                  pad={{ horizontal: 'medium', vertical: 'medium',
+                    between: 'medium' }}>
+                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box direction="row" pad={{ between: 'medium' }} responsive={false}>
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
+                      separator="all" />
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
+                      separator="all" />
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <Label margin="small">Tablet</Label>
               <Box separator="all" responsive={false}>
                 <Header size="small" colorIndex="grey-4" />
                 <Box colorIndex="light-1" pad="large" separator="bottom" />
@@ -79,19 +97,6 @@ export default class SubPageDoc extends Component {
               </Box>
             </Box>
             <Box>
-              <Label margin="small">Tablet</Label>
-              <Box separator="all" responsive={false}>
-                <Header size="small" colorIndex="grey-4" />
-                <Box colorIndex="light-1" pad="large" separator="bottom" />
-                <Box colorIndex="light-2"
-                  pad={{ horizontal: 'medium', vertical: 'medium',
-                    between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box colorIndex="light-1" pad="large" separator="all" />
-                </Box>
-              </Box>
-            </Box>
-            <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all" responsive={false}>
                 <Header size="small" colorIndex="grey-4" />
@@ -99,6 +104,7 @@ export default class SubPageDoc extends Component {
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
+                  <Box colorIndex="light-1" pad="large" separator="all" />
                   <Box colorIndex="light-1" pad="large" separator="all" />
                   <Box colorIndex="light-1" pad="large" separator="all" />
                 </Box>
