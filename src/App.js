@@ -36,7 +36,9 @@ if (typeof document !== 'undefined') {
   if (__DEV_MODE__) {
     var themeLink = document.getElementById('theme-link');
     var themeUrl = `/assets/css/index-${theme}.css`;
-    themeLink.setAttribute('href', themeUrl);
+    if (themeLink) {
+      themeLink.setAttribute('href', themeUrl);
+    }
   }
 
   const basename = basenameForTheme(theme);

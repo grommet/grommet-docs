@@ -152,7 +152,7 @@ export default class Home extends Component {
         <Tile key={theme.label} basis="1/4" pad={{ vertical: 'large' }}>
           <Button href={theme.url}>
             <Box textAlign='center' align='center' pad={{ between: 'small' }}>
-              {<theme.Icon size='large' plain={true} />}
+              {<theme.Icon size='large' colorIndex='plain' />}
               <span>{theme.label}</span>
             </Box>
           </Button>
@@ -324,7 +324,7 @@ export default class Home extends Component {
         <Footer align='start' primary={true} direction='column' pad='medium'
           colorIndex='light-2'>
           <Box direction='row' justify='between' align='start'
-            pad={{ between: 'medium' }} size={{ width: 'max' }}>
+            pad={{ between: 'medium' }} size={{ width: 'full' }}>
             <Box direction='row' align='center' responsive={false}
               pad={{ between: 'small'}}>
               <GrommetLogo /> <strong>grommet</strong>
