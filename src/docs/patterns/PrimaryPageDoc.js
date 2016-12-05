@@ -3,7 +3,9 @@
 import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
+import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
+import Label from 'grommet/components/Label';
 import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
 import DocsTemplate from '../../components/DocsTemplate';
@@ -57,24 +59,67 @@ export default class PrimaryPageDoc extends Component {
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}}>
+          <Box direction="row" pad={{between: 'small'}} wrap={true} 
+            responsive={false}>
             <Box>
-              <Paragraph margin="small">
-                Desktop
-              </Paragraph>
-              <img src="/img/templates/template-primary-desktop.png" />
+              <Label margin="small">Desktop</Label>
+              <Box separator="all">
+                <Header size="small" colorIndex="grey-4" />
+                <Box pad="large" separator="bottom" />
+                <Box colorIndex="light-2"
+                  pad={{ horizontal: 'medium', vertical: 'medium',
+                    between: 'medium' }}>
+                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box direction="row" pad={{ between: 'medium' }}
+                    responsive={false}>
+                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                      separator="all" />
+                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                      separator="all" />
+                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                      separator="all" />
+                  </Box>
+                </Box>
+              </Box>
             </Box>
             <Box>
-              <Paragraph margin="small">
-                Tablet
-              </Paragraph>
-              <img src="/img/templates/template-primary-tablet.png" />
+              <Label margin="small">Tablet</Label>
+              <Box separator="all">
+                <Header size="small" colorIndex="grey-4" />
+                <Box pad="large" separator="bottom" />
+                <Box colorIndex="light-2"
+                  pad={{ horizontal: 'medium', vertical: 'medium',
+                    between: 'medium' }}>
+                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box direction="row" pad={{ between: 'medium' }}
+                    responsive={false}>
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
+                      separator="all" />
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
+                      separator="all" />
+                  </Box>
+                </Box>
+              </Box>
             </Box>
             <Box>
-              <Paragraph margin="small">
-                Palm
-              </Paragraph>
-              <img src="/img/templates/template-primary-palm.png" />
+              <Box>
+              <Label margin="small">Palm</Label>
+              <Box separator="all">
+                <Header size="small" colorIndex="grey-4" />
+                <Box pad="large" separator="bottom" />
+                <Box colorIndex="light-2"
+                  pad={{ horizontal: 'medium', vertical: 'medium',
+                    between: 'medium' }}>
+                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box pad={{ between: 'medium' }}>
+                    <Box colorIndex="light-1" pad="large"
+                      separator="all" />
+                    <Box colorIndex="light-1" pad="large"
+                      separator="all" />
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
             </Box>
           </Box>
         </Section>
