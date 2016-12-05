@@ -40,7 +40,8 @@ import ButtonDoc from './components/button/ButtonDoc';
 import ButtonExamplesDoc from './components/button/ButtonExamplesDoc';
 import CardDoc from './components/card/CardDoc';
 import CardExamplesDoc from './components/card/CardExamplesDoc';
-import CarouselDoc from './components/CarouselDoc';
+import CarouselDoc from './components/carousel/CarouselDoc';
+import CarouselExamplesDoc from './components/carousel/CarouselExamplesDoc';
 import ChartDoc from './components/chart/ChartDoc';
 import ChartAreaDoc from './components/chart/AreaDoc';
 import ChartAxisDoc from './components/chart/AxisDoc';
@@ -280,6 +281,8 @@ export default [
         examples: FormExamplesDoc },
       { path: 'form-field', label: 'FormField', index: FormFieldDoc,
         examples: FormFieldExamplesDoc },
+      { path: 'login-form', label: 'LoginForm', index: LoginFormDoc,
+        examples: LoginFormExamplesDoc },
       { path: 'number-input', label: 'NumberInput',
         component: NumberInputDoc },
       { path: 'radio-button', label: 'RadioButton',
@@ -341,19 +344,13 @@ export default [
       { path: 'status', label: 'Status', component: StatusDoc }
     ]},
     { label: 'Media', contents: [
-      { path: 'carousel', label: 'Carousel', component: CarouselDoc },
-      { path: 'image', label: 'Image', index: ImageDoc, children: [
-        { path: 'examples', component: ImageExamplesDoc }
-      ]},
-      { path: 'video', label: 'Video', index: VideoDoc, children: [
-        { path: 'examples', component: VideoExamplesDoc }
-      ]}
+      { path: 'carousel', label: 'Carousel', component: CarouselDoc,
+        examples: CarouselExamplesDoc},
+      { path: 'image', label: 'Image', index: ImageDoc,
+        examples: ImageExamplesDoc },
+      { path: 'video', label: 'Video', index: VideoDoc,
+        examples: VideoExamplesDoc }
     ]},
-
-    { path: 'login-form', label: 'LoginForm', index: LoginFormDoc, children: [
-      { path: 'examples', component: LoginFormExamplesDoc }
-    ]},
-
     { label: 'Utils', contents: [
       { path: 'animate', label: 'Animate', index: AnimateDoc, children: [
         { path: 'examples', component: AnimateExamplesDoc }

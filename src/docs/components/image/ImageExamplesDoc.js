@@ -1,37 +1,40 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Image from 'grommet/components/Image';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const ImageExample = (props) => (
-  <Example code={
-    <Image src="/img/carousel-1.png" {...props} />
-  } />
-);
+Image.displayName = 'Image';
 
-export default class ImageExamplesDoc extends ExamplesDoc {};
+const PROPS_SCHEMA = {
+  alt: { value: 'Sample alt' },
+  caption: { value: 'Sample caption' },
+  full: { options: ['true', 'horizontal', 'vertical', 'false'] },
+  fit: { options: ['cover', 'contain'] },
+  size: { options: ['thumb', 'small', 'medium', 'large'] }
+};
 
-ImageExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/image">Image</Anchor>,
-  examples: [
-    { label: 'Default', component: ImageExample },
-    { label: 'Thumb', component: ImageExample, props: { size: 'thumb' } },
-    { label: 'Small', component: ImageExample, props: { size: 'small' } },
-    { label: 'Medium', component: ImageExample, props: { size: 'medium' } },
-    { label: 'Large', component: ImageExample, props: { size: 'large' } },
-    { label: 'Full', component: ImageExample, props: { full: 'horizontal' } },
-    { label: 'Fit',
-      component: ImageExample,
-      props: {
-        fit: 'contain',
-        size: 'thumb'
-      }
-    },
-    { label: 'Caption', component: ImageExample,
-      props: { caption: 'Image caption' } }
-  ],
-  title: 'Examples'
+export default class ImageExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { elementProps: {} };
+  }
+
+  render () {
+    const { elementProps } = this.state;
+    if ('true' === elementProps.full) {
+      elementProps.full = true;
+    } else if ('false' === elementProps.full) {
+      elementProps.full = false;
+    }
+    const element = <Image src='/img/carousel-1.png' {...elementProps} />;
+    return (
+      <InteractiveExample contextLabel='Image' contextPath='/docs/image'
+        preamble={`import Image from 'grommet/components/Image';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({ elementProps })} />
+    );
+  }
 };

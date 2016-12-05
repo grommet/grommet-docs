@@ -2,39 +2,33 @@
 
 import React, { Component } from 'react';
 import Carousel from 'grommet/components/Carousel';
+import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
-import DocsArticle from '../../components/DocsArticle';
-import Example from '../Example';
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
 
 Carousel.displayName = 'Carousel';
 Box.displayName = 'Box';
-
-const USAGE =
-`import Carousel from 'grommet/components/Carousel';
-<Carousel>
-  <img src="/img/carousel-1.png" />
-  <img src="/img/carousel-2.png" />
-</Carousel>`;
 
 export default class TileDoc extends Component {
 
   render () {
 
     return (
-      <DocsArticle title="Carousel">
+      <DocsArticle title='Carousel' action={
+        <Button primary={true} path={`/docs/carousel/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>Image carousel.</p>
 
-          <Carousel>
-            <img src="/img/carousel-1.png" />
-            <img src="/img/carousel-2.png" />
-          </Carousel>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Box size='medium'>
+            <Carousel>
+              <Image src='/img/carousel-1.png' />
+              <Image src='/img/carousel-2.png' />
+            </Carousel>
+          </Box>
         </section>
 
         <section>
@@ -43,7 +37,7 @@ export default class TileDoc extends Component {
             <dt><code>autoplay            true|false</code></dt>
             <dd>Whether the carousel should play automatically or not.
               Defaults to <code>true</code>.</dd>
-            <dt><code>autoplaySpeed       {"{number}"}</code></dt>
+            <dt><code>autoplaySpeed       {'{number}'}</code></dt>
             <dd>How long the carousel should stay on each slide, in
               milliseconds.  Defaults to <code>5000</code> (5 seconds).</dd>
             <dt><code>infinite            true|false</code></dt>
@@ -55,23 +49,6 @@ export default class TileDoc extends Component {
               or only show when the user mouses over the carousel.
               Defaults to <code>true</code>.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Example</h2>
-
-          <Example code={
-            <Carousel>
-              <img src="/img/carousel-1.png" />
-              <img src="/img/carousel-2.png" />
-              <Box pad="large" colorIndex="neutral-3">
-                <Box pad="medium" colorIndex="neutral-2">
-                  Content inside of a Box element.
-                </Box>
-              </Box>
-            </Carousel>
-          } />
-
         </section>
 
       </DocsArticle>
