@@ -28,11 +28,6 @@ export default class StatusDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>a11yTitle   {"{string}"}</code></dt>
@@ -45,6 +40,11 @@ export default class StatusDoc extends Component {
               </code></dt>
             <dd>Which status to indicate.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{USAGE}</code></pre>
         </section>
 
       </DocsArticle>

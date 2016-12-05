@@ -114,11 +114,6 @@ export default class IconDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{inline}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>colorIndex   {"{category}-{index}"}</code></dt>
@@ -130,6 +125,11 @@ export default class IconDoc extends Component {
             <dt><code>type         control|logo|status</code></dt>
             <dd>The type of the icon. Defaults to <code>control</code>.</dd>
           </dl>
+        </section>
+
+        <section>
+          <h2>Usage</h2>
+          <pre><code className="html hljs xml">{inline}</code></pre>
         </section>
 
         <section>

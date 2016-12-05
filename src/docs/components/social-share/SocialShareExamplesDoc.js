@@ -1,36 +1,44 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import SocialShare from 'grommet/components/SocialShare';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const SocialShareExample = (props) => (
-  <Example align="start" code={
-    <SocialShare {...props} />
-  } />
-);
+SocialShare.displayName = 'SocialShare';
 
-export default class SocialShareExamplesDoc extends ExamplesDoc {};
+const PROPS_SCHEMA = {
+  type: { options: ['email', 'facebook', 'google', 'linkedin', 'twitter'] }
+};
 
-SocialShareExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/social-share">SocialShare</Anchor>,
-  examples: [
-    { label: 'Email', component: SocialShareExample,
-      props: { type: 'email', link: 'http://grommet.io',
-        title: 'Found this from the Grommet.io website',
-        text: 'User Experience for the Enterprise' }},
-    { label: 'Facebook', component: SocialShareExample,
-      props: { type: 'facebook', link: 'http://grommet.io' }},
-    { label: 'Twitter', component: SocialShareExample,
-      props: { type: 'twitter', link: 'http://grommet.io',
-        text: 'User Experience for the Enterprise' }},
-    { label: 'LinkedIn', component: SocialShareExample,
-      props: { type: 'linkedin', link: 'http://grommet.io',
-        title: 'Grommet', text: 'User Experience for the Enterprise' }},
-    { label: 'Google Plus', component: SocialShareExample,
-      props: { type: 'google', link: 'http://grommet.io' }}
-  ],
-  title: 'Examples'
+export default class HeadlineExamplesDoc extends Component {
+
+  constructor () {
+    super();
+    this.state = { elementProps: {} };
+  }
+
+  render () {
+    const { elementProps } = this.state;
+    let props = { ...elementProps, link: 'https://grommet.io' };
+    if (! props.type) {
+      props.type = 'email';
+    }
+    if ('linkedin' === props.type || 'email' === props.type) {
+      props.title = 'Sample Title';
+    }
+    if ('linkedin' === props.type || 'email' === props.type ||
+      'twitter' === props.type) {
+      props.text = 'Sample text';
+    }
+    const element = <SocialShare {...props} />;
+
+    return (
+      <InteractiveExample contextLabel='SocialShare'
+        contextPath='/docs/social-share'
+        preamble={`import SocialShare from 'grommet/components/SocialShare';`}
+        propsSchema={PROPS_SCHEMA}
+        element={element}
+        onChange={elementProps => this.setState({ elementProps })} />
+    );
+  }
 };

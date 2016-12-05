@@ -336,9 +336,7 @@ export default [
       { path: 'icon', label: 'Icon', component: IconDoc },
       { path: 'pulse', label: 'Pulse', component: PulseDoc },
       { path: 'social-share', label: 'SocialShare', index: SocialShareDoc,
-        children: [
-          { path: 'examples', component: SocialShareExamplesDoc }
-        ]},
+        examples: SocialShareExamplesDoc },
       { path: 'spinning', label: 'Spinning', component: SpinningDoc },
       { path: 'status', label: 'Status', component: StatusDoc }
     ]},
