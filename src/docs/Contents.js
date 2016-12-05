@@ -27,7 +27,9 @@ import AnchorDoc from './components/anchor/AnchorDoc';
 import AnchorExamplesDoc from './components/anchor/AnchorExamplesDoc';
 import AnimateDoc from './components/animate/AnimateDoc';
 import AnimateExamplesDoc from './components/animate/AnimateExamplesDoc';
-import AnnotatedMeterDoc from './components/AnnotatedMeterDoc';
+import AnnotatedMeterDoc from './components/annotated-meter/AnnotatedMeterDoc';
+import AnnotatedMeterExamplesDoc from
+  './components/annotated-meter/AnnotatedMeterExamplesDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
 import ArticleDoc from './components/ArticleDoc';
@@ -51,10 +53,11 @@ import ChartLineDoc from './components/chart/LineDoc';
 import ChartMarkerDoc from './components/chart/MarkerDoc';
 import ChartMarkerLabelDoc from './components/chart/MarkerLabelDoc';
 import ChartRangeDoc from './components/chart/RangeDoc';
-import ChartExamplesDoc from './components/chart/examples/ChartExamplesDoc';
+import ChartExamplesDoc from './components/chart/ChartExamplesDoc';
 import CheckBoxDoc from './components/checkbox/CheckBoxDoc';
 import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
-import ColumnsDoc from './components/ColumnsDoc';
+import ColumnsDoc from './components/columns/ColumnsDoc';
+import ColumnsExamplesDoc from './components/columns/ColumnsExamplesDoc';
 import Components from './Components';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
@@ -81,9 +84,10 @@ import ImageDoc from './components/image/ImageDoc';
 import ImageExamplesDoc from './components/image/ImageExamplesDoc';
 import LabelDoc from './components/LabelDoc';
 import LayerDoc from './components/layer/LayerDoc';
-import LayerExamplesDoc from './components/layer/examples/LayerExamplesDoc';
+import LayerExamplesDoc from './components/layer/LayerExamplesDoc';
 import Learn from './Learn';
-import LegendDoc from './components/LegendDoc';
+import LegendDoc from './components/legend/LegendDoc';
+import LegendExamplesDoc from './components/legend/LegendExamplesDoc';
 import ListDoc from './components/list/ListDoc';
 import ListExamplesDoc from './components/list/ListExamplesDoc';
 import ListPlaceholderDoc
@@ -99,7 +103,7 @@ import MarkdownExamplesDoc from './components/markdown/MarkdownExamplesDoc';
 import MenuDoc from './components/menu/MenuDoc';
 import MenuExamplesDoc from './components/menu/MenuExamplesDoc';
 import MeterDoc from './components/meter/MeterDoc';
-import MeterExamplesDoc from './components/meter/examples/MeterExamplesDoc';
+import MeterExamplesDoc from './components/meter/MeterExamplesDoc';
 import NavigationDoc from './patterns/NavigationDoc';
 import NotificationDoc from './components/notification/NotificationDoc';
 import NotificationExamplesDoc from
@@ -123,6 +127,7 @@ import SearchInputExamplesDoc from
 import SectionDoc from './components/SectionDoc';
 import SelectDoc from './components/select/SelectDoc';
 import SelectExamplesDoc from './components/select/SelectExamplesDoc';
+import Showcase from './Showcase';
 import SidebarDoc from './components/sidebar/SidebarDoc';
 import SidebarExamplesDoc from './components/sidebar/SidebarExamplesDoc';
 import SocialShareDoc from './components/social-share/SocialShareDoc';
@@ -130,30 +135,36 @@ import SocialShareExamplesDoc from
   './components/social-share/SocialShareExamplesDoc';
 import SortDoc from './components/SortDoc';
 import SpinningDoc from './components/SpinningDoc';
-import SplitDoc from './components/SplitDoc';
+import SplitDoc from './components/split/SplitDoc';
+import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
-import SunBurstDoc from './components/SunBurstDoc';
+import SunBurstDoc from './components/sun-burst/SunBurstDoc';
+import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
 import TableExamplesDoc from './components/table/TableExamplesDoc';
-import TableHeaderDoc from './components/TableHeaderDoc';
+import TableHeaderDoc from './components/table-header/TableHeaderDoc';
+import TableHeaderExamplesDoc
+  from './components/table-header/TableHeaderExamplesDoc';
 import TabsDoc from './components/tabs/TabsDoc';
 import TabsExamplesDoc from './components/tabs/TabsExamplesDoc';
 import Templates from './Templates';
 import TextInputDoc from './components/TextInputDoc';
 import TilesDoc from './components/tiles/TilesDoc';
-import TilesExamplesDoc from './components/tiles/examples/TilesExamplesDoc';
+import TilesExamplesDoc from './components/tiles/TilesExamplesDoc';
 import TimestampDoc from './components/timestamp/TimestampDoc';
 import TimestampExamplesDoc from './components/timestamp/TimestampExamplesDoc';
 import TipDoc from './components/TipDoc';
 import TitleDoc from './components/TitleDoc';
 import ToastDoc from './components/ToastDoc';
-import TopologyDoc from './components/TopologyDoc';
+import TopologyDoc from './components/topology/TopologyDoc';
+import TopologyExamplesDoc from './components/topology/TopologyExamplesDoc';
 import ValueDoc from './components/value/ValueDoc';
 import ValueExamplesDoc from './components/value/ValueExamplesDoc';
 import VideoDoc from './components/video/VideoDoc';
 import VideoExamplesDoc from './components/video/VideoExamplesDoc';
-import WorldMapDoc from './components/WorldMapDoc';
+import WorldMapDoc from './components/world-map/WorldMapDoc';
+import WorldMapExamplesDoc from './components/world-map/WorldMapExamplesDoc';
 
 export default [
   { label: 'Start', path: 'start', component: Start, contents: [
@@ -192,6 +203,8 @@ export default [
       { path: 'about', label: 'About', component: About}
     ]}
   ]},
+  { label: 'Showcase', path: '/docs/showcase', component: Showcase,
+    plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'navigation', label: 'Navigation', component: NavigationDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc }
@@ -199,11 +212,12 @@ export default [
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
       { path: 'box', label: 'Box', index: BoxDoc, examples: BoxingGymDoc },
-      { path: 'columns', label: 'Columns', component: ColumnsDoc },
-      { path: 'layer', label: 'Layer', index: LayerDoc, children: [
-        { path: 'examples', component: LayerExamplesDoc }
-      ]},
-      { path: 'split', label: 'Split', component: SplitDoc }
+      { path: 'columns', label: 'Columns', component: ColumnsDoc,
+        examples: ColumnsExamplesDoc },
+      { path: 'layer', label: 'Layer', index: LayerDoc,
+        examples: LayerExamplesDoc },
+      { path: 'split', label: 'Split', component: SplitDoc,
+        examples: SplitExamplesDoc }
     ]},
     { label: 'Structure', contents: [
       { path: 'app', label: 'App', component: AppDoc },
@@ -279,31 +293,25 @@ export default [
       { path: 'text-input', label: 'TextInput', component: TextInputDoc }
     ]},
     { label: 'Listing', contents: [
-      { path: 'list', label: 'List', index: ListDoc, children: [
-        { path: 'examples', component: ListExamplesDoc }
-      ]},
+      { path: 'list', label: 'List', index: ListDoc,
+        examples: ListExamplesDoc },
       { path: 'list-placeholder', label: 'ListPlaceholder',
-        index: ListPlaceholderDoc, children: [
-          { path: 'examples', component: ListPlaceholderExamplesDoc }
-        ] },
-      { path: 'table', label: 'Table', index: TableDoc, children: [
-        { path: 'examples', component: TableExamplesDoc }
-      ]},
+        index: ListPlaceholderDoc, examples: ListPlaceholderExamplesDoc },
+      { path: 'table', label: 'Table', index: TableDoc,
+        examples: TableExamplesDoc },
       { path: 'table-header', label: 'TableHeader',
-        component: TableHeaderDoc },
-      { path: 'tiles', label: 'Tiles', index: TilesDoc, children: [
-        { path: 'examples', component: TilesExamplesDoc }
-      ]}
+        component: TableHeaderDoc, examples: TableHeaderExamplesDoc },
+      { path: 'tiles', label: 'Tiles', index: TilesDoc,
+        examples: TilesExamplesDoc }
     ]},
     { label: 'Visualization', contents: [
       { path: 'annotated-meter', label: 'AnnotatedMeter',
-        component: AnnotatedMeterDoc },
+        component: AnnotatedMeterDoc, examples: AnnotatedMeterExamplesDoc },
       { path: 'chart', label: 'Chart', index: ChartDoc, children: [
         { path: 'area', component: ChartAreaDoc },
         { path: 'axis', component: ChartAxisDoc },
         { path: 'bar', component: ChartBarDoc },
         { path: 'base', component: ChartBaseDoc },
-        { path: 'examples', component: ChartExamplesDoc },
         { path: 'grid', component: ChartGridDoc },
         { path: 'hot-spots', component: ChartHotSpotsDoc },
         { path: 'layers', component: ChartLayersDoc },
@@ -311,21 +319,20 @@ export default [
         { path: 'marker', component: ChartMarkerDoc },
         { path: 'marker-label', component: ChartMarkerLabelDoc },
         { path: 'range', component: ChartRangeDoc }
-      ]},
+      ], examples: ChartExamplesDoc },
       { path: 'distribution', label: 'Distribution', index: DistributionDoc,
-        children: [
-          { path: 'examples', component: DistributionExamplesDoc }
-        ]},
-      { path: 'legend', label: 'Legend', component: LegendDoc },
-      { path: 'map', label: 'Map', index: MapDoc, children: [
-        { path: 'examples', component: MapExamplesDoc }
-      ]},
-      { path: 'meter', label: 'Meter', index: MeterDoc, children: [
-        { path: 'examples', component: MeterExamplesDoc }
-      ]},
-      { path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc },
-      { path: 'topology', label: 'Topology', component: TopologyDoc },
-      { path: 'world-map', label: 'WorldMap', component: WorldMapDoc }
+        examples: DistributionExamplesDoc },
+      { path: 'legend', label: 'Legend', component: LegendDoc,
+        examples: LegendExamplesDoc },
+      { path: 'map', label: 'Map', index: MapDoc, examples: MapExamplesDoc },
+      { path: 'meter', label: 'Meter', index: MeterDoc,
+        examples: MeterExamplesDoc },
+      { path: 'sun-burst', label: 'SunBurst', component: SunBurstDoc,
+        examples: SunBurstExamplesDoc },
+      { path: 'topology', label: 'Topology', component: TopologyDoc,
+        examples: TopologyExamplesDoc },
+      { path: 'world-map', label: 'WorldMap', component: WorldMapDoc,
+        examples: WorldMapExamplesDoc }
     ]},
     { label: 'Icons', contents: [
       { path: 'icon', label: 'Icon', component: IconDoc },

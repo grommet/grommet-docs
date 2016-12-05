@@ -40,3 +40,6 @@ node_modules
 **iconsMap**
 **.publish**
 server/server-routes.js
+
+# temporary while yarn does not fix problems with bad hash
+yarn.lock

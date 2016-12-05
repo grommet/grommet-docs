@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
+import BackControl from './BackControl';
 
 export default class LayersDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Layers">
+      <DocsArticle context={<BackControl />} title='Layers'>
 
         <section>
           <p>A container for graphic components in
@@ -23,8 +23,8 @@ export default class LayersDoc extends Component {
           <Menu inline={true}>
             <Anchor path={`/docs/chart-area`}>Area</Anchor>
             <Anchor path={`/docs/chart-bar`}>Bar</Anchor>
+              <Anchor path={`/docs/chart-grid`}>Grid</Anchor>
             <Anchor path={`/docs/chart-hot-spots`}>HotSpots</Anchor>
-            <Anchor path={`/docs/chart-grid`}>Grid</Anchor>
             <Anchor path={`/docs/chart-line`}>Line</Anchor>
             <Anchor path={`/docs/chart-marker`}>Marker</Anchor>
             <Anchor path={`/docs/chart-range`}>Range</Anchor>

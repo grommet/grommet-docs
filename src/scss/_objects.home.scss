@@ -14,7 +14,7 @@
 }
 
 @include media-query(palm) {
-  .home-desktop {
+  .home-desktop, .home-code-pen {
     display: none;
   }
 

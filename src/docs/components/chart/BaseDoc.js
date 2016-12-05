@@ -3,13 +3,13 @@
 import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
+import BackControl from './BackControl';
 
 export default class BaseDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Base">
+      <DocsArticle context={<BackControl />} title='Base'>
 
         <p>The base area of a <Anchor path={`/docs/chart`}>Chart</Anchor>.
           When there are no child components, the width and height control the

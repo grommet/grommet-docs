@@ -13,6 +13,8 @@ import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
+import Tiles from 'grommet/components/Tiles';
+import Tile from 'grommet/components/Tile';
 import GrommetLogo from 'grommet/components/icons/Grommet';
 import UpIcon from 'grommet/components/icons/base/Up';
 import DownIcon from 'grommet/components/icons/base/Down';
@@ -24,22 +26,30 @@ import AccessAccessibilityIcon from
   'grommet/components/icons/base/AccessAccessibility';
 import ConfigureIcon from 'grommet/components/icons/base/Configure';
 import RunIcon from 'grommet/components/icons/base/Run';
+import GrommetIcon from 'grommet/components/icons/base/BrandGrommetOutline';
+import ArubaIcon from 'grommet/components/icons/base/PlatformAruba';
+import HPEIcon from 'grommet/components/icons/base/BrandHpeElementOutline';
+import HPIcon from 'grommet/components/icons/base/PlatformHpi';
 import Contents from './docs/Contents';
 import Hands from './img/Hands.js';
-import ThemeMenu from './components/ThemeMenu';
+
+const THEMES = [
+  { label: 'Grommet', Icon: GrommetIcon, url: '/' },
+  { label: 'Aruba', Icon: ArubaIcon, url: '/aruba' },
+  { label: 'Hewlett Packard Enterprise', Icon: HPEIcon, url: '/hpe' },
+  { label: 'HP Inc.', Icon: HPIcon, url: '/hpinc'}
+];
 
 class HomeSection extends Component {
   render () {
     return (
-      <Section
-        justify='center' align='center'
+      <Section justify='center' align='center'
         pad={{vertical: 'large'}} {...this.props}>
         {this.props.children}
       </Section>
     );
   }
 };
-
 
 const WhyGrommetItem = (props) => (
   <Box basis='1/4' pad={{ between: 'small', 'vertical': 'small' }}>
@@ -131,10 +141,24 @@ export default class Home extends Component {
     }
 
     const menuAnchors = Contents.map(section => (
-      <Anchor key={section.path} path={`/docs/${section.path}`}>
+      <Anchor key={section.path} align='center'
+        path={section.plain ? section.path : `/docs/${section.path}`}>
         {section.label}
       </Anchor>
     ));
+
+    const themes = THEMES.map(theme => {
+      return (
+        <Tile key={theme.label} basis="1/4" pad={{ vertical: 'large' }}>
+          <Button href={theme.url}>
+            <Box align='center' pad={{ between: 'small' }}>
+              {<theme.Icon size='large' plain={true} />}
+              <span>{theme.label}</span>
+            </Box>
+          </Button>
+        </Tile>
+      );
+    });
 
     return (
       <Article className='home' style={articleStyle}>
@@ -143,30 +167,32 @@ export default class Home extends Component {
           className='home-mobile' colorIndex='brand'
           pad={{ vertical: 'medium', between: 'small' }}>
           <GrommetLogo a11yTitle='Grommet Logo' invert={true} />
-          <Menu primary={true}>
+          <Menu primary={true} align='center'>
             {menuAnchors}
           </Menu>
         </HomeSection>
 
-        <HomeSection pad={{ vertical: 'medium' }} align='stretch'>
+        <Header className='home-desktop' fixed={false} appCentered={true}
+          pad={{ vertical: 'medium', between: 'medium' }}>
+          <GrommetLogo a11yTitle='Grommet Logo' />
+          <Menu direction='row' responsive={false}>
+            {menuAnchors}
+          </Menu>
+        </Header>
 
-          <Button className='home-mobile' fill={true}
+        <HomeSection pad={{ vertical: 'medium' }} align='stretch'
+          basis='large'>
+
+          <Button className='home-mobile'
             onClick={() => this.setState({ navActive: ! navActive })}>
             <Box align='center' pad={{ between: 'small' }}>
               {navActive ? <UpIcon /> : <DownIcon />}
               MENU
             </Box>
           </Button>
-          <Header className='home-desktop' fixed={false} appCentered={true}
-            pad={{ between: 'medium' }}>
-            <GrommetLogo a11yTitle='Grommet Logo' />
-            <Menu direction='row' responsive={false}>
-              {menuAnchors}
-            </Menu>
-          </Header>
 
           <Box primary={true} pad={{vertical: 'large'}} direction='column'
-            align='center' flex={false}>
+            justify='center' align='center' flex='grow'>
 
             <Headline className='home-desktop' size='xlarge'>
               <span>gr</span>
@@ -186,6 +212,7 @@ export default class Home extends Component {
               focus on the essential experience
             </Paragraph>
           </Box>
+
           <Footer appCentered={true} justify='center'>
             <Menu inline={true} responsive={false} direction='row'>
               <Anchor href='http://slackin.grommet.io'
@@ -263,7 +290,7 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <HomeSection>
+        <HomeSection className='home-code-pen'>
           <Heading tag='h2'>Start making now</Heading>
           <Paragraph align='center'>The easiest way to learn a new tool is
             to have it done
@@ -287,7 +314,18 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <Footer align='start' primary={true} direction='column' pad='medium'>
+        <HomeSection>
+          <Heading tag='h2'>Themes</Heading>
+          <Paragraph align='center'>
+            Grommet is easily themeable to align with your brand.
+          </Paragraph>
+          <Tiles direction='row'>
+            {themes}
+          </Tiles>
+        </HomeSection>
+
+        <Footer align='start' primary={true} direction='column' pad='medium'
+          colorIndex='light-2'>
           <Box direction='row' justify='between' align='start'
             pad={{ between: 'medium' }} size={{ width: 'max' }}>
             <Box direction='row' align='center' responsive={false}
@@ -298,29 +336,27 @@ export default class Home extends Component {
               responsive={false}>
               <Box direction='column'>
                 <Anchor path='/docs/get-started'>Start</Anchor>
-                {/*}
                 <Anchor path='/docs/learn'>Learn</Anchor>
-                {*/}
-                <Anchor path='/docs'>Docs</Anchor>
+                <Anchor path='/docs/showcase'>Showcase</Anchor>
+                <Anchor path='/docs/templates'>Templates</Anchor>
+                <Anchor path='/docs/components'>Components</Anchor>
               </Box>
               <Box direction='column'>
                 <Anchor href='https://blog.grommet.io'>Blog</Anchor>
                 <Anchor href='https://vimeo.com/grommetux'>Training</Anchor>
-                <Anchor path='/docs/about'>About</Anchor>
-              </Box>
-              <Box direction='column'>
-                <Anchor href=''>Podcast</Anchor>
                 <Anchor href='http://slackin.grommet.io'>Slack</Anchor>
                 <Anchor href='https://github.com/grommet/grommet'>
                   Github
                 </Anchor>
+                <Anchor path='/docs/about'>About</Anchor>
               </Box>
               <Box direction='column'>
+                <Anchor href={'https://itunes.apple.com/us/podcast/' +
+                  'great-grommet-podcast/id1089989263?mt=2'}>Podcast</Anchor>
                 <Anchor href='https://www.facebook.com/grommetux'>
                   Facebook
                 </Anchor>
                 <Anchor href='https://twitter.com/grommetux'>Twitter</Anchor>
-                <ThemeMenu size='small' align='right' />
               </Box>
             </Box>
           </Box>

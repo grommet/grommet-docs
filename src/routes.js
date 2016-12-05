@@ -10,7 +10,7 @@ import Contents from './docs/Contents';
 const Container = (props) => <div>{props.children}</div>;
 
 function createContentRoutes (contents, asChildren) {
-  let result = { docs: [], examples: [] };
+  let result = { docs: [], plain: [] };
   contents.forEach(content => {
     if (content.path) {
       const route = { path: content.path };
@@ -23,7 +23,7 @@ function createContentRoutes (contents, asChildren) {
         route.indexRoute = { component: content.index };
       }
       if (content.examples) {
-        result.examples.push({
+        result.plain.push({
           path: `/docs/${content.path}/examples`,
           component: content.examples
         });
@@ -31,18 +31,22 @@ function createContentRoutes (contents, asChildren) {
       if (content.children) {
         const contentRoutes = createContentRoutes(content.children, true);
         route.childRoutes = contentRoutes.docs;
-        result.examples = result.examples.concat(contentRoutes.examples);
+        result.plain = result.plain.concat(contentRoutes.plain);
       }
       if (content.contents) {
         const contentRoutes = createContentRoutes(content.contents);
         result.docs = result.docs.concat(contentRoutes.docs);
-        result.examples = result.examples.concat(contentRoutes.examples);
+        result.plain = result.plain.concat(contentRoutes.plain);
       }
-      result.docs.push(route);
+      if (content.plain) {
+        result.plain.push(route);
+      } else {
+        result.docs.push(route);
+      }
     } else if (content.contents) {
       const contentRoutes = createContentRoutes(content.contents);
       result.docs = result.docs.concat(contentRoutes.docs);
-      result.examples = result.examples.concat(contentRoutes.examples);
+      result.plain = result.plain.concat(contentRoutes.plain);
     }
   });
   return result;
@@ -51,7 +55,7 @@ function createContentRoutes (contents, asChildren) {
 const contentRoutes = createContentRoutes(Contents);
 
 let rootChildren = [];
-rootChildren = rootChildren.concat(contentRoutes.examples);
+rootChildren = rootChildren.concat(contentRoutes.plain);
 rootChildren.push({
   path: 'docs',
   component: DocsSplit,

@@ -4,18 +4,14 @@ import React, { Component } from 'react';
 import Chart, { Base, Axis } from 'grommet/components/chart/Chart';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-
-const USAGE = `import { Axis } from 'grommet/components/chart/Chart';
-<Axis count={3} labels={[{ index: 2, label: '100%' }]}
-  ticks={true} />
-`;
+import BackControl from './BackControl';
 
 export default class AxisDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Axis">
+      <DocsArticle context={<BackControl />} title='Axis'>
+        
         <section>
           <p>An axis decorating a <Anchor path={`/docs/chart`}>
             Chart</Anchor>. An Axis can be
@@ -30,15 +26,11 @@ export default class AxisDoc extends Component {
             labels as well.</p>
 
           <Chart vertical={true}>
-            <Base height="small"/>
-            <Axis count={3} labels={[{ index: 2, label: '100%' }]}
+            <Base height='small' />
+            <Axis count={3} labels={[
+                { index: 0, label: '0%' }, { index: 2, label: '100%' }]}
               ticks={true} />
           </Chart>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html xml hljs">{USAGE}</code></pre>
         </section>
 
         <section>
@@ -47,9 +39,9 @@ export default class AxisDoc extends Component {
             <dt><code>count        {'{number}'}</code></dt>
             <dd>The number of stops along the axis, including both ends.
               This property is required.</dd>
-            <dt><code>labels       {"[{...}]"}</code></dt>
+            <dt><code>labels       {'[{...}]'}</code></dt>
             <dd>An array of: <code>
-              {"{label: {node}, colorIndex: {string}, index: {number}}"}
+              {'{label: {node}, colorIndex: {string}, index: {number}}'}
               </code> which configures what label to show at which stop. You
               do not need a label for each stop.
             </dd>

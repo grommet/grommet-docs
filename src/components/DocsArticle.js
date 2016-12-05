@@ -10,19 +10,7 @@ import DocsFooter from './DocsFooter';
 
 const BASE_TITLE = 'Grommet';
 
-// //hjjs configuration
-// const hljs = require('highlight.js/lib/highlight');
-// hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-// hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-// hljs.registerLanguage('javascript',
-//   require('highlight.js/lib/languages/javascript'));
-// hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
-
 export default class DocsArticle extends Component {
-  // constructor (props) {
-  //   super(props);
-  //   this._highlightCode = this._highlightCode.bind(this);
-  // }
 
   componentDidMount () {
     const { context, title } = this.props;
@@ -40,23 +28,7 @@ export default class DocsArticle extends Component {
       document.title = BASE_TITLE;
     }
     announcePageLoaded(docTitle || BASE_TITLE);
-    // this._highlightCode();
   }
-
-  // componentDidUpdate () {
-  //   this._highlightCode();
-  // }
-  //
-  // _highlightCode () {
-  //   const codeBlockNodeList =
-  //     document.querySelectorAll('code.html.xml.hljs');
-  //   // IE11 errors out when attempting to call forEach on array-like object
-  //   const codeBlocks = Array.prototype.slice.call(codeBlockNodeList);
-  //
-  //   codeBlocks.forEach((codeBlock) => {
-  //     hljs.highlightBlock(codeBlock);
-  //   });
-  // }
 
   render () {
     const { action, context, full, title, secondaryTitle } = this.props;
@@ -65,12 +37,13 @@ export default class DocsArticle extends Component {
       pad = {horizontal: 'large'};
     }
     return (
-      <Article className="docs-article" primary={true}>
-        <Header size="large" pad={{horizontal: 'large'}}
-          colorIndex={this.props.colorIndex} justify="between">
-          <Heading tag="h1" margin="none">
-            {context} {title}{secondaryTitle}
-          </Heading>
+      <Article className='docs-article' primary={true}>
+        <Header size='large' pad={{horizontal: 'large'}}
+          colorIndex={this.props.colorIndex} justify='between' align='center'>
+          <Box direction='row' align='center' pad={{ between: 'medium' }}>
+            {context}
+            <Heading tag='h1' margin='none'>{title}{secondaryTitle}</Heading>
+          </Box>
           {action}
         </Header>
         <Box ref='content' pad={pad}>

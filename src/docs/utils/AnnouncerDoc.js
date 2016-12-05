@@ -26,38 +26,41 @@ export default class Dashboard extends Component {
     );
 
     const link = (
-      <a href={liveRegionsURL} target="_blank">Aria Live MDN</a>
+      <a href={liveRegionsURL} target='_blank'>Aria Live MDN</a>
     );
 
     return (
-      <DocsArticle title="Announcer" colorIndex="neutral-4">
+      <DocsArticle title='Announcer'>
 
-        <p>
-          Utility functions for announcing things in a page.
-          This is used for accessibility where screen readers will read the
-          message to the user as you call the announce functions. Behind the
-          scenes we are using aria live regions. See {link} for additional
-          references around this topic.
-        </p>
-        <p>
-          You should use it carefully, if you add too many announcements it will
-          definitely upset users. Few use cases where it is useful: page loads
-          for single page apps, alerts, notifications, and things that are
-          dynamically added to the page that users with disabilities will have
-          issues locating.
-        </p>
+        <section>
+          <p>
+            Utility functions for announcing things in a page.
+            This is used for accessibility where screen readers will read the
+            message to the user as you call the announce functions. Behind the
+            scenes we are using aria live regions. See {link} for additional
+            references around this topic.
+          </p>
+          <p>
+            You should use it carefully, if you add too many announcements it
+            will
+            definitely upset users. Few use cases where it is useful: page loads
+            for single page apps, alerts, notifications, and things that are
+            dynamically added to the page that users with disabilities will have
+            issues locating.
+          </p>
+        </section>
 
         <section>
           <h2>Methods</h2>
           <dl>
             <dt>
-              <code>announce ({"message: {string}, mode: {string}"})</code>
+              <code>announce ({'message: {string}, mode: {string}'})</code>
             </dt>
             <dd>Adds a message to be announced. Mode is optional with default
               value being 'assertive'. You can use mode polite to wait
               until the screen reader finishes the current message to
               read the next one.</dd>
-            <dt><code>announcePageLoaded ({"title: {string}"})</code></dt>
+            <dt><code>announcePageLoaded ({'title: {string}'})</code></dt>
             <dd>Announces a page load with a given title.</dd>
           </dl>
         </section>

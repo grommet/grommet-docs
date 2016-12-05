@@ -1,16 +1,19 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 import Distribution from 'grommet/components/Distribution';
-import Anchor from 'grommet/components/Anchor';
-import ExamplesDoc from '../../../components/ExamplesDoc';
-import Example from '../../Example';
+import InteractiveExample from '../../../components/InteractiveExample';
 
-const DistributionExample = (props) => (
-  <Example code={
-    <Distribution {...props} />
-  } />
-);
+const PROPS_SCHEMA = {
+  full: { value: true },
+  size: { options: ['small', 'medium', 'large', 'full'] },
+  units: { value: '%' }
+};
+
+const CONTENTS_SCHEMA = {
+  clickable: { value: true },
+  icons: { value: true }
+};
 
 const SERIES = [
   {label: 'First', value: 40, colorIndex: 'graph-1'},
@@ -64,22 +67,35 @@ const ICON_SERIES = [
   }
 ];
 
-export default class DistributionExamplesDoc extends ExamplesDoc {};
+export default class DistributionExamplesDoc extends Component {
 
-DistributionExamplesDoc.defaultProps = {
-  context: <Anchor path="/docs/distribution">Distribution</Anchor>,
-  examples: [
-    { label: 'Default', component: DistributionExample,
-      props: { series: SERIES } },
-    { label: 'Small', component: DistributionExample,
-      props: { series: SERIES, size: 'small' } },
-    { label: 'Large', component: DistributionExample,
-      props: { series: SERIES, size: 'large' } },
-    { label: 'Clickable', component: DistributionExample,
-      props: { series: CLICKABLE_SERIES } },
-    { label: 'Icon', component: DistributionExample,
-      props: { series: ICON_SERIES } },
-    { label: 'Loading', component: DistributionExample }
-  ],
-  title: 'Examples'
+  constructor () {
+    super();
+    this.state = { contents: {}, elementProps: {} };
+  }
+
+  render () {
+    const { contents, elementProps } = this.state;
+    let series;
+    if (contents.icons) {
+      series = ICON_SERIES;
+    } else if (contents.clickable) {
+      series = CLICKABLE_SERIES;
+    } else {
+      series = SERIES;
+    }
+    const element = <Distribution series={series} {...elementProps} />;
+    return (
+      <InteractiveExample contextLabel='Distribution'
+        contextPath='/docs/distribution'
+        align='stretch'
+        preamble={`import Distribution from 'grommet/components/Distribution';`}
+        propsSchema={PROPS_SCHEMA}
+        contentsSchema={CONTENTS_SCHEMA}
+        element={element}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
+    );
+  }
 };

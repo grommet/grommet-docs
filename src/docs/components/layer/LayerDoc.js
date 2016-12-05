@@ -2,28 +2,21 @@
 
 import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
+import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
-
-const USAGE =
-`import Layer from 'grommet/components/Layer';
-<Layer>
-  {contents}
-</Layer>`;
 
 export default class LayerDoc extends Component {
   render () {
     return (
-      <DocsArticle title="Layer">
+      <DocsArticle title='Layer' action={
+        <Button primary={true} path='/docs/layer/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>A modal overlay. This could contain
-            a <Anchor path="/docs/form">Form</Anchor> or
-            an <Anchor path="/docs/article">Article</Anchor>.</p>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+            a <Anchor path='/docs/form'>Form</Anchor> or
+            an <Anchor path='/docs/article'>Article</Anchor>.</p>
         </section>
 
         <section>
@@ -31,7 +24,7 @@ export default class LayerDoc extends Component {
           <dl>
             <dt><code>align    center|top|bottom|left|right</code></dt>
             <dd>Which direction the layer contents should emanate from.</dd>
-            <dt><code>closer   {"true|false|{node}"}</code></dt>
+            <dt><code>closer   {'true|false|{node}'}</code></dt>
             <dd>Adds a visible control to close the layer.
               If the caller provides a node, it is the caller&#39;s
               responsibility to listen to events from the node.</dd>
@@ -44,20 +37,12 @@ export default class LayerDoc extends Component {
             <dt><code>peek     true|false</code></dt>
             <dd>Whether the hidden contents are shown just a bit.
               Defaults to false.</dd>
-            <dt><code>onClose  {"{function ()}"}</code></dt>
+            <dt><code>onClose  {'{function ()}'}</code></dt>
             <dd>Function that will be called when the user clicks on the
               closer control. Clicking the closer control does not automatically
               cause the Layer to be removed. The recipient of this callback can
               still decide whether to continue rendering the Layer or not.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/layer/examples`}>
-            Layer Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

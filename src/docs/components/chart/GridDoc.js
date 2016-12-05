@@ -4,28 +4,27 @@ import React, { Component } from 'react';
 import Chart, { Base, Grid, Layers } from 'grommet/components/chart/Chart';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
-import Example from '../../Example';
+import BackControl from './BackControl';
 
 export default class GridDoc extends Component {
 
   render () {
     return (
-      <DocsArticle context={<Anchor path="/docs/chart">Chart</Anchor>}
-        title="Grid">
+      <DocsArticle context={<BackControl />} title='Grid'>
 
-        <p>A grid decorating a <Anchor path={`/docs/chart`}>
-          Chart</Anchor>. It should be
-          placed inside a <Anchor path={`/docs/chart-layers`}>
-          Layers</Anchor> component.</p>
+        <section>
+          <p>A grid decorating a <Anchor path={`/docs/chart`}>
+            Chart</Anchor>. It should be
+            placed inside a <Anchor path={`/docs/chart-layers`}>
+            Layers</Anchor> component.</p>
 
-        <Example code={
           <Chart>
-            <Base />
+            <Base height='small' />
             <Layers>
               <Grid rows={5} columns={3} />
             </Layers>
           </Chart>
-        }/>
+        </section>
 
         <section>
           <h2>Properties</h2>

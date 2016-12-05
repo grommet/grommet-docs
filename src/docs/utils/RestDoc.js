@@ -48,13 +48,15 @@ export default class MyComponent extends Component {
 })`;
 
     return (
-      <DocsArticle title="Rest" colorIndex="neutral-4">
+      <DocsArticle title="Rest">
 
-        <p>Utility functions for performing REST calls. Applications that
-          interact with REST APIs should
-          use <a href="https://github.com/whatwg/fetch">fetch</a> and
-          <a href="https://www.promisejs.org">promises</a>. This Rest
-          module provides a few helper functions along the way.</p>
+        <section>
+          <p>Utility functions for performing REST calls. Applications that
+            interact with REST APIs should
+            use <a href="https://github.com/whatwg/fetch">fetch</a> and
+            <a href="https://www.promisejs.org">promises</a>. This Rest
+            module provides a few helper functions along the way.</p>
+        </section>
 
         <section>
           <h2>Variables</h2>

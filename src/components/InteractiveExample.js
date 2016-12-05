@@ -30,7 +30,8 @@ class PropFields extends Component {
     return (event) => {
       const { schema } = this.props;
       let active = { ...this.props.active };
-      const value = event.value || event.target.value;
+      const value =
+        (undefined === event.value) ? event.target.value : event.value;
       if (schema[property].value) {
         active[property] = ! active[property];
       } else {
@@ -194,7 +195,9 @@ export default class InteractiveExample extends Component {
       this._normalizeActiveForElement(activeProps, propsSchema);
     let contents =
       this._normalizeActiveForElement(activeContents, contentsSchema);
-    onChange(elementProps, contents);
+    if (onChange) {
+      onChange(elementProps, contents);
+    }
   }
 
   _onChangeActiveProps (activeProps) {
@@ -217,8 +220,8 @@ export default class InteractiveExample extends Component {
 
   render () {
     const {
-      align, contentsSchema, contextLabel, contextPath, element, fields,
-      justify, preamble, propsSchema
+      align, codeElement, contentsSchema, contextLabel, contextPath,
+      element, fields, justify, pad, preamble, propsSchema
     } = this.props;
     const {
       activeContents, activeProps, contextProps, responsive, showCode,
@@ -230,10 +233,13 @@ export default class InteractiveExample extends Component {
         label={contextLabel} />
     );
 
-    let propFields = fields || (
-      <PropFields schema={propsSchema} active={activeProps}
-        onChange={this._onChangeActiveProps} />
-    );
+    let propFields;
+    if (fields || propsSchema) {
+      propFields = fields || (
+        <PropFields schema={propsSchema} active={activeProps}
+          onChange={this._onChangeActiveProps} />
+      );
+    }
 
     let contentsFields;
     if (contentsSchema) {
@@ -254,7 +260,7 @@ export default class InteractiveExample extends Component {
           </Header>
           <Box pad={{ horizontal: 'medium' }} flex='grow'>
             <Code preamble={preamble}>
-              {element}
+              {codeElement || element}
             </Code>
           </Box>
         </Sidebar>
@@ -308,9 +314,10 @@ export default class InteractiveExample extends Component {
 
         <Split flex='left' priority='left'>
 
-          <Article>
+          <Article full='vertical'>
             {mobileHeader}
-            <Context {...contextProps} justify={justify} align={align}>
+            <Context {...contextProps} justify={justify} align={align}
+              pad={pad}>
               {element}
             </Context>
           </Article>
@@ -326,6 +333,7 @@ export default class InteractiveExample extends Component {
 
 InteractiveExample.propTypes = {
   align: PropTypes.string,
+  codeElement: PropTypes.element, // for Layer
   contentsSchema: PropTypes.object,
   contextLabel: PropTypes.string.isRequired,
   contextPath: PropTypes.string.isRequired,
@@ -333,6 +341,7 @@ InteractiveExample.propTypes = {
   fields: PropTypes.element, // for BoxingGym
   justify: PropTypes.string,
   onChange: PropTypes.func,
+  pad: PropTypes.string, // for Split
   preamble: PropTypes.string,
   propsSchema: PropTypes.object
 };

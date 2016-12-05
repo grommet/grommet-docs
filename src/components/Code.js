@@ -33,16 +33,23 @@ export default class Code extends Component {
 
   _stringifyCode (props) {
     const { children, overrides, preamble } = props;
-    let keyValueOverride = {};
-    if (overrides) {
-      overrides.forEach(override => {
-        keyValueOverride[override] = `this._${override}`;
-      });
+    let result = '';
+    if (preamble) {
+      result += `${(preamble)}\n\n`;
     }
-    const childString = jsxToString(Children.only(children),
-      { keyValueOverride: keyValueOverride })
-      .replace('null', 'undefined');
-    return `${(preamble || '')}\n\n${childString}`;
+    if (children) {
+      let keyValueOverride = {};
+      if (overrides) {
+        overrides.forEach(override => {
+          keyValueOverride[override] = `this._${override}`;
+        });
+      }
+      const childString = jsxToString(Children.only(children),
+        { keyValueOverride: keyValueOverride })
+        .replace('null', 'undefined');
+      result += childString;
+    }
+    return result;
   }
 
   render () {

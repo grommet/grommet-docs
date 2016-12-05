@@ -1,6 +1,8 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Split from 'grommet/components/Split';
+import Sidebar from 'grommet/components/Sidebar';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
@@ -8,11 +10,16 @@ import DocsArticle from '../../../components/DocsArticle';
 
 export default class SidebarDoc extends Component {
 
+  constructor () {
+    super();
+    this.state = { priority: 'right' };
+  }
   _onClose () {
     // no-op
   }
 
   render () {
+    const { priority } = this.state;
     return (
       <DocsArticle title="Sidebar" action={
         <Button primary={true} path='/docs/sidebar/examples'
@@ -31,16 +38,20 @@ export default class SidebarDoc extends Component {
           inside a <Anchor path="/docs/header">Header</Anchor> component
           residing in the other side of the Split.</p>
 
-          <Box direction="row" colorIndex="light-2">
-            <Box basis="1/3" pad="large"
-              colorIndex="grey-4" justify="center" align="center">
-              Sidebar
-            </Box>
-            <Box basis="2/3" pad="large"
-              justify="center" align="center">
+          <Split fixed={false} flex='right' priority={priority}>
+            <Sidebar full={false}>
+              <Box pad="large" colorIndex="grey-4"
+                justify="center" align="center"
+                onClick={() => this.setState({ priority: 'right' })}>
+                Sidebar
+              </Box>
+            </Sidebar>
+            <Box pad="large" colorIndex='light-2'
+              justify="center" align="center"
+              onClick={() => this.setState({ priority: 'left' })}>
               Main content
             </Box>
-          </Box>
+          </Split>
         </section>
 
 
@@ -48,8 +59,9 @@ export default class SidebarDoc extends Component {
           <h2>Properties</h2>
           <dl>
             <dt><code>fixed      true|false</code></dt>
-            <dd>Whether any contained Header and Footer should be fixed to
-              the top and bottom.</dd>
+            <dd>
+              Whether the sidebar height should be fixed at the full
+              viewport size. Defaults to false.</dd>
             <dt><code>size       xsmall|small|medium|large</code></dt>
             <dd>The size of the Sidebar. Defaults to <code>medium</code>.</dd>
             <dt><code>full       true|false</code></dt>
