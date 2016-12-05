@@ -14,11 +14,30 @@
 }
 
 @include media-query(palm) {
-  .home-desktop, .home-code-pen {
+  .home-desktop,
+  .home-code-pen {
     display: none;
   }
 
   .home {
     transition: transform $animation-duration;
   }
+}
+
+.grommet-hero .logo {
+  stroke-dasharray: $logo-dash-size $logo-dash-size;
+  stroke-dashoffset: 0;
+  @include animation('draw-logo 2.5s linear');
+}
+
+.grommet-hero .text {
+  animation: fadein 1.5s linear forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  50% { opacity: 0.90 }
+  100% { opacity: 1; }
 }

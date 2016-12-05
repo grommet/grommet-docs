@@ -5,7 +5,6 @@ import { findDOMNode } from 'react-dom';
 import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
-import Headline from 'grommet/components/Headline';
 import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
@@ -32,6 +31,7 @@ import HPEIcon from 'grommet/components/icons/base/BrandHpeElementOutline';
 import HPIcon from 'grommet/components/icons/base/PlatformHpi';
 import Contents from './docs/Contents';
 import Hands from './img/Hands.js';
+import GrommetHero from './img/GrommetHero.js';
 
 const THEMES = [
   { label: 'Grommet', Icon: GrommetIcon, url: '/' },
@@ -151,7 +151,7 @@ export default class Home extends Component {
       return (
         <Tile key={theme.label} basis="1/4" pad={{ vertical: 'large' }}>
           <Button href={theme.url}>
-            <Box align='center' pad={{ between: 'small' }}>
+            <Box textAlign='center' align='center' pad={{ between: 'small' }}>
               {<theme.Icon size='large' plain={true} />}
               <span>{theme.label}</span>
             </Box>
@@ -194,12 +194,9 @@ export default class Home extends Component {
           <Box primary={true} pad={{vertical: 'large'}} direction='column'
             justify='center' align='center' flex='grow'>
 
-            <Headline className='home-desktop' size='xlarge'>
-              <span>gr</span>
-              <GrommetLogo size='large' a11yTitle='Grommet Logo'
-                a11yTitleId='hero_logo' />
-              <span>mmet</span>
-            </Headline>
+            <Box className='home-desktop' pad='large'>
+              <GrommetHero />
+            </Box>
 
             <Box className='home-mobile' align='center'
               pad={{ between: 'medium' }}>
