@@ -6,6 +6,14 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (
+  <span>General purpose flexible box layout. This supports many,
+    but not all, of the <a
+    href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">
+    flexbox</a> capabilities.
+  </span>
+);
+
 export default class BoxDoc extends Component {
 
   render () {
@@ -17,10 +25,7 @@ export default class BoxDoc extends Component {
         }>
 
         <section>
-          <p>General purpose flexible box layout. This supports many,
-            but not all, of the <a
-            href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'>
-            flexbox</a> capabilities.</p>
+          <p>{DESC}</p>
           <Box pad='large' colorIndex='light-2'>
             contents in a Box
           </Box>

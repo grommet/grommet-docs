@@ -6,6 +6,12 @@ import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (
+  <span>
+    A Hero image or video, overlaid with text.
+  </span>
+);
+
 export default class HeroDoc extends Component {
 
   render () {
@@ -16,7 +22,7 @@ export default class HeroDoc extends Component {
         }>
 
         <section>
-          <p>A Hero image or video, overlaid with text.</p>
+          <p>{DESC}</p>
           <Hero backgroundImage='/img/carousel-1.png'>
             <Heading tag='h1'>Sample Heading</Heading>
           </Hero>

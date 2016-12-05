@@ -112,6 +112,7 @@ import NotificationExamplesDoc from
 import NumberInputDoc from './components/NumberInputDoc';
 import ParagraphDoc from './components/paragraph/ParagraphDoc';
 import ParagraphExamplesDoc from './components/paragraph/ParagraphExamplesDoc';
+import PrimaryPageDoc from './patterns/PrimaryPageDoc';
 import PulseDoc from './components/PulseDoc';
 import QueryDoc from './utils/QueryDoc';
 import QuoteDoc from './components/quote/QuoteDoc';
@@ -206,7 +207,8 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
-    { path: 'navigation', label: 'Navigation', component: NavigationDoc }
+    { path: 'navigation', label: 'Navigation', component: NavigationDoc },
+    { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
