@@ -304,7 +304,7 @@ export default class Home extends Component {
               <Paragraph align='center' margin='none'>
                 Our community is open and engaged. Design resources,
                 development tools, and online training provide a seamless
-                on-boarding experience.
+                onboarding experience.
               </Paragraph>
             </WhyGrommetItem>
             <WhyGrommetItem icon={<ConfigureIcon colorIndex='brand'
