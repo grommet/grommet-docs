@@ -60,6 +60,7 @@ import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/columns/ColumnsDoc';
 import ColumnsExamplesDoc from './components/columns/ColumnsExamplesDoc';
 import Components from './Components';
+import InfographicDoc from './patterns/InfographicDoc';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
 import DetailsPageDoc from './patterns/DetailsPageDoc';
@@ -210,8 +211,10 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
-    { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
+    { path: 'infographic', label: 'Infographic', 
+      component: InfographicDoc },
+    { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'sub-page', label: 'Sub Page', component: SubPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
