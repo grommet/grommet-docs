@@ -312,7 +312,7 @@ export default class Home extends Component {
               heading='Flexible' path='/docs/learn'>
               <Paragraph align='center' margin='none'>
                 Responsive web without the hassle of grid management and
-                modular components loaded on-demand. Themes allow your
+                modular components loaded on demand. Themes allow your
                 brand to shine.
               </Paragraph>
             </WhyGrommetItem>
