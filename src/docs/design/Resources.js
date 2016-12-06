@@ -9,7 +9,7 @@ export default class Resources extends Component {
 
   render () {
     return (
-      <DocsArticle title="Resources" colorIndex="neutral-4">
+      <DocsArticle title="Resources">
         <p>
           Here you will find the downloads for creating designs based on this
           application style guide.  Each of these provide the basic elements of
