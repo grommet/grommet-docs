@@ -4,33 +4,30 @@ import React, { Component } from 'react';
 import Status from 'grommet/components/icons/Status';
 import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
-
-const USAGE =
-`import Status from 'grommet/components/icons/Status';
-<Status value="ok" />`;
+import Code from '../../components/Code';
 
 export default class StatusDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Status">
+      <DocsArticle title='Status'>
 
         <section>
           <p>A status icon.</p>
-          <Box direction="row" wrap={true} align="center"
+          <Box direction='row' wrap={true} align='center'
             pad={{ between: 'medium' }}>
-            <Status value="ok"/>
-            <Status value="critical" a11yTitle="critical"/>
-            <Status value="warning"/>
-            <Status value="disabled"/>
-            <Status value="unknown"/>
+            <Status value='ok'/>
+            <Status value='critical' a11yTitle='critical'/>
+            <Status value='warning'/>
+            <Status value='disabled'/>
+            <Status value='unknown'/>
           </Box>
         </section>
 
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>a11yTitle   {"{string}"}</code></dt>
+            <dt><code>a11yTitle   {'{string}'}</code></dt>
             <dd>Accessibility Title. If not set uses the default title of
               the status icon.</dd>
             <dt><code>size        small|medium|large</code></dt>
@@ -44,7 +41,10 @@ export default class StatusDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Code preamble={
+            `import Status from 'grommet/components/icons/Status';`}>
+            <Status value='ok' />
+          </Code>
         </section>
 
       </DocsArticle>

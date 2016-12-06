@@ -4,10 +4,7 @@ import React, { Component } from 'react';
 import Sort from 'grommet-addons/components/Sort';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
-
-const USAGE =
-`import Sort from 'grommet-addons/components/Sort';
-<Sort options={[]} value={} onChange={} />`;
+import Code from '../../components/Code';
 
 export default class SortDoc extends Component {
 
@@ -56,7 +53,10 @@ export default class SortDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className='html hljs xml'>{USAGE}</code></pre>
+          <Code preamble={`import Sort from 'grommet-addons/components/Sort';`}>
+            <Sort options={[]} value='name' direction='asc'
+              onChange={() => {}} />
+          </Code>
         </section>
 
       </DocsArticle>
