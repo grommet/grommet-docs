@@ -5,6 +5,7 @@ import Header from 'grommet/components/Header';
 import Title from 'grommet/components/Title';
 import Search from 'grommet/components/Search';
 import Menu from 'grommet/components/Menu';
+import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import ActionsIcon from 'grommet/components/icons/base/Actions';
 import InteractiveExample from '../../../components/InteractiveExample';
@@ -19,7 +20,8 @@ const PROPS_SCHEMA = {
 const CONTENTS_SCHEMA = {
   title: { value: <Title>Sample Title</Title>, initial: true },
   search: { value: (
-    <Search inline={true} fill={true} size='medium' placeHolder='Search' />
+    <Search inline={true} fill={true} size='medium' placeHolder='Search'
+      dropAlign={{ right: 'right' }}/>
   ), initial: true },
   menu: { value: (
     <Menu icon={<ActionsIcon />} dropAlign={{right: 'right'}}>
@@ -43,8 +45,10 @@ export default class HeaderExamplesDoc extends Component {
     const element = (
       <Header {...elementProps}>
         {contents.title}
-        {contents.search}
-        {contents.menu}
+        <Box flex={true} justify='end' direction='row' responsive={false}>
+          {contents.search}
+          {contents.menu}
+        </Box>
       </Header>
     );
 

@@ -32,13 +32,15 @@ export default class HeaderDoc extends Component {
             <Header pad={{ horizontal: 'medium' }} justify='between'
               colorIndex='light-1'>
               <Title>Title</Title>
-              <Search inline={true} fill={true} placeHolder='Search'
-                size='medium' />
-              <Menu inline={false} dropAlign={{ right: 'right' }}>
-                <Anchor href='#' className='active'>First</Anchor>
-                <Anchor href='#'>Second</Anchor>
-                <Anchor href='#'>Third</Anchor>
-              </Menu>
+              <Box flex={true} justify='end' direction='row' responsive={false}>
+                <Search inline={true} fill={true} placeHolder='Search'
+                  size='medium' dropAlign={{ right: 'right' }}/>
+                <Menu inline={false} dropAlign={{ right: 'right' }}>
+                  <Anchor href='#' className='active'>First</Anchor>
+                  <Anchor href='#'>Second</Anchor>
+                  <Anchor href='#'>Third</Anchor>
+                </Menu>
+              </Box>
             </Header>
           </Box>
         </section>
