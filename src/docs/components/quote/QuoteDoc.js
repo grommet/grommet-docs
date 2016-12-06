@@ -8,7 +8,7 @@ import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
 
 export const DESC = (<span>
-  A bordered <Anchor label="Box" path="/docs/box" /> surrounding text.
+  A quote with a colored border.
 </span>);
 
 export default class QuoteDoc extends Component {
@@ -21,7 +21,7 @@ export default class QuoteDoc extends Component {
         }>
 
         <section>
-          <p>{DESC} A quote with a colored border.</p>
+          <p>{DESC}</p>
             <Quote credit='Ricky Baker'>
               <Paragraph>
                 Uncle, you're basically a criminal now. But on the bright
