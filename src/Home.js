@@ -336,7 +336,7 @@ export default class Home extends Component {
             <Paragraph align='center' margin='none'>
               Grommet is structured to foster active communication
               between designers and developers in hopes of creating better
-              user experience.
+              user experiences.
             </Paragraph>
             <Footer pad='medium' justify='center'>
               <Button path='/docs/about' label='About' />
