@@ -58,7 +58,8 @@ export default class SubPageDoc extends Component {
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} responsive={false} wrap={true}>
+          <Box direction="row" pad={{between: 'small'}} responsive={false} 
+            wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
@@ -68,7 +69,8 @@ export default class SubPageDoc extends Component {
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box direction="row" pad={{ between: 'medium' }} responsive={false}>
+                  <Box direction="row" pad={{ between: 'medium' }} 
+                    responsive={false}>
                     <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
                     <Box colorIndex="light-1" basis="1/2" pad="large"
