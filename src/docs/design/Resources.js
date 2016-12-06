@@ -80,41 +80,28 @@ export default class Resources extends Component {
               <a id="hpe-ai-general"
                 href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.ai`}
                 target="_blank">General Sticker Sheet for
-                Applications v0.9.6</a> (<a id="hpe-ai-general-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.pdf`}
-                target="_blank">pdf</a>)
+                Applications v0.9.6</a>
             </li>
             <li>
               <a id="hpe-ai-app-templates"
                 href={`${ROOT}/hpe/hpe-app-templates-0-8.ai`}
                 target="_blank">Application Templates Sticker Sheet
-                v0.8</a> (<a id="hpe-ai-app-templates-pdf"
-                href={`${ROOT}/hpe/hpe-app-templates-0-8.pdf`}
-                target="_blank">pdf</a>)
+                v0.8</a>
             </li>
             <li>
               <a id="hpe-ai-data"
                 href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.ai`}
                 target="_blank">Data Sticker Sheet for Applications v0.6</a>
-                (<a id="hpe-ai-data-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.pdf`}
-                target="_blank">pdf</a>)
             </li>
             <li>
               <a id="hpe-ai-icons"
                 href={`${ROOT}/hpe/hpe-functional-icons-0-3.ai`}
                 target="_blank">Functional Icons Sticker Sheet v0.3</a>
-                (<a id="hpe-ai-icons-pdf"
-                href={`${ROOT}/hpe/hpe-functional-icons-0-3.pdf`}
-                target="_blank">pdf</a>)
             </li>
             <li>
               <a id="hpe-ai-classic"
                 href={`${ROOT}/hpe/hpe-sticker-sheet-apps-classic-0-6.ai`}
                 target="_blank">Classic Sticker Sheet for Applications v0.6</a>
-                (<a id="hpe-ai-classic-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-classic-0-6.pdf`}
-                target="_blank">pdf</a>)
             </li>
           </ul>
 
@@ -182,9 +169,16 @@ export default class Resources extends Component {
               <a id="hpi-ai-general"
                 href={`${ROOT}/hpi/hpi-sticker-sheet-apps-general-0-3.ai`}
                 target="_blank">General Sticker Sheet v0.3</a>
-                (<a id="hpi-ai-general-pdf"
+            </li>
+          </ul>
+
+          <h4>Adobe PDF</h4>
+
+          <ul>
+            <li>
+             <a id="hpi-ai-general-pdf"
                 href={`${ROOT}/hpi/hpi-sticker-sheet-apps-general-0-3.pdf`}
-                target="_blank">pdf</a>)
+                target="_blank">pdf</a>General Sticker Sheet v0.3</a>
             </li>
           </ul>
 
