@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Section from 'grommet/components/Section';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
 
@@ -14,7 +15,7 @@ export default class GetStartedDoc extends Component {
           instructions
           on how to install Grommet in your local environment.
         </p>
-        <section>
+        <Section>
           <h2>Get Dependencies</h2>
           <ol>
             <li>
@@ -123,8 +124,8 @@ export default class GetStartedDoc extends Component {
                 </p>
               </li>
             </ol>
-        </section>
-        <section>
+        </Section>
+        <Section>
           <h2>Next Steps</h2>
           <p>
             We recommend that you check out
@@ -136,7 +137,7 @@ export default class GetStartedDoc extends Component {
             a <Anchor href="http://vimeo.com/grommetux/videos" target='_blank'>
             Grommet Vimeo channel</Anchor> with
             additional training materials.</p>
-        </section>
+        </Section>
       </DocsArticle>
     );
   }

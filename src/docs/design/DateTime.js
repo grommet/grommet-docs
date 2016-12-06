@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
+import Section from 'grommet/components/Section';
 import DocsArticle from '../../components/DocsArticle';
 
 export default class DateTime extends Component {
@@ -9,7 +9,7 @@ export default class DateTime extends Component {
   render () {
     return (
       <DocsArticle title="Date and Time">
-        <Box>
+        <Section>
           <p>Date and time formats should generally be displayed in the user’s
           local timezone.  Any exceptions to this should include the timezone
           being
@@ -28,7 +28,7 @@ export default class DateTime extends Component {
             <li>2:47 pm</li>
             <li>Apr 28, 2016 2:47:23 pm</li>
           </ul>
-        </Box>
+        </Section>
       </DocsArticle>
     );
   }

@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
+import Section from 'grommet/components/Section';
 import DocsArticle from '../../components/DocsArticle';
 
 export default class Mobile extends Component {
@@ -9,7 +9,7 @@ export default class Mobile extends Component {
   render () {
     return (
       <DocsArticle title="Mobile">
-        <Box>
+        <Section>
           <p>Mobile is not just different screen sizes. Mobile devices actually
           change the fundamental user user experience of common tasks. Embrace
           the devices and their native capabilities.</p>
@@ -69,7 +69,7 @@ export default class Mobile extends Component {
             list than it is to input a value into a field using a (virtual)
             keyboard.</dd>
           </dl>
-        </Box>
+        </Section>
       </DocsArticle>
     );
   }

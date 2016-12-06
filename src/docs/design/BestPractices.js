@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Section from 'grommet/components/Section';
 import DocsArticle from '../../components/DocsArticle';
 
 export default class BestPractices extends Component {
@@ -8,7 +9,7 @@ export default class BestPractices extends Component {
   render () {
     return (
       <DocsArticle title="Best Practices">
-        <section>
+        <Section>
           <dl>
             <dt>Know your users</dt>
             <dd>It is critically important that you know your users.  Get to
@@ -77,7 +78,7 @@ export default class BestPractices extends Component {
             person’s role in the project, increasing individual ownership
             and commitment.</dd>
           </dl>
-        </section>
+        </Section>
       </DocsArticle>
     );
   }

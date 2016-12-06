@@ -22,7 +22,7 @@ const CONTENTS_SCHEMA = {
     <Paragraph margin='none'>&copy; 2016 Grommet Labs</Paragraph>
   ), initial: true },
   menu: { value: (
-    <Menu direction='row' size='small'>
+    <Menu direction='row' size='small' dropAlign={{ right: 'right' }}>
       <Anchor href="#">First</Anchor>
       <Anchor href="#">Second</Anchor>
       <Anchor href="#">Third</Anchor>
