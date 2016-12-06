@@ -6,6 +6,10 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (<span>
+  A world map of continents.
+</span>);
+
 export default class WorldMapDoc extends Component {
 
   render () {
@@ -17,7 +21,7 @@ export default class WorldMapDoc extends Component {
         }>
 
         <section>
-          <p>A world map of continents.</p>
+          <p>{DESC}</p>
           <WorldMap series={[
             { continent: 'NorthAmerica', colorIndex: 'graph-1' },
             { continent: 'SouthAmerica', colorIndex: 'accent-1' },

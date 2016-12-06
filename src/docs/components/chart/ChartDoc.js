@@ -16,6 +16,11 @@ const a11yTitle = (
   'Chart representing number of commits in the last three days.'
 );
 
+export const DESC = (<span>
+  The Grommet Chart components provide the building blocks
+  to construct a variety of Chart visualizations.
+</span>);
+
 export default class ChartDoc extends Component {
 
   render () {
@@ -26,8 +31,7 @@ export default class ChartDoc extends Component {
         }>
 
         <section>
-          <p>The Grommet Chart components provide the building blocks
-            to construct a variety of Chart visualizations.</p>
+          <p>{DESC}</p>
         </section>
 
         <section>

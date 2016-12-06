@@ -8,6 +8,10 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (<span>
+  Shows a bar, arc, or circular meter graphic.
+</span>);
+
 Meter.displayName = 'Meter';
 
 export default class MeterDoc extends Component {
@@ -20,7 +24,7 @@ export default class MeterDoc extends Component {
         }>
 
         <section>
-          <p>Shows a bar, arc, or circular meter graphic.</p>
+          <p>{DESC}</p>
           <Box direction='row' align='center' pad={{ between: 'medium' }}>
             <Meter value={40} type='circle' label={
                 <Value value={40} />
