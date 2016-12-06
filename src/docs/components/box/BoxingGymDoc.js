@@ -12,7 +12,6 @@ import FormField from 'grommet/components/FormField';
 import CheckBox from 'grommet/components/CheckBox';
 import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
-import Label from 'grommet/components/Label';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import InteractiveExample from '../../../components/InteractiveExample';

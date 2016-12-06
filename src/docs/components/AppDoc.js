@@ -11,14 +11,9 @@ import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
+import Code from '../../components/Code';
 
 App.displayName = 'App';
-
-const USAGE =
-`import App from 'grommet/components/App';
-<App>
-  {contents}
-</App>`;
 
 export default class AppDoc extends Component {
 
@@ -83,7 +78,11 @@ export default class AppDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className='html hljs xml'>{USAGE}</code></pre>
+          <Code preamble={`import App from 'grommet/components/App';`}>
+            <App>
+              {'{contents}'}
+            </App>
+          </Code>
         </section>
 
       </DocsArticle>
