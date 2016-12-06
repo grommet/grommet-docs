@@ -38,7 +38,7 @@ export default class DocsArticle extends Component {
     }
     return (
       <Article className='docs-article' primary={true}>
-        <Header size='large' pad={{horizontal: 'large'}}
+        <Header size='large' pad={{horizontal: 'large'}} responsive={true}
           colorIndex={this.props.colorIndex} justify='between' align='center'>
           <Box direction='row' align='center' pad={{ between: 'medium' }}>
             {context}

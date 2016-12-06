@@ -192,6 +192,7 @@ export default [
     { path: 'date-and-time', label: 'Date and Time', component: DateTime },
     { path: 'capitalization', label: 'Capitalization',
       component: Capitalization },
+    { path: 'navigation', label: 'Navigation', component: NavigationDoc },
     { label: 'Reference', contents: [
       { path: 'architecture', label: 'Architecture',
         component: Architecture},
@@ -207,7 +208,6 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
-    { path: 'navigation', label: 'Navigation', component: NavigationDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
