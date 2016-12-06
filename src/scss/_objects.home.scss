@@ -4,7 +4,7 @@
 
 .home__mobile {
   flex: 0 0 auto;
-  margin-bottom: round($inuit-base-spacing-unit * 14);
+  margin-bottom: round($inuit-base-spacing-unit * 24);
 }
 
 @include media-query(lap-and-up) {
@@ -38,6 +38,6 @@
 
 @keyframes fadein {
   0% { opacity: 0; }
-  50% { opacity: 0.90 }
+  50% { opacity: 0.9; }
   100% { opacity: 1; }
 }

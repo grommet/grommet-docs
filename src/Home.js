@@ -52,13 +52,21 @@ class HomeSection extends Component {
 };
 
 const WhyGrommetItem = (props) => (
-  <Box basis='1/4' pad={{ between: 'small', 'vertical': 'small' }}>
-    <Header direction='column' pad={{ between: 'medium' }}>
-      {props.icon}
-      <Heading tag='h3' strong={true}>{props.heading}</Heading>
-    </Header>
-    {props.children}
-  </Box>
+  <Tile basis='medium'>
+    <Button href={props.href} path={props.path}>
+      <Box pad={{ between: 'small', vertical: 'small' }}>
+        <Header direction='column' pad={{ between: 'medium' }}>
+          {props.icon}
+          <Heading tag='h3' strong={true} margin='none'>
+            {props.heading}
+          </Heading>
+        </Header>
+        <Box pad={{ horizontal: 'medium' }}>
+          {props.children}
+        </Box>
+      </Box>
+    </Button>
+  </Tile>
 );
 
 export default class Home extends Component {
@@ -115,29 +123,30 @@ export default class Home extends Component {
       mobileNavHeight, mobileOffset, navActive, showCodePen
     } = this.state;
 
-    let articleStyle;
+    let articleStyle, footerStyle;
     if (! navActive) {
       articleStyle = { transform: `translateY(-${mobileNavHeight}px)` };
+      footerStyle = { marginBottom: `-${mobileNavHeight}px`};
     }
 
     const mobileStyle = { backgroundPosition: `50% ${50 - mobileOffset}%` };
 
     let codePen;
-    if (showCodePen) {
+    if (true || showCodePen) {
       codePen = (
-        <iframe height='268' scrolling='no'
-          src={'//codepen.io/grommet/embed/gaEGPY/?' +
-            'height=268&theme-id=0&default-tab=js'}
+        <iframe height='400' scrolling='no' title='Hello World'
+          src={'//codepen.io/grommet/embed/preview/gaEGPY/' +
+            '?height=400&theme-id=light&default-tab=result&embed-version=2'}
           frameBorder='no' allowTransparency='true' allowFullScreen='true'
-          style={{width: '100%'}}>See the Pen
-          <a href='http://codepen.io/grommet/pen/gaEGPY/'>
-            Grommet Hello World</a>
-          by Grommet UX (<a href='http://codepen.io/grommet'>@grommet</a>) on
-          <a href='http://codepen.io'>CodePen</a>.
+          style={{width: '100%;'}}>See the
+          Pen <a href='http://codepen.io/grommet/pen/gaEGPY/'>
+          Hello World</a> by Grommet UX (
+            <a href='http://codepen.io/grommet'>@grommet</a>
+          ) on <a href='http://codepen.io'>CodePen</a>.
         </iframe>
       );
     } else {
-      codePen = <div style={{ height: 268 }} />;
+      codePen = <div style={{ height: 400 }} />;
     }
 
     const menuAnchors = Contents.map(section => (
@@ -149,7 +158,7 @@ export default class Home extends Component {
 
     const themes = THEMES.map(theme => {
       return (
-        <Tile key={theme.label} basis="1/4" pad={{ vertical: 'large' }}>
+        <Tile key={theme.label} basis='1/4' pad={{ vertical: 'large' }}>
           <Button href={theme.url}>
             <Box textAlign='center' align='center' pad={{ between: 'small' }}>
               {<theme.Icon size='large' colorIndex='plain' />}
@@ -165,7 +174,7 @@ export default class Home extends Component {
 
         <HomeSection ref={(ref) => this._mobileNavRef = ref}
           className='home-mobile' colorIndex='brand'
-          pad={{ vertical: 'medium', between: 'small' }}>
+          pad={{ vertical: 'large', between: 'small' }}>
           <GrommetLogo a11yTitle='Grommet Logo' invert={true} />
           <Menu primary={true} align='center'>
             {menuAnchors}
@@ -232,88 +241,92 @@ export default class Home extends Component {
             <Heading tag='h2' align='center'>
               Mobile-first ready for business
             </Heading>
-            <Paragraph align='center'>Think small. Starting with mobile-first
-              design allows for easy app scalability to larger
-              devices.</Paragraph>
+            <Paragraph align='center' margin='none'>
+              Think small. Starting with mobile-first design allows for easy
+              app scalability to larger devices.
+            </Paragraph>
             {/*}
             <Button path='/docs/learn' label='Learn' />
             {*/}
           </Box>
         </HomeSection>
 
-        <HomeSection colorIndex='brand'>
+        <HomeSection colorIndex='brand' appCentered={true}>
           <Heading tag='h2'>Why Grommet?</Heading>
-          <Box direction='row' full='horizontal'
-            pad={{
-              between: 'large', vertical: 'medium', horizontal: 'medium'
-            }}>
-            <WhyGrommetItem icon={<ResourcesIcon size='xlarge' />}
-              heading='Comprehensive'>
-              <Paragraph align='center'>
+          <Tiles justify='center'
+            pad={{ between: 'large', vertical: 'medium' }}>
+            <WhyGrommetItem icon={<ResourcesIcon size='large' />}
+              heading='Comprehensive' path='/docs/components'>
+              <Paragraph align='center' margin='none'>
                 A curated design and development platform that is more than
                 just a ReactJS widget library. Grommet offers the tools
                 to create amazing experiences.
               </Paragraph>
             </WhyGrommetItem>
-            <WhyGrommetItem icon={<ConfigureIcon size='xlarge' />}
-              heading='Flexible'>
-              <Paragraph align='center'>
+            <WhyGrommetItem icon={<ConfigureIcon size='large' />}
+              heading='Flexible' path='/docs/learn'>
+              <Paragraph align='center' margin='none'>
                 Responsive web without the hassle of grid management and
                 modular components loaded on-demand. Themes allow your
                 brand to shine.
               </Paragraph>
             </WhyGrommetItem>
-            <WhyGrommetItem icon={<AccessAccessibilityIcon size='xlarge' />}
-              heading='Accessible'>
-              <Box flex={true}>
-                <Paragraph align='center'>
-                  All users matter. Grommet provides a robust foundation
-                  of accessibility features to meet web standards.
-                </Paragraph>
-              </Box>
-              <Footer justify='center' align='center'>
-                <Anchor primary={true} target='_blank'
-                  href='https://vimeo.com/187068246'>Watch this</Anchor>
-              </Footer>
-            </WhyGrommetItem>
-            <WhyGrommetItem icon={<RunIcon size='xlarge' />}
-              heading='Active'>
-              <Paragraph align='center'>
-                Our community is open and engaged. Design resources, development
-                tools, and online training provide a seamless on-boarding
-                experience.
+            <WhyGrommetItem icon={<AccessAccessibilityIcon size='large' />}
+              heading='Accessible' href='https://vimeo.com/187068246'>
+              <Paragraph align='center' margin='none'>
+                All users matter. Grommet provides a robust foundation
+                of accessibility features to meet web standards.
               </Paragraph>
             </WhyGrommetItem>
-          </Box>
+            <WhyGrommetItem icon={<RunIcon size='large' />}
+              heading='Active' href='http://slackin.grommet.io'>
+              <Paragraph align='center' margin='none'>
+                Our community is open and engaged. Design resources,
+                development tools, and online training provide a seamless
+                on-boarding experience.
+              </Paragraph>
+            </WhyGrommetItem>
+          </Tiles>
         </HomeSection>
 
         <HomeSection className='home-code-pen'>
           <Heading tag='h2'>Start making now</Heading>
-          <Paragraph align='center'>The easiest way to learn a new tool is
+          <Paragraph align='center' margin='none'>
+            The easiest way to learn a new tool is
             to have it done
-            for you and then make it yours!</Paragraph>
-          {codePen}
-          <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
-          <Button path='/docs' label='Docs' />
+            for you and then make it yours!
+          </Paragraph>
+          <Box pad='medium' size='large'>
+            {codePen}
+          </Box>
+          <Footer pad='medium' justify='center' direction='column'>
+            <Paragraph>Need more details. We’ve got a page for that.</Paragraph>
+            <Button path='/docs' label='Docs' />
+          </Footer>
         </HomeSection>
 
         <HomeSection colorIndex='light-2'>
-          <Box direction='row'>
-            <Box align='center' pad='medium'>
-              <Heading tag='h2'>Together is better</Heading>
-              <Paragraph align='center'>Grommet is structured to foster
-                active communication
-                between designers and developers in hopes of creating better
-                user experience. </Paragraph>
-              <Button path='/docs/about' label='About' />
+          <Box pad={{ between: 'medium' }}>
+            <Box pad='medium'>
+              <Hands />
             </Box>
-            <Hands />
+            <Box align='center'>
+              <Heading tag='h2'>Together is better</Heading>
+              <Paragraph align='center' margin='none'>
+                Grommet is structured to foster active communication
+                between designers and developers in hopes of creating better
+                user experience.
+              </Paragraph>
+              <Footer pad='medium' justify='center'>
+                <Button path='/docs/about' label='About' />
+              </Footer>
+            </Box>
           </Box>
         </HomeSection>
 
         <HomeSection>
           <Heading tag='h2'>Themes</Heading>
-          <Paragraph align='center'>
+          <Paragraph align='center' margin='none'>
             Grommet is easily themeable to align with your brand.
           </Paragraph>
           <Tiles direction='row'>
@@ -321,8 +334,8 @@ export default class Home extends Component {
           </Tiles>
         </HomeSection>
 
-        <Footer align='start' primary={true} direction='column' pad='medium'
-          colorIndex='light-2'>
+        <Footer align='stretch' primary={true} direction='column' pad='medium'
+          colorIndex='light-2' style={footerStyle}>
           <Box direction='row' justify='between' align='start'
             pad={{ between: 'medium' }} size={{ width: 'full' }}>
             <Box direction='row' align='center' responsive={false}
