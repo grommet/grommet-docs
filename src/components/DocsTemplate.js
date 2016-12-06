@@ -14,9 +14,9 @@ export default class DocsPattern extends Component {
   }
 
   componentDidMount() {
-    this.setState = {
+    this.setState({
       theme: this._getTheme(window.location.pathname)
-    };
+    });
   }
 
   _getTheme(url) {
