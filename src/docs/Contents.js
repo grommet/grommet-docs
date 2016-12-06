@@ -62,6 +62,7 @@ import ColumnsExamplesDoc from './components/columns/ColumnsExamplesDoc';
 import Components from './Components';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
+import DetailsPageDoc from './patterns/DetailsPageDoc';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
@@ -210,6 +211,7 @@ export default [
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
     { path: 'sub-page', label: 'Sub Page', component: SubPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [

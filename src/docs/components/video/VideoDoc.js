@@ -5,6 +5,10 @@ import Video from 'grommet/components/Video';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (<span>
+  Video built on the HTML5 video element.
+</span>);
+
 export default class VideoDoc extends Component {
   render () {
 
@@ -15,7 +19,7 @@ export default class VideoDoc extends Component {
         }>
 
         <section>
-          <p>Video built on the HTML5 video element.</p>
+          <p>{DESC}</p>
           <Video size='small'>
             <source src='/video/test.mp4' type='video/mp4'/>
           </Video>
