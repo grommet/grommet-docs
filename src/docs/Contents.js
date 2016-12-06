@@ -210,7 +210,7 @@ export default [
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
-    { path: 'details-page', label: 'Details Page', component: DetailsPageDoc }
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
