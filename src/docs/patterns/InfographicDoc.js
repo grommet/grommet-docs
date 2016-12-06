@@ -35,7 +35,7 @@ const COMPONENTS = [
   }
 ];
 
-export default class DataDashboardDoc extends Component {
+export default class InfographicDoc extends Component {
   render () {
     const componentsList = COMPONENTS.map(({title, desc, slug}, index) => 
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
@@ -45,12 +45,12 @@ export default class DataDashboardDoc extends Component {
     );
 
     return (
-      <DocsTemplate title="Data Dashboard" exampleUrl='grommet-data-dashboard' 
-        githubUrl="https://github.com/grommet/grommet-data-dashboard">
+      <DocsTemplate title="Infographic" exampleUrl='grommet-infographic' 
+        githubUrl="https://github.com/grommet/grommet-infographic">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large" margin="small">
-            Data Dashboards are presented as a one-page template, which 
-            defaults to vertical scrolling for mobile. Data Dashboards 
+            An infographic presented as a one-page template, which 
+            defaults to vertical scrolling for mobile. Infographics 
             may incorporate some use of illustration, but charts 
             (multiple chart forms) should be the most 
             dominant visuals.
