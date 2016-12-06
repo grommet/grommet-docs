@@ -18,11 +18,11 @@ export default class Resources extends Component {
         </p>
 
         <p>The following sections are divided by theme (Grommet,
-            Hewlett-Packard Enterprise, and HP Inc). Each theme has all
+            Hewlett Packard Enterprise, and HP Inc). Each theme has all
             the resources for each design
-            tool: <a href="http://www.adobe.com/products/illustrator.html">
+            tool: <a href="http://bohemiancoding.com/sketch/">Sketch</a>
+            , <a href="http://www.adobe.com/products/illustrator.html">
             Adobe Illustrator</a>
-            , <a href="http://bohemiancoding.com/sketch/">Sketch</a>
             , <a href="http://www.axure.com">Axure</a>
             , and <a href="http://www.balsamiq.com">Balsamiq</a>.
         </p>
