@@ -7,6 +7,10 @@ import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../../components/DocsArticle';
 
+export const DESC = (<span>
+  A grid of items. The preferred method of populating
+  Tiles is to use Tile children.
+</span>);
 const ONCLICK_EXAMPLE = `onClick={this._onClick.bind(this, id)}`;
 
 export default class TileDoc extends Component {
@@ -20,8 +24,7 @@ export default class TileDoc extends Component {
         }>
 
         <section>
-          <p>A grid of items. The preferred method of populating
-            Tiles is to use Tile children.</p>
+          <p>{DESC}</p>
           <Tiles flush={false}>
             <Tile pad='medium' size='small' colorIndex='light-2'>Tile</Tile>
             <Tile pad='medium' size='small' colorIndex='light-2'>Tile</Tile>

@@ -63,6 +63,7 @@ import Components from './Components';
 import DataDashboardDoc from './patterns/DataDashboardDoc';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
+import DetailsPageDoc from './patterns/DetailsPageDoc';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
@@ -141,6 +142,7 @@ import SplitDoc from './components/split/SplitDoc';
 import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
+import SubPageDoc from './patterns/SubPageDoc';
 import SunBurstDoc from './components/sun-burst/SunBurstDoc';
 import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
@@ -209,9 +211,11 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
-    { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'data-dashboard', label: 'Data Dashboard', 
-      component: DataDashboardDoc }
+      component: DataDashboardDoc },
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
+    { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
+    { path: 'sub-page', label: 'Sub Page', component: SubPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
