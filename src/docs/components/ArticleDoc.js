@@ -10,6 +10,16 @@ import DocsArticle from '../../components/DocsArticle';
 
 Article.displayName = 'Article';
 
+
+export const DESC = (<span>
+  A standard <Anchor
+  href="http://www.w3.org/TR/html5/sections.html#the-article-element">
+  HTML5 article</Anchor>. It might
+  contain a <Anchor path="/docs/header">Header</Anchor>, one
+  or more <Anchor path="/docs/section">Sections</Anchor>, and
+  a <Anchor path="/docs/footer">Footer</Anchor>.
+</span>);
+
 const USAGE =
 `import Article from 'grommet/components/Article';
 <Article>
@@ -23,12 +33,7 @@ export default class ArticleDoc extends Component {
       <DocsArticle title="Article">
 
         <section>
-          <p>A standard <Anchor
-            href="http://www.w3.org/TR/html5/sections.html#the-article-element">
-            HTML5 article</Anchor>. It might
-            contain a <Anchor path="/docs/header">Header</Anchor>, one
-            or more <Anchor path="/docs/section">Sections</Anchor>, and
-            a <Anchor path="/docs/footer">Footer</Anchor>.</p>
+          <p>{DESC}</p>
 
           <Article colorIndex="light-2">
             <Header
