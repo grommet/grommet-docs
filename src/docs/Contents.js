@@ -60,8 +60,10 @@ import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/columns/ColumnsDoc';
 import ColumnsExamplesDoc from './components/columns/ColumnsExamplesDoc';
 import Components from './Components';
+import InfographicDoc from './patterns/InfographicDoc';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
+import DetailsPageDoc from './patterns/DetailsPageDoc';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
@@ -140,6 +142,7 @@ import SplitDoc from './components/split/SplitDoc';
 import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
+import SubPageDoc from './patterns/SubPageDoc';
 import SunBurstDoc from './components/sun-burst/SunBurstDoc';
 import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
@@ -209,7 +212,11 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
+    { path: 'infographic', label: 'Infographic', 
+      component: InfographicDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
+    { path: 'sub-page', label: 'Sub Page', component: SubPageDoc },
     { path: 'vertical-narrative', label: 'Vertical Narrative', 
       component: VerticalNarrativeDoc }
   ]},

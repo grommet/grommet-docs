@@ -36,6 +36,9 @@ export default class TabsDoc extends Component {
             <dt><code>justify             start|center|end</code></dt>
             <dd>How to align the tabs along the main axis.
               Defaults to <code>center</code>.</dd>
+            <dt><code>onActive            {'{function}'}</code></dt>
+            <dd>Function that will be called with the active tab index when
+              the currently active tab changes.</dd>
             <dt><code>responsive          true|false</code></dt>
             <dd>Whether the row of tabs should be
               switched to a centered column layout when the display

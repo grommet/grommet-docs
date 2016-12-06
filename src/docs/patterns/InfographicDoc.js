@@ -10,71 +10,68 @@ import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
 import DocsTemplate from '../../components/DocsTemplate';
 import { DESC as BoxDesc } from '../components/box/BoxDoc';
-import { DESC as CardDesc } from '../components/card/CardDoc';
-import { DESC as FooterDesc } from '../components/footer/FooterDoc';
-import { DESC as HeroDesc } from '../components/hero/HeroDoc';
 import { DESC as HeaderDesc } from '../components/header/HeaderDoc';
-import { DESC as SectionDesc } from '../components/SectionDoc';
+import { DESC as MeterDesc } from '../components/meter/MeterDoc';
+import { DESC as ChartDesc } from '../components/chart/ChartDoc';
+import { DESC as MapDesc } from '../components/world-map/WorldMapDoc';
 
 const COMPONENTS = [
   {
     title: 'Box',
     desc: BoxDesc
   },{
-    title: 'Card',
-    desc: CardDesc
-  },{
-    title: 'Footer',
-    desc: FooterDesc
+    title: 'Chart',
+    desc: ChartDesc
   },{
     title: 'Header',
     desc: HeaderDesc
   },{
-    title: 'Hero',
-    desc: HeroDesc
+    title: 'Meter',
+    desc: MeterDesc
   },{
-    title: 'Section',
-    desc: SectionDesc
+    title: 'World Map',
+    desc: MapDesc,
+    slug: 'world-map'
   }
 ];
 
-export default class PrimaryPageDoc extends Component {
+export default class InfographicDoc extends Component {
   render () {
-    const componentsList = COMPONENTS.map(({title, desc}, index) => 
+    const componentsList = COMPONENTS.map(({title, desc, slug}, index) => 
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
-        <Anchor label={title} path={`/docs/${title.toLowerCase()}`} />
+        <Anchor label={title} path={slug || `/docs/${title.toLowerCase()}`} />
         <Paragraph margin="small">{desc}</Paragraph>
       </Box>
     );
 
     return (
-      <DocsTemplate title="Primary Page" exampleUrl='grommet-primary-page' 
-        githubUrl="https://github.com/grommet/grommet-primary-page">
+      <DocsTemplate title="Infographic" exampleUrl='grommet-infographic' 
+        githubUrl="https://github.com/grommet/grommet-infographic">
         <Section pad={{between: 'large'}}>
-          <Paragraph size="large">
-            The Primary Page template is bold and impactful with a large 
-            Marquee, intro, and social feed. It is most effective as
-            a home page or landing page and can be customized with
-            components for any purpose that fits your needs.
+          <Paragraph size="large" margin="small">
+            An infographic presented as a one-page template, which 
+            defaults to vertical scrolling for mobile. Infographics 
+            may incorporate some use of illustration, but charts 
+            (multiple chart forms) should be the most 
+            dominant visuals.
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} wrap={true} 
-            responsive={false}>
+          <Box direction="row" pad={{between: 'small'}} responsive={false} 
+            wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
                 <Header size="small" colorIndex="grey-4" />
-                <Box pad="large" separator="bottom" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box direction="row" pad={{ between: 'medium' }}
+                  <Box direction="row" pad={{ between: 'medium' }} 
                     responsive={false}>
-                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
-                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
                     <Box colorIndex="light-1" basis="1/3" pad="large"
                       separator="all" />
@@ -84,42 +81,32 @@ export default class PrimaryPageDoc extends Component {
             </Box>
             <Box>
               <Label margin="small">Tablet</Label>
-              <Box separator="all">
+              <Box separator="all" responsive={false} 
+                size={{width: {min: "small"}}}>
                 <Header size="small" colorIndex="grey-4" />
-                <Box pad="large" separator="bottom" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box direction="row" pad={{ between: 'medium' }}
-                    responsive={false}>
-                    <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
-                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all" />
+                  <Box colorIndex="light-1" pad="medium" separator="all" />
+                  <Box colorIndex="light-1" pad="medium" separator="all" />
                 </Box>
               </Box>
             </Box>
             <Box>
-              <Box>
               <Label margin="small">Palm</Label>
-              <Box separator="all">
+              <Box separator="all" responsive={false}>
                 <Header size="small" colorIndex="grey-4" />
-                <Box pad="large" separator="bottom" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box pad={{ between: 'medium' }}>
-                    <Box colorIndex="light-1" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" pad="large"
-                      separator="all" />
-                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all" />
+                  <Box colorIndex="light-1" pad="medium" separator="all" />
+                  <Box colorIndex="light-1" pad="medium" separator="all" />
                 </Box>
               </Box>
-            </Box>
             </Box>
           </Box>
         </Section>
