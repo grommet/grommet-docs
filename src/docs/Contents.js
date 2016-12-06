@@ -141,6 +141,7 @@ import SplitDoc from './components/split/SplitDoc';
 import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
+import SubPageDoc from './patterns/SubPageDoc';
 import SunBurstDoc from './components/sun-burst/SunBurstDoc';
 import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
@@ -210,7 +211,8 @@ export default [
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
-    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc }
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
+    { path: 'sub-page', label: 'Sub Page', component: SubPageDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [

@@ -14,7 +14,7 @@ import { DESC as CardDesc } from '../components/card/CardDoc';
 import { DESC as FooterDesc } from '../components/footer/FooterDoc';
 import { DESC as HeroDesc } from '../components/hero/HeroDoc';
 import { DESC as HeaderDesc } from '../components/header/HeaderDoc';
-import { DESC as SectionDesc } from '../components/SectionDoc';
+import { DESC as TilesDesc } from '../components/tiles/TilesDoc';
 
 const COMPONENTS = [
   {
@@ -33,12 +33,12 @@ const COMPONENTS = [
     title: 'Hero',
     desc: HeroDesc
   },{
-    title: 'Section',
-    desc: SectionDesc
+    title: 'Tiles',
+    desc: TilesDesc
   }
 ];
 
-export default class PrimaryPageDoc extends Component {
+export default class SubPageDoc extends Component {
   render () {
     const componentsList = COMPONENTS.map(({title, desc}, index) => 
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
@@ -48,35 +48,32 @@ export default class PrimaryPageDoc extends Component {
     );
 
     return (
-      <DocsTemplate title="Primary Page" exampleUrl='grommet-primary-page' 
-        githubUrl="https://github.com/grommet/grommet-primary-page">
+      <DocsTemplate title="Sub Page" exampleUrl='grommet-sub-page' 
+        githubUrl="https://github.com/grommet/grommet-sub-page">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            The Primary Page template is bold and impactful with a large 
-            Marquee, intro, and social feed. It is most effective as
-            a home page or landing page and can be customized with
-            components for any purpose that fits your needs.
+            The Sub Page template is most effective as an interior or landing 
+            page and can be customized with components for any purpose that 
+            fits your needs.
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} wrap={true} 
-            responsive={false}>
+          <Box direction="row" pad={{between: 'small'}} responsive={false} 
+            wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
                 <Header size="small" colorIndex="grey-4" />
-                <Box pad="large" separator="bottom" />
+                <Box colorIndex="light-1" pad="large" separator="bottom" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box direction="row" pad={{ between: 'medium' }}
+                  <Box direction="row" pad={{ between: 'medium' }} 
                     responsive={false}>
-                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
-                    <Box colorIndex="light-1" basis="1/3" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" basis="1/3" pad="large"
+                    <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
                   </Box>
                 </Box>
@@ -84,9 +81,9 @@ export default class PrimaryPageDoc extends Component {
             </Box>
             <Box>
               <Label margin="small">Tablet</Label>
-              <Box separator="all">
+              <Box separator="all" responsive={false}>
                 <Header size="small" colorIndex="grey-4" />
-                <Box pad="large" separator="bottom" />
+                <Box colorIndex="light-1" pad="large" separator="bottom" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -102,24 +99,18 @@ export default class PrimaryPageDoc extends Component {
               </Box>
             </Box>
             <Box>
-              <Box>
               <Label margin="small">Palm</Label>
-              <Box separator="all">
+              <Box separator="all" responsive={false}>
                 <Header size="small" colorIndex="grey-4" />
-                <Box pad="large" separator="bottom" />
+                <Box colorIndex="light-1" pad="large" separator="bottom" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box pad={{ between: 'medium' }}>
-                    <Box colorIndex="light-1" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" pad="large"
-                      separator="all" />
-                  </Box>
+                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box colorIndex="light-1" pad="large" separator="all" />
                 </Box>
               </Box>
-            </Box>
             </Box>
           </Box>
         </Section>
