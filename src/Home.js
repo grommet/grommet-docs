@@ -364,7 +364,7 @@ export default class Home extends Component {
               What will you create
             </Heading>
             <Paragraph align='center'>
-              Grommet is used by variety of companies.
+              Grommet is used by a variety of companies.
               Check out a some examples that we think you’ll love.
             </Paragraph>
             <Button path='/docs/showcase' label='Showcase' />
