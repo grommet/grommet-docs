@@ -68,9 +68,11 @@ export default class Sizing extends Component {
 
           <Box pad={{ between: 'medium' }}>
             <Header size="medium" pad="medium" colorIndex="grey-5">
-              Medium
+              <strong>Medium</strong>
             </Header>
-            <Header size="large" pad="medium" colorIndex="grey-5">Large</Header>
+            <Header size="large" pad="medium" colorIndex="grey-5">
+              <strong>Large</strong>
+            </Header>
           </Box>
         </section>
 
