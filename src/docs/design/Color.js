@@ -103,7 +103,7 @@ export default class Color extends Component {
       <DocsArticle title="Color">
         <section>
           <div className="generic-branding">
-            <p>These are the generic, or un-branded, colors. It is expected that
+            <p>These are the generic, or unbranded, colors. It is expected that
               applications will define their own brand color scheme.</p>
           </div>
           <div className="hpe-branding">
