@@ -45,14 +45,15 @@ export default class BestPractices extends Component {
             details.</dd>
 
             <dt>Innovate with intention</dt>
-            <dd>Let your innovation shine through, but remember that your product
-            will be used by users who are using other products in a portfolio of
+            <dd>Let your innovation shine through, but remember that your 
+            product will be used by users who are using other products in 
+            a portfolio of
             applications.  You do not want your application to feel or behave
             differently in the core areas of navigation and interaction.</dd>
 
             <dt>Consistency across the application</dt>
-            <dd>Use common elements described in the Grommet style guide throughout
-            your
+            <dd>Use common elements described in the Grommet style guide 
+            throughout your
             application. Users prefer repetition and are comfortable with
             familiar patterns.</dd>
 
