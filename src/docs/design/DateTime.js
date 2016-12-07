@@ -14,10 +14,10 @@ export default class DateTime extends Component {
           being
           used to display the time and date. Here are examples of recommended
           date and time
-          formats. The
-          <a href="http://index.grommet.io/docs/grommet-index/timestamp">
+          formats. The 
+          <a href="https://grommet.github.io/docs/date-time">
           Timestamp</a> component
-          in <code>grommet-index</code> provides an implementation of this.
+          in <code>grommet</code> provides an implementation of this.
           </p>
 
           <ul>
