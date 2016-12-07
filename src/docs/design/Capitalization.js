@@ -9,7 +9,7 @@ export default class Capitalization extends Component {
     return (
       <DocsArticle title="Capitalization">
         <div>
-          <p>For the English language, we recommend using English title
+          <p>For the English language, we recommend using English
             capitalization
           rules for titles (i.e. generally, capitalize the first letter of
             each word). Titles
@@ -28,7 +28,7 @@ export default class Capitalization extends Component {
             used in the
           data label otherwise deserves capitalization because of English
           capitalization
-          rules (e.g. proper names, abbreviations, etc).</p>
+          rules (i.e. proper names, abbreviations, etc).</p>
 
           <p>Data labels include the following UI elements:</p>
           <ul>
@@ -47,13 +47,14 @@ export default class Capitalization extends Component {
           <p>Capitalize only the first letter of attributes unless a word
             used in
           the attribute otherwise deserves capitalization because of English
-          capitalization rules (e.g. proper names, abbreviations, etc).
+          capitalization rules (i.e. proper names, abbreviations, etc).
           User-entered
           attributes will retain the user’s capitalization.</p>
 
           <h4>Exceptions</h4>
           <p>The English language is full of exceptions, so we felt compelled.
-          For attribute values which indicate the property or data field hasn’t
+          For attribute values which indicate the property or data field that 
+          hasn’t
           been set or the location is intentionally left empty, we use the
           non-capitalized words or phrases such as “empty”, “none”, “not set”,
           “unassigned”, or “no alerts”.</p>
