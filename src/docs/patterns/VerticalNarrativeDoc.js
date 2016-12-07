@@ -62,7 +62,7 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-1" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -84,7 +84,7 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Tablet</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-1" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -102,7 +102,7 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-1" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>

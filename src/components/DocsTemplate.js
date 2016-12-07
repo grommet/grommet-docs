@@ -54,7 +54,7 @@ export default class DocsPattern extends Component {
           <Button primary={true} 
             href={`https://${exampleUrl}-${theme || 'vanilla'}.herokuapp.com/`}
             target='_blank'
-            label='view demo' />
+            label='Examples' />
         }>
         {this.props.children}
       </DocsArticle>
