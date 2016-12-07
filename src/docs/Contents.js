@@ -213,7 +213,7 @@ export default [
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
     { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
-    { path: 'infographic', label: 'Infographic', 
+    { path: 'infographic', label: 'Infographic',
       component: InfographicDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'sub-page', label: 'Sub Page', component: SubPageDoc },
@@ -364,9 +364,8 @@ export default [
         examples: VideoExamplesDoc }
     ]},
     { label: 'Utils', contents: [
-      { path: 'animate', label: 'Animate', index: AnimateDoc, children: [
-        { path: 'examples', component: AnimateExamplesDoc }
-      ]},
+      { path: 'animate', label: 'Animate', index: AnimateDoc,
+        examples: AnimateExamplesDoc },
       { path: 'announcer', label: 'Announcer', component: AnnouncerDoc },
       { path: 'query', label: 'Query', component: QueryDoc },
       { path: 'rest', label: 'Rest', component: RestDoc },
