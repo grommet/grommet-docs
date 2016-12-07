@@ -22,7 +22,7 @@ export default class Padding extends Component {
       <DocsArticle title="Padding">
         <section>
           <p>Padding around elements is based off of multiples and fractions of
-            24px. This value is used for line height, sizing, padding and
+            24px. This value is used for line height, sizing, padding,
             margins on objects, etc. Many components expose padding via
             a <code>pad</code> property.</p>
         </section>
@@ -47,10 +47,10 @@ export default class Padding extends Component {
 
         <section>
           <p>
-            The <code>pad</code> attribute can be set to <code>small</code>,
+            The <code>pad</code> attribute can be set to <code>small</code>, 
             <code>medium</code>, <code>large</code>, or an object which
             just affects the padding of components horizontally or vertically,
-            or in-between multiple components:
+            or in-between multiple components: 
             <code>{"{ horizontal: none|small|medium|large, " +
               "vertical: none|small|medium|large }"}</code>. Padding
             set using <code>between</code> only affects components
