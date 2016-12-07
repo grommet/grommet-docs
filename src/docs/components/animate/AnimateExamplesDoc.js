@@ -20,7 +20,7 @@ const PROPS_SCHEMA = {
   },
   leaveDuration: { options: ['0', '300', '1000'] },
   leaveDelay: { options: ['0', '300', '1000'] },
-  keep: { value: true }
+  keep: { value: true, initial: true }
 };
 
 const CONTENTS_SCHEMA = {
