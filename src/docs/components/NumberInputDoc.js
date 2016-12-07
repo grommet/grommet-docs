@@ -5,10 +5,7 @@ import NumberInput from 'grommet/components/NumberInput';
 import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
 import DocsArticle from '../../components/DocsArticle';
-
-const USAGE =
-`import NumberInput from 'grommet/components/NumberInput';
-<NumberInput value={} onChange={} />`;
+import Code from '../../components/Code';
 
 export default class NumberInputDoc extends Component {
 
@@ -67,7 +64,10 @@ export default class NumberInputDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className='html hljs xml'>{USAGE}</code></pre>
+          <Code preamble={
+            `import NumberInput from 'grommet/components/NumberInput';`}>
+            <NumberInput value={this.state.value} onChange={() => {}} />
+          </Code>
         </section>
 
       </DocsArticle>

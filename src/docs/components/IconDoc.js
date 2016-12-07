@@ -12,6 +12,7 @@ import SVGIcon from 'grommet/components/SVGIcon';
 import iconsMap from './iconsMap';
 const iconNames = Object.keys(iconsMap);
 import DocsArticle from '../../components/DocsArticle';
+import Code from '../../components/Code';
 import Example from '../Example';
 
 const PAGE_SIZE = 50;
@@ -67,14 +68,11 @@ export default class IconDoc extends Component {
   }
 
   render () {
-    const { camelName, Icon, icons, pageIndex, searchText }
-      = this.state;
+    const {
+      camelName, Icon, icons, pageIndex, searchText
+    } = this.state;
 
-    const inline =
-`import ${camelName}Icon from 'grommet/components/icons/base/${camelName}';
-//or var ${camelName}Icon = Grommet.Icons.Base.${camelName};
-<${camelName}Icon />`;
-
+    Icon.displayName = `${camelName}Icon`; // align with common practice
     const endIndex = pageIndex * PAGE_SIZE;
     const tiles = icons.slice(0, endIndex).map((kName, index) => {
 
@@ -129,7 +127,12 @@ export default class IconDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{inline}</code></pre>
+          <Code preamble={
+            `import ${camelName}Icon from ` +
+            `'grommet/components/icons/base/${camelName}';\n` +
+            `//or var ${camelName}Icon = Grommet.Icons.Base.${camelName};`}>
+            <Icon />
+          </Code>
         </section>
 
         <section>

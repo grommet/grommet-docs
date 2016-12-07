@@ -12,7 +12,6 @@ import FormField from 'grommet/components/FormField';
 import CheckBox from 'grommet/components/CheckBox';
 import Box from 'grommet/components/Box';
 import Value from 'grommet/components/Value';
-import Label from 'grommet/components/Label';
 import Button from 'grommet/components/Button';
 import CloseIcon from 'grommet/components/icons/base/Close';
 import InteractiveExample from '../../../components/InteractiveExample';
@@ -151,13 +150,13 @@ export default class BoxingGymDoc extends Component {
     if (box.parentId) {
       containedFields = (
         <fieldset>
-          <FormField label="basis">
+          <FormField label='basis'>
             <select value={box.basis || ''}
               onChange={this._changeBoxProp(box.id, 'basis')}>
               {basisOptions}
             </select>
           </FormField>
-          <FormField label="flex">
+          <FormField label='flex'>
             <select value={box.flex || ''}
               onChange={this._changeBoxProp(box.id, 'flex')}>
               <option />
@@ -175,7 +174,7 @@ export default class BoxingGymDoc extends Component {
     if (box.childIds.length > 0) {
       containerFields = (
         <fieldset>
-          <FormField label="direction">
+          <FormField label='direction'>
             <select value={box.direction}
               onChange={this._changeBoxProp(box.id, 'direction')}>
               <option>column</option>
@@ -183,11 +182,11 @@ export default class BoxingGymDoc extends Component {
             </select>
           </FormField>
           <FormField>
-            <CheckBox label="wrap" checked={box.wrap || false}
+            <CheckBox label='wrap' checked={box.wrap || false}
               onChange={this._toggleBoxProp(box.id, 'wrap')} />
           </FormField>
           <FormField>
-            <CheckBox label="reverse" checked={box.reverse || false}
+            <CheckBox label='reverse' checked={box.reverse || false}
               onChange={this._toggleBoxProp(box.id, 'reverse')} />
           </FormField>
         </fieldset>
@@ -197,11 +196,11 @@ export default class BoxingGymDoc extends Component {
     let buttons = [];
     if (box.parentId) {
       buttons.push(
-        <Button key="peers" label="Set peers" secondary={true}
+        <Button key='peers' label='Set peers' secondary={true}
           onClick={this._setPeers(box.id)} />
       );
       buttons.push(
-        <Button key="remove" label="Remove" secondary={true}
+        <Button key='remove' label='Remove' secondary={true}
           onClick={this._removeBox(box.id)} />
       );
     }
@@ -209,8 +208,8 @@ export default class BoxingGymDoc extends Component {
     let rawControl;
     if (! box.parentId && ! raw && activeId === rootId) {
       rawControl = (
-        <Box pad="medium">
-          <Button label="Raw" plain={true}
+        <Box pad='medium'>
+          <Button label='Raw' plain={true}
             onClick={() => this.setState({ raw: true })} />
         </Box>
       );
@@ -222,7 +221,7 @@ export default class BoxingGymDoc extends Component {
         {containerFields}
         {containedFields}
         <fieldset>
-          <FormField label="justify">
+          <FormField label='justify'>
             <select value={box.justify}
               onChange={this._changeBoxProp(box.id, 'justify')}>
               <option>start</option>
@@ -231,7 +230,7 @@ export default class BoxingGymDoc extends Component {
               <option>end</option>
             </select>
           </FormField>
-          <FormField label="align">
+          <FormField label='align'>
             <select value={box.align}
               onChange={this._changeBoxProp(box.id, 'align')}>
               <option>stretch</option>
@@ -241,19 +240,19 @@ export default class BoxingGymDoc extends Component {
               <option>end</option>
             </select>
           </FormField>
-          <FormField label="pad">
+          <FormField label='pad'>
             <select value={box.pad || ''}
               onChange={this._changeBoxProp(box.id, 'pad')}>
               {padOptions}
             </select>
           </FormField>
-          <FormField label="margin">
+          <FormField label='margin'>
             <select value={box.margin || ''}
               onChange={this._changeBoxProp(box.id, 'margin')}>
               {marginOptions}
             </select>
           </FormField>
-          <FormField label="colorIndex">
+          <FormField label='colorIndex'>
             <select value={box.colorIndex || ''}
               onChange={this._changeBoxProp(box.id, 'colorIndex')}>
               <option />
@@ -265,10 +264,10 @@ export default class BoxingGymDoc extends Component {
             </select>
           </FormField>
         </fieldset>
-        <Footer direction="column"
+        <Footer direction='column'
           pad={{ horizontal: 'medium', vertical: 'medium', between: 'small'}}>
           {buttons}
-          <Button label="Add" secondary={true}
+          <Button label='Add' secondary={true}
             onClick={this._addBox(box.id)} />
           {rawControl}
         </Footer>
@@ -280,8 +279,8 @@ export default class BoxingGymDoc extends Component {
     const { boxes, rawBoxes } = this.state;
     return (
       <div>
-        <Header size="large" pad="medium" justify="between">
-          <Heading tag="h3">Raw</Heading>
+        <Header size='large' pad='medium' justify='between'>
+          <Heading tag='h3'>Raw</Heading>
           <Button icon={<CloseIcon />}
             onClick={() => {
               this.setState({ raw: false, rawBoxes: undefined });
@@ -289,14 +288,14 @@ export default class BoxingGymDoc extends Component {
         </Header>
         <FormFields>
           <FormField>
-            <textarea rows="20" value={rawBoxes || stringify(boxes)}
+            <textarea rows='20' value={rawBoxes || stringify(boxes)}
               onChange={(event) => {
                 this.setState({ rawBoxes: event.target.value });
               }} />
           </FormField>
         </FormFields>
-        <Footer pad="medium">
-          <Button label="Submit" primary={true}
+        <Footer pad='medium'>
+          <Button label='Submit' primary={true}
             onClick={() => {
               const nextBoxes = JSON.parse(this.state.rawBoxes);
               this.setState({
@@ -310,18 +309,21 @@ export default class BoxingGymDoc extends Component {
   }
 
   _renderBox (id) {
-    const box = this.state.boxes[id];
+    const { activeId, boxes } = this.state;
+    const box = boxes[id];
     const {
       colorIndex, direction, justify, align, pad, margin, reverse, wrap
     } = box;
     let contents = box.childIds.map(childId => this._renderBox(childId));
+    let labelProps = {};
+    if (id === activeId) {
+      labelProps.colorIndex = 'accent-1';
+    }
+    const label = <Value key='label' value={id} {...labelProps} />;
     if (! contents.length) {
-      contents = <Value value={`Box ${id}`} />;
+      contents = label;
     } else {
-      contents.unshift(
-        <Label key="label" margin="none"
-          style={{ position: 'absolute' }}>{`Box ${id}`}</Label>
-      );
+      contents.unshift(label);
     }
     return (
       <Box key={id} direction={direction} justify={justify} align={align}

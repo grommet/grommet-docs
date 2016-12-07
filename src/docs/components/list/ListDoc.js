@@ -19,9 +19,13 @@ export default class ListDoc extends Component {
 
   render () {
 
-    let items = DATA.map((datum) => {
+    let items = DATA.map((datum, index) => {
+      let itemProps = {};
+      if (0 === index) {
+        itemProps.separator = 'horizontal';
+      }
       return (
-        <ListItem key={datum.uid} justify='between'>
+        <ListItem key={datum.uid} justify='between' {...itemProps}>
           <span>{datum.name}</span>
           <span className='secondary'>{datum.mood}</span>
         </ListItem>

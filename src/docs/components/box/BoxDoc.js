@@ -37,11 +37,11 @@ export default class BoxDoc extends Component {
             <dt><code>a11yTitle      {'{string}'}</code></dt>
             <dd>Custom title used by screen readers. Defaults to 'Box'.
               Only used if onClick handler is specified.</dd>
-            <dt><code>align          start|center|end|baseline|stretch
-              </code></dt>
+            <dt><code>align          start|center|end|
+              baseline|stretch</code></dt>
             <dd>How to align the contents along the cross axis.</dd>
-            <dt><code>alignContent   start|center|end|between|around|stretch
-              </code></dt>
+            <dt><code>alignContent   start|center|end|
+              between|around|stretch</code></dt>
             <dd>How to align the contents when there is extra space in
               the cross axis. Defaults to <code>stretch</code></dd>
             <dt><code>alignSelf      start|center|end|stretch</code></dt>
@@ -49,8 +49,9 @@ export default class BoxDoc extends Component {
             <dt><code>appCentered    true|false</code></dt>
             <dd>Whether the box background should stretch across an App that
               is centered.</dd>
-            <dt><code>basis          {'xsmall|small|medium|large|xlarge|' +
-              'xxlarge|full|1/2|1/3|2/3|1/4|3/4'}</code></dt>
+            <dt><code>basis          xsmall|small|medium|large|
+              xlarge|xxlarge|
+              full|1/2|1/3|2/3|1/4|3/4</code></dt>
             <dd>Whether to use a fixed or relative size within its
               container.</dd>
             <dt><code>colorIndex     {'{category}-{index}'}</code></dt>
@@ -98,11 +99,11 @@ export default class BoxDoc extends Component {
             <dd>Whether children laid out in a row direction should be
               switched to a column layout when the display area narrows.
               Defaults to <code>true</code>.</dd>
-            <dt><code>separator      {'top|bottom|left|right|horizontal|' +
-              'vertical|all|none'}</code></dt>
+            <dt><code>separator      top|bottom|left|right|
+              horizontal|vertical|all|none</code></dt>
             <dd>Add a separator.</dd>
-            <dt><code>size           {'auto|xsmall|small|medium|large|' +
-              'xlarge|xxlarge|full|{...}'}</code></dt>
+            <dt><code>size           auto|xsmall|small|medium|large|
+              xlarge|xxlarge|full|{'...'}</code></dt>
             <dd>The width of the Box.  Defaults to <code>auto</code>.
               An object can be specified to distinguish width, height (with
               additional min and max options for width and height). E.g. <code>

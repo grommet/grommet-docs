@@ -3,16 +3,13 @@
 import React, { Component } from 'react';
 import Spinning from 'grommet/components/icons/Spinning';
 import DocsArticle from '../../components/DocsArticle';
-
-const USAGE =
-`import Spinning from 'grommet/components/icons/Spinning';
-<Spinning />`;
+import Code from '../../components/Code';
 
 export default class SpinningDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Spinning">
+      <DocsArticle title='Spinning'>
 
         <section>
           <p>An indeterminate spinning/busy icon. This should be used sparingly.
@@ -27,7 +24,10 @@ export default class SpinningDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Code preamble={
+            `import Spinning from 'grommet/components/Spinning';`}>
+            <Spinning />
+          </Code>
         </section>
 
       </DocsArticle>

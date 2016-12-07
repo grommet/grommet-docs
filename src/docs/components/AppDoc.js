@@ -11,14 +11,9 @@ import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
+import Code from '../../components/Code';
 
 App.displayName = 'App';
-
-const USAGE =
-`import App from 'grommet/components/App';
-<App>
-  {contents}
-</App>`;
 
 export default class AppDoc extends Component {
 
@@ -41,7 +36,7 @@ export default class AppDoc extends Component {
 
             <Split fixed={false} flex='right' priority={priority}>
               <Sidebar full={false}>
-                <Box pad='large' colorIndex='grey-4'
+                <Box pad='large' colorIndex='grey-5'
                   justify='center' align='center'
                   onClick={() => this.setState({ priority: 'right' })}>
                   Sidebar
@@ -55,13 +50,13 @@ export default class AppDoc extends Component {
             </Split>
 
             <Article colorIndex='light-2'>
-              <Header colorIndex='grey-4' justify='center' align='center'>
+              <Header colorIndex='grey-5' justify='center' align='center'>
                 Header
               </Header>
               <Section pad='large' justify='center' align='center'>
                 Sections
               </Section>
-              <Footer colorIndex='grey-4' justify='center' align='center'>
+              <Footer colorIndex='grey-5' justify='center' align='center'>
                 Footer
               </Footer>
             </Article>
@@ -83,7 +78,11 @@ export default class AppDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className='html hljs xml'>{USAGE}</code></pre>
+          <Code preamble={`import App from 'grommet/components/App';`}>
+            <App>
+              {'{contents}'}
+            </App>
+          </Code>
         </section>
 
       </DocsArticle>

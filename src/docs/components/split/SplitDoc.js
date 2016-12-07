@@ -36,7 +36,7 @@ export default class SplitDoc extends Component {
 
           <Split fixed={false} flex='right' priority={priority}>
             <Sidebar full={false}>
-              <Box pad="large" colorIndex="grey-4"
+              <Box pad="large" colorIndex="grey-5"
                 justify="center" align="center"
                 onClick={() => this.setState({ priority: 'right' })}>
                 Sidebar

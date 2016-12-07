@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Anchor from 'grommet/components/Anchor';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
 import Button from 'grommet/components/Button';
@@ -11,12 +10,6 @@ import DocsArticle from '../../../components/DocsArticle';
 
 Section.displayName = 'Section';
 Animate.displayName = 'Animate';
-
-const USAGE = `import Animate from 'grommet/components/Animate';
-<Animate enter={...} leave={...}>
-  <p>Animate me</p>
-</Animate>
-`;
 
 export default class AnimateDoc extends Component {
   constructor () {
@@ -28,7 +21,10 @@ export default class AnimateDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title='Animate'>
+      <DocsArticle title='Animate' action={
+        <Button primary={true} path={`/docs/animate/examples`}
+          label='Examples' />
+        }>
 
         <section>
           <p>An animation wrapper to transition components in &amp; out.</p>
@@ -51,11 +47,6 @@ export default class AnimateDoc extends Component {
         </section>
 
         <section>
-          <h2>Usage</h2>
-          <pre><code className='html xml hljs'>{USAGE}</code></pre>
-        </section>
-
-        <section>
           <h2>Properties</h2>
           <dl>
             <dt><code>component          {'{string}|{Component}'}</code></dt>
@@ -73,14 +64,6 @@ export default class AnimateDoc extends Component {
             <dt><code>visible            true|false</code></dt>
             <dd>Toggle visibility. Defaults to false.</dd>
           </dl>
-        </section>
-
-        <section>
-          <h2>Examples</h2>
-
-          <Anchor primary={true} path={`/docs/animate/examples`}>
-            Animate Examples
-          </Anchor>
         </section>
 
       </DocsArticle>

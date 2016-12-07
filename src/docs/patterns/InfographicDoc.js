@@ -37,37 +37,37 @@ const COMPONENTS = [
 
 export default class InfographicDoc extends Component {
   render () {
-    const componentsList = COMPONENTS.map(({title, desc, slug}, index) => 
+    const componentsList = COMPONENTS.map(({title, desc, slug}, index) =>
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
-        <Anchor label={title} path={slug || `/docs/${title.toLowerCase()}`} />
+        <Anchor label={title} path={`/docs/${slug || title.toLowerCase()}`} />
         <Paragraph margin="small">{desc}</Paragraph>
       </Box>
     );
 
     return (
-      <DocsTemplate title="Infographic" exampleUrl='grommet-infographic' 
+      <DocsTemplate title="Infographic" exampleUrl='grommet-infographic'
         githubUrl="https://github.com/grommet/grommet-infographic">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large" margin="small">
-            An infographic presented as a one-page template, which 
-            defaults to vertical scrolling for mobile. Infographics 
-            may incorporate some use of illustration, but charts 
-            (multiple chart forms) should be the most 
+            An infographic presented as a one-page template, which
+            defaults to vertical scrolling for mobile. Infographics
+            may incorporate some use of illustration, but charts
+            (multiple chart forms) should be the most
             dominant visuals.
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} responsive={false} 
+          <Box direction="row" pad={{between: 'small'}} responsive={false}
             wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box direction="row" pad={{ between: 'medium' }} 
+                  <Box direction="row" pad={{ between: 'medium' }}
                     responsive={false}>
                     <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
@@ -81,9 +81,9 @@ export default class InfographicDoc extends Component {
             </Box>
             <Box>
               <Label margin="small">Tablet</Label>
-              <Box separator="all" responsive={false} 
+              <Box separator="all" responsive={false}
                 size={{width: {min: "small"}}}>
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -97,7 +97,7 @@ export default class InfographicDoc extends Component {
             <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all" responsive={false}>
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>

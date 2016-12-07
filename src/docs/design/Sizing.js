@@ -33,27 +33,27 @@ export default class Sizing extends Component {
 
           <Box pad={{ between: 'medium' }}>
             <Box size={{ height: 'xsmall', width: 'xsmall' }}
-              justify="center" align="center" colorIndex="grey-4">
+              justify="center" align="center" colorIndex="grey-5">
               <Label><strong>XSmall</strong></Label>
             </Box>
             <Box size={{ height: 'small', width: 'small' }}
-              justify="center" align="center" colorIndex="grey-4">
+              justify="center" align="center" colorIndex="grey-5">
               <Label><strong>Small</strong></Label>
             </Box>
             <Box size={{ height: 'medium', width: 'medium' }}
-              justify="center" align="center" colorIndex="grey-4">
+              justify="center" align="center" colorIndex="grey-5">
               <Label><strong>Medium</strong></Label>
             </Box>
             <Box size={{ height: 'large', width: 'large' }}
-              justify="center" align="center" colorIndex="grey-4">
+              justify="center" align="center" colorIndex="grey-5">
               <Label><strong>Large</strong></Label>
             </Box>
             <Box size={{ height: 'xlarge', width: 'xlarge' }}
-              justify="center" align="center" colorIndex="grey-4">
+              justify="center" align="center" colorIndex="grey-5">
               <Label><strong>XLarge</strong></Label>
             </Box>
             <Box size={{ height: 'xxlarge', width: 'xxlarge' }}
-              justify="center" align="center" colorIndex="grey-4">
+              justify="center" align="center" colorIndex="grey-5">
               <Label><strong>XXLarge</strong></Label>
             </Box>
           </Box>
@@ -67,10 +67,10 @@ export default class Sizing extends Component {
           below.</p>
 
           <Box pad={{ between: 'medium' }}>
-            <Header size="medium" pad="medium" colorIndex="grey-4">
+            <Header size="medium" pad="medium" colorIndex="grey-5">
               Medium
             </Header>
-            <Header size="large" pad="medium" colorIndex="grey-4">Large</Header>
+            <Header size="large" pad="medium" colorIndex="grey-5">Large</Header>
           </Box>
         </section>
 

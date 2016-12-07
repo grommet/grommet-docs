@@ -12,7 +12,7 @@ export default class Start extends Component {
       <DocsArticle title="Start">
         <section>
           <p>There are a bunch of ways of get started with Grommet. Whether
-          you’re a designer, developer, or just interested in technology
+          you’re a designer, developer, or just interested in technology,
           we’ve got you covered.</p>
           <Menu direction="column">
             <Anchor path="/docs/hello-world" primary={true}

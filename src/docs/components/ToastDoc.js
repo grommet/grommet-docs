@@ -5,12 +5,9 @@ import Toast from 'grommet/components/Toast';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 import DocsArticle from '../../components/DocsArticle';
+import Code from '../../components/Code';
 
-const USAGE =
-`import Toast from 'grommet/components/Toast';
-<Toast status="ok" onClose={...}>
-  A short message to let the user know something.
-</Toast>`;
+Toast.displayName = 'Toast';
 
 export default class ToastDoc extends Component {
 
@@ -25,9 +22,9 @@ export default class ToastDoc extends Component {
     let toast;
     if (active) {
       toast = (
-        <Toast status="ok"
+        <Toast status='ok'
           onClose={() => this.setState({ active: false })}>
-          <Box direction="row" justify="between" alignSelf="center">
+          <Box direction='row' justify='between' alignSelf='center'>
             <span>A short message to let the user know something.</span>
           </Box>
         </Toast>
@@ -35,13 +32,13 @@ export default class ToastDoc extends Component {
     }
 
     return (
-      <DocsArticle title="Toast">
+      <DocsArticle title='Toast'>
 
         <section>
           <p>A terse notification that will only be displayed for a short
             period of time, overlaying whatever the user is currently doing.</p>
 
-          <Button label="Show toast"
+          <Button label='Show toast'
             onClick={() => this.setState({ active: true })} />
           {toast}
 
@@ -59,14 +56,14 @@ export default class ToastDoc extends Component {
 
             Grommet also recommends to incorporate user settings in
             the app to allow the enable or disable of certain preferences
-            of these toasts. (i.e. Allow the user to choose "only show me
-            alerts" or "only show me tasks that complete with errors", etc.</p>
+            of these toasts. (i.e. Allow the user to choose 'only show me
+            alerts' or 'only show me tasks that complete with errors', etc.</p>
         </section>
 
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>onClose   {"{function}"}</code></dt>
+            <dt><code>onClose   {'{function}'}</code></dt>
             <dd>Called when the user clicks on the close control or the
               Toast is automatically closed after a while.</dd>
             <dt><code>status    critical|warning|ok|disabled|unknown</code></dt>
@@ -76,7 +73,11 @@ export default class ToastDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Code preamble={`import Toast from 'grommet/components/Toast';`}>
+            <Toast status='ok' onClose={() => {}}>
+              A short message to let the user know something.
+            </Toast>
+          </Code>
         </section>
 
       </DocsArticle>

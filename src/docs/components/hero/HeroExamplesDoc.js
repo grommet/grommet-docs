@@ -27,7 +27,7 @@ const PROPS_SCHEMA = {
 
 const CONTENTS_SCHEMA = {
   card: { value: (
-    <Box colorIndex="grey-1-a">
+    <Box colorIndex="grey-2-a">
       <Card heading="Heading" description="Hero description text."
       label="label"
       link={<Anchor href="#" primary={true} label="Link" />} />

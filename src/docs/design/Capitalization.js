@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 
 export default class Capitalization extends Component {
@@ -9,7 +8,7 @@ export default class Capitalization extends Component {
   render () {
     return (
       <DocsArticle title="Capitalization">
-        <Box>
+        <div>
           <p>For the English language, we recommend using English title
             capitalization
           rules for titles (i.e. generally, capitalize the first letter of
@@ -24,7 +23,7 @@ export default class Capitalization extends Component {
             <li>Dialog titles (reference rule #8: grammarbook.com)</li>
           </ul>
 
-          <h4>Sentence Capitalization</h4>
+          <h2>Sentence Capitalization</h2>
           <p>Capitalize only the first letter of data labels unless a word
             used in the
           data label otherwise deserves capitalization because of English
@@ -44,7 +43,7 @@ export default class Capitalization extends Component {
             <li>Help text</li>
           </ul>
 
-          <h4>Attributes</h4>
+          <h2>Attributes</h2>
           <p>Capitalize only the first letter of attributes unless a word
             used in
           the attribute otherwise deserves capitalization because of English
@@ -71,23 +70,23 @@ export default class Capitalization extends Component {
             <li>WWN</li>
           </ul>
 
-          <h4>Capitalization in APIs</h4>
+          <h2>Capitalization in APIs</h2>
           <p>Yes, our application users make use of our APIs, so it’s important
           to provide a familiar voice to our users, regardless of the interface
           they are using.</p>
 
-          <h5>PascalCase</h5>
+          <h3>PascalCase</h3>
           <ul>
             <li>Schema names</li>
             <li>Schema enum values</li>
           </ul>
 
-          <h5>camelCase</h5>
+          <h3>camelCase</h3>
           <p>The following API elements should be rendered in camelCase:</p>
           <ul>
             <li>Schema attribute names</li>
           </ul>
-        </Box>
+        </div>
       </DocsArticle>
     );
   }

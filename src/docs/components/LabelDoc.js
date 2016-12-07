@@ -4,14 +4,9 @@ import React, { Component } from 'react';
 import Label from 'grommet/components/Label';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
+import Code from '../../components/Code';
 
 Label.displayName = 'Label';
-
-const USAGE =
-`import Label from 'grommet/components/Label';
-<Label>
-  {contents}
-</Label>`;
 
 export default class LabelDoc extends Component {
 
@@ -45,7 +40,11 @@ export default class LabelDoc extends Component {
 
         <section>
           <h2>Usage</h2>
-          <pre><code className='html hljs xml'>{USAGE}</code></pre>
+          <Code preamble={`import Label from 'grommet/components/Label';`}>
+            <Label>
+              {'{contents}'}
+            </Label>
+          </Code>
         </section>
 
       </DocsArticle>

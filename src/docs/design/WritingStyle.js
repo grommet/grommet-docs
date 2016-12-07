@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 
 export default class WritingStyle extends Component {
@@ -9,7 +8,7 @@ export default class WritingStyle extends Component {
   render () {
     return (
       <DocsArticle title="Writing Style">
-        <Box>
+        <section>
           <p>Applications should use a conversational tone and should
             not include
           excessive technical jargon.</p>
@@ -17,7 +16,7 @@ export default class WritingStyle extends Component {
           <p>Here are some things we recommend you consider when writing for
             applications:</p>
 
-          <h3>Do’s</h3>
+          <h2>Do’s</h2>
           <ul>
             <li>Use simple yet complete sentences.</li>
             <li>Use correct punctuation.</li>
@@ -34,7 +33,7 @@ export default class WritingStyle extends Component {
             to NO”.</li>
           </ul>
 
-          <h3>Don’ts</h3>
+          <h2>Don’ts</h2>
           <ul>
             <li>Do not use UPPERCASE in text or exclamation points!!!!</li>
             <li>Do not make the user feel at fault.</li>
@@ -54,7 +53,7 @@ export default class WritingStyle extends Component {
             <li>Avoid the use of the word “please”. It can imply that a required
             action is optional.</li>
           </ul>
-        </Box>
+        </section>
       </DocsArticle>
     );
   }

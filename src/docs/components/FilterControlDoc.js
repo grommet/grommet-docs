@@ -3,17 +3,14 @@
 import React, { Component } from 'react';
 import FilterControl from 'grommet-addons/components/FilterControl';
 import DocsArticle from '../../components/DocsArticle';
-
-const USAGE =
-`import FilterControl from 'grommet-addons/components/FilterControl';
-<FilterControl unfilteredTotal={} filterdTotal={} onClick={} />`;
+import Code from '../../components/Code';
 
 export default class FilterControlDoc extends Component {
 
   render () {
 
     return (
-      <DocsArticle title="FilterControl">
+      <DocsArticle title='FilterControl'>
 
         <section>
           <p>A Button to control filter configuration annotated with counts
@@ -28,19 +25,23 @@ export default class FilterControlDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>filteredTotal     {"{number}"}</code></dt>
+            <dt><code>filteredTotal     {'{number}'}</code></dt>
             <dd>How many items match after filtering.</dd>
-            <dt><code>onClick           {"function () {...}"} </code></dt>
+            <dt><code>onClick           {'function () {...}'} </code></dt>
             <dd>Function that will be called when the user clicks the
               control.</dd>
-            <dt><code>unfilteredTotal   {"{number}"}</code></dt>
+            <dt><code>unfilteredTotal   {'{number}'}</code></dt>
             <dd>How many items there are without any filtering.</dd>
           </dl>
         </section>
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+            <Code preamble={`import FilterControl from ` +
+                `'grommet-addons/components/FilterControl';`}>
+              <FilterControl unfilteredTotal={100} filteredTotal={50}
+                onClick={() => {}} />
+            </Code>
         </section>
 
       </DocsArticle>

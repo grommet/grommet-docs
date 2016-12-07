@@ -8,7 +8,7 @@ import DocsArticle from '../../components/DocsArticle';
 
 const BoxPad = (props) => (
   <Box pad={props.pad} size={{ height: 'small', width: 'small' }}
-    colorIndex="grey-4">
+    colorIndex="grey-5">
     <Box colorIndex="light-2" flex={true} justify="center" align="center">
       <Label><strong>{props.pad}</strong></Label>
     </Box>

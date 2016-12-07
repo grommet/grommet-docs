@@ -7,44 +7,38 @@ import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
 import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
+import Code from '../../components/Code';
 
 Article.displayName = 'Article';
 
-
 export const DESC = (<span>
   A standard <Anchor
-  href="http://www.w3.org/TR/html5/sections.html#the-article-element">
+  href='http://www.w3.org/TR/html5/sections.html#the-article-element'>
   HTML5 article</Anchor>. It might
-  contain a <Anchor path="/docs/header">Header</Anchor>, one
-  or more <Anchor path="/docs/section">Sections</Anchor>, and
-  a <Anchor path="/docs/footer">Footer</Anchor>.
+  contain a <Anchor path='/docs/header'>Header</Anchor>, one
+  or more <Anchor path='/docs/section'>Sections</Anchor>, and
+  a <Anchor path='/docs/footer'>Footer</Anchor>.
 </span>);
-
-const USAGE =
-`import Article from 'grommet/components/Article';
-<Article>
-  {contents}
-</Article>`;
 
 export default class ArticleDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title="Article">
+      <DocsArticle title='Article'>
 
         <section>
           <p>{DESC}</p>
 
-          <Article colorIndex="light-2">
+          <Article colorIndex='light-2'>
             <Header
-              colorIndex="grey-4" justify="center" align="center">
+              colorIndex="grey-5" justify="center" align="center">
               Header
             </Header>
-            <Section basis="medium" pad="large"
-              justify="center" align="center">
+            <Section basis='medium' pad='large'
+              justify='center' align='center'>
               Sections
             </Section>
-            <Footer colorIndex="grey-4" justify="center" align="center">
+            <Footer colorIndex="grey-5" justify="center" align="center">
               Footer
             </Footer>
           </Article>
@@ -53,10 +47,10 @@ export default class ArticleDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>onSelect      {"{function (selected)}"}</code></dt>
+            <dt><code>onSelect      {'{function (selected)}'}</code></dt>
             <dd>Function that will be called when the article
               changes the currently selected chapter.</dd>
-            <dt><code>selected      {"{number}"}</code></dt>
+            <dt><code>selected      {'{number}'}</code></dt>
             <dd>The currently selected chapter using a zero based index.
               Defaults to 0.</dd>
             <dt><code>scrollStep    true|false</code></dt>
@@ -66,13 +60,17 @@ export default class ArticleDoc extends Component {
             If the spacebar is pressed, the children will automatically
             be stepped through at an interval of ten seconds per child.</dd>
           </dl>
-          <p>Properties for <Anchor path="/docs/box">Box</Anchor> are
+          <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
           also available.</p>
         </section>
 
         <section>
           <h2>Usage</h2>
-          <pre><code className="html hljs xml">{USAGE}</code></pre>
+          <Code preamble={`import Article from 'grommet/components/Article';`}>
+            <Article>
+              {'{contents}'}
+            </Article>
+          </Code>
         </section>
 
       </DocsArticle>
