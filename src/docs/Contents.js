@@ -165,6 +165,7 @@ import TopologyDoc from './components/topology/TopologyDoc';
 import TopologyExamplesDoc from './components/topology/TopologyExamplesDoc';
 import ValueDoc from './components/value/ValueDoc';
 import ValueExamplesDoc from './components/value/ValueExamplesDoc';
+import VerticalNarrativeDoc from './patterns/VerticalNarrativeDoc';
 import VideoDoc from './components/video/VideoDoc';
 import VideoExamplesDoc from './components/video/VideoExamplesDoc';
 import WorldMapDoc from './components/world-map/WorldMapDoc';
@@ -215,7 +216,9 @@ export default [
     { path: 'infographic', label: 'Infographic', 
       component: InfographicDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
-    { path: 'sub-page', label: 'Sub Page', component: SubPageDoc }
+    { path: 'sub-page', label: 'Sub Page', component: SubPageDoc },
+    { path: 'vertical-narrative', label: 'Vertical Narrative', 
+      component: VerticalNarrativeDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
