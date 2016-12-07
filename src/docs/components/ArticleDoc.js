@@ -27,14 +27,14 @@ export default class ArticleDoc extends Component {
 
           <Article colorIndex='light-2'>
             <Header
-              colorIndex='grey-4' justify='center' align='center'>
+              colorIndex="grey-5" justify="center" align="center">
               Header
             </Header>
             <Section basis='medium' pad='large'
               justify='center' align='center'>
               Sections
             </Section>
-            <Footer colorIndex='grey-4' justify='center' align='center'>
+            <Footer colorIndex="grey-5" justify="center" align="center">
               Footer
             </Footer>
           </Article>

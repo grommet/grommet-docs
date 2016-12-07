@@ -36,7 +36,7 @@ export default class AppDoc extends Component {
 
             <Split fixed={false} flex='right' priority={priority}>
               <Sidebar full={false}>
-                <Box pad='large' colorIndex='grey-4'
+                <Box pad='large' colorIndex='grey-5'
                   justify='center' align='center'
                   onClick={() => this.setState({ priority: 'right' })}>
                   Sidebar
@@ -50,13 +50,13 @@ export default class AppDoc extends Component {
             </Split>
 
             <Article colorIndex='light-2'>
-              <Header colorIndex='grey-4' justify='center' align='center'>
+              <Header colorIndex='grey-5' justify='center' align='center'>
                 Header
               </Header>
               <Section pad='large' justify='center' align='center'>
                 Sections
               </Section>
-              <Footer colorIndex='grey-4' justify='center' align='center'>
+              <Footer colorIndex='grey-5' justify='center' align='center'>
                 Footer
               </Footer>
             </Article>

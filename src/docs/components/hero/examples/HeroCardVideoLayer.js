@@ -26,10 +26,10 @@ export default class HeroCardVideoLayer extends Component {
   _renderHero(nodeToInsert) {
     return (
       <Hero backgroundImage="/img/carousel-1.png">
-        <Box colorIndex="grey-1-a">
-          <Card heading="Heading" description="Hero description text." 
-            label="label" 
-            link={<Anchor href="#" primary={true} label="Watch Now" 
+        <Box colorIndex="grey-2-a">
+          <Card heading="Heading" description="Hero description text."
+            label="label"
+            link={<Anchor href="#" primary={true} label="Watch Now"
               icon={<CirclePlayIcon />} onClick={this._toggleLayer} />} />
         </Box>
         {nodeToInsert}

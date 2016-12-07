@@ -3,7 +3,7 @@ import React from 'react';
 export default () => (
   <svg className='logo' version='1.1' width='603' height='118'
     viewBox='0 0 603 118'>
-    <g stroke='none' strokeWidth='1' fill='none' fill-rule='evenodd'>
+    <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
       <g transform='translate(-416.000000, -1001.000000)'>
         <g transform='translate(416.000000, 996.000000)'>
           <rect x='240' y='0' width='128' height='128' />

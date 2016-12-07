@@ -137,12 +137,7 @@ export default class Home extends Component {
         src={'//codepen.io/grommet/embed/preview/gaEGPY/' +
           '?height=400&theme-id=light&default-tab=result&embed-version=2'}
         frameBorder='no' allowTransparency='true' allowFullScreen='true'
-        style={{width: '100%;'}}>See the
-        Pen <a href='http://codepen.io/grommet/pen/gaEGPY/'>
-        Hello World</a> by Grommet UX (
-          <a href='http://codepen.io/grommet'>@grommet</a>
-        ) on <a href='http://codepen.io'>CodePen</a>.
-      </iframe>
+        style={{width: '100%'}} />
     );
 
     const menuAnchors = Contents.map(section => (
@@ -162,7 +157,7 @@ export default class Home extends Component {
         );
       }
       return (
-        <Tile key={theme.label} pad='large'>
+        <Tile key={theme.url} pad='large'>
           <Button href={theme.url}>
             <Box direction='row' align='center' justify='center'
               responsive={false} pad={{ between: 'small' }}>

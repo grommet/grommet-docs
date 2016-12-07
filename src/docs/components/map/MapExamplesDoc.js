@@ -44,7 +44,7 @@ const RICH_DATA = {
   categories: DATA.categories.map(category => (
     { ...category, items: category.items.map(item => (
       {...item, node: (
-        <Box colorIndex="grey-4" pad="small">{item.label}</Box>
+        <Box colorIndex="grey-5" pad="small">{item.label}</Box>
       )}
     ))}
   )),

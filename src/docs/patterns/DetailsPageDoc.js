@@ -48,7 +48,7 @@ const COMPONENTS = [
 
 export default class DetailsPageDoc extends Component {
   render () {
-    const componentsList = COMPONENTS.map(({title, desc}, index) => 
+    const componentsList = COMPONENTS.map(({title, desc}, index) =>
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
         <Anchor label={title} path={`/docs/${title.toLowerCase()}`} />
         <Paragraph margin="small">{desc}</Paragraph>
@@ -56,26 +56,26 @@ export default class DetailsPageDoc extends Component {
     );
 
     return (
-      <DocsTemplate title="Detail Page" exampleUrl='grommet-details-page' 
+      <DocsTemplate title="Detail Page" exampleUrl='grommet-details-page'
         githubUrl="https://github.com/grommet/grommet-details-page">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            The Detail Page template is most effective as an interior page 
-            and can be customized with components for any purpose that 
-            fits your needs. 
+            The Detail Page template is most effective as an interior page
+            and can be customized with components for any purpose that
+            fits your needs.
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} responsive={false} 
+          <Box direction="row" pad={{between: 'small'}} responsive={false}
             wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box direction="row" pad={{ between: 'medium' }} 
+                  <Box direction="row" pad={{ between: 'medium' }}
                     responsive={false}>
                     <Box colorIndex="light-1" basis="2/3" pad="large"
                       separator="all" />
@@ -83,7 +83,7 @@ export default class DetailsPageDoc extends Component {
                       separator="all" />
                   </Box>
                   <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box direction="row" pad={{ between: 'medium' }} 
+                  <Box direction="row" pad={{ between: 'medium' }}
                     responsive={false}>
                     <Box colorIndex="light-1" basis="1/2" pad="large"
                       separator="all" />
@@ -97,9 +97,9 @@ export default class DetailsPageDoc extends Component {
             </Box>
             <Box>
               <Label margin="small">Tablet</Label>
-              <Box separator="all" responsive={false} 
+              <Box separator="all" responsive={false}
                 size={{width: {min: "small"}}}>
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -113,7 +113,7 @@ export default class DetailsPageDoc extends Component {
             <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all" responsive={false}>
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-5" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
