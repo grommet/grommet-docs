@@ -39,7 +39,7 @@ export default class InfographicDoc extends Component {
   render () {
     const componentsList = COMPONENTS.map(({title, desc, slug}, index) =>
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
-        <Anchor label={title} path={slug || `/docs/${title.toLowerCase()}`} />
+        <Anchor label={title} path={`/docs/${slug || title.toLowerCase()}`} />
         <Paragraph margin="small">{desc}</Paragraph>
       </Box>
     );
