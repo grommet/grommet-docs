@@ -8,9 +8,8 @@ export default class Capitalization extends Component {
   render () {
     return (
       <DocsArticle title="Capitalization">
-        <div>
-          <p>For the English language, we recommend using English
-            capitalization
+        <section>
+          <p>For the English language, we recommend using English capitalization
           rules for titles (i.e. generally, capitalize the first letter of
             each word). Titles
           include the following user interface elements:</p>
@@ -51,9 +50,9 @@ export default class Capitalization extends Component {
           User-entered
           attributes will retain the user’s capitalization.</p>
 
-          <h4>Exceptions</h4>
+          <h3>Exceptions</h3>
           <p>The English language is full of exceptions, so we felt compelled.
-          For attribute values which indicate the property or data field that 
+          For attribute values which indicate the property or data field that
           hasn’t
           been set or the location is intentionally left empty, we use the
           non-capitalized words or phrases such as “empty”, “none”, “not set”,
@@ -63,7 +62,7 @@ export default class Capitalization extends Component {
             branding
           or common industry recognition.</p>
 
-          <p>Examples:</p>
+          <h4>Examples</h4>
           <ul>
             <li>VLAN</li>
             <li>IPv4</li>
@@ -87,7 +86,7 @@ export default class Capitalization extends Component {
           <ul>
             <li>Schema attribute names</li>
           </ul>
-        </div>
+        </section>
       </DocsArticle>
     );
   }
