@@ -10,14 +10,14 @@ export default class Mobile extends Component {
       <DocsArticle title="Mobile">
         <section>
           <p>Mobile is not just different screen sizes. Mobile devices actually
-          change the fundamental user user experience of common tasks. Embrace
+          change the fundamental user experience of common tasks. Embrace
           the devices and their native capabilities.</p>
 
           <dl>
             <dt>Think mobile first</dt>
             <dd>Designing for mobile first is very beneficial even if your
             main focus is not on mobile. Doing so can help eliminate
-            non-essential
+            nonessential
             information while reinforcing the most important information.</dd>
 
             <dt>Consider new use cases</dt>
@@ -25,13 +25,13 @@ export default class Mobile extends Component {
             application outside of the traditional desktop environment?
             Reevaluate the need to have some features and capabilities
             designed for smaller screens. Take advantage of the capabilities
-            that mobile devices have to offer such as a camera and notifications
-            when designing your application.</dd>
+            that mobile devices have to offer, such as a camera and 
+            notifications, when designing your application.</dd>
 
             <dt>New devices sizes</dt>
             <dd>Do not plan your designs with a specific and unique
-            resolution in mind. Consider that new devices are launched through
-            the year. The more fluid your design is the better your
+            resolution in mind. Consider that new devices are launched 
+            throughout the year. The more fluid your design is, the better your
             application will behave, regardless of the resolution and density of
             the screen.</dd>
 
@@ -48,11 +48,11 @@ export default class Mobile extends Component {
 
             <dt>Appropriately sized tap targets</dt>
             <dd>A fingertip is less precise than a mouse pointer therefore
-            needs a larger target. When designing for mobile remember to
-            increase the size of buttons, form elements and controls.</dd>
+            needs a larger target. When designing for mobile, remember to
+            increase the size of buttons, form elements, and controls.</dd>
 
             <dt>No hover</dt>
-            <dd>Without the capacity to hover elements on a touch screen,
+            <dd>Without the capacity to hover on elements on a touch screen,
             be careful with the type of information or interaction that
             you associate with this action on the desktop version.</dd>
 
