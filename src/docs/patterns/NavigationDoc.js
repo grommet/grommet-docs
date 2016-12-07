@@ -45,7 +45,8 @@ export default class NavigationDoc extends Component {
             <Box className='flex'>
               <Paragraph margin='small'>
                 When designing your application, the header should only provide
-                the essential elements of the navigation. The header composition is
+                the essential elements of the navigation. The header 
+                composition is
                 formed by a combination of the <em>Application Icon</em>, 
                 <em>Application Name</em>, and when available, the <em>User
                   Functional Icon</em>,
@@ -65,7 +66,8 @@ export default class NavigationDoc extends Component {
 
         <Section separator='bottom'>
           <Paragraph size='large'>
-            <strong>The Sidebar</strong>. When designing your {'application\'s'} 
+            <strong>The Sidebar</strong>. When designing your 
+              {'application\'s'} 
               main navigation, your sidebar is your friend. All key application
               areas should be accessible through your sidebar.
           </Paragraph>
@@ -93,7 +95,8 @@ export default class NavigationDoc extends Component {
 
         <Section separator='bottom'>
           <Paragraph size='large'>
-            <strong>Action Dropdown Menu</strong>. In some cases, the application
+            <strong>Action Dropdown Menu</strong>. In some cases, the 
+              application
               menu items will necessitate a need for secondary actions. When
               these cases are presented, the dropdown component can be used in
               conjunction with a functional icon.
@@ -127,7 +130,8 @@ export default class NavigationDoc extends Component {
         <Section separator='bottom'>
           <Paragraph size='large'>
             <strong>Responsive Behavior</strong>. Much like all components in
-              Grommet, the navigation automagically responds to display as much
+              Grommet, the navigation automagically responds to display as 
+              much
               context as possible for users at different browser sizes and
               devices.
           </Paragraph>
