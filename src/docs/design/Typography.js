@@ -24,7 +24,7 @@ export default class Typography extends Component {
 
         <section>
           <p>Applications use the <span ref="fontName">Arial</span> font.  The
-          typographic scale and styles can be found in the attached assets.</p>
+          typographic scale and styles can be found in the design resources.</p>
         </section>
 
         <section>
