@@ -178,7 +178,7 @@ export default class Resources extends Component {
             <li>
              <a id="hpi-ai-general-pdf"
                 href={`${ROOT}/hpi/hpi-sticker-sheet-apps-general-0-3.pdf`}
-                target="_blank">pdf</a>General Sticker Sheet v0.3</a>
+                target="_blank">General Sticker Sheet v0.3</a>
             </li>
           </ul>
 
