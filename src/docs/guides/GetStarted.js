@@ -20,7 +20,7 @@ export default class GetStartedDoc extends Component {
     return (
       <DocsArticle title="Get Started">
         <p>
-          Welcome to the Grommet Get Started page. Here you will find
+          Here you will find
           instructions
           on how to install Grommet in your local environment.
         </p>
