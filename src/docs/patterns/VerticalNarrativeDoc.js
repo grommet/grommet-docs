@@ -49,11 +49,11 @@ export default class VerticalNarrativeDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-vertical-narrative">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            This template can be used for Point of View or Data Driven Narrative 
-            Infographics. The Vertical Narrative template is best for 
-            situations where there is not a direct connection or 
-            flow from one point to the next – individual frames 
-            act as “chapter breaks.”
+            This template can be used for Point of View or Data Driven 
+            Narrative Infographics. The Vertical Narrative template 
+            is best for situations where there is not a direct 
+            connection or flow from one point to the next – 
+            individual frames act as “chapter breaks.”
           </Paragraph>
         </Section>
         <Section>
@@ -62,7 +62,7 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-1" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -84,7 +84,7 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Tablet</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-1" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
@@ -102,7 +102,7 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-4" />
+                <Header size="small" colorIndex="grey-1" />
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
