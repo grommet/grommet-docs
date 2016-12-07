@@ -51,7 +51,7 @@ export default class HelloWorld extends Component {
             Now that {"you've"} already played with Grommet, we recommend that
             you check
             out the <Anchor path="/docs/get-started">
-            Get Started</Anchor> page and learn
+            Get Started</Anchor> page. There you will learn
             how to install Grommet in your local environment.
           </p>
         </section>
