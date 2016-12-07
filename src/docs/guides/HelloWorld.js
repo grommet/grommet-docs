@@ -22,7 +22,7 @@ export default class HelloWorld extends Component {
             is not meant to be used in production.
           </p>
           <p>
-            To help you get started quickly we provide the
+            To help you get started quickly, we provide the
             following <a
               href="https://codepen.io/pen?template=gaEGPY&editors=0010"
               target="_blank">CodePen</a> template:
