@@ -16,9 +16,9 @@ export default class WritingStyle extends Component {
           <p>Here are some things we recommend you consider when writing for
             applications:</p>
 
-          <h2>Do’s</h2>
+          <h2>Dos</h2>
           <ul>
-            <li>Use simple yet complete sentences.</li>
+            <li>Use simple, yet complete sentences.</li>
             <li>Use correct punctuation.</li>
             <li>Use the present tense to describe problem states.</li>
             <li>Use past tense to describe events that occurred in the
