@@ -19,40 +19,41 @@ export default class BestPractices extends Component {
 
             <dt>Your users are not like you</dt>
             <dd>You are likely an advanced user of your application and are
-            aware of every detail of an application.  That can lead to elevated
+            aware of every detail of the application.  That can lead to elevated
             expectations of your users.</dd>
 
             <dt>All users are not the same</dt>
-            <dd>Different users have different background and goals.  Each
+            <dd>Different users have different backgrounds and goals.  Each
             user has a
             set of previous experiences that influence their expectations of
             your
             application.</dd>
 
             <dt>Let the user take control</dt>
-            <dd>Provide ways for users to experience work with purpose
+            <dd>Provide ways for users to work with purpose
             and efficiency by eliminating their pain points and allow them
             to craft their experience.</dd>
 
             <dt>Content over chrome</dt>
             <dd>You can have a gorgeous interface but if your content is hidden
-            or the interactions are clumsy you are missing the point. Focus on
+            or the interactions are clumsy, you are missing the point. Focus on
             the things that will deliver the greatest value to your user.</dd>
 
             <dt>Don’t drown the user in data</dt>
             <dd>Carefully choose what you present to your users. If there is
-            too much information available they may miss the relevant
+            too much information available, they may miss the relevant
             details.</dd>
 
             <dt>Innovate with intention</dt>
-            <dd>Let your innovation shine through but remember that your product
-            will be used by users who are using other products in a portfolio of
+            <dd>Let your innovation shine through, but remember that your 
+            product will be used by users who are using other products in 
+            a portfolio of
             applications.  You do not want your application to feel or behave
             differently in the core areas of navigation and interaction.</dd>
 
             <dt>Consistency across the application</dt>
-            <dd>Use common elements described in this style guide throughout
-            your
+            <dd>Use common elements described in the Grommet style guide 
+            throughout your
             application. Users prefer repetition and are comfortable with
             familiar patterns.</dd>
 
