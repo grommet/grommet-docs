@@ -340,7 +340,9 @@ export default class Home extends Component {
         </HomeSection>
 
         <HomeSection colorIndex='light-2'>
-          <Heading tag='h2' strong={true}>Change themes on the fly</Heading>
+          <Heading tag='h2' align='center' strong={true}>
+            Change themes on the fly
+          </Heading>
           <Paragraph align='center' margin='none'>
             Grommet is easily themeable for alignment with your brand.
             Select a theme below to see a preview...
