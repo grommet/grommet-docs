@@ -12,7 +12,7 @@ import Paragraph from 'grommet/components/Paragraph';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
 import Box from 'grommet/components/Box';
-// import Image from 'grommet/components/Image';
+import Image from 'grommet/components/Image';
 import Button from 'grommet/components/Button';
 import Anchor from 'grommet/components/Anchor';
 import GitHubIcon from 'grommet/components/icons/base/SocialGithub';
@@ -61,25 +61,29 @@ export default class Start extends Component {
         </Section>
 
         <Section pad='medium'>
-          <Tiles flush={false} align='center'>
+          <Tiles flush={false} justify='center' align='center'>
             <ProjectTile name='Ferret'
-              description='System administration'
+              description='Administration'
               url='https://ferret.grommet.io'
               githubUrl='https://github.com/grommet/grommet-ferret'
-              image={<Box colorIndex='light-2' pad='large' />} />
+              image={<Image src='/img/ferret.png' />} />
             <ProjectTile name='Pathfinder'
-              description='Marketing splash'
+              description='Story'
               url='https://www.hewlettpackardpathfinder.com'
-              image={<Box colorIndex='light-2' pad='large' />} />
+              image={<Image src='/img/pathfinder.png' />} />
             <ProjectTile name='HPE Labs'
-              description='Futuring'
+              description='Organization'
               url='https://www.labs.hpe.com'
-              image={<Box colorIndex='light-2' pad='large' />} />
+              image={<Image src='/img/hplabs.png' />} />
             <ProjectTile name='PeopleFinder'
               description='Directory'
               url='http://peoplefinder.grommet.io'
               githubUrl='https://github.com/grommet/grommet-people-finder'
-              image={<Box colorIndex='light-2' pad='large' />} />
+              image={<Image src='/img/peoplefinder.png' />} />
+            <ProjectTile name='eStory'
+              description='Story'
+              url='https://www.hpe.com/us/en/estories/blueshore/blueshore.html'
+              image={<Image src='/img/estory.png' />} />
           </Tiles>
         </Section>
       </Article>
