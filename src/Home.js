@@ -362,7 +362,7 @@ export default class Home extends Component {
             </Heading>
             <Paragraph align='center'>
               Grommet is used by a variety of companies.
-              Check out a some examples that we think you’ll love.
+              Check out some examples that we think you’ll love.
             </Paragraph>
             <Button path='/docs/showcase' label='Showcase' />
           </Box>
@@ -392,7 +392,7 @@ export default class Home extends Component {
             <span>
               Documentation licensed under <Anchor
                 href='http://creativecommons.org/licenses/by/4.0/legalcode'>
-                CC BY 4.0
+                CC BY 4.0 
               </Anchor>
             </span>
             <span>
