@@ -26,9 +26,9 @@ export default class Accessibility extends Component {
           products, and business. All users should be empowered with access
           and the ability to have a pleasant experience.</p>
 
-          <p>Grommet follows the <Anchor href='http://www.w3.org/TR/WCAG20/'>
-            Web Content Accessibility Guidelines (WCAG)
-          </Anchor>.  By following this style guide
+          <p>Grommet follows the <Anchor href='http://www.w3.org/TR/WCAG20/' 
+             target="blank"> Web Content Accessibility Guidelines (WCAG)
+             </Anchor>.  By following this style guide
           and utilizing Grommet, you will be
           well on your way to satisfying the WCAG recommendations.
           </p>
