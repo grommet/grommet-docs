@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import Hero from 'grommet/components/Hero';
 import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
+import Box from 'grommet/components/Box';
+import Image from 'grommet/components/Image';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../../components/DocsArticle';
 
 export const DESC = (
@@ -23,44 +26,30 @@ export default class HeroDoc extends Component {
 
         <section>
           <p>{DESC}</p>
-          <Hero backgroundImage='/img/carousel-1.png'>
-            <Heading tag='h1'>Sample Heading</Heading>
+          <Hero background={<Image src='/img/carousel-1.png' fit='cover' />}
+            backgroundColorIndex='dark'>
+            <Box direction='row' justify='end' align='center'>
+              <Box basis='1/2' align='start' pad='medium'>
+                <Heading tag='h1'>Sample Heading</Heading>
+              </Box>
+            </Box>
           </Hero>
         </section>
 
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>backgroundImage                {"{string}"}</code></dt>
-            <dd>Source of the image to be used for the background.
-              Either backgroundImage or backgroundVideo can be used, but
-              not both.</dd>
-            <dt><code>backgroundVideo                {"{object}"}</code></dt>
-            <dd>Video to be used for the background. Either backgroundImage
-              or backgroundVideo can be used, but not both.</dd>
-            <dt><code>colorIndex                     {"{string}"}</code></dt>
-            <dd>ColorIndex to be used for the background. Can be used in
-              conjunction with backgroundImage or backgroundVideo to control
-              the font color.</dd>
-            <dt><code>flush                          true|false</code></dt>
-            <dd>Whether the Hero should be flush with the edges of the window.
-              Defaults to <code>true</code>.</dd>
-            <dt><code>image                          {"{string}"}</code></dt>
-            <dd>Source of an image that can be be shown opposite the text.
-              Optional.</dd>
-            <dt><code>justify                        start|center|end
+            <dt><code>background                {"{element}"}</code></dt>
+            <dd>An element to show in the background. If it is
+              an <Anchor path='/docs/image'>Image</Anchor>, be sure to
+              specify <code>fit='cover'</code>.</dd>
+            <dt><code>backgroundColorIndex      {"{string}"}</code></dt>
+            <dd>This controls the text color for any children when they
+              are shown over the background. Typically, this is either
+              unset or <code>dark</code>.</dd>
+            <dt><code>size                      small|medium|large
               </code></dt>
-            <dd>Position of the text that overlays the Hero.
-              Defaults to <code>end</code>.</dd>
-            <dt><code>responsiveBackgroundPosition   left|center|right
-              </code></dt>
-            <dd>Position of the background image for small mobile sizes.
-              Defaults to <code>center</code>.</dd>
-            <dt><code>separator                      true|false</code></dt>
-            <dd>Whether there should be a gray line separator after the Hero
-              text on mobile. Defaults to <code>false</code>.</dd>
-            <dt><code>size                           small|large</code></dt>
-            <dd>Size of the Hero. Defaults to <code>large</code>.</dd>
+            <dd>Size of the Hero. Defaults to <code>medium</code>.</dd>
           </dl>
         </section>
 

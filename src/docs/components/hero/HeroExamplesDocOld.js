@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import Hero from 'grommet/components/Hero';
-import Image from 'grommet/components/Image';
 import Video from 'grommet/components/Video';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
@@ -12,16 +11,18 @@ import Anchor from 'grommet/components/Anchor';
 import InteractiveExample from '../../../components/InteractiveExample';
 
 const PROPS_SCHEMA = {
-  backgroundImage: { value: (
-    <Image src='/img/carousel-1.png' fit='cover' />
-  ), initial: true },
+  backgroundImage: { value: '/img/carousel-1.png', initial: true },
   backgroundVideo: { value: (
     <Video autoPlay={true} showControls={false} loop={true} muted={true}>
       <source src="/video/test.mp4" type="video/mp4"/>
     </Video>
   )},
-  // backgroundAlign: { options: ['center', 'top', 'top-left'] },
-  size: { options: ['small', 'medium', 'large'] }
+  image: { value: '/img/carousel-1.png' },
+  flush: { value: true },
+  justify: { options: ['start', 'center', 'end'] },
+  responsiveBackgroundPosition: { options: ['left', 'center', 'right'] },
+  separator: { value: true },
+  size: { options: ['small', 'large'] }
 };
 
 const CONTENTS_SCHEMA = {
@@ -32,54 +33,23 @@ const CONTENTS_SCHEMA = {
       link={<Anchor href="#" primary={true} label="Link" />} />
     </Box>
   ) },
-  heading: { value: <Heading tag='h1'>Sample Heading</Heading>, initial: true },
-  image: { value: <Image src='/img/carousel-2.png' /> }
+  heading: { value: <Heading tag='h1'>Sample Heading</Heading>, initial: true }
 };
 
 export default class HeroExamplesDoc extends Component {
 
   constructor () {
     super();
-    this._onChange = this._onChange.bind(this);
     this.state = { contents: {}, elementProps: {} };
-  }
-
-  _onChange (nextElementProps, contents) {
-    const elementProps = {};
-    if (nextElementProps.backgroundImage) {
-      elementProps.background = nextElementProps.backgroundImage;
-    } else if (nextElementProps.backgroundVideo) {
-      elementProps.background = nextElementProps.backgroundVideo;
-    }
-    if (elementProps.background) {
-      elementProps.backgroundColorIndex = 'dark';
-    }
-    if (nextElementProps.size) {
-      elementProps.size = nextElementProps.size;
-    }
-    this.setState({ elementProps, contents });
   }
 
   render () {
     let { contents, elementProps } = this.state;
 
-    let content;
-    if (contents.heading || contents.image || contents.card) {
-      content = (
-        <Box direction='row' justify='center' align='center'>
-          <Box basis='1/2' align='end' pad='medium'>
-            {contents.image}
-          </Box>
-          <Box basis='1/2' align='start' pad='medium'>
-            {contents.heading || contents.card}
-          </Box>
-        </Box>
-      );
-    }
-
     const element = (
       <Hero {...elementProps}>
-        {content}
+        {contents.heading}
+        {contents.card}
       </Hero>
     );
 
@@ -89,7 +59,10 @@ export default class HeroExamplesDoc extends Component {
         preamble={`import Header from 'grommet/components/Hero';`}
         propsSchema={PROPS_SCHEMA}
         contentsSchema={CONTENTS_SCHEMA}
-        element={element} onChange={this._onChange} />
+        element={element}
+        onChange={(elementProps, contents) => {
+          this.setState({ elementProps, contents });
+        }} />
     );
   }
 };
