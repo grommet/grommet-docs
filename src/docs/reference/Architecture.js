@@ -13,9 +13,10 @@ export default class Architecture extends Component {
         	<p>
             Grommet is based on <a href='http://reactjs.com' target='_blank'>
             ReactJS</a> which
-            provides great features in JavaScript for building user interfaces. 
-            {"You'll"} also use a JavaScript syntax extension called 
-            <a href='https://facebook.github.io/react/docs/jsx-in-depth.html'
+            provides great features in JavaScript for building user 
+            interfaces. {"You'll"} also use a JavaScript syntax extension 
+            called <a 
+              href='https://facebook.github.io/react/docs/jsx-in-depth.html'
               target='_blank'>JSX</a>.
           </p>
           <p>
@@ -29,9 +30,9 @@ export default class Architecture extends Component {
             target='_blank'>InuitCSS</a> and <a href='http://sass-lang.com/'
             target='_blank'>Sass</a> to
             compile the style sheets. But, don&#39;t worry, you are not
-            expected to write a lot of CSS when using Grommet. 
-            {"We've"} done that for you.  But, if you would like to contribute,
-            please do so!
+            expected to write a lot of CSS when using 
+            Grommet. {"We've"} done that for you.  But, if you would like 
+            to contribute, please do so!
           </p>
         </section>
       </DocsArticle>
