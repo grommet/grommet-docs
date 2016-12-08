@@ -46,11 +46,10 @@ export default class NavigationDoc extends Component {
               <Paragraph margin='small'>
                 When designing your application, the header should only provide
                 the essential elements of the navigation. The header 
-                composition is
-                formed by a combination of the <em>Application Icon</em>, 
-                <em>Application Name</em>, and when available, the <em>User
-                  Functional Icon</em>,
-                  and/or <em>Search Field Icon</em>.
+                composition is formed by a combination of the 
+                <em>Application Icon</em>, <em>Application Name</em>, and 
+                when available, the <em>User Functional 
+                Icon</em>, and/or <em>Search Field Icon</em>.
               </Paragraph>
               <Paragraph margin='small'>
                 If your application requires the exposure of other navigational
