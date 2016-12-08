@@ -16,7 +16,8 @@ const PROPS_SCHEMA = {
     <Image src='/img/carousel-1.png' fit='cover' />
   ), initial: true },
   backgroundVideo: { value: (
-    <Video autoPlay={true} showControls={false} loop={true} muted={true}>
+    <Video autoPlay={true} showControls={false} loop={true} muted={true}
+      fit='cover'>
       <source src="/video/test.mp4" type="video/mp4"/>
     </Video>
   )},

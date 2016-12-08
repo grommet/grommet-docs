@@ -30,15 +30,15 @@ export default class ImageDoc extends Component {
             <dd>Alternate text for screen readers.</dd>
             <dt><code>caption    true|{'{string}'}</code></dt>
             <dd>Whether to add image caption or not. If set to true,
-              caption text
-              will be the image alt value. Also, caption can receive the text
-              to be
-              used instead of the default one.</dd>
-            <dt><code>full       true|horizontal|vertical|false</code></dt>
-            <dd>Whether the width and/or height should take the full viewport
-              size.</dd>
+              caption text will be the image alt value. Also, caption can
+              receive the text to be used instead of the default one.</dd>
             <dt><code>fit       cover|contain</code></dt>
-            <dd>The object-fit flex property to apply to the image</dd>
+            <dd>How the image should be scaled to fit in the
+              container. Setting this property also
+              sets <code>full='true'</code>.</dd>
+            <dt><code>full       true|horizontal|vertical|false</code></dt>
+            <dd>Whether the image should expand to fill the available width
+              and/or height.</dd>
             <dt><code>size       small|medium|large|thumb</code></dt>
             <dd>The size of the Paragraph text.
               Defaults to <code>medium</code>.</dd>

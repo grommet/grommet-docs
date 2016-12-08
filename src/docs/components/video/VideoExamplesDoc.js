@@ -10,6 +10,7 @@ const PROPS_SCHEMA = {
   allowFullScreen: { value: true },
   autoPlay: { value: true },
   full: { value: true },
+  fit: { options: ['cover', 'contain'] },
   loop: { value: true },
   muted: { value: true },
   showControls: { value: true, initial: true },

@@ -40,8 +40,13 @@ export default class VideoDoc extends Component {
             <dd>The color identifier to use for the background color.
               For example: <code>'neutral-1'</code>. This is visible when a
               poster image is not the same aspect ratio as the video.</dd>
-            <dt><code>full              true|false</code></dt>
-            <dd>Whether the width should take the full container width.</dd>
+            <dt><code>fit       cover|contain</code></dt>
+            <dd>How the video should be scaled to fit in the
+              container. Setting this property also
+              sets <code>full='true'</code>.</dd>
+            <dt><code>full       true|false</code></dt>
+            <dd>Whether the image should expand to fill the available width
+              and/or height.</dd>
             <dt><code>loop              true|false</code></dt>
             <dd>Enables continuous video looping. Defaults
               to <code>false</code>.</dd>
