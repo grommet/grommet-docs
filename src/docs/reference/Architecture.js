@@ -26,7 +26,8 @@ export default class Architecture extends Component {
             provides everything you need to quickly create applications
             based on the application <Anchor path="/docs/resources">
               Style Guide</Anchor>.
-            Under the hood, {"you'll"} find <a href='https://github.com/inuitcss'
+            Under the hood, {"you'll"} find <a 
+            href='https://github.com/inuitcss'
             target='_blank'>InuitCSS</a> and <a href='http://sass-lang.com/'
             target='_blank'>Sass</a> to
             compile the style sheets. But, don&#39;t worry, you are not
