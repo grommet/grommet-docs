@@ -47,12 +47,13 @@ export default class Padding extends Component {
 
         <section>
           <p>
-            The <code>pad</code> attribute can be set to <code>small</code>, 
-            <code>medium</code>, <code>large</code>, or an object which
-            just affects the padding of components horizontally or vertically,
-            or in-between multiple components: 
-            <code>{"{ horizontal: none|small|medium|large, " +
-              "vertical: none|small|medium|large }"}</code>. Padding
+            The <code>pad</code> attribute can be set to 
+            <code>small</code>, <code>medium</code>, <code>large</code>, 
+            or an object which just affects the padding of components 
+            horizontally or vertically,
+            or in-between multiple 
+            components: <code>{"{ horizontal: none|small|medium|large, " 
+              + "vertical: none|small|medium|large }"}</code>. Padding
             set using <code>between</code> only affects components
             based on the direction set (adds horizontal padding
             between components for <code>row</code>, or vertical
