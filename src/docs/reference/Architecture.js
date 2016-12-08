@@ -22,7 +22,7 @@ export default class Architecture extends Component {
             technologies to be able to master Grommet, in addition to JavaScript
             of course. In terms of cascading style sheets (CSS), Grommet
             provides everything you need to quickly create applications
-            based on the application <Anchor path="/docs/resources">Style Guide</a>.
+            based on the application <Anchor path="/docs/resources">Style Guide</Anchor>.
             Under the hood, {"you'll"} find <a href='http://inuitcss.com/'
             target='_blank'>InuitCSS</a> and <a href='http://sass-lang.com/'
             target='_blank'>Sass</a> to
