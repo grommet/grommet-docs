@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Anchor from 'grommet/components/Anchor';
 import DocsArticle from '../../components/DocsArticle';
 
 export default class Integration extends Component {
@@ -19,8 +20,8 @@ export default class Integration extends Component {
 
           <h2>Style Guide</h2>
           <p>
-            Your team references the <a data-to='design'>
-            Grommet style guide</a> with
+            Your team references the <Anchor path="/docs/resources">
+            Grommet style guide</Anchor> with
             an emphasis on brand alignment, primarily around the logo, font,
             and color palette.  If your application is not in a position to
             begin adopting a new platform, this option may be the most
@@ -43,8 +44,8 @@ export default class Integration extends Component {
 
           <h2>Components</h2>
           <p>
-            Your application leverages the <a data-to='develop_app'>
-            Grommet components</a> with
+            Your application leverages the <Anchor path='/docs/components'>
+            Grommet components</Anchor> with
             the accompanying markup, styling, and images.
             This model is appropriate in several situations:
           </p>
