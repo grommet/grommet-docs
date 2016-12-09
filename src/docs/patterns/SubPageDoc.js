@@ -52,12 +52,12 @@ export default class SubPageDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-sub-page">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            The Sub-level template useful when structuring an interior hub for 
-            a project. Not quite a Primary template but room to add multiple 
-            Sections that route the user to other Details, the Sub-level 
-            is great for defining your projects tentpole features. The 
-            template allows easy expansion of the design through 
-            components.
+            The Sub-level template is useful when structuring an interior hub 
+            for a project. Not quite a Primary template, but there is room to 
+            add multiple Sections that route the user to other details. The 
+            Sub-level template is great for defining your project's 
+            tent-pole features. The template allows easy expansion 
+            of the design through components.
           </Paragraph>
         </Section>
         <Section>

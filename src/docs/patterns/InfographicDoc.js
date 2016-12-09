@@ -51,9 +51,9 @@ export default class InfographicDoc extends Component {
           <Paragraph size="large" margin="small">
             The infographic template can be used as another method for 
             displaying data or illustrations to create a view 
-            specifically for visual storytelling. Combined 
-            with your art, Grommets Icon, Meter, Chart 
-            Components you can create multiple layout 
+            specifically for visual storytelling. Combining 
+            your art with Grommet's Icon, Meter, and Chart 
+            components, you can create multiple layout 
             combinations to maximize the visual impact.
           </Paragraph>
         </Section>

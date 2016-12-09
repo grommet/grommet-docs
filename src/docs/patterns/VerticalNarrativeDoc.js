@@ -49,11 +49,11 @@ export default class VerticalNarrativeDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-vertical-narrative">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            The Vertical Narrative provides a slideshow-like experience to 
-            users. This is great for storytelling to users or crafting an 
-            explicating content flow. Using the full width and height of 
-            the viewport, users traverse this experience vertically 
-            with very simple navigation controls (keyboard or 
+            The Vertical Narrative template provides a slideshow-like experience
+            to users. This is great for storytelling to users or crafting an
+            explicate content flow. Using the full width and height of
+            the viewport, users traverse this experience vertically
+            with very simple navigation controls (keyboard or
             up/down arrow keys). Built into the template 
             is a smooth scroll animation to enhance 
             the experience.

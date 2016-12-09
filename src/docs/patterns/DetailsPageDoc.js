@@ -60,7 +60,7 @@ export default class DetailsPageDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-details-page">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            The Details template is useful when highlighting feature content in 
+            The Detail template is useful when highlighting feature content in 
             the interior of your project. The Detail template provides space 
             for storytelling in article-like format below the fold. To 
             extend the template, components can be used to change 

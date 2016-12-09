@@ -52,11 +52,12 @@ export default class PrimaryPageDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-primary-page">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            The Primary template is bold presentation that uses a large Marquee 
-            paired with an introduction Section and Social Feed to capture 
-            attention of users. It is most effective as a homepage or a 
-            landing page, and can be customized with components to 
-            further enhance the experience.
+            The Primary template is a bold presentation that uses a large 
+            Marquee, paired with an introduction Section and Social 
+            Feed, to capture the attention of users. It is most 
+            effective as a homepage or a landing page, and 
+            can be customized with components to further 
+            enhance the experience.
           </Paragraph>
         </Section>
         <Section>
