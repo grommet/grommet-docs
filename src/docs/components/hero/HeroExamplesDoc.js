@@ -12,16 +12,10 @@ import Anchor from 'grommet/components/Anchor';
 import InteractiveExample from '../../../components/InteractiveExample';
 
 const PROPS_SCHEMA = {
-  backgroundImage: { value: (
-    <Image src='/img/carousel-1.png' fit='cover' />
-  ), initial: true },
-  backgroundVideo: { value: (
-    <Video autoPlay={true} showControls={false} loop={true} muted={true}
-      fit='cover'>
-      <source src="/video/test.mp4" type="video/mp4"/>
-    </Video>
-  )},
-  // backgroundAlign: { options: ['center', 'top', 'top-left'] },
+
+  backgroundImage: { value: true, initial: true },
+  backgroundVideo: { value: true },
+  backgroundAlign: { options: ['center', 'top', 'bottom', 'left', 'right'] },
   size: { options: ['small', 'medium', 'large'] }
 };
 
@@ -33,7 +27,8 @@ const CONTENTS_SCHEMA = {
       link={<Anchor href="#" primary={true} label="Link" />} />
     </Box>
   ) },
-  heading: { value: <Heading tag='h1'>Sample Heading</Heading>, initial: true },
+  heading: { value: <Heading tag='h1' margin='none'>Sample Heading</Heading>,
+    initial: true },
   image: { value: <Image src='/img/carousel-2.png' /> }
 };
 
@@ -47,10 +42,36 @@ export default class HeroExamplesDoc extends Component {
 
   _onChange (nextElementProps, contents) {
     const elementProps = {};
+    const backgroundProps = {};
+    if (nextElementProps.backgroundAlign &&
+      nextElementProps.backgroundAlign !== 'center') {
+      backgroundProps.align = {};
+      switch (nextElementProps.backgroundAlign) {
+        case 'top':
+          backgroundProps.align.top = true;
+          break;
+        case 'bottom':
+          backgroundProps.align.bottom = true;
+          break;
+        case 'left':
+          backgroundProps.align.left = true;
+          break;
+        case 'right':
+          backgroundProps.align.right = true;
+          break;
+      }
+    }
     if (nextElementProps.backgroundImage) {
-      elementProps.background = nextElementProps.backgroundImage;
+      elementProps.background = (
+        <Image src='/img/carousel-1.png' fit='cover' {...backgroundProps} />
+      );
     } else if (nextElementProps.backgroundVideo) {
-      elementProps.background = nextElementProps.backgroundVideo;
+      elementProps.background = (
+        <Video autoPlay={true} showControls={false} loop={true} muted={true}
+          fit='cover' {...backgroundProps}>
+          <source src="/video/test.mp4" type="video/mp4"/>
+        </Video>
+      );
     }
     if (elementProps.background) {
       elementProps.backgroundColorIndex = 'dark';

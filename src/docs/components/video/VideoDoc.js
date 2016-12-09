@@ -31,6 +31,10 @@ export default class VideoDoc extends Component {
             child <code>{'<source>'}</code> elements according to the
             HTML5 <code>{'<video>'}</code> specification.</p>
           <dl>
+            <dt><code>align      {'{top:, bottom:, left:, right: }'}</code></dt>
+            <dd>How to align the video when full. You can specify
+              one of top|bottom and/or one of left|right. If not provided,
+              the video is centered.</dd>
             <dt><code>allowFullScreen   true|false</code></dt>
             <dd>Enables fullscreen/expand control button on player.</dd>
             <dt><code>autoPlay          true|false</code></dt>

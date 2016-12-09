@@ -26,6 +26,10 @@ export default class ImageDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>align      {'{top:, bottom:, left:, right: }'}</code></dt>
+            <dd>How to align the image when full. You can specify
+              one of top|bottom and/or one of left|right. If not provided,
+              the image is centered.</dd>
             <dt><code>alt        {'{string}'}</code></dt>
             <dd>Alternate text for screen readers.</dd>
             <dt><code>caption    true|{'{string}'}</code></dt>
