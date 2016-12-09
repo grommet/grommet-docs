@@ -45,11 +45,11 @@ class Swatch extends Component {
     const { colorIndex } = this.props;
     const { hex } = this.state;
     return (
-      <Box align="center">
-        <Label>{colorIndex}</Label>
+      <Box align='stretch' pad={{ vertical: 'medium' }}>
         <Box ref={ref => this._boxRef = ref}
-          colorIndex={colorIndex} pad="large" />
-        <Label>{hex}</Label>
+          colorIndex={colorIndex} pad='large' />
+        <Label margin='small'>{colorIndex}</Label>
+        <Label margin='none'>{hex}</Label>
       </Box>
     );
   }
@@ -92,7 +92,7 @@ export default class Color extends Component {
       return (
         <section key={section.label}>
           <h3>{section.label}</h3>
-          <Box direction="row" pad={{ between: 'medium' }} wrap={true}>
+          <Box direction='row' pad={{ between: 'medium' }} wrap={true}>
             {variants}
           </Box>
         </section>
@@ -100,13 +100,13 @@ export default class Color extends Component {
     });
 
     return (
-      <DocsArticle title="Color">
+      <DocsArticle title='Color'>
         <section>
-          <div className="generic-branding">
+          <div className='generic-branding'>
             <p>These are the generic, or unbranded, colors. It is expected that
               applications will define their own brand color scheme.</p>
           </div>
-          <div className="hpe-branding">
+          <div className='hpe-branding'>
           <p>The Hewlett Packard Enterprise color palette is utilized in
             applications for the
           most part. However there are variances in the palette that apply
@@ -124,7 +124,7 @@ export default class Color extends Component {
           </div>
 
           <p>These colors can be used as the background color
-            for a <Anchor path="/docs/box">Box</Anchor> via
+            for a <Anchor path='/docs/box'>Box</Anchor> via
             the <code>colorIndex</code> property.</p>
         </section>
 
