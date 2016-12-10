@@ -49,11 +49,12 @@ export default class InfographicDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-infographic">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large" margin="small">
-            An infographic presented as a one-page template, which
-            defaults to vertical scrolling for mobile. Infographics
-            may incorporate some use of illustration, but charts
-            (multiple chart forms) should be the most
-            dominant visuals.
+            The infographic template can be used as another method for 
+            displaying data or illustrations to create a view 
+            specifically for visual storytelling. Combining 
+            your art with Grommet's Icon, Meter, and Chart 
+            components, you can create multiple layout 
+            combinations to maximize the visual impact.
           </Paragraph>
         </Section>
         <Section>

@@ -49,11 +49,14 @@ export default class VerticalNarrativeDoc extends Component {
         githubUrl="https://github.com/grommet/grommet-vertical-narrative">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
-            This template can be used for Point of View or Data Driven 
-            Narrative Infographics. The Vertical Narrative template 
-            is best for situations where there is not a direct 
-            connection or flow from one point to the next – 
-            individual frames act as “chapter breaks.”
+            The Vertical Narrative template provides a slideshow-like experience
+            to users. This is great for storytelling to users or crafting an
+            explicate content flow. Using the full width and height of
+            the viewport, users traverse this experience vertically
+            with very simple navigation controls (keyboard or
+            up/down arrow keys). Built into the template 
+            is a smooth scroll animation to enhance 
+            the experience.
           </Paragraph>
         </Section>
         <Section>
