@@ -2,6 +2,10 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Grommet</title>
+  <meta name="fragment" content="!" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>...NOM...NOM...NOM | Grommet</title>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/grommet/1.1.0/grommet.min.css' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-with-addons.js"></script>
@@ -9,9 +13,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/grommet/1.1.0/grommet.min.js"></script>
   <style>
+
+    #gremlin {
+      animation: slideUp 0.5s ease;
+    }
+
     #chomp-mouth {
       opacity: 0;
       animation: fadeOut 0.5s infinite;
+      animation-delay: 0.5s;
     }
 
     @keyframes fadeOut {
@@ -31,6 +41,21 @@
         opacity: 0;
       }
     }
+
+    @keyframes slideUp {
+    	0% {
+    		transform: translateY(100%);
+    	}
+    	50%{
+    		transform: translateY(0%);
+    	}
+    	80%{
+    		transform: translateY(2%);
+    	}
+    	100% {
+    		transform: translateY(0%);
+    	}
+    }
   </style>
 </head>
 <body>
@@ -45,7 +70,7 @@
               <Grommet.Header size='large' pad='large'>
                 <Grommet.Icons.Grommet />
               </Grommet.Header>
-              <Grommet.Box align='center'>
+              <Grommet.Box align='center' pad='medium'>
                 <Grommet.Headline size='large' strong={true}>
                   404
                 </Grommet.Headline>
@@ -59,8 +84,8 @@
                 </Grommet.Paragraph>
               </Grommet.Box>
               <Grommet.Box align='center' justify='end' flex={true}
-                pad={{ horizontal: 'small' }}>
-                <svg version="1.1" width="413px" height="654px"
+                pad={{ horizontal: 'medium' }}>
+                <svg id='gremlin' version="1.1" width="413px" height="654px"
                   viewBox="0 0 413 654" style={{
                     maxWidth: '100%', height: 'auto'
                   }}>
