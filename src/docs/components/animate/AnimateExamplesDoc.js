@@ -13,12 +13,12 @@ const PROPS_SCHEMA = {
   enterAnimation: {
     options: ['fade', 'slide-up', 'slide-down', 'slide-left', 'slide-right']
   },
-  enterDuration: { options: ['0', '300', '1000'] },
+  enterDuration: { options: ['0', '300', '1000', '10000'] },
   enterDelay: { options: ['0', '300', '1000'] },
   leaveAnimation: {
     options: ['fade', 'slide-up', 'slide-down', 'slide-left', 'slide-right']
   },
-  leaveDuration: { options: ['0', '300', '1000'] },
+  leaveDuration: { options: ['0', '300', '1000', '10000'] },
   leaveDelay: { options: ['0', '300', '1000'] },
   keep: { value: true, initial: true }
 };
@@ -49,7 +49,7 @@ export default class AnimateExamplesDoc extends Component {
     if (nextElementProps.leaveAnimation) {
       elementProps.leave = {
         animation: nextElementProps.leaveAnimation || 'fade',
-        duration: parseInt(nextElementProps.leaveDuration || 0, 10),
+        duration: parseInt(nextElementProps.leaveDuration || 1000, 10),
         delay: parseInt(nextElementProps.leaveDelay || 0, 10)
       };
     }

@@ -14,6 +14,7 @@ import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import Tiles from 'grommet/components/Tiles';
 import Tile from 'grommet/components/Tile';
+import Animate from 'grommet/components/Animate';
 import GrommetLogo from 'grommet/components/icons/Grommet';
 import UpIcon from 'grommet/components/icons/base/Up';
 import DownIcon from 'grommet/components/icons/base/Down';
@@ -46,30 +47,44 @@ const THEMES = [
 
 class HomeSection extends Component {
   render () {
-    return (
+    const { animate, children, ...props } = this.props;
+    let contents = (
       <Section justify='center' align='center'
-        pad={{vertical: 'large'}} {...this.props}>
-        {this.props.children}
+        pad={{vertical: 'large'}} {...props}>
+        {children}
       </Section>
     );
+    if (animate) {
+      contents = (
+        <Animate visible='scroll' keep={true}
+          enter={{ animation: 'fade', duration: 1000, delay: 100 }}>
+          {contents}
+        </Animate>
+      );
+    }
+    return contents;
   }
 };
 
 const WhyGrommetItem = (props) => (
   <Tile basis='medium' pad='small'>
-    <Button href={props.href} path={props.path}>
-      <Box pad={{ between: 'small', vertical: 'small' }}>
-        <Header direction='column' pad={{ between: 'medium' }}>
-          {props.icon}
-          <Heading tag='h3' margin='none'>
-            {props.heading}
-          </Heading>
-        </Header>
-        <Box pad={{ horizontal: 'medium' }}>
-          {props.children}
+    <Animate visible='scroll' keep={true}
+      enter={{ animation: 'slide-up', duration: 1000,
+        delay: (props.delay || 100) }}>
+      <Button href={props.href} path={props.path}>
+        <Box pad={{ between: 'small', vertical: 'small' }}>
+          <Header direction='column' pad={{ between: 'medium' }}>
+            {props.icon}
+            <Heading tag='h3' margin='none'>
+              {props.heading}
+            </Heading>
+          </Header>
+          <Box pad={{ horizontal: 'medium' }}>
+            {props.children}
+          </Box>
         </Box>
-      </Box>
-    </Button>
+      </Button>
+    </Animate>
   </Tile>
 );
 
@@ -147,7 +162,7 @@ export default class Home extends Component {
       </Anchor>
     ));
 
-    const themes = THEMES.map(theme => {
+    const themes = THEMES.map((theme, index) => {
       let labelNode;
       if (theme.label) {
         labelNode = (
@@ -158,13 +173,17 @@ export default class Home extends Component {
       }
       return (
         <Tile key={theme.url} pad='large'>
-          <Button href={theme.url}>
-            <Box direction='row' align='center' justify='center'
-              responsive={false} pad={{ between: 'small' }}>
-              <theme.Icon size={theme.size} colorIndex='plain' />
-              {labelNode}
-            </Box>
-          </Button>
+          <Animate visible='scroll' keep={true}
+            enter={{ animation: 'slide-up', duration: 1000,
+              delay: (100 + (200 * index))}}>
+            <Button href={theme.url}>
+              <Box direction='row' align='center' justify='center'
+                responsive={false} pad={{ between: 'small' }}>
+                <theme.Icon size={theme.size} colorIndex='plain' />
+                {labelNode}
+              </Box>
+            </Button>
+          </Animate>
         </Tile>
       );
     });
@@ -229,7 +248,7 @@ export default class Home extends Component {
           </Footer>
         </HomeSection>
 
-        <HomeSection colorIndex='light-2'>
+        <HomeSection colorIndex='light-2' animate={true}>
           <Box pad='large'>
             <ReactGrommetSketch />
           </Box>
@@ -260,7 +279,7 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <HomeSection>
+        <HomeSection animate={true}>
           <Heading tag='h2' strong={true}>Start making now</Heading>
           <Paragraph align='center' margin='none'>
             The easiest way to learn a new tool is
@@ -271,12 +290,14 @@ export default class Home extends Component {
             {codePen}
           </Box>
           <Footer pad='medium' justify='center' direction='column'>
-            <Paragraph>Need more details? We’ve got a page for that.</Paragraph>
+            <Paragraph>
+              Need more details? We’ve got a page for that.
+            </Paragraph>
             <Button path='/docs/components' label='Components' />
           </Footer>
         </HomeSection>
 
-        <HomeSection separator='top'>
+        <HomeSection separator='top' animate={true}>
           <Heading tag='h2' strong={true}>What makes us great</Heading>
           <Paragraph align='center'>
             Grommet is designed to make your design and dev process easier
@@ -286,7 +307,7 @@ export default class Home extends Component {
             pad={{ vertical: 'medium' }}>
             <WhyGrommetItem icon={<ResourcesIcon colorIndex='brand'
               size='large' />}
-              heading='Comprehensive' path='/docs/components'>
+              heading='Comprehensive' path='/docs/components' delay={100}>
               <Paragraph align='center' margin='none'>
                 A curated design and development platform that is more than
                 just a ReactJS widget library. Grommet offers the tools
@@ -295,7 +316,7 @@ export default class Home extends Component {
             </WhyGrommetItem>
             <WhyGrommetItem icon={<RunIcon colorIndex='brand'
               size='large' />}
-              heading='Active' href='http://slackin.grommet.io'>
+              heading='Active' href='http://slackin.grommet.io' delay={300}>
               <Paragraph align='center' margin='none'>
                 Our community is open and engaged. Design resources,
                 development tools, and online training provide a seamless
@@ -304,7 +325,7 @@ export default class Home extends Component {
             </WhyGrommetItem>
             <WhyGrommetItem icon={<ConfigureIcon colorIndex='brand'
               size='large' />}
-              heading='Flexible' path='/docs/learn'>
+              heading='Flexible' path='/docs/learn' delay={500}>
               <Paragraph align='center' margin='none'>
                 Responsive web without the hassle of grid management and
                 modular components loaded on demand. Themes allow your
@@ -313,7 +334,8 @@ export default class Home extends Component {
             </WhyGrommetItem>
             <WhyGrommetItem icon={<AccessAccessibilityIcon colorIndex='brand'
               size='large' />}
-              heading='Accessible' href='https://vimeo.com/187068246'>
+              heading='Accessible' href='https://vimeo.com/187068246'
+              delay={700}>
               <Paragraph align='center' margin='none'>
                 All users matter. Grommet provides a robust foundation
                 of accessibility features to meet web standards.
@@ -322,9 +344,12 @@ export default class Home extends Component {
           </Tiles>
         </HomeSection>
 
-        <HomeSection align='stretch'>
+        <HomeSection align='stretch' animate={true}>
           <Box pad='medium' align='center' style={{ overflow: 'hidden' }}>
-            <Hands />
+            <Animate visible='scroll' keep={true}
+              enter={{ animation: 'jiggle', duration: 2000, delay: 100 }}>
+              <Hands />
+            </Animate>
           </Box>
           <Box pad='medium' align='center'>
             <Heading tag='h2' strong={true}>Together is better</Heading>
@@ -339,7 +364,7 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <HomeSection colorIndex='light-2'>
+        <HomeSection colorIndex='light-2' animate={true}>
           <Heading tag='h2' align='center' strong={true}>
             Change themes on the fly
           </Heading>
@@ -355,7 +380,7 @@ export default class Home extends Component {
 
         <HomeSection ref={(ref) => this._mobileRef = ref}
           backgroundImage={'url(/img/mobile_first.png)'} justify='start'
-          colorIndex='dark' style={mobileStyle}>
+          colorIndex='dark' style={mobileStyle} animate={true}>
           <Box className='home__mobile' align='center'>
             <Heading tag='h2' align='center' strong={true}>
               What will you create
@@ -368,38 +393,42 @@ export default class Home extends Component {
           </Box>
         </HomeSection>
 
-        <Footer align='stretch' primary={true} direction='column'
-          colorIndex='grey-1' style={footerStyle}>
-          <Box direction='row' justify='between' pad='medium'>
-            <Box direction='row' align='center' pad={{ between: 'medium' }}
-              responsive={false}>
-              <GrommetLogo />
-              <Anchor path='/docs/about'>About</Anchor>
-              <Anchor href='https://blog.grommet.io'>Blog</Anchor>
-              <Anchor href='https://vimeo.com/grommetux'>Training</Anchor>
-              <Anchor href={'https://itunes.apple.com/us/podcast/' +
-                'great-grommet-podcast/id1089989263?mt=2'}>Podcast</Anchor>
+        <Animate visible='scroll' keep={true}
+          enter={{ animation: 'fade', duration: 1000, delay: 100 }}>
+          <Footer align='stretch' primary={true} direction='column'
+            colorIndex='grey-1' style={footerStyle}>
+            <Box direction='row' justify='between' pad='medium'>
+              <Box direction='row' align='center' pad={{ between: 'medium' }}
+                responsive={false}>
+                <GrommetLogo />
+                <Anchor path='/docs/about'>About</Anchor>
+                <Anchor href='https://blog.grommet.io'>Blog</Anchor>
+                <Anchor href='https://vimeo.com/grommetux'>Training</Anchor>
+                <Anchor href={'https://itunes.apple.com/us/podcast/' +
+                  'great-grommet-podcast/id1089989263?mt=2'}>Podcast</Anchor>
+              </Box>
+              <Box direction='row' responsive={false}
+                pad={{ vertical: 'small' }}>
+                <Anchor href='https://twitter.com/grommetux'
+                  icon={<TwitterIcon a11yTitle='Grommet Twitter' />}/>
+                <Anchor href='https://www.facebook.com/grommetux/'
+                  icon={<FacebookIcon a11yTitle='Grommet Facebook' />}/>
+              </Box>
             </Box>
-            <Box direction='row' responsive={false} pad={{ vertical: 'small' }}>
-              <Anchor href='https://twitter.com/grommetux'
-                icon={<TwitterIcon a11yTitle='Grommet Twitter' />}/>
-              <Anchor href='https://www.facebook.com/grommetux/'
-                icon={<FacebookIcon a11yTitle='Grommet Facebook' />}/>
+            <Box direction='row'
+              pad={{ horizontal: 'medium', vertical: 'large' }}>
+              <span>
+                Documentation licensed under <Anchor
+                  href='http://creativecommons.org/licenses/by/4.0/legalcode'>
+                  CC BY 4.0
+                </Anchor>
+              </span>
+              <span>
+                © 2016 Hewlett Packard Enterprise Development LP.
+              </span>
             </Box>
-          </Box>
-          <Box direction='row'
-            pad={{ horizontal: 'medium', vertical: 'large' }}>
-            <span>
-              Documentation licensed under <Anchor
-                href='http://creativecommons.org/licenses/by/4.0/legalcode'>
-                CC BY 4.0 
-              </Anchor>
-            </span>
-            <span>
-              © 2016 Hewlett Packard Enterprise Development LP.
-            </span>
-          </Box>
-        </Footer>
+          </Footer>
+        </Animate>
 
       </Article>
     );

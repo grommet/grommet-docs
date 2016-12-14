@@ -53,7 +53,8 @@ export default class AnimateDoc extends Component {
             <dd>Wrapping component. Defaults to <code>{'<div/>'}</code>.</dd>
             <dt><code>enter              {'{animation: , duration: , delay: }'}
             </code></dt>
-            <dd>Animation when component is entering.</dd>
+            <dd>Animation when component is entering. Possible animations:
+              <code>fade|slide-up|slide-down|slide-left|slide-right</code></dd>
             <dt><code>keep               true|false</code></dt>
             <dd>Whether to keep or remove element from the DOM.
               Defaults to false.</dd>

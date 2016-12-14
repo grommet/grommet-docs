@@ -10,7 +10,7 @@ const PROPS_SCHEMA = {
   status: { options: ['ok', 'critical', 'warning', 'unknown'] },
   state: { value: 'Sample state', initial: true },
   message: { value: 'Sample message', initial: true },
-  timestamp: { value: (new Date()).toISOString(), initial: true },
+  timestamp: { value: (new Date()), initial: true },
   percentComplete: { value: 30 },
   size: { options: ['small', 'medium', 'large'] }
 };
@@ -19,7 +19,7 @@ export default class HeaderExamplesDoc extends Component {
 
   constructor () {
     super();
-    this.state = { contents: {}, elementProps: {} };
+    this.state = { contents: {}, elementProps: { message: '' } };
   }
 
   render () {
