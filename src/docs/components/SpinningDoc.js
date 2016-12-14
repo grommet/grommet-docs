@@ -25,7 +25,7 @@ export default class SpinningDoc extends Component {
         <section>
           <h2>Usage</h2>
           <Code preamble={
-            `import Spinning from 'grommet/components/Spinning';`}>
+            `import Spinning from 'grommet/components/icons/Spinning';`}>
             <Spinning />
           </Code>
         </section>
