@@ -160,6 +160,9 @@ export default class AllFieldTypes extends Component {
         <FormField label='input - file' htmlFor='f-file'>
           <input id='f-file' name='file' type='file' />
         </FormField>
+        <FormField label='input - color' htmlFor='f-color'>
+          <input id='f-color' name='color' type='color' />
+        </FormField>
 
         <FormField label='Table'>
           <Table selectable={true}>
