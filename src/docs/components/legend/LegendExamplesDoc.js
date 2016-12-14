@@ -7,17 +7,15 @@ import InteractiveExample from '../../../components/InteractiveExample';
 Legend.displayName = 'Legend';
 
 const PROPS_SCHEMA = {
+  onClick: { value: true, initial: true },
   total: { value: true },
   units: { value: 'B' }
 };
 
 const SERIES = [
-  {label: 'Americas', value: 40,
-    colorIndex: 'graph-1', onClick: () => alert('Americas') },
-  {label: 'Europe', value: 20,
-    colorIndex: 'unset', onClick: () => alert('Europe') },
-  {label: 'Asia', value: 15,
-    colorIndex: 'graph-3', onClick: () => alert('Asia') }
+  {label: 'Americas', value: 40, colorIndex: 'graph-1' },
+  {label: 'Europe', value: 20, colorIndex: 'unset' },
+  {label: 'Asia', value: 15, colorIndex: 'graph-3' }
 ];
 
 export default class LegendExamplesDoc extends Component {
@@ -29,7 +27,13 @@ export default class LegendExamplesDoc extends Component {
 
   render () {
     const { elementProps } = this.state;
-    const element = <Legend series={SERIES} {...elementProps} />;
+    let series = SERIES;
+    if (elementProps.onClick) {
+      series = SERIES.map(s => ({ ...s, onClick: () => alert(s.label) }));
+      delete elementProps.onClick;
+    }
+
+    const element = <Legend series={series} {...elementProps} />;
     return (
       <InteractiveExample contextLabel='Legend' contextPath='/docs/legend'
         preamble={`import Legend from 'grommet/components/Legend';`}
