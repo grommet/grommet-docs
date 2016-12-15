@@ -64,7 +64,7 @@ export default class Start extends Component {
           <Tiles flush={false} justify='center' align='center'>
             <ProjectTile name='Ferret'
               description='Administration'
-              url='https://ferret.grommet.io'
+              url='http://ferret.grommet.io/dashboard'
               githubUrl='https://github.com/grommet/grommet-ferret'
               image={<Image src='/img/ferret.png' />} />
             <ProjectTile name='Pathfinder'
