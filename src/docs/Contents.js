@@ -212,13 +212,13 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
-    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
-    { path: 'infographic', label: 'Infographic',
-      component: InfographicDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'sub-page', label: 'Sub Page', component: SubPageDoc },
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
     { path: 'vertical-narrative', label: 'Vertical Narrative', 
-      component: VerticalNarrativeDoc }
+      component: VerticalNarrativeDoc },
+    { path: 'infographic', label: 'Infographic',
+      component: InfographicDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
