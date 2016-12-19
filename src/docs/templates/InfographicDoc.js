@@ -63,19 +63,33 @@ export default class InfographicDoc extends Component {
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-5" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box colorIndex="light-1" pad="large" separator="all" 
+                    align="center">
+                    Box
+                  </Box>
                   <Box direction="row" pad={{ between: 'medium' }}
                     responsive={false}>
-                    <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" basis="1/3" pad="large"
-                      separator="all" />
+                    <Box colorIndex="light-1" basis="1/3" pad="medium"
+                      separator="all" justify="center" align="center"
+                      textAlign="center">
+                      Meter
+                    </Box>
+                    <Box colorIndex="light-1" basis="1/3" pad="medium"
+                      separator="all" justify="center" align="center"
+                      textAlign="center">
+                      Chart
+                    </Box>
+                    <Box colorIndex="light-1" basis="1/3" pad="medium"
+                      separator="all" justify="center" align="center"
+                      textAlign="center">
+                      World Map
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -84,28 +98,58 @@ export default class InfographicDoc extends Component {
               <Label margin="small">Tablet</Label>
               <Box separator="all" responsive={false}
                 size={{width: {min: "small"}}}>
-                <Header size="small" colorIndex="grey-5" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box colorIndex="light-1" pad="medium" separator="all" />
-                  <Box colorIndex="light-1" pad="medium" separator="all" />
-                  <Box colorIndex="light-1" pad="medium" separator="all" />
+                   <Box colorIndex="light-1" pad="large" separator="all"
+                    justify="center" direction="row" responsive={false}>
+                    <Box pad="small" />
+                    Box
+                    <Box pad="small" />
+                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all"
+                    align="center">
+                    Meter
+                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all"
+                    align="center">
+                    Chart
+                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all"
+                    align="center">
+                    World Map
+                  </Box>
                 </Box>
               </Box>
             </Box>
             <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all" responsive={false}>
-                <Header size="small" colorIndex="grey-5" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box colorIndex="light-1" pad="medium" separator="all" />
-                  <Box colorIndex="light-1" pad="medium" separator="all" />
-                  <Box colorIndex="light-1" pad="medium" separator="all" />
+                  <Box colorIndex="light-1" pad="large" separator="all"
+                    align="center">
+                    Box
+                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all"
+                    align="center">
+                    Meter
+                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all"
+                    align="center">
+                    Chart
+                  </Box>
+                  <Box colorIndex="light-1" pad="medium" separator="all"
+                    align="center">
+                    World Map
+                  </Box>
                 </Box>
               </Box>
             </Box>

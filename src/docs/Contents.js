@@ -60,10 +60,10 @@ import CheckBoxExamplesDoc from './components/checkbox/CheckBoxExamplesDoc';
 import ColumnsDoc from './components/columns/ColumnsDoc';
 import ColumnsExamplesDoc from './components/columns/ColumnsExamplesDoc';
 import Components from './Components';
-import InfographicDoc from './patterns/InfographicDoc';
+import InfographicDoc from './templates/InfographicDoc';
 import DateTimeDoc from './components/date-time/DateTimeDoc';
 import DateTimeExamplesDoc from './components/date-time/DateTimeExamplesDoc';
-import DetailsPageDoc from './patterns/DetailsPageDoc';
+import DetailsPageDoc from './templates/DetailsPageDoc';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
@@ -107,14 +107,14 @@ import MenuDoc from './components/menu/MenuDoc';
 import MenuExamplesDoc from './components/menu/MenuExamplesDoc';
 import MeterDoc from './components/meter/MeterDoc';
 import MeterExamplesDoc from './components/meter/MeterExamplesDoc';
-import NavigationDoc from './patterns/NavigationDoc';
+import NavigationDoc from './templates/NavigationDoc';
 import NotificationDoc from './components/notification/NotificationDoc';
 import NotificationExamplesDoc from
   './components/notification/NotificationExamplesDoc';
 import NumberInputDoc from './components/NumberInputDoc';
 import ParagraphDoc from './components/paragraph/ParagraphDoc';
 import ParagraphExamplesDoc from './components/paragraph/ParagraphExamplesDoc';
-import PrimaryPageDoc from './patterns/PrimaryPageDoc';
+import PrimaryPageDoc from './templates/PrimaryPageDoc';
 import PulseDoc from './components/PulseDoc';
 import QueryDoc from './utils/QueryDoc';
 import QuoteDoc from './components/quote/QuoteDoc';
@@ -142,7 +142,7 @@ import SplitDoc from './components/split/SplitDoc';
 import SplitExamplesDoc from './components/split/SplitExamplesDoc';
 import Start from './Start';
 import StatusDoc from './components/StatusDoc';
-import SubPageDoc from './patterns/SubPageDoc';
+import SubPageDoc from './templates/SubPageDoc';
 import SunBurstDoc from './components/sun-burst/SunBurstDoc';
 import SunBurstExamplesDoc from './components/sun-burst/SunBurstExamplesDoc';
 import TableDoc from './components/table/TableDoc';
@@ -165,7 +165,7 @@ import TopologyDoc from './components/topology/TopologyDoc';
 import TopologyExamplesDoc from './components/topology/TopologyExamplesDoc';
 import ValueDoc from './components/value/ValueDoc';
 import ValueExamplesDoc from './components/value/ValueExamplesDoc';
-import VerticalNarrativeDoc from './patterns/VerticalNarrativeDoc';
+import VerticalNarrativeDoc from './templates/VerticalNarrativeDoc';
 import VideoDoc from './components/video/VideoDoc';
 import VideoExamplesDoc from './components/video/VideoExamplesDoc';
 import WorldMapDoc from './components/world-map/WorldMapDoc';
@@ -212,13 +212,13 @@ export default [
   { label: 'Showcase', path: '/docs/showcase', component: Showcase,
     plain: true },
   { label: 'Templates', path: 'templates', component: Templates, contents: [
-    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
-    { path: 'infographic', label: 'Infographic',
-      component: InfographicDoc },
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'sub-page', label: 'Sub Page', component: SubPageDoc },
+    { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
     { path: 'vertical-narrative', label: 'Vertical Narrative', 
-      component: VerticalNarrativeDoc }
+      component: VerticalNarrativeDoc },
+    { path: 'infographic', label: 'Infographic',
+      component: InfographicDoc }
   ]},
   { label: 'Components', path: 'components', index: Components, contents: [
     { label: 'Layout', contents: [
