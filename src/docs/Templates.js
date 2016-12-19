@@ -11,8 +11,8 @@ import DocsArticle from '../components/DocsArticle';
 
 const TEMPLATES = [
   {
-    title: 'Primary',
-    desc: `a bold presentation that uses a large Marquee to 
+    title: 'Primary Page',
+    desc: `A bold presentation that uses a large Marquee to 
       capture the attention of users.`,
     path: '/docs/primary-page',
     wireframe: (
@@ -62,7 +62,7 @@ const TEMPLATES = [
       </Box>
     )
   },{
-    title: 'Detail',
+    title: 'Detail Page',
     desc: `Highlight feature content in the interior of your project.`,
     path: '/docs/detail-page',
     wireframe: (
@@ -112,7 +112,7 @@ const TEMPLATES = [
     )
   },{
     title: 'Infographic',
-    desc: `Display data or illustrations views
+    desc: `Display data or illustration views
       specifically for visual storytelling.`,
     path: '/docs/infographic',
     wireframe: (
