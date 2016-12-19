@@ -65,19 +65,24 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-5" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="small" separator="all" 
+                  <Box colorIndex="light-1" separator="all" 
                   align="center" justify="end"
+                    pad={{ vertical: 'small', horizontal: 'large' }}
                     size={{
                       height: {min: 'small'}, 
                       width: {min: 'small'}
                     }}>
-                    <Box direction="row" pad="medium">
-                      <Box pad="large" />
-                      <Box pad="large" />
+                    <Box justify="center" flex="grow" direction="row"
+                      responsive={false} align="center">
+                      <Box pad="medium" />
+                      Article
+                      <Box pad="medium" />
                     </Box>
                     <LinkDownIcon size="small" />
                   </Box>
@@ -87,16 +92,25 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Tablet</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-5" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="small" separator="all" 
+                  <Box colorIndex="light-1" separator="all" 
                   align="center" justify="end"
+                    pad={{ vertical: 'small', horizontal: 'large' }}
                     size={{
                       height: {min: 'small'}, 
                       width: {min: 'small'}
                     }}>
+                    <Box justify="center" flex="grow" direction="row"
+                      responsive={false} align="center">
+                      <Box pad="small" />
+                      Article
+                      <Box pad="small" />
+                    </Box>
                     <LinkDownIcon size="small" />
                   </Box>
                 </Box>
@@ -105,16 +119,22 @@ export default class VerticalNarrativeDoc extends Component {
             <Box>
               <Label margin="small">Palm</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-5" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="small" separator="all" 
+                  <Box colorIndex="light-1" separator="all" 
                   align="center" justify="end"
+                    pad={{ vertical: 'small', horizontal: 'small' }}
                     size={{
-                      height: {min: 'small'}
+                      height: {min: 'small'}, 
+                      width: {min: 'xsmall'}
                     }}>
-                    <Box pad={{horizontal: 'large'}}/>
+                    <Box justify="center" flex="grow" align="center">
+                      Article
+                    </Box>
                     <LinkDownIcon size="small" />
                   </Box>
                 </Box>

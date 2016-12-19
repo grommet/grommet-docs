@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
+import Footer from 'grommet/components/Footer';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
@@ -61,59 +62,106 @@ export default class SubPageDoc extends Component {
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} responsive={false}
-            wrap={true}>
+          <Box direction="row" pad={{between: 'small'}} wrap={true}
+            responsive={false}>
             <Box>
               <Label margin="small">Desktop</Label>
               <Box separator="all">
-                <Header size="small" colorIndex="grey-5" />
-                <Box colorIndex="light-1" pad="large" separator="bottom" />
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
+                <Box pad="large" separator="bottom" align="center">
+                  Hero
+                </Box>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box colorIndex="light-1" pad="large" separator="all" 
+                    align="center" justify="center">
+                    Section
+                  </Box>
                   <Box direction="row" pad={{ between: 'medium' }}
                     responsive={false}>
                     <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
+                      separator="all" align="center" justify="center">
+                      Card
+                    </Box>
                     <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
+                      separator="all" align="center" justify="center">
+                      Card
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
+                <Footer colorIndex="grey-5" justify="center">
+                  Footer
+                </Footer>
+              </Box>  
             </Box>
             <Box>
               <Label margin="small">Tablet</Label>
-              <Box separator="all" responsive={false}>
-                <Header size="small" colorIndex="grey-5" />
-                <Box colorIndex="light-1" pad="large" separator="bottom" />
+              <Box separator="all">
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
+                <Box pad="large" separator="bottom" align="center">
+                  Hero
+                </Box>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box colorIndex="light-1" pad="large" separator="all" 
+                    align="center">
+                    Section
+                  </Box>
                   <Box direction="row" pad={{ between: 'medium' }}
                     responsive={false}>
-                    <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
-                    <Box colorIndex="light-1" basis="1/2" pad="large"
-                      separator="all" />
+                    <Box colorIndex="light-1" basis="1/2" pad="medium"
+                      separator="all">
+                      Card
+                    </Box>
+                    <Box colorIndex="light-1" basis="1/2" pad="medium"
+                      separator="all">
+                      Card
+                    </Box>
                   </Box>
                 </Box>
+                <Footer colorIndex="grey-5" justify="center">
+                  Footer
+                </Footer>
               </Box>
             </Box>
             <Box>
+              <Box>
               <Label margin="small">Palm</Label>
-              <Box separator="all" responsive={false}>
-                <Header size="small" colorIndex="grey-5" />
-                <Box colorIndex="light-1" pad="large" separator="bottom" />
+              <Box separator="all">
+                <Header size="small" colorIndex="grey-5" justify="center">
+                  Header
+                </Header>
+                <Box pad="large" separator="bottom" align="center">
+                  Hero
+                </Box>
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box colorIndex="light-1" pad="large" separator="all" />
-                  <Box colorIndex="light-1" pad="large" separator="all" />
+                  <Box colorIndex="light-1" pad="medium" separator="all">
+                    Section
+                  </Box>
+                  <Box pad={{ between: 'medium' }}>
+                    <Box colorIndex="light-1" pad="small"
+                      separator="all" align="center">
+                      Card
+                    </Box>
+                    <Box colorIndex="light-1" pad="small"
+                      separator="all" align="center">
+                      Card
+                    </Box>
+                  </Box>
                 </Box>
+                <Footer colorIndex="grey-5" justify="center">
+                  Footer
+                </Footer>
               </Box>
+            </Box>
             </Box>
           </Box>
         </Section>
