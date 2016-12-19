@@ -12,6 +12,8 @@ import DocsArticle from '../components/DocsArticle';
 const TEMPLATES = [
   {
     title: 'Primary',
+    desc: `a bold presentation that uses a large Marquee to 
+      capture the attention of users.`,
     path: '/docs/primary-page',
     wireframe: (
       <Box separator="all" responsive={false}
@@ -37,6 +39,8 @@ const TEMPLATES = [
     )
   },{
     title: 'Sub Page',
+    desc: `Useful when structuring an interior navigation hub 
+      for a project.`,
     path: '/docs/sub-page',
     wireframe: (
       <Box separator="all" responsive={false}
@@ -59,6 +63,7 @@ const TEMPLATES = [
     )
   },{
     title: 'Detail',
+    desc: `Highlight feature content in the interior of your project.`,
     path: '/docs/detail-page',
     wireframe: (
       <Box separator="all" responsive={false}
@@ -90,6 +95,8 @@ const TEMPLATES = [
     )
   },{
     title: 'Vertical Narrative',
+    desc: `A slideshow presentation with horizontal transitions, 
+      best for storytelling.`,
     path: '/docs/vertical-narrative',
     wireframe: (
       <Box separator="all" responsive={false}
@@ -105,6 +112,8 @@ const TEMPLATES = [
     )
   },{
     title: 'Infographic',
+    desc: `Display data or illustrations views
+      specifically for visual storytelling.`,
     path: '/docs/infographic',
     wireframe: (
       <Box separator="all" responsive={false}
@@ -128,13 +137,16 @@ const TEMPLATES = [
   }
 ];
 
-const TemplateTile = ({title, path, wireframe}) => 
-  <Box>
+const TemplateTile = ({desc, title, path, wireframe}) => 
+  <Box size={{ width:  'small' }}>
     <Button path={path}>
       {wireframe}
     </Button>
     <Box pad={{vertical: 'small'}}>
       <Anchor label={title} path={path} />
+      <Paragraph margin="small">
+        {desc}
+      </Paragraph>
     </Box>
     <Box pad="small" />
   </Box>;
@@ -142,8 +154,10 @@ const TemplateTile = ({title, path, wireframe}) =>
 export default class Templates extends Component {
 
   render () {
-    const templates = TEMPLATES.map(({title, path, wireframe}) => <TemplateTile 
-      title={title} path={path} wireframe={wireframe} />);
+    const templates = TEMPLATES.map(({desc, title, path, wireframe}, index) => 
+      <TemplateTile 
+        title={title} path={path} wireframe={wireframe} desc={desc}
+        key={`template-${index}`}/>);
 
     return (
       <DocsArticle title="Templates">
