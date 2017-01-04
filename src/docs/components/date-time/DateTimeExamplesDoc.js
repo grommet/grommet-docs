@@ -8,7 +8,9 @@ import InteractiveExample from '../../../components/InteractiveExample';
 
 const PROPS_SCHEMA = {
   format: {
-    options: ['M/D/YYYY h:mm a', 'M/D/YYYY', 'D/M/YYYY', 'H:mm:ss', 'h a']
+    options: [
+      'M/D/YYYY h:mm a', 'M/D/YYYY', 'D/M/YYYY', 'H:mm:ss', 'h a', 'M/YYYY'
+    ]
   },
   step: { options: [1, 5] }
 };
@@ -18,7 +20,17 @@ export default class HeadlineExamplesDoc extends Component {
   constructor () {
     super();
     this._onChange = this._onChange.bind(this);
+    this._onPropsChange = this._onPropsChange.bind(this);
     this.state = { elementProps: {} };
+  }
+
+  _onPropsChange (nextElementProps) {
+    const { elementProps, value } = this.state;
+    let nextValue = value;
+    if (nextElementProps.format !== elementProps.format) {
+      nextValue = undefined;
+    }
+    this.setState({ elementProps: nextElementProps, value: nextValue });
   }
 
   _onChange (value) {
@@ -40,7 +52,7 @@ export default class HeadlineExamplesDoc extends Component {
         preamble={`import DateTime from 'grommet/components/DateTime';`}
         propsSchema={PROPS_SCHEMA}
         element={element}
-        onChange={elementProps => this.setState({ elementProps })} />
+        onChange={this._onPropsChange} />
     );
   }
 };
