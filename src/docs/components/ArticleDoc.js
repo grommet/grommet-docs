@@ -57,8 +57,8 @@ export default class ArticleDoc extends Component {
             <dd>Whether to allow keyboard control of stepped scrolling through
             children. When true, directional keys will step through the
             children, depending on the direction they are laid out.
-            If the spacebar is pressed, the children will automatically
-            be stepped through at an interval of ten seconds per child.</dd>
+            Note: You cannot use <code>full={'{true}'}</code> with this
+            property.</dd>
           </dl>
           <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
           also available.</p>
