@@ -47,3 +47,5 @@ export default class SampleArticle extends Component {
     );
   }
 };
+
+SampleArticle.displayName = 'SampleArticle';
