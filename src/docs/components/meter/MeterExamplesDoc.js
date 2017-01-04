@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Meter from 'grommet/components/Meter';
@@ -27,7 +27,7 @@ const CONTENTS_SCHEMA = {
   limits: { value: true }
 };
 
-export default class HeaderExamplesDoc extends Component {
+export default class MeterExamplesDoc extends Component {
 
   constructor () {
     super();

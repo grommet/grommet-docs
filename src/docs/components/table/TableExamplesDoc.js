@@ -9,6 +9,7 @@ Table.displayName = 'Table';
 TableRow.displayName = 'TableRow';
 
 const PROPS_SCHEMA = {
+  onMore: { options: ['none', 'func'] },
   selectable: { options: ['false', 'true', 'multiple'] },
   scrollable: { value: true }
 };
@@ -17,6 +18,7 @@ const CONTENTS_SCHEMA = {
   header: { value: (
     <thead>
       <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Note</th>
       </tr>
@@ -24,29 +26,36 @@ const CONTENTS_SCHEMA = {
   ), initial: true }
 };
 
-const TABLE_BODY = (
-  <tbody>
-    <TableRow>
-      <td>Alan</td>
-      <td>plays accordion</td>
-    </TableRow>
-    <TableRow>
-      <td>Tracy</td>
-      <td>travels the world</td>
-    </TableRow>
-    <TableRow>
-      <td>Chris</td>
-      <td>drops the mic</td>
-    </TableRow>
-  </tbody>
-);
+const DATA = [
+  {uid: 1, name: 'Alan', activity: 'plays accordion'},
+  {uid: 2, name: 'Chris', activity: 'drops the mic'},
+  {uid: 3, name: 'Eric', activity: 'rides a bike'},
+  {uid: 4, name: 'Tracy', activity: 'travels the world'}
+];
 
 export default class TableExamplesDoc extends Component {
 
   constructor () {
     super();
+    this._onChange = this._onChange.bind(this);
+    this._onMore = this._onMore.bind(this);
     this._onSelect = this._onSelect.bind(this);
-    this.state = { contents: {}, elementProps: {} };
+    this.state = { contents: {}, data: DATA, elementProps: {} };
+  }
+
+  _onChange (elementProps, contents) {
+    let data = this.state.data;
+    if ('func' !== elementProps.onMore) {
+      data = DATA.slice(0);
+    }
+    this.setState({ contents, data, elementProps });
+  }
+
+  _onMore () {
+    let data = this.state.data.slice(0);
+    data = data.concat(DATA.map((d, i) => ({
+      ...d, uid: (data.length + i + 1) })));
+    this.setState({ data });
   }
 
   _onSelect (selection) {
@@ -54,7 +63,7 @@ export default class TableExamplesDoc extends Component {
   }
 
   render () {
-    const { contents, elementProps } = this.state;
+    const { contents, data, elementProps } = this.state;
     const props = { ...elementProps };
 
     if ('multiple' === props.selectable) {
@@ -66,10 +75,25 @@ export default class TableExamplesDoc extends Component {
       delete props.selectable;
     }
 
+    if ('func' === props.onMore) {
+      props.onMore = this._onMore;
+    } else {
+      delete props.onMore;
+    }
+
+    let rows = data.map((datum, index) => (
+      <TableRow key={datum.uid}>
+        <td>{datum.uid}</td>
+        <td>{datum.name}</td>
+        <td className='secondary'>{datum.activity}</td>
+      </TableRow>
+    ));
     const element = (
       <Table {...props}>
         {contents.header}
-        {TABLE_BODY}
+        <tbody>
+          {rows}
+        </tbody>
       </Table>
     );
 
@@ -81,9 +105,7 @@ export default class TableExamplesDoc extends Component {
         contentsSchema={CONTENTS_SCHEMA}
         align='stretch'
         element={element}
-        onChange={(elementProps, contents) => {
-          this.setState({ elementProps, contents });
-        }} />
+        onChange={this._onChange} />
     );
   }
 };

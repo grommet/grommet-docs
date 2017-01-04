@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Tiles from 'grommet/components/Tiles';
@@ -17,21 +17,40 @@ Tile.displayName = 'Tile';
 const PROPS_SCHEMA = {
   fill: { value: true },
   flush: { value: true },
+  onMore: { options: ['none', 'func'] },
   selectable: { options: ['false', 'true', 'multiple'] }
 };
 
 const CONTENTS_SCHEMA = {
   contents: { options: ['Image', 'Card', 'resource'] },
-  count: { options: [1, 3, 4, 10] },
+  count: { options: ['1', '3', '4', '10'] },
   basis: { options: ['1/4', '1/3', '1/2'] }
 };
 
-export default class HeaderExamplesDoc extends Component {
+export default class TilesExamplesDoc extends Component {
 
   constructor () {
     super();
+    this._onChange = this._onChange.bind(this);
+    this._onMore = this._onMore.bind(this);
     this._onSelect = this._onSelect.bind(this);
-    this.state = { contents: { count: 4 }, elementProps: {} };
+    this.state = { contents: { count: '4' }, lazyCount: 4, elementProps: {} };
+  }
+
+  _onChange (elementProps, contents) {
+    let { lazyCount } = this.state;
+    if (! contents.count) {
+      contents.count = '4';
+    }
+    if ('func' !== elementProps.onMore) {
+      lazyCount = parseInt(contents.count, 10);
+    }
+    this.setState({ contents, elementProps, lazyCount });
+  }
+
+  _onMore () {
+    let { contents: { count }, lazyCount } = this.state;
+    this.setState({ lazyCount: lazyCount + parseInt(count, 10) });
   }
 
   _onSelect (selection) {
@@ -39,7 +58,7 @@ export default class HeaderExamplesDoc extends Component {
   }
 
   render () {
-    let { contents, elementProps } = this.state;
+    let { contents, elementProps, lazyCount } = this.state;
     const props = { ...elementProps };
 
     if ('multiple' === props.selectable) {
@@ -51,22 +70,28 @@ export default class HeaderExamplesDoc extends Component {
       delete props.selectable;
     }
 
+    if ('func' === props.onMore) {
+      props.onMore = this._onMore;
+    } else {
+      delete props.onMore;
+    }
+
     let tiles = [];
-    for (let i=0; i<(contents.count || 4); i++) {
+    for (let i=0; i<lazyCount; i++) {
       let content;
       if ('Card' === contents.contents || ! contents.contents) {
         content = (
-          <Tile>
+          <Tile key={i}>
             <Card thumbnail='/img/carousel-1.png' heading='Sample Heading'
               label='Sample Label'
               description='Sample description providing more details.' />
           </Tile>
         );
       } else if ('Image' === contents.contents) {
-        content = <Tile><Image src='/img/carousel-1.png' /></Tile>;
+        content = <Tile key={i}><Image src='/img/carousel-1.png' /></Tile>;
       } else if ('resource' === contents.contents) {
         content = (
-          <Tile separator='top' align='start' basis={contents.basis}>
+          <Tile key={i} separator='top' align='start' basis={contents.basis}>
             <Header size='small' pad={{ horizontal: 'small' }}>
               <Heading tag='h4' strong={true} margin='none'>
                 {`Tile ${i+1}`}
@@ -93,9 +118,7 @@ export default class HeaderExamplesDoc extends Component {
         propsSchema={PROPS_SCHEMA}
         contentsSchema={CONTENTS_SCHEMA}
         element={element}
-        onChange={(elementProps, contents) => {
-          this.setState({ elementProps, contents });
-        }} />
+        onChange={this._onChange} />
     );
   }
 };

@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import List from 'grommet/components/List';
@@ -9,6 +9,7 @@ List.displayName = 'List';
 ListItem.displayName = 'ListItem';
 
 const PROPS_SCHEMA = {
+  onMore: { options: ['none', 'func'] },
   selectable: { options: ['false', 'true', 'multiple'] }
 };
 
@@ -22,8 +23,25 @@ export default class ListExamplesDoc extends Component {
 
   constructor () {
     super();
+    this._onChange = this._onChange.bind(this);
+    this._onMore = this._onMore.bind(this);
     this._onSelect = this._onSelect.bind(this);
-    this.state = { elementProps: {} };
+    this.state = { data: DATA, elementProps: {} };
+  }
+
+  _onChange (elementProps) {
+    let data = this.state.data;
+    if ('func' !== elementProps.onMore) {
+      data = DATA.slice(0);
+    }
+    this.setState({ data, elementProps });
+  }
+
+  _onMore () {
+    let data = this.state.data.slice(0);
+    data = data.concat(DATA.map((d, i) => ({
+      ...d, uid: (data.length + i + 1) })));
+    this.setState({ data });
   }
 
   _onSelect (selection) {
@@ -31,8 +49,9 @@ export default class ListExamplesDoc extends Component {
   }
 
   render () {
-    const { elementProps } = this.state;
+    const { data, elementProps } = this.state;
     const props = { ...elementProps };
+
     if ('multiple' === props.selectable) {
       props.onSelect = this._onSelect;
     } else if ('true' === props.selectable) {
@@ -42,7 +61,13 @@ export default class ListExamplesDoc extends Component {
       delete props.selectable;
     }
 
-    let items = DATA.map((datum, index) => {
+    if ('func' === props.onMore) {
+      props.onMore = this._onMore;
+    } else {
+      delete props.onMore;
+    }
+
+    let items = data.map((datum, index) => {
       let itemProps = {};
       if (0 === index) {
         itemProps.separator = 'horizontal';
@@ -63,7 +88,7 @@ export default class ListExamplesDoc extends Component {
         propsSchema={PROPS_SCHEMA}
         align='stretch'
         element={element}
-        onChange={elementProps => this.setState({ elementProps })} />
+        onChange={this._onChange} />
     );
   }
 };

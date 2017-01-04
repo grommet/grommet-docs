@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Button from 'grommet/components/Button';
@@ -7,6 +7,9 @@ import InteractiveExample from '../../../components/InteractiveExample';
 import SampleArticle from '../samples/SampleArticle';
 import ConfirmationForm from '../samples/ConfirmationForm';
 import FullForm from '../samples/FullForm';
+import LazyList from '../samples/LazyList';
+import LazyTiles from '../samples/LazyTiles';
+import LazyTable from '../samples/LazyTable';
 
 Layer.displayName = 'Layer';
 
@@ -17,7 +20,9 @@ const PROPS_SCHEMA = {
 };
 
 const CONTENTS_SCHEMA = {
-  contents: { options: ['article', 'form', 'confirmation'] }
+  contents: { options: [
+    'article', 'form', 'confirmation', 'lazy list', 'lazy tiles', 'lazy table'
+  ] }
 };
 
 export default class ColumnsExamplesDoc extends Component {
@@ -48,6 +53,12 @@ export default class ColumnsExamplesDoc extends Component {
       content = (
         <ConfirmationForm onCancel={this._onClose} onSubmit={this._onClose} />
       );
+    } else if ('lazy list' === contents.contents) {
+      content = <LazyList />;
+    } else if ('lazy tiles' === contents.contents) {
+      content = <LazyTiles />;
+    } else if ('lazy table' === contents.contents) {
+      content = <LazyTable />;
     }
 
     const layer = (

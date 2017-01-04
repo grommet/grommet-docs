@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Form from 'grommet/components/Form';
@@ -42,7 +42,7 @@ const CONTENTS_SCHEMA = {
   ), initial: true }
 };
 
-export default class HeaderExamplesDoc extends Component {
+export default class FormExamplesDoc extends Component {
 
   constructor () {
     super();

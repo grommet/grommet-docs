@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Menu from 'grommet/components/Menu';
@@ -42,7 +42,7 @@ const CONTENTS_SCHEMA = {
   ] }
 };
 
-export default class HeaderExamplesDoc extends Component {
+export default class MenuExamplesDoc extends Component {
 
   constructor () {
     super();

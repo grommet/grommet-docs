@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Chart, {
@@ -76,7 +76,7 @@ function noUndefined(obj) {
   return obj;
 }
 
-export default class HeaderExamplesDoc extends Component {
+export default class ChartExamplesDoc extends Component {
 
   constructor () {
     super();

@@ -46,6 +46,7 @@
   "scripts": {
     "build": "gulp dist",
     "dev": "gulp dev",
+    "dev:alias": "gulp dev --useAlias",
     "alias": "gulp dev --useAlias"
   }
 }
