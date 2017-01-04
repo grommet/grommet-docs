@@ -57,7 +57,6 @@ export default class SelectExamplesDoc extends Component {
   }
 
   _onChange (event) {
-    console.log('!!! _onChange', event);
     const value = event.value.value || event.value;
     this.setState({ value });
   }
