@@ -33,7 +33,7 @@ export default class AnnotatedMeterExamplesDoc extends Component {
       <InteractiveExample contextLabel='AnnotatedMeter'
         contextPath='/docs/annotated-meter'
         preamble={
-          `import AnnotatedMeter from 'grommet/components/AnnotatedMeter';`
+          `import AnnotatedMeter from 'grommet-addons/components/AnnotatedMeter';`
         }
         propsSchema={PROPS_SCHEMA}
         element={element}
