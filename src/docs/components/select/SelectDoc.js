@@ -60,12 +60,15 @@ export default class SelectDoc extends Component {
             <dt><code>multiple      true|false</code></dt>
             <dd>Whether to allow multiple options to be selected. The
               default is <code>false</code>.</dd>
-            <dt><code>onChange      {"{function ({target: , option: })}"}
+            <dt><code>onChange      {
+                "{function ({target: , option: , value: })}"}
               </code></dt>
-            <dd>Function that will be called when the user selects a option.
-              The target corresponds to the embedded input element, allowing you
-              to distinguish which component triggered the event. The option
-              contains the object chosen from the supplied options.</dd>
+            <dd>Function that will be called when the user selects an option.
+              The <code>target</code> corresponds to the embedded input
+              element, allowing you to distinguish which component triggered
+              the event. The <code>option</code> contains the object chosen
+              from the supplied options. The <code>value</code> contains
+              all selected options when <code>multiple={'{true}'}</code>.</dd>
             <dt><code>onSearch      {"{function (event)}"}</code></dt>
             <dd>Function that will be called when the user types in the
               search input. If this property is not provided, no search

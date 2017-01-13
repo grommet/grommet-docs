@@ -76,7 +76,7 @@ export default class AllFieldTypes extends Component {
             onDOMChange={this._domChange('text')}
             onSelect={this._change('text')} />
         </FormField>
-        <FormField label='input[text]' htmlFor='f-input'>
+        <FormField label='input - text' htmlFor='f-input'>
           <input id='f-input' name='input' type='text'
             value={text} onChange={this._change('text')} />
         </FormField>

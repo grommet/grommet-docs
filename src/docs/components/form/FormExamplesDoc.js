@@ -51,7 +51,6 @@ export default class FormExamplesDoc extends Component {
 
   render () {
     let { contents, elementProps } = this.state;
-    console.log('!!! FED', contents);
 
     const element = (
       <Form {...elementProps}>
