@@ -71,7 +71,7 @@ export default class GetStartedDoc extends Component {
               </Commands>
             </li>
             <li>
-            	<p>Use the Grommet generator to bootstrap your new app.</p>
+              <p>Use the Grommet generator to bootstrap your new app.</p>
               <Commands>
                 {"grommet new sample-app"}
                 <br />
@@ -79,27 +79,36 @@ export default class GetStartedDoc extends Component {
               </Commands>
             </li>
             <li>
-            	<p>Start a development server with hot reload enabled.</p>
-              <Commands>gulp dev</Commands>
+              <p>Start a mock back-end server.</p>
+              <Commands>npm run dev-server</Commands>
             </li>
             <li>
-            	<p>Open http://localhost:9000/webpack-dev-server/</p>
-            	<p>
+              <p>Start a development server with hot reload enabled.</p>
+              <Commands>npm run dev</Commands>
+            </li>
+            <li>
+              <p>Run tests and check for linting issues.</p>
+              <Commands>npm test</Commands>
+            </li>
+            <li>
+              <p>Open http://localhost:3000/</p>
+              <p>
                 At this point, you should be able to see the
-                application dashboard running.
+                application login page. Any username and password is valid.
+                Have fun!
               </p>
             </li>
           </ol>
 
           <h3>Bower</h3>
           <ol>
-          	<li>
-          		<p>
+            <li>
+              <p>
                 Install <Anchor href="http://bower.io/" target="_blank">
                 Bower</Anchor> <i>(at least 1.x required)</i>.
               </p>
               <Commands>npm install -g bower</Commands>
-          	</li>
+            </li>
             <li>
               <p>
                 Create an environment variable with your proxy settings
