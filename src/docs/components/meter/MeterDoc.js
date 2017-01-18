@@ -54,8 +54,7 @@ export default class MeterDoc extends Component {
               For example: <code>'graph-1'</code></dd>
             <dt><code>label       {'{node}'}</code></dt>
             <dd>Callers are encouraged to use <Anchor path='/docs/value'>
-              Value</Anchor> to construct the appropriate label. Also
-              see deprecated options below.</dd>
+              Value</Anchor> to construct the appropriate label.</dd>
             <dt><code>max         {'{number}'}</code></dt>
             <dd>The largest possible value. Defaults to 100.</dd>
             <dt><code>min         {'{number}'}</code></dt>
@@ -90,9 +89,13 @@ export default class MeterDoc extends Component {
             <dt><code>vertical    true|false</code></dt>
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
           </dl>
-          <p>Note: to be visually discernable, very small values are given a
-            minimum visual size that is disproportionate to the scale of the
-            rest of the meter.</p>
+          <p>Note: It used to be that to be visually discernable,
+            very small values were given a minimum visual size that was
+            disproportionate to the scale of the rest of the meter. This
+            behavior was removed to give the caller more control of the
+            desired behavior. If values are too small to be discernable, it
+            is recommended to either group multiple small values into a single
+            "other" category or to skew the value to render it visible.</p>
         </section>
 
       </DocsArticle>
