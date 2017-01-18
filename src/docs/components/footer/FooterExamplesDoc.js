@@ -1,7 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Footer from 'grommet/components/Header';
+import Footer from 'grommet/components/Footer';
 import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
@@ -51,7 +51,7 @@ export default class FooterExamplesDoc extends Component {
     return (
       <InteractiveExample contextLabel='Footer' contextPath='/docs/footer'
         justify='start' align='stretch'
-        preamble={`import Header from 'grommet/components/Footer';`}
+        preamble={`import Footer from 'grommet/components/Footer';`}
         propsSchema={PROPS_SCHEMA}
         contentsSchema={CONTENTS_SCHEMA}
         element={element}
