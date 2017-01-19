@@ -310,6 +310,8 @@ export default class InteractiveExample extends Component {
             <ContextFields {...contextProps}
               onChange={this._onChangeContextProps} />
           </Form>
+          {/* Added so Select drop downs above have somewhere to expand to */}
+          <Box pad={{ vertical: 'xlarge' }} />
         </Sidebar>
 
         <Split flex='left' priority='left'>
