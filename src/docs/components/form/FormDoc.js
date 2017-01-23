@@ -68,6 +68,11 @@ export default class FormDoc extends Component {
               'vertical: none|small|medium|large}'}
             </code>. Defaults to <code>none</code>.
           </dd>
+          <dt><code>plain   true|false</code></dt>
+          <dd>
+            Whether the children should control the form width.
+            Defaults to false.
+          </dd>
           </dl>
         </section>
 
