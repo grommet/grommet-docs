@@ -15,31 +15,31 @@ import Anchor from 'grommet/components/Anchor';
 const teamMembers = [
   {
     name: 'Alan Souza',
-    avatar: '/docs/img/team/grommet-peep-alan.svg',
+    avatar: '/img/team/grommet-peep-alan.svg',
     twitter: 'https://twitter.com/alansouzati',
     github: 'https://github.com/alansouzati'
   },
   {
     name: 'Bryan Jacqout',
-    avatar: '/docs/img/team/grommet-peep-bryan.svg',
+    avatar: '/img/team/grommet-peep-bryan.svg',
     twitter: 'https://twitter.com/bryanjacquot',
     github: 'https://github.com/bryanjacquot'
   },
   {
     name: 'Chris Carlozzi',
-    avatar: '/docs/img/team/grommet-peep-chris.svg',
+    avatar: '/img/team/grommet-peep-chris.svg',
     twitter: 'https://twitter.com/cclozzi',
     github: 'https://github.com/L0ZZI'
   },
   {
     name: 'Eric Soderberg',
-    avatar: '/docs/img/team/grommet-peep-eric.svg',
+    avatar: '/img/team/grommet-peep-eric.svg',
     twitter: 'https://twitter.com/ericsoderberg',
     github: 'https://github.com/ericsoderberghp'
   },
   {
     name: 'Tracy Barmore',
-    avatar: '/docs/img/team/grommet-peep-tracy.svg',
+    avatar: '/img/team/grommet-peep-tracy.svg',
     twitter: 'https://twitter.com/tracybarmore',
     github: 'https://github.com/tracybarmore'
   }
@@ -53,45 +53,45 @@ export default class About extends Component {
 
         <Section>
           <Paragraph size="large">
-            Grommet came to the world from four individuals inside 
-            Hewlett Packard that wanted to make designing a modern 
-            web experience for enterprise companies (or anyone really) 
-            easy. Working day to day, the designer and developer 
-            hand off is always a point of contention when it 
-            comes to our productivity and ensuring a 
-            unique vision is delivered to 
+            Grommet came to the world from four individuals inside
+            Hewlett Packard that wanted to make designing a modern
+            web experience for enterprise companies (or anyone really)
+            easy. Working day to day, the designer and developer
+            hand off is always a point of contention when it
+            comes to our productivity and ensuring a
+            unique vision is delivered to
             customers—So that’s where we started.
           </Paragraph>
           <Paragraph size="medium">
-            Our team used years of design and development experience 
-            to form Grommet. Taking the knowledge from various 
-            web technologies and customer focused experiences, 
-            we ventured out to the community to bootstrap with 
-            the best tools out there. Initially using 
-            Facebook’s React.js, Node.js, and Inuit as the 
-            underlying technologies, and layering on a 
-            visual design system and with some secret sauce to 
-            tie it all together. This provided the 
-            flexibility needed to create a dynamic library of components and 
-            allow Grommet to be one of the leading React UI 
+            Our team used years of design and development experience
+            to form Grommet. Taking the knowledge from various
+            web technologies and customer focused experiences,
+            we ventured out to the community to bootstrap with
+            the best tools out there. Initially using
+            Facebook’s React.js, Node.js, and Inuit as the
+            underlying technologies, and layering on a
+            visual design system and with some secret sauce to
+            tie it all together. This provided the
+            flexibility needed to create a dynamic library of components and
+            allow Grommet to be one of the leading React UI
             Framework out there (horn toot).
           </Paragraph>
           <Paragraph size="medium">
-            We originally created Grommet to be a solution 
-            for our own organization’s needs. We quickly 
-            found the usefulness for a tool like this outside 
-            Hewlett Packard, and taking a note from our own 
-            founders, Dave and Bill, we shared it with the 
-            open source community with great response. As 
-            with any company, change is inevitabe, 
-            and change it did…Hewlett Packard became 
-            two companies. The split became proof that 
-            Grommet was not only a valuable tool 
+            We originally created Grommet to be a solution
+            for our own organization’s needs. We quickly
+            found the usefulness for a tool like this outside
+            Hewlett Packard, and taking a note from our own
+            founders, Dave and Bill, we shared it with the
+            open source community with great response. As
+            with any company, change is inevitabe,
+            and change it did…Hewlett Packard became
+            two companies. The split became proof that
+            Grommet was not only a valuable tool
             to the community, but to our own ecosystem.
           </Paragraph>
           <Paragraph size="medium">
-            Our goal is to continually enhance our 
-            toolset and make better experiences easier to create. 
+            Our goal is to continually enhance our
+            toolset and make better experiences easier to create.
           </Paragraph>
         </Section>
 
@@ -113,20 +113,20 @@ export default class About extends Component {
                 </Heading>
                 <Menu responsive={false} inline align="center">
                   <Anchor
-                    href={member.twitter} 
+                    href={member.twitter}
                     icon={
                       <SocialTwitterIcon
                         colorIndex="plain"
                         size="small"
                       />
-                    } 
+                    }
                   />
                   <Anchor
-                    href={member.github} 
+                    href={member.github}
                     icon={<SocialGithubIcon size="small" />}
                   />
                 </Menu>
-              </Box>  
+              </Box>
             )}
           </Box>
         </Section>
