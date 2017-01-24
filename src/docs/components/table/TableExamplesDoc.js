@@ -10,6 +10,7 @@ TableRow.displayName = 'TableRow';
 
 const PROPS_SCHEMA = {
   onMore: { options: ['none', 'func'] },
+  responsive: { value: true, initial: true },
   selectable: { options: ['false', 'true', 'multiple'] },
   scrollable: { value: true }
 };

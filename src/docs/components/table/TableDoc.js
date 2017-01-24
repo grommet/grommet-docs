@@ -64,6 +64,9 @@ export default class TableDoc extends Component {
               When only one item is selected, it returns the zero based index
               for that item. When multiple items are selected, it returns an
               array of those {'item\'s'} zero based indexes.</dd>
+            <dt><code>responsive    true|false</code></dt>
+            <dd>Whether rows should be switched to a column layout when
+              the display area narrows. Defaults to <code>true</code>.</dd>
             <dt><code>scrollable    true|false</code></dt>
             <dt><code>selectable    true|false|multiple</code></dt>
             <dd>Whether rows are selectable. <code>multiple</code> indicates
