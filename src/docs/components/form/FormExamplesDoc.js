@@ -63,9 +63,17 @@ export default class FormExamplesDoc extends Component {
       </Form>
     );
 
+    let preamble = `import Form from 'grommet/components/Form';`;
+    if (contents['all-types']) {
+      preamble +=
+        "\n// Please see the documentation for each" +
+        "\n// field's component for further example" +
+        "\n// details of that component.";
+    }
+
     return (
       <InteractiveExample contextLabel='Form' contextPath='/docs/form'
-        preamble={`import Form from 'grommet/components/Form';`}
+        preamble={preamble}
         propsSchema={PROPS_SCHEMA}
         contentsSchema={CONTENTS_SCHEMA}
         element={element}
