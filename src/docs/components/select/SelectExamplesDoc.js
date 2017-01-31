@@ -6,7 +6,7 @@ import Box from 'grommet/components/Box';
 import InteractiveExample from '../../../components/InteractiveExample';
 
 const PROPS_SCHEMA = {
-  placeHolder: { value: 'Search', initial: true },
+  placeHolder: { value: 'None', initial: true },
   inline: { value: true },
   multiple: { value: true },
   onSearch: { value: true },

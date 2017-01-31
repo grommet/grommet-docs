@@ -40,7 +40,7 @@ export default class TextInputDoc extends Component {
           <p>A text input field with optional suggestions.</p>
           <Form>
             <FormField>
-              <TextInput id='item1' name='item-1'
+              <TextInput id='item1' name='item-1' placeHolder='Number'
                 value={this.state.value} onDOMChange={this._onDOMChange}
                 onSelect={this._onSelect}
                 suggestions={this.state.suggestions} />
