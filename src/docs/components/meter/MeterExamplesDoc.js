@@ -10,7 +10,7 @@ import InteractiveExample from '../../../components/InteractiveExample';
 const PROPS_SCHEMA = {
   type: { options: ['bar', 'arc', 'circle', 'spiral'] },
   vertical: { value: true },
-  label: { value: <Value value={40} units='GB' /> },
+  label: { value: true },
   series: { value: [
     {label: 'Gen 7', value: 50, onClick: () => alert('50')},
     {label: 'Gen 8', value: 1, onClick: () => alert('1')},
@@ -19,7 +19,7 @@ const PROPS_SCHEMA = {
   ] },
   stacked: { value: true },
   threshold: { value: 90 },
-  size: { options: ['small', 'medium', 'large'] }
+  size: { options: ['xsmall', 'small', 'medium', 'large'] }
 };
 
 const CONTENTS_SCHEMA = {
@@ -80,6 +80,10 @@ export default class MeterExamplesDoc extends Component {
       delete propsSchema.threshold;
       delete contentsSchema.value;
       props.series = PROPS_SCHEMA.series.value;
+    }
+
+    if (props.label) {
+      props.label = <Value value={40} units='GB' size={props.size} />;
     }
 
     let element = (

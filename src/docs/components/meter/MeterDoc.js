@@ -70,7 +70,7 @@ export default class MeterDoc extends Component {
               Either this or the <code>value</code> property must be
               provided. The <code>spiral</code> type Meter also accepts a
               <code>label</code> property for the objects in the series.</dd>
-            <dt><code>size        small|medium|large</code></dt>
+            <dt><code>size        xsmall|small|medium|large</code></dt>
             <dd>The size of the Meter. Defaults to <code>medium</code>.
               Currently, the <code>spiral</code> type Meter does not respond
               to this property.</dd>
