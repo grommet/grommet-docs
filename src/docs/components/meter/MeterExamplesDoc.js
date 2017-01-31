@@ -10,7 +10,6 @@ import InteractiveExample from '../../../components/InteractiveExample';
 const PROPS_SCHEMA = {
   type: { options: ['bar', 'arc', 'circle', 'spiral'] },
   vertical: { value: true },
-  label: { value: true },
   series: { value: [
     {label: 'Gen 7', value: 50, onClick: () => alert('50')},
     {label: 'Gen 8', value: 1, onClick: () => alert('1')},
@@ -19,6 +18,7 @@ const PROPS_SCHEMA = {
   ] },
   stacked: { value: true },
   threshold: { value: 90 },
+  label: { value: true },
   size: { options: ['xsmall', 'small', 'medium', 'large'] }
 };
 
@@ -66,7 +66,7 @@ export default class MeterExamplesDoc extends Component {
       delete props.vertical;
       delete propsSchema.vertical;
       delete contentsSchema.value;
-      if (props.series) {
+      if (props.series && ! props.stacked) {
         delete props.label;
         delete propsSchema.label;
       }
