@@ -9,9 +9,9 @@ Image.displayName = 'Image';
 const PROPS_SCHEMA = {
   alt: { value: 'Sample alt' },
   caption: { value: 'Sample caption' },
-  full: { options: ['true', 'horizontal', 'vertical', 'false'] },
-  fit: { options: ['cover', 'contain'] },
-  size: { options: ['thumb', 'small', 'medium', 'large'] }
+  full: { options: [undefined, 'true', 'horizontal', 'vertical', 'false'] },
+  fit: { options: [undefined, 'cover', 'contain'] },
+  size: { options: [undefined, 'thumb', 'small', 'medium', 'large'] }
 };
 
 export default class ImageExamplesDoc extends Component {

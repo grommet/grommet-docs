@@ -26,17 +26,21 @@ const CONTENTS_PROP_REGEXP = /^i\-(.+)/;
 
 class PropFields extends Component {
 
-  _changeElement (property) {
+  _select (property) {
     return (event) => {
-      const { schema } = this.props;
       let active = { ...this.props.active };
-      const value =
-        (undefined === event.value) ? event.target.value : event.value;
-      if (schema[property].value) {
-        active[property] = ! active[property];
-      } else {
-        active[property] = value;
-      }
+      const { option } = event;
+      const value = ((option && option.hasOwnProperty('value')) ?
+        option.value : option );
+      active[property] = value;
+      this.props.onChange(active);
+    };
+  }
+
+  _toggle (property) {
+    return (event) => {
+      let active = { ...this.props.active };
+      active[property] = ! active[property];
       this.props.onChange(active);
     };
   }
@@ -50,7 +54,7 @@ class PropFields extends Component {
           <FormField key={property} label={property}>
             <Select options={schema[property].options}
               value={active[property]}
-              onChange={this._changeElement(property)} />
+              onChange={this._select(property)} />
           </FormField>
         );
       } else {
@@ -58,7 +62,7 @@ class PropFields extends Component {
           <FormField key={property}>
             <CheckBox id={property} toggle={true} label={property}
               checked={active[property] ? true : false}
-              onChange={this._changeElement(property)} />
+              onChange={this._toggle(property)} />
           </FormField>
         );
       }
@@ -154,7 +158,7 @@ export default class InteractiveExample extends Component {
     const { activeContents, activeProps, contextProps } = this.state;
     const { router } = this.context;
     let params = [];
-    Object.keys(activeProps).forEach(property => {
+    Object.keys(activeProps).filter(p => activeProps[p]).forEach(property => {
       params.push(
         `${property}=${encodeURIComponent(activeProps[property])}`);
     });
