@@ -177,7 +177,7 @@ export default class MeterExamplesDoc extends Component {
         );
       }
       element = (
-        <Box direction={vertical ? 'row' : 'column'}
+        <Box direction={vertical ? 'row' : 'column'} responsive={false}
           align={(vertical && limits) ? 'stretch' : 'center'}
           pad={vertical ? {'between': 'small'} : undefined}>
           {element}
