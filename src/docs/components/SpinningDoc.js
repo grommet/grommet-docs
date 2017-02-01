@@ -23,6 +23,14 @@ export default class SpinningDoc extends Component {
         </section>
 
         <section>
+          <h2>Properties</h2>
+          <dl>
+            <dt><code>size         small|medium|large|xlarge|huge</code></dt>
+            <dd>The icon size.  Defaults to <code>medium</code>.</dd>
+          </dl>
+        </section>
+
+        <section>
           <h2>Usage</h2>
           <Code preamble={
             `import Spinning from 'grommet/components/icons/Spinning';`}>
