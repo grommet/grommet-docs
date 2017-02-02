@@ -26,15 +26,13 @@ export default class LabelDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>align      start|center|end</code></dt>
+            <dd>Text alignment. Defaults to inherit.</dd>
+            <dt><code>announce    true|false</code></dt>
+            <dd>Whether the label should announce dynamic content
+                changes to a screen-reader using an aria-live region.</dd>
             <dt><code>labelFor    {"{string}"}</code></dt>
             <dd>ID of the form element that the label is for.  Optional.</dd>
-            <dt><code>truncate    true|false</code></dt>
-            <dd>Restrict the text to a single line and truncate with
-              ellipsis if it is too long to all fit.
-              Defaults to <code>false</code>.</dd>
-            <dt><code>uppercase   true|false</code></dt>
-            <dd>Convert the label to uppercase.
-              Defaults to <code>false</code>.</dd>
             <dt><code>margin      none|small|medium|large</code></dt>
             <dd>The margin around the Label. Defaults
               to <code>none</code> when the size prop is set to
@@ -42,9 +40,13 @@ export default class LabelDoc extends Component {
               {' '}otherwise <code>medium</code>.</dd>
             <dt><code>size        small|medium</code></dt>
             <dd>The size of the Label. Defaults to <code>medium</code>.</dd>
-            <dt><code>announce    true|false</code></dt>
-            <dd>Whether the label should announce dynamic content
-                changes to a screen-reader using an aria-live region.</dd>
+            <dt><code>truncate    true|false</code></dt>
+            <dd>Restrict the text to a single line and truncate with
+              ellipsis if it is too long to all fit.
+              Defaults to <code>false</code>.</dd>
+            <dt><code>uppercase   true|false</code></dt>
+            <dd>Convert the label to uppercase.
+              Defaults to <code>false</code>.</dd>
           </dl>
         </section>
 

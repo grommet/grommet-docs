@@ -33,6 +33,10 @@ export default class ParagraphDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>align      start|center|end</code></dt>
+            <dd>Text alignment. Defaults to inherit.</dd>
+            <dt><code>margin     none|small|medium|large</code></dt>
+            <dd>Vertical margin.</dd>
             <dt><code>size       small|medium|large|xlarge</code></dt>
             <dd>The size of the Paragraph text.
               Defaults to <code>medium</code>.</dd>
