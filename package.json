@@ -26,6 +26,7 @@
     "json-stringify-pretty-compact": "^1.0.1",
     "jsx-to-string": "^0.3.0",
     "node-sass": "^4.1.1",
+    "react": "^15.4.0",
     "react-desc": "^1.0.0",
     "react-router": "^3.0.0"
   },
