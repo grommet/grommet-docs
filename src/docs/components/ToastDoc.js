@@ -22,7 +22,7 @@ export default class ToastDoc extends Component {
     let toast;
     if (active) {
       toast = (
-        <Toast status='ok'
+        <Toast status='ok' size='medium'
           onClose={() => this.setState({ active: false })}>
           <Box direction='row' justify='between' alignSelf='center'>
             <span>A short message to let the user know something.</span>
@@ -66,6 +66,8 @@ export default class ToastDoc extends Component {
             <dt><code>onClose   {'{function}'}</code></dt>
             <dd>Called when the user clicks on the close control or the
               Toast is automatically closed after a while.</dd>
+            <dt><code>size      small|medium|large</code></dt>
+            <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
             <dt><code>status    critical|warning|ok|disabled|unknown</code></dt>
             <dd>Which status to indicate.</dd>
           </dl>
