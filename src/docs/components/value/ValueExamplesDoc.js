@@ -12,6 +12,7 @@ const PROPS_SCHEMA = {
   trendIcon: { value: <UpIcon />, initial: true },
   units: { value: '%', initial: true },
   size: { options: ['small', 'medium', 'large', 'xlarge'] },
+  responsive: { value: true },
   align: { options: ['start', 'center', 'end'] },
   colorIndex: { options: ['accent-1', 'accent-2'] }
 };

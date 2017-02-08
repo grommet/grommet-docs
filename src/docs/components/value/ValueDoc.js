@@ -38,6 +38,11 @@ export default class ValueDoc extends Component {
             <dd>Optional short description of the value.</dd>
             <dt><code>onClick      {"{function}"}</code></dt>
             <dd>Click handler.</dd>
+            <dt><code>responsive   true|false</code></dt>
+            <dd>Whether the font size and spacing should adapt to the
+              resolution. This is useful when used in combination with
+              a Meter that is responsively adjusting.
+              Defaults to <code>false</code>.</dd>
             <dt><code>size         small|medium|large|xlarge</code></dt>
             <dd>The size of the value. Defaults to <code>medium</code>.</dd>
             <dt><code>trendIcon    {"{element}"}</code></dt>
