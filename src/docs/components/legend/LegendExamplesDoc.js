@@ -9,7 +9,8 @@ Legend.displayName = 'Legend';
 const PROPS_SCHEMA = {
   onClick: { value: true, initial: true },
   total: { value: true },
-  units: { value: 'B' }
+  units: { value: 'B' },
+  size: { options: ['medium', 'large'] }
 };
 
 const SERIES = [

@@ -46,6 +46,8 @@ export default class LegendDoc extends Component {
             <dt><code>series        {'[{label: , value: , colorIndex: , ' +
               'onClick: }, ...]'}</code></dt>
             <dd>An array of objects describing the data.</dd>
+            <dt><code>size          medium|large</code></dt>
+            <dd>The size of the Legend. Defaults to <code>medium</code>.</dd>
             <dt><code>total         true|false</code></dt>
             <dd>Whether to show the total of all values.</dd>
             <dt><code>units         {'{string}'}</code></dt>
