@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import DocsArticle from '../../components/DocsArticle';
 import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
@@ -11,6 +12,7 @@ import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import SocialGithubIcon from 'grommet/components/icons/base/SocialGithub';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
+import { smallSize } from 'grommet/utils/Responsive';
 
 const teamMembers = [
   {
@@ -47,11 +49,41 @@ const teamMembers = [
 
 export default class About extends Component {
 
+  constructor() {
+    super();
+    this._onResize = this._onResize.bind(this);
+    this.state = {
+      responsive: false
+    };
+  }
+
+  componentDidMount() {
+    if (window) {
+      window.addEventListener('resize', this._onResize);
+    }
+  }
+
+  componentWillUnmount() {
+    if (window) {
+      window.removeEventListener('resize', this._onResize);
+    }
+  }
+
+  _onResize() {
+    const sectionElement = findDOMNode(this.refs.mainSection);
+    if (sectionElement) {
+      const responsive = sectionElement.offsetWidth < smallSize();
+      this.setState({
+        responsive
+      });
+    }
+  }
+
   render () {
     return (
       <DocsArticle title='About'>
 
-        <Section>
+        <Section ref="mainSection">
           <Paragraph size="large">
             Grommet came to the world from four individuals inside
             Hewlett Packard that wanted to make designing a modern
@@ -72,9 +104,9 @@ export default class About extends Component {
             underlying technologies, and layering on a
             visual design system and with some secret sauce to
             tie it all together. This provided the
-            flexibility needed to create a dynamic library of components and
-            allow Grommet to be one of the leading React UI
-            Framework out there (horn toot).
+            flexibility needed to create a dynamic library of
+            components and allow Grommet to be one of the leading
+            React UI Frameworks out there (horn toot).
           </Paragraph>
           <Paragraph size="medium">
             We originally created Grommet to be a solution
@@ -83,7 +115,7 @@ export default class About extends Component {
             Hewlett Packard, and taking a note from our own
             founders, Dave and Bill, we shared it with the
             open source community with great response. As
-            with any company, change is inevitabe,
+            with any company, change is inevitable,
             and change it did…Hewlett Packard became
             two companies. The split became proof that
             Grommet was not only a valuable tool
@@ -95,36 +127,25 @@ export default class About extends Component {
           </Paragraph>
         </Section>
 
-        <Section style={{ maxWidth: 576 }}>
-          <Heading tag="h2" align="center" strong pad="medium">
+        <Section size={{ width: { max: "xlarge" } }}>
+          <Heading tag="h2" align="center" strong>
             Our Team
           </Heading>
-          <Box
-            direction="row"
-            justify="center"
-            align="center"
-            pad={{ vertical: "medium" }}
-          >
+          <Box direction="row" justify="center" align="center"
+            pad={{ vertical: "medium" }} responsive={false} 
+            wrap={this.state.responsive}>
             {teamMembers.map((member, i) =>
-              <Box key={i} pad="small">
+              <Box key={i} margin="small" align="center" size="xsmall">
                 <Image size="small" src={member.avatar} />
-                <Heading align="center" tag="h4">
+                <Heading align="center" tag="h4" style={{ maxWidth: 90 }}>
                   {member.name}
                 </Heading>
                 <Menu responsive={false} inline align="center">
-                  <Anchor
-                    href={member.twitter}
-                    icon={
-                      <SocialTwitterIcon
-                        colorIndex="plain"
-                        size="small"
-                      />
-                    }
-                  />
-                  <Anchor
-                    href={member.github}
-                    icon={<SocialGithubIcon size="small" />}
-                  />
+                  <Anchor href={member.twitter}
+                    icon={<SocialTwitterIcon
+                      colorIndex="plain" size="small" />} />
+                  <Anchor href={member.github}
+                    icon={<SocialGithubIcon size="small" />} />
                 </Menu>
               </Box>
             )}
