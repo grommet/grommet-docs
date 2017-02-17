@@ -173,13 +173,9 @@ import WorldMapExamplesDoc from './components/world-map/WorldMapExamplesDoc';
 
 export default [
   { label: 'Start', path: 'start', component: Start, contents: [
-    { label: 'Design', contents: [
-      { path: 'resources', label: 'Resources', component: Resources }
-    ]},
-    { label: 'Develop', contents: [
+      { path: 'get-started', label: 'Get Started', component: GetStarted },
       { path: 'hello-world', label: 'Hello World', component: HelloWorld },
-      { path: 'get-started', label: 'Get Started', component: GetStarted }
-    ]}
+      { path: 'resources', label: 'Resources', component: Resources }
   ]},
   { label: 'Learn', path: 'learn', component: Learn, contents: [
     // { path: 'learn', label: 'Learn', component: Learn },
