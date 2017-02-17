@@ -29,6 +29,9 @@ export default class QueryDoc extends Component {
               includes <code>AND</code>, <code>OR</code>, <code>NOT</code>, and
               parentheses for grouping.</li>
           </ul>
+          <p><strong>NOTE:</strong> This component comes from
+            the <code>grommet-addons</code> repository. You will need to add
+            a dependency to that repository in order to use it.</p>
         </section>
 
         <section>
