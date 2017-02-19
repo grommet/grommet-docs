@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
-import Button from 'grommet/components/Button';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
@@ -15,7 +14,7 @@ const Commands = (props) => (
       {props.children}
     </code>
   </Box>
-)
+);
 
 export default class Setup extends Component {
 
