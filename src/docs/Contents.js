@@ -2,6 +2,7 @@
 
 import HelloWorld from './guides/HelloWorld';
 import GetStarted from './guides/GetStarted';
+import Setup from './guides/Setup';
 
 import BestPractices from './design/BestPractices';
 import Mobile from './design/Mobile';
@@ -175,7 +176,8 @@ export default [
   { label: 'Start', path: 'start', component: Start, contents: [
       { path: 'get-started', label: 'Get Started', component: GetStarted },
       { path: 'hello-world', label: 'Hello World', component: HelloWorld },
-      { path: 'resources', label: 'Resources', component: Resources }
+      { path: 'resources', label: 'Resources', component: Resources },
+      { path: 'setup', label: 'Setup', component: Setup }
   ]},
   { label: 'Learn', path: 'learn', component: Learn, contents: [
     // { path: 'learn', label: 'Learn', component: Learn },
