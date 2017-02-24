@@ -3,7 +3,6 @@
 import React, { Component, PropTypes } from 'react';
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
-import Article from 'grommet/components/Article';
 import Header from 'grommet/components/Header';
 import Form from 'grommet/components/Form';
 import Anchor from 'grommet/components/Anchor';
