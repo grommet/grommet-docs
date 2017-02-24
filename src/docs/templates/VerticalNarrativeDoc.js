@@ -10,7 +10,7 @@ import Paragraph from 'grommet/components/Paragraph';
 import Section from 'grommet/components/Section';
 import DocsTemplate from '../../components/DocsTemplate';
 import LinkDownIcon from 'grommet/components/icons/base/LinkDown';
-import { DESC as ArticleDesc } from '../components/ArticleDoc';
+import { DESC as ArticleDesc } from '../components/article/ArticleDoc';
 import { DESC as BoxDesc } from '../components/box/BoxDoc';
 import { DESC as ChartDesc } from '../components/chart/ChartDoc';
 import { DESC as HeaderDesc } from '../components/header/HeaderDoc';
@@ -37,7 +37,7 @@ const COMPONENTS = [
 
 export default class VerticalNarrativeDoc extends Component {
   render () {
-    const componentsList = COMPONENTS.map(({title, desc}, index) => 
+    const componentsList = COMPONENTS.map(({title, desc}, index) =>
       <Box pad={{vertical:'small'}} key={`component-${index}`}>
         <Anchor label={title} path={`/docs/${title.toLowerCase()}`} />
         <Paragraph margin="small">{desc}</Paragraph>
@@ -45,7 +45,7 @@ export default class VerticalNarrativeDoc extends Component {
     );
 
     return (
-      <DocsTemplate title="Vertical Narrative" exampleUrl='grommet-vertical' 
+      <DocsTemplate title="Vertical Narrative" exampleUrl='grommet-vertical'
         githubUrl="https://github.com/grommet/grommet-vertical-narrative">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
@@ -54,13 +54,13 @@ export default class VerticalNarrativeDoc extends Component {
             explicate content flow. Using the full width and height of
             the viewport, users traverse this experience vertically
             with very simple navigation controls (keyboard or
-            up/down arrow keys). Built into the template 
-            is a smooth scroll animation to enhance 
+            up/down arrow keys). Built into the template
+            is a smooth scroll animation to enhance
             the experience.
           </Paragraph>
         </Section>
         <Section>
-          <Box direction="row" pad={{between: 'small'}} responsive={false} 
+          <Box direction="row" pad={{between: 'small'}} responsive={false}
             wrap={true}>
             <Box>
               <Label margin="small">Desktop</Label>
@@ -71,11 +71,11 @@ export default class VerticalNarrativeDoc extends Component {
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" separator="all" 
+                  <Box colorIndex="light-1" separator="all"
                   align="center" justify="end"
                     pad={{ vertical: 'small', horizontal: 'large' }}
                     size={{
-                      height: {min: 'small'}, 
+                      height: {min: 'small'},
                       width: {min: 'small'}
                     }}>
                     <Box justify="center" flex="grow" direction="row"
@@ -98,11 +98,11 @@ export default class VerticalNarrativeDoc extends Component {
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" separator="all" 
+                  <Box colorIndex="light-1" separator="all"
                   align="center" justify="end"
                     pad={{ vertical: 'small', horizontal: 'large' }}
                     size={{
-                      height: {min: 'small'}, 
+                      height: {min: 'small'},
                       width: {min: 'small'}
                     }}>
                     <Box justify="center" flex="grow" direction="row"
@@ -125,11 +125,11 @@ export default class VerticalNarrativeDoc extends Component {
                 <Box colorIndex="light-2"
                   pad={{ horizontal: 'medium', vertical: 'medium',
                     between: 'medium' }}>
-                  <Box colorIndex="light-1" separator="all" 
+                  <Box colorIndex="light-1" separator="all"
                   align="center" justify="end"
                     pad={{ vertical: 'small', horizontal: 'small' }}
                     size={{
-                      height: {min: 'small'}, 
+                      height: {min: 'small'},
                       width: {min: 'xsmall'}
                     }}>
                     <Box justify="center" flex="grow" align="center">

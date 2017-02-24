@@ -320,13 +320,13 @@ export default class InteractiveExample extends Component {
 
         <Split flex='left' priority='left'>
 
-          <Article full='vertical'>
+          <Box full='vertical'>
             {mobileHeader}
             <Context {...contextProps} justify={justify} align={align}
               pad={pad}>
               {element}
             </Context>
-          </Article>
+          </Box>
 
           {code}
 

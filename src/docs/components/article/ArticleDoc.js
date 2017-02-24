@@ -6,8 +6,8 @@ import Section from 'grommet/components/Section';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
 import Anchor from 'grommet/components/Anchor';
-import DocsArticle from '../../components/DocsArticle';
-import Code from '../../components/Code';
+import Button from 'grommet/components/Button';
+import DocsArticle from '../../../components/DocsArticle';
 
 Article.displayName = 'Article';
 
@@ -24,7 +24,10 @@ export default class ArticleDoc extends Component {
 
   render () {
     return (
-      <DocsArticle title='Article'>
+      <DocsArticle title='Article' action={
+        <Button primary={true} path='/docs/article/examples'
+          label='Examples' />
+        }>
 
         <section>
           <p>{DESC}</p>
@@ -62,15 +65,6 @@ export default class ArticleDoc extends Component {
           </dl>
           <p>Properties for <Anchor path='/docs/box'>Box</Anchor> are
           also available.</p>
-        </section>
-
-        <section>
-          <h2>Usage</h2>
-          <Code preamble={`import Article from 'grommet/components/Article';`}>
-            <Article>
-              {'{contents}'}
-            </Article>
-          </Code>
         </section>
 
       </DocsArticle>

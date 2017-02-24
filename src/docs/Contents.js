@@ -33,7 +33,8 @@ import AnnotatedMeterExamplesDoc from
   './components/annotated-meter/AnnotatedMeterExamplesDoc';
 import AnnouncerDoc from './utils/AnnouncerDoc';
 import AppDoc from './components/AppDoc';
-import ArticleDoc from './components/ArticleDoc';
+import ArticleDoc from './components/article/ArticleDoc';
+import ArticleExamplesDoc from './components/article/ArticleExamplesDoc';
 import BoxDoc from './components/box/BoxDoc';
 // import BoxExamplesDoc from './components/box/examples/BoxExamplesDoc';
 import BoxingGymDoc from './components/box/BoxingGymDoc';
@@ -213,7 +214,7 @@ export default [
     { path: 'primary-page', label: 'Primary Page', component: PrimaryPageDoc },
     { path: 'sub-page', label: 'Sub Page', component: SubPageDoc },
     { path: 'detail-page', label: 'Detail Page', component: DetailsPageDoc },
-    { path: 'vertical-narrative', label: 'Vertical Narrative', 
+    { path: 'vertical-narrative', label: 'Vertical Narrative',
       component: VerticalNarrativeDoc },
     { path: 'infographic', label: 'Infographic',
       component: InfographicDoc }
@@ -230,7 +231,8 @@ export default [
     ]},
     { label: 'Structure', contents: [
       { path: 'app', label: 'App', component: AppDoc },
-      { path: 'article', label: 'Article', component: ArticleDoc },
+      { path: 'article', label: 'Article', index: ArticleDoc,
+        examples: ArticleExamplesDoc },
       { path: 'card', label: 'Card', index: CardDoc,
         examples: CardExamplesDoc },
       { path: 'footer', label: 'Footer', component: FooterDoc,
