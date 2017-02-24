@@ -33,7 +33,7 @@ const CONTENTS_SCHEMA = {
       </FormField>
     </fieldset>
   )},
-  'all-types': { value: <AllFieldTypes /> },
+  'all-types': { value: <AllFieldTypes />, initial: true },
   footer: { value: (
     <Footer pad={{vertical: 'medium'}}>
       <Button label='Submit' type='submit' primary={true}
