@@ -12,7 +12,8 @@ const PROPS_SCHEMA = {
   responsive: { value: true },
   iconAlign: { options: ['start', 'end'] },
   size: { options: ['small', 'medium', 'large'] },
-  suggestions: { value: ['first', 'second', 'third', 'fourth'] }
+  suggestions: { value: ['first', 'second', 'third', 'fourth'] },
+  dropAlign: { options: ['left', 'right', 'top', 'bottom'] }
 };
 
 export default class SearchExamplesDoc extends Component {
@@ -37,6 +38,14 @@ export default class SearchExamplesDoc extends Component {
     const props = { value };
     if (elementProps.suggestions) {
       props.onSelect = this._onSelect;
+    }
+    if (elementProps.dropAlign) {
+      switch (elementProps.dropAlign) {
+        case 'left': props.dropAlign = { left: 'left' }; break;
+        case 'right': props.dropAlign = { right: 'right' }; break;
+        case 'top': props.dropAlign = { bottom: 'top' }; break;
+        case 'bottom': props.dropAlign = { top: 'bottom' }; break;
+      }
     }
     const element = (
       <Search {...elementProps} {...props}
