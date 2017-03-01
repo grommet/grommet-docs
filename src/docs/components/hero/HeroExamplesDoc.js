@@ -63,7 +63,8 @@ export default class HeroExamplesDoc extends Component {
     }
     if (nextElementProps.backgroundImage) {
       elementProps.background = (
-        <Image src='/img/carousel-1.png' fit='cover' {...backgroundProps} />
+        <Image src='/img/carousel-1.png' fit='cover' full={true}
+          {...backgroundProps} />
       );
     } else if (nextElementProps.backgroundVideo) {
       elementProps.background = (

@@ -26,7 +26,8 @@ export default class HeroDoc extends Component {
 
         <section>
           <p>{DESC}</p>
-          <Hero background={<Image src='/img/carousel-1.png' fit='cover' />}
+          <Hero background={<Image src='/img/carousel-1.png'
+            fit='cover' full={true} />}
             backgroundColorIndex='dark'>
             <Box direction='row' justify='end' align='center'>
               <Box basis='1/2' align='start' pad='medium'>
