@@ -19,12 +19,29 @@ export default class SearchExamplesDoc extends Component {
 
   constructor () {
     super();
-    this.state = { elementProps: {} };
+    this._onDOMChange = this._onDOMChange.bind(this);
+    this._onSelect = this._onSelect.bind(this);
+    this.state = { elementProps: {}, value: '' };
+  }
+
+  _onDOMChange (event) {
+    this.setState({ value: event.target.value });
+  }
+
+  _onSelect (event) {
+    this.setState({ value: event.suggestion });
   }
 
   render () {
-    const { elementProps } = this.state;
-    const element = <Search {...elementProps} />;
+    const { elementProps, value } = this.state;
+    const props = { value };
+    if (elementProps.suggestions) {
+      props.onSelect = this._onSelect;
+    }
+    const element = (
+      <Search {...elementProps} {...props}
+        onDOMChange={this._onDOMChange}/>
+    );
     return (
       <InteractiveExample contextLabel='Search' contextPath='/docs/search'
         preamble={`import Search from 'grommet/components/Search';`}
