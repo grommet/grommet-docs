@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import RadioButton from 'grommet/components/RadioButton';
+import Form from 'grommet/components/Form';
 import FormField from 'grommet/components/FormField';
 import DocsArticle from '../../components/DocsArticle';
 import Code from '../../components/Code';
@@ -28,14 +29,17 @@ export default class RadioButtonDoc extends Component {
         <section>
           <p>A radio button in a web form. We have a separate component from the
             browser base so we can style it.</p>
-          <FormField>
-            <RadioButton id='choice1-1' name='choice1-1' label='Choice 1'
-              checked={this.state.choice === 'choice-1'}
-              onChange={this._onChange.bind(this, 'choice-1')} />
-            <RadioButton id='choice1-2' name='choice1-2' label='Choice 2'
-              checked={this.state.choice === 'choice-2'}
-              onChange={this._onChange.bind(this, 'choice-2')} />
-          </FormField>
+
+          <Form>
+            <FormField>
+              <RadioButton id='choice1-1' name='choice1-1' label='Choice 1'
+                checked={this.state.choice === 'choice-1'}
+                onChange={this._onChange.bind(this, 'choice-1')} />
+              <RadioButton id='choice1-2' name='choice1-2' label='Choice 2'
+                checked={this.state.choice === 'choice-2'}
+                onChange={this._onChange.bind(this, 'choice-2')} />
+            </FormField>
+          </Form>
         </section>
 
         <section>
