@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import DocsArticle from '../../components/DocsArticle';
 import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Heading';
 import FirefoxIcon from 'grommet/components/icons/base/PlatformFirefox';
 import IEIcon from 'grommet/components/icons/base/PlatformInternetExplorer';
 import EdgeIcon from 'grommet/components/icons/base/PlatformEdge';
@@ -47,9 +48,12 @@ export default class BrowserSupport extends Component {
           Can I Use</a> website to
           learn more about this capability and the levels of browser support.
           </p>
+
+          <Heading tag="h2">FAQ</Heading>
+
+          <Heading tag="h3">Why are older versions of
+          Microsoft Internet Explorer not supported?</Heading>
           <p>
-          A common question we receive is why are older versions of
-          Microsoft Internet Explorer not supported.
           On January 12, 2016, <a
           href={"https://www.microsoft.com/en-us/WindowsForBusiness/" +
             "End-of-IE-support"}>
@@ -59,9 +63,10 @@ export default class BrowserSupport extends Component {
           enterprise, Grommet does not provide
           support for browsers that are no longer receiving security updates.
           </p>
+
+          <Heading tag="h3">Why are specific version numbers
+          not listed?</Heading>
           <p>
-          Another question we receive is why are specific version numbers
-          not listed.
           Modern browsers release on a very frequent cadence, generally
           every few weeks.
           They also automatically update which means the user is no longer
@@ -70,6 +75,12 @@ export default class BrowserSupport extends Component {
           result, the
           specific version numbers of browsers is less meaninful and more
           difficult to track.
+          </p>
+
+          <Heading tag="h3">What about older mobile devices?</Heading>
+          <p>
+          Unfortunately, iOS &lt; 9.3 and Android &lt; 4.4 do not provide enough
+          flexbox support for Grommet.
           </p>
         </section>
       </DocsArticle>
