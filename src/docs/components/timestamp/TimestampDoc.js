@@ -26,7 +26,8 @@ export default class TimestampDoc extends Component {
           <dl>
             <dt><code>align     start|center|end</code></dt>
             <dd>The horizontal alignment of the Timestamp.</dd>
-            <dt><code>fields    date|time|year|month|day|hour|minute|second
+            <dt><code>
+              fields    date|time|year|month|month-full|day|hour|minute|second
               </code></dt>
             <dd>Which fields to include in the Timestamp.</dd>
             <dt><code>value     {'{ISO8601 string}|{Date}'}</code></dt>

@@ -7,7 +7,7 @@ import InteractiveExample from '../../../components/InteractiveExample';
 Timestamp.displayName = 'Timestamp';
 
 const PROPS_SCHEMA = {
-  fields: { options: ['date', 'time', 'year', 'month',
+  fields: { options: ['date', 'time', 'year', 'month', 'month-full',
     'day', 'hour', 'minute', 'second'] }
 };
 
