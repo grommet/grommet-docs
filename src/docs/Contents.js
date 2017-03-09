@@ -122,6 +122,7 @@ import QueryDoc from './utils/QueryDoc';
 import QuoteDoc from './components/quote/QuoteDoc';
 import QuoteExamplesDoc from './components/quote/QuoteExamplesDoc';
 import RadioButtonDoc from './components/RadioButtonDoc';
+import ResponsiveDoc from './utils/ResponsiveDoc';
 import RestDoc from './utils/RestDoc';
 import RestWatchDoc from './utils/RestWatchDoc';
 import SearchDoc from './components/search/SearchDoc';
@@ -368,6 +369,7 @@ export default [
         examples: AnimateExamplesDoc },
       { path: 'announcer', label: 'Announcer', component: AnnouncerDoc },
       { path: 'query', label: 'Query', component: QueryDoc },
+      { path: 'responsive', label: 'Responsive', component: ResponsiveDoc },
       { path: 'rest', label: 'Rest', component: RestDoc },
       { path: 'rest-watch', label: 'RestWatch', component: RestWatchDoc }
     ]}
