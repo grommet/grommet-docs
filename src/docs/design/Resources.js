@@ -58,8 +58,8 @@ export default class Resources extends Component {
             </li>
             <li>
               <a id="hpe-sk-data"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.sketch`}
-                target="_blank">Data Sticker Sheet for Applications v0.6</a>
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-7.sketch`}
+                target="_blank">Data Sticker Sheet for Applications v0.7</a>
             </li>
             <li>
               <a id="hpe-sk-icons"
@@ -122,8 +122,8 @@ export default class Resources extends Component {
             </li>
             <li>
               <a id="hpe-ai-data-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.pdf`}
-                target="_blank">Data Sticker Sheet for Applications v0.6</a>
+                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-7.pdf`}
+                target="_blank">Data Sticker Sheet for Applications v0.7</a>
             </li>
             <li>
               <a id="hpe-ai-icons-pdf"
