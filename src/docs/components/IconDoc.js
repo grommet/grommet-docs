@@ -103,8 +103,9 @@ export default class IconDoc extends Component {
         <section>
           <p>Load icons inside your Grommet application.</p>
           <Box direction="row" align="center" pad={{ between: 'medium' }}>
-            <Icon size="small" />
+            <Icon size="xsmall" />
             <Icon />
+            <Icon size="medium" />
             <Icon size="large" />
             <Icon size="xlarge" />
             <Icon size="huge" />
@@ -118,8 +119,8 @@ export default class IconDoc extends Component {
             <dd>The color identifier to use for the stroke color.
               For example: <code>"brand"</code>. Use <code>"plain"</code> to
               keep the original icon colors.</dd>
-            <dt><code>size         small|medium|large|xlarge|huge</code></dt>
-            <dd>The icon size.  Defaults to <code>medium</code>.</dd>
+            <dt><code>size     xsmall|small|medium|large|xlarge|huge</code></dt>
+            <dd>The icon size.  Defaults to <code>small</code>.</dd>
             <dt><code>type         control|logo|status</code></dt>
             <dd>The type of the icon. Defaults to <code>control</code>.</dd>
           </dl>
