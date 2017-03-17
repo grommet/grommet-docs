@@ -23,8 +23,8 @@ import GithubIcon from 'grommet/components/icons/base/SocialGithub';
 import FacebookIcon from 'grommet/components/icons/base/SocialFacebook';
 import TwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import ResourcesIcon from 'grommet/components/icons/base/Resources';
-import AccessAccessibilityIcon from
-  'grommet/components/icons/base/AccessAccessibility';
+import AccessibleIcon from
+  'grommet/components/icons/base/Accessible';
 import ConfigureIcon from 'grommet/components/icons/base/Configure';
 import RunIcon from 'grommet/components/icons/base/Run';
 import GrommetIcon from 'grommet/components/icons/base/BrandGrommetOutline';
@@ -332,7 +332,7 @@ export default class Home extends Component {
                 brand to shine.
               </Paragraph>
             </WhyGrommetItem>
-            <WhyGrommetItem icon={<AccessAccessibilityIcon colorIndex='brand'
+            <WhyGrommetItem icon={<AccessibleIcon colorIndex='brand'
               size='large' />}
               heading='Accessible' href='https://vimeo.com/187068246'
               delay={700}>
