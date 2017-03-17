@@ -51,10 +51,9 @@ export default class Resources extends Component {
 
           <ul>
             <li>
-              <a id="hpe-sk-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.sketch`}
-                target="_blank">General Sticker Sheet for Applications
-                v0.9.6</a>
+              <a id="hpe-components-sketch"
+                href={`${ROOT}/hpe/hpe-components-1.0.sketch`}
+                target="_blank">Components Sticker Sheet v0.1.0</a>
             </li>
             <li>
               <a id="hpe-sk-data"
@@ -62,100 +61,49 @@ export default class Resources extends Component {
                 target="_blank">Data Sticker Sheet for Applications v0.7</a>
             </li>
             <li>
-              <a id="hpe-sk-icons"
-                href={`${ROOT}/hpe/hpe-functional-icons-1-0.sketch`}
-                target="_blank">Functional Icons Sticker Sheet v1.0</a>
+              <a id="hpe-icons-sketch"
+                href={`${ROOT}/hpe/hpe-icons-1.1.sketch`}
+                target="_blank">Icons Sticker Sheet v1.1</a>
             </li>
             <li>
-              <a id="hpe-sk-app-templates"
-                href={`${ROOT}/hpe/hpe-app-templates-0-8.sketch`}
-                target="_blank">Application Templates Sticker Sheet v0.8</a>
+              <a id="hpe-templates-sketch"
+                href={`${ROOT}/hpe/hpe-templates-0.9.sketch`}
+                target="_blank">Templates Sticker Sheet v0.9</a>
             </li>
           </ul>
 
-          <h4>Adobe Illustrator</h4>
+          <h4>PDF</h4>
 
           <ul>
             <li>
-              <a id="hpe-ai-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.ai`}
-                target="_blank">General Sticker Sheet for
-                Applications v0.9.6</a>
+              <a id="hpe-components-pdf"
+                href={`${ROOT}/hpe/hpe-components-1.0.pdf`}
+                target="_blank">Components Sticker Sheet v0.1.0</a>
             </li>
             <li>
-              <a id="hpe-ai-app-templates"
-                href={`${ROOT}/hpe/hpe-app-templates-0-8.ai`}
-                target="_blank">Application Templates Sticker Sheet
-                v0.8</a>
+              <a id="hpe-visualizations-pdf"
+                href={`${ROOT}/hpe/hpe-visualizations-0.7.pdf`}
+                target="_blank">Visualizations Sticker Sheet v0.7</a>
             </li>
             <li>
-              <a id="hpe-ai-data"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-6.ai`}
-                target="_blank">Data Sticker Sheet for Applications v0.6</a>
+              <a id="hpe-icons-pdf"
+                href={`${ROOT}/hpe/hpe-icons-1.1.pdf`}
+                target="_blank">Icons Sticker Sheet v1.1</a>
             </li>
             <li>
-              <a id="hpe-ai-icons"
-                href={`${ROOT}/hpe/hpe-functional-icons-0-3.ai`}
-                target="_blank">Functional Icons Sticker Sheet v0.3</a>
-            </li>
-            <li>
-              <a id="hpe-ai-classic"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-classic-0-6.ai`}
-                target="_blank">Classic Sticker Sheet for Applications v0.6</a>
+              <a id="hpe-templates-pdf"
+                href={`${ROOT}/hpe/hpe-templates-0.9.pdf`}
+                target="_blank">Templates Sticker Sheet v0.9</a>
             </li>
           </ul>
 
-          <h4>Adobe PDF</h4>
-
-          <ul>
-            <li>
-              <a id="hpe-ai-general-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-6.pdf`}
-                target="_blank">General Sticker Sheet for
-                Applications v0.9.6</a>
-            </li>
-            <li>
-              <a id="hpe-ai-app-templates-pdf"
-                href={`${ROOT}/hpe/hpe-app-templates-0-8.pdf`}
-                target="_blank">Application Templates Sticker Sheet
-                v0.8</a>
-            </li>
-            <li>
-              <a id="hpe-ai-data-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-7.pdf`}
-                target="_blank">Data Sticker Sheet for Applications v0.7</a>
-            </li>
-            <li>
-              <a id="hpe-ai-icons-pdf"
-                href={`${ROOT}/hpe/hpe-functional-icons-0-3.pdf`}
-                target="_blank">Functional Icons Sticker Sheet v0.3</a>
-            </li>
-            <li>
-              <a id="hpe-ai-classic-pdf"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-classic-0-6.pdf`}
-                target="_blank">Classic Sticker Sheet for Applications v0.6</a>
-            </li>
-          </ul>
-
-          <h4>Axure</h4>
-
-          <ul>
-            <li>
-              <a id="hpe-ax-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-9-4.rplib`}
-                target="_blank">Axure Stencils for Applications v0.9.4</a>
-            </li>
-          </ul>
-
-          <h4>Balsamiq</h4>
-
-          <ul>
-            <li>
-              <a id="hpe-bq-general"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-general-0-6.bmpr`}
-                target="_blank">Balsamiq Assets for Applications v0.6</a>
-            </li>
-          </ul>
+          <h4>Other Document Types</h4>
+          <p>
+            To find Adobe Illustrator, Balsamiq, and Axure files please visit
+            the <a> href={`${ROOT}/hpe/archive`} target="Archive"</a>.
+            These files do not represent the latest design
+            direction of Hewlett Packard Enterprise.
+          </p>
 
         </section>
 
