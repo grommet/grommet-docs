@@ -53,12 +53,12 @@ export default class Resources extends Component {
             <li>
               <a id="hpe-components-sketch"
                 href={`${ROOT}/hpe/hpe-components-1.0.sketch`}
-                target="_blank">Components Sticker Sheet v0.1.0</a>
+                target="_blank">Components Sticker Sheet v1.0</a>
             </li>
             <li>
-              <a id="hpe-sk-data"
-                href={`${ROOT}/hpe/hpe-sticker-sheet-apps-data-0-7.sketch`}
-                target="_blank">Data Sticker Sheet for Applications v0.7</a>
+              <a id="hpe-visualizations-sketch"
+                href={`${ROOT}/hpe/hpe-visualizations-0-7.sketch`}
+                target="_blank">Visualizations Sticker Sheet v0.7</a>
             </li>
             <li>
               <a id="hpe-icons-sketch"
@@ -78,7 +78,7 @@ export default class Resources extends Component {
             <li>
               <a id="hpe-components-pdf"
                 href={`${ROOT}/hpe/hpe-components-1.0.pdf`}
-                target="_blank">Components Sticker Sheet v0.1.0</a>
+                target="_blank">Components Sticker Sheet v1.0</a>
             </li>
             <li>
               <a id="hpe-visualizations-pdf"
