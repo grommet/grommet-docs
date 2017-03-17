@@ -100,7 +100,7 @@ export default class Resources extends Component {
           <h4>Other Document Types</h4>
           <p>
             To find Adobe Illustrator, Balsamiq, and Axure files please visit
-            the <a href={`${ROOT}/hpe/archive.zip`} target="_blank">Archive</a>.
+            the <a href={`${ROOT}/hpe`} target="_blank">Archive</a>.
             These files do not represent the latest design
             direction of Hewlett Packard Enterprise.
           </p>
