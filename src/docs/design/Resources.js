@@ -57,7 +57,7 @@ export default class Resources extends Component {
             </li>
             <li>
               <a id="hpe-visualizations-sketch"
-                href={`${ROOT}/hpe/hpe-visualizations-0-7.sketch`}
+                href={`${ROOT}/hpe/hpe-visualizations-0.7.sketch`}
                 target="_blank">Visualizations Sticker Sheet v0.7</a>
             </li>
             <li>
