@@ -12,13 +12,25 @@ export default (props) => {
   const propertiesNode = componentDoc.properties.map((property, index) => {
     let defaultVaule = '';
     if (property.defaultValue) {
-      defaultVaule = [`The default is `, <b>{property.defaultValue}</b>, '.'];
+      defaultVaule = [
+        `The default is `,
+        <b key={`defaul_value_${index}`}>
+          {property.defaultValue.toString()}
+        </b>,
+        '.'
+      ];
     }
     let format = `{${property.format}}`.replace(/,/g, '|');
     if (property.format === 'boolean') {
       format = '{true|false}';
       if (typeof property.defaultValue === 'undefined') {
-        defaultVaule = [`The default is `, <b>false</b>, '.'];
+        defaultVaule = [
+          `The default is `,
+          <b key={`defaul_value_${index}`}>
+            false
+          </b>,
+          '.'
+        ];
       }
     }
     format = format.replace(/&#124;/g, '|');
@@ -34,7 +46,7 @@ export default (props) => {
       extra = properties[property.name];
     }
     return (
-      <dl key={index}>
+      <dl key={`prop_doc_${index}`}>
         <dt><code>{name}{format}</code></dt>
         <dd>{property.description} {defaultVaule} {extra}</dd>
       </dl>
