@@ -70,10 +70,21 @@ export default class BoxDoc extends Component {
             <dt><code>full           true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport
               size.</dd>
-            <dt><code>onClick        {'{function}'}</code></dt>
-            <dd>Optional click handler.</dd>
             <dt><code>justify        start|center|between|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
+            <dt><code>onClick        {'{function}'}</code></dt>
+            <dd>Optional click handler.</dd>
+            <dt><code>margin            {'none|small|medium|large|{...}'}
+              </code></dt>
+            <dd>The amount of margin around the box.
+              An object can be specified to distinguish horizontal margin,
+              vertical margin, and margin on a particular side of the
+              box: <code>
+              {'{horizontal: none|small|medium|large, ' +
+                'vertical: none|small|medium|large, ' +
+                'top|left|right|bottom: none|small|medium|large}'}
+              </code>. Defaults to <code>none</code>.
+            </dd>
             <dt><code>pad            {'none|small|medium|large|{...}'}
               </code></dt>
             <dd>The amount of padding to put around the contents.
