@@ -44,6 +44,15 @@ export default class ButtonDoc extends Component {
           <dd>Whether the button expands to fill all of the available
             width and height.
           </dd>
+          <dt><code>hoverIndicator {'background|{...}'}
+            </code></dt>
+          <dd>Optional. The hover indicator to apply when the user is mousing 
+            over the button.
+            An object can be also be specified for color index support: <code>
+            {"{background: 'neutral-2'}"}
+            </code>.
+            This prop is meant to be used only with <b>plain</b> Buttons.
+          </dd>
           <dt><code>href           {'{string}'}</code></dt>
           <dd>If specified, the button will behave like an anchor tag.</dd>
           <dt><code>icon           {'{name}'}</code></dt>
