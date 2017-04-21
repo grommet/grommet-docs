@@ -22,7 +22,7 @@ const teamMembers = [
     github: 'https://github.com/alansouzati'
   },
   {
-    name: 'Bryan Jacqout',
+    name: 'Bryan Jacquot',
     avatar: '/img/team/grommet-peep-bryan.svg',
     twitter: 'https://twitter.com/bryanjacquot',
     github: 'https://github.com/bryanjacquot'
