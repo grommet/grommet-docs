@@ -14,6 +14,7 @@ const PROPS_SCHEMA = {
   primary: { value: true },
   secondary: { value: true },
   accent: { value: true },
+  critical: { value: true },
   plain: { value: true },
   onClick: { value: () => alert('click'), initial: true },
   path: { value: '/' },

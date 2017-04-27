@@ -30,6 +30,7 @@ export default class ButtonDoc extends Component {
             <Button label='Action' primary={true} onClick={this._onClick} />
             <Button label='Action' secondary={true} onClick={this._onClick} />
             <Button label='Action' accent={true} onClick={this._onClick} />
+            <Button label='Critical' critical={true} onClick={this._onClick} />
             <Button icon={<CloseIcon />} onClick={this._onClick} />
             <Button icon={<EditIcon />} label='Edit' onClick={this._onClick} />
           </Box>
@@ -40,6 +41,13 @@ export default class ButtonDoc extends Component {
           <dl>
           <dt><code>accent         true|false</code></dt>
           <dd>Whether this is an accent button.</dd>
+          <dt><code>box         true|false</code></dt>
+          <dd>Whether the button should support Box props. This is useful 
+            if you want your children to be a flexbox container.
+            Default is false.
+          </dd>
+          <dt><code>critical         true|false</code></dt>
+          <dd>Whether this is a critical button.</dd>
           <dt><code>fill           true|false</code></dt>
           <dd>Whether the button expands to fill all of the available
             width and height.
