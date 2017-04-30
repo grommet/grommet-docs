@@ -23,7 +23,7 @@ export default class Dashboard extends Component {
     this._responsive = Responsive.start(this._onResponsive);
   }
 
-  componentWillUnmout {
+  componentWillUnmount {
     this._responsive.stop();
   }
 
