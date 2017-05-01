@@ -47,8 +47,8 @@ export default class Resources extends Component {
             </li>
             <li>
               <a id="hpe-visualizations-sketch"
-                href={`${ROOT}/hpe/hpe-visualizations-0.7.sketch`}
-                target="_blank">Visualizations Sticker Sheet v0.7</a>
+                href={`${ROOT}/hpe/hpe-visualizations-1.0.sketch`}
+                target="_blank">Visualizations Sticker Sheet v1.0</a>
             </li>
             <li>
               <a id="hpe-icons-sketch"
@@ -72,8 +72,8 @@ export default class Resources extends Component {
             </li>
             <li>
               <a id="hpe-visualizations-pdf"
-                href={`${ROOT}/hpe/hpe-visualizations-0.7.pdf`}
-                target="_blank">Visualizations Sticker Sheet v0.7</a>
+                href={`${ROOT}/hpe/hpe-visualizations-1.0.pdf`}
+                target="_blank">Visualizations Sticker Sheet v1.0</a>
             </li>
             <li>
               <a id="hpe-icons-pdf"
