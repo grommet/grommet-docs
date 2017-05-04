@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
-import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import FileDropzone from 'grommet/components/FileDropzone';
