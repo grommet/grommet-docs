@@ -23,7 +23,7 @@ export default class Dashboard extends Component {
     this._responsive = Responsive.start(this._onResponsive);
   }
 
-  componentWillUnmout {
+  componentWillUnmount {
     this._responsive.stop();
   }
 
@@ -38,7 +38,7 @@ export default class Dashboard extends Component {
 
         <section>
           <p>
-            Utility function for being notififed when the window size
+            Utility function for being notified when the window size
             crosses the threshold between mobile and desktop. In general,
             grommet components take care of handling responsiveness within
             themselves. But, sometimes there are situations that require
