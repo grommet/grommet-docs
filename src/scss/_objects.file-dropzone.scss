@@ -1,0 +1,45 @@
+.grommetux-dropzone {
+  border-width: 2px;
+  border-color: #333;
+  border-style: dashed;
+  border-radius: 4px;
+  transition: all 0.5s;
+}
+
+.grommetux-dropzone__input {
+  display: none;
+}
+
+.grommetux-dropzone__preview-tile {
+  position: relative;
+}
+
+.grommetux-dropzone__closer-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  > span {
+    padding: 1px !important;
+  }
+
+}
+
+.grommetux-dropzone__closer-icon {
+  vertical-align: top !important;
+  width: 12px;
+  stroke: white;
+  fill: white;
+  height: 12px;
+}
+
+.grommetux-dropzone--active {
+  border-color: #8cc800;
+  border-style: solid;
+}
+
+.grommetux-dropzone__file-preview {
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+}

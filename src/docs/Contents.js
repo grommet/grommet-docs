@@ -69,6 +69,7 @@ import DetailsPageDoc from './templates/DetailsPageDoc';
 import DistributionDoc from './components/distribution/DistributionDoc';
 import DistributionExamplesDoc from
   './components/distribution/DistributionExamplesDoc';
+import FileDropzone from './components/file-dropzone/FileDropzoneDoc';
 import FilterControlDoc from './components/FilterControlDoc';
 import FooterDoc from './components/footer/FooterDoc';
 import FooterExamplesDoc from './components/footer/FooterExamplesDoc';
@@ -304,7 +305,8 @@ export default [
         examples: SearchInputExamplesDoc },
       { path: 'select', label: 'Select', index: SelectDoc,
         examples: SelectExamplesDoc },
-      { path: 'text-input', label: 'TextInput', component: TextInputDoc }
+      { path: 'text-input', label: 'TextInput', component: TextInputDoc },
+      { path: 'file-dropzone', label: 'FileDropzone', component: FileDropzone }
     ]},
     { label: 'Listing', contents: [
       { path: 'list', label: 'List', index: ListDoc,
