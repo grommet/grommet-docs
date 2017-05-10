@@ -15,15 +15,9 @@ export default class FileDropzoneDoc extends Component {
           <p>Presents a file upload component that supports HTML5 Drag and drop
           allowing the user to upload a file.</p>
           <Box size="medium">
-            <FileDropzone
-              multiple={false}
-              fullDropTarget
-              size="medium"
-              pad="medium"
-              colorIndex="light-2"
-              onDOMChange={(files) => files}
-              align="center"
-            />
+            <FileDropzone fullDropTarget={true}
+              size='medium' pad='medium' colorIndex='light-2'
+              onDOMChange={(files) => files} align='center' />
           </Box>
         </section>
         <section>
@@ -50,15 +44,9 @@ export default class FileDropzoneDoc extends Component {
           <h2>Usage</h2>
           <Code preamble={
             `import FileDropzone from 'grommet/components/FileDropzone';`}>
-              <FileDropzone
-                multiple={false}
-                fullDropTarget
-                size="medium"
-                pad="medium"
-                colorIndex="light-2"
-                onDOMChange={(files) => this._onChangeFile(files[0])}
-                align="center"
-              />
+              <FileDropzone fullDropTarget={true}
+                size='medium' pad='medium' colorIndex='light-2'
+                onDOMChange={(files) => files} align='center' />
           </Code>
         </section>
       </DocsArticle>
