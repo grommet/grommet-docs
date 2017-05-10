@@ -35,7 +35,7 @@ export default class FileDropzoneDoc extends Component {
             <dt><code>preview        {'{true|false}'}</code></dt>
             <dd>whether the component has a preview for uploaded files Defaults 
             to <code>true</code>.</dd>
-            <dt><code>onDOMChange   {'{function (files)}'}</code></dt>
+            <dt><code>onDOMChange   {'{function ([files])}'}</code></dt>
             <dd>Function that will be called when the user uploads a file.</dd>
             <dt><code>fullDropTarget        {'{true|false}'}</code></dt>
             <dd>Whether the drag-and-drop target 
