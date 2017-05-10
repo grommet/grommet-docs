@@ -29,15 +29,9 @@ gulp.task('generate-static-site', ['generate-icons-map'], () => {
 });
 
 gulp.task('generate-icons-map', (done) => {
-  var iconsFolder = path.join(
-    __dirname,
-    './node_modules/grommet/img/icons'
-  );
+  var iconsFolder = path.join(__dirname, './node_modules/grommet/img/icons');
   var iconsMap = ['module.exports = {'];
   fs.readdir(iconsFolder, function(err, icons) {
-    if (!icons) {
-      return;
-    }
     icons.forEach(function (icon, index) {
 
       if (/\.svg$/.test(icon)) {
