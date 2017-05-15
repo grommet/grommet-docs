@@ -38,11 +38,11 @@ export default class AnnotatedMeterDoc extends Component {
             with a <Anchor path='/docs/value'>Value</Anchor> and
             optional <Anchor path='/docs/legend'>Legend</Anchor>.</p>
           <Box direction='row' align='center' pad={{ between: 'large' }}>
-            <AnnotatedMeter type='bar' series={[
+            <AnnotatedMeter type='bar' max={70} series={[
               { label: 'First', value: 20 },
               { label: 'Second', value: 50 }
             ]} />
-            <AnnotatedMeter type='circle' series={[
+            <AnnotatedMeter type='circle' max={70} series={[
               { label: 'First', value: 20 },
               { label: 'Second', value: 50 }
             ]} />
@@ -82,7 +82,7 @@ export default class AnnotatedMeterDoc extends Component {
           <h2>Example</h2>
 
           <Example code={
-            <AnnotatedMeter type='circle' series={[
+            <AnnotatedMeter type='circle' max={70} series={[
               { label: 'First', value: 20 },
               { label: 'Second', value: 50 }
             ]} legend={true} />
