@@ -24,7 +24,7 @@ export default class AnnotatedMeterExamplesDoc extends Component {
       elementProps.type = 'bar';
     }
     const element = (
-      <AnnotatedMeter {...elementProps} series={[
+      <AnnotatedMeter {...elementProps} max={70} series={[
         { label: 'First', value: 20 },
         { label: 'Second', value: 50 }
       ]} />
