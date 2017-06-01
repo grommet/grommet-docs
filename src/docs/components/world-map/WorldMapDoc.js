@@ -40,14 +40,27 @@ export default class WorldMapDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
-            <dt><code>series      {'[{continent: , colorIndex: , ' +
-              'onClick: }, ...]'}</code></dt>
-            <dd>An array of objects describing the data. The available
-              continents
+            <dt><code>colorIndex     {'{category}-{index}'}</code></dt>
+            <dd>The color identifier to use when not specified in the series.
+              For example: <code>'neutral-1'</code>.
+              See <Anchor path='/docs/color'>Color</Anchor> for
+              possible values.</dd>
+            <dt><code>onSelectPlace  {'{function ([x, y])}'}</code></dt>
+            <dd>If provided, {'this function'} will be called with the
+             coordinates of the place that is clicked.</dd>
+            <dt><code>series         {'[{continent: , place: [x, y], ' +
+              'colorIndex: , onClick: }, ...]'}</code></dt>
+            <dd>An array of objects describing the data.
+              The available continents
               are: <code>NorthAmerica</code>, <code>
               SouthAmerica</code>, <code>Europe</code>, <code>Africa
-              </code>, <code>Asia</code>, and <code>Australia</code>. You
-              must specify a continent in order for it to be rendered.</dd>
+              </code>, <code>Asia</code>, and <code>Australia</code>.
+              A <code>place</code> is a two dimensional coordinate on the map.
+              You can use <code>onSelectPlace</code> to interact with
+              the map to select placed.
+              You must specify either a continent or a place in each
+              series item.
+              <code>label</code> is used for accessibility.</dd>
           </dl>
         </section>
 
