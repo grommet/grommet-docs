@@ -13,6 +13,3 @@ after_success:
     git config --global user.email "asouza@hp.com"
     gulp release:gh-pages
   fi
-env:
-  global:
-  - secure: JcEwVM/zbxs7oUC+4I4h40cWGabVyOvkiG0a1ZCTKHMthPeVdd6co0rzvRhMegl9WxqWyZ/Fg79JdJvLlc7HPD/Uh3nfSUd9OiIDnmDOb3x/CgpiacfjGpxPLEJk116A/YzixI0ABvKBSPLG1JEbOBrW6tQGMqLzoWup8TgCZmJo+8jVjvS+vZbwKgSFxUMvX4sMI1Ou8Qbs3gz5XGHCMfHTGpRxr5mulAocReq93MaRjcOEnrz1BBtTg5uxkj3K3AoLGpEiLh/VUfH34E7/j6kDURhICVaDkU+ih0JymElbtPiRnCcP5a6Wiw+lKLZy8LHuD3/aV4e0YzEX9r+zOm+uD3/FDIt4jBVLR/O1tp5yFyaa9p2yn1Jf/sH9aixI85j+b0UCf5DD5kOVQ6LH19W4glR5U8zv6RzMSrP92Ah9enHo0iSigiev/2ZTIo3raJ6hLYv7G5gtgdMRa1Hkoenow2MYZItdcCRD/pd25g21REKmPZf2PPQG9CBvWZkIg3e8T10jpBqXbhlaBJrT7rRYtgPQh/IcYd+RrojlkiKFjgwFabCGc9vnbd45YhX9q7PbFh0LeMlfuqlZQoqT1tdeMtZ+1a2niOi5zOL+i+UJMg2/fYdmwGhoI5fI9IQMB+ohgFRmbG9BRQp/KObwxJgtAL3R4x9tXd0HsxVaZN4=
