@@ -34,6 +34,12 @@ export default class TileDoc extends Component {
         <section>
           <h2>Properties</h2>
           <dl>
+            <dt><code>activeIndex         {'{number}'}</code></dt>
+            <dd>Active carousel index. Defaults to 0.
+              If activeIndex is used, you will be in control. This means that
+              you will need to use onActive callback to update your 
+              component state when the index changes.
+            </dd>
             <dt><code>autoplay            true|false</code></dt>
             <dd>Whether the carousel should play automatically or not.
               Defaults to <code>true</code>.</dd>
@@ -44,6 +50,9 @@ export default class TileDoc extends Component {
             <dd>Whether the carousel should scroll back to the first slide
               when you get to the end, or stop at the last slide.
               Defaults to <code>true</code>.</dd>
+            <dt><code>onActive            {'{function}'}</code></dt>
+            <dd>Function that will be called with the active index when
+              the currently active carousel changes.</dd>
             <dt><code>persistentNav       true|false</code></dt>
             <dd>Whether the navigational elements should always be shown,
               or only show when the user mouses over the carousel.
