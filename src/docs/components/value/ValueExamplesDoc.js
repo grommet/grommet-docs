@@ -13,6 +13,7 @@ const PROPS_SCHEMA = {
   units: { value: '%', initial: true },
   size: { options: ['small', 'medium', 'large', 'xlarge'] },
   responsive: { value: true },
+  reverse: { value: false },
   align: { options: ['start', 'center', 'end'] },
   colorIndex: { options: ['accent-1', 'accent-2'] }
 };

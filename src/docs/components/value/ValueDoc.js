@@ -49,6 +49,11 @@ export default class ValueDoc extends Component {
             <dd>Optional icon element to place next to the value indicating
               the trend. For example, a <code>LinkUp</code> icon.
               See <Anchor path="/docs/icon">Icon</Anchor>.</dd>
+            <dt><code>reverse        true|false</code></dt>
+            <dd>
+              Whether to reverse the order of icon and value nodes.
+              Defaults to false.
+            </dd>
             <dt><code>value        {"{number}"}</code></dt>
             <dd>The value itself.</dd>
             <dt><code>units        {"{string}"}</code></dt>
