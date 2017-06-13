@@ -17,7 +17,8 @@ export default class FileDropzoneDoc extends Component {
           <Box size="medium">
             <FileDropzone fullDropTarget={true}
               size='medium' pad='medium' colorIndex='light-2'
-              onDOMChange={(files) => files} align='center' />
+              onDOMChange={(files) => files}
+              align='center' />
           </Box>
         </section>
         <section>
@@ -29,6 +30,9 @@ export default class FileDropzoneDoc extends Component {
             <dt><code>preview        {'{true|false}'}</code></dt>
             <dd>whether the component has a preview for uploaded files Defaults 
             to <code>true</code>.</dd>
+            <dt><code>multiple        {'{true|false}'}</code></dt>
+            <dd>whether the component should allow upload of
+            multiple files Defaults to <code>false</code>.</dd>
             <dt><code>onDOMChange   {'{function ([files])}'}</code></dt>
             <dd>Function that will be called when the user uploads a file.</dd>
             <dt><code>fullDropTarget        {'{true|false}'}</code></dt>
