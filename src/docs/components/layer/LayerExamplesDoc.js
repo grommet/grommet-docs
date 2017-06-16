@@ -76,7 +76,7 @@ export default class ColumnsExamplesDoc extends Component {
 
     return (
       <InteractiveExample contextLabel='Layer' contextPath='/docs/layer'
-        preamble={`import Layer from 'grommet/layer/Layer';`}
+        preamble={`import Layer from 'grommet/components/Layer';`}
         propsSchema={PROPS_SCHEMA}
         codeElement={layer}
         contentsSchema={CONTENTS_SCHEMA}
