@@ -6,6 +6,7 @@ import ReactDOMServer from 'react-dom/server';
 import { AppContainer } from 'react-hot-loader';
 import { match, RouterContext, useRouterHistory } from 'react-router';
 import { createMemoryHistory } from 'history';
+import { initialize } from './utils/analytics';
 import template from './template.ejs';
 import App from './App';
 
@@ -13,6 +14,9 @@ import App from './App';
 if (typeof document !== 'undefined') {
   require('autotrack');
   require('./lib/modernizr');
+
+  // Initialize react-ga
+  initialize();
 
   const element = document.getElementById('content');
   ReactDOM.render(
