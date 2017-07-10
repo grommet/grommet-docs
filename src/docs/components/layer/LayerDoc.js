@@ -39,9 +39,12 @@ export default class LayerDoc extends Component {
               Defaults to false.</dd>
             <dt><code>onClose  {'{function ()}'}</code></dt>
             <dd>Function that will be called when the user clicks on the
-              closer control. Clicking the closer control does not automatically
-              cause the Layer to be removed. The recipient of this callback can
-              still decide whether to continue rendering the Layer or not.</dd>
+              closer control. Providing this function is required when the
+              closer property is true. Clicking the closer control does not
+              automatically cause the Layer to be removed. The recipient of this
+              callback can still decide whether to continue rendering the Layer
+              or not.
+            </dd>
           </dl>
         </section>
 
