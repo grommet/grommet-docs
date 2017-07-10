@@ -46,7 +46,8 @@ export default class NotificationDoc extends Component {
               (e.g. Active, Running).</dd>
             <dt><code>status           {"{string}"}</code></dt>
             <dd>Status of the element on the nofitication message
-              (e.g. Ok, Critical).</dd>
+              (e.g. Ok, Critical). Please see the Status component for full list
+              of supported values.</dd>
             <dt><code>timestamp        {"{date}"}</code></dt>
             <dd>Timestamp of the notification message.</dd>
           </dl>
