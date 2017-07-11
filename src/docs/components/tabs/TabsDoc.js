@@ -17,7 +17,8 @@ export default class TabsDoc extends Component {
       }>
 
         <section>
-          <p>A tabular view component.</p>
+          <p>A tabular view component. The Tabs component contains one or more 
+             Tab components.</p>
           <Tabs>
           <Tab title='First Title'>
             <Paragraph>First contents</Paragraph>
@@ -29,7 +30,7 @@ export default class TabsDoc extends Component {
         </section>
 
         <section>
-          <h2>Properties</h2>
+          <h2>Tabs Properties</h2>
           <dl>
             <dt><code>activeIndex         {'{number}'}</code></dt>
             <dd>Active tab index. Defaults to 0.</dd>
@@ -44,6 +45,15 @@ export default class TabsDoc extends Component {
               switched to a centered column layout when the display
               area narrows.
               Defaults to <code>true</code>.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Tab Properties</h2>
+          <dl>
+            <dt><code>title        {'{string}'}</code></dt>
+            <dd>Label for the tab. This property is required. </dd>
+            
           </dl>
         </section>
 

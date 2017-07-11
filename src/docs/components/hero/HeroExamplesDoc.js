@@ -109,7 +109,7 @@ export default class HeroExamplesDoc extends Component {
     return (
       <InteractiveExample contextLabel='Hero' contextPath='/docs/hero'
         align='stretch'
-        preamble={`import Header from 'grommet/components/Hero';`}
+        preamble={`import Hero from 'grommet/components/Hero';`}
         propsSchema={PROPS_SCHEMA}
         contentsSchema={CONTENTS_SCHEMA}
         element={element} onChange={this._onChange} />
