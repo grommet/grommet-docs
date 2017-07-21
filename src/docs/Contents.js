@@ -114,6 +114,7 @@ import NotificationDoc from './components/notification/NotificationDoc';
 import NotificationExamplesDoc from
   './components/notification/NotificationExamplesDoc';
 import NumberInputDoc from './components/NumberInputDoc';
+import PasswordInputDoc from './components/PasswordInputDoc';
 import ParagraphDoc from './components/paragraph/ParagraphDoc';
 import ParagraphExamplesDoc from './components/paragraph/ParagraphExamplesDoc';
 import PrimaryPageDoc from './templates/PrimaryPageDoc';
@@ -298,6 +299,8 @@ export default [
         examples: LoginFormExamplesDoc },
       { path: 'number-input', label: 'NumberInput',
         component: NumberInputDoc },
+      { path: 'password-input', label: 'PasswordInput',
+        component: PasswordInputDoc },
       { path: 'radio-button', label: 'RadioButton',
         component: RadioButtonDoc },
       { path: 'search-input', label: 'SearchInput', index: SearchInputDoc,
