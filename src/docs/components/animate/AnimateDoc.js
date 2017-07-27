@@ -62,6 +62,10 @@ export default class AnimateDoc extends Component {
             </code></dt>
             <dd>Animation when component is leaving. Defaults
               to enter animation.</dd>
+            <dt><code>onAppear           {'{function}'}</code></dt>
+            <dd>Callback for when the animation appears.</dd>
+            <dt><code>onLeave            {'{function}'}</code></dt>
+            <dd>Callback for when the animation leaves.</dd>
             <dt><code>visible            true|false|scroll</code></dt>
             <dd>Toggle visibility. When set to <code>scroll</code>, the
               animation will happen when the component scrolls into
