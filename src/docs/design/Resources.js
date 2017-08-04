@@ -28,7 +28,7 @@ export default class Resources extends Component {
                 href={"https://github.com/grommet/grommet-design/" +
                   "raw/master/grommet/" +
                   "grommet-components-1.0.sketch"}
-                target="_blank">General Components Sticker Sheet v1.0</a>
+                target="_blank">Components Sticker Sheet v1.0</a>
             </li>
           </ul>
 
