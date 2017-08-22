@@ -6,7 +6,6 @@ import gulp from 'gulp';
 import path from 'path';
 import fs from 'fs';
 import grommetToolbox, {getOptions} from 'grommet-toolbox';
-import git from 'gulp-git';
 import del from 'del';
 import mkdirp from 'mkdirp';
 import gulpWebpack from 'webpack-stream';
@@ -78,6 +77,7 @@ gulp.task('release:createTmp', (done) => {
 
 gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
   if (process.env.CI) {
+    const git = require('gulp-git');
     git.clone('https://' + process.env.GH_TOKEN +
       '@github.com/grommet/grommet.github.io.git',
       {
