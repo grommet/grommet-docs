@@ -48,8 +48,10 @@ export default class WorldMapDoc extends Component {
             <dt><code>onSelectPlace  {'{function ([x, y])}'}</code></dt>
             <dd>If provided, {'this function'} will be called with the
              coordinates of the place that is clicked.</dd>
-            <dt><code>series         {'[{continent: , place: [x, y], ' +
-              'colorIndex: , onClick: }, ...]'}</code></dt>
+           <dt><code>series         {'[{continent: , ' +
+              'place: [x, y]|[lat, lon], ' +
+              'label: , colorIndex: , flag: , onClick: , onHover: }, ' +
+              '...]'}</code></dt>
             <dd>An array of objects describing the data.
               The available continents
               are: <code>NorthAmerica</code>, <code>
@@ -57,10 +59,19 @@ export default class WorldMapDoc extends Component {
               </code>, <code>Asia</code>, and <code>Australia</code>.
               A <code>place</code> is a two dimensional coordinate on the map.
               You can use <code>onSelectPlace</code> to interact with
-              the map to select placed.
+              the map to select places. Or, you can specify a latitude and
+              longitude.
               You must specify either a continent or a place in each
-              series item.
-              <code>label</code> is used for accessibility.</dd>
+              series item. <code>label</code> is used for accessibility
+              and should always be provided. <code>flag</code> is anything
+              renderable which will be placed over a continent or adjacent
+              to a place. <code>onHover</code> will be passed a single boolean
+              argument indicating whether the user has started or stopped
+              hovering over the item.</dd>
+            <dt><code>zoom           true|false</code></dt>
+            <dd>Whether the map should automatically zoom in to just the
+              continents specified or to the continents continaining the
+              placed specified.</dd>
           </dl>
         </section>
 
