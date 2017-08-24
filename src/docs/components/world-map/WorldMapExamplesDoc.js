@@ -141,8 +141,8 @@ export default class WorldMapExamplesDoc extends Component {
     this.state = { elementProps: {} };
   }
 
-  _onSelectPlace (active) {
-    console.log('!!! WMED _onSelectPlace', active);
+  _onSelectPlace (active, geo) {
+    console.log('WorldMapExamplesDoc _onSelectPlace', active, geo);
     this.setState({ active });
   }
 
