@@ -45,10 +45,13 @@ export default class WorldMapDoc extends Component {
               For example: <code>'neutral-1'</code>.
               See <Anchor path='/docs/color'>Color</Anchor> for
               possible values.</dd>
-            <dt><code>onSelectPlace  {'{function ([x, y])}'}</code></dt>
+            <dt><code>onSelectPlace  {'{function ([x, y], [lat, lon])}'}</code>
+              </dt>
             <dd>If provided, {'this function'} will be called with the
-             coordinates of the place that is clicked.</dd>
-           <dt><code>series         {'[{continent: , ' +
+             coordinates of the place that is clicked. The first argument
+             provides map coordinates. The second argument provides
+             latitude and longitude coordinates.</dd>
+            <dt><code>series         {'[{continent: , ' +
               'place: [x, y]|[lat, lon], ' +
               'label: , colorIndex: , flag: , onClick: , onHover: }, ' +
               '...]'}</code></dt>
