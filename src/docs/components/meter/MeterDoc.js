@@ -69,14 +69,14 @@ export default class MeterDoc extends Component {
             <dd>An array of objects describing the data.
               Either this or the <code>value</code> property must be
               provided. The <code>spiral</code> type Meter also accepts a
-              <code>label</code> property for the objects in the series.</dd>
+              <code>label</code> property for the objects in the series.*</dd>
             <dt><code>size        xsmall|small|medium|large|xlarge</code></dt>
             <dd>The size of the Meter. Defaults to <code>medium</code>.
               Currently, the <code>spiral</code> type Meter does not respond
               to this property.</dd>
             <dt><code>stacked     true|false</code></dt>
             <dd>Whether slices for multiple series values should be stacked
-              together in the same slot or shown in separate slots.
+              together in the same slot or shown in separate slots.*
               Defaults to <code>false</code>.</dd>
             <dt><code>threshold   {'{number}'}</code></dt>
             <dd>Optional threshold value.</dd>
@@ -90,13 +90,22 @@ export default class MeterDoc extends Component {
             <dt><code>vertical    true|false</code></dt>
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
           </dl>
-          <p>Note: It used to be that to be visually discernable,
-            very small values were given a minimum visual size that was
-            disproportionate to the scale of the rest of the meter. This
-            behavior was removed to give the caller more control of the
-            desired behavior. If values are too small to be discernable, it
-            is recommended to either group multiple small values into a single
-            "other" category or to skew the value to render it visible.</p>
+          <p>*Notes:</p> 
+          <p>Stacked arc, circle, and spiral Meters should be used sparingly—
+            being mindful of the visual bias that occurs emphasizing the inner 
+            over the outer bands.</p>
+          <p>Because of the above, and space limitations, stacked Meters are 
+            limited to a <code>series</code> length of 4. Currently, this also 
+            applies to <code>stacked bar</code> Meters. For stacked bar Meter
+            series greater than 4, one can use a Box containing single value
+            Meters.</p>
+          <p>In prior versions of grommet, very small values were given a 
+            minimum visually-discernable size that was disproportionate to the 
+            scale of the rest of the Meter. This behavior was removed to 
+            provide a more accurate result and more control. If values are too 
+            small to be discernable, it is recommended to either group multiple
+            small values into a single "other" category or to skew the value to
+            render it visible.</p>
         </section>
 
       </DocsArticle>
