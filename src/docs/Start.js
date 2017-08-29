@@ -15,7 +15,7 @@ export default class Start extends Component {
     return (
       <DocsArticle title="Start">
         <Paragraph size='large'>
-          There are a bunch of ways of get started with Grommet. Whether
+          There are a bunch of ways to get started with Grommet. Whether
           you’re a designer, developer, or just interested in technology,
           we’ve got you covered.
         </Paragraph>
