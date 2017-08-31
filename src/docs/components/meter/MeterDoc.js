@@ -91,14 +91,15 @@ export default class MeterDoc extends Component {
             <dd>Whether to orient a bar or arc Meter vertically.</dd>
           </dl>
           <p>*Notes:</p> 
-          <p>Stacked arc, circle, and spiral Meters should be used sparingly—
-            being mindful of the visual bias that occurs emphasizing the inner 
-            over the outer bands.</p>
-          <p>Because of the above, and space limitations, stacked Meters are 
+          <p>Unstacked arc, circle, and spiral Meters should be used 
+            sparingly—being mindful of the visual bias that occurs emphasizing
+            the outer over the inner bands. Current plans for grommet 2.0 
+            eliminate untacked circular meters.</p>
+          <p>Because of the above and space limitations, unstacked Meters are 
             limited to a <code>series</code> length of 4. Currently, this also 
-            applies to <code>stacked bar</code> Meters. For stacked bar Meter
-            series greater than 4, one can use a Box containing single value
-            Meters.</p>
+            applies to unstacked bar Meters. For unstacked bar Meter
+            series greater than 4, one can use a Box containing multiple single
+            value Meters.</p>
           <p>In prior versions of grommet, very small values were given a 
             minimum visually-discernable size that was disproportionate to the 
             scale of the rest of the Meter. This behavior was removed to 
