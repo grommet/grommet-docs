@@ -11,8 +11,8 @@ Anchor.displayName = 'Anchor';
 
 export default class AnchorDoc extends Component {
 
-  _onClick () {
-    // no-op
+  _onClick (event) {
+    event.preventDefault();
   }
 
   render () {
