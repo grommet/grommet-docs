@@ -80,7 +80,8 @@ export default class ButtonDoc extends Component {
           <dt><code>plain          true|false</code></dt>
           <dd>Whether this is a plain button with no border or padding. Use
             this when wrapping children that provide the complete visualization
-            of the control. Do not use plain with label or icon properties.</dd>
+            of the control. The plain property will disable the icon and label
+            properties.</dd>
           <dt><code>primary        true|false</code></dt>
           <dd>Whether this is a primary button. There should be at most
             one per page or screen.</dd>
