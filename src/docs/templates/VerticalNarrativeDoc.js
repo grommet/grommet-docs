@@ -45,8 +45,11 @@ export default class VerticalNarrativeDoc extends Component {
     );
 
     return (
-      <DocsTemplate title="Vertical Narrative" exampleUrl='grommet-vertical-narrative'
-        githubUrl="https://github.com/grommet/grommet-vertical-narrative">
+      <DocsTemplate
+        title="Vertical Narrative"
+        exampleUrl='grommet-vertical-narrative'
+        githubUrl="https://github.com/grommet/grommet-vertical-narrative"
+      >
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
             The Vertical Narrative template provides a slideshow-like experience
