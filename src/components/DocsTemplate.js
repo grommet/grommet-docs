@@ -52,7 +52,7 @@ export default class DocsPattern extends Component {
         secondaryTitle={secondaryTitle} 
         action={
           <Button primary={true} 
-            href={`https://${exampleUrl}-${theme || 'vanilla'}.herokuapp.com/`}
+            href={`http://${exampleUrl}-${theme || 'vanilla'}.grmmt.co/`}
             target='_blank'
             label='Examples' />
         }>
