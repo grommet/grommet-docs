@@ -57,7 +57,7 @@ export default class DetailsPageDoc extends Component {
     );
 
     return (
-      <DocsTemplate title="Detail Page" exampleUrl='grommet-details-page'
+      <DocsTemplate title="Detail Page" exampleUrl='grommet-detail-page'
         githubUrl="https://github.com/grommet/grommet-details-page">
         <Section pad={{between: 'large'}}>
           <Paragraph size="large">
