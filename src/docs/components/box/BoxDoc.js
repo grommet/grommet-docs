@@ -70,7 +70,7 @@ export default class BoxDoc extends Component {
             <dt><code>full           true|horizontal|vertical|false</code></dt>
             <dd>Whether the width and/or height should take the full viewport
               size.</dd>
-            <dt><code>justify        start|center|between|end</code></dt>
+            <dt><code>justify        start|center|between|around|end</code></dt>
             <dd>How to align the contents along the main axis.</dd>
             <dt><code>onClick        {'{function}'}</code></dt>
             <dd>Optional click handler.</dd>
