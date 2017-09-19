@@ -96,7 +96,7 @@ gulp.task('release:gh-pages', ['dist', 'release:createTmp'], (done) => {
 
           del.sync(['./**/*']);
 
-          gulp.src(['../../dist/**'])
+          gulp.src(['../../dist/**', '../../dist/CNAME'])
           .pipe(gulp.dest('./')).on('end', () => {
             git.status({
               args: '--porcelain'

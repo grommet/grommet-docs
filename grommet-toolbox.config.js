@@ -8,6 +8,7 @@ export default {
     'src/index.html',
     'src/404.html',
     'src/robots.txt',
+    'CNAME',
     {
       asset: 'src/docs/img/**',
       dist: 'dist/img/'
