@@ -1602,8 +1602,8 @@ dateformat@^1.0.7-1.2.3:
     meow "^3.3.0"
 
 dateformat@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-2.1.0.tgz#91c90e32c10046f1dc38127df29d15ace3650ab3"
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-2.0.0.tgz#2743e3abb5c3fc2462e527dca445e04e9f4dee17"
 
 debounce@^1.0.0:
   version "1.0.2"
