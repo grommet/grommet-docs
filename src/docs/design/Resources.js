@@ -24,11 +24,9 @@ export default class Resources extends Component {
 
           <ul>
             <li>
-              <a id="grommet-sk-general"
-                href={"https://github.com/grommet/grommet-design/" +
-                  "raw/master/grommet/" +
-                  "grommet-components-1.0.sketch"}
-                target="_blank">Components Sticker Sheet v1.0</a>
+              <a id="grommet-components-sketch"
+                href={`${ROOT}/grommet/grommet-components-1.1.sketch`}
+                target="_blank">Components Sticker Sheet v1.1</a>
             </li>
           </ul>
 
@@ -42,8 +40,8 @@ export default class Resources extends Component {
           <ul>
             <li>
               <a id="hpe-components-sketch"
-                href={`${ROOT}/hpe/hpe-components-1.0.sketch`}
-                target="_blank">Components Sticker Sheet v1.0</a>
+                href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
+                target="_blank">Components Sticker Sheet v1.1</a>
             </li>
             <li>
               <a id="hpe-visualizations-sketch"
@@ -94,6 +92,51 @@ export default class Resources extends Component {
             These files do not represent the latest design
             direction of Hewlett Packard Enterprise.
           </p>
+
+        </section>
+
+        <section id="aruba">
+          <h2>Aruba</h2>
+
+          <h4>Sketch</h4>
+
+          <ul>
+            <li>
+              <a id="aruba-components-sketch"
+                href={`${ROOT}/aruba/aruba-components-1.0.sketch`}
+                target="_blank">Components Sticker Sheet v1.0</a>
+            </li>
+          </ul>
+
+        </section>
+
+        <section id="micro-focus">
+          <h2>Micro Focus</h2>
+
+          <h4>Sketch</h4>
+
+          <ul>
+            <li>
+              <a id="micro-focus-components-sketch"
+                href={`${ROOT}/micro-focus/micro-focus-components-1.0.sketch`}
+                target="_blank">Components Sticker Sheet v1.0</a>
+            </li>
+          </ul>
+
+        </section>
+
+        <section id="dxc">
+          <h2>DXC</h2>
+
+          <h4>Sketch</h4>
+
+          <ul>
+            <li>
+              <a id="dxc-components-sketch"
+                href={`${ROOT}/dxc/dxc-components-1.0.sketch`}
+                target="_blank">Components Sticker Sheet v1.0</a>
+            </li>
+          </ul>
 
         </section>
 
