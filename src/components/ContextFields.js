@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FormField from 'grommet/components/FormField';
 import Heading from 'grommet/components/Heading';
 import Select from 'grommet/components/Select';

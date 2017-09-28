@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Anchor from 'grommet/components/Anchor';
 import Layer from 'grommet/components/Layer';
 import Box from 'grommet/components/Box';
