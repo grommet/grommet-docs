@@ -33,6 +33,8 @@ if (typeof document !== 'undefined') {
   const firstPathElement = window.location.pathname.split('/')[1];
   const theme = (THEMES.indexOf(firstPathElement) === -1 ? 'vanilla' :
     firstPathElement);
+
+  require(`./scss/index-${theme}`);
   if (__DEV_MODE__) {
     var themeLink = document.getElementById('theme-link');
     var themeUrl = `/assets/css/index-${theme}.css`;
