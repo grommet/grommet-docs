@@ -1,6 +1,7 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Menu from 'grommet/components/Menu';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
