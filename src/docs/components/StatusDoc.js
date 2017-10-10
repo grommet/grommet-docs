@@ -33,7 +33,7 @@ export default class StatusDoc extends Component {
             <dt><code>size        small|medium|large</code></dt>
             <dd>The size of the Status icon.
               Defaults to <code>medium</code>.</dd>
-            <dt><code>value       critical|warning|ok|disabled|unknown
+            <dt><code>value       ok|critical|warning|disabled|unknown
               </code></dt>
             <dd>Which status to indicate.</dd>
           </dl>
