@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
@@ -29,6 +29,7 @@ import ConfigureIcon from 'grommet/components/icons/base/Configure';
 import RunIcon from 'grommet/components/icons/base/Run';
 import GrommetIcon from 'grommet/components/icons/base/BrandGrommetOutline';
 import ArubaIcon from 'grommet/components/icons/base/PlatformAruba';
+import DXCIcon from 'grommet/components/icons/base/PlatformDxc';
 import HPEIcon from 'grommet/components/icons/base/BrandHpeStack';
 import HPIcon from 'grommet/components/icons/base/PlatformHpi';
 import Contents from './docs/Contents';
@@ -42,7 +43,8 @@ const THEMES = [
   },
   { label: 'grommet', Icon: GrommetIcon, url: '/', size: 'large' },
   { Icon: ArubaIcon, url: '/aruba', size: 'xlarge' },
-  { Icon: HPIcon, url: '/hpinc', size: 'large' }
+  { Icon: HPIcon, url: '/hpinc', size: 'large' },
+  { Icon: DXCIcon, url: '/dxc', size: 'large' }
 ];
 
 class HomeSection extends Component {

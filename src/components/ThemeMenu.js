@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import Layer from 'grommet/components/Layer';
 import Box from 'grommet/components/Box';
 import Menu from 'grommet/components/Menu';
 
-const THEMES = ['grommet', 'aruba', 'hpe', 'hpinc'];
+const THEMES = ['grommet', 'aruba', 'dxc', 'hpe', 'hpinc'];
 
 export default class ThemeMenu extends Component {
 

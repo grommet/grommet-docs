@@ -16,7 +16,7 @@ config.output = {
   libraryTarget: 'commonjs2'
 };
 
-const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
+const THEMES = ['vanilla', 'aruba', 'dxc', 'hpe', 'hpinc'];
 
 const staticGenerators = THEMES.map((theme) => {
   const themeRoutes = { ...routes };

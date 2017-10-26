@@ -20,14 +20,14 @@ export default class DocsPattern extends Component {
   }
 
   _getTheme(url) {
-    const acceptedThemes = ['hpe', 'hpinc', 'aruba'];
+    const acceptedThemes = ['hpe', 'hpinc', 'aruba', 'dxc'];
     const pathArray = url.split('/');
     let currTheme;
 
     acceptedThemes.forEach((theme) => {
       if (pathArray[1] === theme && !currTheme) currTheme = theme;
     });
-    
+
     return currTheme;
   };
 
@@ -47,11 +47,11 @@ export default class DocsPattern extends Component {
     );
 
     return (
-      <DocsArticle 
-        title={title} 
-        secondaryTitle={secondaryTitle} 
+      <DocsArticle
+        title={title}
+        secondaryTitle={secondaryTitle}
         action={
-          <Button primary={true} 
+          <Button primary={true}
             href={`http://${exampleUrl}-${theme || 'vanilla'}.grmmt.co/`}
             target='_blank'
             label='Examples' />
@@ -61,4 +61,3 @@ export default class DocsPattern extends Component {
     );
   }
 };
-

@@ -1,4 +1,4 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -40,7 +40,7 @@ if (typeof document !== 'undefined') {
   }
 }
 
-const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
+const THEMES = ['vanilla', 'aruba', 'dxc', 'hpe', 'hpinc'];
 
 function basenameForTheme (theme) {
   let basename;

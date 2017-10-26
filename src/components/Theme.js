@@ -1,9 +1,9 @@
-// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
 import Select from 'grommet/components/Select';
 
-const THEMES = ['grommet', 'aruba', 'hpe', 'hpinc'];
+const THEMES = ['grommet', 'aruba', 'dxc', 'hpe', 'hpinc'];
 
 export default class ThemeMenu extends Component {
 

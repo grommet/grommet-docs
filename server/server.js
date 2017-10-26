@@ -7,7 +7,7 @@ var PORT = process.env.PORT || 9000;
 
 var app = express();
 
-const BASENAMES = ['', '/aruba', '/hpe', '/hpinc'];
+const BASENAMES = ['', '/aruba', '/dxc', '/hpe', '/hpinc'];
 
 const DESIGN = [
   'best_practices',

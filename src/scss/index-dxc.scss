@@ -1,0 +1,26 @@
+// (C) Copyright 2014-2017 Hewlett Packard Enterprise Development LP
+
+@import '~grommet/scss/dxc/index';
+@import 'objects.home';
+@import 'objects.swatch';
+
+html {
+  font-family: $brand-font-family;
+}
+
+a.anchor {
+  display: block;
+}
+
+.request-access fieldset:first-of-type {
+  padding-top: 0;
+}
+
+pre {
+  width: 100%;
+  max-width: 100%;
+}
+
+.generic-branding {
+  display: none;
+}

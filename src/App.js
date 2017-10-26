@@ -16,7 +16,7 @@ const onRouteUpdate = () => {
   document.getElementById('content').focus();
 };
 
-const THEMES = ['vanilla', 'aruba', 'hpe', 'hpinc'];
+const THEMES = ['vanilla', 'aruba', 'dxc', 'hpe', 'hpinc'];
 
 function basenameForTheme (theme) {
   let basename;
