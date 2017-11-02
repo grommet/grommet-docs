@@ -49,13 +49,7 @@ export default class CardDoc extends Component {
               Box</Anchor> for additional details.</dd>
             <dt><code>description          {'{string}|{element}'}
               </code></dt>
-            <dd>Either a string in markdown syntax or an element.
-              See <Anchor path='/docs/markdown'>
-              Markdown</Anchor> for additional details.
-              <strong>Deprecation Notice: </strong>
-              Implicit Markdown support will be removed in the next major 
-              release.Description will continue to accept elements as a
-              description property.</dd>
+            <dd>Either a string or an element.</dd>
             <dt><code>heading              {'{string}|{element}'}</code></dt>
             <dd>Heading content.</dd>
             <dt><code>headingStrong        true|false</code></dt>
