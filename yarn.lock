@@ -2870,7 +2870,7 @@ grommet-toolbox@^1.1.0:
 
 grommet@^1.5.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "1.8.3"
-  resolved "https://github.com/grommet/grommet/tarball/stable#57439ce831245a54f1e055b5d7b3142f5b66ae89"
+  resolved "https://github.com/grommet/grommet/tarball/stable#6a5a7453568babeee111670cefd1e2f38dcaba60"
   dependencies:
     classnames "^2.2.3"
     deep-assign "^2.0.0"
