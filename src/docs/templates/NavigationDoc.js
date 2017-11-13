@@ -65,8 +65,8 @@ export default class NavigationDoc extends Component {
 
         <Section separator='bottom'>
           <Paragraph size='large'>
-            <strong>The Sidebar</strong>. When designing your 
-              {'application\'s'} 
+            <strong>The Sidebar</strong>. When designing your&nbsp;
+              {'application\'s '}
               main navigation, your sidebar is your friend. All key application
               areas should be accessible through your sidebar.
           </Paragraph>
