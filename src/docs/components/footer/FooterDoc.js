@@ -46,7 +46,7 @@ export default class FooterDoc extends Component {
           <h2>Properties</h2>
           <dl>
             <dt><code>size        small|medium|large</code></dt>
-            <dd>The size of the Header. Defaults to <code>medium</code>.</dd>
+            <dd>The size of the Footer. Defaults to <code>medium</code>.</dd>
             <dt><code>primary     true|false</code></dt>
             <dd>Whether it should be treated as main footer or not.
               Used for Accessibility.</dd>

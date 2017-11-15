@@ -63,7 +63,7 @@ export default class Components extends Component {
           <dd>
             Listing components include Lists, Tables, and Tiles and are 
             useful for displaying a  collection of related items. All three 
-            support item selection and responsive layout.`
+            support item selection and responsive layout.
           </dd>
           <dt>Visualization</dt>
           <dd>
