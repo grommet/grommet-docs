@@ -30,7 +30,8 @@ export default class HeadingDoc extends Component {
               to <code>start</code>.</dd>
             <dt><code>margin      none|small|medium|large</code></dt>
             <dd>The vertical margin below the Heading. Defaults
-              to <code>medium</code>.</dd>
+              to <code>medium</code>. Note: asymetric margins can be achieved
+              by overriding top or bottom margin.</dd>
             <dt><code>strong      true|false</code></dt>
             <dd>If the Heading should be bold.
               Defaults to <code>false</code>.</dd>
