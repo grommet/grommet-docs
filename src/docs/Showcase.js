@@ -80,10 +80,6 @@ export default class Start extends Component {
               url='http://peoplefinder.grommet.io'
               githubUrl='https://github.com/grommet/grommet-people-finder'
               image={<Image src='/img/peoplefinder.png' />} />
-            <ProjectTile name='eStory'
-              description='Story'
-              url='https://www.hpe.com/us/en/estories/blueshore/blueshore.html'
-              image={<Image src='/img/estory.png' />} />
           </Tiles>
         </Section>
       </Article>
