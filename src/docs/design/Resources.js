@@ -11,11 +11,12 @@ export default class Resources extends Component {
     return (
       <DocsArticle title="Resources">
         <p>
-          Here you will find the downloads for creating designs based on the Grommet
-          application style guide.  Each component sticker sheet provides the basic elements of
-          the style including checkboxes, buttons, text fields, and status icons. Each template
-          sticker sheet provides a set of commonly used layouts that are built 
-          using the components. 
+          Here you will find the downloads for creating designs based on the
+          Grommet application style guide.  Each component sticker sheet 
+          provides the basic elements of the style including checkboxes, 
+          buttons, text fields, and status icons. Each template sticker sheet
+          provides a set of commonly used layouts that are built using the 
+          components. 
         </p>
 
         <section id="grommet">
