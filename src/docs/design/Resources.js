@@ -11,22 +11,36 @@ export default class Resources extends Component {
     return (
       <DocsArticle title="Resources">
         <p>
-          Here you will find the downloads for creating designs based on this
-          application style guide.  Each of these provide the basic elements of
-          the style including checkboxes, buttons, text fields,
-          and status icons.
+          Here you will find the downloads for creating designs based on the Grommet
+          application style guide.  Each component sticker sheet provides the basic elements of
+          the style including checkboxes, buttons, text fields, and status icons. Each template
+          sticker sheet provides a set of commonly used layouts that are built 
+          using the components. 
         </p>
 
         <section id="grommet">
           <h2>Grommet</h2>
 
-          <h4>Sketch</h4>
-
           <ul>
-            <li>
-              <a id="grommet-components-sketch"
-                href={`${ROOT}/grommet/grommet-components-1.1.sketch`}
-                target="_blank">Components Sticker Sheet v1.1</a>
+            <li>Components Sticker Sheet (
+                <a id="grommet-components-sketch"
+                  href={`${ROOT}/grommet/grommet-components-1.1.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="grommet-components-pdf"
+                href={`${ROOT}/grommet/grommet-components-1.1.pdf`}
+                target="_blank">.pdf</a>
+              )
+            </li>
+            <li>Templates Sticker Sheet (
+                <a id="grommet-templates-sketch"
+                  href={`${ROOT}/grommet/grommet-templates-1.0.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="grommet-templates-pdf"
+                href={`${ROOT}/grommet/grommet-templates-1.0.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
           </ul>
 
@@ -35,60 +49,53 @@ export default class Resources extends Component {
         <section id="hpe">
           <h2>Hewlett Packard Enterprise</h2>
 
-          <h4>Sketch</h4>
-
           <ul>
-            <li>
-              <a id="hpe-components-sketch"
-                href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
-                target="_blank">Components Sticker Sheet v1.1</a>
+            <li>Components Sticker Sheet (
+                <a id="hpe-components-sketch"
+                  href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="hpe-components-pdf"
+                href={`${ROOT}/hpe/hpe-components-1.1.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
-            <li>
-              <a id="hpe-visualizations-sketch"
-                href={`${ROOT}/hpe/hpe-visualizations-1.0.sketch`}
-                target="_blank">Visualizations Sticker Sheet v1.0</a>
-            </li>
-            <li>
-              <a id="hpe-icons-sketch"
-                href={`${ROOT}/hpe/hpe-icons-1.2.sketch`}
-                target="_blank">Icons Sticker Sheet v1.2</a>
-            </li>
-            <li>
-              <a id="hpe-templates-sketch"
-                href={`${ROOT}/hpe/hpe-templates-0.9.sketch`}
-                target="_blank">Templates Sticker Sheet v0.9</a>
-            </li>
-          </ul>
-
-          <h4>PDF</h4>
-
-          <ul>
-            <li>
-              <a id="hpe-components-pdf"
-                href={`${ROOT}/hpe/hpe-components-1.0.pdf`}
-                target="_blank">Components Sticker Sheet v1.0</a>
-            </li>
-            <li>
-              <a id="hpe-visualizations-pdf"
+            <li>Visualizations Sticker Sheet (
+                <a id="hpe-visualizations-sketch"
+                  href={`${ROOT}/hpe/hpe-visualizations-1.0.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="hpe-visualizations-pdf"
                 href={`${ROOT}/hpe/hpe-visualizations-1.0.pdf`}
-                target="_blank">Visualizations Sticker Sheet v1.0</a>
+                target="_blank">.pdf</a>
+              )
             </li>
-            <li>
-              <a id="hpe-icons-pdf"
-                href={`${ROOT}/hpe/hpe-icons-1.1.pdf`}
-                target="_blank">Icons Sticker Sheet v1.1</a>
+            <li>Icons Sticker Sheet (
+                <a id="hpe-icons-sketch"
+                  href={`${ROOT}/hpe/hpe-icons-1.6.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="hpe-icons-pdf"
+                href={`${ROOT}/hpe/hpe-icons-1.6.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
-            <li>
-              <a id="hpe-templates-pdf"
-                href={`${ROOT}/hpe/hpe-templates-0.9.pdf`}
-                target="_blank">Templates Sticker Sheet v0.9</a>
+            <li>Templates Sticker Sheet (
+                <a id="hpe-templates-sketch"
+                  href={`${ROOT}/hpe/hpe-templates-1.0.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="hpe-templates-pdf"
+                href={`${ROOT}/hpe/hpe-templates-1.0.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
           </ul>
 
           <h4>Other Document Types</h4>
           <p>
             To find Adobe Illustrator, Balsamiq, and Axure files please visit
-            the <a href={`${ROOT}/hpe`} target="_blank">Archive</a>.
+            the <a href={`${ROOT}/hpe/archive`} target="_blank">Archive</a>.
             These files do not represent the latest design
             direction of Hewlett Packard Enterprise.
           </p>
@@ -98,13 +105,26 @@ export default class Resources extends Component {
         <section id="aruba">
           <h2>Aruba</h2>
 
-          <h4>Sketch</h4>
-
           <ul>
-            <li>
-              <a id="aruba-components-sketch"
-                href={`${ROOT}/aruba/aruba-components-1.0.sketch`}
-                target="_blank">Components Sticker Sheet v1.0</a>
+            <li>Components Sticker Sheet (
+                <a id="aruba-components-sketch"
+                  href={`${ROOT}/aruba/aruba-components-1.1.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="aruba-components-pdf"
+                href={`${ROOT}/aruba/aruba-components-1.1.pdf`}
+                target="_blank">.pdf</a>
+              )
+            </li>
+            <li>Templates Sticker Sheet (
+                <a id="aruba-templates-sketch"
+                  href={`${ROOT}/aruba/aruba-templates-1.0.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="aruba-templates-pdf"
+                href={`${ROOT}/aruba/aruba-templates-1.0.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
           </ul>
 
@@ -113,13 +133,26 @@ export default class Resources extends Component {
         <section id="micro-focus">
           <h2>Micro Focus</h2>
 
-          <h4>Sketch</h4>
-
           <ul>
-            <li>
-              <a id="micro-focus-components-sketch"
-                href={`${ROOT}/micro-focus/micro-focus-components-1.0.sketch`}
-                target="_blank">Components Sticker Sheet v1.0</a>
+            <li>Components Sticker Sheet (
+                <a id="micro-focus-components-sketch"
+                  href={`${ROOT}/micro-focus/micro-focus-components-1.1.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="micro-focus-components-pdf"
+                href={`${ROOT}/micro-focus/micro-focus-components-1.1.pdf`}
+                target="_blank">.pdf</a>
+              )
+            </li>
+            <li>Templates Sticker Sheet (
+                <a id="micro-focus-templates-sketch"
+                  href={`${ROOT}/micro-focus/micro-focus-templates-1.0.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="micro-focus-templates-pdf"
+                href={`${ROOT}/micro-focus/micro-focus-templates-1.0.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
           </ul>
 
@@ -128,13 +161,26 @@ export default class Resources extends Component {
         <section id="dxc">
           <h2>DXC</h2>
 
-          <h4>Sketch</h4>
-
           <ul>
-            <li>
-              <a id="dxc-components-sketch"
-                href={`${ROOT}/dxc/dxc-components-1.0.sketch`}
-                target="_blank">Components Sticker Sheet v1.0</a>
+            <li>Components Sticker Sheet (
+                <a id="dxc-components-sketch"
+                  href={`${ROOT}/dxc/dxc-components-1.1.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="dxc-components-pdf"
+                href={`${ROOT}/dxc/dxc-components-1.1.pdf`}
+                target="_blank">.pdf</a>
+              )
+            </li>
+            <li>Templates Sticker Sheet (
+                <a id="dxc-templates-sketch"
+                  href={`${ROOT}/dxc/dxc-templates-1.0.sketch`}
+                  target="_blank">.sketch</a>
+                <span> | </span>
+                <a id="dxc-templates-pdf"
+                href={`${ROOT}/dxc/dxc-templates-1.0.pdf`}
+                target="_blank">.pdf</a>
+              )
             </li>
           </ul>
 
@@ -143,23 +189,16 @@ export default class Resources extends Component {
         <section id="hpi">
           <h2>HP Inc.</h2>
 
-          <h4>Adobe Illustrator</h4>
-
           <ul>
-            <li>
-              <a id="hpi-ai-general"
-                href={`${ROOT}/hpi/hpi-sticker-sheet-apps-general-0-3.ai`}
-                target="_blank">General Sticker Sheet v0.3</a>
-            </li>
-          </ul>
-
-          <h4>Adobe PDF</h4>
-
-          <ul>
-            <li>
-             <a id="hpi-ai-general-pdf"
+            <li>General Sticker Sheet (
+                <a id="hpi-general-ai"
+                  href={`${ROOT}/hpi/hpi-sticker-sheet-apps-general-0-3.ai`}
+                  target="_blank">.ai</a>
+                <span> | </span>
+                <a id="hpi-general-pdf"
                 href={`${ROOT}/hpi/hpi-sticker-sheet-apps-general-0-3.pdf`}
-                target="_blank">General Sticker Sheet v0.3</a>
+                target="_blank">.pdf</a>
+              )
             </li>
           </ul>
 
