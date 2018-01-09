@@ -48,17 +48,12 @@ export default class TableDoc extends Component {
           <h2>Table Properties</h2>
           <dl>
             <dt><code>onMore        {'{function}'}</code></dt>
-            <dd>Function that will be called when more data is needed. When this
-              callback is provided, it is an indication that more data could be
-              added if the user scrolls to the bottom of the table. When
-              present,
-              Table will add a spinner to the bottom of the table and listen for
-              the user scrolling down such that it becomes visible. When the
-              user
-              scrolls to the bottom, this callback will be called. The
-              expectation
-              is that the the caller will add the next chunk of data into
-              the table.</dd>
+            <dd>When this callback is provided, it is an indication that
+              more data could be added if the user scrolls to the bottom. When
+              present, a spinner will be added to the bottom and this
+              callback will be called when the user scrolls to reveal the
+              spinner. The expectation is that the the caller will add the
+              next chunk of data at that point.</dd>
             <dt><code>onSelect      {'{function (selected)}'}</code></dt>
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index

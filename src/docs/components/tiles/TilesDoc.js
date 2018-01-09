@@ -45,7 +45,12 @@ export default class TileDoc extends Component {
               outside
               or between the contained tiles.</dd>
             <dt><code>onMore      {'{function}'}</code></dt>
-            <dd>Function that will be called when more data is needed.</dd>
+            <dd>When this callback is provided, it is an indication that
+              more data could be added if the user scrolls to the bottom. When
+              present, a spinner will be added to the bottom and this
+              callback will be called when the user scrolls to reveal the
+              spinner. The expectation is that the the caller will add the
+              next chunk of data at that point.</dd>
             <dt><code>onSelect    {'{function (selected)}'}</code></dt>
             <dd>Function that will be called when the user selects something.
               When only one item is selected, it returns the zero based index
