@@ -16,7 +16,8 @@ Layer.displayName = 'Layer';
 const PROPS_SCHEMA = {
   closer: { value: true },
   flush: { value: true },
-  align: { options: ['center', 'top', 'bottom', 'left', 'right'] }
+  align: { options: ['center', 'top', 'bottom', 'left', 'right'] },
+  overlayClose: { value: false }
 };
 
 const CONTENTS_SCHEMA = {
