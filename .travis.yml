@@ -3,7 +3,7 @@ node_js:
 - '6.9.1'
 sudo: false
 install:
-- yarn --pure-lockfile
+- yarn --no-lockfile
 script:
 - npm run build
 after_success:
