@@ -27,7 +27,7 @@ export default class Resources extends Component {
 
         <section id="hpe">
         <h2>Hewlett Packard Enterprise</h2>
-          <Box/>
+          <Box>
             <a id="hpe-components-sketch"
               href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
               target="_blank">Components Sticker Sheet v1.1 (Sketch)</a>
