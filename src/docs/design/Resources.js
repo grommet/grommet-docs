@@ -1,6 +1,7 @@
  // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
 import React, { Component } from 'react';
+import Box from 'grommet/components/Box';
 import DocsArticle from '../../components/DocsArticle';
 
 const ROOT = "https://github.com/grommet/grommet-design/raw/master";
@@ -26,7 +27,7 @@ export default class Resources extends Component {
 
         <section id="hpe">
         <h2>Hewlett Packard Enterprise</h2>
-          <Box>
+          <Box/>
             <a id="hpe-components-sketch"
               href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
               target="_blank">Components Sticker Sheet v1.1 (Sketch)</a>
