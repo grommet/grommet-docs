@@ -26,18 +26,20 @@ export default class Resources extends Component {
 
         <section id="hpe">
         <h2>Hewlett Packard Enterprise</h2>
-          <a id="hpe-components-sketch"
-            href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
-            target="_blank">Components Sticker Sheet v1.1 (Sketch)</a>
-          <a id="hpe-visualizations-sketch"
-            href={`${ROOT}/hpe/hpe-visualizations-1.0.sketch`}
-            target="_blank">Visualizations Sticker Sheet v1.0 (Sketch)</a>
-          <a id="hpe-icons-sketch"
-            href={`${ROOT}/hpe/hpe-icons-1.6.sketch`}
-            target="_blank">Icons Sticker Sheet v1.6 (Sketch)</a>
-          <a id="hpe-templates-sketch"
-            href={`${ROOT}/hpe/hpe-templates-1.0.sketch`}
-            target="_blank">Templates Sticker Sheet v1.0 (Sketch)</a>
+          <Box/>
+            <a id="hpe-components-sketch"
+              href={`${ROOT}/hpe/hpe-components-1.1.sketch`}
+              target="_blank">Components Sticker Sheet v1.1 (Sketch)</a>
+            <a id="hpe-visualizations-sketch"
+              href={`${ROOT}/hpe/hpe-visualizations-1.0.sketch`}
+              target="_blank">Visualizations Sticker Sheet v1.0 (Sketch)</a>
+            <a id="hpe-icons-sketch"
+              href={`${ROOT}/hpe/hpe-icons-1.6.sketch`}
+              target="_blank">Icons Sticker Sheet v1.6 (Sketch)</a>
+            <a id="hpe-templates-sketch"
+              href={`${ROOT}/hpe/hpe-templates-1.0.sketch`}
+              target="_blank">Templates Sticker Sheet v1.0 (Sketch)</a>
+          </Box>
         </section>
 
         <section id="aruba">
