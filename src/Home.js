@@ -9,6 +9,7 @@ import Footer from 'grommet/components/Footer';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
+import Label from 'grommet/components/Label';
 import Anchor from 'grommet/components/Anchor';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
@@ -248,6 +249,26 @@ export default class Home extends Component {
               icon={<SlackIcon colorIndex='plain'
               a11yTitle='Grommet Slack' />}/>
           </Footer>
+        </HomeSection>
+
+        <HomeSection colorIndex='light-1'>
+          <Box pad='medium' align='center'>
+            <Box margin={{ bottom: 'medium' }}>
+              <Label align='center' margin='none'>
+                This is grommet v1<br />
+                You might want ...
+              </Label>
+            </Box>
+            <Button href='//v2.grommet.io' plain={true}>
+              <Box
+                colorIndex='brand'
+                pad='medium'
+                style={{ borderRadius: '12px' }}
+              >
+                <Label margin='none' size='large'>grommet v2</Label>
+              </Box>
+            </Button>
+          </Box>
         </HomeSection>
 
         <HomeSection colorIndex='light-2' animate={true}>
