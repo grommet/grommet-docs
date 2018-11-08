@@ -6,12 +6,3 @@ install:
 - yarn --no-lockfile
 script:
 - npm run build
-after_success:
-- |
-  if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
-    git config credential.helper "store --file=.git/credentials"
-    echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-    git config --global user.name "Grommet Community Bot"
-    git config --global user.email "asouza@hp.com"
-    gulp release:gh-pages
-  fi
