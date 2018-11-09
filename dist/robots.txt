@@ -1,5 +1,0 @@
-User-agent: Googlebot
-Disallow: /hpinc/*
-Disallow: /aruba/*
-Disallow: /dxc/*
-Disallow: /hpe/*
