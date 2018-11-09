@@ -9,7 +9,7 @@
     "Chris Carlozzi",
     "Eric Soderberg"
   ],
-  "homepage": "http://grommet.io",
+  "homepage": "http://v1.grommet.io",
   "bugs": "https://github.com/grommet/grommet-docs/issues",
   "license": "Apache-2.0",
   "repository": {
@@ -26,6 +26,7 @@
     "highlight.js": "^9.8.0",
     "json-stringify-pretty-compact": "^1.0.1",
     "jsx-to-string": "^0.3.0",
+    "morgan": "^1.9.1",
     "node-sass": "^4.1.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",

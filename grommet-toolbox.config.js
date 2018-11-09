@@ -8,6 +8,8 @@ export default {
     'src/index.html',
     'src/404.html',
     'src/robots.txt',
+    'src/server.js',
+    'src/package.json',
     'CNAME',
     {
       asset: 'src/docs/img/**',
