@@ -10,7 +10,6 @@ export default {
     'src/robots.txt',
     'src/server.js',
     'src/package.json',
-    'CNAME',
     {
       asset: 'src/docs/img/**',
       dist: 'dist/img/'
