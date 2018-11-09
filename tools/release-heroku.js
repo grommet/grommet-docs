@@ -1,7 +1,7 @@
-import path from 'path';
-import git from 'simple-git/promise';
-import del from 'del';
-import fs from 'fs-extra';
+const path = require('path');
+const git = require('simple-git/promise');
+const del = require('del');
+const fs = require('fs-extra');
 
 const repoURL = `https://${process.env.GH_TOKEN}@github.com/grommet/grommet-docs.git`;
 const localFolder = path.resolve('./.tmp/grommet-docs');
