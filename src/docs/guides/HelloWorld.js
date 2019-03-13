@@ -21,18 +21,18 @@ export default class HelloWorld extends Component {
           <Paragraph size='large'>
             To help you get started quickly, we provide the
             following <a
-              href="https://codepen.io/pen?template=gaEGPY&editors=0010"
+              href="https://codepen.io/pen?template=pYpONJ&editors=0010"
               target="_blank">CodePen</a> template:
           </Paragraph>
           <Paragraph size='small'>
             For this example we will be using hosted JavaScript files
             which are not meant to be used in production.</Paragraph>
           <iframe height='268' scrolling='no'
-            src={"//codepen.io/grommet/embed/gaEGPY/?" +
+            src={"//codepen.io/grommet/embed/pYpONJ/?" +
               "height=268&theme-id=0&default-tab=result"}
             frameBorder='no' allowTransparency='true' allowFullScreen='true'
             style={{width: '100%'}}>See the Pen
-            <a href='https://codepen.io/grommet/pen/gaEGPY/'>
+            <a href='https://codepen.io/anon/pen/pYpONJ/'>
               Grommet Hello World</a>
             by Grommet UX (<a href='https://codepen.io/grommet'>@grommet</a>)
             on <a href='https://codepen.io'>CodePen</a>.
